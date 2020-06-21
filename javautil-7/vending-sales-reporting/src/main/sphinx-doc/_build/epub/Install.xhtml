@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Install</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install">
+<h1>Install</h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<div class="section" id="java">
+<h3>Java</h3>
+</div>
+<div class="section" id="maven">
+<h3>Maven</h3>
+</div>
+<div class="section" id="postgres">
+<h3>Postgres</h3>
+</div>
+<div class="section" id="git">
+<h3>git</h3>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<div class="section" id="overview">
+<h3>Overview</h3>
+<ul class="simple">
+<li><p>Create the database to be used.</p></li>
+<li><p>Modify the database connection information to match the database you created</p></li>
+</ul>
+</div>
+<div class="section" id="get-the-code">
+<h3>Get the code</h3>
+<p>git xxxxx TODO</p>
+</div>
+<div class="section" id="create-database">
+<h3>Create Database</h3>
+<p>TODO explain</p>
+</div>
+<div class="section" id="modify-connection-information">
+<h3>Modify Connection Information</h3>
+<p>Modify the configuration file to reflect your postgres data</p>
+<p>String yamlName = homeDir + “/connections_java.yaml”;</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;pdssr_it&quot;</span><span class="p">:</span>
+        <span class="n">driver_class</span><span class="p">:</span> <span class="s2">&quot;org.postgresql.Driver&quot;</span>
+        <span class="n">url</span><span class="p">:</span> <span class="s2">&quot;jdbc:postgresql://localhost/sales_reporting_db&quot;</span>
+        <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;jjs&quot;</span>
+        <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;jjs&quot;</span>
+</pre></div>
+</div>
+<p>cd xxx TODO</p>
+<p>mvn install</p>
+<p>maven will pull down a large number of dependendencies</p>
+<p>Create the schema
+Seed the database</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

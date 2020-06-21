@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Database Logging &mdash; javautil-dblogging 19.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '19.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="javautil-dblogging 19.6.0 documentation" href="index.html" />
+    <link rel="prev" title="Logging to flat files" href="flatFile.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="flatFile.html" title="Logging to flat files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">javautil-dblogging 19.6.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="database-logging">
+<h1>Database Logging<a class="headerlink" href="#database-logging" title="Permalink to this headline">¶</a></h1>
+<p>included file</p>
+<div class="section" id="job-tables">
+<h2>job_tables<a class="headerlink" href="#job-tables" title="Permalink to this headline">¶</a></h2>
+<p>In the interest of expediency we have a quick listing of the job tables.</p>
+<div class="highlight-python"><pre>SQL&gt; describe job_log
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ JOB_LOG_ID                                NOT NULL NUMBER(9)
+ SCHEMA_NAME                                        VARCHAR2(30)
+ PROCESS_NAME                                       VARCHAR2(128)
+ THREAD_NAME                                        VARCHAR2(128)
+ STATUS_MSG                                         VARCHAR2(256)
+ STATUS_TS                                          TIMESTAMP(9)
+ END_TS                                             TIMESTAMP(9)
+ ELAPSED_MILLIS                                     NUMBER(9)
+ SID                                                NUMBER
+ SERIAL_NBR                                         NUMBER
+ IGNORE_FLG                                         VARCHAR2(1)
+ MODULE_NAME                                        VARCHAR2(64)
+ CLASSNAME                                          VARCHAR2(255)
+ TRACEFILE_NAME                                     VARCHAR2(4000)
+ TRACEFILE_DATA                                     CLOB
+ TRACEFILE_JSON                                     CLOB
+ ABORT_STACKTRACE                                   CLOB
+
+SQL&gt; describe job_step
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ JOB_STEP_ID                               NOT NULL NUMBER(9)
+ JOB_LOG_ID                                         NUMBER(9)
+ STEP_NAME                                          VARCHAR2(64)
+ CLASSNAME                                          VARCHAR2(256)
+ STEP_INFO                                          VARCHAR2(2000)
+ START_TS                                           TIMESTAMP(9)
+ END_TS                                             TIMESTAMP(9)
+ DBSTATS                                            CLOB
+ STEP_INFO_JSON                                     CLOB
+ CURSOR_INFO_RUN_ID                                 NUMBER(9)
+ STACKTRACE                                         VARCHAR2(4000)
+
+SQL&gt; describe job_msg;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ JOB_MSG_ID                                         NUMBER(9)
+ JOB_LOG_ID                                NOT NULL NUMBER(9)
+ LOG_MSG_ID                                         VARCHAR2(8)
+ LOG_MSG                                            VARCHAR2(256)
+ LOG_MSG_CLOB                                       CLOB
+ LOG_MSG_TS                                         TIMESTAMP(9)
+ ELAPSED_TIME_MILLISECONDS                          NUMBER(9)
+ LOG_SEQ_NBR                               NOT NULL NUMBER(18)
+ CALLER_NAME                                        VARCHAR2(100)
+ LINE_NBR                                           NUMBER(5)
+ CALL_STACK                                         CLOB
+ LOG_LEVEL                                          NUMBER(2)</pre>
+</div>
+</div>
+<div class="section" id="entity-relationship-diagram">
+<h2>Entity Relationship Diagram<a class="headerlink" href="#entity-relationship-diagram" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="_images/job_tables_erd.png" src="_images/job_tables_erd.png" />
+</div>
+<p>TODO run the python with the comments</p>
+<p>Each job has one job_log entry and one or more job_steps.</p>
+<p>Job steps may have associated log messages.</p>
+<div class="section" id="dblogger-install-tables">
+<h3>dblogger_install_tables<a class="headerlink" href="#dblogger-install-tables" title="Permalink to this headline">¶</a></h3>
+<p>Creates the job and job step tables and views</p>
+<div class="section" id="sequences">
+<h4>sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h4>
+<p>cursor_info_run_id_seq; cursor_info_id_seq; job_log_id_seq;
+job_msg_id_seq; job_step_id_seq;</p>
+</div>
+<div class="section" id="tables">
+<h4>tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>cursor_explain_plan</li>
+<li>cursor_sql_text</li>
+<li>cursor_info_run</li>
+<li>cursor_info</li>
+<li>cursor_stat</li>
+<li>job_log</li>
+<li>job_msg</li>
+<li>job_step</li>
+</ul>
+</div>
+<div class="section" id="views">
+<h4>views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>cursor_info_vw</li>
+<li>job_step_vw</li>
+<li>job_log_vw</li>
+</ul>
+</div>
+</div>
+<div class="section" id="job-logging">
+<h3>Job Logging<a class="headerlink" href="#job-logging" title="Permalink to this headline">¶</a></h3>
+<p>Logging information may be written to a text file, stored in a database
+and written to the oracle trace file.</p>
+</div>
+</div>
+<div class="section" id="steps-start-job-logging">
+<h2>Steps start job logging.<a class="headerlink" href="#steps-start-job-logging" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>public long sampleUsage(Dblogger dblogger, Connection appConnection) throws SqlSplitterException, Exception {
+    dblogger.prepareConnection();
+    final String processName = "Process Name";
+    // Start the job
+
+    final long logJobId = dblogger.startJobLogging(processName,getClass().getName(), null, null,  4);
+    dblogger.setModule("SplitLoggerTest", "simple example");
+    dblogger.setAction("Some work");
+    dblogger.insertStep("Full join", "Meaningless busy work", getClass().getName());
+    ConnectionUtil.exhaustQuery(appConnection, "select * from user_tab_columns, user_tables where rownum &lt; 100");
+
+    dblogger.setAction("Another set of work");
+    ConnectionUtil.exhaustQuery(appConnection, "select count(*) from all_tab_columns");
+    // End the job
+    dblogger.endJob();
+    return logJobId;
+}</pre>
+</div>
+<p>job logging persistence has a bit of indirection</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="repositories">
+<h2>Repositories<a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h2>
+<p>RDBMS persistence support is provided for Oracle, H2 and postgresql</p>
+<p>H2 is a lightweight database and may be used to eliminate the need for
+support of another Oracle Database.</p>
+<p>Postgresql is a high end database that requires minimimal installation
+and administration.</p>
+<p>You should probable not compound your problem with yet another Oracle
+install, but if your DBA will allow you a schema in your database for
+logging, you don&#8217;t have to learn anything else.</p>
+<p>The Oracle database could be the same instance as the application being
+monitored, but this may raise some objections to the application DBA.</p>
+</div>
+<div class="section" id="oracle-logging-repository">
+<h2>Oracle logging repository<a class="headerlink" href="#oracle-logging-repository" title="Permalink to this headline">¶</a></h2>
+<p>If the logging data is to be persisted in Oracle, the tables must be
+created and some packages created.</p>
+<ol class="arabic simple">
+<li>job_log</li>
+<li>job_msg</li>
+<li>job step</li>
+</ol>
+<div class="line-block">
+<div class="line">The granularity of job step is left to the invoker.</div>
+<div class="line">As the overhead is very low, there is no reason to be parsimonious</div>
+</div>
+<p>with identification, it&#8217;s a simple one line call in the user app.</p>
+<p>These records can be reviewed for job sucess or failure and form a
+historical basis of time elapsed by job and step.</p>
+<p>This may be used as a starting pointing in locating &#8220;what processes are
+using the time?&#8221;</p>
+<p>Additionally they constitute a base performance metric from which
+runtime degradation or periodic anomalous runs may be identified.</p>
+<p>Data is committed by calls from java to the package logger, provided
+here.</p>
+<p>The package utilizes autonomous commits and hence may be safely called
+using the same connection as the application.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Database Logging</a><ul>
+<li><a class="reference internal" href="#job-tables">job_tables</a></li>
+<li><a class="reference internal" href="#entity-relationship-diagram">Entity Relationship Diagram</a><ul>
+<li><a class="reference internal" href="#dblogger-install-tables">dblogger_install_tables</a><ul>
+<li><a class="reference internal" href="#sequences">sequences</a></li>
+<li><a class="reference internal" href="#tables">tables</a></li>
+<li><a class="reference internal" href="#views">views</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#job-logging">Job Logging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#steps-start-job-logging">Steps start job logging.</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repositories">Repositories</a></li>
+<li><a class="reference internal" href="#oracle-logging-repository">Oracle logging repository</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="flatFile.html"
+                        title="previous chapter">Logging to flat files</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/databaseLogging.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="flatFile.html" title="Logging to flat files"
+             >previous</a> |</li>
+        <li><a href="index.html">javautil-dblogging 19.6.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2019, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

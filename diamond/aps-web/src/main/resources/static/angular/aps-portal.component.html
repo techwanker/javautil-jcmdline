@@ -1,0 +1,22 @@
+<h1>Advanced Planning Portal</h1>
+<h2>Reports</h2>
+<table class="stripe">
+	<thead>
+		<tr>
+			<th align="left">Report Name</th>
+			<th align="left">Description</th>
+			<th align="right">Quantity</th>
+			<th align="right">Amount</th>
+			<th>Help</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let r of reports">
+				<td><a href="{{r.reportUrl}}">{{ r.reportName }}</a></td>
+				<td>{{ r.description }}</td>
+				<td align="right">{{ r.quantity | number : '1.0' }}</td>
+				<td align="right">{{ r.amount  | number : '1.2-2' }}</td>
+				<td>{{ r.help }}</td>
+		</tr>
+	</tbody>
+</table>

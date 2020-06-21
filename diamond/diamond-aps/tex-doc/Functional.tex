@@ -1,0 +1,144 @@
+\part{Functional}
+\section{Introduction}
+Diamond Advanced Planning is a module that associates demand for product with
+inventory that satisfies the demand according to pluggable (``extensible'') filters and 
+
+Although it was designed explicitly to accomodate the requirements of aerospace
+subsets of its 
+features will readily support virtually any distribution, MRO or discrete
+manufacturing environment.
+
+Diamond Advanced Planning was first written in 1983 by the author of this Document and served well in 
+planning for Fine China and giftware.  Same was employed for a clothing manufacturer and subsequently 
+for Tri-Star Aerospace.   In 2001 a total rewrite was effected written in Java accommodating Aerospace 
+requirements in version 10 of Diamond Distribution.   
+
+\subsection{Features}
+\begin{itemize}
+ \item Simultaneously supports interactive and batch mode planning
+ \item Generates work orders for kits, assemblies and ???
+ \item Supports Engineered Parts, a single item may simultaneously have multiple part numbers
+ \item Allocation Based Pricing
+\end{itemize}
+
+\chapter{Concepts}
+
+\section{Demand Types}
+\subsection{Customer Orders}
+A customer may be an external organization not within the legal hierarchy of legal entities 
+encompassed by the organization that provides the planning service or be subordinate to the penultimate
+holding company of the organization providing planning. These relationships have no bearing on the requirement
+of the planning organization to fulfill demand in accordance with the contractual rules.
+
+Stated more simply, a customer in the sense of planning is an organization with a specified set of requirements
+for the fulfillment of inventory.
+\subsection{Forecasted Demand}
+Diamond provides a statistical forecasting model that forecasts demand based on historical consumption.
+The planning module is agnostic with respect to the source of the forecast and any forecast system may be used.
+\subsection{Work Orders}
+Work orders may take the form of kits, assemblies or rework.  ???
+
+
+\section{Supply Types}
+\subsection{On hand inventory}
+Onhand inventory includes inventory in transit to another warehouse and considers the availability date
+the time it will take to ship, receive and putaway the inventory.
+\subsection{Replenishments} 
+A replenishment is additional inventory coming from an external source. This may be the result of a purchase order
+or anticipated receipt of buyback ??? or consignment inventory. 
+\subsection{Work Orders}
+A work order is used to designate a part which has components, such as kits, assemblies and parts that require
+transformation to convert them to another part.  
+
+A zinc plated bolt may be converted to a nickel plated bolt by stripping the zinc, copper plating and then nickel plating.
+Each such operation may have a yield of less than 100%.
+\subsection{Planning Group}
+It is posited that no aerospace planning can be of much value in the absence of planning demand for parts that 
+constitute a planning group, that is all parts which have the same form fit and function are interchangeable and 
+those parts which have been previously been approved by the consumer of said parts as acceptable substitutes for
+the specified part.  
+Interchangeability is defined as the parts being equivalent. A single part may comply with multiple engineering
+diagrams and when produced by a manufacturer of repute acceptable to the consumer and accompanied by a
+manufacturer Certificate of Compliance with said diagram, these parts are considered equivalent even in the 
+absence of aforesaid Certificate, for often such certification may be purchased from the manufacturer, or waived
+by the knowing consumer.
+\section{Sourcing Rules}
+
+\section{Eligibility Tests}
+Generally elibility tests may be considered as filters, that is, the order of the tests is inconsequential and 
+each test may exclude the supply as being applicable for the demand.  On occassion two or more tests may exhibit
+characteristics such that the qualification of either test is sufficient.  Consider the case of buyback inventory
+in which inventory has been purchased from an airframe manufacturer but traceability to the ultimate source
+is not available.  The airframe manufacturer may state that if the inventory was procured from the manufacturer
+under certain conditions those parts may bypass requirements that would otherwise be in place.  It is the 
+responsibility of the kitting or JIT provider to provide traceability back to the airframe manufacturer without
+any bearing any responsibility for ultimate traceability.
+
+\subsection{Approved Manufacturer}
+A customer may define a \textit{white list} or \textit{black list} of manufacturers by part.
+
+ 
+\subsection{Buyback}
+\subsection{Certifications}
+Certifications can assume arbitrary meanings.  
+
+Examples of Certifications include for example only
+\begin{itemize}
+ \item Manufacturer Certificate of Compliance
+ \item ??? list additional
+\end{itemize}
+
+
+\begin{itemize}
+ \item Manufacturer Certificate of Compliance
+ 
+\end{itemize}
+
+\subsection{Consignment Inventory}
+\subsection{Contract Aerospace}
+\subsection{Country of Origin}
+A demand may specify that the supply must be from a specified country.  A filter exists to enforce this 
+requirement.
+\subsection{Expiry Date}
+A demand may explicate the latest date of expiry for the supply.  This filter ensures that the supply complies with
+the demand minimum expiration date.
+\subsection{Explicit Manufacturer}
+Customers may be set up with rules for approved manufacturers inclusively or exclusively.
+\subsection{Lot Date}
+A demand may have an associated maximum date of manufacture.
+\subsection{Revision Level}
+
+\subsection{Sourcing Rule}
+
+\section{Planning Groups}
+
+
+\section{Aerospace Features}
+\begin{itemize}
+ \item Show which items could obtain certification rather than procure
+ \item Generate Warehouse Transfers
+ \item Generate Work Orders
+ \item Overship Capability
+\end{itemize}
+
+\section{Planning Mode}
+\subsection{Execution Planning Mode}
+In this mode demand the supply prioritizer gives higher precedence to the supply associated with delivery
+most  prior to ???
+
+\subsection{Inventory Planning Mode}
+Inventory Planning Mode attempts to allocate demand such that on hand inventory is exhausted, deferring 
+allocation to purchase orders or work orders to the first available by date.  The result of this is
+that a reschedule date can be derived from the first requirement date.
+
+\section{Bound Allocations}
+A demand may be bound to a supply.  These allocations are restored foremost in the first pass of allocation.
+Bound states include
+\begin{itemize}
+ \item R Request 
+ \item B Bound
+\end{itemize}
+
+\section{Logging}
+All of the decision paths for a planning group are incorporated into a single logging entity reflecting
+each of the decisions and prioritization.  This data is persisted in XML, generally in a relational database.

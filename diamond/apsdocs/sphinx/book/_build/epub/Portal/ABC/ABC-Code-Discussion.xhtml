@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Objective</title>
+    <link rel="stylesheet" href="../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <ol class="arabic simple">
+<li><p><a class="reference external" href="index.html">Business Process Improvement</a></p></li>
+<li><p><a class="reference external" href="Project-Description_786630.html">Project Description</a></p></li>
+<li><p><a class="reference external" href="Project-Overview_458753.html">Project Overview</a></p></li>
+<li><p><a class="reference external" href="Meeting-notes_491530.html">Meeting notes</a></p></li>
+</ol>
+<div class="section" id="objective">
+<h1>Objective</h1>
+</div>
+<div class="section" id="success-metrics">
+<h1>Success metrics</h1>
+<p>Goal</p>
+<p>Metric</p>
+</div>
+<div class="section" id="assumptions">
+<h1>Assumptions</h1>
+<p>Users wish to quickly summarize the characteristics of an item</p>
+</div>
+<div class="section" id="milestones">
+<h1>Milestones</h1>
+</div>
+<div class="section" id="user-interaction-and-design">
+<h1>User interaction and design</h1>
+</div>
+<div class="section" id="open-questions">
+<h1>Open Questions</h1>
+<p>Question</p>
+<p>Answer</p>
+<p>Date Answered</p>
+</div>
+<div class="section" id="out-of-scope">
+<h1>Out of Scope</h1>
+<div class="section" id="item-statistics">
+<h2>Item Statistics</h2>
+</div>
+</div>
+<div class="section" id="overview">
+<h1>Overview</h1>
+<p>During a team phone call on December 15 ABC code requirement was
+identified.</p>
+<p>This demonstrates computing a number of potentially useful statistics</p>
+</div>
+<div class="section" id="definition">
+<h1>Definition</h1>
+<p>This is also known as Pareto or 80/20 rule</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Pareto_principle">https://en.wikipedia.org/wiki/Pareto_principle</a></p>
+<p>Top 20 percent of sales items are rated A</p>
+<p>Next 60 percent rated B</p>
+<p>Bottom 20 Rated C</p>
+</div>
+<div class="section" id="approach">
+<h1>Approach</h1>
+<ul class="simple">
+<li><p>Create a table to hold statistics</p></li>
+<li><p>Create a script to populate statistics by item</p></li>
+<li><p>Create a service to obtain the data model for the web page</p></li>
+<li><p>create an angular 8 controsk</p></li>
+<li><p>Modify the filter screen to allow query filters on the statistics</p></li>
+<li><p>Modify the web pages to show the statistics information</p></li>
+</ul>
+</div>
+<div class="section" id="purpose">
+<h1>Purpose</h1>
+<p>Concentrate inventory and dollars on</p>
+<ul class="simple">
+<li><p>high volume,</p></li>
+<li><p>high profit item</p></li>
+<li><p>hightest service leve</p></li>
+<li><p>core products</p></li>
+</ul>
+</div>
+<div class="section" id="addititional-fields">
+<h1>Addititional Fields</h1>
+<p>package com.pacificdataservices.diamond.apsweb;</p>
+<p>import java.io.IOException; import java.sql.Connection; import
+java.sql.SQLException;</p>
+<p>import javax.sql.DataSource;</p>
+<p>import org.javautil.core.json.JsonSerializer; import
+org.javautil.core.json.JsonSerializerGson; import
+org.javautil.core.sql.Binds; import org.javautil.core.sql.SqlStatement;
+import org.javautil.util.NameValue; import org.slf4j.Logger; import
+org.slf4j.LoggerFactory; import
+org.springframework.beans.factory.annotation.Autowired; import
+org.springframework.web.bind.annotation.RequestMapping; import
+org.springframework.web.bind.annotation.RequestParam; import
+org.springframework.web.bind.annotation.RestController;</p>
+<p>&#64;RestController public class IcItemStatController {</p>
+<blockquote>
+<div><p>private Logger logger = LoggerFactory.getLogger(getClass());
+&#64;Autowired private DataSource datasource;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>&#64;RequestMapping(“/icItemStat”) public String planData(</dt><dd><p>&#64;RequestParam(value=”itemNbr”) String itemNbr) throws SQLException,
+IOException { <a class="reference external" href="http://logger.info">logger.info</a><span class="link-target"> [http://logger.info]</span>(“invoked with
+itemNumber {}”,itemNbr); Connection conn =
+datasource.getConnection(); SqlStatement ss = new SqlStatement(conn,
+“select * from ic_item_stat where item_nbr = :item_nbr”); Binds
+binds = new Binds(); binds.put(“item_nbr”, itemNbr); NameValue
+nameValue = ss.getNameValue(binds,true); JsonSerializer serializer =
+new JsonSerializerGson(); String json =
+serializer.toJsonPretty(nameValue); return json; }</p>
+</dd>
+</dl>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a><a class="reference external" href="https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/">https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/</a> &lt;<a class="reference external" href="https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/">https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/</a>&gt;</p>
+<p>}</p>
+<dl>
+<dt>i    import { HttpClient } from <a class="reference external" href="mailto:'&#37;&#52;&#48;angular/common/http">‘<span>&#64;</span>angular/common/http</a>’;</dt><dd><p>import { Observable } from ‘rxjs’;
+…
+getIcItemStat(): Observable&lt;IcItemStat[]&gt; {</p>
+<blockquote>
+<div><blockquote>
+<div><p>return this.http.get&lt;IcItemStat[]&gt;(HOST + ‘/api/v1/icitemstat/’ + itemnbr);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</dd>
+</dl>
+</div>
+<div class="section" id="modify-web-page-template">
+<h1>Modify web page template</h1>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Pareto_principle">https://en.wikipedia.org/wiki/Pareto_principle</a></p>
+<p><a class="reference external" href="https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/">https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/</a></p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

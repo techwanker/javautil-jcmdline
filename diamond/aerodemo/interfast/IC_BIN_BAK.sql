@@ -1,0 +1,23 @@
+--------------------------------------------------------
+--  DDL for Table IC_BIN_BAK
+--------------------------------------------------------
+
+  CREATE TABLE "IC_BIN_BAK" 
+   (	"BIN_NBR" NUMBER(9,0), 
+	"FACILITY" VARCHAR2(16), 
+	"BIN_CD" VARCHAR2(16), 
+	"PICK_FLG" VARCHAR2(1), 
+	"PACK_STATION_FLG" VARCHAR2(1), 
+	"INSPECT_FLG" VARCHAR2(1), 
+	"BIN_STAT_CD" VARCHAR2(1), 
+	"WALK_SEQ" NUMBER(5,0), 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"PICK_EASE" NUMBER(1,0), 
+	"DELETE_WHEN_EMPTY_FLG" VARCHAR2(1), 
+	"PUT_AWAY_FLG" VARCHAR2(1), 
+	"MRB_FLG" VARCHAR2(1), 
+	"WH_WHSE_ZONE_NBR" NUMBER(9,0), 
+	"WORK_STATION_FLG" VARCHAR2(1), 
+	"TRANSIT_BIN_FLG" VARCHAR2(1)
+   ) ;

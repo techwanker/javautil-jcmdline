@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Planning</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div ng-app="listOfValuesApp" ng-controller="listOfValuesCtrl">
+		??? Lookup <input id="searchKey" ng-model="searchKey" name="searchKey"
+			ng-minlength="1" ng-trim="true"> 
+			le by one, each time the button is clicked:
+		<button ng-click="count = count + 1" ng-init="count=0">Search</button> 
+		<table class="table table-stripe">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="v in values">
+				<td>{{ v.name }}</td>
+				<td>{{ v.description }}</td>
+			</tr>
+		</table>
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click=closeThisDialog("Cancel")>Cancel</button>
+			<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click=confirm("OK")>OK</button>
+		</div>
+	</div>
+	<script>
+		console.log("Entering app definition");
+		var app = angular.module('listOfValuesApp', []);
+		console.log("app has been assigned");
+		console.log("about to call with 'fcst_grp'");
+		app.controller('listOfValuesCtrl', function($scope, $http) {
+			key = $('#searchKey').val();
+			console.log('key is ' + key);
+			$http.get("listOfValues?queryName=fcst_grp&key=" + key).then(
+					function(response) {
+						$scope.values = response.data;
+					});
+		});
+		console.log("app.controller assigned");
+	</script>
+</body>
+</html>

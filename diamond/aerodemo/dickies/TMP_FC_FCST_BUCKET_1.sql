@@ -1,0 +1,17 @@
+--------------------------------------------------------
+--  DDL for Table TMP_FC_FCST_BUCKET
+--------------------------------------------------------
+
+  CREATE GLOBAL TEMPORARY TABLE "TMP_FC_FCST_BUCKET" 
+   (	"FC_ITEM_MAST_NBR" NUMBER(9,0), 
+	"PRD_START_DT" DATE, 
+	"INTVL" NUMBER(2,0), 
+	"INTVL_START_DT" DATE, 
+	"FC_FCST_DT" DATE, 
+	"FRAC_PRD_DMD_RAW" NUMBER, 
+	"FRAC_PRD_DMD_ADJ" NUMBER, 
+	"WHOLE_PRD_DMD_RAW" NUMBER, 
+	"WHOLE_PRD_ADJ_RAW" NUMBER, 
+	"WHOLE_PRD_DMD_ADJ" NUMBER, 
+	"WHOLE_PRD_ADJ_ADJ" NUMBER
+   ) ON COMMIT DELETE ROWS ;

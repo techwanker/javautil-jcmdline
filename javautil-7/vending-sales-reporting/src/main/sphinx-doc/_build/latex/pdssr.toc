@@ -1,0 +1,136 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Benefits}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Functioning Real World Usage}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Audit}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Findings}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Item Accuracy}{7}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Addresses}{7}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Rebate}{7}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Report augmentation}{7}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Answers to Questions you should have asked}{7}{subsection.4.2.1}
+\contentsline {subsubsection}{Examples}{7}{subsubsection*.3}
+\contentsline {chapter}{\numberline {5}Sales}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Required Data}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Benefits}{9}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Manufacturers}{9}{subsection.5.2.1}
+\contentsline {subsubsection}{Benefits}{9}{subsubsection*.4}
+\contentsline {subsubsection}{New Capabilities}{9}{subsubsection*.5}
+\contentsline {subsection}{\numberline {5.2.2}Distributors}{9}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Vending Operators}{10}{subsection.5.2.3}
+\contentsline {chapter}{\numberline {6}Background}{11}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sales Analysis}{11}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Gather Product Statistics}{11}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Operator Product Statistics}{11}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Opportunities}{11}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Operator Call Report}{11}{subsection.6.1.4}
+\contentsline {section}{\numberline {6.2}Answers to Questions you should have asked}{11}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Examples}{12}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.3}Sales Analysis}{12}{section.6.3}
+\contentsline {section}{\numberline {6.4}Product Not Sold}{13}{section.6.4}
+\contentsline {section}{\numberline {6.5}Audit}{13}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Findings}{13}{subsection.6.5.1}
+\contentsline {subsubsection}{Item Accuracy}{14}{subsubsection*.6}
+\contentsline {subsubsection}{Addresses}{14}{subsubsection*.7}
+\contentsline {subsubsection}{Rebate}{14}{subsubsection*.8}
+\contentsline {section}{\numberline {6.6}Benefits}{14}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Frito-Lay Pepsi}{14}{subsection.6.6.1}
+\contentsline {subsubsection}{Audit}{14}{subsubsection*.9}
+\contentsline {subsubsection}{ACH rebate payments}{14}{subsubsection*.10}
+\contentsline {subsubsection}{Anomolies}{14}{subsubsection*.11}
+\contentsline {subsubsection}{Product Assignment}{14}{subsubsection*.12}
+\contentsline {subsection}{\numberline {6.6.2}Distributors}{14}{subsection.6.6.2}
+\contentsline {subsubsection}{Address Standardization}{14}{subsubsection*.13}
+\contentsline {subsubsection}{Geo Coding}{15}{subsubsection*.14}
+\contentsline {subsubsection}{Product Identification}{15}{subsubsection*.15}
+\contentsline {subsubsection}{Phone App}{15}{subsubsection*.16}
+\contentsline {subsubsection}{Customer Facing Reports}{15}{subsubsection*.17}
+\contentsline {subsection}{\numberline {6.6.3}Apps}{15}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.4}Vending Operators}{15}{subsection.6.6.4}
+\contentsline {section}{\numberline {6.7}Product Identification}{15}{section.6.7}
+\contentsline {section}{\numberline {6.8}Contributions}{15}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Unix/Linux}{15}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Oracle}{15}{subsection.6.8.2}
+\contentsline {subsection}{\numberline {6.8.3}C}{15}{subsection.6.8.3}
+\contentsline {subsection}{\numberline {6.8.4}Java}{15}{subsection.6.8.4}
+\contentsline {subsection}{\numberline {6.8.5}Became Employee}{15}{subsection.6.8.5}
+\contentsline {subsection}{\numberline {6.8.6}Technical Standards}{16}{subsection.6.8.6}
+\contentsline {subsection}{\numberline {6.8.7}Products}{16}{subsection.6.8.7}
+\contentsline {subsubsection}{Check 21}{16}{subsubsection*.18}
+\contentsline {subsubsection}{Document Management}{16}{subsubsection*.19}
+\contentsline {subsubsection}{Workbook Parser}{16}{subsubsection*.20}
+\contentsline {subsubsection}{Dexterous}{16}{subsubsection*.21}
+\contentsline {subsection}{\numberline {6.8.8}Redesign}{16}{subsection.6.8.8}
+\contentsline {subsubsection}{Data Load}{16}{subsubsection*.22}
+\contentsline {subsubsection}{Exception Processing}{17}{subsubsection*.23}
+\contentsline {subsubsection}{Maintenance System}{17}{subsubsection*.24}
+\contentsline {subsubsection}{Posting}{17}{subsubsection*.25}
+\contentsline {subsubsection}{Workbooks}{17}{subsubsection*.26}
+\contentsline {subsection}{\numberline {6.8.9}Others}{17}{subsection.6.8.9}
+\contentsline {subsection}{\numberline {6.8.10}Javautil}{17}{subsection.6.8.10}
+\contentsline {section}{\numberline {6.9}History of Jim Schmidt and Custom Data Solutions}{17}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Creation}{17}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}Technologies}{18}{subsection.6.9.2}
+\contentsline {subsubsection}{Unix}{18}{subsubsection*.27}
+\contentsline {subsubsection}{Oracle}{18}{subsubsection*.28}
+\contentsline {paragraph}{Oracle Forms}{18}{paragraph*.29}
+\contentsline {paragraph}{Oracle Reports}{18}{paragraph*.30}
+\contentsline {paragraph}{PL/SQL}{18}{paragraph*.31}
+\contentsline {subsubsection}{C}{18}{subsubsection*.32}
+\contentsline {subsubsection}{Java}{18}{subsubsection*.33}
+\contentsline {subsubsection}{JSP}{18}{subsubsection*.34}
+\contentsline {subsubsection}{Graphics}{18}{subsubsection*.35}
+\contentsline {subsubsection}{Javascript}{18}{subsubsection*.36}
+\contentsline {subsubsection}{Spreadsheets}{18}{subsubsection*.37}
+\contentsline {subsubsection}{Digital Unix}{18}{subsubsection*.38}
+\contentsline {subsubsection}{Linux}{18}{subsubsection*.39}
+\contentsline {subsubsection}{Build tools}{18}{subsubsection*.40}
+\contentsline {subsubsection}{Unit Tests}{19}{subsubsection*.41}
+\contentsline {subsubsection}{Integration Tests}{19}{subsubsection*.42}
+\contentsline {subsection}{\numberline {6.9.3}Chuck Retires}{19}{subsection.6.9.3}
+\contentsline {subsubsection}{Help}{19}{subsubsection*.43}
+\contentsline {section}{\numberline {6.10}Business Model}{19}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}While CIO}{19}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.10.2}Terminated}{20}{subsection.6.10.2}
+\contentsline {section}{\numberline {6.11}History of Jim Schmidt and Custom Data Solutions}{20}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Creation}{20}{subsection.6.11.1}
+\contentsline {subsection}{\numberline {6.11.2}Technologies}{21}{subsection.6.11.2}
+\contentsline {subsubsection}{Unix}{21}{subsubsection*.44}
+\contentsline {subsubsection}{Oracle}{21}{subsubsection*.45}
+\contentsline {paragraph}{Oracle Forms}{21}{paragraph*.46}
+\contentsline {paragraph}{Oracle Reports}{21}{paragraph*.47}
+\contentsline {paragraph}{PL/SQL}{21}{paragraph*.48}
+\contentsline {subsubsection}{C}{21}{subsubsection*.49}
+\contentsline {subsubsection}{Java}{21}{subsubsection*.50}
+\contentsline {subsubsection}{JSP}{21}{subsubsection*.51}
+\contentsline {subsubsection}{Graphics}{21}{subsubsection*.52}
+\contentsline {subsubsection}{Javascript}{21}{subsubsection*.53}
+\contentsline {subsubsection}{Spreadsheets}{21}{subsubsection*.54}
+\contentsline {subsubsection}{Digital Unix}{21}{subsubsection*.55}
+\contentsline {subsubsection}{Linux}{21}{subsubsection*.56}
+\contentsline {subsubsection}{Build tools}{21}{subsubsection*.57}
+\contentsline {subsubsection}{Unit Tests}{21}{subsubsection*.58}
+\contentsline {subsubsection}{Integration Tests}{21}{subsubsection*.59}
+\contentsline {subsection}{\numberline {6.11.3}Chuck Retires}{21}{subsection.6.11.3}
+\contentsline {subsubsection}{Help}{21}{subsubsection*.60}
+\contentsline {section}{\numberline {6.12}Business Model}{21}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}Custom Data Solutions}{21}{subsection.6.12.1}
+\contentsline {subsubsection}{Relationship}{22}{subsubsection*.61}
+\contentsline {subsection}{\numberline {6.12.2}Processing Steps}{22}{subsection.6.12.2}
+\contentsline {section}{\numberline {6.13}Product Offering}{22}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}Benefits}{22}{subsection.6.13.1}
+\contentsline {subsection}{\numberline {6.13.2}How to get started}{23}{subsection.6.13.2}
+\contentsline {section}{\numberline {6.14}Project Description}{23}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}Software Description}{23}{subsection.6.14.1}
+\contentsline {subsection}{\numberline {6.14.2}Tech Steps}{23}{subsection.6.14.2}
+\contentsline {subsection}{\numberline {6.14.3}History}{23}{subsection.6.14.3}
+\contentsline {section}{\numberline {6.15}Technologies}{24}{section.6.15}
+\contentsline {subsection}{\numberline {6.15.1}Application}{24}{subsection.6.15.1}
+\contentsline {subsection}{\numberline {6.15.2}Deployment}{24}{subsection.6.15.2}
+\contentsline {section}{\numberline {6.16}Record Layouts}{24}{section.6.16}
+\contentsline {subsection}{\numberline {6.16.1}Inventory}{25}{subsection.6.16.1}
+\contentsline {subsection}{\numberline {6.16.2}Customer}{25}{subsection.6.16.2}
+\contentsline {subsection}{\numberline {6.16.3}Inventory Total}{25}{subsection.6.16.3}
+\contentsline {subsection}{\numberline {6.16.4}Customer Total}{26}{subsection.6.16.4}
+\contentsline {subsection}{\numberline {6.16.5}Sales}{26}{subsection.6.16.5}
+\contentsline {subsection}{\numberline {6.16.6}Sales Total}{26}{subsection.6.16.6}

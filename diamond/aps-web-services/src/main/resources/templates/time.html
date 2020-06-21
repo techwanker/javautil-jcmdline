@@ -1,0 +1,217 @@
+				<!-- Div Demands -->
+				<div class="left">
+					<h2>Demands</h2>
+					Click on a demand to see the eligible supply and allocations.
+					<h3>Customer Orders</h3>
+					<div style=" overflow-x:auto;">
+						<table>
+							<tr>
+                                <thead>
+								<th>ID</th>
+								<th>Cust Code</th>
+								<th>Item Code</th>
+								<th>Forecast Group</th>
+								<th>
+									Requested
+									<br />
+									Date
+								</th>
+								<th>Order Qty</th>
+								<th>Qty Allocated</th>
+								<th>Unallocated</th>
+								<th>Country</th>
+								<th>Mfr Cd</th>
+							</tr>
+                            </thead>
+                            <tbody>
+								<tr th:each="r : ${pdm.demandCustomerById.values()}" >
+                                    <!--
+									<xsl:attribute name="onClick">showEligibleSupplyFor(&apos;es<xsl:value-of
+										select="@dmdXmlId" />&apos;)</xsl:attribute>
+                                    -->
+									<td th:text="${r.dmdXmlId}" />
+									<td th:text="${r.custCd}" />
+									<td th:text="${r.itemCd}" />
+									<td th:text="${r.fcstGrp}" />
+									<td th:text="${r.rqstDate}" />
+                                    <!--
+									<td align="right">
+										<xsl:value-of
+											select='format-number(@qtyOrd, "###,###.00")' />
+									<td align="right">
+										<xsl:value-of
+											select="sum(eligibleSupply/supply/@allocatedQty)" />
+                                    -->
+									<td align="right" th:text="${r.qtyUnallocated}" />
+									<td th:text="${r.cntryCdOrigin}" />
+									<td th:text="${r.mfrCd}" />
+								</tr>
+                            </tbody>
+						</table>
+					</div>
+					<h3>Forecasts</h3>
+					<div style="overflow-x:auto;">  <!-- TODO can't we apply templates -->
+						<table>
+							<tr>
+								<th>ID</th>
+								<th>Cust Code</th>
+								<th>Forecast Group</th>
+								<th>
+									Requested
+									<br />
+									Date
+								</th>
+								<th>Order Qty</th>
+								<th>Qty Allocated</th>
+								<th>Unallocated</th>
+								<th>Country</th>
+								<th>Mfr Cd</th>
+							</tr>
+							<xsl:for-each
+								select="/PlanGroup/prioritizedDemands/demand[@qtyOrd != 0 and @type='FC' ]">
+								<tr><xsl:attribute name="onClick">showEligibleSupplyFor(&apos;es<xsl:value-of
+										select="@dmdXmlId" />&apos;)</xsl:attribute>
+									<td
+										th:text="@dmdXmlId" />
+									<td
+										th:text="@custCd" />
+									<td
+										th:text="@fcstGrp" />
+									<td
+										th:text="@rqstDate" />
+									<td align="right">
+										<xsl:value-of
+											select='format-number(@qtyOrd, "###,###.00")' />
+									<td align="right">
+										<xsl:value-of
+											select="sum(eligibleSupply/supply/@allocatedQty)" />
+									<td align="right">
+										th:text="@qtyUnallocated" />
+									<td
+										th:text="@cntryCdOrigin" />
+									<td
+										th:text="@mfrCd" />
+								</tr>
+							</xsl:for-each>
+							<tr>
+								<th colspan="8">Onhand</th>
+							</tr>
+						</table>
+					</div>
+				</div> <!-- Demands Div -->
+				<!-- TODO these should show up next the corresponding demand -->
+				<h2>Eligible Supplies</h2>  <!--  TODO add a hide button, could start with a text link -->
+				<div style="overflow-x:auto;">
+					<xsl:for-each
+						select="/PlanGroup/prioritizedDemands/demand[@qtyOrd != 0]">
+						<table class="eligibleSupply">
+							<xsl:attribute name="id">es<xsl:value-of
+								select="@dmdXmlId" />
+    					</xsl:attribute>
+							<tr>
+								<th colspan="11">
+									Dmd id:
+									th:text="@dmdXmlId" />
+									Item:
+									th:text="@itemCd" />
+								</th>
+							</tr>
+							<tr>
+								<th>ID</th>
+								<th>Type</th>
+								<th>Facility</th>
+								<th>Avail Date</th>
+								<th>Gross Qty</th>
+								<th>Qty Allocated This </th>
+								<th>Unallocated</th>
+								<th>Country</th>
+								<th>Mfr Cd</th>
+							</tr>
+							<xsl:for-each select="eligibleSupply/supply">
+								<tr>
+									<xsl:variable name="allocThisDmd"
+										select="@allocatedQty" />
+									<xsl:for-each
+										select="/PlanGroup/supplies/supply[@splyXmlId = current()/@splyXmlId]">
+										<td
+											th:text="@splyXmlId" />
+										<td
+											th:text="@type" />
+										<td
+											th:text="@facility" />
+										<td
+											th:text="@availDate" />
+										<td align="right">
+											th:text="@grossQty" />
+										<td
+											th:text="$allocThisDmd" />
+										<!-- <td align="right"> th:text="current()/@allocatedQty" 
+										<td align="right">
+											th:text="@qtyUnallocated" />
+										<td
+											th:text="@cntryCdOrigin" />
+										<td
+											th:text="@mfrCd" />
+									</xsl:for-each>
+								</tr>
+							</xsl:for-each>
+						</table>
+					</xsl:for-each>
+				</div>
+				<div style="clear:both;"></div>
+				<div style="clear:left;clear:right" class="left"> <!-- sourcing rules h2 -->
+					<h2 id="apsSrcRuleSets">Sourcing Rules</h2>
+					<div class="left"> <!-- source rule set -->
+						<h3>Source Rule Set</h3>
+						<table class="srcRuleSets">
+							<tr>
+								<th>Sourcing Rule Set</th>
+								<th>Description</th>
+							</tr>
+							<xsl:for-each
+								select="/PlanGroup/apsSrcRuleSets/apsSrcRuleSet">
+								<tr>
+									<td
+										th:text="@srcRuleSetCd" />
+									<td
+										th:text="@descr" />
+								</tr>
+							</xsl:for-each>
+						</table>
+					</div> <!-- end: Sourcing Rulesets -->
+				</div>
+				<div class="right">
+					<h3>Sourcing Rules 964</h3>
+					<xsl:for-each
+						select="/PlanGroup/apsSrcRuleSets/apsSrcRuleSet">
+						<table class='srcRules'>
+							<xsl:attribute name="id">
+        						th:text="generate-id(.)" />
+      							</xsl:attribute>
+							<tr>
+								<th colspan="6">
+									Ruleset:
+									th:text="@srcRuleSetCd" />
+								</th>
+							</tr>
+							<tr>
+								<th align="right">Priority</th>
+								<th>Facility</th>
+								<th>Pool</th>
+								<th>Sub Pool</th>
+								<th>SupplyType</th>
+								<th>apsSrcRuleNbr</th>
+
+							</tr>
+							<xsl:for-each select="apsSrcRule">
+								<tr>
+									<td align="right" th:text="@priority" />
+									<td th:text="@facility" />
+									<td th:text="@poolCd" />
+									<td th:text="@subPoolCd" />
+									<td th:text="@supplyType" />
+									<td th:text="@apsSrcRuleNbr" />
+								</tr>
+						</table>
+				</div> <!-- Sourcing rules -->
+

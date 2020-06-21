@@ -1,0 +1,14 @@
+# eclipse
+
+.metadata
+.project
+# maven
+
+target
+# vim
+.swp
+
+# sqlplus
+
+afiedt.buf
+.lst

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Components and Services</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="components-and-services">
+<h1>Components and Services</h1>
+<div class="section" id="planning-machine">
+<h2>Planning Machine</h2>
+<p>The <strong>Planning Machine</strong> is the high level component that creates and manages all other components.</p>
+<div class="section" id="populate-planning-data">
+<h3>Populate Planning Data</h3>
+<p>Populates the request queue for all parts with supply or demand.</p>
+<p>May invoke <span class="xref std std-ref">_ComponentsAndServices_PlanningGrouper</span></p>
+</div>
+</div>
+<div class="section" id="planning-grouper">
+<span id="componentsandservices-planninggrouper"></span><h2>Planning Grouper</h2>
+<p>The <strong>Planning Grouper</strong> creates planning groups, items that must be planned simultaneously due
+to the fact that these parts are</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>equivalent</dt><dd><p>If one part can be certified to be another part, they are equivalent, but this is not necessarily
+bi-directional. That is part-a may be certifiable to be a part-b but part-b may not necessarily
+be certifiable to be a part-a</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>substitutes</dt><dd><ul>
+<li><p>customer substitutes</p></li>
+<li><p>global substitutes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="dispatcher">
+<h2>Dispatcher</h2>
+<blockquote>
+<div><p>The <strong>dispatcher</strong> returns a list of items that comprise a planning group.  The dispatcher may      create a planning engine or be invoked from a planning engine.</p>
+</div></blockquote>
+</div>
+<div class="section" id="planning-engine">
+<h2>Planning Engine</h2>
+<p>A Planning Engine generates allocations, which are associations of
+demand and supply</p>
+<div class="section" id="get-items-to-plan">
+<h3>Get Items to Plan</h3>
+<p>May be in a planning group, but retrieving items that are not is also a
+lot faster.</p>
+</div>
+<div class="section" id="plan-phases">
+<h3>Plan Phases</h3>
+<div class="section" id="preserve-allocations">
+<h4>Preserve Allocations</h4>
+<p>Allocations that are in pick may not be updated.</p>
+<p>Bound allocations must be preserved.</p>
+</div>
+<div class="section" id="first-pass">
+<h4>First Pass</h4>
+<div class="section" id="plan-demands-within-lead-time">
+<h5>Plan Demands within Lead Time</h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">allocate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">clear</span><span class="p">();</span>
+        <span class="n">isDemandsByCustomerValid</span> <span class="o">-</span> <span class="n">false</span><span class="p">;</span>
+        <span class="n">demandsByCustomer</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">setPreviousAllocations</span><span class="p">();</span>
+        <span class="n">restoreOnhandPickAllocations</span><span class="p">();</span>
+        <span class="n">restoreBoundAllocations</span><span class="p">();</span>
+        <span class="n">firstPass</span><span class="p">();</span>
+
+        <span class="n">computeCustomerSupply</span><span class="p">();</span>
+        <span class="n">demandS</span><span class="o">.</span><span class="n">setCustomerEligibleSupplies</span><span class="p">();</span>
+        <span class="n">customerPrioritized</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">requestToOverShip</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">overship</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prioritize-demands">
+<h2>Prioritize Demands</h2>
+</div>
+<div class="section" id="filter-supply">
+<h2>Filter Supply</h2>
+</div>
+<div class="section" id="prioritize-supply">
+<h2>Prioritize Supply</h2>
+</div>
+<div class="section" id="generate-work-orders">
+<h2>Generate Work Orders</h2>
+</div>
+<div class="section" id="generate-reschedules">
+<h2>Generate Reschedules</h2>
+</div>
+<div class="section" id="update-data">
+<h2>Update Data</h2>
+</div>
+<div class="section" id="notes">
+<h2>Notes</h2>
+<p>Safety Stock must be allocated</p>
+<p>Forecast must be consumed.</p>
+<p>Consideration must be given to the fact that work orders may have
+customer demand and priority given to allocation to them.</p>
+<p>Support for overshipping</p>
+<p>Generates Reschedules</p>
+<p>Generate log trace xml</p>
+<p>Demands within a customer must be prioritized</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

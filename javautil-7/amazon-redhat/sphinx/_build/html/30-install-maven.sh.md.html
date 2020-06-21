@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>install maven &mdash; oracle 19c redhat 6 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="oracle 19c redhat 6 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">oracle 19c redhat 6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="install-maven">
+<h1>install maven<a class="headerlink" href="#install-maven" title="Permalink to this headline">¶</a></h1>
+<p>set -x set -e maven_ver=&#8217;apache-maven-3.6.2&#8217;</p>
+<p>file=<span class="formula"><i>maven</i><sub><i>ver</i></sub>.<i>zip</i><i>download</i><sub><i>file</i></sub> =  ⁄ <i>Downloads</i> ⁄ </span>
+{file}</p>
+<p>if [ ! -d ~/Downloads ] ; then echo creating Downloads mkdir ~/Downloads
+fi</p>
+<div class="highlight-python"><pre>**get the file if we do not have it **</pre>
+</div>
+<p>if [ ! -f ${download_file} ] ; then echo file getting
+:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>{download_file}         curl <a class="reference external" href="http://ftp.cixug.es/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip">http://ftp.cixug.es/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip</a>  &gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>{download_file}
+else echo using ${download_file} fi <em>create /opt if it does not exist</em>
+if [ ! -d /opt ] ; then sudo mkdir /opt fi</p>
+<p>if [ ! -d /opt/${maven_ver} ] ; then * file has not been unzipped do
+it * cd /opt ls -l ~/Downloads # just show tfile an size sudo unzip
+${download_file} fi</p>
+<p># add to path if not already specified set +e
+mvn_path=<tt class="docutils literal"><span class="pre">grep</span> <span class="pre">${maven_ver}</span> <span class="pre">~/.bashrc</span></tt> set -e if [ -z $mvn_path] ;
+then # not specified so add to .bashrc echo adding maven path echo
+&#8220;PATH=/opt/:math:<a href="#id5"><span class="problematic" id="id6">`</span></a>{maven_ver}/bin:$PATH&#8221; &gt;&gt; ~/.bashrc    else         echo not adding <a href="#id7"><span class="problematic" id="id8">`</span></a>mvn_path
+fi . ~/.bashrc echo path is now $PATH mvn &#8211;version</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/30-install-maven.sh.md.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">oracle 19c redhat 6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2019, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

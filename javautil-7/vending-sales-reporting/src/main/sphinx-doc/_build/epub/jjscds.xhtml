@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>History of Jim Schmidt and Custom Data Solutions</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="history-of-jim-schmidt-and-custom-data-solutions">
+<h1>History of Jim Schmidt and Custom Data Solutions</h1>
+<div class="section" id="creation">
+<h2>Creation</h2>
+<p>Custom Data Solutions was initially called CDS for Chuck and Dee Schmidt.</p>
+<p>Chuck is my older brother and Dee is his wife.</p>
+<p>Chuck left his job at Michigan National Bank to offer data processing services, initially using a TRS-80 to print mailing labels.</p>
+<p>He subsequently bought an Alpha Micro <a class="reference external" href="http://www.s100computers.com/Hardware%20Folder/Alpha%20Micro/History/History.htm">http://www.s100computers.com/Hardware%20Folder/Alpha%20Micro/History/History.htm</a> and wrote some business applications.</p>
+<p>On a visit to Detroit I explained to him the benefits of Unix and got him started, installing Interactive Unix from Kodak on a PC from 133 floppy disks in 1990.</p>
+<p>Between 1983 and 1990 I worked as Vice President of International Banking Systems for RepublicBank Dallas, as a principal at a Distribution Requirements Planning Company and then at Computer Associates where I single handedly designed and wrote the ACH settlement software system in six weeks.</p>
+<p>In 1990 I started Trinity Technical Services with two partners and ended up buying them both out.</p>
+<p>My first contract was the selection of an ERP system for a distributor in Texas.  The chosen vendor was CIM-JIT and it was my first exposure to Oracle. I soon
+became more proficient in the CIM-JIT software than the vendor and flew around
+country to modify to delivered software to comply with commitments to customers.</p>
+<p>In the process I became quite proficient in fixing performance problems.</p>
+<p>Convinced that Oracle was the finest relational database, I convinced Chuck to
+come down to my Dallas office for a quick introduction.</p>
+<p>He immediately saw the benefits of SQL over procedural file manipulation and
+also became an Oracle Partner.</p>
+<p>CDS somehow happened to land a contract to handle rebates for Leaf Gum.</p>
+</div>
+<div class="section" id="technologies">
+<h2>Technologies</h2>
+<div class="section" id="unix">
+<h3>Unix</h3>
+</div>
+<div class="section" id="oracle">
+<h3>Oracle</h3>
+<div class="section" id="oracle-forms">
+<h4>Oracle Forms</h4>
+</div>
+<div class="section" id="oracle-reports">
+<h4>Oracle Reports</h4>
+</div>
+<div class="section" id="pl-sql">
+<h4>PL/SQL</h4>
+</div>
+</div>
+<div class="section" id="c">
+<h3>C</h3>
+</div>
+<div class="section" id="java">
+<h3>Java</h3>
+</div>
+<div class="section" id="jsp">
+<h3>JSP</h3>
+</div>
+<div class="section" id="graphics">
+<h3>Graphics</h3>
+</div>
+<div class="section" id="javascript">
+<h3>Javascript</h3>
+</div>
+<div class="section" id="spreadsheets">
+<h3>Spreadsheets</h3>
+</div>
+<div class="section" id="digital-unix">
+<h3>Digital Unix</h3>
+</div>
+<div class="section" id="linux">
+<h3>Linux</h3>
+</div>
+<div class="section" id="build-tools">
+<h3>Build tools</h3>
+</div>
+<div class="section" id="unit-tests">
+<h3>Unit Tests</h3>
+</div>
+<div class="section" id="integration-tests">
+<h3>Integration Tests</h3>
+</div>
+</div>
+<div class="section" id="chuck-retires">
+<h2>Chuck Retires</h2>
+<div class="section" id="help">
+<h3>Help</h3>
+<p>Make files
+C
+Pro*C
+Forms</p>
+</div>
+</div>
+</div>
+<div class="section" id="business-model">
+<h1>Business Model</h1>
+<div class="section" id="custom-data-solutions">
+<h2>Custom Data Solutions</h2>
+<p><a class="reference external" href="http://custdata.com">http://custdata.com</a></p>
+<div class="section" id="relationship">
+<h3>Relationship</h3>
+<p>Custom Data Services was created by my brother Chuck.  I consulted to them for over 25 years and
+taught him everything he knew from linux to relational databases, website creation, c and java.</p>
+<p>In 2007 I accepted the position of CIO when my brother sold the company.  I gave up my consulting practice
+on the promise that I could work remotely after my son went to college.</p>
+<p>After I completely revised all of the infrastructure, which was horrible in more ways than can be credibly described
+including the fact that they were seven years out of date on Oracle and had 14 instances running on three different
+machines, I upgraded to Oracle 10 and migrated everything to one instance and finally into one schema.</p>
+<p>After I sold my house and all my possessions and moved to Costa Rica, they fired me.</p>
+<p>They stole my javautil code, there was a lawsuit, but I would have had to have their current employees testify that
+the code they were using was in production at my customer sites before I joined CDS.</p>
+<p>A settlement was reached, I allowed them to continue to use the code while retaining all rights.</p>
+</div>
+</div>
+<div class="section" id="business-process">
+<h2>Business Process</h2>
+<p>Manufacturers who distribute their product through specialty channels:</p>
+<ul class="simple">
+<li><p>Vending Machine Operators</p></li>
+<li><p>Fund Raising (Hershey)</p></li>
+<li><p>Concession (Hershey)</p></li>
+</ul>
+<p>Have their distributors report sales in the format described elsewhere.</p>
+</div>
+<div class="section" id="processing-steps">
+<h2>Processing Steps</h2>
+<p>Data is uploaded to the data processing service.</p>
+<p>The file loads are analyzed at CDS using an old version of my javautil conditionidentification package.</p>
+<p>The data is loading into prepost tables.</p>
+<p>The data is posted</p>
+<p>A snapshot of the data is made once a day for online web reporting in the form of spreadsheets.</p>
+<p>Rebate programs are designed and the sales are tracked and the rebates calculated.</p>
+<p>Rebate checks are mailed out.</p>
+</div>
+<div class="section" id="manufacturers">
+<h2>Manufacturers</h2>
+<p>If you go to custdata.com links you can see what manufacturers they process data for.
+<a class="reference external" href="http://custdata.com/links.html">http://custdata.com/links.html</a></p>
+<ul class="simple">
+<li><p>www.hersheys.com/vending</p></li>
+<li><p>www.hersheys.com/concession</p></li>
+<li><p>www.hersheys.com/fundraising</p></li>
+<li><p>Cadbury Gum &amp; Candy</p></li>
+<li><p>Ford Gum</p></li>
+<li><p>Wrigley Gum</p></li>
+<li><p>Coke</p></li>
+<li><p>Dr. Pepper</p></li>
+<li><p>Snapple</p></li>
+<li><p>Pepsi</p></li>
+<li><p>Frito Lay</p></li>
+<li><p>www.inventurefoods.com</p></li>
+<li><p>www.justborn.com</p></li>
+<li><p>www.whitewave.com</p></li>
+<li><p>www.promotioninmotion.com</p></li>
+<li><p>www.deliexpress.com</p></li>
+<li><p>www.generalmillscstore.com</p></li>
+<li><p>www.fafh.com (kelloggs)</p></li>
+<li><p>www.snyderslance.com</p></li>
+<li><p>www.mars.com</p></li>
+<li><p>www.karsnuts.com</p></li>
+<li><p>www.hostesscakes.com</p></li>
+<li><p>www.monogramfoods.com</p></li>
+<li><p>www.herrs.com</p></li>
+<li><p>www.conagrabrands.com</p></li>
+<li><p>www.americanlicorice.com</p></li>
+</ul>
+</div>
+<div class="section" id="distributors">
+<h2>Distributors</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

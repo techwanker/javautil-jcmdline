@@ -1,0 +1,907 @@
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions"><style>
+				h1 { 
+				font-family: Verdana, Arial, Helvetica, sans-serif;
+				font-size: 16px; 
+				color: #666666
+				}
+				
+				h2 { 
+				color: blue; 
+				font-family: arial;
+				font-size: 14pt 
+				}
+				
+				h3 { 
+				color: blue; 
+				font-family: arial;
+				font-size: 12pt 
+				}
+
+				table {
+				border-collapse: collapse;
+				}
+				
+				tr:hover {
+					background-color: #ddd;
+				}
+				
+				th {
+					padding-top: 12px;
+					padding-bottom: 12px;
+					text- align: left;
+					background-color: #4CAF50;
+					color: white;
+				}
+				
+				
+				th,
+				td {
+					font-family:
+					Helvetica; font-size: 10pt;
+					border: 1px solid #ddd;
+					padding: 2px;
+				}
+
+				tr:nth-child(even) {
+					background-color: #f2fff2;
+				}
+
+				table.srcRuleSets {
+					float:left
+				}
+				
+				table.srcRules {
+					float:right"
+				}
+				
+				.accordion {
+					background-color: #eee;
+					color: #444;
+					cursor: pointer;
+					padding: 18px;
+					width: 100%;
+					border: none;
+					text- align: left;
+					outline: none;
+					font-size: 15px;
+					transition: 0.4s;
+				}
+
+				table.defaultNonDisplay {
+					display: none;
+				}
+
+
+				.active, .accordion:hover {
+					background-color:
+					#ccc;
+				}
+
+				.panel {
+					padding: 0 18px;
+					display: none;
+					background-color: white;
+					overflow: hidden;
+				}
+			</style><style>
+				/* Add a black background color to the top navigation */
+				.topnav {
+				background-color: #333;
+				overflow: hidden;
+				}
+
+				/* Style the links
+				inside the navigation bar */
+				.topnav a {
+					float: left;
+					display: block;
+					color: #f2f2f2;
+					text- align: center;
+					padding: 14px 16px;
+					text-decoration: none;
+					font-size: 17px;
+				}
+
+				/* Add an active class to
+				highlight the current page */
+				.active {
+					background-color: #4CAF50;
+					color: white;
+				}
+
+				/* Hide the link that should open and close the topnav
+				on small
+				screens */
+					.topnav .icon {
+					display: none;
+				}
+
+				/* Dropdown
+				container - needed to position the dropdown content */
+				.dropdown {
+				float: left;
+				overflow: hidden;
+				}
+
+				/* Style the dropdown button to fit
+				inside the topnav */
+				.dropdown .dropbtn {
+					font-size: 17px;
+					border:
+					none;
+					outline: none;
+					color: white;
+					padding: 14px 16px;
+					background-color: inherit;
+					font-family: inherit;
+					margin: 0;
+				}
+
+				/* Style
+				the dropdown content (hidden by default) */
+				.dropdown-content {
+					display: none;
+					position: absolute;
+					background-color: #f9f9f9;
+					min-width: 160px;
+					box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+					z-index: 1;
+				}
+
+				/* Style the links inside the dropdown */
+				.dropdown-content a {
+					float: none;
+					color: black;
+					padding: 12px 16px;
+					text-decoration: none;
+					display: block;
+					text- align: left;
+				}
+
+				/* Add a dark
+				background on topnav links and the dropdown button on
+					hover */
+					.topnav a:hover, .dropdown:hover .dropbtn {
+					background-color: #555;
+					color: white;
+				}
+
+				/* Add a grey background to dropdown links on hover */
+				.dropdown-content a:hover {
+					background-color: #ddd;
+					color: black;
+				}
+
+				/*
+				Show the dropdown menu when the user moves the mouse over the
+				dropdown button */
+				.dropdown:hover .dropdown-content {
+				display: block;
+				}
+
+				/* When the screen is less than 600 pixels wide, hide all links,
+				except for the first one ("Home"). Show the link that contains
+				should open and close the topnav (.icon) */
+				@media screen and
+				(max-width: 600px) {
+				.topnav a:not(:first-child), .dropdown .dropbtn
+				{
+				display: none;
+				}
+				.topnav a.icon {
+				float: right";
+				display: block;
+				}
+				}
+
+				/* The
+				"responsive" class is added to the topnav with JavaScript when
+				the
+				user clicks on the icon. This class makes the topnav look good
+				on
+				small screens (display the links vertically instead of
+				horizontally)
+				*/
+				@media screen and (max-width: 600px) {
+				.topnav.responsive
+				{position: relative;}
+				.topnav.responsive a.icon {
+				position: absolute;
+				right": 0;
+				top: 0;
+				}
+				.topnav.responsive a {
+				float: none;
+				display: block;
+				text- align: left;
+				}
+				.topnav.responsive .dropdown {float: none;}
+				.topnav.responsive .dropdown-content {position: relative;}
+				.topnav.responsive .dropdown .dropbtn {
+				display: block;
+				width: 100%;
+				text- align: left;
+				}
+				}
+
+			</style><style>
+				.left { float:left; }
+				.right" { float:right; }
+				.eligibleSupply
+				{float:right"; display:none;}
+			</style>
+<style>
+.filter-table .quick { margin-left: 0.5em; font-size: 0.8em; text-decoration: none; }
+.fitler-table .quick:hover { text-decoration: underline; }
+td.alt { background-color: #ffc; background-color: rgba(255, 255, 0, 0.2); }
+</style>EA<!-- or put the styling in your stylesheet -->
+
+            <script>
+				/* Toggle between adding and removing the "responsive" class
+				to topnav
+				when the user clicks on the icon */
+				function myFunction() {
+					var x = document.getElementById("myTopnav");
+					if (x.className === "topnav") {
+						x.className += " responsive";
+					} else {
+						x.className = "topnav";
+					}	
+				}
+			</script><script>
+				function showEligibleSupplyFor(esid) {
+					document.getElementById(esid).className = "show";
+				}
+			</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="file://w3.css">
+   <BODY>
+      <div class="topnav" id="myTopnav"><a href="#home" class="active">Home</a><a href="#news">News</a><a href="#contact">Contact</a><div class="dropdown"><button class="dropbtn">
+               							Jump
+               							<i class="fa fa-caret-down"></i></button><div class="dropdown-content"><a href="#icItemMasts">Item Masters</a><a href="#pipeline">Pipeline</a><a href="#customerItemManufacturers">Approved Mfrs</a><a href="#apsSrcRuleSets">Sourcing Rules</a></div>
+         </div><a href="#about">About</a><a href="javascript:void(0);" class="icon" onclick="myFunction()">☰</a></div>
+      <h1>Request for Quotation</h1>
+      <table>
+        <tr><th>Customer Code</th><td>JETAIR</td></tr>
+        <tr><th>Customer Nameh</th><td>Jet Airlines</td></tr>
+        <tr><th>Request Date</th><td>2019-05-06</td></tr>
+        <tr><th>Quote Currency</th><td>Euro</td><tr>
+      </table>
+      <hr/>
+      Click on a row to open up item details, then enter quote amount. 
+       <form>
+      <table class="filter-table">
+        <thead>
+            <tr>
+                <th>Part #</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Unit Measure</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AN960-10</td>
+                <td>3/16" flat washer</td>
+                <td  align="right">100</td>
+                <td>KG</td>
+                <td><input type="text"></td>
+            </tr>
+<tr><td>08016-H</td><td>5/16 X 3/8 SHOULDER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>100-159-6-3</td><td>PIN</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>100-159-6-4</td><td>PIN,HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>100-159-6-5</td><td>PIN,HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>1111890</td><td>FLAT HEAD,INCH,10-32 X 3/8 CTSK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>1118045</td><td>SHOULDER BOLT,INCH,5/16 X 3/8   STRIPPER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>11890</td><td>FLAT HEAD,INCH,10-32 X 3/8 CTSK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>161W1000-9006 MPL REV A</td><td>777 Everett KITS Mets D590 - Oakville</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>18045</td><td>SHOULDER BOLT,INCH,5/16 X 3/8   STRIPPER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>187010-3B10CG</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>200-0200KIT</td><td>KIT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>61002</td><td>10-32 X 3/8 FHCS</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>73781CM-918</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>8111890</td><td>FLAT HEAD,INCH,10-32 X 3/8 CTSK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>8118045</td><td>SHOULDER BOLT,INCH,5/16 X 3/8   STRIPPER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>85713238-003PP</td><td>PLATE ASSY - STRAIGHT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>85713239-003PP</td><td>PLATE ASSY - STRAIGHT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>95815-20-63</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>95815-24-55</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>95816-20-1</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AB1503F10W</td><td>SELF SEALING SCREW</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AB904F9</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>ABS0114V3-5</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>ABS0114V4D19</td><td>BOLT, TITANIUM</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AL10AG-6-4</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AL10AG-6-5</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AP10102-04</td><td>TEE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>ARH633</td><td>NUT, K-FAST</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AS15001-1P</td><td>FITTING, LUBE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>AS1986-06</td><td>ADAPTER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0201034-3-10W</td><td>SCREW, HEX HEAD</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0203010L9</td><td>NUT, SELF LOCKING, LIGHTWEIGHT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0203013-3S</td><td>NUT, K-FAST (55 / STICK)</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0203013-4</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0203014-5</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0204043-3-11-1HW</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0205017AD3-4S</td><td>RIVET, SOLID, 100CSK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0206001AG6-3</td><td>HI LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0206001AG6-4</td><td>HI LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0206001AG6-5</td><td>HI LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0206007AP5-8</td><td>PIN, HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0206007AP58</td><td>USE B0206007AP5-8</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0206010CY6</td><td>NUT, COLLAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0209022</td><td>USE B0209022-001</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0209022-001</td><td>RECEPTACLE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>B0301012-04</td><td>TEE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB28AP04Z010</td><td>BUSHING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB28AT04B011Z</td><td>BUSHING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB28AT06B010Z</td><td>BUSHING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30LM4H3P</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30MB6A6</td><td>BOLT, PIN HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30NM3K5</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30NN3K3</td><td>BOLT, MACHINE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30NX10K14</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30NX12K21</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30NX8K13</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30VF3K3</td><td>BOLT, MACHINE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30VT6K3</td><td>PIN</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30VT6K4</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30VT6K5</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30VX5A3UW</td><td>BOLT, BLIND</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACB30YP6K4</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACC10ET148T069E</td><td>CLAMP</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACC30AB6S</td><td>COLLAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACC30BH6</td><td>COLLAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACC30BH8SW</td><td>COLLAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACC30BL6</td><td>COLLAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACC30BS6S</td><td>COLLAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JA3CD</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JA4CD</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JB3CD</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JN3CM</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JR3F</td><td>NUTPLATE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JS3A2</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JS3A2CD</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JS3A3CD</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JS3B2CD</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10JZ3B2CDM</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10YF31CD</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10YF33CD</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10YR3CD</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN10YR3CM</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN11G3A1CD</td><td>NUTPLATE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN11N6CD</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN11P3B10CG</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN11P3B8CG</td><td>NUT,SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACN11Z4CD</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACP18BC04A12P</td><td>PIN</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACR15BA3AD4R5C</td><td>RIVET, SOLID</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACR15DR3A4</td><td>RIVET</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACR15DR3AN2</td><td>RIVET, BLIND</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACR15FT5AD13C EA</td><td>RIVET, SOLID</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACR15FT8AD6C EA</td><td>RIVET, SOLID</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACS12HL3AHU8</td><td>SCREW</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACT16BU04J</td><td>TEE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACW10BP2NDP</td><td>WASHER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACW10BP3NDP</td><td>WASHER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACW10BP4CD</td><td>WASHER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BACW10BX3LK</td><td>WASHER, FLAT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BGC01526-3-11-1HW</td><td>GANG CHANNEL</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BGC01526-3-H-1HW</td><td>Use BGC01526-3-11-1HW</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BH00862-3S</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BH00862-4</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BH01395L9</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>BH01427-5</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>CA2010</td><td>RECEPTACLE ASSEMBLY</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>CCR264CS-3-04PR</td><td>RIVET, BLIND</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>CR7310S-05-03</td><td>BOLT, BLIND</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>D9855-04</td><td>DEUTSCH TEE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>E13964-9</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>F1934-3-2</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>F5001-3</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>F51559-A3-19</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>F51646-3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>FIT4051-04</td><td>RECEPTACLE ASSEMBLY</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>G49879-3-11-1HW</td><td>NUTQ</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>G49879-3-11-1W</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>GAN512FP9C</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>H14-3CW</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>H9855-04</td><td>TEE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL1012AZ10-14</td><td>PIN, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL1012AZ12-21</td><td>PIN, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL1012AZ8-13</td><td>PIN, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL1087-6</td><td>COLLAR, HI-SHEAR</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL12VAZ-10-14</td><td>PIN, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL12VAZ-8-13</td><td>PIN, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL12VAZ10-14</td><td>Use HL12VAZ-10-14</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL12VAZ8-13</td><td>Use HL12VAZ-8-13</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL448UC6-6</td><td>PIN, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HL97DU6</td><td>COLLAR, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST10AG-6-3</td><td>Use HST10AG6-3</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST10AG-6-4</td><td>Use HST10AG6-4</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST10AG-6-5</td><td>Use HST10AG6-5</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST10AG6-3</td><td>PIN</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST10AG6-4</td><td>PIN, HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST10AG6-5</td><td>PIN, HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST644AP-5-8</td><td>Use HST644AP5-8</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST644AP5-8</td><td>PIN, HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HST79CY6</td><td>COLLAR, HI-LOK</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>HSTN1488PB5</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>K-MBM-295W1400-1</td><td>KIT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>KFN587-3S</td><td>NUT, K-FAST (55 / STICK)</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>KFN587-4</td><td>NUT, K-FAST</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>KFN673-5</td><td>NUT, K-FAST</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>LC1801-24-55</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MLG ASSY KTHM041-101-005</td><td>KIT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MLG STAY KTHM041-501-005-REV A</td><td>Kit</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MLG STAY KTHM041-501-005-REV A.</td><td>Kit</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS14144L20</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS14145L20</td><td>NUT SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS14145L3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS15001-1</td><td>FITTING, LUBE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS20426AD3-4S</td><td>RIVET, SOLID</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS21042-3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS21059L3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS21060L3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS24665-374</td><td>PIN, COTTER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS24665374</td><td>USE MS24665-374</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS27253-1</td><td>IDENTIFICATION PLATE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>MS90353U0503W</td><td>BOLT, BLIND</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>N443-0321</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>N449-1908</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>N449-1910</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NA0049-100</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS1303-3</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS1801-3-9</td><td>SCREW</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS1803-3A13</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS1870-3-2</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS509-5</td><td>NUT, DRILLED JAM</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS509-7</td><td>NUT, DRILLED JAM</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS6203-4D</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS6203-9</td><td>BOLT, HEX HEAD</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS6204-10D</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS6603-3</td><td>BOLT, HEX HEAD, CLOSE TOL</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS6608-24</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS6710DH29</td><td>BOLT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS679C08W</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS686A3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS686C3M</td><td>NUT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NAS8602-1</td><td>BOLT, HEX HEAD</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NSA5059-3</td><td>NUT,SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>NSA5060E9</td><td>NUT, SELF LOCKING, LIGHTWEIGHT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>PE20003-04</td><td>TEE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>PHCR-56CD</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>PHCR56CD-BACN</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>PHCR59M</td><td>NUT, SELF LOCKING, LIGHTWEIGHT</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>RF5006-13</td><td>FITTING LOCKRING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>RMTE9868-3</td><td>NUT, SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SLAS1986-06</td><td>FITTING, ADAPTER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SME9925-09</td><td>USE SME9925-9</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SME9925-9</td><td>NUT, SELF LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SME99259</td><td> USE SME9925-9</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SMTSO-440-4ET</td><td>SPACER, SURFACE MOUNT  ( REEL QTY. 1,000 )</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SN8059AG6-4</td><td>PIN, HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>SN8059AG6-5</td><td>PIN, HI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>ST7M200T6</td><td>ADAPTER</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>TA104DCHA10</td><td>CLAMP</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>THCR353M</td><td>NUT,SELF-LOCKING</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>VL10AG6-4</td><td>PIN, VERI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+<tr><td>VL10AG6-5</td><td>PIN, VERI-LITE</td><td align="right">100</td><td>EA</td><td><input type="text"/></td></tr>
+        </tbody>
+      </table>
+<button>save</button>
+</form>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script>
+/**
+ * jquery.filterTable
+ *
+ * This plugin will add a search filter to tables. When typing in the filter,
+ * any rows that do not contain the filter will be hidden.
+ *
+ * Utilizes bindWithDelay() if available. https://github.com/bgrins/bindWithDelay
+ *
+ * @version v1.5.7
+ * @author Sunny Walker, swalker@hawaii.edu
+ * @license MIT
+ */
+(function ($) {
+    var jversion = $.fn.jquery.split('.'),
+        jmajor = parseFloat(jversion[0]),
+        jminor = parseFloat(jversion[1]);
+    // build the pseudo selector for jQuery < 1.8
+    if (jmajor < 2 && jminor < 8) {
+        // build the case insensitive filtering functionality as a pseudo-selector expression
+        $.expr[':'].filterTableFind = function (a, i, m) {
+            return $(a).text().toUpperCase().indexOf(m[3].toUpperCase().replace(/"""/g, '"').replace(/"\\"/g, "\\")) >= 0;
+        };
+        // build the case insensitive all-words filtering functionality as a pseudo-selector expression
+        $.expr[':'].filterTableFindAny = function (a, i, m) {
+            // build an array of each non-falsey value passed
+            var raw_args = m[3].split(/[\s,]/),
+                args = [];
+            $.each(raw_args, function (j, v) {
+                var t = v.replace(/^\s+|\s$/g, '');
+                if (t) {
+                    args.push(t);
+                }
+            });
+            // if there aren't any non-falsey values to search for, abort
+            if (!args.length) {
+                return false;
+            }
+            return function (a) {
+                var found = false;
+                $.each(args, function (j, v) {
+                    if ($(a).text().toUpperCase().indexOf(v.toUpperCase().replace(/"""/g, '"').replace(/"\\"/g, "\\")) >= 0) {
+                        found = true;
+                        return false;
+                    }
+                });
+                return found;
+            };
+        };
+        // build the case insensitive all-words filtering functionality as a pseudo-selector expression
+        $.expr[':'].filterTableFindAll = function (a, i, m) {
+            // build an array of each non-falsey value passed
+            var raw_args = m[3].split(/[\s,]/),
+                args = [];
+            $.each(raw_args, function (j, v) {
+                var t = v.replace(/^\s+|\s$/g, '');
+                if (t) {
+                    args.push(t);
+                }
+            });
+            // if there aren't any non-falsey values to search for, abort
+            if (!args.length) {
+                return false;
+            }
+            return function (a) {
+                // how many terms were found?
+                var found = 0;
+                $.each(args, function (j, v) {
+                    if ($(a).text().toUpperCase().indexOf(v.toUpperCase().replace(/"""/g, '"').replace(/"\\"/g, "\\")) >= 0) {
+                        // found another term
+                        found++;
+                    }
+                });
+                return found === args.length; // did we find all of them in this cell?
+            };
+        };
+    } else {
+        // build the pseudo selector for jQuery >= 1.8
+        $.expr[':'].filterTableFind = jQuery.expr.createPseudo(function (arg) {
+            return function (el) {
+                return $(el).text().toUpperCase().indexOf(arg.toUpperCase().replace(/"""/g, '"').replace(/"\\"/g, "\\")) >= 0;
+            };
+        });
+        $.expr[':'].filterTableFindAny = jQuery.expr.createPseudo(function (arg) {
+            // build an array of each non-falsey value passed
+            var raw_args = arg.split(/[\s,]/),
+                args = [];
+            $.each(raw_args, function (i, v) {
+                // trim the string
+                var t = v.replace(/^\s+|\s$/g, '');
+                if (t) {
+                    args.push(t);
+                }
+            });
+            // if there aren't any non-falsey values to search for, abort
+            if (!args.length) {
+                return false;
+            }
+            return function (el) {
+                var found = false;
+                $.each(args, function (i, v) {
+                    if ($(el).text().toUpperCase().indexOf(v.toUpperCase().replace(/"""/g, '"').replace(/"\\"/g, "\\")) >= 0) {
+                        found = true;
+                        // short-circuit the searching since this cell has one of the terms
+                        return false;
+                    }
+                });
+                return found;
+            };
+        });
+        $.expr[':'].filterTableFindAll = jQuery.expr.createPseudo(function (arg) {
+            // build an array of each non-falsey value passed
+            var raw_args = arg.split(/[\s,]/),
+                args = [];
+            $.each(raw_args, function (i, v) {
+                // trim the string
+                var t = v.replace(/^\s+|\s$/g, '');
+                if (t) {
+                    args.push(t);
+                }
+            });
+            // if there aren't any non-falsey values to search for, abort
+            if (!args.length) {
+                return false;
+            }
+            return function (el) {
+                // how many terms were found?
+                var found = 0;
+                $.each(args, function (i, v) {
+                    if ($(el).text().toUpperCase().indexOf(v.toUpperCase().replace(/"""/g, '"').replace(/"\\"/g, "\\")) >= 0) {
+                        // found another term
+                        found++;
+                    }
+                });
+                // did we find all of them in this cell?
+                return found === args.length;
+            };
+        });
+    }
+    // define the filterTable plugin
+    $.fn.filterTable = function (options) {
+        // start off with some default settings
+        var defaults = {
+                // make the filter input field autofocused (not recommended for accessibility)
+                autofocus: false,
+
+                // callback function: function (term, table){}
+                callback: null,
+
+                // class to apply to the container
+                containerClass: 'filter-table',
+
+                // tag name of the container
+                containerTag: 'p',
+
+                // jQuery expression method to use for filtering
+                filterExpression: 'filterTableFind',
+
+                // if true, the table's tfoot(s) will be hidden when the table is filtered
+                hideTFootOnFilter: false,
+
+                // class applied to cells containing the filter term
+                highlightClass: 'alt',
+
+                // don't filter the contents of cells with this class
+                ignoreClass: '',
+
+                // don't filter the contents of these columns
+                ignoreColumns: [],
+
+                // use the element with this selector for the filter input field instead of creating one
+                inputSelector: null,
+
+                // name of filter input field
+                inputName: '',
+
+                // tag name of the filter input tag
+                inputType: 'search',
+
+                // text to precede the filter input tag
+                label: 'Filter:',
+
+                // filter only when at least this number of characters are in the filter input field
+                minChars: 1,
+
+                // don't show the filter on tables with at least this number of rows
+                minRows: 8,
+
+                // HTML5 placeholder text for the filter field
+                placeholder: 'search this table',
+
+                // prevent the return key in the filter input field from trigger form submits
+                preventReturnKey: true,
+
+                // list of phrases to quick fill the search
+                quickList: [],
+
+                // class of each quick list item
+                quickListClass: 'quick',
+
+                // quick list item label to clear the filter (e.g., '&times; Clear filter')
+                quickListClear: '',
+
+                // tag surrounding quick list items (e.g., ul)
+                quickListGroupTag: '',
+
+                // tag type of each quick list item (e.g., a or li)
+                quickListTag: 'a',
+
+                // class applied to visible rows
+                visibleClass: 'visible'
+            },
+            // mimic PHP's htmlspecialchars() function
+            hsc = function (text) {
+                return text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            },
+            // merge the user's settings into the defaults
+            settings = $.extend({}, defaults, options);
+
+        // handle the actual table filtering
+        var doFiltering = function (table, q) {
+                // cache the tbody element
+                var tbody = table.find('tbody');
+                // if the filtering query is blank or the number of chars is less than the minChars option
+                if (q === '' || q.length < settings.minChars) {
+                    // show all rows
+                    tbody.find('tr').show().addClass(settings.visibleClass);
+                    // remove the row highlight from all cells
+                    tbody.find('td').removeClass(settings.highlightClass);
+                    // show footer if the setting was specified
+                    if (settings.hideTFootOnFilter) {
+                        table.find('tfoot').show();
+                    }
+                } else {
+                    // if the filter query is not blank
+                    var all_tds = tbody.find('td');
+                    // hide all rows, assuming none were found
+                    tbody.find('tr').hide().removeClass(settings.visibleClass);
+                    // remove previous highlights
+                    all_tds.removeClass(settings.highlightClass);
+                    // hide footer if the setting was specified
+                    if (settings.hideTFootOnFilter) {
+                        table.find('tfoot').hide();
+                    }
+                    if (settings.ignoreColumns.length) {
+                        var tds = [];
+                        if (settings.ignoreClass) {
+                            all_tds = all_tds.not('.' + settings.ignoreClass);
+                        }
+                        tds = all_tds.filter(':' + settings.filterExpression + '("' + q + '")');
+                        tds.each(function () {
+                            var t = $(this),
+                                col = t.parent().children().index(t);
+                            if ($.inArray(col, settings.ignoreColumns) === -1) {
+                                t.addClass(settings.highlightClass).closest('tr').show().addClass(settings.visibleClass);
+                            }
+                        });
+                    } else {
+                        if (settings.ignoreClass) {
+                            all_tds = all_tds.not('.' + settings.ignoreClass);
+                        }
+                        // highlight (class=alt) only the cells that match the query and show their rows
+                        all_tds.filter(':' + settings.filterExpression + '("' + q + '")').addClass(settings.highlightClass).closest('tr').show().addClass(settings.visibleClass);
+                    }
+                }
+                // call the callback function
+                if (settings.callback) {
+                    settings.callback(q, table);
+                }
+            }; // doFiltering()
+
+        return this.each(function () {
+            // cache the table
+            var t = $(this),
+                // cache the tbody
+                tbody = t.find('tbody'),
+                // placeholder for the filter field container DOM node
+                container = null,
+                // placeholder for the quick list items
+                quicks = null,
+                // placeholder for the field field DOM node
+                filter = null,
+                // was the filter created or chosen from an existing element?
+                created_filter = true;
+
+            // only if object is a table and there's a tbody and at least minRows trs and hasn't already had a filter added
+            if (t[0].nodeName === 'TABLE' && tbody.length > 0 && (settings.minRows === 0 || (settings.minRows > 0 && tbody.find('tr').length >= settings.minRows)) && !t.prev().hasClass(settings.containerClass)) {
+                // use a single existing field as the filter input field
+                if (settings.inputSelector && $(settings.inputSelector).length === 1) {
+                    filter = $(settings.inputSelector);
+                    // container to hold the quick list options
+                    container = filter.parent();
+                    created_filter = false;
+                } else {
+                    // create the filter input field (and container)
+                    // build the container tag for the filter field
+                    container = $('<' + settings.containerTag + ' />');
+                    // add any classes that need to be added
+                    if (settings.containerClass !== '') {
+                        container.addClass(settings.containerClass);
+                    }
+                    // add the label for the filter field
+                    container.prepend(settings.label + ' ');
+                    // build the filter field
+                    filter = $('<input type="' + settings.inputType + '" placeholder="' + settings.placeholder + '" name="' + settings.inputName + '" />');
+                    // prevent return in the filter field from submitting any forms
+                    if (settings.preventReturnKey) {
+                        filter.on('keydown', function (ev) {
+                            if ((ev.keyCode || ev.which) === 13) {
+                                ev.preventDefault();
+                                return false;
+                            }
+                        });
+                    }
+                }
+
+                // add the autofocus attribute if requested
+                if (settings.autofocus) {
+                    filter.attr('autofocus', true);
+                }
+
+                // does bindWithDelay() exist?
+                if ($.fn.bindWithDelay) {
+                    // bind doFiltering() to keyup (delayed)
+                    filter.bindWithDelay('keyup', function () {
+                        doFiltering(t, $(this).val());
+                    }, 200);
+                } else {
+                    // just bind to onKeyUp
+                    // bind doFiltering() to keyup
+                    filter.bind('keyup', function () {
+                        doFiltering(t, $(this).val());
+                    });
+                }
+
+                // bind doFiltering() to additional events
+                filter.bind('click search input paste blur', function () {
+                    doFiltering(t, $(this).val());
+                });
+
+                // add the filter field to the container if it was created by the plugin
+                if (created_filter) {
+                    container.append(filter);
+                }
+
+                // are there any quick list items to add?
+                if (settings.quickList.length > 0 || settings.quickListClear) {
+                    quicks = settings.quickListGroupTag ? $('<' + settings.quickListGroupTag + ' />') : container;
+                    // for each quick list item...
+                    $.each(settings.quickList, function (index, value) {
+                        // build the quick list item link
+                        var q = $('<' + settings.quickListTag + ' class="' + settings.quickListClass + '" />');
+                        // add the item's text
+                        q.text(hsc(value));
+                        if (q[0].nodeName === 'A') {
+                            // add a (worthless) href to the item if it's an anchor tag so that it gets the browser's link treatment
+                            q.attr('href', '#');
+                        }
+                        // bind the click event to it
+                        q.bind('click', function (e) {
+                            // stop the normal anchor tag behavior from happening
+                            e.preventDefault();
+                            // send the quick list value over to the filter field and trigger the event
+                            filter.val(value).focus().trigger('click');
+                        });
+                        // add the quick list link to the quick list groups container
+                        quicks.append(q);
+                    });
+
+                    // add the quick list clear item if a label has been specified
+                    if (settings.quickListClear) {
+                        // build the clear item
+                        var q = $('<' + settings.quickListTag + ' class="' + settings.quickListClass + '" />');
+                        // add the label text
+                        q.html(settings.quickListClear);
+                        if (q[0].nodeName === 'A') {
+                            // add a (worthless) href to the item if it's an anchor tag so that it gets the browser's link treatment
+                            q.attr('href', '#');
+                        }
+                        // bind the click event to it
+                        q.bind('click', function (e) {
+                            e.preventDefault();
+                            // clear the quick list value and trigger the event
+                            filter.val('').focus().trigger('click');
+                        });
+                        // add the clear item to the quick list groups container
+                        quicks.append(q);
+                    }
+
+                    // add the quick list groups container to the DOM if it isn't already there
+                    if (quicks !== container) {
+                        container.append(quicks);
+                    }
+                }
+
+                // add the filter field and quick list container to just before the table if it was created by the plugin
+                if (created_filter) {
+                    t.before(container);
+                }
+            }
+        }); // return this.each
+    }; // $.fn.filterTable
+})(jQuery);
+            </script>
+ <script>
+    $(document).ready(function() {
+        // apply filterTable to all tables on this page
+        $('table').filterTable({filterExpression: 'filterTableFindAny'});
+    });
+    </script>
+<style>
+</body>
+</html>

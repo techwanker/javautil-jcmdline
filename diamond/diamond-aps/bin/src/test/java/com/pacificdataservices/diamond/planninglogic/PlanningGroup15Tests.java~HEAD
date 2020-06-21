@@ -1,0 +1,153 @@
+package com.pacificdataservices.diamond.planninglogic;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+import org.javautil.core.misc.Timer;
+import org.junit.Before;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.pacificdataservices.diamond.planning.Allocator;
+import com.pacificdataservices.diamond.planning.EligibleSupplies;
+import com.pacificdataservices.diamond.planning.EligibleSupply;
+import com.pacificdataservices.diamond.planning.PlanningData;
+import com.pacificdataservices.diamond.planning.demand.Demand;
+import com.pacificdataservices.diamond.planning.marshall.PlanningDataMarshallable;
+import com.pacificdataservices.diamond.planning.services.SpringBootTests2;
+import com.pacificdataservices.diamond.planning.supply.Supply;
+
+public class PlanningGroup15Tests {
+	private final Logger logger = LoggerFactory.getLogger(getClass());
+
+	private PlanningData pd;
+
+	@Before
+	public void before() throws IOException, InstantiationException, IllegalAccessException, ParseException {
+	}
+
+	@Test
+	public void nothing() {
+		
+	}
+	// TOOD it runs, now to test results
+	//@Test
+	public void testPlanningEngine() throws IOException {
+
+		final String planDataJson = SpringBootTests2.planGroup15DataFile;
+		pd = PlanningDataMarshallable.planningDataFromFile(new File(SpringBootTests2.planGroup15DataFile));
+		assertEquals(7, pd.getApsAvailOnhands().size());
+		assertEquals(2, pd.getIcItemMasts().size());
+		Timer t = new Timer();
+		int loopCount = 1;
+		long minEla = Long.MAX_VALUE;
+		for (int i = 0; i < loopCount; i++) {
+		    Timer innerTimer = new Timer();	
+			testPlanningData(pd);
+			testDemandPrioritizer();
+			testEligibleSupplies();
+			testSupplyPrioritizer();
+			testAllocator(pd);
+			long innerEla = innerTimer.getElapsedMicros();
+			if (innerEla < minEla) {
+				minEla = innerEla;
+			}
+		}
+		long ela = t.getElapsedMicros();
+		logger.info(" micros: {} for {} loops {} micros/loop minimum {}", ela, loopCount, ela / loopCount,
+				minEla);
+	}
+
+	private void testPlanningData(PlanningData pd) {
+		if (pd == null) {
+			throw new IllegalArgumentException("pd is null");
+		}
+		ArrayList<String> messages = pd.checkIntegrity();
+
+		for (String message : messages) {
+			logger.error("--------------> {}", message);
+		}
+		assertEquals(0, messages.size()); // all of the selects are semantically correct
+		assertEquals(5, pd.getDemandCustomers().size());
+		assertEquals(5, pd.getDemandCustomerById().size());
+		// TODO more check input data
+	}
+
+	private void testDemandPrioritizer() {
+		Allocator allocator = new Allocator(pd);
+		int demandsSize = pd.getDemands().size();
+		allocator.prioritizeDemands();
+		TreeMap<String, Demand> prioritized = pd.getPrioritizedDemands();
+		assertEquals(53, prioritized.size());
+		assertEquals(demandsSize, prioritized.size());
+		StringBuilder sb = new StringBuilder();
+		sb.append("prioritized demands\n");
+		for (Entry<String, Demand> entry : prioritized.entrySet()) {
+			sb.append(String.format("priority: '%s' value: %s\n", entry.getKey(), entry.getValue()));
+		}
+		logger.debug(sb.toString());
+		// Ensure DemandPrioritizer is working
+		Entry<String, Demand> firstEntry = prioritized.ceilingEntry("");
+		assertEquals("TYPE:-2-OO-LEADTIME:1-DMDPRTY:0020-NEEDBY:2008-06-17-1DMDCD:REG-292228-00001",
+				firstEntry.getKey());
+	}
+
+	private void testSupplyPrioritizer() {
+		Timer t = new Timer();
+		Allocator allocator = new Allocator(pd);
+		TreeMap<String, Demand> prioritized = pd.getPrioritizedDemands();
+		Entry<String, Demand> firstEntry = prioritized.ceilingEntry("");
+		assertEquals("TYPE:-2-OO-LEADTIME:1-DMDPRTY:0020-NEEDBY:2008-06-17-1DMDCD:REG-292228-00001",
+				firstEntry.getKey());
+		Demand demand = firstEntry.getValue();
+		assertEquals(7, pd.getApsAvailOnhands().size());
+		TreeMap<String, EligibleSupply> eligible = demand.getEligibleSuppliesByPriority();
+		if (logger.isDebugEnabled()) {
+			logger.debug(demand.getPrioritizedSuppliesFormatted());
+		}
+		logger.info("testSupplyPrioritizer {} micros", t.getElapsedMicros());
+	}
+
+	private void testEligibleSupplies() {
+		Timer t = new Timer();
+		Allocator allocator = new Allocator(pd);
+		allocator.associateEligibleSupplies();
+		TreeMap<String, Demand> prioritized = pd.getPrioritizedDemands();
+		Collection<Supply> supplies = pd.getSupplies();
+		assertEquals(11, supplies.size());
+		Entry<String, Demand> firstEntry = prioritized.ceilingEntry("");
+		Demand dmd = firstEntry.getValue();
+		allocator.associateEligibleSupplies();
+		EligibleSupplies eligible = dmd.getEligibleSupplies();
+		assertEquals(7, eligible.size());
+		logger.info("testEligibleSupplies {} micros", t.getElapsedMicros());
+	}
+
+	private void testAllocator(PlanningData pd) {
+		Allocator allocator = new Allocator(pd);
+		allocator.allocate();
+	}
+
+	// @Test
+	// public void testTwoItems() {
+	// long testStart = System.nanoTime(); // should be nanos
+	// HashSet<Integer> itemNbrs = new HashSet();
+	// itemNbrs.add(98565);
+	//
+	// PlanningData pd = planningEngine.planItem(itemNbrs);
+	// assertNotNull(pd.getAllocations(AllocationMode.FIRST_PASS));
+	//
+	// long testEnd = System.nanoTime();
+	// long millis = (testEnd - testStart) / MILLION;
+	// logger.info(" millis: " + millis);
+	// }
+
+}

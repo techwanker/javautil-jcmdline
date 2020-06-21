@@ -1,0 +1,26 @@
+<h2>Pipeline with allocations variable precision</h2>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="1"></th>
+				<th width="10" align="right" *ngFor="let nm of pipeline.bucketNames">{{nm}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th align="center" colspan="99" >Supply</th>
+			</tr>
+			<tr *ngFor="let line of pipeline.supplyLines">
+				<th nowrap>{{line.identifiers[1]}}</th>
+				<td align="right" *ngFor="let v of line.values">{{v | NullIfZero | number : unitMeasurePrecision}}</td>
+			</tr>
+			<tr>
+				<th colspan="99" >Demand</th>
+			</tr>
+			<tr *ngFor="let line of pipeline.demandLines">
+				<th nowrap>{{line.identifiers[1]}}</th>
+				<!-- TODO should figure out precision based on unit of measure in icItemMast -->
+				<td align="right" *ngFor="let v of line.values">{{v | NullIfZero | number : unitMeasurePrecision}}</td>
+			</tr>
+		</tbody>
+	</table>

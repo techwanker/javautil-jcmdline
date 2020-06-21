@@ -1,0 +1,31 @@
+<h2 id="icItemMasts">Item Masters</h2>
+	<table>
+		<thead>
+			<tr>
+				<th align="center">Demand?</th>
+				<th align="center">Supply?</th>
+				<th>Item cd</th>
+				<th>Description</th>
+				<th>Stock U/M</th>
+				<th>Lead Time (Days)</th>
+			</tr>
+			<tr>
+				<th align="center"><input type="checkbox" /></th>
+				<th align="center"><input type="checkbox" /></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let r of icItemMasts">
+				<td align="center"><input type="checkbox" /></td>
+				<td align="center"><input type="checkbox" /></td>
+				<td>{{r.itemCd}}</td>
+				<td>{{r.itemDescr}}</td>
+				<td>{{r.stkUm}}</td>
+				<td align="right">{{r.leadTmDy}}</td>
+			</tr>
+		</tbody>
+	</table>

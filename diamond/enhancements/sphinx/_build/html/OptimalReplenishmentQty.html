@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Optimal Replenishment Quantity &#8212; Diamond Enhancement Requests 19.11 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Delivery Location" href="DeliveryLocation.html" />
+    <link rel="prev" title="Item Statistics" href="IcItemStat.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="optimal-replenishment-quantity">
+<h1>Optimal Replenishment Quantity<a class="headerlink" href="#optimal-replenishment-quantity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Optimal Replenishment Quantity has two contradictory goals</p>
+<ul class="simple">
+<li><p>Larger replenishment quantities may reduce cost per unit if the item is manufactured on</p></li>
+</ul>
+<p>demand due to the setup cost being apportioned over a smaller number of units.  However,
+popular items may be continually produced by a manufacturer or produced in sufficient
+quantities to TODO ameliorate or minimize this.</p>
+<p>Larger replenishment quantities reduce safety stock requirements as variations in demand
+may be satisfied by working inventory.</p>
+<p>Larger replenishment quantities reduce inventory turns.  Inventory turns are defined as
+average months supply on hand   / (average monthly consumption * 12).</p>
+<p>Higher replenishment quantities may negatively effect cash flow.  If inventory can
+be acquired on consignment or larger purchase quantities can be scheduled over several
+months with minimal additional per unit cost this effect can be mitigated.  Vendor
+negotiations are required to achieve either objective, vendor incentive may be a commitment
+to buy a larger number of parts.</p>
+<p>Not to be dismissed lightly is the strange pricing as a part is quoted as a different
+part number and a vendor willingness to issue a certificate of compliance for the
+equivalent part or customer willingness to accept an alternate part number.</p>
+<p>Ignorance of equivalent part numbers is common in the industry.</p>
+<p>Although part numbers are specified in engineering drawings vendors and customers may
+give different names, including varying use of dashes.  This is addressed in Diamond and
+is called <em>nomenclature</em>.  Prior deployments have had in excess of one million alternate
+names for various parts.  Acquiring this data may be labor intensive with benefits for
+Pareto part class (“ABC_CODE”) of class “A”, the top 20 percent of items based on annual
+sales currency.</p>
+<p>Let us assume in the interest of simplification a scenario that ignores Approved Manufacturer
+constraints, lead times and cash-flow mitigation strategies, such as</p>
+</div>
+<div class="section" id="optimal-cash-flow">
+<h2>Optimal Cash Flow<a class="headerlink" href="#optimal-cash-flow" title="Permalink to this headline">¶</a></h2>
+<p>Approaches</p>
+<p>Consignment inventory
+Scheduled Delivery</p>
+</div>
+<div class="section" id="stock-outs">
+<h2>Stock outs<a class="headerlink" href="#stock-outs" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="lowest-cost">
+<h2>Lowest cost<a class="headerlink" href="#lowest-cost" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="compute-optimal-replenishment">
+<h2>Compute Optimal Replenishment<a class="headerlink" href="#compute-optimal-replenishment" title="Permalink to this headline">¶</a></h2>
+<p>UC = Unit Cost  : Setup Cost / unit qty + incremental cost</p>
+<p>Replenishment Cost = Unit Cost * Unit Qty
+AMC Average Monthly Consumption
+AMOH : Average Monthly Onhand  Replen Qty - sum AMC for i (1 : n) &lt; Replen Qt
+Replen Qty
+Carrying cost = AMOH * COF
+COF : Cost of Funds
+Receiving Cost:  Cost to place a purchase order line, receive, putaway and pay an AP line
+Risk of Obsolescence :  Fewer customers increases risk amonth other factors, varies over time</p>
+<p>Compusting optimal replenishent quantity is straight forward math at this point.</p>
+<p>Throw in a maximum outstanding value of new inventory accross ABC Codes and there are judgment calls required.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Diamond Enhancement Requests</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="IcItemStat.html">Item Statistics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Optimal Replenishment Quantity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimal-cash-flow">Optimal Cash Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stock-outs">Stock outs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lowest-cost">Lowest cost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-optimal-replenishment">Compute Optimal Replenishment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DeliveryLocation.html">Delivery Location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LeadTimeByVendor.html">Lead Time By Vendor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dataload.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Issues.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology.html">Technology</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="IcItemStat.html" title="previous chapter">Item Statistics</a></li>
+      <li>Next: <a href="DeliveryLocation.html" title="next chapter">Delivery Location</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/OptimalReplenishmentQty.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

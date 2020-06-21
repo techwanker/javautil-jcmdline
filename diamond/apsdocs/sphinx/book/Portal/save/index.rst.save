@@ -1,0 +1,38 @@
+Portal
+======
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+
+   Portal-Functionality 
+   Portal-part 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+
+   ABC/ABC-Code-Discussion
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+   MultipleLeadTime/source/index 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+   Requisition-Review-Board 
+   Requisitions/Create-Requisition 
+
+
+   Service-Level-Agreements 
+   Vendor-Quotes
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

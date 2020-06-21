@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Diamond APS</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Indices and tables</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Business Process Improvement : 2019-12-18 Meeting notes</text>
+      </navLabel>
+      <content src="Introduction/2019-12-18-Meeting-notes.xhtml" />  
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>Business Process Improvement : 2019-12-18 Meeting notes</text>
+        </navLabel>
+        <content src="Introduction/2019-12-18-Meeting-notes.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>Business Process Improvement : 2019-12-18 Meeting notes</text>
+        </navLabel>
+        <content src="Introduction/2019-12-18-Meeting-notes.xhtml#id1" />  
+        <navPoint id="navPoint5" playOrder="3">
+          <navLabel>
+            <text>Business Process Improvement : 2019-12-18 Meeting notes</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint6" playOrder="4">
+          <navLabel>
+            <text>Date</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#date" />  
+        </navPoint>
+        <navPoint id="navPoint7" playOrder="5">
+          <navLabel>
+            <text>Participants</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#participants" />  
+        </navPoint>
+        <navPoint id="navPoint8" playOrder="6">
+          <navLabel>
+            <text>Goals</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#goals" />  
+        </navPoint>
+        <navPoint id="navPoint9" playOrder="7">
+          <navLabel>
+            <text>Discussion topics</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#discussion-topics" />  
+        </navPoint>
+        <navPoint id="navPoint10" playOrder="8">
+          <navLabel>
+            <text>Action items</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#action-items" />  
+        </navPoint>
+        <navPoint id="navPoint11" playOrder="9">
+          <navLabel>
+            <text>Decisions</text>
+          </navLabel>
+          <content src="Introduction/2019-12-18-Meeting-notes.xhtml#decisions" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint12" playOrder="10">
+      <navLabel>
+        <text>Business Process Improvement : Introductory Meeting</text>
+      </navLabel>
+      <content src="Introduction/Introductory-Meeting.xhtml" />  
+      <navPoint id="navPoint13" playOrder="10">
+        <navLabel>
+          <text>Business Process Improvement : Introductory Meeting</text>
+        </navLabel>
+        <content src="Introduction/Introductory-Meeting.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint14" playOrder="11">
+        <navLabel>
+          <text>Business Process Improvement : Introductory Meeting</text>
+        </navLabel>
+        <content src="Introduction/Introductory-Meeting.xhtml#id1" />  
+        <navPoint id="navPoint15" playOrder="11">
+          <navLabel>
+            <text>Business Process Improvement : Introductory Meeting</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint16" playOrder="12">
+          <navLabel>
+            <text>Date</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#date" />  
+        </navPoint>
+        <navPoint id="navPoint17" playOrder="13">
+          <navLabel>
+            <text>Participants</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#participants" />  
+        </navPoint>
+        <navPoint id="navPoint18" playOrder="14">
+          <navLabel>
+            <text>Discussion topics</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#discussion-topics" />  
+        </navPoint>
+        <navPoint id="navPoint19" playOrder="15">
+          <navLabel>
+            <text>Action items</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#action-items" />  
+        </navPoint>
+        <navPoint id="navPoint20" playOrder="16">
+          <navLabel>
+            <text>Decisions</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#decisions" />  
+        </navPoint>
+        <navPoint id="navPoint21" playOrder="17">
+          <navLabel>
+            <text>Participants</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint22" playOrder="18">
+          <navLabel>
+            <text>Notes</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#notes" />  
+        </navPoint>
+        <navPoint id="navPoint23" playOrder="19">
+          <navLabel>
+            <text>Next steps</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#next-steps" />  
+        </navPoint>
+        <navPoint id="navPoint24" playOrder="20">
+          <navLabel>
+            <text>Follow-up</text>
+          </navLabel>
+          <content src="Introduction/Introductory-Meeting.xhtml#follow-up" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint25" playOrder="21">
+      <navLabel>
+        <text>Business Process Improvement : Meeting notes</text>
+      </navLabel>
+      <content src="Introduction/Meeting-notes.xhtml" />  
+      <navPoint id="navPoint26" playOrder="21">
+        <navLabel>
+          <text>Business Process Improvement : Meeting notes</text>
+        </navLabel>
+        <content src="Introduction/Meeting-notes.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint27" playOrder="22">
+        <navLabel>
+          <text>Business Process Improvement : Meeting notes</text>
+        </navLabel>
+        <content src="Introduction/Meeting-notes.xhtml#id1" />  
+        <navPoint id="navPoint28" playOrder="22">
+          <navLabel>
+            <text>Business Process Improvement : Meeting notes</text>
+          </navLabel>
+          <content src="Introduction/Meeting-notes.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint29" playOrder="23">
+          <navLabel>
+            <text>Incomplete tasks from meetings</text>
+          </navLabel>
+          <content src="Introduction/Meeting-notes.xhtml#incomplete-tasks-from-meetings" />  
+        </navPoint>
+        <navPoint id="navPoint30" playOrder="24">
+          <navLabel>
+            <text>Task report</text>
+          </navLabel>
+          <content src="Introduction/Meeting-notes.xhtml#task-report" />  
+        </navPoint>
+        <navPoint id="navPoint31" playOrder="25">
+          <navLabel>
+            <text>All meeting notes</text>
+          </navLabel>
+          <content src="Introduction/Meeting-notes.xhtml#all-meeting-notes" />  
+        </navPoint>
+        <navPoint id="navPoint32" playOrder="26">
+          <navLabel>
+            <text>Meeting notes</text>
+          </navLabel>
+          <content src="Introduction/Meeting-notes.xhtml#meeting-notes" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint33" playOrder="27">
+      <navLabel>
+        <text>Business Process Improvement : Product Launch</text>
+      </navLabel>
+      <content src="Introduction/Product-Launch.xhtml" />  
+      <navPoint id="navPoint34" playOrder="27">
+        <navLabel>
+          <text>Business Process Improvement : Product Launch</text>
+        </navLabel>
+        <content src="Introduction/Product-Launch.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="28">
+        <navLabel>
+          <text>Business Process Improvement : Product Launch</text>
+        </navLabel>
+        <content src="Introduction/Product-Launch.xhtml#id1" />  
+        <navPoint id="navPoint36" playOrder="28">
+          <navLabel>
+            <text>Business Process Improvement : Product Launch</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint37" playOrder="29">
+          <navLabel>
+            <text>Objective</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#objective" />  
+        </navPoint>
+        <navPoint id="navPoint38" playOrder="30">
+          <navLabel>
+            <text>Market Research</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#market-research" />  
+        </navPoint>
+        <navPoint id="navPoint39" playOrder="31">
+          <navLabel>
+            <text>Competitive Analysis</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#competitive-analysis" />  
+        </navPoint>
+        <navPoint id="navPoint40" playOrder="32">
+          <navLabel>
+            <text>Success metrics</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#success-metrics" />  
+        </navPoint>
+        <navPoint id="navPoint41" playOrder="33">
+          <navLabel>
+            <text>Target Personas</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#target-personas" />  
+        </navPoint>
+        <navPoint id="navPoint42" playOrder="34">
+          <navLabel>
+            <text>Messaging &amp; positioning</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#messaging-positioning" />  
+        </navPoint>
+        <navPoint id="navPoint43" playOrder="35">
+          <navLabel>
+            <text>Pricing</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#pricing" />  
+        </navPoint>
+        <navPoint id="navPoint44" playOrder="36">
+          <navLabel>
+            <text>Product release roadmap</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#product-release-roadmap" />  
+        </navPoint>
+        <navPoint id="navPoint45" playOrder="37">
+          <navLabel>
+            <text>Distribution channels &amp; launch activities</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#distribution-channels-launch-activities" />  
+        </navPoint>
+        <navPoint id="navPoint46" playOrder="38">
+          <navLabel>
+            <text>Support plan</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#support-plan" />  
+        </navPoint>
+        <navPoint id="navPoint47" playOrder="39">
+          <navLabel>
+            <text>Reference materials</text>
+          </navLabel>
+          <content src="Introduction/Product-Launch.xhtml#reference-materials" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint48" playOrder="40">
+      <navLabel>
+        <text>Business Process Improvement : Project Overview</text>
+      </navLabel>
+      <content src="Introduction/Project-Overview.xhtml" />  
+      <navPoint id="navPoint49" playOrder="40">
+        <navLabel>
+          <text>Business Process Improvement : Project Overview</text>
+        </navLabel>
+        <content src="Introduction/Project-Overview.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint50" playOrder="41">
+        <navLabel>
+          <text>Business Process Improvement : Project Overview</text>
+        </navLabel>
+        <content src="Introduction/Project-Overview.xhtml#id1" />  
+        <navPoint id="navPoint51" playOrder="41">
+          <navLabel>
+            <text>Business Process Improvement : Project Overview</text>
+          </navLabel>
+          <content src="Introduction/Project-Overview.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint52" playOrder="42">
+          <navLabel>
+            <text>Problem Statement</text>
+          </navLabel>
+          <content src="Introduction/Project-Overview.xhtml#problem-statement" />  
+        </navPoint>
+        <navPoint id="navPoint53" playOrder="43">
+          <navLabel>
+            <text>Scope</text>
+          </navLabel>
+          <content src="Introduction/Project-Overview.xhtml#scope" />  
+        </navPoint>
+        <navPoint id="navPoint54" playOrder="44">
+          <navLabel>
+            <text>Timeline</text>
+          </navLabel>
+          <content src="Introduction/Project-Overview.xhtml#timeline" />  
+        </navPoint>
+        <navPoint id="navPoint55" playOrder="45">
+          <navLabel>
+            <text>Milestones and deadlines</text>
+          </navLabel>
+          <content src="Introduction/Project-Overview.xhtml#milestones-and-deadlines" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint56" playOrder="46">
+      <navLabel>
+        <text>Business Process Improvement : 2019-12-17 Meeting notes</text>
+      </navLabel>
+      <content src="Introduction/2019-12-17-Meeting-notes.xhtml" />  
+      <navPoint id="navPoint57" playOrder="46">
+        <navLabel>
+          <text>Business Process Improvement : 2019-12-17 Meeting notes</text>
+        </navLabel>
+        <content src="Introduction/2019-12-17-Meeting-notes.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint58" playOrder="47">
+        <navLabel>
+          <text>Business Process Improvement : 2019-12-17 Meeting notes</text>
+        </navLabel>
+        <content src="Introduction/2019-12-17-Meeting-notes.xhtml#id1" />  
+        <navPoint id="navPoint59" playOrder="47">
+          <navLabel>
+            <text>Business Process Improvement : 2019-12-17 Meeting notes</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint60" playOrder="48">
+          <navLabel>
+            <text>Date</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#date" />  
+        </navPoint>
+        <navPoint id="navPoint61" playOrder="49">
+          <navLabel>
+            <text>Participants</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#participants" />  
+        </navPoint>
+        <navPoint id="navPoint62" playOrder="50">
+          <navLabel>
+            <text>Goals</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#goals" />  
+        </navPoint>
+        <navPoint id="navPoint63" playOrder="51">
+          <navLabel>
+            <text>Discussion topics</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#discussion-topics" />  
+        </navPoint>
+        <navPoint id="navPoint64" playOrder="52">
+          <navLabel>
+            <text>Action items</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#action-items" />  
+        </navPoint>
+        <navPoint id="navPoint65" playOrder="53">
+          <navLabel>
+            <text>Decisions</text>
+          </navLabel>
+          <content src="Introduction/2019-12-17-Meeting-notes.xhtml#decisions" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint66" playOrder="54">
+      <navLabel>
+        <text>Business Process Improvement : ABC - Pareto</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Pareto.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint67" playOrder="55">
+      <navLabel>
+        <text>Item Statistics</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Pareto.xhtml#item-statistics" />  
+      <navPoint id="navPoint68" playOrder="55">
+        <navLabel>
+          <text>Item Statistics</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Pareto.xhtml#item-statistics" />  
+      </navPoint>
+      <navPoint id="navPoint69" playOrder="56">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Pareto.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint70" playOrder="57">
+        <navLabel>
+          <text>Definition</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Pareto.xhtml#definition" />  
+      </navPoint>
+      <navPoint id="navPoint71" playOrder="58">
+        <navLabel>
+          <text>Purpose</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Pareto.xhtml#purpose" />  
+      </navPoint>
+      <navPoint id="navPoint72" playOrder="59">
+        <navLabel>
+          <text>Item Statistics Fields</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Pareto.xhtml#item-statistics-fields" />  
+        <navPoint id="navPoint73" playOrder="59">
+          <navLabel>
+            <text>Item Statistics Fields</text>
+          </navLabel>
+          <content src="Portal/ABC/ABC-Pareto.xhtml#item-statistics-fields" />  
+        </navPoint>
+        <navPoint id="navPoint74" playOrder="60">
+          <navLabel>
+            <text>ABCSLSPC ABC Sales Percent</text>
+          </navLabel>
+          <content src="Portal/ABC/ABC-Pareto.xhtml#abcslspc-abc-sales-percent" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint75" playOrder="61">
+        <navLabel>
+          <text>Approach</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Pareto.xhtml#approach" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint76" playOrder="62">
+      <navLabel>
+        <text>Objective</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint77" playOrder="63">
+      <navLabel>
+        <text>Success metrics</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#success-metrics" />  
+    </navPoint>
+    <navPoint id="navPoint78" playOrder="64">
+      <navLabel>
+        <text>Assumptions</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#assumptions" />  
+    </navPoint>
+    <navPoint id="navPoint79" playOrder="65">
+      <navLabel>
+        <text>Milestones</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#milestones" />  
+    </navPoint>
+    <navPoint id="navPoint80" playOrder="66">
+      <navLabel>
+        <text>User interaction and design</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#user-interaction-and-design" />  
+    </navPoint>
+    <navPoint id="navPoint81" playOrder="67">
+      <navLabel>
+        <text>Open Questions</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#open-questions" />  
+    </navPoint>
+    <navPoint id="navPoint82" playOrder="68">
+      <navLabel>
+        <text>Out of Scope</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#out-of-scope" />  
+      <navPoint id="navPoint83" playOrder="68">
+        <navLabel>
+          <text>Out of Scope</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Code-Discussion.xhtml#out-of-scope" />  
+      </navPoint>
+      <navPoint id="navPoint84" playOrder="69">
+        <navLabel>
+          <text>Item Statistics</text>
+        </navLabel>
+        <content src="Portal/ABC/ABC-Code-Discussion.xhtml#item-statistics" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint85" playOrder="70">
+      <navLabel>
+        <text>Overview</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#overview" />  
+    </navPoint>
+    <navPoint id="navPoint86" playOrder="71">
+      <navLabel>
+        <text>Definition</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#definition" />  
+    </navPoint>
+    <navPoint id="navPoint87" playOrder="72">
+      <navLabel>
+        <text>Approach</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#approach" />  
+    </navPoint>
+    <navPoint id="navPoint88" playOrder="73">
+      <navLabel>
+        <text>Purpose</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#purpose" />  
+    </navPoint>
+    <navPoint id="navPoint89" playOrder="74">
+      <navLabel>
+        <text>Addititional Fields</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#addititional-fields" />  
+    </navPoint>
+    <navPoint id="navPoint90" playOrder="75">
+      <navLabel>
+        <text>Modify web page template</text>
+      </navLabel>
+      <content src="Portal/ABC/ABC-Code-Discussion.xhtml#modify-web-page-template" />  
+    </navPoint>
+    <navPoint id="navPoint91" playOrder="76">
+      <navLabel>
+        <text>Welcome to Multiple Lead Times’s documentation!</text>
+      </navLabel>
+      <content src="Portal/MultipleLeadTime/source/index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint92" playOrder="77">
+      <navLabel>
+        <text>Indices and tables</text>
+      </navLabel>
+      <content src="Portal/MultipleLeadTime/source/index.xhtml#indices-and-tables" />  
+    </navPoint>
+    <navPoint id="navPoint93" playOrder="78">
+      <navLabel>
+        <text>Business Process Improvement : Purchasing</text>
+      </navLabel>
+      <content src="Portal/Purchasing.xhtml" />  
+      <navPoint id="navPoint94" playOrder="78">
+        <navLabel>
+          <text>Business Process Improvement : Purchasing</text>
+        </navLabel>
+        <content src="Portal/Purchasing.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint95" playOrder="79">
+        <navLabel>
+          <text>Business Process Improvement : Purchasing</text>
+        </navLabel>
+        <content src="Portal/Purchasing.xhtml#id1" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint96" playOrder="80">
+      <navLabel>
+        <text>Business Process Improvement : Requisition Review Board</text>
+      </navLabel>
+      <content src="Portal/Requisition-Review-Board.xhtml" />  
+      <navPoint id="navPoint97" playOrder="80">
+        <navLabel>
+          <text>Business Process Improvement : Requisition Review Board</text>
+        </navLabel>
+        <content src="Portal/Requisition-Review-Board.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint98" playOrder="81">
+        <navLabel>
+          <text>Business Process Improvement : Requisition Review Board</text>
+        </navLabel>
+        <content src="Portal/Requisition-Review-Board.xhtml#id1" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint99" playOrder="82">
+      <navLabel>
+        <text>Business Process Improvement : Create Requisition</text>
+      </navLabel>
+      <content src="Portal/Requisitions/Create-Requisition.xhtml" />  
+      <navPoint id="navPoint100" playOrder="82">
+        <navLabel>
+          <text>Business Process Improvement : Create Requisition</text>
+        </navLabel>
+        <content src="Portal/Requisitions/Create-Requisition.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint101" playOrder="83">
+        <navLabel>
+          <text>Business Process Improvement : Create Requisition</text>
+        </navLabel>
+        <content src="Portal/Requisitions/Create-Requisition.xhtml#id1" />  
+        <navPoint id="navPoint102" playOrder="83">
+          <navLabel>
+            <text>Business Process Improvement : Create Requisition</text>
+          </navLabel>
+          <content src="Portal/Requisitions/Create-Requisition.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint103" playOrder="84">
+          <navLabel>
+            <text>Instructions</text>
+          </navLabel>
+          <content src="Portal/Requisitions/Create-Requisition.xhtml#instructions" />  
+        </navPoint>
+        <navPoint id="navPoint104" playOrder="85">
+          <navLabel>
+            <text>Sequence Diagram</text>
+          </navLabel>
+          <content src="Portal/Requisitions/Create-Requisition.xhtml#sequence-diagram" />  
+        </navPoint>
+        <navPoint id="navPoint105" playOrder="86">
+          <navLabel>
+            <text>Related articles</text>
+          </navLabel>
+          <content src="Portal/Requisitions/Create-Requisition.xhtml#related-articles" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint106" playOrder="87">
+      <navLabel>
+        <text>Business Process Improvement : Service Level Agreements</text>
+      </navLabel>
+      <content src="Portal/Service-Level-Agreements.xhtml" />  
+      <navPoint id="navPoint107" playOrder="87">
+        <navLabel>
+          <text>Business Process Improvement : Service Level Agreements</text>
+        </navLabel>
+        <content src="Portal/Service-Level-Agreements.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint108" playOrder="88">
+        <navLabel>
+          <text>Business Process Improvement : Service Level Agreements</text>
+        </navLabel>
+        <content src="Portal/Service-Level-Agreements.xhtml#id1" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint109" playOrder="89">
+      <navLabel>
+        <text>Business Process Improvement : Vendor Quotes</text>
+      </navLabel>
+      <content src="Portal/Vendor-Quotes.xhtml" />  
+      <navPoint id="navPoint110" playOrder="89">
+        <navLabel>
+          <text>Business Process Improvement : Vendor Quotes</text>
+        </navLabel>
+        <content src="Portal/Vendor-Quotes.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint111" playOrder="90">
+        <navLabel>
+          <text>Business Process Improvement : Vendor Quotes</text>
+        </navLabel>
+        <content src="Portal/Vendor-Quotes.xhtml#id1" />  
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

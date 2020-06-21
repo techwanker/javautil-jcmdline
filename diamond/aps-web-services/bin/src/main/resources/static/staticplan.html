@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Diamond APS - Part ${partCd}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="js/jquery.min.js"></script>
+<script src="js/jput.min.js"></script>
+<style src="css/w3.css"></style>
+</head>
+
+<body>
+	<div id="icItemMasts">
+		<h2>Item Masters</h2>
+		<!--  https://plugins.jquery.com/jput/ -->
+		<table jput="t_template">
+			<tbody jput="tbody_template">
+				<tr>
+					<td>{{itemCd}}</td>
+					<td>{{itemDescr}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Item Code</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+
+			<tbody id="icItemMastsTbody">
+			</tbody>
+		</table>
+
+		<script>
+			$(document).ready(function() {
+				$("#icItemMastsTbody").jPut({
+					ajax_url : 'staticplan.json',
+					name : "tbody_template",
+				});
+			});
+		</script>
+	</div>
+</body>
+</html>

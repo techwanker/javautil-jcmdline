@@ -1,0 +1,8 @@
+@startuml
+participant legacy
+participant diamond
+participant portal
+participant review_team
+participant legacy
+participant clerk
+@enduml

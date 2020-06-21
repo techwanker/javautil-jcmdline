@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Components and Services &#8212; Diamond APS 2019-12-14-03 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="components-and-services">
+<h1>Components and Services<a class="headerlink" href="#components-and-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="planning-machine">
+<h2>Planning Machine<a class="headerlink" href="#planning-machine" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Planning Machine</strong> is the high level component that creates and manages all other components.</p>
+<div class="section" id="populate-planning-data">
+<h3>Populate Planning Data<a class="headerlink" href="#populate-planning-data" title="Permalink to this headline">¶</a></h3>
+<p>Populates the request queue for all parts with supply or demand.</p>
+<p>May invoke <span class="xref std std-ref">_ComponentsAndServices_PlanningGrouper</span></p>
+</div>
+</div>
+<div class="section" id="planning-grouper">
+<span id="componentsandservices-planninggrouper"></span><h2>Planning Grouper<a class="headerlink" href="#planning-grouper" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Planning Grouper</strong> creates planning groups, items that must be planned simultaneously due
+to the fact that these parts are</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>equivalent</dt><dd><p>If one part can be certified to be another part, they are equivalent, but this is not necessarily
+bi-directional. That is part-a may be certifiable to be a part-b but part-b may not necessarily
+be certifiable to be a part-a</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>substitutes</dt><dd><ul>
+<li><p>customer substitutes</p></li>
+<li><p>global substitutes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="dispatcher">
+<h2>Dispatcher<a class="headerlink" href="#dispatcher" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The <strong>dispatcher</strong> returns a list of items that comprise a planning group.  The dispatcher may      create a planning engine or be invoked from a planning engine.</p>
+</div></blockquote>
+</div>
+<div class="section" id="planning-engine">
+<h2>Planning Engine<a class="headerlink" href="#planning-engine" title="Permalink to this headline">¶</a></h2>
+<p>A Planning Engine generates allocations, which are associations of
+demand and supply</p>
+<div class="section" id="get-items-to-plan">
+<h3>Get Items to Plan<a class="headerlink" href="#get-items-to-plan" title="Permalink to this headline">¶</a></h3>
+<p>May be in a planning group, but retrieving items that are not is also a
+lot faster.</p>
+</div>
+<div class="section" id="plan-phases">
+<h3>Plan Phases<a class="headerlink" href="#plan-phases" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="preserve-allocations">
+<h4>Preserve Allocations<a class="headerlink" href="#preserve-allocations" title="Permalink to this headline">¶</a></h4>
+<p>Allocations that are in pick may not be updated.</p>
+<p>Bound allocations must be preserved.</p>
+</div>
+<div class="section" id="first-pass">
+<h4>First Pass<a class="headerlink" href="#first-pass" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="plan-demands-within-lead-time">
+<h5>Plan Demands within Lead Time<a class="headerlink" href="#plan-demands-within-lead-time" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">allocate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">clear</span><span class="p">();</span>
+        <span class="n">isDemandsByCustomerValid</span> <span class="o">-</span> <span class="n">false</span><span class="p">;</span>
+        <span class="n">demandsByCustomer</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">setPreviousAllocations</span><span class="p">();</span>
+        <span class="n">restoreOnhandPickAllocations</span><span class="p">();</span>
+        <span class="n">restoreBoundAllocations</span><span class="p">();</span>
+        <span class="n">firstPass</span><span class="p">();</span>
+
+        <span class="n">computeCustomerSupply</span><span class="p">();</span>
+        <span class="n">demandS</span><span class="o">.</span><span class="n">setCustomerEligibleSupplies</span><span class="p">();</span>
+        <span class="n">customerPrioritized</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">requestToOverShip</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">overship</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prioritize-demands">
+<h2>Prioritize Demands<a class="headerlink" href="#prioritize-demands" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="filter-supply">
+<h2>Filter Supply<a class="headerlink" href="#filter-supply" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="prioritize-supply">
+<h2>Prioritize Supply<a class="headerlink" href="#prioritize-supply" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="generate-work-orders">
+<h2>Generate Work Orders<a class="headerlink" href="#generate-work-orders" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="generate-reschedules">
+<h2>Generate Reschedules<a class="headerlink" href="#generate-reschedules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="update-data">
+<h2>Update Data<a class="headerlink" href="#update-data" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>Safety Stock must be allocated</p>
+<p>Forecast must be consumed.</p>
+<p>Consideration must be given to the fact that work orders may have
+customer demand and priority given to allocation to them.</p>
+<p>Support for overshipping</p>
+<p>Generates Reschedules</p>
+<p>Generate log trace xml</p>
+<p>Demands within a customer must be prioritized</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Diamond APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-18-Meeting-notes.html">Business Process Improvement : 2019-12-18 Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Introductory-Meeting.html">Business Process Improvement : Introductory Meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Meeting-notes.html">Business Process Improvement : Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Product-Launch.html">Business Process Improvement : Product Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Project-Overview.html">Business Process Improvement : Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-17-Meeting-notes.html">Business Process Improvement : 2019-12-17 Meeting notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html">Business Process Improvement : ABC - Pareto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html#item-statistics">Item Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html">Objective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#success-metrics">Success metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#assumptions">Assumptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#milestones">Milestones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#user-interaction-and-design">User interaction and design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#open-questions">Open Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#out-of-scope">Out of Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#definition">Definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#approach">Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#purpose">Purpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#addititional-fields">Addititional Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#modify-web-page-template">Modify web page template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html">Welcome to Multiple Lead Times’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-Functionality.html">Business Process Improvement : Portal Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-index.html">Business Process Improvement : Requisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Purchasing.html">Business Process Improvement : Purchasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisition-Review-Board.html">Business Process Improvement : Requisition Review Board</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisitions/Create-Requisition.html">Business Process Improvement : Create Requisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Service-Level-Agreements.html">Business Process Improvement : Service Level Agreements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Vendor-Quotes.html">Business Process Improvement : Vendor Quotes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/APS/ComponentsAndServices.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

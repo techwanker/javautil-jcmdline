@@ -1,0 +1,16 @@
+--------------------------------------------------------
+--  DDL for Table BRAD_WORK_ORD_TMP
+--------------------------------------------------------
+
+  CREATE GLOBAL TEMPORARY TABLE "BRAD_WORK_ORD_TMP" 
+   (	"WO_NBR" VARCHAR2(10), 
+	"KIT_ITEM_CD" VARCHAR2(60), 
+	"ORD_QTY" VARCHAR2(10), 
+	"PLANT_ID" VARCHAR2(10), 
+	"SERIALIZED_FLG" VARCHAR2(6), 
+	"COMPONENT_ITEM_CD" VARCHAR2(60), 
+	"COMPONENT_DESCR" VARCHAR2(60), 
+	"TOT_COMP_QTY" VARCHAR2(10), 
+	"COMP_UM" VARCHAR2(4), 
+	"COMP_QTY_PER_KIT" VARCHAR2(10)
+   ) ON COMMIT DELETE ROWS ;

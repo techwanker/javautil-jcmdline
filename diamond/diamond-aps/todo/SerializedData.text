@@ -1,0 +1,103 @@
+Read 
+  The class that should be populated
+  field names
+  values
+
+::com.pacificdataservices.models.IcItemMast::
+"itemNbr", "itemCd", "itemDescr", "stkUm", "sellUm", "stdCost", "qtyPerBox", "boxPerCtn", "replenQtyMin", "icCategoryNbr", "nonStkFlg", "serNbrReqrFlg", "mfrSerNbrReqrFlg", "inspectReqrFlg", "mfrLotCtrlFlg", "kitFlg", "priceChgFlg", "utUserNbr", "sellFlg", "harmonizedCd", "planBucketSz", "currCd", "reqrMfrFlg", "leadTmDy", "statId", "pickScanId", "introDt", "splitAtBinFlg", "fifoDtId", "replenTypeId", "itemWght"
+86753, "S-832-2ZIX", "NUT", "EA", "EA", 0.0232249999999999991173726954230005503632128238677978515625, 3000, 6, 6000, 292, "N", "N", "N", "N", "N", "N", "Y", 0, "Y", "7318160090", 2, "CAD", "N", 120, "A", "L", "Dec 31, 1995 12:00:00 AM", "N", "R", "B", 0.00169999999999999990528409821166633264510892331600189208984375
+98565, "S-832-2ZI", "NUT **", "EA", "EA", 0.0230910000000000004138911435802583582699298858642578125, 3000, 6, 6000, 292, "N", "N", "N", "N", "N", "N", "Y", 0, "Y", "7318160090", 2, "CAD", "N", 120, "A", "L", "Dec 31, 1995 12:00:00 AM", "N", "R", "B", 0.00169999999999999990528409821166633264510892331600189208984375
+
+Convert to json
+
+ {
+    "itemNbr": 86753,
+    "itemCd": "S-832-2ZIX",
+    "itemDescr": "NUT",
+    "stkUm": "EA",
+    "sellUm": "EA",
+    "stdCost": 0.0232249999999999991173726954230005503632128238677978515625,
+    "qtyPerBox": 3000,
+    "boxPerCtn": 6,
+    "replenQtyMin": 6000,
+    "icCategoryNbr": 292,
+    "nonStkFlg": "N",
+    "serNbrReqrFlg": "N",
+    "mfrSerNbrReqrFlg": "N",
+    "inspectReqrFlg": "N",
+    "mfrLotCtrlFlg": "N",
+    "kitFlg": "N",
+    "priceChgFlg": "Y",
+    "utUserNbr": 0,
+    "sellFlg": "Y",
+    "harmonizedCd": "7318160090",
+    "planBucketSz": 2,
+    "currCd": "CAD",
+    "reqrMfrFlg": "N",
+    "leadTmDy": 120,
+    "statId": "A",
+    "pickScanId": "L",
+    "introDt": "Dec 31, 1995 12:00:00 AM",
+    "splitAtBinFlg": "N",
+    "fifoDtId": "R",
+    "replenTypeId": "B",
+    "itemWght": 0.00169999999999999990528409821166633264510892331600189208984375,
+    "fcItemMasts": [],
+    "sqQteDtls": [],
+    "oeCustMfrs": [],
+    "oeOrdDtls": [],
+    "icItemAttrs": [],
+    "vqQteMultipleCerts": [],
+    "arInvDtls": [],
+    "icItemMasts": []
+  },
+  {
+    "itemNbr": 98565,
+    "itemCd": "S-832-2ZI",
+    "itemDescr": "NUT **",
+    "stkUm": "EA",
+    "sellUm": "EA",
+    "stdCost": 0.0230910000000000004138911435802583582699298858642578125,
+    "qtyPerBox": 3000,
+    "boxPerCtn": 6,
+    "replenQtyMin": 6000,
+    "icCategoryNbr": 292,
+    "nonStkFlg": "N",
+    "serNbrReqrFlg": "N",
+    "mfrSerNbrReqrFlg": "N",
+    "inspectReqrFlg": "N",
+    "mfrLotCtrlFlg": "N",
+    "kitFlg": "N",
+    "priceChgFlg": "Y",
+    "utUserNbr": 0,
+    "sellFlg": "Y",
+    "harmonizedCd": "7318160090",
+    "planBucketSz": 2,
+    "currCd": "CAD",
+    "reqrMfrFlg": "N",
+    "leadTmDy": 120,
+    "statId": "A",
+    "pickScanId": "L",
+    "introDt": "Dec 31, 1995 12:00:00 AM",
+    "splitAtBinFlg": "N",
+    "fifoDtId": "R",
+    "replenTypeId": "B",
+    "itemWght": 0.00169999999999999990528409821166633264510892331600189208984375,
+    "fcItemMasts": [],
+    "sqQteDtls": [],
+    "oeCustMfrs": [],
+    "oeOrdDtls": [],
+    "icItemAttrs": [],
+    "vqQteMultipleCerts": [],
+    "arInvDtls": [],
+    "icItemMasts": []
+  }
+]
+
+Populate a list by reflection
+
+ArrayList<IcItemMast> restored;
+		 Type collectionType = new TypeToken<List<IcItemMast>>() {
+         }.getType();
+
+         List<IcItemMast> unmarshalled = g.fromJson(collItems, collectionType); 

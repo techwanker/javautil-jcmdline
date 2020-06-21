@@ -1,0 +1,205 @@
+=======================================================================
+Business Process Improvement : Business Process Improvement Description
+=======================================================================
+
+#. `Business Process Improvement <index.html>`__
+#. `Project Description <Project-Description_786630.html>`__
+#. `Project Overview <Project-Overview_458753.html>`__
+
+Business Process Improvement : Business Process Improvement Description
+=======================================================================
+
+Created by James Schmidt on Dec 19, 2019
+
+Managed by **Thomas Moreno,** who wiil working with each department to
+determine how to
+
+This space describes Business Process Improvement at Align Aerospace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Objectives and Benefits:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Define standardized procedures and tools to
+
+-  Improve employee productivity (facilitate decision makers and reduce
+   clerical work)
+
+-  Produce better decisions
+
+-  Improve cash utilization
+
+-  Optimize inventory
+
+-  Produce more consistent results
+
+-  Grow sales
+
+-  Document procedures
+
+-  Audit trails
+
+This initiative will benefit:
+
+-  Inventory Planners
+
+-  Buyers
+
+-  Sellers
+
+-  Customers
+
+-  Finance
+
+Benefits
+~~~~~~~~
+
+-  Share inventory information across holding company units. Currently
+   US and European operations duplicate work and inventory.
+
+-  Reduce inventory by using inventory maintained as equivalent parts.
+
+Allow these users to use the new system for better and more efficient
+decision making while offloading legacy system specific clerical work.
+
+Approach
+~~~~~~~~
+
+Provide a software tool that
+
+-  Design to work as we desired to work
+
+-  Exception and priority based
+
+-  User interface customized to each area of responsibility
+
+-  Simplify work
+
+-  Improve quality with team review
+
+-  Provide better decision support information
+
+-  Change procedures to reduce tedious work overheadl
+
+-  Allow for simplification
+
+-  Allow the system to work in accordance with policy with maximum
+   efficiency for users
+
+-  improve inter-company cooperation
+
+-  Support proactive activity
+
+Additional System Functionality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Controls
+~~~~~~~~
+
+As policies are developed the new system will enforce these policies
+with actions flagged for review to be approved or additional research as
+necessary.
+
+Describe Current and Future State
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Describe what is currently done
+
+Describe what will be done in the future
+
+List benefits of future state
+
+Create tasks for future state with
+
+-  Functional description
+
+-  Estimated time and cost to complete
+
+Prioritize tasks
+
+Determinism
+~~~~~~~~~~~
+
+With the same input, make similar decisions
+
+Constraints
+~~~~~~~~~~~
+
+No risk / No changes to existing systems
+
+--------------
+
+References
+~~~~~~~~~~
+
+`https://en.wikipedia.org/wiki/Business\_process\_re-engineering <https://en.wikipedia.org/wiki/Business_process_re-engineering>`__
+
+`https://en.wikipedia.org/wiki/Determinism <https://en.wikipedia.org/wiki/Determinism>`__
+
+Search this space
+-----------------
+
+Search
+
+--------------
+
+Frequently used articles
+------------------------
+
+-  Add links to popular how-to and troubleshooting articles.
+
+-  Highlight important documentation.
+
+Need more help?
+---------------
+
+-  Link to resources such as your service desk, questions and answers or
+   a forum.
+
+-  List contacts for getting additional help.
+
+--------------
+
+Browse by topic
+---------------
+
+#. A-O
+
+   -  `customer-interviews </wiki/label/BPI/customer-interviews>`__
+   -  `file-list </wiki/label/BPI/file-list>`__
+   -  `gsms </wiki/label/BPI/gsms>`__
+   -  `kb-how-to-article </wiki/label/BPI/kb-how-to-article>`__
+   -  `kb-troubleshooting-article </wiki/label/BPI/kb-troubleshooting-article>`__
+   -  `location-task-report </wiki/label/BPI/location-task-report>`__
+   -  `meeting-notes </wiki/label/BPI/meeting-notes>`__
+
+#. P-Z
+
+   -  `persona </wiki/label/BPI/persona>`__
+   -  `productlaunch </wiki/label/BPI/productlaunch>`__
+   -  `projectplan </wiki/label/BPI/projectplan>`__
+   -  `purchasing </wiki/label/BPI/purchasing>`__
+   -  `requirements </wiki/label/BPI/requirements>`__
+   -  `requistion </wiki/label/BPI/requistion>`__
+   -  `task-report </wiki/label/BPI/task-report>`__
+
+NEED INSPIRATION?
+                 
+
+-  Check out this guide on how to \ `use Confluence as a Knowledge
+   base <https://confluence.atlassian.com/confcloud/use-confluence-as-a-knowledge-base-724765471.html>`__
+
+-  Follow \ `Twitter's 5 tips for a successful knowledge
+   base <https://www.atlassian.com/blog/confluence/twitters-5-tips-successful-knowledge-base>`__
+
+Attachments:
+------------
+
+| |image0| `terminator.desktop <attachments/983100/4653283.desktop>`__
+(application/octet-stream)
+
+Document generated by Confluence on Dec 22, 2019 07:29
+
+`Atlassian <http://www.atlassian.com/>`__
+
+.. |image0| image:: images/icons/bullet_blue.gif

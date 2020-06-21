@@ -1,0 +1,7 @@
+Allocation Based Pricing
+Overshipping
+Work Order Generation
+Prioritization Within Customer
+Don't mix lots in kit.
+ConsumeSafetyStock
+ConsumeForecast

@@ -1,0 +1,22 @@
+--------------------------------------------------------
+--  DDL for Table APS_SUMMARY_DAT
+--------------------------------------------------------
+
+  CREATE TABLE "APS_SUMMARY_DAT" 
+   (	"APS_SUMMARY_DAT_NBR" NUMBER(9,0), 
+	"ITEM_NBR" NUMBER(9,0), 
+	"STK_UM" VARCHAR2(3), 
+	"FACILITY" VARCHAR2(16), 
+	"APS_SPLY_POOL_CD" VARCHAR2(16), 
+	"BUCKET_START_DT" DATE, 
+	"TOT_PO_QTY" NUMBER(13,5), 
+	"TOT_OO_QTY" NUMBER(13,5), 
+	"TOT_WO_SPLY_QTY" NUMBER(13,5), 
+	"TOT_WO_DMD_QTY" NUMBER(13,5), 
+	"TOT_FCST_QTY" NUMBER(13,5), 
+	"TOT_SS_QTY" NUMBER(13,5), 
+	"TOT_UNALLOC_QTY" NUMBER(13,5), 
+	"TOT_RESCHED_QTY" NUMBER(13,5), 
+	"TOT_PROJ_POS_QTY" NUMBER(13,5), 
+	"TOT_SHORTFALL_QTY" NUMBER(13,5)
+   ) ;

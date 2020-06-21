@@ -1,0 +1,88 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Objectives}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Purchasing Operational Efficiency}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Purchasing Review Board}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Speed up quotations}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Buyer information}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Recommendations}{6}{section.2.4}
+\contentsline {section}{\numberline {2.5}Alerts}{7}{section.2.5}
+\contentsline {chapter}{\numberline {3}Computing based on Setup}{9}{chapter.3}
+\contentsline {chapter}{\numberline {4}Introduction}{11}{chapter.4}
+\contentsline {chapter}{\numberline {5}Objectives}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}Traditional DRP}{15}{chapter.6}
+\contentsline {section}{\numberline {6.1}Forecast}{15}{section.6.1}
+\contentsline {section}{\numberline {6.2}Projections}{15}{section.6.2}
+\contentsline {section}{\numberline {6.3}SKUs}{15}{section.6.3}
+\contentsline {chapter}{\numberline {7}Scenario}{17}{chapter.7}
+\contentsline {section}{\numberline {7.1}Supply Prioritization}{17}{section.7.1}
+\contentsline {chapter}{\numberline {8}Buy Quantity}{19}{chapter.8}
+\contentsline {section}{\numberline {8.1}Prioritization}{19}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Sourcing Rule}{19}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Purchase Orders}{19}{subsection.8.1.2}
+\contentsline {subsubsection}{Availability Date}{19}{subsubsection*.3}
+\contentsline {subsubsection}{Late}{19}{subsubsection*.4}
+\contentsline {subsubsection}{Vendor On Time Performance}{19}{subsubsection*.5}
+\contentsline {subsection}{\numberline {8.1.3}Attribute Weight values}{19}{subsection.8.1.3}
+\contentsline {subsection}{\numberline {8.1.4}Other Demand for}{19}{subsection.8.1.4}
+\contentsline {subsection}{\numberline {8.1.5}FIFO}{19}{subsection.8.1.5}
+\contentsline {chapter}{\numberline {9}Data Requirements}{21}{chapter.9}
+\contentsline {chapter}{\numberline {10}Legacy System}{23}{chapter.10}
+\contentsline {section}{\numberline {10.1}Legacy System}{23}{section.10.1}
+\contentsline {section}{\numberline {10.2}Risk}{23}{section.10.2}
+\contentsline {chapter}{\numberline {11}Concepts}{25}{chapter.11}
+\contentsline {section}{\numberline {11.1}Supply Pools}{25}{section.11.1}
+\contentsline {section}{\numberline {11.2}Forecast Groups}{25}{section.11.2}
+\contentsline {section}{\numberline {11.3}Eligible Inventory}{25}{section.11.3}
+\contentsline {section}{\numberline {11.4}Demand Prioritization}{25}{section.11.4}
+\contentsline {section}{\numberline {11.5}Supply Prioritization}{25}{section.11.5}
+\contentsline {section}{\numberline {11.6}Forecast Consumption}{25}{section.11.6}
+\contentsline {chapter}{\numberline {12}Procedures}{27}{chapter.12}
+\contentsline {section}{\numberline {12.1}Requisitions}{27}{section.12.1}
+\contentsline {section}{\numberline {12.2}Review}{27}{section.12.2}
+\contentsline {section}{\numberline {12.3}Approval}{27}{section.12.3}
+\contentsline {section}{\numberline {12.4}Purchasing Approval}{27}{section.12.4}
+\contentsline {section}{\numberline {12.5}Portal}{27}{section.12.5}
+\contentsline {chapter}{\numberline {13}Benefits}{29}{chapter.13}
+\contentsline {chapter}{\numberline {14}Questions}{31}{chapter.14}
+\contentsline {section}{\numberline {14.1}Extensibility}{31}{section.14.1}
+\contentsline {chapter}{\numberline {15}Implementation}{33}{chapter.15}
+\contentsline {section}{\numberline {15.1}Questions}{33}{section.15.1}
+\contentsline {chapter}{\numberline {16}SAP on the web}{35}{chapter.16}
+\contentsline {section}{\numberline {16.1}Simple Example}{35}{section.16.1}
+\contentsline {subsection}{\numberline {16.1.1}Compute Optimal Purchase Quantity}{35}{subsection.16.1.1}
+\contentsline {subsection}{\numberline {16.1.2}Graph this relationsihip}{35}{subsection.16.1.2}
+\contentsline {section}{\numberline {16.2}Purchasing Procedures}{36}{section.16.2}
+\contentsline {section}{\numberline {16.3}Constraints}{36}{section.16.3}
+\contentsline {chapter}{\numberline {17}Questions}{37}{chapter.17}
+\contentsline {chapter}{\numberline {18}Conclusion}{39}{chapter.18}
+\contentsline {chapter}{\numberline {19}Planning Requirements}{41}{chapter.19}
+\contentsline {section}{\numberline {19.1}Objectives}{41}{section.19.1}
+\contentsline {section}{\numberline {19.2}Purchasing Operational Efficiency}{41}{section.19.2}
+\contentsline {subsection}{\numberline {19.2.1}Purchasing Review Board}{41}{subsection.19.2.1}
+\contentsline {subsection}{\numberline {19.2.2}Speed up quotations}{41}{subsection.19.2.2}
+\contentsline {subsection}{\numberline {19.2.3}Buyer information}{42}{subsection.19.2.3}
+\contentsline {subsection}{\numberline {19.2.4}Recommendations}{43}{subsection.19.2.4}
+\contentsline {subsection}{\numberline {19.2.5}Alerts}{43}{subsection.19.2.5}
+\contentsline {section}{\numberline {19.3}Extensibility}{43}{section.19.3}
+\contentsline {chapter}{\numberline {20}Implementation}{45}{chapter.20}
+\contentsline {chapter}{\numberline {21}Modifications}{47}{chapter.21}
+\contentsline {section}{\numberline {21.1}Questions}{47}{section.21.1}
+\contentsline {chapter}{\numberline {22}Difference from SAP}{49}{chapter.22}
+\contentsline {chapter}{\numberline {23}SAP on the web}{51}{chapter.23}
+\contentsline {chapter}{\numberline {24}Questions}{53}{chapter.24}
+\contentsline {section}{\numberline {24.1}Out of Scope}{53}{section.24.1}
+\contentsline {section}{\numberline {24.2}In aerospace}{54}{section.24.2}
+\contentsline {section}{\numberline {24.3}Source of Lead Time}{54}{section.24.3}
+\contentsline {subsection}{\numberline {24.3.1}vendor quotes}{54}{subsection.24.3.1}
+\contentsline {subsection}{\numberline {24.3.2}Summarized Lead Times should include}{54}{subsection.24.3.2}
+\contentsline {subsection}{\numberline {24.3.3}Lead time details should include:}{54}{subsection.24.3.3}
+\contentsline {subsection}{\numberline {24.3.4}Lead time projections}{54}{subsection.24.3.4}
+\contentsline {section}{\numberline {24.4}Instructions}{55}{section.24.4}
+\contentsline {subsection}{\numberline {24.4.1}Requisition Checklist}{56}{subsection.24.4.1}
+\contentsline {section}{\numberline {24.5}Sequence Diagram}{56}{section.24.5}
+\contentsline {subsection}{\numberline {24.5.1}Intrinsic Information}{56}{subsection.24.5.1}
+\contentsline {subsection}{\numberline {24.5.2}Extrinsic Information}{56}{subsection.24.5.2}
+\contentsline {section}{\numberline {24.6}Related articles}{56}{section.24.6}
+\contentsline {chapter}{\numberline {25}Service Level Agreements}{57}{chapter.25}
+\contentsline {chapter}{\numberline {26}Definitions}{59}{chapter.26}
+\contentsline {chapter}{\numberline {27}Indices and tables}{61}{chapter.27}

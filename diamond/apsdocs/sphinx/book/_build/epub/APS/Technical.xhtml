@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Technical</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="technical">
+<h1>Technical</h1>
+<div class="section" id="queue-populator">
+<h2>Queue Populator</h2>
+<p>The queue populator inserts items to be planned into the request queue.</p>
+<p>The only implementation at this time is a stored procedure
+<em>APS_RQST_QUEUE_POPULATOR</em></p>
+</div>
+<div class="section" id="queue-manager">
+<h2>Queue Manager</h2>
+<p>The queue manager is responsible for managing the queue of items for
+which planning has been requested.</p>
+<p>The request queue is fully read and Planning Groups are established. The
+priority for dispatching is established.</p>
+<p>A call to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">[]</span> <span class="n">getPlanningItems</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Will return all of the items in a planning group.</p>
+</div>
+<div class="section" id="planning-engine">
+<h2>Planning Engine</h2>
+<p>The planning engine obtains the identifiers for a set of items to be
+planned, either through a pull from the engine to the Queue Manager or
+through a push by an invocation of</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">planItems</span><span class="p">(</span><span class="nb">int</span><span class="p">[]</span> <span class="n">itemIds</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="populate-data">
+<h3>Populate Data</h3>
+<p>All of the data necessary to plan an item are populated in PlanningData
+and inter object references are resolved. Various dimension objects are
+populated from the Cache Manager [CacheManager] There are two
+implementation of Persistence interface, one which is based on generated
+and hand tweaked JDBC and one which is backed by Hibernate, using a few
+tweaks to optimize performance.</p>
+</div>
+<div class="section" id="planning">
+<h3>Planning</h3>
+</div>
+</div>
+</div>
+<div class="section" id="architecture">
+<h1>Architecture</h1>
+<div class="section" id="language">
+<h2>Language</h2>
+<p>Most of the logic in APS is expressed in Java.</p>
+</div>
+<div class="section" id="inversion-of-control">
+<h2>Inversion of Control</h2>
+</div>
+<div class="section" id="interface">
+<h2>Interface</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">dbexperts</span><span class="o">.</span><span class="n">diamond</span><span class="o">.</span><span class="n">planning</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="n">interface</span> <span class="n">PlanningOperation</span> <span class="p">{</span>
+        <span class="n">public</span> <span class="n">void</span> <span class="n">process</span><span class="p">(</span><span class="n">PlanningData</span> <span class="n">planningData</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Some may object to exposing all of the data available for arbitrary
+operations but and</p>
+</div>
+<div class="section" id="persistence">
+<h2>Persistence</h2>
+<p>APS employs the DAO paradigm with default implementation for persistence
+using Hibernate for Object Relational Mapping.</p>
+</div>
+<div class="section" id="planning-data-and-related-interfaces">
+<h2>Planning Data and Related Interfaces</h2>
+</div>
+<div class="section" id="planning-modes">
+<h2>Planning Modes</h2>
+<div class="section" id="batch">
+<h3>Batch</h3>
+<p>Batch planning is equivalent to fully regenerative MRP.</p>
+<p>When no more items are in the request queue the program terminates.</p>
+</div>
+<div class="section" id="interactive">
+<h3>Interactive</h3>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Queue Manager</h2>
+<p>The queue manager is responsible for monitoring all of the items in the
+request queue and creating a queue of groups of planning items to be
+dispatched.</p>
+<p>See</p>
+</div>
+<div class="section" id="commandlineexecution">
+<h2>CommandLineExecution</h2>
+<p>java com.dbexperts.diamond.cli dataSourceName</p>
+<p>TODO should create a big fat jar</p>
+<p>in /common/home/jjs/workspace/Diamond11 ./run_planning</p>
+<p>note document EJB3PlanningDataPersistence</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+aerodemo.postgres.sql.zip
+create_aerodemo_postgres.sh
+export_diamond_aerodemo.sh
+gitinit.sh
+grant_create_db.sh
+grantuser.sh
+import_aerodemo.postgres.sh
+import_aerodemo.postgres.sql
+pg_dump_to_diamond_demo.sql
+README.md
+RUNME.sh

@@ -1,0 +1,21 @@
+<h2>Projected Position</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Facility</th>
+			<th>Supply Pool</th>
+			<th>Sub Pool</th>
+			<th>Item Codes</th>
+			<th nowrap>ID</th>
+			<th *ngFor="let dt of positions.bucketDates">{{dt.substring(0,7)}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let r of positions.positions">
+			<th nowrap *ngFor="let ident of r.identifiers">{{ident}}</th>
+			<td align="right" *ngFor="let v of r.values">{{v}}</td>
+		</tr>
+	</tbody>
+
+</table>	
+	

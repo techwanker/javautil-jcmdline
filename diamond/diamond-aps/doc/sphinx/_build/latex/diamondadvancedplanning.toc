@@ -1,0 +1,44 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Indices and tables}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Purpose}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Current State}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Future State}{7}{chapter.4}
+\contentsline {chapter}{\numberline {5}Align Objectives}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Team}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Migration Plan}{9}{section.5.2}
+\contentsline {chapter}{\numberline {6}Introduction}{11}{chapter.6}
+\contentsline {section}{\numberline {6.1}Demand Types}{11}{section.6.1}
+\contentsline {section}{\numberline {6.2}Supply Types}{11}{section.6.2}
+\contentsline {section}{\numberline {6.3}Supply Partitioning}{12}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Physical Segregration}{12}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Logical Segregation}{12}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Qualifying Inventory}{12}{section.6.4}
+\contentsline {section}{\numberline {6.5}Demand Prioritization}{13}{section.6.5}
+\contentsline {section}{\numberline {6.6}Preserve Allocations}{13}{section.6.6}
+\contentsline {section}{\numberline {6.7}Supply Prioritization}{13}{section.6.7}
+\contentsline {section}{\numberline {6.8}APS Output}{14}{section.6.8}
+\contentsline {section}{\numberline {6.9}Projected Inventory Position}{14}{section.6.9}
+\contentsline {section}{\numberline {6.10}Shortages}{15}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Purchase Orders to be Expedited}{17}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.10.2}Purchase Orders to be Rescheduled}{17}{subsection.6.10.2}
+\contentsline {subsection}{\numberline {6.10.3}Purchase Orders to be Cancelled}{17}{subsection.6.10.3}
+\contentsline {subsubsection}{Align Future State}{17}{subsubsection*.3}
+\contentsline {paragraph}{Objectives}{17}{paragraph*.4}
+\contentsline {paragraph}{Purchasing Operational Efficiency}{17}{paragraph*.5}
+\contentsline {subparagraph}{Purchasing Review Board}{17}{subparagraph*.6}
+\contentsline {subparagraph}{Speed up quotations}{18}{subparagraph*.7}
+\contentsline {subparagraph}{Buyer information}{18}{subparagraph*.8}
+\contentsline {subparagraph}{Recommendations}{19}{subparagraph*.9}
+\contentsline {subparagraph}{Alerts}{20}{subparagraph*.10}
+\contentsline {paragraph}{Extensibility}{20}{paragraph*.11}
+\contentsline {subsubsection}{Implementation}{20}{subsubsection*.12}
+\contentsline {paragraph}{Questions}{20}{paragraph*.13}
+\contentsline {paragraph}{Simple Example}{21}{paragraph*.14}
+\contentsline {subparagraph}{Compute Optimal Purchase Quantity}{21}{subparagraph*.15}
+\contentsline {subparagraph}{Graph this relationsihip}{21}{subparagraph*.16}
+\contentsline {paragraph}{Purchasing Procedures}{21}{paragraph*.17}
+\contentsline {paragraph}{Constraints}{22}{paragraph*.18}
+\contentsline {subsubsection}{Questions}{22}{subsubsection*.19}
+\contentsline {subsubsection}{Conclusion}{22}{subsubsection*.20}
+\contentsline {subsubsection}{Modifications}{24}{subsubsection*.21}
+\contentsline {paragraph}{Questions}{24}{paragraph*.22}

@@ -1,0 +1,135 @@
+\section{Glossary}
+\paragraph{Allocation}
+\paragraph{Allocation Based Pricing} It is a common practice in the aerospace industry for a distributor to provide
+Just-In-Time fulfillment of products under contractual arrangements.  Often the distributor will purchase 
+an airframe supplier's inventory and sell it back for cost plus a service fee although other arrangements are
+certainly not rare.  After the inventory that was purchased is exhausted additional demand is satisfied by
+inventory of the distributor.  It is not known at the time the order is placed the source of the inventory 
+that will be used to satisfy the demand.  Allocation based pricing updates the order line with the appropriate price
+and creates sublines if necessary in the case of 
+\paragraph{Approved Manufacturer}
+\paragraph{Bound Allocation}
+A
+\paragraph{C of C}
+See ??? Manufacturer Certificate of Compliance
+\paragraph{Country of Origin}
+\paragraph{Dispatch Group}
+A set of items that are retrieved concurrently from the underlying datastore for the purpose of improving 
+performance of the persistent data store.  This is a technical and not a functional issue.
+\paragraph{Eligible Supply}
+For each demand any supply that passes all filters is considered eligible supply.
+\paragraph{Engineered Parts}
+An engineered part is an item produced in compliance with an engineering
+drawing.  Most everyone is familiar
+with Stock Keeping Unit or SKU, usually identified by a UPC (Universal Product
+Code) or an EAN (European ???).
+
+An engineered part may be produced by a wide variety of manufacturers.
+\paragraph{Equivalent Part}
+Two parts are equivalent if they could be cross certified.   
+
+For example AN960-10 and NAS1149 are very common flat washers and the former diagrams where drawn
+by the Army Navy coalition and the latter by ???
+
+These parts are identical, the only difference being whether the manufacturer 
+has provided a \textit{Manufacturer Certificate of Compliance}.  
+
+One of the byproducts of APS is the ability to query for lots which may be made suitable for the demand by
+simply buying a \textit{Manufacturer Certificate of Compliance}, another query will show unsatisified demand
+that could be satisfied by changing the requested part to be the equivalent part which frequently is 
+readily accommodated by the party that gave rise to the demand. 
+\paragraph{Forecast Consumption}
+The process of decreasing Forecasted Demand by the amount of firm orders.  
+
+This is necessary to eliminate ``double dipping'' requirements for supply.
+\paragraph{Forecasting Granularity}
+TODO bucketed by week in TMP\_APS\_DMD\_FC\_PRD
+\paragraph{Forecast Group}
+\paragraph{Hard Alloc Fc Within Lead Time}
+APS\_DMD\_FC
+\paragraph{In Pick}
+\paragraph{Manufacturer Certificate of Compliance}
+A physical or electronic document issued by the manufacturer of an engineered part specifying a specific 
+lot or set of lots with assurances backed solely by the credibility of the manufacturer that the items in
+the lot comply with the specifications set forth on the engineering diagrams for the part.
+\paragraph{Manufacturer Lot Code}
+A designator assigned by the manufacturer for items produced, generally on the same machines after setup and
+demarcated by policies set forth by the manufacturer which may include quantity produced and machine setup,
+internal quality tests and so forth.
+\paragraph{Multicerted Item}
+
+
+\paragraph{Pre-approved Lot}  
+A lot which has been pre-approved by the organization ordering.
+\paragraph{Planning Data}
+Planning Data is the domain of all information necessary to generate a planning result for a \ref{PlanningGroup} planning group.
+\label{PlanningGroup} 
+\paragraph{Planning Group}
+A planning group consists of all related items whether by equivalence, or substitution to arbitrary
+depths until such relationships are exhausted.  This is performed procedurally in memory as all attempts
+to effect this declaratively have resulted in quantitative run times three or four orders of magnitude greater
+than object traversal.
+
+\paragraph{Receiver Number}
+A receiver number is created by Diamond Distribution for each unique manufacturer lot on a shipping manifest.
+
+Therefor it is quite possible that 
+
+\paragraph{Safety Stock Consumption}
+
+\paragraph{Substitute Part}
+A customer may agree for a substitute for a part when form, fit and function are satisfied irrespective 
+of whether the part is an engineered part.
+
+For example 'D' batteries from Everready and Ray-O-Vac with the same number of ampere hours.
+\paragraph{UPC}
+\paragraph{Quality Assurance Tests}
+\section{Planning Mode}
+Allocation has different behavior based on the allocation mode.  The aerospace
+planning implementation supports 
+four phases each with a different mode.
+
+\subsection{Pick Restore}
+Existing allocations to onhand inventory from work orders or customer orders
+that are in pick status are preserved.
+
+This Mode is also used in binding allocations.
+
+An allocation is bound by updating the alloc\_type\_id to 'R' and requesting the
+engine to bind the allocation.  
+The alloc\_type\_id is then set to 'B' for Bound.
+\subsection{First Pass}
+The first pass of allocation attempts to restore prior allocations to those to whom inventory
+has been committed.  The provided mechanism generally accommodates this on a first come, first served basis.
+
+Delivery schedules from manufacturing or manufacturers are often revised due to cyclicality in production 
+capacity.  In aerospace this arises from a scarcity of materials or heavy handed pricing requirements 
+from airframe manufacturers that drive profit margins so low that manufacturers exit the business; when 
+production is ramped up, fewer providers may quote lead times in excess of 18 months and slip on even
+these extended schedules.
+
+As with most everything in planning, this is a pluggable module and any program (``java class'') that conforms to 
+the required call specifications (``interface'') may be substituted for the default mechanism.
+\subsection{Customer Prioritized}
+Customer Prioritization is a phase in which inventory allocated to a customer may be shifted 
+from later demand dates to earlier demand dates for inventory allocated to the customer.
+This is the default second pass of allocation.
+\subsection{Overship}
+The request for Overship is used when variations in the requested ship quantity
+are supported.  For example a customer orders
+1000 washers, after the picker picks the order there are only 10 washers left in
+the box.  If the customer allows over shipping then 1010 
+washers will be picked for his order as it is not worth the time to put 10
+washers back in the box and put them away.
+
+The overship phase ensures that the 10 washers are not needed by another demand
+and changes the allocated quantity within.
+
+This is the default third pass of allocation. 
+\section{Restore Onhand Pick Allocations}
+Picking is in an expensive operation.  Although Diamond Warehouse operations knows the exact location of 
+every item other warehouse systems don't have this level of interactivity.
+
+We assume that once an item has been submitted to pick that it is no longer available for any other demand.
+
+In the default implementation this occurs as part of the first pass. ???

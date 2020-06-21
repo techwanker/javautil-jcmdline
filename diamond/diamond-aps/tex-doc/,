@@ -1,0 +1,22 @@
+\documentclass[letterpaper,10pt]{book}
+\usepackage
+[
+        letterpaper,% other options: a3paper, a5paper, etc
+        left=2cm,
+        right=2cm,
+        top=2cm,
+        bottom=2cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+]
+{geometry}
+\begin{document}
+\tableofcontents
+
+\mainmatter %starts numbering at page 1
+\include{AdvancedPlanning}
+\include{Glossary}
+\include{Future}
+%\include{Technical}
+\end{document}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glossary</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="glossary">
+<h1>Glossary</h1>
+<div class="section" id="allocation">
+<h2>Allocation</h2>
+</div>
+<div class="section" id="allocation-based-pricing">
+<h2>Allocation Based Pricing</h2>
+<p>It is a common practice in the aerospace industry for a distributor to
+provide Just-In-Time fulfillment of products under contractual
+arrangements. Often the distributor will purchase an airframe supplier’s
+inventory and sell it back for cost plus a service fee although other
+arrangements are certainly not rare. After the inventory that was
+purchased is exhausted additional demand is satisfied by inventory of
+the distributor. It is not known at the time the order is placed the
+source of the inventory that will be used to satisfy the demand.
+Allocation based pricing updates the order line with the appropriate
+price and creates sublines if necessary in the case of mixed supply at
+different prices.</p>
+</div>
+<div class="section" id="approved-manufacturer">
+<h2>Approved Manufacturer</h2>
+<p>Customers may either “whitelist” or “blacklist” manufacturers.</p>
+</div>
+<div class="section" id="bound-allocation">
+<h2>Bound Allocation</h2>
+<p>An allocation which</p>
+</div>
+<div class="section" id="certificate-of-compliance">
+<h2>Certificate of Compliance</h2>
+<p>See Manufacturer Certificate of Compliance</p>
+</div>
+<div class="section" id="country-of-origin">
+<h2>Country of Origin</h2>
+</div>
+<div class="section" id="dispatch-group">
+<h2>Dispatch Group</h2>
+<p>A set of items that are planned concurrently.</p>
+<div class="section" id="planning-set">
+<h3>Planning Set</h3>
+<p>A planning set is a set of items that must be planned simultaneously</p>
+<p>It includes, transitively,</p>
+<ul class="simple">
+<li><p>Equivalent Parts</p></li>
+<li><p>Customer Substitutes</p></li>
+<li><p>Global Substitutes</p></li>
+</ul>
+</div>
+<div class="section" id="dispatch-set">
+<h3>Dispatch Set</h3>
+<p>A set of items that are retrieved concurrently from the underlying
+datastore for the purpose of improving performance of the persistent
+data store.</p>
+</div>
+</div>
+<div class="section" id="eligible-supply">
+<h2>Eligible Supply</h2>
+<p>For each demand any supply that passes all filters is considered
+eligible supply.</p>
+</div>
+<div class="section" id="engineered-parts">
+<h2>Engineered Parts</h2>
+<p>An engineered part is an item produced in compliance with an engineering
+drawing. Most everyone is familiar with Stock Keeping Unit or SKU,
+usually identified by a UPC (Universal Product Code) or an EAN (European
+???).</p>
+<p>An engineered part may be produced by a wide variety of manufacturers.</p>
+</div>
+<div class="section" id="equivalent-part">
+<h2>Equivalent Part</h2>
+<p>Two parts are equivalent if they could be cross certified.</p>
+<p>For example AN960-10 and NAS1149 are very common flat washers and the
+former diagrams where drawn by the Army Navy coalition and the latter by
+???</p>
+<p>These parts are identical, the only difference being whether the
+manufacturer has provided a <em>Manufacturer Certificate of Compliance</em>.</p>
+<p>One of the byproducts of APS is the ability to query for lots which may
+be made suitable for the demand by simply buying a <em>Manufacturer
+Certificate of Compliance</em>, another query will show unsatisified demand
+that could be satisfied by changing the requested part to be the
+equivalent part which frequently is readily accommodated by the party
+that gave rise to the demand.</p>
+</div>
+<div class="section" id="forecast-consumption">
+<h2>Forecast Consumption</h2>
+<p>The process of decreasing Forecasted Demand by the amount of firm
+orders.</p>
+<p>This is necessary to eliminate “double dipping” requirements for supply.</p>
+</div>
+<div class="section" id="forecasting-granularity">
+<h2>Forecasting Granularity</h2>
+<p>Bucketed by week in TMP_APS_DMD_FC_PRD</p>
+</div>
+<div class="section" id="forecast-group">
+<h2>Forecast Group</h2>
+</div>
+<div class="section" id="hard-alloc-fc-within-lead-time">
+<h2>Hard Alloc Fc Within Lead Time</h2>
+<p>APS_DMD_FC</p>
+</div>
+<div class="section" id="in-pick">
+<h2>In Pick</h2>
+</div>
+<div class="section" id="manufacturer-certificate-of-compliance">
+<h2>Manufacturer Certificate of Compliance</h2>
+<p>A physical or electronic document issued by the manufacturer of an
+engineered part specifying a specific lot or set of lots with assurances
+backed solely by the credibility of the manufacturer that the items in
+the lot comply with the specifications set forth on the engineering
+diagrams for the part.</p>
+</div>
+<div class="section" id="manufacturer-lot-code">
+<h2>Manufacturer Lot Code</h2>
+<p>A designator assigned by the manufacturer for items produced, generally
+on the same machines after setup and demarcated by policies set forth by
+the manufacturer which may include quantity produced and machine setup,
+internal quality tests and so forth.</p>
+</div>
+<div class="section" id="multicerted-item">
+<h2>Multicerted Item</h2>
+</div>
+<div class="section" id="pre-approved-lot">
+<h2>Pre-approved Lot</h2>
+<p>A lot which has been pre-approved by the organization ordering.</p>
+<p>This may be the result of quality assurance tests or buyback inventory.</p>
+</div>
+<div class="section" id="planning-data">
+<h2>Planning Data</h2>
+<p>Planning Data is the domain of all information necessary to generate a
+planning result for a [PlanningGroup] planning group. [PlanningGroup]</p>
+</div>
+<div class="section" id="planning-group">
+<h2>Planning Group</h2>
+<p>A planning group consists of all related items whether by equivalence,
+or substitution to arbitrary depths until such relationships are
+exhausted. This is performed procedurally in memory as all attempts to
+effect this declaratively have resulted in quantitative run times three
+or four orders of magnitude greater than object traversal.</p>
+</div>
+<div class="section" id="quality-assurance-tests">
+<h2>Quality Assurance Tests</h2>
+<p>Lowest cost to incrementally pass quality.</p>
+</div>
+<div class="section" id="receiver-number">
+<h2>Receiver Number</h2>
+<p>A receiver number is created by Diamond Distribution for each unique
+manufacturer lot on a shipping manifest.</p>
+<p>Therefor it is quite possible that</p>
+</div>
+<div class="section" id="safety-stock-consumption">
+<h2>Safety Stock Consumption</h2>
+</div>
+<div class="section" id="substitute-part">
+<h2>Substitute Part</h2>
+<p>A customer may agree for a substitute for a part when form, fit and
+function are satisfied irrespective of whether the part is an engineered
+part.</p>
+<p>For example ’D’ batteries from Everready and Ray-O-Vac with the same
+number of ampere hours.</p>
+</div>
+<div class="section" id="upc">
+<h2>UPC</h2>
+</div>
+<div class="section" id="id1">
+<h2>Quality Assurance Tests</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+--------------------------------------------------------
+--  DDL for Table SQ_QTE_HDR
+--------------------------------------------------------
+
+  CREATE TABLE "SQ_QTE_HDR" 
+   (	"SQ_QTE_HDR_NBR" NUMBER(9,0), 
+	"SQ_QTE_CD" VARCHAR2(20), 
+	"ORG_NBR_CUST" NUMBER(9,0), 
+	"SQ_QTE_DT" DATE, 
+	"CURR_CD_QTE" VARCHAR2(9), 
+	"INDIV_NM_SPOKEN_TO" VARCHAR2(40), 
+	"INDIV_PHN_NBR" VARCHAR2(20), 
+	"INDIV_FAX_NBR" VARCHAR2(20), 
+	"INDIV_EMAIL_ADDR" VARCHAR2(40), 
+	"SQ_QTE_EFF_DT" DATE, 
+	"SQ_QTE_EXP_DT" DATE, 
+	"CUST_QTE_REF_CD" VARCHAR2(20), 
+	"SQ_QTE_INDIV_NBR" NUMBER(9,0), 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"TRANSMIT_FLG" VARCHAR2(1) DEFAULT 'N', 
+	"ORG_NM_CUST" VARCHAR2(60)
+   ) ;

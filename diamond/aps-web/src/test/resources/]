@@ -1,0 +1,7 @@
+spring.jpa.properties.hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1526/xepdb1
+spring.datasource.username=aerodemo
+spring.datasource.password=diamondmine
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
+spring.jpa.show-sql = true

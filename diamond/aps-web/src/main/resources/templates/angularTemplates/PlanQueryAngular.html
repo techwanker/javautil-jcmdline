@@ -1,0 +1,305 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Planning</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+<style>
+
+td-center
+{
+	align: center;
+    text-align: center; 
+    vertical-align: middle;
+}
+</style>
+</head>
+<body >
+	<div ng-app="planQueryApp" ng-controller="planQueryCtrl">
+	
+
+
+	<table width="100%" summary="">
+		<tr>
+			<table  summary="">
+				<tr>
+					<td class="t12Header">Demand Shortages</td>
+				</tr>
+				<tr>
+					<td class="t12ButtonHolder"></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right"><label for="ITEM_CD"
+						id="ITEM_CD_LABEL"><a class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#???')" 
+								>Part
+								# Mask</a></label></td>
+					<td align="left"><input type="text" id="ITEM_CD"
+						name="ITEM_CD" class="text_field&#x20;apex-item-text"
+						onblur="javascript:{this.value = this.value.toUpperCase(); }"
+						value="" size="50" maxlength="2000" />
+								<button type="" class="btn grn-btn" ng-click="listOfValues('ic_categry');">LOV</button>
+					</td>
+									
+									
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right"><label for="IC_CATEGORY_NM"
+						id="IC_CATEGORY_NM_LABEL"><a
+							class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Part Category</a></label>
+								</td>
+					<td align="left"><div
+							class="apex-item-group apex-item-group--popup-lov" role="group"
+							aria-labelledby="IC_CATEGORY_NM_LABEL">
+							<input type="text" id="IC_CATEGORY_NM" name="IC_CATEGORY_NM"
+								class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+								onblur="javascript:{this.value = this.value.toUpperCase(); }"
+								size="20" maxlength="2000" value="" />
+								<button type="" class="btn grn-btn" ng-click="listOfValues('ic_categry');">LOV</button>
+						</div></td>
+					<td nowrap="nowrap" align="right"><label
+						for="WITHIN_LEAD_TM_FLG" id="WITHIN_LEAD_TM_FLG_LABEL"><a
+							class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Within
+								Lead Time</a></label></td>
+					<td align="left"><div tabindex="-1" id="WITHIN_LEAD_TM_FLG"
+							aria-labelledby="WITHIN_LEAD_TM_FLG_LABEL"
+							class="radio_group&#x20;apex-item-group&#x20;apex-item-group--rc&#x20;apex-item-radio"
+							role="group" aria-labelledby="WITHIN_LEAD_TM_FLG_LABEL">
+							<div class="apex-item-option"> <input type="radio" id="WITHIN_LEAD_TM_FLG_0"
+									name="WITHIN_LEAD_TM_FLG" value="N"><label
+									for="WITHIN_LEAD_TM_FLG_0">No</label>
+							</div>
+							<div class="apex-item-option">
+								<input type="radio" id="WITHIN_LEAD_TM_FLG_1"
+									name="WITHIN_LEAD_TM_FLG" value="Y"><label
+									for="WITHIN_LEAD_TM_FLG_1">Yes</label>
+							</div>
+						</div></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right"><label for="ORG_CD_VND"
+						id="ORG_CD_VND_LABEL">
+						<a class="t12OptionalLabelWithHelp" href="javascript:popupFieldHelp('#??')" >Vendor Code</a></label></td>
+					<td align="left"><div
+							class="apex-item-group apex-item-group--popup-lov" role="group"
+							aria-labelledby="ORG_CD_VND_LABEL">
+							<input type="text" id="ORG_CD_VND" name="ORG_CD_VND"
+								class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+								onblur="javascript:{this.value = this.value.toUpperCase(); }"
+								size="20" maxlength="2000" value="" />
+								<button type="" class="btn grn-btn" ng-click="listOfValues('ic_categry');">LOV</button>
+						</div></td>
+					<td nowrap="nowrap" align="right"><label
+						for="VND_QTE_OUTSTANDING_DAYS" id="VND_QTE_OUTSTANDING_DAYS_LABEL">
+							<a class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Outstanding
+								Vendor Quote<br>less than (Days)
+						</a>
+					</label></td>
+					<td align="left"><input type="text"
+						id="VND_QTE_OUTSTANDING_DAYS" name="VND_QTE_OUTSTANDING_DAYS"
+						class="text_field&#x20;apex-item-text" value="" size="5"
+						maxlength="2000" /></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right"><label for="PLAN_HORIZON_DT"
+						id="PLAN_HORIZON_DT_LABEL"><a
+							class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Planning Horizon<br>End Date
+						</a></label></td>
+					<td align="left"><fieldset id="PLAN_HORIZON_DT_fieldset"
+							tabindex="-1">
+							<table 
+								 cellspacing="0"
+								border="0" role="presentation" id="PLAN_HORIZON_DT_holder">
+								<tr>
+									<td ><input type="text"
+										name="PLAN_HORIZON_DT" size="12" maxlength="2000" value=""
+										id="PLAN_HORIZON_DT" /></td>
+									<td><a
+										href="javascript:void();"><img
+											id="PLAN_HORIZON_DT_IMG" src="/i/asfdcldr.gif" />
+											</a></td>
+								</tr>
+							</table>
+						</fieldset></td>
+					<td nowrap="nowrap" align="right"><label for="INDIV_NBR_BUYER"
+						id="INDIV_NBR_BUYER_LABEL"><a
+							class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Buyer
+								Name</a></label></td>
+					<td align="left">
+						<div class="apex-item-group apex-item-group--popup-lov"
+							role="group" aria-labelledby="INDIV_NBR_BUYER_LABEL">
+							<input type="text" id="INDIV_NBR_BUYER" name="INDIV_NBR_BUYER"
+								class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+								size="30" maxlength="45" value="" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right"><label for="ORG_CD_CUST"
+						id="ORG_CD_CUST_LABEL"><a class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Customer
+								Code</a></label></td>
+					<td align="left"><div
+							class="apex-item-group apex-item-group--popup-lov" role="group"
+							aria-labelledby="ORG_CD_CUST_LABEL">
+							<input type="text" id="ORG_CD_CUST" name="ORG_CD_CUST"
+								class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+								onblur="javascript:{this.value = this.value.toUpperCase(); }"
+								size="20" maxlength="16" value="" /><span
+								class="apex-item-popup-lov-button">
+								<button type="" class="btn grn-btn" ng-click="listOfValues('ic_categry');">LOV</button>
+						</div></td>
+					<td nowrap="nowrap" align="right"><label for="FCST_GRP"
+						id="FCST_GRP_LABEL"><a class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Forecast
+								Group</a></label></td>
+					<td align="left"><select id="FCST_GRP" name="FCST_GRP"
+						class="selectlist&#x20;apex-item-select"
+						onblur="javascript:{this.value = this.value.toUpperCase(); }"
+						size="1"><option value="" selected="selected"></option>
+							<option value="BRAD">BRAD</option>
+							<option value="CLCORE">CLCORE</option>
+							<option value="FLCORE">FLCORE</option>
+							<option value="LACORE">LACORE</option>
+							<option value="LAJITS">LAJITS</option>
+							<option value="MICORE">MICORE</option>
+							<option value="MTCORE">MTCORE</option>
+							<option value="MTJITS">MTJITS</option>
+							<option value="OTCORE">OTCORE</option>
+							<option value="OTJITS">OTJITS</option>
+							<option value="PARISCOR">PARISCOR</option>
+							<option value="PARISJIT">PARISJIT</option>
+							<option value="TMP">TMP</option>
+							<option value="TOCORE">TOCORE</option>
+							<option value="TOJITS">TOJITS</option>
+							<option value="USCORE">USCORE</option>
+							<option value="USJITS">USJITS</option>
+							<option value="VCCORE">VCCORE</option>
+							<option value="VCJITS">VCJITS</option>
+							<option value="WPJITS">WPJITS</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right"><label for="ORG_CD_MFR"
+						id="ORG_CD_MFR_LABEL"><a class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Manufacturer
+								Code</a></label></td>
+					<td align="left">
+						<div
+							class="apex-item-group apex-item-group--popup-lov" role="group"
+							aria-labelledby="ORG_CD_MFR_LABEL">
+							<input type="text" id="ORG_CD_MFR" name="ORG_CD_MFR"
+								class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+								onblur="javascript:{this.value = this.value.toUpperCase(); }"
+								size="20" maxlength="16" value="" />
+								<button type="" class="btn grn-btn" ng-click="listOfValues('org_mfr');">LOV</button>
+						</div></td>
+					<td nowrap="nowrap" align="right"><label for="ITEM_STAT_ID"
+						id="ITEM_STAT_ID_LABEL"><a
+							class="t12OptionalLabelWithHelp"
+							href="javascript:popupFieldHelp('#??')" >Item
+								Status</a></label></td>
+					<td align="left"><select id="ITEM_STAT_ID" name="ITEM_STAT_ID"
+						class="selectlist&#x20;apex-item-select" size="1"><option
+								value="" selected="selected"></option>
+							<option value="A">Active</option>
+							<option value="I">Inactive</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" align="right">
+					<label for="NBR_RECORDS" id="NBR_RECORDS_LABEL">
+						<a class="t12OptionalLabelWithHelp" href="javascript:popupFieldHelp('#??')" >Number of Records<br>to Display </a>
+						</label>
+					</td>
+					<td align="left"><input type="text" id="NBR_RECORDS"
+						name="NBR_RECORDS" class="text_field&#x20;apex-item-text"
+						value="100" size="10" maxlength="2000" /><input type="hidden"
+						id="FCST_GRP_ACT" name="FCST_GRP_ACT" value="">
+						<input type="hidden" id="ITEM_STAT_ID_ACT" name="ITEM_STAT_ID_ACT" value=""> 
+					</td>
+				</tr>
+			</table>
+			<table summary="" cellspacing="0" cellpadding="0" border="0" width="100%">
+				<tr>
+					<td align="right"><a
+						href="javascript:apex.submit(%7Brequest:'FIND'%7D);"
+						class="t12Button">Find</a><a
+						href="javascript:apex.submit(%7Brequest:'RESET'%7D);"
+						class="t12Button">Reset</a></td>
+				</tr>
+			</table>
+
+		</tr>
+		<tr>
+			<td><img src="/i/themes/theme_12/t.gif" width="400" height="1"
+				alt=""></td>
+		</tr>
+	</table>
+	<hr/>
+	<h2>Planning Shortages</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>type</th>
+				<th class="td-center">Late?</th>
+				<th class="td-center">Unallocated?</th>
+			</tr>
+		</thead>
+		<tr>
+			<th>Customer Orders</th>
+			<td class="td-center"><input type="checkbox" name="lateCustomerOrder"
+				value="lateCustomerOrder"></td>
+			<td class="td-center"><input type="checkbox" name="unallocatedCustomerOrder"
+				value="unallocatedCustomerOrder">`</td>
+		</tr>
+		<tr>
+			<th>Forecasts</th>
+			<td><input type="checkbox" name="lateForecast"
+				value="lateForecast"></td>
+			<td><input type="checkbox" name="unallocatedForecast"
+				value="unallocatedForecast"></td>
+		</tr>
+		<tr>
+			<th>Safety Stock</th>
+			<td><input type="checkbox" name="lateSafetyStock"
+				value="lateSafetyStock"></td>
+			<td><input type="checkbox" name="unallocatedSafetyStock"
+				value="unallocatedSafetyStock"></td>
+		</tr>
+		<tr>
+			<th>Work Orders</th>
+			<td><input type="checkbox" name="lateWorkOrder"
+				value="lateWorkOrder"></td>
+			<td><input type="checkbox" name="unallocatedWorkOrder"
+				value="unallocatedWorkOrder"></td>
+		</tr>
+	</table>
+	</div>
+
+<script>
+		var app = angular.module('planQueryApp', []);
+		console.log('app is' + app);
+		console.log("about to call with 'fcst_grp'");
+		
+		app.controller('planQueryCtrl', function($scope, $http) {
+			$http.get("listOfValues?queryName=fcst_grp").then(
+					function(response) {
+						$scope.values = response.data;
+					});
+			
+			$scope.listOfValues = function (sql_statement_name) {
+				alert("in list of values")
+				console.log("listOfValues: time to pop up that modal");	
+			}
+		});
+		
+		console.log("app.controller assigned");
+	</script>
+
+</body>
+<html></html>

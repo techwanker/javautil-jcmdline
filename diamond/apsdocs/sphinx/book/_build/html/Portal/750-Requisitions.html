@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Requisition &#8212; Diamond APS 2019-12-14-03 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="requisition">
+<h1>Requisition<a class="headerlink" href="#requisition" title="Permalink to this headline">¶</a></h1>
+<p>]How and why to create a requisition</p>
+<div class="section" id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Look at the report section of the portal</p></li>
+<li><p>Review the information</p></li>
+<li><p>Fill out the checkist</p></li>
+<li><p>Simulate</p></li>
+<li><p>Create the requisititioni</p></li>
+<li><p>Proper quantity for ABC?</p></li>
+</ol>
+</div>
+<div class="section" id="gather-information">
+<h2>Gather Information<a class="headerlink" href="#gather-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lead Times</p></li>
+<li><p>Unit Costs</p></li>
+<li><p>Optimal Replenishment Quantities</p></li>
+<li><p>Approved Manufacturers</p></li>
+</ul>
+<div class="section" id="requisition-checklist">
+<h3>Requisition Checklist<a class="headerlink" href="#requisition-checklist" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="intrinsic-information">
+<h3>Intrinsic Information<a class="headerlink" href="#intrinsic-information" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="extrinsic-information">
+<h3>Extrinsic Information<a class="headerlink" href="#extrinsic-information" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="simulate">
+<h3>Simulate<a class="headerlink" href="#simulate" title="Permalink to this headline">¶</a></h3>
+<p>DOCTHIS</p>
+</div>
+<div class="section" id="sequence-diagram">
+<h3>Sequence Diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/Requisitions.png" src="../_images/Requisitions.png" />
+<ol class="arabic simple">
+<li><p>What are the requisition review requirements?</p>
+<ul class="simple">
+<li><p>When is a requisition subject to review?</p></li>
+<li><p>What are the needs additional work conditions?</p>
+<ul>
+<li><p>Need more vendor quotes</p></li>
+<li><p>Need work on equivalent parts</p></li>
+<li><p>Incorrect buy quantity</p></li>
+<li><p>Get existing inventory certified.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="out-of-scope">
+<h2>Out of Scope<a class="headerlink" href="#out-of-scope" title="Permalink to this headline">¶</a></h2>
+<p>Lead times can vary drastically based on</p>
+<ul class="simple">
+<li><p>vendor</p></li>
+<li><p>material shortages</p></li>
+<li><p>new product introduction</p></li>
+<li><p>product recall MRO (Maintenance, Repair and Overhaul)Definition</p></li>
+</ul>
+<p>The elapsed time, usually measured in weeks between when a product
+is ordered and receivied.</p>
+<p>Usually not considered</p>
+<ul class="simple">
+<li><p>Recieving time</p></li>
+<li><p>Inspection Time</p></li>
+<li><p>Intra-facility transfer time</p></li>
+<li><p>These are consider <em>availability times</em></p></li>
+</ul>
+<p>Typically in DRP Planning</p>
+<ul class="simple">
+<li><p>There is only one lead time</p></li>
+<li><p>This lead time is fairly consistent</p></li>
+<li><p>Costs due not vary based on lead time.</p></li>
+</ul>
+</div>
+<div class="section" id="in-aerospace">
+<h2>In aerospace<a class="headerlink" href="#in-aerospace" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="source-of-lead-time">
+<h2>Source of Lead Time<a class="headerlink" href="#source-of-lead-time" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vendor-quotes">
+<h3>vendor quotes<a class="headerlink" href="#vendor-quotes" title="Permalink to this headline">¶</a></h3>
+<p>Take the lead time from the maximum quote expiration date</p>
+</div>
+<div class="section" id="summarized-lead-times-should-include">
+<h3>Summarized Lead Times should include<a class="headerlink" href="#summarized-lead-times-should-include" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Vendor Code</p></li>
+<li><p>Vendor type (Manufacturer, Distibutor, intra-company</p></li>
+<li><p>Vendor quote beginning and ending effective date</p></li>
+<li><p>Date of request for quote</p></li>
+</ul>
+</div>
+<div class="section" id="lead-time-details-should-include">
+<h3>Lead time details should include:<a class="headerlink" href="#lead-time-details-should-include" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Historical lead times</p></li>
+</ul>
+</div>
+<div class="section" id="lead-time-projections">
+<h3>Lead time projections<a class="headerlink" href="#lead-time-projections" title="Permalink to this headline">¶</a></h3>
+<p>Factors that can effect lead time, Lead times can vary drastically based
+on</p>
+<ul class="simple">
+<li><p>vendor</p></li>
+<li><p>Some vendors will stock</p></li>
+<li><p>Some manufacturers will build to stock</p></li>
+<li><p>Some manufactureres will build only on demand, see Cost per Unit</p></li>
+<li><p>material shortages</p></li>
+<li><p>new product introduction</p></li>
+<li><p>product recall MRO (Maintenance, Repair and Overhaul)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Instructions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Look at the report section of the portal</p></li>
+<li><p>Review the information</p></li>
+<li><p>Fill out the checklist</p></li>
+<li><p>Create the requisition</p></li>
+</ol>
+<div class="section" id="id2">
+<h3>Requisition Checklist<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Sequence Diagram<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/Requisitions.png" src="../_images/Requisitions.png" />
+<div class="section" id="id4">
+<h3>Intrinsic Information<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id5">
+<h3>Extrinsic Information<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Gather all information, it should all be available in the portal</p>
+</div>
+</div>
+<div class="section" id="related-articles">
+<h2>Related articles<a class="headerlink" href="#related-articles" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Diamond APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html">Business Process Reeingeneering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#data-requirements">Data Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#legacy-system">Legacy System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#concepts">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#procedures">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#benefits">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#questions">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#implementation">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#sap-on-the-web">SAP on the web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#id5">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#conclusion">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#planning-requirements">Planning Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#id14">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#modifications">Modifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#difference-from-sap">Difference from SAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BusinessProcessReengineering.html#id16">SAP on the web</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/Portal/750-Requisitions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tables</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tables">
+<h1>Tables</h1>
+<div class="section" id="all-supply-and-aps-supply">
+<h2>ALL_SUPPLY and APS_SUPPLY</h2>
+<blockquote>
+<div><p>Name                  Type
+—————– ————
+SPLY_IDENTIFIER   VARCHAR2(61)
+AVAIL_TYPE_CD     CHAR(1)
+LOT_NBR                   NUMBER
+ITEM_NBR                  NUMBER(9)
+FACILITY                  VARCHAR2(16)
+APS_SPLY_SUB_POOL NUMBER(9)
+_NBR
+ORG_NBR_MFR                NUMBER
+ORG_NBR_VND                NUMBER
+AVAIL_DT                   DATE
+GROSS_AVAIL_QTY            NUMBER
+LOT_UM                     VARCHAR2(3)
+REV_LVL                    VARCHAR2(5)
+PK_SUPPLY                  NUMBER(9)
+LOT_COST                   NUMBER
+CNTRY_CD_ORIGIN            VARCHAR2(3)
+MFR_DATE                   DATE
+EXPIRE_DT                  DATE
+RCPT_DT                    DATE
+APS_AVAIL_DT               DATE
+WO_ITEM_NBR                NUMBER
+AVAIL_DT_ID                VARCHAR2(1)  -   DECODE(iil.avail_dt, NULL, ‘F’, ‘P’)       avail_dt_id</p>
+<p>PO_LINE_HDR_NBR            NUMBER</p>
+<dl class="simple">
+<dt>SELECT sply_identifier,</dt><dd><p>‘O’,
+lot_nbr,
+item_nbr,
+facility,
+aps_sply_sub_pool_nbr,
+org_nbr_mfr,
+org_nbr_vnd,
+avail_dt,
+gross_avail_qty,
+lot_um,
+rev_lvl,
+pk_supply,
+lot_cost,
+cntry_cd_origin,
+mfr_date,
+expire_dt,
+rcpt_dt,
+avail_dt,
+TO_NUMBER(NULL)     wo_item_nbr,
+avail_dt_id,
+to_number(null) po_line_hdr_nbr</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>FROM</dt><dd><p>aps_avail_onhand</p>
+</dd>
+</dl>
+<p>UNION ALL
+SELECT tar.sply_identifier,</p>
+<blockquote>
+<div><p>‘R’,
+TO_NUMBER(NULL),
+tar.item_nbr,
+tar.facility,
+tar.aps_sply_sub_pool_nbr,
+tar.org_nbr_mfr,
+tar.org_nbr_vnd,
+tar.avail_dt,
+tar.gross_avail_qty,
+tar.replen_um,
+tar.rev_lvl,
+tar.po_line_dtl_nbr,
+tar.unit_cost_stk_um,
+tar.cntry_cd_origin,
+tar.lot_manufacture_after_dt,
+tar.lot_not_expire_before_dt,
+TO_DATE(NULL),
+tar.aps_avail_dt,
+TO_NUMBER(NULL)      wo_item_nbr,
+NULL                                  avail_dt_id,
+tar.po_line_Hdr_Nbr</p>
+</div></blockquote>
+<dl class="simple">
+<dt>FROM</dt><dd><p>aps_avail_replen  tar</p>
+</dd>
+</dl>
+<p>UNION ALL
+SELECT /<a href="#id1"><span class="problematic" id="id2">*</span></a>+ use_nl(iii woh) index (woh) <a href="#id3"><span class="problematic" id="id4">*</span></a>/</p>
+<blockquote>
+<div><p>TO_CHAR(woh.wo_hdr_nbr)     sply_identifier,
+‘W’,
+TO_NUMBER(NULL),
+woh.item_nbr_rqst,
+woh.facility,
+woh.aps_sply_sub_pool_nbr,
+TO_NUMBER(NULL),
+TO_NUMBER(NULL),
+woh.need_by_dt       avail_dt,
+woh.rqst_qty - NVL(woh.fill_qty,0)  gross_avail_qty,
+woh.wo_um,
+TO_CHAR(NULL)       rev_lvl,
+woh.wo_hdr_nbr,
+TO_NUMBER(NULL),
+TO_CHAR(NULL),
+TO_DATE(NULL),
+TO_DATE(NULL),
+TO_DATE(NULL),
+woh.need_by_dt,
+woh.item_nbr_rqst      wo_item_nbr,
+NULL                                  avail_dt_id,
+to_number(null)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>FROM</dt><dd><p>wo_hdr   woh</p>
+</dd>
+<dt>WHERE</dt><dd><p>woh.wo_stat_id  = ‘O’</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

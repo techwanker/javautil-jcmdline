@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Compute Optimal Purchase Quantity &#8212; APS Portal 2019-12-22-22-02 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>During one of my calls with Peter he told me that he was reviewing
+purchase orders a simple line such as “Buyers don’’t buy the correct
+quantities to get a good price” was extended to:</p>
+<div class="section" id="compute-optimal-purchase-quantity">
+<h1>Compute Optimal Purchase Quantity<a class="headerlink" href="#compute-optimal-purchase-quantity" title="Permalink to this headline">¶</a></h1>
+<p>Compute a projected per unit cost by solving the equation</p>
+<p>unit_cost = (setup_cost / qty) + incremental cost</p>
+<p>For two different known qty and prices (vendor quotes) using linear
+algebra</p>
+</div>
+<div class="section" id="graph-this-relationsihip">
+<h1>Graph this relationsihip<a class="headerlink" href="#graph-this-relationsihip" title="Permalink to this headline">¶</a></h1>
+<p>Find the “price knee” the first derivative of the function, the slope of
+the tangent starts to level off (it asymptotically approaches 0, meaning
+the limit is the unit cost doesn’’t decrease at all. Depending on setup
+cost, incremental cost and annual consumption a three year supply may be
+ten percent more than a one year supply, it may also be three times the
+acquisition cost and additional carrying costs must be considered.</p>
+<p>Vendor quotes should include this range of quantities, purchasing
+quantities should be in this range, buys can be made and even scheduled
+so that lower per unit costs can be realized.</p>
+<div class="section" id="purchasing-procedures">
+<h2>Purchasing Procedures<a class="headerlink" href="#purchasing-procedures" title="Permalink to this headline">¶</a></h2>
+<p>When a part needs to be replenished</p>
+<ol class="arabic simple">
+<li><p>Vendor quotes for the price range should be required.</p></li>
+<li><p>Purchase amounts over a defined limit should be reviewed and
+approved.</p></li>
+<li><p>Requisitions should be created in the new purchase decision
+application and once approved, be created as purchase orders in the
+execution system (Dymax and SAP).</p></li>
+<li><p>Checks for any constraints including approved manufacturers should be
+simulated</p></li>
+<li><p>Existing inventory carried under equivalent part numbers should be
+considered.</p></li>
+</ol>
+<p>The opportunities for process improvement are best addressed by
+evaluating your current processes and the issues your experts realize
+and developing a system to address those issues.</p>
+</div>
+<div class="section" id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
+<p>Your new process should:</p>
+<ol class="arabic simple">
+<li><p>Be external to SAP and Dymax, requiring no modifications to either
+system. This eliminates risk and complexity.</p></li>
+<li><p>Should include data from both operations for inventory, purchases and
+demands</p></li>
+<li><p>Incorporate new procedures and policies to reflect best practices</p></li>
+<li><p>Reduce the effort of sales staff and purchasing staff to perform
+their functions</p></li>
+<li><p>Define metrics to evaluate performance and progress</p></li>
+<li><p>Have an alert system of reports of issues that need to be addressed.</p></li>
+<li><p>Require no hardware or other infrastructure or the installation of
+any software on any Align computer.</p></li>
+</ol>
+<div class="section" id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
+<p>What is the current cost of:</p>
+<ol class="arabic simple">
+<li><p>Not buying the correct quantities</p></li>
+<li><p>Not taking into consideration multiple certifications</p></li>
+<li><p>Buying inventory in one operation that is excess inventory in the
+other operation</p></li>
+<li><p>Time wasted gathering information to create a purchase order</p></li>
+</ol>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>Align has the expertise in house to participate in the design of a
+business process and software to optimize the purchasing and sales
+operations, there is no need to wait for an IT person who has much less
+experience than your director of purchasing and other operations
+personnel.</p>
+<p>A one hour phone call every two weeks is not going to ever get you a
+design.</p>
+<p>I have no doubt that several times every day a sub-optimal purchase
+results in a expense greater than the cost of developing a design.</p>
+<p>A design is best done by whiteboard meetings, starting with a blank
+whiteboard. Even with 25 years experience in Aerospace, it would be
+presumptious, and flat out wrong for me to give a powerpoint
+presentation and say “This is the universal answer to all problems, it
+will fit your situation”; this is the approach of someone hawking
+software.</p>
+</div>
+<div class="section" id="proposal">
+<h3>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="extract-the-following-inforation-from-dymax-and-sap">
+<h2>Extract the following inforation from Dymax and SAP<a class="headerlink" href="#extract-the-following-inforation-from-dymax-and-sap" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="planning-control-data">
+<h1>Planning Control Data<a class="headerlink" href="#planning-control-data" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="planning-group-data">
+<h1>Planning Group Data<a class="headerlink" href="#planning-group-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Supply</p>
+<ul>
+<li><p>Types</p>
+<ul>
+<li><p>Onhand</p></li>
+<li><p>Purchase orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</li>
+<li><p>Certifications</p></li>
+<li><p>Item Certifications</p></li>
+</ul>
+</li>
+<li><p>Demands</p>
+<ul>
+<li><p>Sales History</p></li>
+<li><p>Open Demands</p></li>
+<li><p>Types</p>
+<ul>
+<li><p>Forecast</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Customer Orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</li>
+<li><p>Demand Certs</p></li>
+</ul>
+</li>
+<li><p>Item information</p>
+<ul>
+<li><p>Item Master</p></li>
+<li><p>Substitutes and Equivalents</p></li>
+<li><p>Forecasting entitities</p></li>
+</ul>
+</li>
+<li><p>Customer Information</p>
+<ul>
+<li><p>Customer Master</p></li>
+<li><p>Forecast group</p></li>
+<li><p>Approved Manufacturers</p></li>
+</ul>
+</li>
+<li><p>Rules</p>
+<ul>
+<li><p>Sourcing Rules</p></li>
+<li><p>Supply Pools</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Projected Position</p></li>
+<li><p>Expedite</p></li>
+<li><p>De-expedite</p></li>
+<li><p>Requsitions</p></li>
+<li><p>Unallocated Demand</p></li>
+<li><p>Unallocated Supply</p></li>
+<li><p>Allocations</p></li>
+<li><p>Detailed explanation of why a supply was ineligible for a demand</p></li>
+<li><p>Allocation based pricing</p></li>
+<li><p>Work order generation</p></li>
+<li><p>Exception Reports</p></li>
+</ul>
+<p>Allow simulations</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">APS Portal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ABC.html">ABC - Pareto - Item Statistics XYZZ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ABC.html#id3">Item Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UnitCost.html">Unit Cost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UnitCost.html#questions">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UnitCost.html#conclusion">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UnitCost.html#proposal">Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UnitCost.html#system-will-produce">System will produce</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/UnitKnee.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

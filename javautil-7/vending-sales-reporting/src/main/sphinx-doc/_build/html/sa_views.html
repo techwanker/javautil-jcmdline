@@ -1,0 +1,690 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sales Analysis Views &#8212; pdssr 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="History of Jim Schmidt and Custom Data Solutions" href="jjscds.html" />
+    <link rel="prev" title="Record Layouts" href="cds_record_layout.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sales-analysis-views">
+<h1>Sales Analysis Views<a class="headerlink" href="#sales-analysis-views" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<p>Validate these views in integration testing.</p>
+<div class="section" id="customer">
+<h3>Customer<a class="headerlink" href="#customer" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>create or replace view customer_vw as</dt>
+<dd>select distinct ship_to_cust_id
+from etl_sale;</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="product">
+<h3>Product<a class="headerlink" href="#product" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>code::</dt>
+<dd>create or replace view product_vw as
+select distinct case_gtin
+from etl_sale;</dd>
+</dl>
+</div>
+<div class="section" id="effective-date">
+<h3>Effective Date<a class="headerlink" href="#effective-date" title="Permalink to this headline">¶</a></h3>
+<p>In order for these queries to work without recreating the database we assume
+an <em>effective date</em> which is the date of the last reported sale.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">drop</span> <span class="n">table</span> <span class="k">if</span> <span class="n">exists</span> <span class="n">effective_date</span><span class="p">;</span>
+
+<span class="n">create</span> <span class="n">table</span> <span class="n">effective_date</span> <span class="k">as</span>
+<span class="n">select</span> <span class="nb">max</span><span class="p">(</span><span class="n">invoice_dt</span><span class="p">)</span> <span class="n">report_date</span> <span class="p">,</span>
+       <span class="nb">max</span><span class="p">(</span><span class="n">invoice_dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span>   <span class="n">year_ago</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">effective_date</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Product<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Populate the product table for the fake manufacturer <em>TX EXOTIC</em></p>
+<p>insert into org_mfr(org_id,cds_mfr_id) values (17,‘0000000017d ‘);
+code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span> <span class="n">into</span> <span class="n">product</span>
+<span class="p">(</span>
+    <span class="n">case_gtin</span><span class="p">,</span>
+        <span class="n">product_descr</span><span class="p">,</span>
+    <span class="n">mfr_id</span>
+<span class="p">)</span>
+<span class="n">select</span> <span class="n">case_gtin</span><span class="p">,</span>
+       <span class="nb">min</span><span class="p">(</span><span class="n">product_descr</span><span class="p">),</span>
+       <span class="mi">17</span>
+<span class="kn">from</span>   <span class="nn">etl_sale</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="total-sales">
+<h3>Total Sales<a class="headerlink" href="#total-sales" title="Permalink to this headline">¶</a></h3>
+<p>Total $ amount of sales for the preceeding 12 months based on last invoice date.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">tot_sales_12_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This should link to product TODO</p>
+</div>
+<div class="section" id="customer-product-sales-last-12-months">
+<h3>Customer &amp; Product Sales Last 12 months<a class="headerlink" href="#customer-product-sales-last-12-months" title="Permalink to this headline">¶</a></h3>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_12_vw</span> <span class="k">as</span>
+<span class="n">select</span>
+        <span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span><span class="p">,</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+  <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+       <span class="n">effective_date</span>
+  <span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span>
+  <span class="n">group</span> <span class="n">by</span>  <span class="n">ship_to_cust_id</span><span class="p">,</span>
+            <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Every product and every customer.
+Worhtless by itself, but</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_all_product_vw</span> <span class="k">as</span>
+    <span class="n">select</span>
+            <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+            <span class="n">product_vw</span><span class="o">.</span><span class="n">case_gtin</span>
+      <span class="kn">from</span>
+           <span class="nn">product_vw</span><span class="p">,</span>
+           <span class="n">customer_vw</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">customer_vw</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">product_vw</span><span class="p">;</span>
+
+<span class="k">with</span> <span class="n">c</span> <span class="k">as</span> <span class="p">(</span>
+    <span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">customer_count</span> <span class="kn">from</span> <span class="nn">customer_vw</span>
+<span class="p">),</span>
+<span class="n">p</span> <span class="k">as</span> <span class="p">(</span>
+    <span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">product_count</span> <span class="kn">from</span> <span class="nn">product_vw</span>
+<span class="p">)</span>
+<span class="n">select</span> <span class="n">c</span><span class="o">.</span><span class="n">customer_count</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">product_count</span>
+<span class="kn">from</span> <span class="nn">c</span><span class="p">,</span><span class="n">p</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customer-all-products-sales-vw">
+<h3>customer_all_products_sales_vw<a class="headerlink" href="#customer-all-products-sales-vw" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>create or replace view customer_all_product_sales_vw as</dt>
+<dd><dl class="first last docutils">
+<dt>select</dt>
+<dd><blockquote class="first">
+<div>cap.ship_to_cust_id,
+cap.case_gtin,
+sum(etl_sale.extended_net_amt) tot_extended_net_amt</div></blockquote>
+<dl class="last docutils">
+<dt>from</dt>
+<dd>customer_all_product_vw cap</dd>
+<dt>left outer join etl_sale</dt>
+<dd><dl class="first last docutils">
+<dt>on etl_sale.ship_to_cust_id = cap.ship_to_cust_id and</dt>
+<dd>etl_sale.case_gtin = cap.case_gtin</dd>
+</dl>
+</dd>
+<dt>group by  cap.ship_to_cust_id,</dt>
+<dd>cap.case_gtin;</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="etl-sale-12-vw">
+<h2>etl_sale_12_vw<a class="headerlink" href="#etl-sale-12-vw" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>create or replace view etl_sale_12_vw as
+select etl_sale.*
+from etl_sale,</p>
+<blockquote>
+<div>effective_date</div></blockquote>
+<dl class="docutils">
+<dt>where</dt>
+<dd>etl_sale.invoice_dt  &gt; effective_date.year_ago ;</dd>
+<dt>create or replace view customer_all_product_sales_12_vw as</dt>
+<dd><dl class="first last docutils">
+<dt>select</dt>
+<dd><blockquote class="first">
+<div>cap.ship_to_cust_id,
+cap.case_gtin,
+sum(es.extended_net_amt) tot_extended_net_amt</div></blockquote>
+<dl class="last docutils">
+<dt>from</dt>
+<dd>customer_all_product_vw cap</dd>
+<dt>left outer join etl_sale_12_vw es</dt>
+<dd><dl class="first last docutils">
+<dt>on es.ship_to_cust_id = cap.ship_to_cust_id and</dt>
+<dd>es.case_gtin = cap.case_gtin</dd>
+</dl>
+</dd>
+<dt>group by  cap.ship_to_cust_id,</dt>
+<dd>cap.case_gtin;</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>select sum(tot_extended_net_amt) from
+customer_all_product_sales_12_vw;</p>
+<blockquote>
+<div><p>select sum(extended_net_amt)
+from etl_sale,</p>
+<blockquote>
+<div>effective_date</div></blockquote>
+<p>where etl_sale.invoice_dt &gt; effective_date.year_ago;</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>create or replace view customer_missing_product_sales_12_vw as</dt>
+<dd><dl class="first last docutils">
+<dt>select</dt>
+<dd><blockquote class="first">
+<div>cap.ship_to_cust_id,
+cap.case_gtin,
+tot_extended_net_amt</div></blockquote>
+<dl class="last docutils">
+<dt>from</dt>
+<dd>customer_all_product_sales_12_vw cap</dd>
+<dt>where</dt>
+<dd>tot_extended_net_amt is null;</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>/* these numbers should add up <em>/
+select count(</em>) from</p>
+<blockquote>
+<div>customer_all_product_sales_12_vw;</div></blockquote>
+<p>select count(*) from customer_product_12_vw ;</p>
+<dl class="docutils">
+<dt>select count(*) from</dt>
+<dd><p class="first">customer_missing_product_sales_12_vw;</p>
+<p class="last">create or replace view customer_all_product_vw as</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>–       select</dt>
+<dd><dl class="first last docutils">
+<dt>–              cap.ship_to_cust_id,</dt>
+<dd><dl class="first last docutils">
+<dt>–             cap.case_gtin,</dt>
+<dd><dl class="first last docutils">
+<dt>–            sum(etl_sale.extended_net_amt) tot_extended_net_amt</dt>
+<dd><dl class="first last docutils">
+<dt>–     from</dt>
+<dd><blockquote class="first">
+<div><dl class="docutils">
+<dt>customer_all_product_vw cap</dt>
+<dd>– , effective_date</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt>left join etl_sale</dt>
+<dd><dl class="first last docutils">
+<dt>on cap.ship_to_cust_id = etl_sale.ship_to_cust_id</dt>
+<dd>and  cap.case_gtin    = etl_sale.case_gtin</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>–         –where etl_sale.invoice_dt  &gt; effective_date.year_ago</dt>
+<dd><dl class="first last docutils">
+<dt>–        group by  cap.ship_to_cust_id,</dt>
+<dd>–                 cap.case_gtin;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="section" id="product-rank">
+<h3>Product Rank<a class="headerlink" href="#product-rank" title="Permalink to this headline">¶</a></h3>
+<p>There are many ways to rank product.</p>
+<p>Units, gross revenue, profit, turns…</p>
+<p>This is based simply on gross revenue</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_rank_12_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_ext</span><span class="p">,</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">tot_sales_12_vw</span><span class="o">.</span><span class="n">tot_extended_net_amt</span>
+          <span class="n">pct_product</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">tot_sales_12_vw</span><span class="p">,</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">case_gtin</span><span class="p">,</span>
+         <span class="n">tot_sales_12_vw</span><span class="o">.</span><span class="n">tot_extended_net_amt</span>
+<span class="n">order</span> <span class="n">by</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">desc</span><span class="p">;</span>
+
+  <span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pct_product</span><span class="p">)</span>
+  <span class="kn">from</span> <span class="nn">product_rank_12_vw</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="o">*</span>
+  <span class="kn">from</span> <span class="nn">product_rank_12_vw</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="product-not-sold">
+<h1>Product Not Sold<a class="headerlink" href="#product-not-sold" title="Permalink to this headline">¶</a></h1>
+<p>What products are customers not selling?</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_undersold_by_customer_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+       <span class="n">product_rank_12_vw</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span> <span class="nn">customer_vw</span><span class="p">,</span>
+     <span class="n">product_rank_12_vw</span>
+<span class="n">where</span> <span class="ow">not</span> <span class="n">exists</span> <span class="p">(</span>
+   <span class="n">select</span> <span class="s1">&#39;x&#39;</span> <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+                  <span class="n">product_rank_12_vw</span>
+    <span class="n">where</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span>  <span class="ow">and</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">product_rank_12_vw</span><span class="o">.</span><span class="n">case_gtin</span>
+  <span class="p">)</span>
+<span class="n">order</span> <span class="n">by</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+         <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Sales Product Customer</p>
+<p>create or replace view
+customer_product_ext_net_vw as
+with cust_product as
+(</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>select cv.ship_to_cust_id,</dt>
+<dd>pv.case_gtin
+from customer_vw cv,
+product_vw pv</dd>
+</dl>
+</div></blockquote>
+<p>)
+select cust_product.ship_to_cust_id,</p>
+<blockquote>
+<div>cust_product.case_gtin,
+sum(extended_net_amt) sum_extended_net_amt,
+count(extended_net_amt) invoice_count</div></blockquote>
+<dl class="docutils">
+<dt>from cust_product,</dt>
+<dd>etl_sale</dd>
+<dt>where cust_product.ship_to_cust_id = etl_sale.ship_to_cust_id and</dt>
+<dd>cust_product.case_gtin = etl_sale.case_gtin</dd>
+<dt>group by</dt>
+<dd><blockquote class="first">
+<div>cust_product.ship_to_cust_id,</div></blockquote>
+<p class="last">cust_product.case_gtin;</p>
+</dd>
+</dl>
+<div class="section" id="potential-revenue">
+<h2>Potential Revenue<a class="headerlink" href="#potential-revenue" title="Permalink to this headline">¶</a></h2>
+<p>Now let us consider the amount that could be sold if these customers were to sell
+your standard ratio of product.</p>
+<p>We do that by multiplying the ratio to the dollar total for the customer.</p>
+<p>In the best case scenario, the vending operator will add a slot for the product, replacing
+with a product you don’t distribute to him.  There is a distinct possibility that the sale
+will be slightly parasitic and a lower volume product you do distribute will be replaced.</p>
+<p>select every customer and product combination</p>
+<p>create or replace view
+customer_product_vw as
+select cv.ship_to_cust_id,</p>
+<blockquote>
+<div>pv.case_gtin</div></blockquote>
+<dl class="docutils">
+<dt>from customer_vw cv,</dt>
+<dd>product_vw pv;</dd>
+</dl>
+<p>create or replace view
+customer_product_sum_vw
+as
+select</p>
+<blockquote>
+<div>cpv.ship_to_cust_id,
+cpv.case_gtin,
+sum(sales.extended_net_amt) sum_extended_net_amt</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>customer_product_vw</dd>
+</dl>
+<p>create or replace view
+customer_product_ext_net_vw as
+with cust_product as
+(</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>select cv.ship_to_cust_id,</dt>
+<dd>pv.case_gtin
+from customer_vw cv,
+product_vw pv</dd>
+</dl>
+</div></blockquote>
+<p>)
+select cust_product.ship_to_cust_id,</p>
+<blockquote>
+<div>cust_product.case_gtin,
+sum(extended_net_amt) sum_extended_net_amt,
+count(extended_net_amt) invoice_count</div></blockquote>
+<dl class="docutils">
+<dt>from cust_product,</dt>
+<dd>etl_sale</dd>
+<dt>where cust_product.ship_to_cust_id = etl_sale.ship_to_cust_id and</dt>
+<dd>cust_product.case_gtin = etl_sale.case_gtin</dd>
+<dt>group by</dt>
+<dd><blockquote class="first">
+<div>cust_product.ship_to_cust_id,</div></blockquote>
+<p class="last">cust_product.case_gtin;</p>
+</dd>
+</dl>
+<p>create or replace view
+customer_noproduct_vw as
+with cust_product_all as
+(</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>select cv.ship_to_cust_id,</dt>
+<dd>pv.case_gtin
+from customer_vw cv,
+product_vw pv</dd>
+</dl>
+</div></blockquote>
+<p>),
+cust_product_sold as
+(</p>
+<blockquote>
+<div><blockquote>
+<div><dl class="docutils">
+<dt>select distinct</dt>
+<dd><blockquote class="first">
+<div>etl_sale.ship_to_cust_id,</div></blockquote>
+<p class="last">etl_sale.case_gtin</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>from etl_sale</p>
+</div></blockquote>
+<p>e
+select</p>
+<blockquote>
+<div>cust_product_all.ship_to_cust_id, – huh
+cust_product_all.case_gtin</div></blockquote>
+<p>from cust_product_all
+except
+select cust_product_sold.ship_to_cust_id,</p>
+<blockquote>
+<div>cust_product_sold.case_gtin</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>cust_product_sold</dd>
+<dt>order by</dt>
+<dd>ship_to_cust_id,
+case_gtin</dd>
+</dl>
+<p>;</p>
+<dl class="docutils">
+<dt>select cust_product.ship_to_cust_id,</dt>
+<dd>cust_product.case_gtin,
+sum(extended_net_amt) sum_extended_net_amt,
+count(extended_net_amt) invoice_count</dd>
+<dt>from cust_product,</dt>
+<dd>etl_sale</dd>
+<dt>where cust_product.ship_to_cust_id = etl_sale.ship_to_cust_id and</dt>
+<dd>cust_product.case_gtin = etl_sale.case_gtin</dd>
+<dt>group by</dt>
+<dd><blockquote class="first">
+<div>cust_product.ship_to_cust_id,</div></blockquote>
+<p class="last">cust_product.case_gtin;</p>
+</dd>
+</dl>
+<p>create table customer_mv
+(</p>
+<blockquote>
+<div>customer_id serial primary key,
+ship_to_cust_id  varchar(10)</div></blockquote>
+<p>);</p>
+<p>insert into customer_mv
+(</p>
+<blockquote>
+<div>ship_to_cust_id</div></blockquote>
+<p>)
+select</p>
+<blockquote>
+<div>distinct ship_to_cust_id</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>etl_sale;</dd>
+</dl>
+<p>create table customer_product_12_mv
+(</p>
+<blockquote>
+<div>ship_to_cust_id varchar(10),
+case_gtin       varchar(14),
+extended_net_amt numeric(14,2)</div></blockquote>
+<p>);</p>
+<p>create table product_mv
+(</p>
+<blockquote>
+<div>case_gtin varchar(14)</div></blockquote>
+<p>);</p>
+<p>insert into product_mv
+(</p>
+<blockquote>
+<div>case_gtin</div></blockquote>
+<p>)
+select distinct case_gtin from etl_sale;</p>
+<p>insert into customer_product_12_mv
+(</p>
+<blockquote>
+<div>ship_to_cust_id,
+case_gtin,
+extended_net_amt</div></blockquote>
+<p>)
+select etl_sale.ship_to_cust_id,</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div>case_gtin,
+sum(extended_net_amt)</div></blockquote>
+<dl class="docutils">
+<dt>from    etl_sale,</dt>
+<dd>effective_date_vw</dd>
+</dl>
+<p>where   invoice_dt  &gt; effective_date_vw.report_date - interval ‘1 year’
+group by ship_to_cust_id,</p>
+<blockquote>
+<div>case_gtin</div></blockquote>
+<p>order by sum(extended_net_amt) desc;</p>
+</div></blockquote>
+<p>create or replace view customer_vw as
+select distinct ship_to_cust_id
+from etl_sale;</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>select customer_product_12_mv.ship_to_cust_id,</dt>
+<dd><blockquote class="first">
+<div>customer_product_12_mv.extended_net_amt,
+product_mv.case_gtin</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>product_mv</dd>
+<dt>left outer join  customer_product_12_mv  on</dt>
+<dd>customer_product_12_mv.case_gtin = product_mv.case_gtin</dd>
+</dl>
+<p class="last">order by product_mv.case_gtin;</p>
+</dd>
+</dl>
+<p>with customer_product_outer_12_mv as (
+select customer_product_12_mv.ship_to_cust_id,</p>
+<blockquote>
+<div><blockquote>
+<div>customer_product_12_mv.extended_net_amt,
+product_mv.case_gtin</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>product_mv</dd>
+<dt>left outer join  customer_product_12_mv  on</dt>
+<dd>customer_product_12_mv.case_gtin = product_mv.case_gtin</dd>
+</dl>
+</div></blockquote>
+<p>)
+select * from customer_product_outer_12_mv
+where ship_to_cust_cd is null</p>
+<blockquote>
+<div>and case_gtin = ‘00012345523142’</div></blockquote>
+<dl class="docutils">
+<dt>where case_gtin =</dt>
+<dd><p class="first">order by product_mv.case_gtin;</p>
+<p>create or replace view customer_product_invoice_vw as
+select etl_sale.ship_to_cust_id,</p>
+<blockquote>
+<div>count(*),
+sum(extended_net_amt) sum_extended_net_amt</div></blockquote>
+<dl class="last docutils">
+<dt>from</dt>
+<dd>etl_sale</dd>
+<dt>left join  product_vw on</dt>
+<dd>etl_sale.case_gtin = product_vw.case_gtin</dd>
+<dt>group by etl_sale.ship_to_cust_id,</dt>
+<dd>etl_sale.case_gtin;</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sales Analysis Views</a><ul>
+<li><a class="reference internal" href="#todo">Todo</a><ul>
+<li><a class="reference internal" href="#customer">Customer</a></li>
+<li><a class="reference internal" href="#product">Product</a></li>
+<li><a class="reference internal" href="#effective-date">Effective Date</a></li>
+<li><a class="reference internal" href="#id1">Product</a></li>
+<li><a class="reference internal" href="#total-sales">Total Sales</a></li>
+<li><a class="reference internal" href="#customer-product-sales-last-12-months">Customer &amp; Product Sales Last 12 months</a></li>
+<li><a class="reference internal" href="#customer-all-products-sales-vw">customer_all_products_sales_vw</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#etl-sale-12-vw">etl_sale_12_vw</a><ul>
+<li><a class="reference internal" href="#product-rank">Product Rank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#product-not-sold">Product Not Sold</a><ul>
+<li><a class="reference internal" href="#potential-revenue">Potential Revenue</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cds_record_layout.html" title="previous chapter">Record Layouts</a></li>
+      <li>Next: <a href="jjscds.html" title="next chapter">History of Jim Schmidt and Custom Data Solutions</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sa_views.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pacific Data Services.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/sa_views.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

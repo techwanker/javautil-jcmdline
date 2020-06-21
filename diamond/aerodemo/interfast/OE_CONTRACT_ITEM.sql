@@ -1,0 +1,20 @@
+--------------------------------------------------------
+--  DDL for Table OE_CONTRACT_ITEM
+--------------------------------------------------------
+
+  CREATE TABLE "OE_CONTRACT_ITEM" 
+   (	"ORG_NBR_CUST" NUMBER(9,0), 
+	"CONTRACT_CD" VARCHAR2(8), 
+	"ITEM_CD_CUST" VARCHAR2(50), 
+	"ITEM_NBR" NUMBER(9,0), 
+	"ITEM_NBR_SUPERSEDE" NUMBER(9,0), 
+	"EFF_DT_BEG" DATE, 
+	"EFF_DT_END" DATE, 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"TOT_CONTRACT_QTY" NUMBER(9,0), 
+	"NOTE_NBR_REF" NUMBER(9,0), 
+	"USE_CONTRACT_ITEM_CERT" VARCHAR2(1) DEFAULT 'N', 
+	"SUPERSESSION_STAT_ID" VARCHAR2(1) DEFAULT 'R', 
+	"SUPERSESSION_EST_EFF_DT" DATE
+   ) ;

@@ -1,0 +1,21 @@
+--------------------------------------------------------
+--  DDL for Table TMP_FCST_DTL
+--------------------------------------------------------
+
+  CREATE GLOBAL TEMPORARY TABLE "TMP_FCST_DTL" 
+   (	"GROUPING_STRING" VARCHAR2(100), 
+	"SORT_SEQ" NUMBER(3,0), 
+	"DMD_TYPE" VARCHAR2(30), 
+	"QTY_MNTH_1" NUMBER, 
+	"QTY_MNTH_2" NUMBER, 
+	"QTY_MNTH_3" NUMBER, 
+	"QTY_MNTH_4" NUMBER, 
+	"QTY_MNTH_5" NUMBER, 
+	"QTY_MNTH_6" NUMBER, 
+	"QTY_MNTH_7" NUMBER, 
+	"QTY_MNTH_8" NUMBER, 
+	"QTY_MNTH_9" NUMBER, 
+	"QTY_MNTH_10" NUMBER, 
+	"QTY_MNTH_11" NUMBER, 
+	"QTY_MNTH_12" NUMBER
+   ) ON COMMIT PRESERVE ROWS ;

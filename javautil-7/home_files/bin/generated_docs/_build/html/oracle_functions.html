@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>oracle_functions.sh &mdash; bash scripts 2019 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="bash scripts 2019 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">bash scripts 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="oracle-functions-sh">
+<h1>oracle_functions.sh<a class="headerlink" href="#oracle-functions-sh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configure-tnsnames-and-listener">
+<h2>configure tnsnames and listener<a class="headerlink" href="#configure-tnsnames-and-listener" title="Permalink to this headline">¶</a></h2>
+<p>CODE set_tns_admin() { grep -v &#8220;^#.&#8221; /etc/oratab
+database_count=<tt class="docutils literal"><span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;^#.*&quot;</span> <span class="pre">/etc/oratab</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;[^:]*:[^:]*&quot;</span>&nbsp; <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l</span></tt>
+echo database count is <span class="formula"><i>database</i><sub><i>count</i></sub><i>if</i>[</span>
+
+echo using TNS_ADMIN $TNS_ADMIN fi }</p>
+<p>gettnsadmin() { SID=$1</p>
+<p>}</p>
+</div>
+</div>
+<div class="section" id="getsids">
+<h1>getsids<a class="headerlink" href="#getsids" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>getsids</p>
+<p>displays the SIDS from /etc/oratab getsids() {
+databases=<tt class="docutils literal"><span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;^#.*&quot;</span> <span class="pre">/etc/oratab</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;[^:]*:[^:]*&quot;</span>&nbsp; <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-f</span> <span class="pre">1</span> <span class="pre">-d</span> <span class="pre">:</span></tt>
+echo $databases }</p>
+<p>usedb() { if [ -z $1 ] ; then echo usage: usedb ORACLE_SID fi</p>
+<div class="highlight-python"><pre>local db=$1
+grep -v "^#.*" /etc/oratab | grep "[^:]*:[^:]*"  | cut -f 1 -d : | grep $db
+database=`grep -v "^#.*" /etc/oratab | grep "[^:]*:[^:]*"  | cut -f 1 -d : | grep $db`
+
+if [ -z $database ] ; then
+    echo SID does not exist in `getsids` &gt;&amp;2
+    grep -v "^#.*" /etc/oratab | grep "[^:]*:[^:]*"
+else
+    export ORACLE_SID=$db
+    ORAENV_ASK=NO
+    . oraenv
+ fi</pre>
+</div>
+<p>}</p>
+<p>settnsadmin() { if [ ! -z $1 ] ; then echo usage: gettnsadmin
+ORACLE_SID else usedb
+:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>ORACLE_SID         echo ORACLE_HOME <a href="#id3"><span class="problematic" id="id4">`</span></a>ORACLE_HOME pushd
+$ORACLE_HOME</p>
+<ul>
+<li><p class="first">resolve and report local
+tnsnames_file=<span class="formula"><i>ORACLE</i><sub><i>HOME</i></sub> ⁄ </span>
+         echo tnsnames_file <cite>tnsnames_file
+local tns_admin=``dirname $tnsnames_file`</cite> echo tns_admin
+$tns_admin</p>
+<p>if [ ! -d $tns_admin ] ; then echo directory does not exist
+<span class="formula"><i>tns</i><sub><i>admin</i></sub><i>return</i>1<i>fi</i><i>pushd</i></span>
+pwd`
+fi }</p>
+</li>
+</ul>
+</div>
+<div class="section" id="tnsadminconfig">
+<h1>tnsadminconfig<a class="headerlink" href="#tnsadminconfig" title="Permalink to this headline">¶</a></h1>
+<p>tnsadminconfig() { if [ $# -ne 1 ] ; then echo &#8220;usage: tnsadminconfig
+ORACLE_SID&#8221; &gt;&amp;2 return 1 else usedb
+:math:<a href="#id5"><span class="problematic" id="id6">`</span></a>ORACLE_SID         echo ORACLE_HOME <a href="#id7"><span class="problematic" id="id8">`</span></a>ORACLE_HOME pushd
+$ORACLE_HOME</p>
+<div class="highlight-python"><pre>local tnsnames_file=${ORACLE_HOME}/`find . -name tnsnames.ora | grep -v samples`
+echo tnsnames_file $tnsnames_file
+
+local tns_admin=`dirname $tnsnames_file`
+if [ ! -d $tnsnames_admin ] ; then
+    echo directory does not exist $tnsnames_admin
+    return 1
+fi
+echo tns_admin $tns_admin
+echo tnsnames_file $tnsnames_file
+pushd $tns_admin
+ls
+cat $tnsnames_file</pre>
+</div>
+<ul class="simple">
+<li>if amazon names are present, set to localhost sed -i -e
+&#8220;s/ip_[^)]*/localhost/&#8221; tnsnames.ora sed -i -e
+&#8220;s/ip_[^)]*/localhost/&#8221; listener.ora add sales_reporting if [ grep
+sales_reporting $tnsnames_file ] ; then echo sales_reporting
+already in
+:math:<a href="#id9"><span class="problematic" id="id10">`</span></a>tnsnames_file        else            cat &gt;&gt; <a href="#id11"><span class="problematic" id="id12">`</span></a>tnsnames_file
+&lt;&lt;:EOF: sales_reporting= (DESCRIPTION = (ADDRESS = (PROTOCOL =
+TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER =
+DEDICATED) (SERVICE_NAME = sales_reporting) ) ) :EOF: fi popd fi</li>
+</ul>
+<p>} CODE</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">oracle_functions.sh</a><ul>
+<li><a class="reference internal" href="#configure-tnsnames-and-listener">configure tnsnames and listener</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getsids">getsids</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#tnsadminconfig">tnsadminconfig</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/oracle_functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">bash scripts 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2019, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

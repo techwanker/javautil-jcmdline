@@ -1,0 +1,63 @@
+alter table IC_TOTE add constraint IC_TOTE_IC_BIN_fk foreign key (BIN_NBR_LAST_SCAN)  references IC_BIN;
+psql:fix_fk.sql:6: ERROR:  relation "ic_tote" does not exist
+alter table IC_BIN add constraint IC_BIN_WH_WHSE_ZONE_fk foreign key (WH_WHSE_ZONE_NBR)  references WH_WHSE_ZONE;
+psql:fix_fk.sql:8: ERROR:  relation "wh_whse_zone" does not exist
+alter table IC_LOT_MAST_PO_DTL add constraint IC_LOT_MAST_PO_DTL_PO_LINE_DTL_fk foreign key (PO_LINE_DTL_NBR)  references PO_LINE_DTL;
+psql:fix_fk.sql:9: ERROR:  relation "ic_lot_mast_po_dtl" does not exist
+alter table IC_TRANS_HIST add constraint IC_TRANS_HIST_UT_FACILITY_fk foreign key (FACILITY)  references UT_FACILITY;
+psql:fix_fk.sql:14: ERROR:  relation "ic_trans_hist" does not exist
+alter table IC_TRANS_GL_ACCT add constraint IC_TRANS_GL_ACCT_IC_TRANS_GL_fk foreign key (IC_TRANS_GL_NBR)  references IC_TRANS_GL;
+psql:fix_fk.sql:16: ERROR:  relation "ic_trans_gl_acct" does not exist
+alter table IC_CATEGORY_NARR add constraint IC_CATEGORY_NARR_IC_CATEGORY_fk foreign key (IC_CATEGORY_NBR)  references IC_CATEGORY;
+psql:fix_fk.sql:17: ERROR:  relation "ic_category_narr" does not exist
+alter table IC_ITEM_SER_DTL add constraint IC_ITEM_SER_DTL_UT_FACILITY_fk foreign key (FACILITY)  references UT_FACILITY;
+psql:fix_fk.sql:19: ERROR:  relation "ic_item_ser_dtl" does not exist
+alter table IC_TRANS_HIST add constraint IC_TRANS_HIST_IC_LOT_MAST_fk foreign key (LOT_NBR)  references IC_LOT_MAST;
+psql:fix_fk.sql:20: ERROR:  relation "ic_trans_hist" does not exist
+alter table IC_ITEM_OPERATION_YIELD add constraint IC_ITEM_OPERATION_YIELD_MFG_OPERATION_fk foreign key (OPERATION_CD)  references MFG_OPERATION;
+psql:fix_fk.sql:24: ERROR:  relation "mfg_operation" does not exist
+alter table IC_ITEM_REV_LVL_APPLY add constraint IC_ITEM_REV_LVL_APPLY_IC_ITEM_REV_LVL_fk foreign key (ITEM_NBR)  references IC_ITEM_REV_LVL;
+psql:fix_fk.sql:25: ERROR:  number of referencing and referenced columns for foreign key disagree
+alter table IC_UM_CNVT_ITEM add constraint IC_UM_CNVT_ITEM_IC_ITEM_MAST_fk foreign key (ITEM_NBR)  references IC_ITEM_MAST
+alter table IC_ITEM_MAST add constraint IC_ITEM_MAST_IC_UM_fk foreign key (STK_UM)  references IC_UM;
+psql:fix_fk.sql:28: ERROR:  syntax error at or near "alter"
+LINE 2: alter table IC_ITEM_MAST add constraint IC_ITEM_MAST_IC_UM_f...
+        ^
+alter table IC_TRANS_HIST add constraint IC_TRANS_HIST_IC_LOT_MAST_fk foreign key (LOT_NBR_ORIG)  references IC_LOT_AST;
+psql:fix_fk.sql:29: ERROR:  relation "ic_trans_hist" does not exist
+alter table IC_DUTY_RATE add constraint IC_DUTY_RATE_GEO_COUNTRY_fk foreign key (CNTRY_CD)  references GEO_COUNTRY;
+psql:fix_fk.sql:30: ERROR:  relation "ic_duty_rate" does not exist
+alter table IC_ITEM_VND_COST_MATRIX add constraint IC_ITEM_VND_COST_MATRIX_IC_ITEM_MAST_fk foreign key (ITEM_NBR)  references IC_ITEM_MAST
+alter table IC_LOT_IMAGE add constraint IC_LOT_IMAGE_IC_CERT_CD_fk foreign key (CERT_CD)  references IC_CERT_CD;
+psql:fix_fk.sql:33: ERROR:  syntax error at or near "alter"
+LINE 2: alter table IC_LOT_IMAGE add constraint IC_LOT_IMAGE_IC_CERT...
+        ^
+alter table IC_ITEM_SER add constraint IC_ITEM_SER_WO_HDR_fk foreign key (WO_HDR_NBR)  references WO_HDR;
+psql:fix_fk.sql:34: ERROR:  relation "ic_item_ser" does not exist
+alter table IC_TRANS_HIST add constraint IC_TRANS_HIST_IC_ADJ_CD_fk foreign key (ADJ_CD)  references IC_ADJ_CD;
+psql:fix_fk.sql:35: ERROR:  relation "ic_trans_hist" does not exist
+alter table IC_ITEM_SER_DTL add constraint IC_ITEM_SER_DTL_IC_LOT_MAST_fk foreign key (LOT_NBR)  references IC_LOT_MAST;
+psql:fix_fk.sql:36: ERROR:  relation "ic_item_ser_dtl" does not exist
+alter table IC_CATEGORY_ATTR add constraint IC_CATEGORY_ATTR_IC_ATTR_fk foreign key (IC_ATTR_NBR)  references IC_ATTR;
+psql:fix_fk.sql:40: ERROR:  relation "ic_category_attr" does not exist
+alter table IC_LOT_MAST_CERT_LOG add constraint IC_LOT_MAST_CERT_LOG_IC_CERT_CD_fk foreign key (CERT_CD)  references IC_CERT_CD;
+psql:fix_fk.sql:44: ERROR:  relation "ic_lot_mast_cert_log" does not exist
+alter table IC_WHSE_ZONE_GRP_DTL add constraint IC_WHSE_ZONE_GRP_DTL_IC_WHSE_ZONE_GRP_fk foreign key (IC_WHSE_ZONE_GRP_NBR)  references IC_WHSE_ZONE_GRP;
+psql:fix_fk.sql:46: ERROR:  relation "ic_whse_zone_grp_dtl" does not exist
+alter table IC_ITEM_SER add constraint IC_ITEM_SER_IC_LOT_MAST_fk foreign key (LOT_NBR)  references IC_LOT_MAST;
+psql:fix_fk.sql:48: ERROR:  relation "ic_item_ser" does not exist
+alter table IC_UM add constraint IC_UM_IC_UM_HDR_fk foreign key (UM_FAMILY)  references IC_UM_HDR;
+psql:fix_fk.sql:50: ERROR:  relation "ic_um_hdr" does not exist
+alter table IC_CATEGORY_AUTH add constraint IC_CATEGORY_AUTH_IC_CATEGORY_fk foreign key (IC_CATEGORY_NBR)  references IC_CATEGORY;
+psql:fix_fk.sql:52: ERROR:  relation "ic_category_auth" does not exist
+alter table IC_ITEM_SER_DTL add constraint IC_ITEM_SER_DTL_APS_SPLY_SUB_POOL_fk foreign key (APS_SPLY_SUB_POOL_NBR)  references APS_SPLY_SUB_POOL;
+psql:fix_fk.sql:55: ERROR:  relation "ic_item_ser_dtl" does not exist
+alter table IC_CATEGORY_AUTH add constraint IC_CATEGORY_AUTH_UT_USER_fk foreign key (UT_USER_NBR_AUTH)  references UT_USER;
+psql:fix_fk.sql:56: ERROR:  relation "ic_category_auth" does not exist
+alter table IC_LOT_MAST_BOUND add constraint IC_LOT_MAST_BOUND_OE_ORD_DTL_fk foreign key (OE_ORD_DTL_NBR)  references OE_ORD_DTL;
+psql:fix_fk.sql:60: ERROR:  relation "ic_lot_mast_bound" does not exist
+alter table IC_LOT_MAST_PO_DTL add constraint IC_LOT_MAST_PO_DTL_IC_LOT_MAST_fk foreign key (LOT_NBR)  references IC_LOT_MAST;
+psql:fix_fk.sql:62: ERROR:  relation "ic_lot_mast_po_dtl" does not exist
+alter table IC_ITEM_MFG_PATH add constraint IC_ITEM_MFG_PATH_MFG_PATH_fk foreign key (MFG_PATH_CD)  references MFG_PATH;
+psql:fix_fk.sql:65: ERROR:  relation "mfg_path" does not exist
+

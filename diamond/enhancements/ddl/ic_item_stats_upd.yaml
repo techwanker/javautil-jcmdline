@@ -1,0 +1,48 @@
+truncate ic_item_stat:
+    sql: > truncate ic_item_stat
+    description: fast delete of all rows in ic_item_stat
+
+populate_ic_item_stat:
+    sql: > insert into ic_item_stat (item_nbr)
+           select item_nbr from ic_item_mast
+    description: insert one row in ic_item_stat for each item master
+distinct_cust_open_order_count:
+    sql: > update ic_item_stat stat
+           set distinct_cust_open_order_count =
+           ( select count(distinct (org_nbr_cust ))
+             from oe_ord_hdr_dtl_vw ord
+             where ord.item_nbr_ord = stat.item_nbr
+           )
+    description: number of different customers with open orders
+distinct_org_cust_qte:
+    sql: >
+           update_ic_item_stat 
+           set distinct_org_cust_qte = (
+           select count(distinct(org_nbr_cust))
+           from sq_qte_vw
+           where sq_qte_vw.item_nbr_qte = ic_item_stat.item_nbr
+           );
+    description: Count distinct customer quotes last three months
+max_sales_price_last_three_months:
+    sql: >
+    description: Max sales price last three months
+quote_conversion_ratio:
+    sql: >
+    description: quote conversion ratio
+dollars_open_orders:
+    sql: >
+    description: Dollar open orders
+number_of_customers_open_orders:
+    sql: >
+    description: Dollar total open orders next three months
+number_of_customers_next_three_months:    
+    sql: >
+abc_code:    
+    description: Pareto code
+    sql: >
+unallocated_order_qty:
+    description: Unalloc ord qty
+    sql: >
+percent_of_open_orders_base_curr:
+    sql: >
+    description: Percent of open orders for base currency

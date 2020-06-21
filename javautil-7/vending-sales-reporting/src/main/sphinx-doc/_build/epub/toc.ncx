@@ -1,0 +1,962 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>pdssr</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Pacific Data Services - Sales Reporting</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Sales Analysis</text>
+      </navLabel>
+      <content src="Analyze.xhtml" />  
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>Sales Analysis</text>
+        </navLabel>
+        <content src="Analyze.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>Gather Product Statistics</text>
+        </navLabel>
+        <content src="Analyze.xhtml#gather-product-statistics" />  
+      </navPoint>
+      <navPoint id="navPoint5" playOrder="4">
+        <navLabel>
+          <text>Operator Product Statistics</text>
+        </navLabel>
+        <content src="Analyze.xhtml#operator-product-statistics" />  
+      </navPoint>
+      <navPoint id="navPoint6" playOrder="5">
+        <navLabel>
+          <text>Opportunities</text>
+        </navLabel>
+        <content src="Analyze.xhtml#opportunities" />  
+      </navPoint>
+      <navPoint id="navPoint7" playOrder="6">
+        <navLabel>
+          <text>Operator Call Report</text>
+        </navLabel>
+        <content src="Analyze.xhtml#operator-call-report" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint8" playOrder="7">
+      <navLabel>
+        <text>Answers to Questions you should have asked</text>
+      </navLabel>
+      <content src="Answers.xhtml" />  
+      <navPoint id="navPoint9" playOrder="7">
+        <navLabel>
+          <text>Answers to Questions you should have asked</text>
+        </navLabel>
+        <content src="Answers.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint10" playOrder="8">
+        <navLabel>
+          <text>Examples</text>
+        </navLabel>
+        <content src="Answers.xhtml#examples" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint11" playOrder="9">
+      <navLabel>
+        <text>Benefits</text>
+      </navLabel>
+      <content src="Benefits.xhtml" />  
+      <navPoint id="navPoint12" playOrder="9">
+        <navLabel>
+          <text>Benefits</text>
+        </navLabel>
+        <content src="Benefits.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint13" playOrder="10">
+        <navLabel>
+          <text>Frito-Lay Pepsi</text>
+        </navLabel>
+        <content src="Benefits.xhtml#frito-lay-pepsi" />  
+        <navPoint id="navPoint14" playOrder="10">
+          <navLabel>
+            <text>Frito-Lay Pepsi</text>
+          </navLabel>
+          <content src="Benefits.xhtml#frito-lay-pepsi" />  
+        </navPoint>
+        <navPoint id="navPoint15" playOrder="11">
+          <navLabel>
+            <text>Audit</text>
+          </navLabel>
+          <content src="Benefits.xhtml#audit" />  
+        </navPoint>
+        <navPoint id="navPoint16" playOrder="12">
+          <navLabel>
+            <text>ACH rebate payments</text>
+          </navLabel>
+          <content src="Benefits.xhtml#ach-rebate-payments" />  
+        </navPoint>
+        <navPoint id="navPoint17" playOrder="13">
+          <navLabel>
+            <text>Anomolies</text>
+          </navLabel>
+          <content src="Benefits.xhtml#anomolies" />  
+        </navPoint>
+        <navPoint id="navPoint18" playOrder="14">
+          <navLabel>
+            <text>Product Assignment</text>
+          </navLabel>
+          <content src="Benefits.xhtml#product-assignment" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint19" playOrder="15">
+        <navLabel>
+          <text>Distributors</text>
+        </navLabel>
+        <content src="Benefits.xhtml#distributors" />  
+        <navPoint id="navPoint20" playOrder="15">
+          <navLabel>
+            <text>Distributors</text>
+          </navLabel>
+          <content src="Benefits.xhtml#distributors" />  
+        </navPoint>
+        <navPoint id="navPoint21" playOrder="16">
+          <navLabel>
+            <text>Address Standardization</text>
+          </navLabel>
+          <content src="Benefits.xhtml#address-standardization" />  
+        </navPoint>
+        <navPoint id="navPoint22" playOrder="17">
+          <navLabel>
+            <text>Geo Coding</text>
+          </navLabel>
+          <content src="Benefits.xhtml#geo-coding" />  
+        </navPoint>
+        <navPoint id="navPoint23" playOrder="18">
+          <navLabel>
+            <text>Product Identification</text>
+          </navLabel>
+          <content src="Benefits.xhtml#product-identification" />  
+        </navPoint>
+        <navPoint id="navPoint24" playOrder="19">
+          <navLabel>
+            <text>Phone App</text>
+          </navLabel>
+          <content src="Benefits.xhtml#phone-app" />  
+        </navPoint>
+        <navPoint id="navPoint25" playOrder="20">
+          <navLabel>
+            <text>Customer Facing Reports</text>
+          </navLabel>
+          <content src="Benefits.xhtml#customer-facing-reports" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint26" playOrder="21">
+        <navLabel>
+          <text>Apps</text>
+        </navLabel>
+        <content src="Benefits.xhtml#apps" />  
+      </navPoint>
+      <navPoint id="navPoint27" playOrder="22">
+        <navLabel>
+          <text>Vending Operators</text>
+        </navLabel>
+        <content src="Benefits.xhtml#vending-operators" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint28" playOrder="23">
+      <navLabel>
+        <text>Product Identification</text>
+      </navLabel>
+      <content src="Benefits.xhtml#id1" />  
+    </navPoint>
+    <navPoint id="navPoint29" playOrder="24">
+      <navLabel>
+        <text>Contributions</text>
+      </navLabel>
+      <content src="Contributions.xhtml" />  
+      <navPoint id="navPoint30" playOrder="24">
+        <navLabel>
+          <text>Contributions</text>
+        </navLabel>
+        <content src="Contributions.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint31" playOrder="25">
+        <navLabel>
+          <text>Unix/Linux</text>
+        </navLabel>
+        <content src="Contributions.xhtml#unix-linux" />  
+      </navPoint>
+      <navPoint id="navPoint32" playOrder="26">
+        <navLabel>
+          <text>Oracle</text>
+        </navLabel>
+        <content src="Contributions.xhtml#oracle" />  
+      </navPoint>
+      <navPoint id="navPoint33" playOrder="27">
+        <navLabel>
+          <text>C</text>
+        </navLabel>
+        <content src="Contributions.xhtml#c" />  
+      </navPoint>
+      <navPoint id="navPoint34" playOrder="28">
+        <navLabel>
+          <text>Java</text>
+        </navLabel>
+        <content src="Contributions.xhtml#java" />  
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="29">
+        <navLabel>
+          <text>Became Employee</text>
+        </navLabel>
+        <content src="Contributions.xhtml#became-employee" />  
+      </navPoint>
+      <navPoint id="navPoint36" playOrder="30">
+        <navLabel>
+          <text>Technical Standards</text>
+        </navLabel>
+        <content src="Contributions.xhtml#technical-standards" />  
+      </navPoint>
+      <navPoint id="navPoint37" playOrder="31">
+        <navLabel>
+          <text>Products</text>
+        </navLabel>
+        <content src="Contributions.xhtml#products" />  
+        <navPoint id="navPoint38" playOrder="31">
+          <navLabel>
+            <text>Products</text>
+          </navLabel>
+          <content src="Contributions.xhtml#products" />  
+        </navPoint>
+        <navPoint id="navPoint39" playOrder="32">
+          <navLabel>
+            <text>Check 21</text>
+          </navLabel>
+          <content src="Contributions.xhtml#check-21" />  
+        </navPoint>
+        <navPoint id="navPoint40" playOrder="33">
+          <navLabel>
+            <text>Document Management</text>
+          </navLabel>
+          <content src="Contributions.xhtml#document-management" />  
+        </navPoint>
+        <navPoint id="navPoint41" playOrder="34">
+          <navLabel>
+            <text>Workbook Parser</text>
+          </navLabel>
+          <content src="Contributions.xhtml#workbook-parser" />  
+        </navPoint>
+        <navPoint id="navPoint42" playOrder="35">
+          <navLabel>
+            <text>Dexterous</text>
+          </navLabel>
+          <content src="Contributions.xhtml#dexterous" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint43" playOrder="36">
+        <navLabel>
+          <text>Redesign</text>
+        </navLabel>
+        <content src="Contributions.xhtml#redesign" />  
+        <navPoint id="navPoint44" playOrder="36">
+          <navLabel>
+            <text>Redesign</text>
+          </navLabel>
+          <content src="Contributions.xhtml#redesign" />  
+        </navPoint>
+        <navPoint id="navPoint45" playOrder="37">
+          <navLabel>
+            <text>Data Load</text>
+          </navLabel>
+          <content src="Contributions.xhtml#data-load" />  
+        </navPoint>
+        <navPoint id="navPoint46" playOrder="38">
+          <navLabel>
+            <text>Exception Processing</text>
+          </navLabel>
+          <content src="Contributions.xhtml#exception-processing" />  
+        </navPoint>
+        <navPoint id="navPoint47" playOrder="39">
+          <navLabel>
+            <text>Maintenance System</text>
+          </navLabel>
+          <content src="Contributions.xhtml#maintenance-system" />  
+        </navPoint>
+        <navPoint id="navPoint48" playOrder="40">
+          <navLabel>
+            <text>Posting</text>
+          </navLabel>
+          <content src="Contributions.xhtml#posting" />  
+        </navPoint>
+        <navPoint id="navPoint49" playOrder="41">
+          <navLabel>
+            <text>Workbooks</text>
+          </navLabel>
+          <content src="Contributions.xhtml#workbooks" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint50" playOrder="42">
+        <navLabel>
+          <text>Others</text>
+        </navLabel>
+        <content src="Contributions.xhtml#others" />  
+      </navPoint>
+      <navPoint id="navPoint51" playOrder="43">
+        <navLabel>
+          <text>Javautil</text>
+        </navLabel>
+        <content src="Contributions.xhtml#javautil" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint52" playOrder="44">
+      <navLabel>
+        <text>History of Jim Schmidt and Custom Data Solutions</text>
+      </navLabel>
+      <content src="Contributions.xhtml#history-of-jim-schmidt-and-custom-data-solutions" />  
+      <navPoint id="navPoint53" playOrder="44">
+        <navLabel>
+          <text>History of Jim Schmidt and Custom Data Solutions</text>
+        </navLabel>
+        <content src="Contributions.xhtml#history-of-jim-schmidt-and-custom-data-solutions" />  
+      </navPoint>
+      <navPoint id="navPoint54" playOrder="45">
+        <navLabel>
+          <text>Creation</text>
+        </navLabel>
+        <content src="Contributions.xhtml#creation" />  
+      </navPoint>
+      <navPoint id="navPoint55" playOrder="46">
+        <navLabel>
+          <text>Technologies</text>
+        </navLabel>
+        <content src="Contributions.xhtml#technologies" />  
+        <navPoint id="navPoint56" playOrder="46">
+          <navLabel>
+            <text>Technologies</text>
+          </navLabel>
+          <content src="Contributions.xhtml#technologies" />  
+        </navPoint>
+        <navPoint id="navPoint57" playOrder="47">
+          <navLabel>
+            <text>Unix</text>
+          </navLabel>
+          <content src="Contributions.xhtml#unix" />  
+        </navPoint>
+        <navPoint id="navPoint58" playOrder="48">
+          <navLabel>
+            <text>Oracle</text>
+          </navLabel>
+          <content src="Contributions.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint59" playOrder="49">
+          <navLabel>
+            <text>C</text>
+          </navLabel>
+          <content src="Contributions.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint60" playOrder="50">
+          <navLabel>
+            <text>Java</text>
+          </navLabel>
+          <content src="Contributions.xhtml#id3" />  
+        </navPoint>
+        <navPoint id="navPoint61" playOrder="51">
+          <navLabel>
+            <text>JSP</text>
+          </navLabel>
+          <content src="Contributions.xhtml#jsp" />  
+        </navPoint>
+        <navPoint id="navPoint62" playOrder="52">
+          <navLabel>
+            <text>Graphics</text>
+          </navLabel>
+          <content src="Contributions.xhtml#graphics" />  
+        </navPoint>
+        <navPoint id="navPoint63" playOrder="53">
+          <navLabel>
+            <text>Javascript</text>
+          </navLabel>
+          <content src="Contributions.xhtml#javascript" />  
+        </navPoint>
+        <navPoint id="navPoint64" playOrder="54">
+          <navLabel>
+            <text>Spreadsheets</text>
+          </navLabel>
+          <content src="Contributions.xhtml#spreadsheets" />  
+        </navPoint>
+        <navPoint id="navPoint65" playOrder="55">
+          <navLabel>
+            <text>Digital Unix</text>
+          </navLabel>
+          <content src="Contributions.xhtml#digital-unix" />  
+        </navPoint>
+        <navPoint id="navPoint66" playOrder="56">
+          <navLabel>
+            <text>Linux</text>
+          </navLabel>
+          <content src="Contributions.xhtml#linux" />  
+        </navPoint>
+        <navPoint id="navPoint67" playOrder="57">
+          <navLabel>
+            <text>Build tools</text>
+          </navLabel>
+          <content src="Contributions.xhtml#build-tools" />  
+        </navPoint>
+        <navPoint id="navPoint68" playOrder="58">
+          <navLabel>
+            <text>Unit Tests</text>
+          </navLabel>
+          <content src="Contributions.xhtml#unit-tests" />  
+        </navPoint>
+        <navPoint id="navPoint69" playOrder="59">
+          <navLabel>
+            <text>Integration Tests</text>
+          </navLabel>
+          <content src="Contributions.xhtml#integration-tests" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint70" playOrder="60">
+        <navLabel>
+          <text>Chuck Retires</text>
+        </navLabel>
+        <content src="Contributions.xhtml#chuck-retires" />  
+        <navPoint id="navPoint71" playOrder="60">
+          <navLabel>
+            <text>Chuck Retires</text>
+          </navLabel>
+          <content src="Contributions.xhtml#chuck-retires" />  
+        </navPoint>
+        <navPoint id="navPoint72" playOrder="61">
+          <navLabel>
+            <text>Help</text>
+          </navLabel>
+          <content src="Contributions.xhtml#help" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint73" playOrder="62">
+      <navLabel>
+        <text>Business Model</text>
+      </navLabel>
+      <content src="Contributions.xhtml#business-model" />  
+      <navPoint id="navPoint74" playOrder="62">
+        <navLabel>
+          <text>Business Model</text>
+        </navLabel>
+        <content src="Contributions.xhtml#business-model" />  
+      </navPoint>
+      <navPoint id="navPoint75" playOrder="63">
+        <navLabel>
+          <text>While CIO</text>
+        </navLabel>
+        <content src="Contributions.xhtml#while-cio" />  
+      </navPoint>
+      <navPoint id="navPoint76" playOrder="64">
+        <navLabel>
+          <text>Terminated</text>
+        </navLabel>
+        <content src="Contributions.xhtml#terminated" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint77" playOrder="65">
+      <navLabel>
+        <text>Product Offering</text>
+      </navLabel>
+      <content src="ProductOffering.xhtml" />  
+      <navPoint id="navPoint78" playOrder="65">
+        <navLabel>
+          <text>Product Offering</text>
+        </navLabel>
+        <content src="ProductOffering.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint79" playOrder="66">
+        <navLabel>
+          <text>Benefits</text>
+        </navLabel>
+        <content src="ProductOffering.xhtml#benefits" />  
+      </navPoint>
+      <navPoint id="navPoint80" playOrder="67">
+        <navLabel>
+          <text>How to get started</text>
+        </navLabel>
+        <content src="ProductOffering.xhtml#how-to-get-started" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint81" playOrder="68">
+      <navLabel>
+        <text>Sales Analysis</text>
+      </navLabel>
+      <content src="SalesAnalysis.xhtml" />  
+      <navPoint id="navPoint82" playOrder="68">
+        <navLabel>
+          <text>Sales Analysis</text>
+        </navLabel>
+        <content src="SalesAnalysis.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint83" playOrder="69">
+        <navLabel>
+          <text>Missing Product</text>
+        </navLabel>
+        <content src="SalesAnalysis.xhtml#missing-product" />  
+        <navPoint id="navPoint84" playOrder="69">
+          <navLabel>
+            <text>Missing Product</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#missing-product" />  
+        </navPoint>
+        <navPoint id="navPoint85" playOrder="70">
+          <navLabel>
+            <text>Objective</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#objective" />  
+        </navPoint>
+        <navPoint id="navPoint86" playOrder="71">
+          <navLabel>
+            <text>Approach</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#approach" />  
+        </navPoint>
+        <navPoint id="navPoint87" playOrder="72">
+          <navLabel>
+            <text>Customers</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#customers" />  
+        </navPoint>
+        <navPoint id="navPoint88" playOrder="73">
+          <navLabel>
+            <text>Effective Date</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#effective-date" />  
+        </navPoint>
+        <navPoint id="navPoint89" playOrder="74">
+          <navLabel>
+            <text>Total Sales</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#total-sales" />  
+        </navPoint>
+        <navPoint id="navPoint90" playOrder="75">
+          <navLabel>
+            <text>Customer &amp; Product Sales Last 12 months</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#customer-product-sales-last-12-months" />  
+        </navPoint>
+        <navPoint id="navPoint91" playOrder="76">
+          <navLabel>
+            <text>Product Rank</text>
+          </navLabel>
+          <content src="SalesAnalysis.xhtml#product-rank" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint92" playOrder="77">
+      <navLabel>
+        <text>Product Not Sold</text>
+      </navLabel>
+      <content src="SalesAnalysis.xhtml#product-not-sold" />  
+      <navPoint id="navPoint93" playOrder="77">
+        <navLabel>
+          <text>Product Not Sold</text>
+        </navLabel>
+        <content src="SalesAnalysis.xhtml#product-not-sold" />  
+      </navPoint>
+      <navPoint id="navPoint94" playOrder="78">
+        <navLabel>
+          <text>Potential Revenue</text>
+        </navLabel>
+        <content src="SalesAnalysis.xhtml#potential-revenue" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint95" playOrder="79">
+      <navLabel>
+        <text>Record Layouts</text>
+      </navLabel>
+      <content src="cds_record_layout.xhtml" />  
+      <navPoint id="navPoint96" playOrder="79">
+        <navLabel>
+          <text>Record Layouts</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint97" playOrder="80">
+        <navLabel>
+          <text>Inventory</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml#inventory" />  
+      </navPoint>
+      <navPoint id="navPoint98" playOrder="81">
+        <navLabel>
+          <text>Customer</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml#customer" />  
+      </navPoint>
+      <navPoint id="navPoint99" playOrder="82">
+        <navLabel>
+          <text>Inventory Total</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml#inventory-total" />  
+      </navPoint>
+      <navPoint id="navPoint100" playOrder="83">
+        <navLabel>
+          <text>Customer Total</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml#customer-total" />  
+      </navPoint>
+      <navPoint id="navPoint101" playOrder="84">
+        <navLabel>
+          <text>Sales</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml#sales" />  
+      </navPoint>
+      <navPoint id="navPoint102" playOrder="85">
+        <navLabel>
+          <text>Sales Total</text>
+        </navLabel>
+        <content src="cds_record_layout.xhtml#sales-total" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint103" playOrder="86">
+      <navLabel>
+        <text>Sales Analysis Views</text>
+      </navLabel>
+      <content src="sa_views.xhtml" />  
+      <navPoint id="navPoint104" playOrder="86">
+        <navLabel>
+          <text>Sales Analysis Views</text>
+        </navLabel>
+        <content src="sa_views.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint105" playOrder="87">
+        <navLabel>
+          <text>Todo</text>
+        </navLabel>
+        <content src="sa_views.xhtml#todo" />  
+        <navPoint id="navPoint106" playOrder="87">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="sa_views.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint107" playOrder="88">
+          <navLabel>
+            <text>Customer</text>
+          </navLabel>
+          <content src="sa_views.xhtml#customer" />  
+        </navPoint>
+        <navPoint id="navPoint108" playOrder="89">
+          <navLabel>
+            <text>Product</text>
+          </navLabel>
+          <content src="sa_views.xhtml#product" />  
+        </navPoint>
+        <navPoint id="navPoint109" playOrder="90">
+          <navLabel>
+            <text>Effective Date</text>
+          </navLabel>
+          <content src="sa_views.xhtml#effective-date" />  
+        </navPoint>
+        <navPoint id="navPoint110" playOrder="91">
+          <navLabel>
+            <text>Product</text>
+          </navLabel>
+          <content src="sa_views.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint111" playOrder="92">
+          <navLabel>
+            <text>Total Sales</text>
+          </navLabel>
+          <content src="sa_views.xhtml#total-sales" />  
+        </navPoint>
+        <navPoint id="navPoint112" playOrder="93">
+          <navLabel>
+            <text>Customer &amp; Product Sales Last 12 months</text>
+          </navLabel>
+          <content src="sa_views.xhtml#customer-product-sales-last-12-months" />  
+        </navPoint>
+        <navPoint id="navPoint113" playOrder="94">
+          <navLabel>
+            <text>customer_all_products_sales_vw</text>
+          </navLabel>
+          <content src="sa_views.xhtml#customer-all-products-sales-vw" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint114" playOrder="95">
+        <navLabel>
+          <text>etl_sale_12_vw</text>
+        </navLabel>
+        <content src="sa_views.xhtml#etl-sale-12-vw" />  
+        <navPoint id="navPoint115" playOrder="95">
+          <navLabel>
+            <text>etl_sale_12_vw</text>
+          </navLabel>
+          <content src="sa_views.xhtml#etl-sale-12-vw" />  
+        </navPoint>
+        <navPoint id="navPoint116" playOrder="96">
+          <navLabel>
+            <text>Product Rank</text>
+          </navLabel>
+          <content src="sa_views.xhtml#product-rank" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint117" playOrder="97">
+      <navLabel>
+        <text>Product Not Sold</text>
+      </navLabel>
+      <content src="sa_views.xhtml#product-not-sold" />  
+      <navPoint id="navPoint118" playOrder="97">
+        <navLabel>
+          <text>Product Not Sold</text>
+        </navLabel>
+        <content src="sa_views.xhtml#product-not-sold" />  
+      </navPoint>
+      <navPoint id="navPoint119" playOrder="98">
+        <navLabel>
+          <text>Potential Revenue</text>
+        </navLabel>
+        <content src="sa_views.xhtml#potential-revenue" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint120" playOrder="99">
+      <navLabel>
+        <text>History of Jim Schmidt and Custom Data Solutions</text>
+      </navLabel>
+      <content src="jjscds.xhtml" />  
+      <navPoint id="navPoint121" playOrder="99">
+        <navLabel>
+          <text>History of Jim Schmidt and Custom Data Solutions</text>
+        </navLabel>
+        <content src="jjscds.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint122" playOrder="100">
+        <navLabel>
+          <text>Creation</text>
+        </navLabel>
+        <content src="jjscds.xhtml#creation" />  
+      </navPoint>
+      <navPoint id="navPoint123" playOrder="101">
+        <navLabel>
+          <text>Technologies</text>
+        </navLabel>
+        <content src="jjscds.xhtml#technologies" />  
+        <navPoint id="navPoint124" playOrder="101">
+          <navLabel>
+            <text>Technologies</text>
+          </navLabel>
+          <content src="jjscds.xhtml#technologies" />  
+        </navPoint>
+        <navPoint id="navPoint125" playOrder="102">
+          <navLabel>
+            <text>Unix</text>
+          </navLabel>
+          <content src="jjscds.xhtml#unix" />  
+        </navPoint>
+        <navPoint id="navPoint126" playOrder="103">
+          <navLabel>
+            <text>Oracle</text>
+          </navLabel>
+          <content src="jjscds.xhtml#oracle" />  
+        </navPoint>
+        <navPoint id="navPoint127" playOrder="104">
+          <navLabel>
+            <text>C</text>
+          </navLabel>
+          <content src="jjscds.xhtml#c" />  
+        </navPoint>
+        <navPoint id="navPoint128" playOrder="105">
+          <navLabel>
+            <text>Java</text>
+          </navLabel>
+          <content src="jjscds.xhtml#java" />  
+        </navPoint>
+        <navPoint id="navPoint129" playOrder="106">
+          <navLabel>
+            <text>JSP</text>
+          </navLabel>
+          <content src="jjscds.xhtml#jsp" />  
+        </navPoint>
+        <navPoint id="navPoint130" playOrder="107">
+          <navLabel>
+            <text>Graphics</text>
+          </navLabel>
+          <content src="jjscds.xhtml#graphics" />  
+        </navPoint>
+        <navPoint id="navPoint131" playOrder="108">
+          <navLabel>
+            <text>Javascript</text>
+          </navLabel>
+          <content src="jjscds.xhtml#javascript" />  
+        </navPoint>
+        <navPoint id="navPoint132" playOrder="109">
+          <navLabel>
+            <text>Spreadsheets</text>
+          </navLabel>
+          <content src="jjscds.xhtml#spreadsheets" />  
+        </navPoint>
+        <navPoint id="navPoint133" playOrder="110">
+          <navLabel>
+            <text>Digital Unix</text>
+          </navLabel>
+          <content src="jjscds.xhtml#digital-unix" />  
+        </navPoint>
+        <navPoint id="navPoint134" playOrder="111">
+          <navLabel>
+            <text>Linux</text>
+          </navLabel>
+          <content src="jjscds.xhtml#linux" />  
+        </navPoint>
+        <navPoint id="navPoint135" playOrder="112">
+          <navLabel>
+            <text>Build tools</text>
+          </navLabel>
+          <content src="jjscds.xhtml#build-tools" />  
+        </navPoint>
+        <navPoint id="navPoint136" playOrder="113">
+          <navLabel>
+            <text>Unit Tests</text>
+          </navLabel>
+          <content src="jjscds.xhtml#unit-tests" />  
+        </navPoint>
+        <navPoint id="navPoint137" playOrder="114">
+          <navLabel>
+            <text>Integration Tests</text>
+          </navLabel>
+          <content src="jjscds.xhtml#integration-tests" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint138" playOrder="115">
+        <navLabel>
+          <text>Chuck Retires</text>
+        </navLabel>
+        <content src="jjscds.xhtml#chuck-retires" />  
+        <navPoint id="navPoint139" playOrder="115">
+          <navLabel>
+            <text>Chuck Retires</text>
+          </navLabel>
+          <content src="jjscds.xhtml#chuck-retires" />  
+        </navPoint>
+        <navPoint id="navPoint140" playOrder="116">
+          <navLabel>
+            <text>Help</text>
+          </navLabel>
+          <content src="jjscds.xhtml#help" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint141" playOrder="117">
+      <navLabel>
+        <text>Business Model</text>
+      </navLabel>
+      <content src="jjscds.xhtml#business-model" />  
+      <navPoint id="navPoint142" playOrder="117">
+        <navLabel>
+          <text>Business Model</text>
+        </navLabel>
+        <content src="jjscds.xhtml#business-model" />  
+      </navPoint>
+      <navPoint id="navPoint143" playOrder="118">
+        <navLabel>
+          <text>Custom Data Solutions</text>
+        </navLabel>
+        <content src="jjscds.xhtml#custom-data-solutions" />  
+        <navPoint id="navPoint144" playOrder="118">
+          <navLabel>
+            <text>Custom Data Solutions</text>
+          </navLabel>
+          <content src="jjscds.xhtml#custom-data-solutions" />  
+        </navPoint>
+        <navPoint id="navPoint145" playOrder="119">
+          <navLabel>
+            <text>Relationship</text>
+          </navLabel>
+          <content src="jjscds.xhtml#relationship" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint146" playOrder="120">
+        <navLabel>
+          <text>Business Process</text>
+        </navLabel>
+        <content src="jjscds.xhtml#business-process" />  
+      </navPoint>
+      <navPoint id="navPoint147" playOrder="121">
+        <navLabel>
+          <text>Processing Steps</text>
+        </navLabel>
+        <content src="jjscds.xhtml#processing-steps" />  
+      </navPoint>
+      <navPoint id="navPoint148" playOrder="122">
+        <navLabel>
+          <text>Manufacturers</text>
+        </navLabel>
+        <content src="jjscds.xhtml#manufacturers" />  
+      </navPoint>
+      <navPoint id="navPoint149" playOrder="123">
+        <navLabel>
+          <text>Distributors</text>
+        </navLabel>
+        <content src="jjscds.xhtml#distributors" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint150" playOrder="124">
+      <navLabel>
+        <text>Project Description</text>
+      </navLabel>
+      <content src="ProjectDescription.xhtml" />  
+      <navPoint id="navPoint151" playOrder="124">
+        <navLabel>
+          <text>Project Description</text>
+        </navLabel>
+        <content src="ProjectDescription.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint152" playOrder="125">
+        <navLabel>
+          <text>Software Description</text>
+        </navLabel>
+        <content src="ProjectDescription.xhtml#software-description" />  
+      </navPoint>
+      <navPoint id="navPoint153" playOrder="126">
+        <navLabel>
+          <text>Tech Steps</text>
+        </navLabel>
+        <content src="ProjectDescription.xhtml#tech-steps" />  
+      </navPoint>
+      <navPoint id="navPoint154" playOrder="127">
+        <navLabel>
+          <text>History</text>
+        </navLabel>
+        <content src="ProjectDescription.xhtml#history" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint155" playOrder="128">
+      <navLabel>
+        <text>Technologies</text>
+      </navLabel>
+      <content src="Technologies.xhtml" />  
+      <navPoint id="navPoint156" playOrder="128">
+        <navLabel>
+          <text>Technologies</text>
+        </navLabel>
+        <content src="Technologies.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint157" playOrder="129">
+        <navLabel>
+          <text>Application</text>
+        </navLabel>
+        <content src="Technologies.xhtml#application" />  
+      </navPoint>
+      <navPoint id="navPoint158" playOrder="130">
+        <navLabel>
+          <text>Deployment</text>
+        </navLabel>
+        <content src="Technologies.xhtml#deployment" />  
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

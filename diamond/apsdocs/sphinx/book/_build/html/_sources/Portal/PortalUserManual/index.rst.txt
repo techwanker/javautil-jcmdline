@@ -1,0 +1,65 @@
+Portal User Manual
+==================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. image:: images/ActionReports.png
+
+Indices and tables
+=================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+Action Reports
+--------------
+
+These reports showed up because you have to take some action,
+
+Information Reports
+--------------------
+
+Information you may wish to view.
+
+
+Item and Planning Group Selection
+---------------------------------
+
+Planning and filter section
+
+allows filtering on 
+* Demand Shortages * Part # Mask	
+* Part Category	
+* Within Lead Time?	
+* Vendor Code	
+* Planning Horizon
+* End Date	
+* Buyer Name	
+* Customer Code	
+* Forecast Group	
+* Manufacturer Code	
+* Item Status	
+* Number of Records
+
+
+Planning Group Detail
+---------------------
+
+Item Masters in the Planning Group
+
+* Demand?	
+* Supply?	
+* Item cd	
+* Description	
+* Stock Unit of Measure
+* Lead Time (Days)
+
+
+URLS
+====
+
+localhost:8080&partCd=an960-10				
+

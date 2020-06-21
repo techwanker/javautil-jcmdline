@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Diamond Advanced Planning &#8212; APS 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/pds.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="Introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="diamond-advanced-planning">
+<h1>Diamond Advanced Planning<a class="headerlink" href="#diamond-advanced-planning" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#demand-types">Demand Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#supply-types">Supply Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#eligible-supply-rules">Eligible Supply Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#supply-partitioning">Supply Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#qualifying-inventory">Qualifying Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#demand-prioritization">Demand Prioritization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#preserve-allocations">Preserve Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#supply-prioritization">Supply Prioritization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#demand-execution-mode">Demand Execution Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#auditing-and-traceability">Auditing and Traceability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#aps-output">APS Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#shortages">Shortages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#workbook">Workbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ApsFeatures.html">ApsFeaturesBook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#challenges">Challenges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#certification-of-compliance">Certification of Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#part-names">Part Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id1">Part Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#certifications">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#expiration-date-cure-date">Expiration Date, Cure Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#simplify">Simplify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#supply-pools">Supply Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#sub-pools">Sub Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#sourcing-rules">Sourcing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#multiple-certifications">Multiple Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#bound-allocations">Bound Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#demand-types">Demand Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#customer-orders">Customer Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#safety-stock">Safety Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#forecasted-demand">Forecasted Demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#work-orders">Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#supply-types">Supply Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#on-hand-inventory">On hand inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#replenishments">Replenishments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id2">Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id3">Sourcing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#eligibility-tests">Eligibility Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id4">Certification of Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#attribute-certification">Attribute Certification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#approved-manufacturers-by-part">Approved Manufacturers by Part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#approved-manufacturers-by-customer">Approved Manufacturers by Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#revision-levels">Revision Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id5">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id6">Revision Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id7">Expiration Date, Cure Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#country-of-origin">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id8">Revision Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id9">Sourcing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id10">Multiple Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id11">Revision Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#eligible-supply">Eligible Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id12">Eligibility Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#approved-manufacturer">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#buyback">Buyback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id13">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#consignment-inventory">Consignment Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#contract-aerospace">Contract Aerospace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id14">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#equivalency">Equivalency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#expiry-date">Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#manufacturer">Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#lot-date">Lot Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#revision-level">Revision Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#substitutes">Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#sourcing-rule">Sourcing Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id16">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id17">Buyback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id18">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id19">Consignment Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id20">Contract Aerospace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id21">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id22">Equivalency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id23">Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id24">Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id27">Lot Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id28">Revision Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id29">Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id30">Sourcing Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#planning-groups">Planning Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#aerospace-features">Aerospace Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#planning-mode">Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#execution-planning-mode">Execution Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#inventory-planning-mode">Inventory Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id31">Bound Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#id32">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsFeatures.html#kitting">Kitting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningMachine.html">Planning Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningEngine.html">Planning Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningDispatcher.html">Planning Dispatcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PlanningDispatcher.html#fully-regenerative">Fully Regenerative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningDispatcher.html#synchronous">Synchronous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningGrouper.html">Planning Grouper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supply.html">Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Supply.html#all-supply-and-aps-supply">ALL_SUPPLY and APS_SUPPLY</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Equivalent-Parts.html">Business Process Improvement : Equivalent Parts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Equivalent-Parts.html#id1">Business Process Improvement : Equivalent Parts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EligibilityTests.html">Eligibility Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#approved-manufacturer">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#buyback">Buyback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#certifications">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#consignment-inventory">Consignment Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#contract-aerospace">Contract Aerospace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#country-of-origin">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#equivalency">Equivalency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#expiry-date">Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#manufacturer">Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#lot-date">Lot Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#revision-level">Revision Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#substitutes">Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#sourcing-rule">Sourcing Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id2">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id3">Buyback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id4">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id5">Consignment Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id6">Contract Aerospace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id7">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id8">Equivalency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id9">Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id10">Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id13">Lot Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id14">Revision Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id15">Substitutes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AllocationLogic.html">Allocation Logic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#modes">Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#phases">Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#restore-onhand-pick-allocations">Restore Onhand Pick Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#bound-allocations">Bound Allocations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html">APS Features and Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#purpose">Purpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#current-state">Current State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#future-state">Future State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#align-objectives">Align Objectives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#team">Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#migration-plan">Migration Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#introduction">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#demand-types">Demand Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#supply-types">Supply Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#supply-partitioning">Supply Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#qualifying-inventory">Qualifying Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#demand-prioritization">Demand Prioritization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#preserve-allocations">Preserve Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#supply-prioritization">Supply Prioritization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#aps-output">APS Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#projected-inventory-position">Projected Inventory Position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APS-Features-and-Benefits.html#shortages">Shortages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnicalReferenceBook.html">ApsTechnicalReferenceBook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#database-privileges">Database Privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#synchronous-requests">Synchronous Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#asynchronous-requests">Asynchronous Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#properties-and-command-line-arguments">Properties and Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#cache-manager">Cache Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#dbms-pipe">DBMS_PIPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#equivalent-items">Equivalent Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#customer-substitutes">Customer Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#global-substitutes">Global Substitutes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnical.html">APS Technical</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#requests-for-planning">Requests for Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#components">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#preserve-allocations">Preserve Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#first-pass">First Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#prioritize-demands">Prioritize Demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#filter-supply">Filter Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#prioritize-supply">Prioritize Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#generate-work-orders">Generate Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#generate-reschedules">Generate Reschedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#update-data">Update Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#properties-and-command-line-arguments">Properties and Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#equivalent-items">Equivalent Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#customer-substitutes">Customer Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnical.html#global-substitutes">Global Substitutes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComponentsAndServices.html">Components and Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#planning-machine">Planning Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#planning-grouper">Planning Grouper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#dispatcher">Dispatcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#planning-engine">Planning Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#prioritize-demands">Prioritize Demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#filter-supply">Filter Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#prioritize-supply">Prioritize Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#generate-work-orders">Generate Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#generate-reschedules">Generate Reschedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#update-data">Update Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Functional.html">Functional</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#demand-types">Demand Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#supply-types">Supply Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#rules">Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#id2">Sourcing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#eligibility-tests">Eligibility Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#sourcing-rule">Sourcing Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#planning-groups">Planning Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#aerospace-features">Aerospace Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#planning-mode">Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#execution-planning-mode">Execution Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#inventory-planning-mode">Inventory Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#bound-allocations">Bound Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#logging">Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#allocation">Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#allocation-based-pricing">Allocation Based Pricing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#approved-manufacturer">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#bound-allocation">Bound Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#certificate-of-compliance">Certificate of Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#country-of-origin">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#dispatch-group">Dispatch Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#eligible-supply">Eligible Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#engineered-parts">Engineered Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#equivalent-part">Equivalent Part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#forecast-consumption">Forecast Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#forecasting-granularity">Forecasting Granularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#forecast-group">Forecast Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#hard-alloc-fc-within-lead-time">Hard Alloc Fc Within Lead Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#in-pick">In Pick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#manufacturer-certificate-of-compliance">Manufacturer Certificate of Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#manufacturer-lot-code">Manufacturer Lot Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#multicerted-item">Multicerted Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#pre-approved-lot">Pre-approved Lot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#planning-data">Planning Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#quality-assurance-tests">Quality Assurance Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#receiver-number">Receiver Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#safety-stock-consumption">Safety Stock Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#substitute-part">Substitute Part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#upc">UPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#id1">Quality Assurance Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#data-loading">Data Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#consulting">Consulting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#rules-data">Rules Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#logic-review">Logic Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningComponentsPaper.html">PlanningComponentsPaper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-machine">Planning Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-engine">Planning Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#get-items-to-plan">Get Items to Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#populate-planning-data">Populate Planning Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#preserve-allocations">Preserve Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#first-pass">First Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#prioritize-demands">Prioritize Demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#filter-supply">Filter Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#prioritize-supply">Prioritize Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#generate-work-orders">Generate Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#generate-reschedules">Generate Reschedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#update-data">Update Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-dispatcher">Planning Dispatcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-grouper">Planning Grouper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RulesData.html">Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technical.html">Technical</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#queue-populator">Queue Populator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#queue-manager">Queue Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#planning-engine">Planning Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Technical.html#architecture">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#language">Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#inversion-of-control">Inversion of Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#interface">Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#persistence">Persistence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#planning-data-and-related-interfaces">Planning Data and Related Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#planning-modes">Planning Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#id1">Queue Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technical.html#commandlineexecution">CommandLineExecution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">TODO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspaces.html">Workspaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#diamond-interfast">diamond-interfast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond10">workspace-diamond10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond10-17">workspace-diamond10.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond10-2017">workspace-diamond10-2017</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond12">workspace-diamond12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond13">workspace-diamond13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond14">workspace-diamond14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond17">workspace-diamond17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond-2013">workspace-diamond-2013</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond-2016">workspace-diamond-2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond-dickies">workspace-diamond-dickies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond-erp">workspace-diamond-erp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspaces.html#workspace-diamond10-vaadin-crud-ejb3">workspace-diamond10-vaadin-crud-ejb3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#data-loading">Data Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#consulting">Consulting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#rules-data">Rules Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html#logic-review">Logic Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComponentsAndServices.html">Components and Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#planning-machine">Planning Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#planning-grouper">Planning Grouper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#dispatcher">Dispatcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#planning-engine">Planning Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#prioritize-demands">Prioritize Demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#filter-supply">Filter Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#prioritize-supply">Prioritize Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#generate-work-orders">Generate Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#generate-reschedules">Generate Reschedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#update-data">Update Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComponentsAndServices.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AllocationLogic.html">Allocation Logic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#modes">Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#phases">Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#restore-onhand-pick-allocations">Restore Onhand Pick Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AllocationLogic.html#bound-allocations">Bound Allocations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EligibilityTests.html">Eligibility Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#approved-manufacturer">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#buyback">Buyback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#certifications">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#consignment-inventory">Consignment Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#contract-aerospace">Contract Aerospace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#country-of-origin">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#equivalency">Equivalency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#expiry-date">Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#manufacturer">Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#lot-date">Lot Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#revision-level">Revision Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#substitutes">Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#sourcing-rule">Sourcing Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id2">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id3">Buyback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id4">Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id5">Consignment Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id6">Contract Aerospace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id7">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id8">Equivalency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id9">Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id10">Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id13">Lot Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id14">Revision Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EligibilityTests.html#id15">Substitutes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Supply.html">Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Supply.html#all-supply-and-aps-supply">ALL_SUPPLY and APS_SUPPLY</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Functional.html">Functional</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#demand-types">Demand Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#supply-types">Supply Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#rules">Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#id2">Sourcing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#eligibility-tests">Eligibility Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#sourcing-rule">Sourcing Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#planning-groups">Planning Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#aerospace-features">Aerospace Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#planning-mode">Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#execution-planning-mode">Execution Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#inventory-planning-mode">Inventory Planning Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#bound-allocations">Bound Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functional.html#logging">Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#allocation">Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#allocation-based-pricing">Allocation Based Pricing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#approved-manufacturer">Approved Manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#bound-allocation">Bound Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#certificate-of-compliance">Certificate of Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#country-of-origin">Country of Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#dispatch-group">Dispatch Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#eligible-supply">Eligible Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#engineered-parts">Engineered Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#equivalent-part">Equivalent Part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#forecast-consumption">Forecast Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#forecasting-granularity">Forecasting Granularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#forecast-group">Forecast Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#hard-alloc-fc-within-lead-time">Hard Alloc Fc Within Lead Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#in-pick">In Pick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#manufacturer-certificate-of-compliance">Manufacturer Certificate of Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#manufacturer-lot-code">Manufacturer Lot Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#multicerted-item">Multicerted Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#pre-approved-lot">Pre-approved Lot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#planning-data">Planning Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#quality-assurance-tests">Quality Assurance Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#receiver-number">Receiver Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#safety-stock-consumption">Safety Stock Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#substitute-part">Substitute Part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#upc">UPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html#id1">Quality Assurance Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnicalReferenceBook.html">ApsTechnicalReferenceBook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#database-privileges">Database Privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#synchronous-requests">Synchronous Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#asynchronous-requests">Asynchronous Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#properties-and-command-line-arguments">Properties and Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#cache-manager">Cache Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#dbms-pipe">DBMS_PIPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#planning-group">Planning Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#equivalent-items">Equivalent Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#customer-substitutes">Customer Substitutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ApsTechnicalReferenceBook.html#global-substitutes">Global Substitutes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningComponentsPaper.html">PlanningComponentsPaper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-machine">Planning Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-engine">Planning Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#get-items-to-plan">Get Items to Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#populate-planning-data">Populate Planning Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#preserve-allocations">Preserve Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#first-pass">First Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#prioritize-demands">Prioritize Demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#filter-supply">Filter Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#prioritize-supply">Prioritize Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#generate-work-orders">Generate Work Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#generate-reschedules">Generate Reschedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#update-data">Update Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-dispatcher">Planning Dispatcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PlanningComponentsPaper.html#planning-grouper">Planning Grouper</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Goals</p>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>PlanningMachine
+PlanningEngine
+PlanningDispatcher
+Supply
+Equivalent-Parts</p>
+</div></blockquote>
+<p>AllocationLogic
+APS-Features-and-Benefits
+ApsFeatures
+ApsTechnicalReferenceBook
+ApsTechnical
+ComponentsAndServices
+Functional
+Glossary
+Goals
+Integration
+PlanningComponentsPaper
+RulesData
+Technical
+todo
+workspaces
+Integration
+ComponentsAndServices
+AllocationLogic
+ApsFeaturesBook
+EligibilityTests
+Supply
+Functional
+Glossary
+ApsTechnicalReferenceBook
+PlanningComponentsPaper
+ApsFeatures</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApsFeatures.html">ApsFeaturesBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningMachine.html">Planning Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningEngine.html">Planning Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningDispatcher.html">Planning Dispatcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningGrouper.html">Planning Grouper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supply.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Equivalent-Parts.html">Business Process Improvement : Equivalent Parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EligibilityTests.html">Eligibility Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AllocationLogic.html">Allocation Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html">APS Features and Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#purpose">Purpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#current-state">Current State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#future-state">Future State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#align-objectives">Align Objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="APS-Features-and-Benefits.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnicalReferenceBook.html">ApsTechnicalReferenceBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnical.html">APS Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComponentsAndServices.html">Components and Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functional.html">Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningComponentsPaper.html">PlanningComponentsPaper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RulesData.html">Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technical.html">Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technical.html#architecture">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">TODO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspaces.html">Workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComponentsAndServices.html">Components and Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AllocationLogic.html">Allocation Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EligibilityTests.html">Eligibility Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supply.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functional.html">Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnicalReferenceBook.html">ApsTechnicalReferenceBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningComponentsPaper.html">PlanningComponentsPaper</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="Introduction.html" title="next chapter">Introduction</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pacific Data Services.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

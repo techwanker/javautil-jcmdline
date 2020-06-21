@@ -1,0 +1,28 @@
+\documentclass[a4paper,10pt]{book}
+
+
+\begin{document}
+\section{Database Privileges}
+\section{Synchronous Requests}
+\section{Asynchronous Requests}
+
+\section{Properties and Command Line Arguments}
+\paragraph{leadTimePaddingFactor}
+        Double lp = PropertyHelper.getMandatoryDoubleSystemProperty("leadTimePaddingFactor");
+            double totalLeadTime = lp * this.itemMaster.getLeadTmDy().floatValue();
+            endLeadTime = DateHelper.toSqlDate(DateHelper.addDays(today, java.lang.Math.round((float)totalLeadTime)));
+            comp = this.getNeedByDate().compareTo(endLeadTime);
+\section{Cache Manager}
+\section{DBMS\_PIPE}
+grant execute on dbms_pipe to diamond;
+
+\section{Planning Group}
+\subsection{Equivalent Items}
+\subsection{Customer Substitutes}
+\subsection{Global Substitutes}
+iimes = (IcItemMastEquivS) cache.get(IcItemMastEquivS.class.getName());
+	iicss = (ApsCustItemSubstS) cache
+		.get(ApsCustItemSubstS.class.getName());
+	aigs = (ApsItemGlobalSubstS) cache.get(ApsItemGlobalSubstS.class
+		.getName());
+\end{document}

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="en"
+ unique-identifier="unknown"
+ prefix="ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/">
+  <metadata xmlns:opf="http://www.idpf.org/2007/opf"
+        xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:language>en</dc:language>
+    <dc:title>Diamond APS</dc:title>
+    <dc:description>unknown</dc:description>
+    <dc:creator>Jim Schmidt</dc:creator>
+    <dc:contributor>unknown</dc:contributor>
+    <dc:publisher>Jim Schmidt</dc:publisher>
+    <dc:rights>2019, Jim Schmidt</dc:rights>
+    <dc:identifier id="unknown">unknown</dc:identifier>
+    <dc:date>2019-12-25T04:18:56Z</dc:date>
+    <meta property="dcterms:modified">2019-12-25T04:18:56Z</meta>
+    <meta property="ibooks:version"></meta>
+    <meta property="ibooks:specified-fonts">true</meta>
+    <meta property="ibooks:binding">true</meta>
+    <meta property="ibooks:scroll-axis">vertical</meta>
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml" />
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="epub-0" href="genindex.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-1" href="index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-2" href="APS/APS-Features-and-Benefits.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-3" href="APS/AllocationLogic.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-4" href="APS/ApsFeatures.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-5" href="APS/ApsTechnical.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-6" href="APS/ApsTechnicalReferenceBook.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-7" href="APS/ComponentsAndServices.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-8" href="APS/EligibilityTests.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-9" href="APS/Equivalent-Parts.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-10" href="APS/Functional.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-11" href="APS/Glossary.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-12" href="APS/Goals.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-13" href="APS/Integration.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-14" href="APS/Introduction.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-15" href="APS/PlanningComponentsPaper.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-16" href="APS/RulesData.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-17" href="APS/Supply.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-18" href="APS/Technical.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-19" href="APS/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-20" href="APS/todo.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-21" href="APS/workspaces.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-22" href="BPR/Business-Process-Improvement-Description.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-23" href="BPR/Business-Process-Improvement-Description2.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-24" href="BPR/Continuous-Improvement.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-25" href="BPR/Project-Description.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-26" href="Business-Process-Improvement/Business-process-improvement.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-27" href="Introduction/2019-12-17-Meeting-notes.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-28" href="Introduction/2019-12-18-Meeting-notes.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-29" href="Introduction/Align-Aero.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-30" href="Introduction/Diamond-History.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-31" href="Introduction/Introductory-Meeting.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-32" href="Introduction/Meeting-notes.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-33" href="Introduction/Product-Launch.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-34" href="Introduction/Project-Documentation-Structure.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-35" href="Introduction/Project-Overview.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-36" href="Portal/Diamond-Portal.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-37" href="Portal/Optimal-Replenishment-Quantity.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-38" href="Portal/Portal-Functionality.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-39" href="Portal/Portal-index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-40" href="Portal/Portal-part.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-41" href="Portal/Post-Portal-Opportunities.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-42" href="Portal/Purchasing.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-43" href="Portal/Requisition-Review-Board.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-44" href="Portal/Service-Level-Agreements.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-45" href="Portal/Vendor-Quotes.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-46" href="Portal/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-47" href="Portal/ABC/ABC---Pareto.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-48" href="Portal/ABC/ABC-Code-Discussion.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-49" href="Portal/ABC/ABC-Code-Discusssion.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-50" href="Portal/ABC/ABC-Code-Overview.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-51" href="Portal/ABC/ABC-Pareto.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-52" href="Portal/ABC/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-53" href="Portal/MultipleLeadTime/Multiple-Lead-Times.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-54" href="Portal/MultipleLeadTime/source/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-55" href="Portal/Requisitions/Create-Requisition.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-56" href="_static/basic.css" media-type="text/css" />
+    <item id="epub-57" href="_static/epub.css" media-type="text/css" />
+    <item id="epub-58" href="_static/file.png" media-type="image/png" />
+    <item id="epub-59" href="_static/minus.png" media-type="image/png" />
+    <item id="epub-60" href="_static/plus.png" media-type="image/png" />
+    <item id="epub-61" href="_static/pygments.css" media-type="text/css" />
+    <item id="epub-62" href="javautil/index.xhtml" media-type="application/xhtml+xml" />
+  </manifest>
+  <spine toc="ncx" page-progression-direction="ltr">
+    <itemref idref="epub-1" />
+    <itemref idref="epub-28" />
+    <itemref idref="epub-31" />
+    <itemref idref="epub-32" />
+    <itemref idref="epub-33" />
+    <itemref idref="epub-35" />
+    <itemref idref="epub-27" />
+    <itemref idref="epub-51" />
+    <itemref idref="epub-48" />
+    <itemref idref="epub-54" />
+    <itemref idref="epub-42" />
+    <itemref idref="epub-43" />
+    <itemref idref="epub-55" />
+    <itemref idref="epub-44" />
+    <itemref idref="epub-45" />
+    <itemref idref="epub-0" />
+    <itemref idref="epub-2" linear="no" />
+    <itemref idref="epub-3" linear="no" />
+    <itemref idref="epub-4" linear="no" />
+    <itemref idref="epub-5" linear="no" />
+    <itemref idref="epub-6" linear="no" />
+    <itemref idref="epub-7" linear="no" />
+    <itemref idref="epub-8" linear="no" />
+    <itemref idref="epub-9" linear="no" />
+    <itemref idref="epub-10" linear="no" />
+    <itemref idref="epub-11" linear="no" />
+    <itemref idref="epub-12" linear="no" />
+    <itemref idref="epub-13" linear="no" />
+    <itemref idref="epub-14" linear="no" />
+    <itemref idref="epub-15" linear="no" />
+    <itemref idref="epub-16" linear="no" />
+    <itemref idref="epub-17" linear="no" />
+    <itemref idref="epub-18" linear="no" />
+    <itemref idref="epub-19" linear="no" />
+    <itemref idref="epub-20" linear="no" />
+    <itemref idref="epub-21" linear="no" />
+    <itemref idref="epub-22" linear="no" />
+    <itemref idref="epub-23" linear="no" />
+    <itemref idref="epub-24" linear="no" />
+    <itemref idref="epub-25" linear="no" />
+    <itemref idref="epub-26" linear="no" />
+    <itemref idref="epub-29" linear="no" />
+    <itemref idref="epub-30" linear="no" />
+    <itemref idref="epub-34" linear="no" />
+    <itemref idref="epub-36" linear="no" />
+    <itemref idref="epub-37" linear="no" />
+    <itemref idref="epub-38" linear="no" />
+    <itemref idref="epub-39" linear="no" />
+    <itemref idref="epub-40" linear="no" />
+    <itemref idref="epub-41" linear="no" />
+    <itemref idref="epub-46" linear="no" />
+    <itemref idref="epub-47" linear="no" />
+    <itemref idref="epub-49" linear="no" />
+    <itemref idref="epub-50" linear="no" />
+    <itemref idref="epub-52" linear="no" />
+    <itemref idref="epub-53" linear="no" />
+    <itemref idref="epub-62" linear="no" />
+  </spine>
+  <guide>
+    <reference type="toc" title="Table of Contents" href="index.xhtml" />
+  </guide>
+</package>

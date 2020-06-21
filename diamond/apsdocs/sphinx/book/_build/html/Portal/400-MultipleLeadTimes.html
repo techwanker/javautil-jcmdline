@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Multiple Lead Times &#8212; Diamond APS 2019-12-14-03 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="multiple-lead-times">
+<h1>Multiple Lead Times<a class="headerlink" href="#multiple-lead-times" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Vendors may have drastically different lead times.</p>
+</div>
+<div class="section" id="acquiring">
+<h2>Acquiring<a class="headerlink" href="#acquiring" title="Permalink to this headline">¶</a></h2>
+<p>Data for lead times should be derived from the latest vendor quotes that is the longest lead tie from
+the maximum effective date for a vendor quote.</p>
+<p>Note that item_nbr, the item surrogate key is not used, allowing you to
+get vendor quotes for items that have not been set up;</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">view</span> <span class="n">ic_item_vnd_lead_time</span> <span class="k">as</span>
+<span class="k">select</span>  <span class="n">item_cd_qte</span><span class="p">,</span>
+    <span class="n">vq_qte_dt</span><span class="p">,</span>
+    <span class="n">vq_qte_eff_dt</span><span class="p">,</span>
+    <span class="k">max</span><span class="p">(</span><span class="n">vq_qte_exp_dt</span><span class="p">)</span> <span class="n">max_qte_exp_dt</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">max</span><span class="p">(</span><span class="n">vq_qte_exp_dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">vq_qte_eff_dt</span><span class="p">)</span> <span class="o">/</span> <span class="mi">7</span> <span class="n">lead_tm_wks</span>
+<span class="k">from</span> <span class="n">vq_qte_vw</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">org_nbr_vnd</span><span class="p">,</span>
+    <span class="n">item_cd_qte</span><span class="p">,</span>
+    <span class="n">vq_qte_eff_dt</span><span class="p">,</span>
+    <span class="n">vq_qte_dt</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="yaml">
+<h2>YAML<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ic_item_vnd_lead_tm</span><span class="p">:</span>
+    <span class="n">sql</span><span class="p">:</span> <span class="o">&gt;</span>
+          <span class="n">create</span> <span class="n">view</span> <span class="n">ic_item_vnd_lead_time</span> <span class="k">as</span>
+          <span class="n">select</span> <span class="n">item_cd_qte</span><span class="p">,</span>
+               <span class="n">vq_qte_dt</span><span class="p">,</span>
+               <span class="n">vq_qte_eff_dt</span><span class="p">,</span>
+               <span class="nb">max</span><span class="p">(</span><span class="n">vq_qte_exp_dt</span><span class="p">)</span> <span class="n">max_qte_exp_dt</span><span class="p">,</span>
+               <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">vq_qte_exp_dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">vq_qte_eff_dt</span><span class="p">)</span> <span class="o">/</span> <span class="mi">7</span> <span class="n">lead_tm_wks</span>
+           <span class="kn">from</span> <span class="nn">vq_qte_vw</span>
+           <span class="n">group</span> <span class="n">by</span> <span class="n">org_nbr_vnd</span><span class="p">,</span>
+              <span class="n">item_cd_qte</span><span class="p">,</span>
+              <span class="n">vq_qte_eff_dt</span><span class="p">,</span>
+              <span class="n">vq_qte_dt</span><span class="p">;</span>
+     <span class="n">description</span><span class="p">:</span> <span class="n">Create</span> <span class="n">ic_item_vnd_lead_tm</span>
+     <span class="n">narrative</span><span class="p">:</span> <span class="o">&gt;</span>
+        <span class="n">TODO</span> <span class="n">describe</span> <span class="n">consequence</span> <span class="n">of</span> <span class="n">using</span> <span class="n">the</span> <span class="n">quote</span> <span class="n">expiration</span> <span class="n">date</span><span class="p">,</span> <span class="n">vq_qte_exp_dt</span>
+        <span class="n">rather</span> <span class="n">than</span> <span class="n">the</span> <span class="n">quote</span> <span class="n">of</span> <span class="n">quotation</span> <span class="ow">or</span> <span class="n">the</span> <span class="n">effective</span> <span class="n">date</span> <span class="n">of</span> <span class="n">quotation</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h2>
+<p>The most recent vendor quote for lead times will be used.</p>
+<p>If multiple vendor quotes exist for the same quote date, the maximum
+lead time will be used.</p>
+<p>Full historical vendor quotes are useful to see trends in cost and lead
+time.</p>
+</div>
+<div class="section" id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h2>
+<p>Vendor on-time performance.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Diamond APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/Portal/400-MultipleLeadTimes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

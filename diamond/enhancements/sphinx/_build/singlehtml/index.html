@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Diamond Enhancement Requests 19.11 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="diamond-enhancement-requests">
+<h1>Diamond Enhancement Requests<a class="headerlink" href="#diamond-enhancement-requests" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-IcItemStat"></span><div class="section" id="item-statistics">
+<h2>Item Statistics<a class="headerlink" href="#item-statistics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>During a team phone call on December 15 ABC code requirement was
+identified.</p>
+<p>This demonstrates computing a number of potentially useful statistics</p>
+</div>
+<div class="section" id="approach">
+<h3>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create a table to hold statistics</p></li>
+<li><p>Create a script to populate statistics by item</p></li>
+<li><p>Create a service to obtain the data model for the web pages</p></li>
+<li><p>Modify the filter screen to allow query filters on the statistics</p></li>
+<li><p>Modify the web pages to show the statistics information</p></li>
+</ul>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>Create the table</p>
+<p>drop table ic_item_stat;</p>
+<dl class="simple">
+<dt>create table ic_item_stat (</dt><dd><p>item_nbr integer primary key references ic_item_mast,
+abc_cd  varchar(1),
+distinct_open_ord_cust_count integer,
+distinct_org_cust_qte          integer,
+distinct_cust_open_order_count integer</p>
+</dd>
+</dl>
+<p>);</p>
+<dl class="simple">
+<dt>alter table ic_item_stat add(</dt><dd><p>check (abc_cd in (‘A’,’B’,’C’)</p>
+</dd>
+</dl>
+<p>);</p>
+<div class="section" id="sqlrunner-file">
+<h4>SQlrunner file<a class="headerlink" href="#sqlrunner-file" title="Permalink to this headline">¶</a></h4>
+<p>This is a yaml file
+<a class="reference external" href="https://en.wikipedia.org/wiki/YAML">https://en.wikipedia.org/wiki/YAML</a>
+.. code:: sql</p>
+<dl>
+<dt>truncate_ic_item_stats:</dt><dd><p>sql: &gt; truncate table ic_item_stat
+description: delete all the rows from ic_item_stat</p>
+</dd>
+<dt>distinct_cust_open_order_count:</dt><dd><dl>
+<dt>sql: &gt; update ic_item_stat</dt><dd><p>set distinct_cust_open_order_count =
+( select count(distinct org_nbr_cst</p>
+<blockquote>
+<div><p>from oe_ord_hdr_dtl_vw</p>
+</div></blockquote>
+<p>)</p>
+</dd>
+</dl>
+<p>description: distinct cust open order count</p>
+</dd>
+<dt>number_of_open_orders</dt><dd><p>sql: &gt;
+description: number of open orders</p>
+</dd>
+<dt>number_of_distinct_customer_quotes_last_three_months:</dt><dd><dl class="simple">
+<dt>sql: &gt; update  ic_item_stats (</dt><dd><p>select count(distinct(org_nbr_cst)
+from sq_qte_vw</p>
+</dd>
+</dl>
+<p>distinct_customer_quotes_prev_3_months
+description: Count distinct customer quotes last three months</p>
+</dd>
+<dt>max_sales_price_last_three_months</dt><dd><p>sql: &gt;
+description: Max sales price last three months</p>
+</dd>
+<dt>quote_conversion_ratio:</dt><dd><p>sql: &gt;
+description: quote conversion ratio</p>
+</dd>
+<dt>dollars_open_orders:</dt><dd><p>sql: &gt;
+description: Dollar open orders</p>
+</dd>
+<dt>number_of_customers_open_orders:</dt><dd><dl class="simple">
+<dt>sql: &gt; update  ic_item_stats (</dt><dd><p>select count(distinct(org_nbr_cst)
+from oe_ord_hdr_dtl_vw
+where ord_stat_id = ‘O’</p>
+</dd>
+</dl>
+<p>description: number of distinct open order customers</p>
+</dd>
+<dt>abc_code:</dt><dd><p>sql&gt;
+description: Pareto code
+narrative: &gt;</p>
+<blockquote>
+<div><p>A,B,C classification
+compute aggregate sum of dollars
+Basing on shipments does not reflect new items
+Basing on open orders the dollar totals will be low for new items</p>
+</div></blockquote>
+</dd>
+<dt>unallocated_order_qty:</dt><dd><p>description: Unalloc ord qty
+sql: &gt;</p>
+</dd>
+<dt>percent_of_open_orders_base_curr</dt><dd><p>sql: &gt;
+description: Percent of open orders for base currency</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="create-a-service">
+<h3>Create a service<a class="headerlink" href="#create-a-service" title="Permalink to this headline">¶</a></h3>
+<p>package com.pacificdataservices.diamond.apsweb;</p>
+<p>import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;</p>
+<p>import javax.sql.DataSource;</p>
+<p>import org.javautil.core.json.JsonSerializer;
+import org.javautil.core.json.JsonSerializerGson;
+import org.javautil.core.sql.Binds;
+import org.javautil.core.sql.SqlStatement;
+import org.javautil.util.NameValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;</p>
+<p>&#64;RestController
+public class IcItemStatController {</p>
+<blockquote>
+<div><p>private Logger logger = LoggerFactory.getLogger(getClass());
+&#64;Autowired
+private DataSource datasource;</p>
+<p>&#64;RequestMapping(“/icItemStat”)
+public String  planData(</p>
+<blockquote>
+<div><blockquote>
+<div><dl class="simple">
+<dt>&#64;RequestParam(value=”itemNbr”) String itemNbr)</dt><dd><p>throws SQLException, IOException {</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>logger.info(“invoked with itemNumber {}”,itemNbr);
+Connection conn = datasource.getConnection();
+SqlStatement ss = new SqlStatement(conn, “select * from ic_item_stat where item_nbr = :item_nbr”);
+Binds binds = new Binds();
+binds.put(“item_nbr”, itemNbr);
+NameValue nameValue = ss.getNameValue(binds,true);
+JsonSerializer serializer = new JsonSerializerGson();
+String json = serializer.toJsonPretty(nameValue);
+return json;</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div>
+<div class="section" id="modify-web-page-template">
+<h3>Modify web page template<a class="headerlink" href="#modify-web-page-template" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<span id="document-OptimalReplenishmentQty"></span><div class="section" id="optimal-replenishment-quantity">
+<h2>Optimal Replenishment Quantity<a class="headerlink" href="#optimal-replenishment-quantity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Optimal Replenishment Quantity has two contradictory goals</p>
+<ul class="simple">
+<li><p>Larger replenishment quantities may reduce cost per unit if the item is manufactured on</p></li>
+</ul>
+<p>demand due to the setup cost being apportioned over a smaller number of units.  However,
+popular items may be continually produced by a manufacturer or produced in sufficient
+quantities to TODO ameliorate or minimize this.</p>
+<p>Larger replenishment quantities reduce safety stock requirements as variations in demand
+may be satisfied by working inventory.</p>
+<p>Larger replenishment quantities reduce inventory turns.  Inventory turns are defined as
+average months supply on hand   / (average monthly consumption * 12).</p>
+<p>Higher replenishment quantities may negatively effect cash flow.  If inventory can
+be acquired on consignment or larger purchase quantities can be scheduled over several
+months with minimal additional per unit cost this effect can be mitigated.  Vendor
+negotions are required to achieve either objective, vendor incentive may be a commitment
+to buy a larger number of parts.</p>
+<p>Not to be dismissed lightly is the strange pricing as a part is quoted as a differet
+part number and a vendor willingness to issue a certificate of compliance for the
+eqivalent part or customer willingness to accept an alternate part number.</p>
+<p>Ignoracee of equivalent part numbers is common in the industry.  A database of equivalent
+part numbers is rampant in the industry.</p>
+<p>Although part numbers are specified in engineering drawings vendors and customers may
+give different names, including varying use of dashes.  This is addressed in Diamond and
+is called <em>nomenclature</em>.  Prior deployments have had in excess of one million alternate
+names for various parts.  Acquiring this data may be labor intensive with benefits for
+Pareto part class (“ABC_CODE”) of class “A”, the top 20 percent of items based on annual
+sales currency.</p>
+<p>Let us assume in the interest of simplification a sceario that ignores Approved Manufacturer
+constraints, lead times and cash-flow mitigation strategies, such as</p>
+<p>For example:</p>
+<p>AMSOH AMC</p>
+<p>1      1 12
+2      1  6 6</p>
+</div>
+</div>
+<div class="section" id="optimal-cash-flow">
+<h2>Optimal Cash Flow<a class="headerlink" href="#optimal-cash-flow" title="Permalink to this headline">¶</a></h2>
+<p>Approaches</p>
+<p>Consignment inventory
+Scheduled Delivery</p>
+</div>
+<div class="section" id="stock-outs">
+<h2>Stock outs<a class="headerlink" href="#stock-outs" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="lowest-cost">
+<h2>Lowest cost<a class="headerlink" href="#lowest-cost" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-DeliveryLocation"></span><div class="section" id="delivery-location">
+<h2>Delivery Location<a class="headerlink" href="#delivery-location" title="Permalink to this headline">¶</a></h2>
+<p>U.S.A. vs France</p>
+</div>
+<span id="document-LeadTimeByVendor"></span><div class="section" id="lead-time-by-vendor">
+<h2>Lead Time By Vendor<a class="headerlink" href="#lead-time-by-vendor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Vendors may have drastically different lead times.</p>
+</div>
+<div class="section" id="acquiring">
+<h3>Acquiring<a class="headerlink" href="#acquiring" title="Permalink to this headline">¶</a></h3>
+<p>Data for lead times should be derived from the latest vendor quotes</p>
+</div>
+<div class="section" id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h3>
+<p>The most recent vendor quote for lead times will be used.</p>
+<p>If multiple vendor quotes exist for the same quote date, the maximum
+lead time will be used.</p>
+<p>Full historical vendor quotes are useful to see trends in cost and lead
+time.</p>
+</div>
+<div class="section" id="issues">
+<h3>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h3>
+<p>Vendor on-time performance.</p>
+</div>
+</div>
+<span id="document-Simulation"></span><div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>Planning simulation</p>
+</div>
+<span id="document-Questions"></span><div class="section" id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<p>Vendor Quotes</p>
+<p>CjstomerQuotes</p>
+<p>Base Currency</p>
+<p>Supply pools implementation in US and French operations.</p>
+<p>How many distimnct part numbers?</p>
+<p>How many Customer and vendor quotes?</p>
+<p>Sales volumes for US and France, number of sales and dollars per operation per year.</p>
+<p>Describe your current kitting for both operations.</p>
+<p>Describe supply eligibility features and deficiencies for both operations.</p>
+<p>Describe project approval functional, technical, financial.</p>
+<p>Post impleentaton functional specifications consulting is time andmaterials, coding desing,coding
+and documetation is fixed price</p>
+</div>
+<span id="document-Dataload"></span><div class="section" id="data-loading">
+<h2>Data Loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-Issues"></span><p>Base currency</p>
+<p>Acceptance criteria</p>
+<p>Funding</p>
+<p>Accept base functionality</p>
+<p>Accept willingness to extend existing functionality</p>
+<p>Accept ability to contribute to functional requirements for extensions</p>
+<p>Define minimal  viable product.</p>
+<p>Accept that there is no commercial “off the shelf” product that will satisfy
+Align needs and desires.</p>
+<p>Accept that in-house development cost and risk is far higher than licensing Diamond APS, which
+has near 25 years of incorporation of distributor requirements.</p>
+<p>Accept that there is low risk associated with application support.</p>
+<p>Address current promise date for open orders is before the planning date, that is,
+the purchase order is past due.</p>
+<p>Acknowledge that we provide valuable assistance in defining user requirements, that
+this expereince vastly exceeds consulting experience from other cosulting companies.</p>
+<p>Reject other consultants that state <em>SMOP</em> Simply a matter of Coding witout demonstrated
+ability to actuallu deliver a high perforance, <em>non-kludgy</em>, supportable solution.</p>
+<p>Accept that an optimal solution involves a general issue and that we provide very valuable
+service in defing detailed fuctioal requirements and aclear tecnical impemetation plan.</p>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<p>US operations and Frenc operations should continue with no system modifications.</p>
+<p>The ability to used Diamond facility transfers will be supported by intra-compay purcases.</p>
+</div>
+<span id="document-Technology"></span><div class="section" id="technology">
+<h2>Technology<a class="headerlink" href="#technology" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="java-vs-php">
+<h3>Java vs PHP<a class="headerlink" href="#java-vs-php" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="postgres-vs-mysql">
+<h3>Postgres vs mysql<a class="headerlink" href="#postgres-vs-mysql" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="spring-mvc-vs-angular">
+<h3>Spring MVC vs Angular<a class="headerlink" href="#spring-mvc-vs-angular" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="stack">
+<h3>Stack<a class="headerlink" href="#stack" title="Permalink to this headline">¶</a></h3>
+<p>java open_jdk1.8
+postgres 10 order later
+maven
+git
+AWSEC2
+Linux Redhat 8
+Tomcat
+Node.js and Angular 8</p>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html#document-index">Diamond Enhancement Requests</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-IcItemStat">Item Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-OptimalReplenishmentQty">Optimal Replenishment Quantity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#optimal-cash-flow">Optimal Cash Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#stock-outs">Stock outs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#lowest-cost">Lowest cost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-DeliveryLocation">Delivery Location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-LeadTimeByVendor">Lead Time By Vendor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Simulation">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Questions">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Dataload">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Issues">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Technology">Technology</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

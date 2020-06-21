@@ -1,0 +1,47 @@
+drop view sq_qte_vw;
+
+create or replace view sq_qte_vw as
+select 
+    h.sq_qte_hdr_nbr,
+    h.sq_qte_cd,
+    h.org_nbr_cust,
+    h.curr_cd_qte,
+    h.indiv_nm_spoken_to,
+    h.indiv_phn_nbr,
+    h.indiv_fax_nbr,
+    h.indiv_email_addr,
+    h.sq_qte_eff_dt,
+    h.sq_qte_exp_dt,
+    h.cust_qte_ref_cd,
+    h.sq_qte_indiv_nbr,
+    h.ut_user_nbr ut_user_nbr_hdr,
+    h.last_mod_dt last_mod_dt_hdr,
+    h.transmit_flg,
+    h.org_nm_cust,
+    dtl.sq_qte_dtl_nbr,
+    dtl.item_nbr_qte,
+    dtl.item_cd_qte,
+    dtl.item_cd_cust,
+    dtl.qte_um,
+    dtl.qte_qty,
+    dtl.qte_qty_stk_um,
+    dtl.qte_price,
+    dtl.qte_price_denom,
+    dtl.qte_price_stk_um,
+    dtl.qte_price_denom_stk_um,
+    dtl.org_nbr_mfr_rqst,
+    dtl.rqst_dt,
+    dtl.lead_tm_wk_prom,
+    dtl.prom_dt,
+    dtl.sq_lost_cd,
+    dtl.oe_ord_dtl_nbr,
+    dtl.rev_lvl,
+    dtl.qte_price_basis_id,
+    dtl.qte_price_basis_key,
+    dtl.qte_price_basis_cost,
+    dtl.ut_user_nbr ut_user_nbr_dtl,
+    dtl.last_mod_dt last_mod_dt_dtl
+from 
+    sq_qte_hdr h,
+    sq_qte_dtl dtl
+where h.sq_qte_hdr_nbr = dtl.sq_qte_hdr_nbr;

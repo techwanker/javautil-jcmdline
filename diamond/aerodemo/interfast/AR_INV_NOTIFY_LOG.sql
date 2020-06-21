@@ -1,0 +1,23 @@
+--------------------------------------------------------
+--  DDL for Table AR_INV_NOTIFY_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "AR_INV_NOTIFY_LOG" 
+   (	"INV_CD" VARCHAR2(20), 
+	"INV_DT" DATE, 
+	"SHIP_TO_ADDR_NBR" NUMBER, 
+	"BILL_TO_ADDR_NBR" NUMBER, 
+	"INV_STAT_ID" VARCHAR2(1), 
+	"INV_DWNLD_FLG" VARCHAR2(1) DEFAULT 'N', 
+	"INV_DWNLD_DT" DATE, 
+	"PACKSLIP_DWNLD_FLG" VARCHAR2(1) DEFAULT 'N', 
+	"PACKSLIP_DWNLD_DT" DATE, 
+	"INV_FAX_SENT_FLG" VARCHAR2(1) DEFAULT 'N', 
+	"INV_FAX_SENT_DT" DATE, 
+	"LOG_DT" DATE, 
+	"LAST_MOD_DT" DATE, 
+	"ORG_NBR_CUST" NUMBER, 
+	"SHIP_VIA_CD" VARCHAR2(8), 
+	"WH_SHIP_PRTY_NBR" NUMBER(5,0), 
+	"FILE_DWNLD_FLG" VARCHAR2(1) DEFAULT 'N'
+   ) ;

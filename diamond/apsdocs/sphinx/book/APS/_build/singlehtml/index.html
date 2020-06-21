@@ -1,0 +1,2089 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>APS 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/pds.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="pacific-data-services-advanced-planning">
+<h1>Pacific Data Services - Advanced Planning<a class="headerlink" href="#pacific-data-services-advanced-planning" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-Introduction"></span><div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The Diamond Advanced Planning System (APS) is the most feature-rich
+inventory planning system in the market today. There is no other
+planning engine out there that can match the Diamond APS in terms of
+speed and versatility.</p>
+<p>Diamond was custom designed to address the rigorous specifications of
+the Aerospace industry, which imposes significantly tighter controls and
+tracking functionality than a normal distribution environment and has numerous
+other constraints uniquely solved by Diamond APS.</p>
+<p>Diamond Advanced Planning is a module that associates demand for product
+with inventory that satisfies the demand according to pluggable
+(“extensible”) filters.</p>
+<p>Although it was designed explicitly to accomodate the requirements of
+aerospace subsets of its features will readily support virtually any
+distribution, MRO or discrete manufacturing environment.</p>
+<p>Diamond Advanced Planning was first written in 1983 by the author of
+this document and served well in planning for Fine China and giftware.
+Same was employed for a clothing manufacturer and subsequently for
+Tri-Star Aerospace. In 2001 a total rewrite was effected written in Java
+accommodating Aerospace requirements in version 10 of Diamond.</p>
+<div class="section" id="demand-types">
+<h3>Demand Types<a class="headerlink" href="#demand-types" title="Permalink to this headline">¶</a></h3>
+<p>Supports multiple types of Demand. Demand types supported are</p>
+<ul class="simple">
+<li><p>Firm Customer Order</p></li>
+<li><p>Work Orders and (Components of Work Orders)</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Forecast</p></li>
+</ul>
+</div>
+<div class="section" id="supply-types">
+<h3>Supply Types<a class="headerlink" href="#supply-types" title="Permalink to this headline">¶</a></h3>
+<p>Supports multiple types of Supply:</p>
+<ul class="simple">
+<li><p>On-Hand at Location</p></li>
+<li><p>In-Transit from another Location</p></li>
+<li><p>Purchase Orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</div>
+<div class="section" id="eligible-supply-rules">
+<h3>Eligible Supply Rules<a class="headerlink" href="#eligible-supply-rules" title="Permalink to this headline">¶</a></h3>
+<p>Diamond APS is very flexible with respect to filtering supply that is eligible to meet demand.</p>
+<p>Many filters are supplied and others may be added by writing a new one that complies with the
+EligibleSupplyFilter interface.  New filters are “wired in” and existing code is not touched.</p>
+<p>This allows for customization and rigorous testing of the customization with no risk associated with
+changes to the base code or precluding update support.</p>
+</div>
+<div class="section" id="supply-partitioning">
+<h3>Supply Partitioning<a class="headerlink" href="#supply-partitioning" title="Permalink to this headline">¶</a></h3>
+<p>Physical segregation of Inventory is done using facilities.</p>
+<p>Logical Segregation of Inventory within a facility is done using Supply
+Pools.</p>
+<p>Sourcing rules attached to every demand specify which supply to consume
+and the order in which to consume.</p>
+<p>The most commonly used database entities are cached in memory. Cached
+entities include Facilities, Supply Pools, Sourcing Rules,
+Certifications, Business Calendar, Equivalent Part Numbers, Customer
+specific Substitutes, Global Substitutes, Organizations, Forecast
+Groups, Application Control variables and Purchase Order Equivalents.
+Caching saves on the expensive operations of database access for the
+most commonly used entities.</p>
+<p>Triggers on cached tables signal the Planning engine to refresh those
+values.</p>
+<p>Part Number, substitutes and equivalents are all planned together.</p>
+</div>
+<div class="section" id="qualifying-inventory">
+<h3>Qualifying Inventory<a class="headerlink" href="#qualifying-inventory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ability to specify the revision level required for Sales Order and
+Work Order, Safety Stock and Forecast. The revision level hierarchy
+setup in the Parts Master will automatically allocate a higher
+revision level if the requested revision level is not available.</p></li>
+<li><p>Ability to specify certification requirements for Sales Order and
+Work Order and associate it with the demand.</p></li>
+<li><p>Certification requirements for Safety Stock and Forecasts are picked
+up from the Customer Master.</p></li>
+<li><p>Each certification has a weight associated with it. APS uses
+qualifying lots with the lowest weight to satisfy any demand.</p></li>
+<li><p>Ability to specify the manufacturer required at the Demand level or
+can specify a list of approved manufacturers at the Customer Level.
+Customer List can be set to Include or Exclude approved manufacturers</p></li>
+<li><p>Ability to specify Country of Origin on the Sales Orders.</p></li>
+<li><p>Ability to specify “manufactured after” or “must not expire before”
+date on Sales Orders for parts with a shelf life.</p></li>
+<li><p>Automatically excludes expired part numbers</p></li>
+<li><p>Kits can be setup in the system to not have mixed manufacturer lots
+allocated to them for any single kit. APS automatically determines
+the lot quantity and how many full kits it can satisfy and then
+switches to the next available lot to satisfy any remaining kits.</p></li>
+</ul>
+</div>
+<div class="section" id="demand-prioritization">
+<h3>Demand Prioritization<a class="headerlink" href="#demand-prioritization" title="Permalink to this headline">¶</a></h3>
+<p>Demand Prioritization module compares every demand for a given set of
+part numbers and sorts them according to a deterministic process that complies with
+the EligibleSupplyPrioritizer.</p>
+</div>
+<div class="section" id="preserve-allocations">
+<h3>Preserve Allocations<a class="headerlink" href="#preserve-allocations" title="Permalink to this headline">¶</a></h3>
+<p>Once sorted, Demand Prioritization also preserves On-hand allocations to
+Customer Orders and Work Orders within lead-time. All allocations to
+Safety Stock are preserved. Preserving existing allocations prevents
+demands that have been put in later from taking stock away from already
+existing orders. Safety Stock demand is allocated to Customer Orders and
+Work Orders within the same forecast groups if there is a shortage.
+Forecast Demands are reduced by the quantity of open Customer Order
+demands for the same month for the same forecast group, which stops over
+stating of demand for a given month.</p>
+</div>
+<div class="section" id="supply-prioritization">
+<h3>Supply Prioritization<a class="headerlink" href="#supply-prioritization" title="Permalink to this headline">¶</a></h3>
+<p>Supply prioritization uses the sourcing rules to determine which
+supplies to use to satisfy a given demand.</p>
+<p>Different rules are applied in different scenarios.</p>
+</div>
+<div class="section" id="demand-execution-mode">
+<h3>Demand Execution Mode<a class="headerlink" href="#demand-execution-mode" title="Permalink to this headline">¶</a></h3>
+<p>TODO describe the various modes</p>
+<p>Firm customer orders may be allocated to on-hand inventory or to the latest
+replenishment prior to request date.</p>
+<p>Assignment to replenishments is based on vendor on time performance.</p>
+<p>Once the qualifying supplies are identified, they are then sorted based on the type of the
+demand and type of the supply.</p>
+<p>An example for this would be to use the oldest lots
+to satisfy open sales orders while using the newest possible lots to
+satisfy safety stock demand.</p>
+<p>Since safety stock demand is never shipped,
+it blocks the newer inventory allowing the older lots to ship out before
+the newer ones. Supply prioritization changes the FIFO order for parts
+based on the settings in the Parts Master.</p>
+<p>Parts with a shelf life can
+be consumed based on the Manufacture Date or on the Expiration Date of
+the lots. Supply Prioritization also automatically relaxes all the
+constraints on the demand when allocating consignment or buyback supply
+to a demand.</p>
+<p>Buyback and consignment supply is stock received from the
+customer that is shipped back to them when they need it. This stock is
+always deemed to meet customer requirements.</p>
+<ul class="simple">
+<li><p>Allocations against on-hand supply are classified as Firm or Planned
+depending on if the on-hand supply is readily available in the
+primary facility or if the on-hand supply is a planned facility
+transfer or a processed facility transfer in transit to the primary
+facility. The primary facility for a demand is identified based on
+the sourcing rule used to determine the eligible supply for the
+demand.</p></li>
+<li><p>APS automatically creates work orders for kits. Since APS supports
+multi-level Bills of Material, it creates work orders for sub-kits
+and re-plans all the items recursively till all the demands for kits
+have been allocated either to on-hand inventory or to a work order.</p></li>
+<li><p>Purchase Orders schedules that are late are automatically padded by a
+user-defined factor and pushed forward. This enables the system to
+provide realistic availability dates for the demands which are
+allocated to those PO schedules.</p></li>
+<li><p>Automatically allocates demands to a Purchase Order if the demand is
+“X” days out in the future and there is a PO Schedule coming
+available “X” days before the demand is due. The value of “X” is read
+in from a Control table.</p></li>
+<li><p>APS will suggest a optimum reschedule date for the PO Schedules that
+have allocations against demands that need to be expedited or
+rescheduled to come in at a date later than the current promise date
+provided by the vendor</p></li>
+<li><p>APS will also suggest cancellation of PO schedules that are not
+needed to meet any demand that is present in the system.</p></li>
+</ul>
+</div>
+<div class="section" id="auditing-and-traceability">
+<h3>Auditing and Traceability<a class="headerlink" href="#auditing-and-traceability" title="Permalink to this headline">¶</a></h3>
+<p>Allocation logic fully traceable. An XML log file may be created created
+for each item group planned detailing each demand and all supplies,
+which ones were allocated and which ones were rejected and the reason
+for rejection.</p>
+<p>Ability to bind a given supply to a given demand as long as the supply
+is qualified for the demand. Allocations once bound are held bound
+unless unbound by the user.</p>
+</div>
+<div class="section" id="aps-output">
+<h3>APS Output<a class="headerlink" href="#aps-output" title="Permalink to this headline">¶</a></h3>
+<p>The Inventory planning process is the most impacted by running Diamond
+APS. The APS output is fully web-based and provides the Inventory
+planners with all the information required to make sound buying
+decisions. Inventory planners have the ability to lookup shortfalls by
+specifying a whole range of filter conditions. Listed below are the
+details of the outputs provided by Diamond APS.</p>
+</div>
+<div class="section" id="shortages">
+<h3>Shortages<a class="headerlink" href="#shortages" title="Permalink to this headline">¶</a></h3>
+<p>Diamond APS classifies shortages into the following categories</p>
+<p>Demand           Unallocated     Late
+—————  ———–     —-
+Customer Orders
+Work Orders
+Forecast
+Safety Stock</p>
+<p>Customer Orders</p>
+<ul class="simple">
+<li><p>Unallocated Customer Orders</p></li>
+<li><p>Unallocated Work Orders</p></li>
+<li><p>Unallocated Safety Stock</p></li>
+<li><p>Unallocated Forecasts</p></li>
+<li><p>Customers Orders allocated beyond the requested date</p></li>
+<li><p>Work Orders allocated beyond the requested date</p></li>
+<li><p>Safety Stock allocated beyond the requested date</p></li>
+<li><p>Forecasts allocated beyond the requested date</p></li>
+</ul>
+<p>Users can choose a combination of any of these shortage conditions and
+then apply the following filters to narrow their search</p>
+<p>Part Number Mask (A Wildcard search for a range of Part Numbers)</p>
+<p>The Part Category. Normally buyers are responsible for purchasing a
+certain category or categories of parts. This help narrow the results to
+only the parts they are responsible for purchasing. Within Lead Time.
+This restricts the output only to shortages that occur within the lead
+time for a given Part Outstanding Vendor Quotes less than “X” days. This
+further narrows the search and ignores the parts that have outstanding
+vendor quotes that are less than “X” days old. Vendors normally take
+some time to respond to quotes and this help buyers from seeing the same
+parts on the list even after they have worked on it. Planning Horizon
+End Date. This restricts the list of parts being shown to have shortages
+only within the Date specified here Buyer. This only shows the parts the
+specified buyer is responsible for buying. Customer Code. This restricts
+the list of parts only to the shortages for the customer specified.
+Maximum Part to display. The default is set to 100. The users can
+specify any number greater than 0.</p>
+<p>Once the search criteria is specified, APS will go through its planning
+results and find all the part numbers that match the specified search
+criteria. It will then sort them into 4 groups.</p>
+<p>A Part will only appear in one of these groups, the group in which the
+part has the earliest shortage. Each part then links off into a 12-month
+time-phased view of the Demand and Supply outlook. The time-phased
+output has columns for past due, current, 12 months starting with the
+current month and a column for demands and supplies coming in beyond 12
+months. This page also provides links to see the following information
+The Allocation Trace Log. This file contains a complete log of the
+allocation process for the part and all its substitutes and equivalents.
+Provides a listing of all the supplies available to allocation and also
+lists each demand followed by which supplies were allocated to it and
+which supplies were not and also provides a reason for ineligible
+supplies for the Demand.</p>
+</div>
+<div class="section" id="workbook">
+<h3>Workbook<a class="headerlink" href="#workbook" title="Permalink to this headline">¶</a></h3>
+<p>The Work Book create an excel spread sheet with the following
+information about the Part.</p>
+<ul>
+<li><p>The On-Hand inventory summary by Lot, Facility and Supply Pool,</p></li>
+<li><p>Customer and Vendor Quotes for the Part,</p></li>
+<li><p>Open Purchase Orders,</p></li>
+<li><p>Open Sales Orders,</p></li>
+<li><p>Historical Shipments</p></li>
+<li><p>a 12 month forecast by forecast group.</p></li>
+<li><p>Customer Quotes Listing</p></li>
+<li><p>Vendor Quotes Listing</p></li>
+<li><p>Approved Manufacturers by customer</p>
+<p>The work book can then be saved of and helps buyers</p>
+</li>
+</ul>
+<p>maintain a log of the demand/supply scenario at the time they made any
+purchase. A listing of all available supply and which demands it is
+allocated to A listing of all demands and what supplies are allocated to
+it Approved Manufacturers. Provides a cross-tab view of the customers
+and their approved manufacturers. Helps buyers make a choice of buying
+from the manufacturer that will satisfy the most number of customers.</p>
+<p>Rescheduling information for any PO Schedules in the system Shipment
+Details. Provides a listing of all the shipment of this part to any
+customer. Forecast History. Provides a time-phased display of the
+forecast history by forecast group for the given part. Also lists the
+forecasts by forecast group. Shipment Summary. Provides a year-month
+cross-tab of shipment of this part. Shipment Summary by Customer.
+Provides a year-month cross-tab of shipment by customer of this part.
+Ability to lookup shortfalls by the following</p>
+<ul class="simple">
+<li><p>Item Certification</p></li>
+<li><p>Manufacturer and vendor certification</p></li>
+<li><p>Lists shortfalls based on explicit certifications requested on the
+Demand. A review of these might help the user offer</p></li>
+<li><p>Country of Origin</p></li>
+<li><p>Approved Manufacturer</p></li>
+<li><p>Explicit Manufacturer Requested on the Demand</p></li>
+<li><p>Revision Level</p></li>
+<li><p>Re-certification opportunities</p></li>
+</ul>
+<p>Ability to lookup Rescheduling Requirements in the following groups</p>
+<div class="section" id="purchase-orders-to-be-expedited">
+<h4>Purchase Orders to be Expedited<a class="headerlink" href="#purchase-orders-to-be-expedited" title="Permalink to this headline">¶</a></h4>
+<p>Provides a summary by Vendor of the Purchase Orders that need to be
+expedited to meet current and forecasted demand. Users can then drill
+down into each Vendor and look at each individual PO Schedules need to
+be expedited and the system also suggested expedite date taking into
+account the time required to process the receipt after it arrives.</p>
+</div>
+<div class="section" id="purchase-orders-to-be-rescheduled">
+<h4>Purchase Orders to be Rescheduled<a class="headerlink" href="#purchase-orders-to-be-rescheduled" title="Permalink to this headline">¶</a></h4>
+<p>Provides a summary by Vendor of the Carrying Cost and the Cancelable
+Cost for PO Schedules that can either be pushed out for cancelled. Users
+can then drill down into each Vendor and look at each individual PO
+Schedule that needs to be rescheduled. For PO schedules that need to be
+pushed out, the system suggests the new date by which they are required.</p>
+</div>
+<div class="section" id="purchase-orders-to-be-cancelled">
+<h4>Purchase Orders to be Cancelled<a class="headerlink" href="#purchase-orders-to-be-cancelled" title="Permalink to this headline">¶</a></h4>
+<p>Provides a summary by Vendor of the cancelable cost of outstanding PO
+Schedules. Users can then drill down into each Vendor and see the
+individual PO Schedules that need to be cancelled.</p>
+</div>
+</div>
+</div>
+<span id="document-Goals"></span><div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>Identify the business benefits sought</p>
+<p>TODO examples</p>
+<p>Determine how success can be measured</p>
+<p>Determine</p>
+</div>
+<span id="document-Integration"></span><div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-loading">
+<h3>Data Loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h3>
+<p>Diamond APS provides IDL (Interface Data Load) tables</p>
+<p>These tables provide a consistent source of data from
+which the planning tables are populated for batch processing.</p>
+<p>Interfaces are available execution mode, not addressed
+in this document.</p>
+<div class="section" id="scrubbing">
+<h4>Scrubbing<a class="headerlink" href="#scrubbing" title="Permalink to this headline">¶</a></h4>
+<p>After the tables are loaded the javautil.org ConditionIdentifications
+tests are run to identify whether the data is fit to load.</p>
+<p>There are no referential constraints and few data checks
+in the IDL tables to allow unsatisfactory data to be loaded
+and analyzed as the rigorous data requirements of planning might
+make it impossible to load.</p>
+</div>
+<div class="section" id="rules">
+<h4>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h4>
+<p>Your Diamond Consultant will assist you in defining and
+loading the rules.</p>
+<p>These rule data is generally programatically generated
+and a few passes of planning are made in order to
+explain the ramifications.</p>
+</div>
+</div>
+<div class="section" id="consulting">
+<h3>Consulting<a class="headerlink" href="#consulting" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="rules-data">
+<h3>Rules Data<a class="headerlink" href="#rules-data" title="Permalink to this headline">¶</a></h3>
+<p>Customer Substitutes</p>
+<p>Global Substitutes</p>
+<p>Replenishment Policies</p>
+<p>Planning Groups</p>
+<p>Supply Pools</p>
+<p>Supply Sub Pools</p>
+<p>Sourcing Rules</p>
+<p>Customer Item Manufacturer Rules</p>
+</div>
+<div class="section" id="logic-review">
+<h3>Logic Review<a class="headerlink" href="#logic-review" title="Permalink to this headline">¶</a></h3>
+<p>Goals</p>
+</div>
+</div>
+<span id="document-ComponentsAndServices"></span><div class="section" id="components-and-services">
+<h2>Components and Services<a class="headerlink" href="#components-and-services" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="planning-machine">
+<h3>Planning Machine<a class="headerlink" href="#planning-machine" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Planning Machine</strong> is the high level component that creates and manages all other components.</p>
+<div class="section" id="populate-planning-data">
+<h4>Populate Planning Data<a class="headerlink" href="#populate-planning-data" title="Permalink to this headline">¶</a></h4>
+<p>Populates the request queue for all parts with supply or demand.</p>
+<p>May invoke <span class="xref std std-ref">_ComponentsAndServices_PlanningGrouper</span></p>
+</div>
+</div>
+<div class="section" id="planning-grouper">
+<span id="componentsandservices-planninggrouper"></span><h3>Planning Grouper<a class="headerlink" href="#planning-grouper" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Planning Grouper</strong> creates planning groups, items that must be planned simultaneously due
+to the fact that these parts are</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>equivalent</dt><dd><p>If one part can be certified to be another part, they are equivalent, but this is not necessarily
+bi-directional. That is part-a may be certifiable to be a part-b but part-b may not necessarily
+be certifiable to be a part-a</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>substitutes</dt><dd><ul>
+<li><p>customer substitutes</p></li>
+<li><p>global substitutes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="dispatcher">
+<h3>Dispatcher<a class="headerlink" href="#dispatcher" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The <strong>dispatcher</strong> returns a list of items that comprise a planning group.  The dispatcher may      create a planning engine or be invoked from a planning engine.</p>
+</div></blockquote>
+</div>
+<div class="section" id="planning-engine">
+<h3>Planning Engine<a class="headerlink" href="#planning-engine" title="Permalink to this headline">¶</a></h3>
+<p>A Planning Engine generates allocations, which are associations of
+demand and supply</p>
+<div class="section" id="get-items-to-plan">
+<h4>Get Items to Plan<a class="headerlink" href="#get-items-to-plan" title="Permalink to this headline">¶</a></h4>
+<p>May be in a planning group, but retrieving items that are not is also a
+lot faster.</p>
+</div>
+<div class="section" id="plan-phases">
+<h4>Plan Phases<a class="headerlink" href="#plan-phases" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="preserve-allocations">
+<h5>Preserve Allocations<a class="headerlink" href="#preserve-allocations" title="Permalink to this headline">¶</a></h5>
+<p>Allocations that are in pick may not be updated.</p>
+<p>Bound allocations must be preserved.</p>
+</div>
+<div class="section" id="first-pass">
+<h5>First Pass<a class="headerlink" href="#first-pass" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="plan-demands-within-lead-time">
+<h6>Plan Demands within Lead Time<a class="headerlink" href="#plan-demands-within-lead-time" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">allocate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">clear</span><span class="p">();</span>
+        <span class="n">isDemandsByCustomerValid</span> <span class="o">-</span> <span class="n">false</span><span class="p">;</span>
+        <span class="n">demandsByCustomer</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">setPreviousAllocations</span><span class="p">();</span>
+        <span class="n">restoreOnhandPickAllocations</span><span class="p">();</span>
+        <span class="n">restoreBoundAllocations</span><span class="p">();</span>
+        <span class="n">firstPass</span><span class="p">();</span>
+
+        <span class="n">computeCustomerSupply</span><span class="p">();</span>
+        <span class="n">demandS</span><span class="o">.</span><span class="n">setCustomerEligibleSupplies</span><span class="p">();</span>
+        <span class="n">customerPrioritized</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">requestToOverShip</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">overship</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prioritize-demands">
+<h3>Prioritize Demands<a class="headerlink" href="#prioritize-demands" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="filter-supply">
+<h3>Filter Supply<a class="headerlink" href="#filter-supply" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="prioritize-supply">
+<h3>Prioritize Supply<a class="headerlink" href="#prioritize-supply" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="generate-work-orders">
+<h3>Generate Work Orders<a class="headerlink" href="#generate-work-orders" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="generate-reschedules">
+<h3>Generate Reschedules<a class="headerlink" href="#generate-reschedules" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="update-data">
+<h3>Update Data<a class="headerlink" href="#update-data" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<p>Safety Stock must be allocated</p>
+<p>Forecast must be consumed.</p>
+<p>Consideration must be given to the fact that work orders may have
+customer demand and priority given to allocation to them.</p>
+<p>Support for overshipping</p>
+<p>Generates Reschedules</p>
+<p>Generate log trace xml</p>
+<p>Demands within a customer must be prioritized</p>
+</div>
+</div>
+<span id="document-AllocationLogic"></span><div class="section" id="allocation-logic">
+<h2>Allocation Logic<a class="headerlink" href="#allocation-logic" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modes">
+<h3>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">¶</a></h3>
+<p>Allocation has different behavior based on the allocation mode. The
+aerospace planning implementation supports four phases each with a
+different mode.</p>
+</div>
+<div class="section" id="phases">
+<h3>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pick-restore">
+<h4>Pick Restore<a class="headerlink" href="#pick-restore" title="Permalink to this headline">¶</a></h4>
+<p>Existing allocations to onhand inventory from work orders or customer
+orders that are in pick status are preserved.</p>
+<p>This Mode is also used in binding allocations.</p>
+<p>An allocation is bound by updating the alloc_type_id to ’R’ and
+requesting the engine to bind the allocation. The alloc_type_id is
+then set to ’B’ for Bound.</p>
+</div>
+<div class="section" id="first-pass">
+<h4>First Pass<a class="headerlink" href="#first-pass" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="customer-prioritized">
+<h4>Customer Prioritized<a class="headerlink" href="#customer-prioritized" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="overship">
+<h4>Overship<a class="headerlink" href="#overship" title="Permalink to this headline">¶</a></h4>
+<p>The request for Overship is used when variations in the requested ship
+quantity are supported. For example a customer orders 1000 washers,
+after the picker picks the order there are only 10 washers left in the
+box. If the customer allows over shipping then 1010 washers will be
+picked for his order as it is not worth the time to put 10 washers back
+in the box and put them away.</p>
+<p>The overship phase ensures that the 10 washers are not needed by another
+demand and changes the</p>
+</div>
+</div>
+<div class="section" id="restore-onhand-pick-allocations">
+<h3>Restore Onhand Pick Allocations<a class="headerlink" href="#restore-onhand-pick-allocations" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="bound-allocations">
+<h3>Bound Allocations<a class="headerlink" href="#bound-allocations" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<span id="document-EligibilityTests"></span><div class="section" id="eligibility-tests">
+<h2>Eligibility Tests<a class="headerlink" href="#eligibility-tests" title="Permalink to this headline">¶</a></h2>
+<p>Generally elibility tests may be considered as filters, that is, the
+order of the tests is inconsequential and each test may exclude the
+supply as being applicable for the demand. On occassion two or more
+tests may exhibit characteristics such that the qualification of either
+test is sufficient. Consider the case of buyback inventory in which
+inventory has been purchased from an airframe manufacturer but
+traceability to the ultimate source is not available. The airframe
+manufacturer may state that if the inventory was procured from the
+manufacturer under certain conditions those parts may bypass
+requirements that would otherwise be in place. It is the responsibility
+of the kitting or JIT provider to provide traceability back to the
+airframe manufacturer without any bearing any responsibility for
+ultimate traceability.</p>
+<div class="section" id="approved-manufacturer">
+<h3>Approved Manufacturer<a class="headerlink" href="#approved-manufacturer" title="Permalink to this headline">¶</a></h3>
+<p>A customer may define a <em>white list</em> or <em>black list</em> of manufacturers by
+part.</p>
+</div>
+<div class="section" id="buyback">
+<h3>Buyback<a class="headerlink" href="#buyback" title="Permalink to this headline">¶</a></h3>
+<p>Buyback inventory is purchased by a distributor from a customer and may
+be sold back to that customer even in the absence of complete
+traceability in the hands of the distributor.</p>
+</div>
+<div class="section" id="certifications">
+<h3>Certifications<a class="headerlink" href="#certifications" title="Permalink to this headline">¶</a></h3>
+<p>Certifications can assume arbitrary meanings.</p>
+<p>Examples of Certifications include for example only</p>
+<ul class="simple">
+<li><p>Manufacturer Certificate of Compliance</p></li>
+<li><p>??? list additional</p></li>
+<li><p>Manufacturer Certificate of Compliance</p></li>
+</ul>
+</div>
+<div class="section" id="consignment-inventory">
+<h3>Consignment Inventory<a class="headerlink" href="#consignment-inventory" title="Permalink to this headline">¶</a></h3>
+<p>Consignment inventory</p>
+</div>
+<div class="section" id="contract-aerospace">
+<h3>Contract Aerospace<a class="headerlink" href="#contract-aerospace" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="country-of-origin">
+<h3>Country of Origin<a class="headerlink" href="#country-of-origin" title="Permalink to this headline">¶</a></h3>
+<p>A demand may specify that the supply must be from a specified country. A
+filter exists to enforce this requirement.</p>
+</div>
+<div class="section" id="equivalency">
+<h3>Equivalency<a class="headerlink" href="#equivalency" title="Permalink to this headline">¶</a></h3>
+<p>Equivalency is defined as a part number that complies with the
+engineering specification for another part. Although an equivalent part
+will not be automatically allocated by the planning engine, suggestions
+may be made that a Certificate of Compliance for the lot in question.</p>
+</div>
+<div class="section" id="expiry-date">
+<h3>Expiry Date<a class="headerlink" href="#expiry-date" title="Permalink to this headline">¶</a></h3>
+<p>A demand may explicate the latest date of expiry for the supply. This
+filter ensures that the supply complies with the demand minimum
+expiration date.</p>
+</div>
+<div class="section" id="manufacturer">
+<h3>Manufacturer<a class="headerlink" href="#manufacturer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="explicit-manufacturer">
+<h4>Explicit Manufacturer<a class="headerlink" href="#explicit-manufacturer" title="Permalink to this headline">¶</a></h4>
+<p>A given demand may specify that a part must be made by one manufacturer.</p>
+</div>
+<div class="section" id="id1">
+<h4>Approved Manufacturer<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Customers may be set up with rules for approved manufacturers
+inclusively or exclusively.</p>
+</div>
+</div>
+<div class="section" id="lot-date">
+<h3>Lot Date<a class="headerlink" href="#lot-date" title="Permalink to this headline">¶</a></h3>
+<p>A demand may have an associated maximum date of manufacture.</p>
+</div>
+<div class="section" id="revision-level">
+<h3>Revision Level<a class="headerlink" href="#revision-level" title="Permalink to this headline">¶</a></h3>
+<p>Complete support for Revision Level Hierarchy</p>
+</div>
+<div class="section" id="substitutes">
+<h3>Substitutes<a class="headerlink" href="#substitutes" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="sourcing-rule">
+<h3>Sourcing Rule<a class="headerlink" href="#sourcing-rule" title="Permalink to this headline">¶</a></h3>
+<p>Sourcing rules</p>
+</div>
+<div class="section" id="id2">
+<h3>Approved Manufacturer<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>A customer may define a <em>white list</em> or <em>black list</em> of manufacturers by
+part.</p>
+</div>
+<div class="section" id="id3">
+<h3>Buyback<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Buyback inventory is purchased by a distributor from a customer and may
+be sold back to that customer even in the absence of complete
+traceability in the hands of the distributor.</p>
+</div>
+<div class="section" id="id4">
+<h3>Certifications<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Certifications can assume arbitrary meanings.</p>
+<p>Examples of Certifications include for example only</p>
+<ul class="simple">
+<li><p>Manufacturer Certificate of Compliance</p></li>
+<li><p>??? list additional</p></li>
+<li><p>Manufacturer Certificate of Compliance</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Consignment Inventory<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Consignment inventory</p>
+</div>
+<div class="section" id="id6">
+<h3>Contract Aerospace<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id7">
+<h3>Country of Origin<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>A demand may specify that the supply must be from a specified country. A
+filter exists to enforce this requirement.</p>
+</div>
+<div class="section" id="id8">
+<h3>Equivalency<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Equivalency is defined as a part number that complies with the
+engineering specification for another part. Although an equivalent part
+will not be automatically allocated by the planning engine, suggestions
+may be made that a Certificate of Compliance for the lot in question.</p>
+</div>
+<div class="section" id="id9">
+<h3>Expiry Date<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>A demand may explicate the latest date of expiry for the supply. This
+filter ensures that the supply complies with the demand minimum
+expiration date.</p>
+</div>
+<div class="section" id="id10">
+<h3>Manufacturer<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4>Explicit Manufacturer<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>A given demand may specify that a part must be made by one manufacturer.</p>
+</div>
+<div class="section" id="id12">
+<h4>Approved Manufacturer<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>Customers may be set up with rules for approved manufacturers
+inclusively or exclusively.</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>Lot Date<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>A demand may have an associated maximum date of manufacture.</p>
+</div>
+<div class="section" id="id14">
+<h3>Revision Level<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id15">
+<h3>Substitutes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<span id="document-Supply"></span><div class="section" id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="all-supply-and-aps-supply">
+<h3>ALL_SUPPLY and APS_SUPPLY<a class="headerlink" href="#all-supply-and-aps-supply" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name                  Type
+—————– ————
+SPLY_IDENTIFIER   VARCHAR2(61)
+AVAIL_TYPE_CD     CHAR(1)
+LOT_NBR                   NUMBER
+ITEM_NBR                  NUMBER(9)
+FACILITY                  VARCHAR2(16)
+APS_SPLY_SUB_POOL NUMBER(9)
+_NBR
+ORG_NBR_MFR                NUMBER
+ORG_NBR_VND                NUMBER
+AVAIL_DT                   DATE
+GROSS_AVAIL_QTY            NUMBER
+LOT_UM                     VARCHAR2(3)
+REV_LVL                    VARCHAR2(5)
+PK_SUPPLY                  NUMBER(9)
+LOT_COST                   NUMBER
+CNTRY_CD_ORIGIN            VARCHAR2(3)
+MFR_DATE                   DATE
+EXPIRE_DT                  DATE
+RCPT_DT                    DATE
+APS_AVAIL_DT               DATE
+WO_ITEM_NBR                NUMBER
+AVAIL_DT_ID                VARCHAR2(1)  -   DECODE(iil.avail_dt, NULL, ‘F’, ‘P’)       avail_dt_id</p>
+<p>PO_LINE_HDR_NBR            NUMBER</p>
+<dl class="simple">
+<dt>SELECT sply_identifier,</dt><dd><p>‘O’,
+lot_nbr,
+item_nbr,
+facility,
+aps_sply_sub_pool_nbr,
+org_nbr_mfr,
+org_nbr_vnd,
+avail_dt,
+gross_avail_qty,
+lot_um,
+rev_lvl,
+pk_supply,
+lot_cost,
+cntry_cd_origin,
+mfr_date,
+expire_dt,
+rcpt_dt,
+avail_dt,
+TO_NUMBER(NULL)     wo_item_nbr,
+avail_dt_id,
+to_number(null) po_line_hdr_nbr</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>FROM</dt><dd><p>aps_avail_onhand</p>
+</dd>
+</dl>
+<p>UNION ALL
+SELECT tar.sply_identifier,</p>
+<blockquote>
+<div><p>‘R’,
+TO_NUMBER(NULL),
+tar.item_nbr,
+tar.facility,
+tar.aps_sply_sub_pool_nbr,
+tar.org_nbr_mfr,
+tar.org_nbr_vnd,
+tar.avail_dt,
+tar.gross_avail_qty,
+tar.replen_um,
+tar.rev_lvl,
+tar.po_line_dtl_nbr,
+tar.unit_cost_stk_um,
+tar.cntry_cd_origin,
+tar.lot_manufacture_after_dt,
+tar.lot_not_expire_before_dt,
+TO_DATE(NULL),
+tar.aps_avail_dt,
+TO_NUMBER(NULL)      wo_item_nbr,
+NULL                                  avail_dt_id,
+tar.po_line_Hdr_Nbr</p>
+</div></blockquote>
+<dl class="simple">
+<dt>FROM</dt><dd><p>aps_avail_replen  tar</p>
+</dd>
+</dl>
+<p>UNION ALL
+SELECT /<a href="#id1"><span class="problematic" id="id2">*</span></a>+ use_nl(iii woh) index (woh) <a href="#id3"><span class="problematic" id="id4">*</span></a>/</p>
+<blockquote>
+<div><p>TO_CHAR(woh.wo_hdr_nbr)     sply_identifier,
+‘W’,
+TO_NUMBER(NULL),
+woh.item_nbr_rqst,
+woh.facility,
+woh.aps_sply_sub_pool_nbr,
+TO_NUMBER(NULL),
+TO_NUMBER(NULL),
+woh.need_by_dt       avail_dt,
+woh.rqst_qty - NVL(woh.fill_qty,0)  gross_avail_qty,
+woh.wo_um,
+TO_CHAR(NULL)       rev_lvl,
+woh.wo_hdr_nbr,
+TO_NUMBER(NULL),
+TO_CHAR(NULL),
+TO_DATE(NULL),
+TO_DATE(NULL),
+TO_DATE(NULL),
+woh.need_by_dt,
+woh.item_nbr_rqst      wo_item_nbr,
+NULL                                  avail_dt_id,
+to_number(null)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>FROM</dt><dd><p>wo_hdr   woh</p>
+</dd>
+<dt>WHERE</dt><dd><p>woh.wo_stat_id  = ‘O’</p>
+</dd>
+</dl>
+</div>
+</div>
+<span id="document-Functional"></span><div class="section" id="functional">
+<h2>Functional<a class="headerlink" href="#functional" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Diamond Advanced Planning is a module that associates demand for product
+with inventory that satisfies the demand according to pluggable
+(“extensible”) filters and</p>
+<p>Although it was designed explicitly to accomodate the requirements of
+aerospace subsets of its features will readily support virtually any
+distribution, MRO or discrete manufacturing environment.</p>
+<p>Diamond Advanced Planning was first written in 1983 by the author of
+this document and served well in planning for Fine China and giftware.
+Same was employed for a clothing manufacturer and subsequently for
+Tri-Star Aerospace. In 2001 a total rewrite was effected written in Java
+accommodating Aerospace requirements in version 10 of Diamond
+Distribution.</p>
+</div>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simultaneously supports interactive and batch mode planning</p></li>
+<li><p>Generates work orders for kits, assemblies and ???</p></li>
+<li><p>Supports Engineered Parts, a single item may simultaneously have
+multiple part numbers</p></li>
+<li><p>Allocation Based Pricing</p></li>
+<li><p>Complex MRO Kitting TODO link</p></li>
+</ul>
+</div>
+<div class="section" id="demand-types">
+<h3>Demand Types<a class="headerlink" href="#demand-types" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="customer-orders">
+<h4>Customer Orders<a class="headerlink" href="#customer-orders" title="Permalink to this headline">¶</a></h4>
+<p>A customer may be an external organization not within the legal
+hierarchy of legal entities encompassed by the organization that
+provides the planning service or be subordinate to the penultimate
+holding company of the organization providing planning. These
+relationships have no bearing on the requirement of the planning
+organization to fulfill demand in accordance with the contractual rules.</p>
+<p>Stated more simply, a customer in the sense of planning is an
+organization with a specified set of requirements for the fulfillment of
+inventory.</p>
+</div>
+<div class="section" id="safety-stock">
+<h4>Safety Stock<a class="headerlink" href="#safety-stock" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="forecasted-demand">
+<h4>Forecasted Demand<a class="headerlink" href="#forecasted-demand" title="Permalink to this headline">¶</a></h4>
+<p>Diamond provides a statistical forecasting model that forecasts demand
+based on historical consumption. The planning module is agnostic with
+respect to the source of the forecast and any forecast system may be
+used.</p>
+</div>
+<div class="section" id="work-orders">
+<h4>Work Orders<a class="headerlink" href="#work-orders" title="Permalink to this headline">¶</a></h4>
+<p>Work orders may take the form of kits, assemblies or rework.</p>
+</div>
+</div>
+<div class="section" id="supply-types">
+<h3>Supply Types<a class="headerlink" href="#supply-types" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="on-hand-inventory">
+<h4>On hand inventory<a class="headerlink" href="#on-hand-inventory" title="Permalink to this headline">¶</a></h4>
+<p>Onhand inventory includes inventory in transit to another warehouse and
+considers the availability date the time it will take to ship, receive
+and putaway the inventory.</p>
+</div>
+<div class="section" id="replenishments">
+<h4>Replenishments<a class="headerlink" href="#replenishments" title="Permalink to this headline">¶</a></h4>
+<p>A replenishment is additional inventory coming from an external source.
+This may be the result of a purchase order or anticipated receipt of
+buyback ??? or consignment inventory.</p>
+</div>
+<div class="section" id="id1">
+<h4>Work Orders<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>A work order is used to designate a part which has components, such as
+kits, assemblies and parts that require transformation to convert them
+to another part.</p>
+<p>A zinc plated bolt may be converted to a nickel plated bolt by stripping
+the zinc, copper plating and then nickel plating. Each such operation
+may have a yield of less than 100</p>
+</div>
+</div>
+<div class="section" id="rules">
+<h3>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configuration-data">
+<h4>Configuration Data<a class="headerlink" href="#configuration-data" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="customer-item-substitutes">
+<h5>Customer Item Substitutes<a class="headerlink" href="#customer-item-substitutes" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="global-substitutes">
+<h5>Global Substitutes<a class="headerlink" href="#global-substitutes" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="replenishment-policies">
+<h5>Replenishment Policies<a class="headerlink" href="#replenishment-policies" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="supply-pool">
+<h5>Supply Pool<a class="headerlink" href="#supply-pool" title="Permalink to this headline">¶</a></h5>
+<p>Inventory may be logically separated by supply pool.</p>
+<p>Supply pools may transcend facilities.</p>
+</div>
+<div class="section" id="supply-sub-pool">
+<h5>Supply Sub Pool<a class="headerlink" href="#supply-sub-pool" title="Permalink to this headline">¶</a></h5>
+<p>A sub-pool is subordinate to a supply pool.</p>
+</div>
+<div class="section" id="sourcing-rules">
+<h5>Sourcing Rules<a class="headerlink" href="#sourcing-rules" title="Permalink to this headline">¶</a></h5>
+<p>A sourcing rule is associated with a supply sub-pool and a facility.</p>
+<p>It describes:</p>
+<ul class="simple">
+<li><p>facility</p></li>
+<li><p>sub-pool</p></li>
+<li><p>supply type</p></li>
+<li><p>sourcing priority</p></li>
+</ul>
+<div class="section" id="examples">
+<h6>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h6>
+<div class="section" id="just-in-time">
+<h7>Just In Time<a class="headerlink" href="#just-in-time" title="Permalink to this headline">¶</a></h7>
+</div>
+<div class="section" id="kitting-mro">
+<h7>Kitting MRO<a class="headerlink" href="#kitting-mro" title="Permalink to this headline">¶</a></h7>
+</div>
+<div class="section" id="buy-back">
+<h7>Buy Back<a class="headerlink" href="#buy-back" title="Permalink to this headline">¶</a></h7>
+</div>
+</div>
+</div>
+<div class="section" id="customeer-item-manufacturer">
+<h5>Customeer Item Manufacturer<a class="headerlink" href="#customeer-item-manufacturer" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="section" id="planning-group">
+<h3>Planning Group<a class="headerlink" href="#planning-group" title="Permalink to this headline">¶</a></h3>
+<p>It is posited that no aerospace planning can be of much value in the
+absence of planning demand for parts that constitute a planning group,
+that is all parts which have the same form fit and function are
+interchangeable and those parts which have been previously been approved
+by the consumer of said parts as acceptable substitutes for the
+specified part.</p>
+<p>Interchangeability is defined as the parts being equivalent. A single
+part may comply with multiple engineering diagrams and when produced by
+a manufacturer of repute acceptable to the consumer and accompanied by a
+manufacturer Certificate of Compliance with said diagram, these parts
+are considered equivalent even in the absence of aforesaid Certificate,
+for often such certification may be purchased from the manufacturer, or
+waived by the knowing consumer.</p>
+</div>
+<div class="section" id="id2">
+<h3>Sourcing Rules<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="eligibility-tests">
+<h3>Eligibility Tests<a class="headerlink" href="#eligibility-tests" title="Permalink to this headline">¶</a></h3>
+<p>Generally elibility tests may be considered as filters, that is, the
+order of the tests is inconsequential and each test may exclude the
+supply as being applicable for the demand. On occassion two or more
+tests may exhibit characteristics such that the qualification of either
+test is sufficient. Consider the case of buyback inventory in which
+inventory has been purchased from an airframe manufacturer but
+traceability to the ultimate source is not available. The airframe
+manufacturer may state that if the inventory was procured from the
+manufacturer under certain conditions those parts may bypass
+requirements that would otherwise be in place. It is the responsibility
+of the kitting or JIT provider to provide traceability back to the
+airframe manufacturer without any bearing any responsibility for
+ultimate traceability.</p>
+</div>
+<div class="section" id="sourcing-rule">
+<h3>Sourcing Rule<a class="headerlink" href="#sourcing-rule" title="Permalink to this headline">¶</a></h3>
+<p>Sourcing rules</p>
+</div>
+<div class="section" id="planning-groups">
+<h3>Planning Groups<a class="headerlink" href="#planning-groups" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="aerospace-features">
+<h3>Aerospace Features<a class="headerlink" href="#aerospace-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Show which items could obtain certification rather than procure</p></li>
+<li><p>Generate Warehouse Transfers</p></li>
+<li><p>Generate Work Orders</p></li>
+<li><p>Overship Capability</p></li>
+</ul>
+</div>
+<div class="section" id="planning-mode">
+<h3>Planning Mode<a class="headerlink" href="#planning-mode" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="execution-planning-mode">
+<h3>Execution Planning Mode<a class="headerlink" href="#execution-planning-mode" title="Permalink to this headline">¶</a></h3>
+<p>In this mode demand the supply prioritizer gives higher precedence to
+the supply associated with delivery most prior to ???</p>
+</div>
+<div class="section" id="inventory-planning-mode">
+<h3>Inventory Planning Mode<a class="headerlink" href="#inventory-planning-mode" title="Permalink to this headline">¶</a></h3>
+<p>Inventory Planning Mode attempts to allocate demand such that on hand
+inventory is exhausted, deferring allocation to purchase orders or work
+orders to the first available by date. The result of this is that a
+reschedule date can be derived from the first requirement date.</p>
+</div>
+<div class="section" id="bound-allocations">
+<h3>Bound Allocations<a class="headerlink" href="#bound-allocations" title="Permalink to this headline">¶</a></h3>
+<p>A demand may be bound to a supply. These allocations are restored
+foremost in the first pass of allocation. Bound states include</p>
+<ul class="simple">
+<li><p>R Request</p></li>
+<li><p>B Bound</p></li>
+</ul>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>All of the decision paths for a planning group are incorporated into a
+single logging entity reflecting each of the decisions and
+prioritization. This data is persisted in XML, generally in a relational
+database.</p>
+</div>
+</div>
+<span id="document-Glossary"></span><div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="allocation">
+<h3>Allocation<a class="headerlink" href="#allocation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="allocation-based-pricing">
+<h3>Allocation Based Pricing<a class="headerlink" href="#allocation-based-pricing" title="Permalink to this headline">¶</a></h3>
+<p>It is a common practice in the aerospace industry for a distributor to
+provide Just-In-Time fulfillment of products under contractual
+arrangements. Often the distributor will purchase an airframe supplier’s
+inventory and sell it back for cost plus a service fee although other
+arrangements are certainly not rare. After the inventory that was
+purchased is exhausted additional demand is satisfied by inventory of
+the distributor. It is not known at the time the order is placed the
+source of the inventory that will be used to satisfy the demand.
+Allocation based pricing updates the order line with the appropriate
+price and creates sublines if necessary in the case of mixed supply at
+different prices.</p>
+</div>
+<div class="section" id="approved-manufacturer">
+<h3>Approved Manufacturer<a class="headerlink" href="#approved-manufacturer" title="Permalink to this headline">¶</a></h3>
+<p>Customers may either “whitelist” or “blacklist” manufacturers.</p>
+</div>
+<div class="section" id="bound-allocation">
+<h3>Bound Allocation<a class="headerlink" href="#bound-allocation" title="Permalink to this headline">¶</a></h3>
+<p>An allocation which</p>
+</div>
+<div class="section" id="certificate-of-compliance">
+<h3>Certificate of Compliance<a class="headerlink" href="#certificate-of-compliance" title="Permalink to this headline">¶</a></h3>
+<p>See Manufacturer Certificate of Compliance</p>
+</div>
+<div class="section" id="country-of-origin">
+<h3>Country of Origin<a class="headerlink" href="#country-of-origin" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="dispatch-group">
+<h3>Dispatch Group<a class="headerlink" href="#dispatch-group" title="Permalink to this headline">¶</a></h3>
+<p>A set of items that are planned concurrently.</p>
+<div class="section" id="planning-set">
+<h4>Planning Set<a class="headerlink" href="#planning-set" title="Permalink to this headline">¶</a></h4>
+<p>A planning set is a set of items that must be planned simultaneously</p>
+<p>It includes, transitively,</p>
+<ul class="simple">
+<li><p>Equivalent Parts</p></li>
+<li><p>Customer Substitutes</p></li>
+<li><p>Global Substitutes</p></li>
+</ul>
+</div>
+<div class="section" id="dispatch-set">
+<h4>Dispatch Set<a class="headerlink" href="#dispatch-set" title="Permalink to this headline">¶</a></h4>
+<p>A set of items that are retrieved concurrently from the underlying
+datastore for the purpose of improving performance of the persistent
+data store.</p>
+</div>
+</div>
+<div class="section" id="eligible-supply">
+<h3>Eligible Supply<a class="headerlink" href="#eligible-supply" title="Permalink to this headline">¶</a></h3>
+<p>For each demand any supply that passes all filters is considered
+eligible supply.</p>
+</div>
+<div class="section" id="engineered-parts">
+<h3>Engineered Parts<a class="headerlink" href="#engineered-parts" title="Permalink to this headline">¶</a></h3>
+<p>An engineered part is an item produced in compliance with an engineering
+drawing. Most everyone is familiar with Stock Keeping Unit or SKU,
+usually identified by a UPC (Universal Product Code) or an EAN (European
+???).</p>
+<p>An engineered part may be produced by a wide variety of manufacturers.</p>
+</div>
+<div class="section" id="equivalent-part">
+<h3>Equivalent Part<a class="headerlink" href="#equivalent-part" title="Permalink to this headline">¶</a></h3>
+<p>Two parts are equivalent if they could be cross certified.</p>
+<p>For example AN960-10 and NAS1149 are very common flat washers and the
+former diagrams where drawn by the Army Navy coalition and the latter by
+???</p>
+<p>These parts are identical, the only difference being whether the
+manufacturer has provided a <em>Manufacturer Certificate of Compliance</em>.</p>
+<p>One of the byproducts of APS is the ability to query for lots which may
+be made suitable for the demand by simply buying a <em>Manufacturer
+Certificate of Compliance</em>, another query will show unsatisified demand
+that could be satisfied by changing the requested part to be the
+equivalent part which frequently is readily accommodated by the party
+that gave rise to the demand.</p>
+</div>
+<div class="section" id="forecast-consumption">
+<h3>Forecast Consumption<a class="headerlink" href="#forecast-consumption" title="Permalink to this headline">¶</a></h3>
+<p>The process of decreasing Forecasted Demand by the amount of firm
+orders.</p>
+<p>This is necessary to eliminate “double dipping” requirements for supply.</p>
+</div>
+<div class="section" id="forecasting-granularity">
+<h3>Forecasting Granularity<a class="headerlink" href="#forecasting-granularity" title="Permalink to this headline">¶</a></h3>
+<p>Bucketed by week in TMP_APS_DMD_FC_PRD</p>
+</div>
+<div class="section" id="forecast-group">
+<h3>Forecast Group<a class="headerlink" href="#forecast-group" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="hard-alloc-fc-within-lead-time">
+<h3>Hard Alloc Fc Within Lead Time<a class="headerlink" href="#hard-alloc-fc-within-lead-time" title="Permalink to this headline">¶</a></h3>
+<p>APS_DMD_FC</p>
+</div>
+<div class="section" id="in-pick">
+<h3>In Pick<a class="headerlink" href="#in-pick" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="manufacturer-certificate-of-compliance">
+<h3>Manufacturer Certificate of Compliance<a class="headerlink" href="#manufacturer-certificate-of-compliance" title="Permalink to this headline">¶</a></h3>
+<p>A physical or electronic document issued by the manufacturer of an
+engineered part specifying a specific lot or set of lots with assurances
+backed solely by the credibility of the manufacturer that the items in
+the lot comply with the specifications set forth on the engineering
+diagrams for the part.</p>
+</div>
+<div class="section" id="manufacturer-lot-code">
+<h3>Manufacturer Lot Code<a class="headerlink" href="#manufacturer-lot-code" title="Permalink to this headline">¶</a></h3>
+<p>A designator assigned by the manufacturer for items produced, generally
+on the same machines after setup and demarcated by policies set forth by
+the manufacturer which may include quantity produced and machine setup,
+internal quality tests and so forth.</p>
+</div>
+<div class="section" id="multicerted-item">
+<h3>Multicerted Item<a class="headerlink" href="#multicerted-item" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pre-approved-lot">
+<h3>Pre-approved Lot<a class="headerlink" href="#pre-approved-lot" title="Permalink to this headline">¶</a></h3>
+<p>A lot which has been pre-approved by the organization ordering.</p>
+<p>This may be the result of quality assurance tests or buyback inventory.</p>
+</div>
+<div class="section" id="planning-data">
+<h3>Planning Data<a class="headerlink" href="#planning-data" title="Permalink to this headline">¶</a></h3>
+<p>Planning Data is the domain of all information necessary to generate a
+planning result for a [PlanningGroup] planning group. [PlanningGroup]</p>
+</div>
+<div class="section" id="planning-group">
+<h3>Planning Group<a class="headerlink" href="#planning-group" title="Permalink to this headline">¶</a></h3>
+<p>A planning group consists of all related items whether by equivalence,
+or substitution to arbitrary depths until such relationships are
+exhausted. This is performed procedurally in memory as all attempts to
+effect this declaratively have resulted in quantitative run times three
+or four orders of magnitude greater than object traversal.</p>
+</div>
+<div class="section" id="quality-assurance-tests">
+<h3>Quality Assurance Tests<a class="headerlink" href="#quality-assurance-tests" title="Permalink to this headline">¶</a></h3>
+<p>Lowest cost to incrementally pass quality.</p>
+</div>
+<div class="section" id="receiver-number">
+<h3>Receiver Number<a class="headerlink" href="#receiver-number" title="Permalink to this headline">¶</a></h3>
+<p>A receiver number is created by Diamond Distribution for each unique
+manufacturer lot on a shipping manifest.</p>
+<p>Therefor it is quite possible that</p>
+</div>
+<div class="section" id="safety-stock-consumption">
+<h3>Safety Stock Consumption<a class="headerlink" href="#safety-stock-consumption" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="substitute-part">
+<h3>Substitute Part<a class="headerlink" href="#substitute-part" title="Permalink to this headline">¶</a></h3>
+<p>A customer may agree for a substitute for a part when form, fit and
+function are satisfied irrespective of whether the part is an engineered
+part.</p>
+<p>For example ’D’ batteries from Everready and Ray-O-Vac with the same
+number of ampere hours.</p>
+</div>
+<div class="section" id="upc">
+<h3>UPC<a class="headerlink" href="#upc" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id1">
+<h3>Quality Assurance Tests<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<span id="document-ApsTechnicalReferenceBook"></span><div class="section" id="apstechnicalreferencebook">
+<h2>ApsTechnicalReferenceBook<a class="headerlink" href="#apstechnicalreferencebook" title="Permalink to this headline">¶</a></h2>
+<p>try using aps inventoryForecasting</p>
+<div class="section" id="database-privileges">
+<h3>Database Privileges<a class="headerlink" href="#database-privileges" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="synchronous-requests">
+<h3>Synchronous Requests<a class="headerlink" href="#synchronous-requests" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="asynchronous-requests">
+<h3>Asynchronous Requests<a class="headerlink" href="#asynchronous-requests" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="properties-and-command-line-arguments">
+<h3>Properties and Command Line Arguments<a class="headerlink" href="#properties-and-command-line-arguments" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="leadtimepaddingfactor">
+<h4>leadTimePaddingFactor<a class="headerlink" href="#leadtimepaddingfactor" title="Permalink to this headline">¶</a></h4>
+<p>Double lp -
+PropertyHelper.getMandatoryDoubleSystemProperty(“leadTimePaddingFactor”);
+double totalLeadTime - lp * this.itemMaster.getLeadTmDy().floatValue();
+endLeadTime - DateHelper.toSqlDate(DateHelper.addDays(today,
+java.lang.Math.round((float)totalLeadTime))); comp -
+this.getNeedByDate().compareTo(endLeadTime);</p>
+</div>
+</div>
+<div class="section" id="cache-manager">
+<h3>Cache Manager<a class="headerlink" href="#cache-manager" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="dbms-pipe">
+<h3>DBMS_PIPE<a class="headerlink" href="#dbms-pipe" title="Permalink to this headline">¶</a></h3>
+<p>grant execute on dbms_pipe to diamond;</p>
+</div>
+<div class="section" id="planning-group">
+<h3>Planning Group<a class="headerlink" href="#planning-group" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="equivalent-items">
+<h3>Equivalent Items<a class="headerlink" href="#equivalent-items" title="Permalink to this headline">¶</a></h3>
+<p>Two items are equivalent if they have the same form, fit and function and can be certified
+to the other.</p>
+<p>This is in the case of engineered parts.</p>
+</div>
+<div class="section" id="customer-substitutes">
+<h3>Customer Substitutes<a class="headerlink" href="#customer-substitutes" title="Permalink to this headline">¶</a></h3>
+<p>Customer substitutes are used when one part may be used in place of another.</p>
+<p>The parts may have identical specifications or just be satisfactory.</p>
+<p>For example a police department may need “D” Cell batteries for their flashlights.</p>
+<p>In lieu of customer substitutes a pseudo part can be created.</p>
+</div>
+<div class="section" id="global-substitutes">
+<h3>Global Substitutes<a class="headerlink" href="#global-substitutes" title="Permalink to this headline">¶</a></h3>
+<p>iimes - (IcItemMastEquivS) cache.get(IcItemMastEquivS.class.getName());
+iicss - (ApsCustItemSubstS)
+cache.get(ApsCustItemSubstS.class.getName()); aigs -
+(ApsItemGlobalSubstS) cache.get(ApsItemGlobalSubstS.class .getName());</p>
+</div>
+</div>
+<span id="document-PlanningComponentsPaper"></span><div class="section" id="planningcomponentspaper">
+<h2>PlanningComponentsPaper<a class="headerlink" href="#planningcomponentspaper" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="planning-machine">
+<h3>Planning Machine<a class="headerlink" href="#planning-machine" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="planning-engine">
+<h3>Planning Engine<a class="headerlink" href="#planning-engine" title="Permalink to this headline">¶</a></h3>
+<p>A Planning Engine generates allocations, which are associations of
+demand and supply</p>
+</div>
+<div class="section" id="get-items-to-plan">
+<h3>Get Items to Plan<a class="headerlink" href="#get-items-to-plan" title="Permalink to this headline">¶</a></h3>
+<p>May be in a planning group, but retrieving items that are not is also a
+lot faster.</p>
+</div>
+<div class="section" id="populate-planning-data">
+<h3>Populate Planning Data<a class="headerlink" href="#populate-planning-data" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="retrieve-data-from-database">
+<h4>Retrieve Data from Database<a class="headerlink" href="#retrieve-data-from-database" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="index-the-data">
+<h4>Index the data<a class="headerlink" href="#index-the-data" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="preserve-allocations">
+<h3>Preserve Allocations<a class="headerlink" href="#preserve-allocations" title="Permalink to this headline">¶</a></h3>
+<p>Allocations that are in pick may not be updated.</p>
+<p>Bound allocations must be preserved.</p>
+</div>
+<div class="section" id="first-pass">
+<h3>First Pass<a class="headerlink" href="#first-pass" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="plan-demands-within-lead-time">
+<h4>Plan Demands within Lead Time<a class="headerlink" href="#plan-demands-within-lead-time" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">allocate</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">clear</span><span class="p">();</span>
+            <span class="n">isDemandsByCustomerValid</span> <span class="o">-</span> <span class="n">false</span><span class="p">;</span>
+            <span class="n">demandsByCustomer</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+            <span class="n">setPreviousAllocations</span><span class="p">();</span>
+            <span class="n">restoreOnhandPickAllocations</span><span class="p">();</span>
+            <span class="n">restoreBoundAllocations</span><span class="p">();</span>
+            <span class="n">firstPass</span><span class="p">();</span>
+
+            <span class="n">computeCustomerSupply</span><span class="p">();</span>
+            <span class="n">demandS</span><span class="o">.</span><span class="n">setCustomerEligibleSupplies</span><span class="p">();</span>
+            <span class="n">customerPrioritized</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">requestToOverShip</span><span class="p">())</span> <span class="p">{</span>
+                    <span class="n">overship</span><span class="p">();</span>
+            <span class="p">}</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prioritize-demands">
+<h3>Prioritize Demands<a class="headerlink" href="#prioritize-demands" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="filter-supply">
+<h3>Filter Supply<a class="headerlink" href="#filter-supply" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="prioritize-supply">
+<h3>Prioritize Supply<a class="headerlink" href="#prioritize-supply" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="generate-work-orders">
+<h3>Generate Work Orders<a class="headerlink" href="#generate-work-orders" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="generate-reschedules">
+<h3>Generate Reschedules<a class="headerlink" href="#generate-reschedules" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="update-data">
+<h3>Update Data<a class="headerlink" href="#update-data" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<p>Safety Stock must be allocated</p>
+<p>Forecast must be consumed.</p>
+<p>Consideration must be given to the fact that work orders may have
+customer demand and priority given to allocation to them.</p>
+<p>Support for overshipping</p>
+<p>Generates Reschedules</p>
+<p>Generate log trace xml</p>
+<p>Demands within a customer must be prioritized</p>
+</div>
+<div class="section" id="planning-dispatcher">
+<h3>Planning Dispatcher<a class="headerlink" href="#planning-dispatcher" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="planning-grouper">
+<h3>Planning Grouper<a class="headerlink" href="#planning-grouper" title="Permalink to this headline">¶</a></h3>
+<p>The planning grouper computes all of the items which need to be planned
+concurrently taking into consideration</p>
+<ul class="simple">
+<li><p>Customer Substitutes</p></li>
+<li><p>Global Substititutes</p></li>
+<li><p>Part Equivalencies</p></li>
+</ul>
+</div>
+</div>
+<span id="document-Technical"></span><div class="section" id="technical">
+<h2>Technical<a class="headerlink" href="#technical" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="queue-populator">
+<h3>Queue Populator<a class="headerlink" href="#queue-populator" title="Permalink to this headline">¶</a></h3>
+<p>The queue populator inserts items to be planned into the request queue.</p>
+<p>The only implementation at this time is a stored procedure
+<em>APS_RQST_QUEUE_POPULATOR</em></p>
+</div>
+<div class="section" id="queue-manager">
+<h3>Queue Manager<a class="headerlink" href="#queue-manager" title="Permalink to this headline">¶</a></h3>
+<p>The queue manager is responsible for managing the queue of items for
+which planning has been requested.</p>
+<p>The request queue is fully read and Planning Groups are established. The
+priority for dispatching is established.</p>
+<p>A call to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">[]</span> <span class="n">getPlanningItems</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Will return all of the items in a planning group.</p>
+</div>
+<div class="section" id="planning-engine">
+<h3>Planning Engine<a class="headerlink" href="#planning-engine" title="Permalink to this headline">¶</a></h3>
+<p>The planning engine obtains the identifiers for a set of items to be
+planned, either through a pull from the engine to the Queue Manager or
+through a push by an invocation of</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">planItems</span><span class="p">(</span><span class="nb">int</span><span class="p">[]</span> <span class="n">itemIds</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="populate-data">
+<h4>Populate Data<a class="headerlink" href="#populate-data" title="Permalink to this headline">¶</a></h4>
+<p>All of the data necessary to plan an item are populated in PlanningData
+and inter object references are resolved. Various dimension objects are
+populated from the Cache Manager [CacheManager] There are two
+implementation of Persistence interface, one which is based on generated
+and hand tweaked JDBC and one which is backed by Hibernate, using a few
+tweaks to optimize performance.</p>
+</div>
+<div class="section" id="planning">
+<h4>Planning<a class="headerlink" href="#planning" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="language">
+<h3>Language<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h3>
+<p>Most of the logic in APS is expressed in Java.</p>
+</div>
+<div class="section" id="inversion-of-control">
+<h3>Inversion of Control<a class="headerlink" href="#inversion-of-control" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="interface">
+<h3>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">dbexperts</span><span class="o">.</span><span class="n">diamond</span><span class="o">.</span><span class="n">planning</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="n">interface</span> <span class="n">PlanningOperation</span> <span class="p">{</span>
+        <span class="n">public</span> <span class="n">void</span> <span class="n">process</span><span class="p">(</span><span class="n">PlanningData</span> <span class="n">planningData</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Some may object to exposing all of the data available for arbitrary
+operations but and</p>
+</div>
+<div class="section" id="persistence">
+<h3>Persistence<a class="headerlink" href="#persistence" title="Permalink to this headline">¶</a></h3>
+<p>APS employs the DAO paradigm with default implementation for persistence
+using Hibernate for Object Relational Mapping.</p>
+</div>
+<div class="section" id="planning-data-and-related-interfaces">
+<h3>Planning Data and Related Interfaces<a class="headerlink" href="#planning-data-and-related-interfaces" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="planning-modes">
+<h3>Planning Modes<a class="headerlink" href="#planning-modes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="batch">
+<h4>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h4>
+<p>Batch planning is equivalent to fully regenerative MRP.</p>
+<p>When no more items are in the request queue the program terminates.</p>
+</div>
+<div class="section" id="interactive">
+<h4>Interactive<a class="headerlink" href="#interactive" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Queue Manager<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The queue manager is responsible for monitoring all of the items in the
+request queue and creating a queue of groups of planning items to be
+dispatched.</p>
+<p>See</p>
+</div>
+<div class="section" id="commandlineexecution">
+<h3>CommandLineExecution<a class="headerlink" href="#commandlineexecution" title="Permalink to this headline">¶</a></h3>
+<p>java com.dbexperts.diamond.cli dataSourceName</p>
+<p>TODO should create a big fat jar</p>
+<p>in /common/home/jjs/workspace/Diamond11 ./run_planning</p>
+<p>note document EJB3PlanningDataPersistence</p>
+</div>
+</div>
+<span id="document-todo"></span><div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<p>Order Loads</p>
+<p>Pre-approved Lots:</p>
+<p>Planning Phases</p>
+<p>Properties</p>
+<p>Describe Kitting</p>
+<p>Describe where best used</p>
+</div>
+<span id="document-ApsFeatures"></span><div class="section" id="apsfeaturesbook">
+<h2>ApsFeaturesBook<a class="headerlink" href="#apsfeaturesbook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Describe Boeing Airworthy certificate.</p></li>
+</ul>
+<div class="section" id="challenges">
+<h3>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="certification-of-compliance">
+<h3>Certification of Compliance<a class="headerlink" href="#certification-of-compliance" title="Permalink to this headline">¶</a></h3>
+<p>Many aerospace parts are specified by engineering drawings and may be
+manufactured by a wide variety of companies. These companies may issue a
+<em>Certificate of Compliance</em> that attests that the parts satisfy the
+requirements set forth by the drawing issuer.</p>
+<p>Examples of drawing issuers are</p>
+<ul class="simple">
+<li><p>AN - Army/Navy</p></li>
+<li><p>MS - Millspec</p></li>
+<li><p>NAS -</p></li>
+</ul>
+<div class="section" id="drawing-issuers">
+<h4>Drawing Issuers<a class="headerlink" href="#drawing-issuers" title="Permalink to this headline">¶</a></h4>
+<p>A given physical piece may actually satisfy requirements for many
+different parts. An example is a cadmium plated steel flat washer for a
+3/16 inch screw.</p>
+<ul class="simple">
+<li><p>Material: Steel</p></li>
+<li><p>Screw Size: 3/16 / #10</p></li>
+<li><p>Outside Diameter: .438 Inches</p></li>
+<li><p>Inside Diameter: .203 inches</p></li>
+<li><p>Thickness: .063 inches</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="part-names">
+<h3>Part Names<a class="headerlink" href="#part-names" title="Permalink to this headline">¶</a></h3>
+<p>A part may be known by more names than the drawings specify. Diamond is
+able to identify the part by any of these naming conventions.</p>
+<ol class="arabic simple">
+<li><p>Vendors may have their own names</p></li>
+<li><p>Customers may have there own names</p></li>
+<li><p>Your organization may have yet another name</p></li>
+<li><p>Engineered part name</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NAS1149F0363P</span>
+<span class="mi">910</span><span class="n">C331</span><span class="o">-</span><span class="mi">10</span>
+<span class="n">AN960</span><span class="o">-</span><span class="mi">10</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Part Traceability</p></li>
+<li><p>Approved Manufacturers by Part</p></li>
+<li><p>Approved Manufacturers by Customer</p></li>
+<li><p>Lot Level Costing</p></li>
+<li><p>Customer Specific Inspection</p></li>
+<li><p>Revision Levels</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Part Names<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>A part may be known by more names than the drawings specify. Diamond is
+able to store and identify the parts by any of these naming conventions</p>
+</div>
+<div class="section" id="certifications">
+<h3>Certifications<a class="headerlink" href="#certifications" title="Permalink to this headline">¶</a></h3>
+<p>Complete support for item certifications</p>
+</div>
+<div class="section" id="expiration-date-cure-date">
+<h3>Expiration Date, Cure Date<a class="headerlink" href="#expiration-date-cure-date" title="Permalink to this headline">¶</a></h3>
+<p>Support for Cure Date, Expiration Date and</p>
+</div>
+<div class="section" id="simplify">
+<h3>Simplify<a class="headerlink" href="#simplify" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="supply-pools">
+<h3>Supply Pools<a class="headerlink" href="#supply-pools" title="Permalink to this headline">¶</a></h3>
+<p>Supply pools support logical separation of inventory to facilitate
+availability to demand Supply Pools are location independent A pool may
+be consignment or buyback inventory Pools and locations form the basis
+of “Supply Prioritization”</p>
+</div>
+<div class="section" id="sub-pools">
+<h3>Sub Pools<a class="headerlink" href="#sub-pools" title="Permalink to this headline">¶</a></h3>
+<p>Sub pool types:</p>
+<ul class="simple">
+<li><p>Consignment</p></li>
+<li><p>Buyback</p></li>
+<li><p>Vendor Stock</p></li>
+<li><p>General</p></li>
+</ul>
+</div>
+<div class="section" id="sourcing-rules">
+<h3>Sourcing Rules<a class="headerlink" href="#sourcing-rules" title="Permalink to this headline">¶</a></h3>
+<p>Sourcing Rules are used to determine which supply is given to a given
+demand and in what order to prioritize the supplies Supplies include
+On-Hand Inventory, Purchase Orders and Work Orders Each Supply Type for
+every Supply Pool where it may exists is given a priority within a
+sourcing rule Can be used to segregate consignment and buyback inventory
+by including them only in the sourcing rules for customers who are
+eligible to consume it. Is also used to identify the facility and the
+supply pool where work orders should be automatically created if needed
+to satisfy any open demand</p>
+</div>
+<div class="section" id="multiple-certifications">
+<h3>Multiple Certifications<a class="headerlink" href="#multiple-certifications" title="Permalink to this headline">¶</a></h3>
+<p>The manufacturer Certificate of Compliance to which a given receiver is
+qualified is explicitly tracked The part is visible through all parts to
+which it is certified or equivalent Purchasing supports explication of
+each part to which the inventory should be certified Inspection
+validates that purchasing requirements are fulfilled</p>
+</div>
+<div class="section" id="bound-allocations">
+<h3>Bound Allocations<a class="headerlink" href="#bound-allocations" title="Permalink to this headline">¶</a></h3>
+<p>Allocations may be “bound.” This ensures that demand supply
+prioritizations are not changed Allocations may be bound to incoming
+facility transfers Allocations may be bound to Purchase Order Schedules
+which is then transferred over to On-Hand Inventory when it is received</p>
+</div>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simultaneously supports interactive and batch mode planning</p></li>
+<li><p>Generates work orders for kits, assemblies and ???</p></li>
+<li><p>Supports Engineered Parts, a single item may simultaneously have
+multiple part numbers</p></li>
+<li><p>Allocation Based Pricing</p></li>
+</ul>
+</div>
+<div class="section" id="demand-types">
+<h3>Demand Types<a class="headerlink" href="#demand-types" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="customer-orders">
+<h3>Customer Orders<a class="headerlink" href="#customer-orders" title="Permalink to this headline">¶</a></h3>
+<p>A customer may be an external organization not within the legal
+hierarchy of legal entities encompassed by the organization that
+provides the planning service or be subordinate to the penultimate
+holding company of the organization providing planning. These
+relationships have no bearing on the requirement of the planning
+organization to fulfill demand in accordance with the contractual rules.</p>
+<p>Stated more simply, a customer in the sense of planning is an
+organization with a specified set of requirements for the fulfillment of
+inventory.</p>
+</div>
+<div class="section" id="safety-stock">
+<h3>Safety Stock<a class="headerlink" href="#safety-stock" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="forecasted-demand">
+<h3>Forecasted Demand<a class="headerlink" href="#forecasted-demand" title="Permalink to this headline">¶</a></h3>
+<p>Diamond provides a statistical forecasting model that forecasts demand
+based on historical consumption. The planning module is agnostic with
+respect to the source of the forecast and any forecast system may be
+used.</p>
+</div>
+<div class="section" id="work-orders">
+<h3>Work Orders<a class="headerlink" href="#work-orders" title="Permalink to this headline">¶</a></h3>
+<p>Work orders may take the form of kits, assemblies or rework.</p>
+</div>
+<div class="section" id="supply-types">
+<h3>Supply Types<a class="headerlink" href="#supply-types" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="on-hand-inventory">
+<h3>On hand inventory<a class="headerlink" href="#on-hand-inventory" title="Permalink to this headline">¶</a></h3>
+<p>Onhand inventory includes inventory in transit to another warehouse and
+considers the availability date the time it will take to ship, receive
+and putaway the inventory.</p>
+</div>
+<div class="section" id="replenishments">
+<h3>Replenishments<a class="headerlink" href="#replenishments" title="Permalink to this headline">¶</a></h3>
+<p>A replenishment is additional inventory coming from an external source.
+This may be the result of a purchase order or anticipated receipt of
+buyback ??? or consignment inventory.</p>
+</div>
+<div class="section" id="id2">
+<h3>Work Orders<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>A work order is used to designate a part which has components, such as
+kits, assemblies and parts that require transformation to convert them
+to another part.</p>
+<p>A zinc plated bolt may be converted to a nickel plated bolt by stripping
+the zinc, copper plating and then nickel plating. Each such operation
+may have a yield of less than 100</p>
+</div>
+<div class="section" id="planning-group">
+<h3>Planning Group<a class="headerlink" href="#planning-group" title="Permalink to this headline">¶</a></h3>
+<p>It is posited that no aerospace planning can be of much value in the
+absence of planning demand for parts that constitute a planning group,
+that is all parts which have the same form fit and function are
+interchangeable and those parts which have been previously been approved
+by the consumer of said parts as acceptable substitutes for the
+specified part.</p>
+<p>Interchangeability is defined as the parts being equivalent. A single
+part may comply with multiple engineering diagrams and when produced by
+a manufacturer of repute acceptable to the consumer and accompanied by a
+manufacturer Certificate of Compliance with said diagram, these parts
+are considered equivalent even in the absence of aforesaid Certificate,
+for often such certification may be purchased from the manufacturer, or
+waived by the knowing consumer.</p>
+</div>
+<div class="section" id="id3">
+<h3>Sourcing Rules<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="eligibility-tests">
+<h3>Eligibility Tests<a class="headerlink" href="#eligibility-tests" title="Permalink to this headline">¶</a></h3>
+<p>Generally elibility tests may be considered as filters, that is, the
+order of the tests is inconsequential and each test may exclude the
+supply as being applicable for the demand. On occassion two or more
+tests may exhibit characteristics such that the qualification of either
+test is sufficient. Consider the case of buyback inventory in which
+inventory has been purchased from an airframe manufacturer but
+traceability to the ultimate source is not available. The airframe
+manufacturer may state that if the inventory was procured from the
+manufacturer under certain conditions those parts may bypass
+requirements that would otherwise be in place. It is the responsibility
+of the kitting or JIT provider to provide traceability back to the
+airframe manufacturer without any bearing any responsibility for
+ultimate traceability.</p>
+</div>
+<div class="section" id="id4">
+<h3>Certification of Compliance<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Many aerospace parts are specified by engineering drawings and may be
+manufactured by a wide variety of companies. These companies may issue a
+<em>Certificate of Compliance</em> that attests that the parts satisfy the
+requirements set forth by the drawing issuer.</p>
+<p>Examples of drawing issuers are</p>
+<ul class="simple">
+<li><p>AN - Army/Navy</p></li>
+<li><p>MS - Millspec</p></li>
+<li><p>NAS -</p></li>
+</ul>
+</div>
+<div class="section" id="attribute-certification">
+<h3>Attribute Certification<a class="headerlink" href="#attribute-certification" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="approved-manufacturers-by-part">
+<h3>Approved Manufacturers by Part<a class="headerlink" href="#approved-manufacturers-by-part" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="approved-manufacturers-by-customer">
+<h3>Approved Manufacturers by Customer<a class="headerlink" href="#approved-manufacturers-by-customer" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="revision-levels">
+<h3>Revision Levels<a class="headerlink" href="#revision-levels" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id5">
+<h3>Certifications<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Complete support for item certifications</p>
+</div>
+<div class="section" id="id6">
+<h3>Revision Levels<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Complete support for Revision Level Hierarchy</p>
+</div>
+<div class="section" id="id7">
+<h3>Expiration Date, Cure Date<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Support for Cure Date, Expiration Date and</p>
+<p>Cure Date</p>
+</div>
+<div class="section" id="country-of-origin">
+<h3>Country of Origin<a class="headerlink" href="#country-of-origin" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id8">
+<h3>Revision Levels<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Revision Levels may be specified on the demand Supports superceding
+revision levels, if a higher level revision satisfies lower level
+revision requirements, the higher level revision is automatically
+eligible</p>
+</div>
+<div class="section" id="id9">
+<h3>Sourcing Rules<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Sourcing Rules are used to determine which supply is given to a given
+demand and in what order to prioritize the supplies Supplies include
+On-Hand Inventory, Purchase Orders and Work Orders Each Supply Type for
+every Supply Pool where it may exists is given a priority within a
+sourcing rule Can be used to segregate consignment and buyback inventory
+by including them only in the sourcing rules for customers who are
+eligible to consume it. Is also used to identify the facility and the
+supply pool where work orders should be automatically created if needed
+to satisfy any open demand</p>
+</div>
+<div class="section" id="id10">
+<h3>Multiple Certifications<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>The manufacturer Certificate of Compliance to which a given receiver is
+qualified is explicitly tracked The part is visible through all parts to
+which it is certified or equivalent Purchasing supports explication of
+each part to which the inventory should be certified Inspection
+validates that purchasing requirements are fulfilled</p>
+</div>
+<div class="section" id="id11">
+<h3>Revision Levels<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Revision Levels may be specified on the demand Supports superceding
+revision levels, if a higher level revision satisfies lower level
+revision requirements, the higher level revision is automatically
+eligible</p>
+</div>
+<div class="section" id="eligible-supply">
+<h3>Eligible Supply<a class="headerlink" href="#eligible-supply" title="Permalink to this headline">¶</a></h3>
+<p>Approved Sources Equivalent Parts Buyback and Consigned Inventory
+Inventory Pooling Manufacturer Certificate of Compliance Customer
+Substitutes Global Substitutes Geographic Inventory Locations Revision
+Levels</p>
+</div>
+<div class="section" id="id12">
+<h3>Eligibility Tests<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Generally elibility tests may be considered as filters, that is, the
+order of the tests is inconsequential and each test may exclude the
+supply as being applicable for the demand. On occassion two or more
+tests may exhibit characteristics such that the qualification of either
+test is sufficient. Consider the case of buyback inventory in which
+inventory has been purchased from an airframe manufacturer but
+traceability to the ultimate source is not available. The airframe
+manufacturer may state that if the inventory was procured from the
+manufacturer under certain conditions those parts may bypass
+requirements that would otherwise be in place. It is the responsibility
+of the kitting or JIT provider to provide traceability back to the
+airframe manufacturer without any bearing any responsibility for
+ultimate traceability.</p>
+</div>
+<div class="section" id="approved-manufacturer">
+<h3>Approved Manufacturer<a class="headerlink" href="#approved-manufacturer" title="Permalink to this headline">¶</a></h3>
+<p>A customer may define a <em>white list</em> or <em>black list</em> of manufacturers by
+part.</p>
+</div>
+<div class="section" id="buyback">
+<h3>Buyback<a class="headerlink" href="#buyback" title="Permalink to this headline">¶</a></h3>
+<p>Buyback inventory is purchased by a distributor from a customer and may
+be sold back to that customer even in the absence of complete
+traceability in the hands of the distributor.</p>
+</div>
+<div class="section" id="id13">
+<h3>Certifications<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Certifications can assume arbitrary meanings.</p>
+<p>Examples of Certifications include for example only</p>
+<ul class="simple">
+<li><p>Manufacturer Certificate of Compliance</p></li>
+<li><p>??? list additional</p></li>
+<li><p>Manufacturer Certificate of Compliance</p></li>
+</ul>
+</div>
+<div class="section" id="consignment-inventory">
+<h3>Consignment Inventory<a class="headerlink" href="#consignment-inventory" title="Permalink to this headline">¶</a></h3>
+<p>Consignment inventory</p>
+</div>
+<div class="section" id="contract-aerospace">
+<h3>Contract Aerospace<a class="headerlink" href="#contract-aerospace" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id14">
+<h3>Country of Origin<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>A demand may specify that the supply must be from a specified country. A
+filter exists to enforce this requirement.</p>
+</div>
+<div class="section" id="equivalency">
+<h3>Equivalency<a class="headerlink" href="#equivalency" title="Permalink to this headline">¶</a></h3>
+<p>Equivalency is defined as a part number that complies with the
+engineering specification for another part. Although an equivalent part
+will not be automatically allocated by the planning engine, suggestions
+may be made that a Certificate of Compliance for the lot in question.</p>
+</div>
+<div class="section" id="expiry-date">
+<h3>Expiry Date<a class="headerlink" href="#expiry-date" title="Permalink to this headline">¶</a></h3>
+<p>A demand may explicate the latest date of expiry for the supply. This
+filter ensures that the supply complies with the demand minimum
+expiration date.</p>
+</div>
+<div class="section" id="manufacturer">
+<h3>Manufacturer<a class="headerlink" href="#manufacturer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="explicit-manufacturer">
+<h4>Explicit Manufacturer<a class="headerlink" href="#explicit-manufacturer" title="Permalink to this headline">¶</a></h4>
+<p>A given demand may specify that a part must be made by one manufacturer.</p>
+</div>
+<div class="section" id="id15">
+<h4>Approved Manufacturer<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>Customers may be set up with rules for approved manufacturers
+inclusively or exclusively.</p>
+</div>
+</div>
+<div class="section" id="lot-date">
+<h3>Lot Date<a class="headerlink" href="#lot-date" title="Permalink to this headline">¶</a></h3>
+<p>A demand may have an associated maximum date of manufacture.</p>
+</div>
+<div class="section" id="revision-level">
+<h3>Revision Level<a class="headerlink" href="#revision-level" title="Permalink to this headline">¶</a></h3>
+<p>Complete support for Revision Level Hierarchy</p>
+</div>
+<div class="section" id="substitutes">
+<h3>Substitutes<a class="headerlink" href="#substitutes" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="sourcing-rule">
+<h3>Sourcing Rule<a class="headerlink" href="#sourcing-rule" title="Permalink to this headline">¶</a></h3>
+<p>Sourcing rules</p>
+</div>
+<div class="section" id="id16">
+<h3>Approved Manufacturer<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>A customer may define a <em>white list</em> or <em>black list</em> of manufacturers by
+part.</p>
+</div>
+<div class="section" id="id17">
+<h3>Buyback<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Buyback inventory is purchased by a distributor from a customer and may
+be sold back to that customer even in the absence of complete
+traceability in the hands of the distributor.</p>
+</div>
+<div class="section" id="id18">
+<h3>Certifications<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>Certifications can assume arbitrary meanings.</p>
+<p>Examples of Certifications include for example only</p>
+<ul class="simple">
+<li><p>Manufacturer Certificate of Compliance</p></li>
+<li><p>??? list additional</p></li>
+<li><p>Manufacturer Certificate of Compliance</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>Consignment Inventory<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Consignment inventory</p>
+</div>
+<div class="section" id="id20">
+<h3>Contract Aerospace<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id21">
+<h3>Country of Origin<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>A demand may specify that the supply must be from a specified country. A
+filter exists to enforce this requirement.</p>
+</div>
+<div class="section" id="id22">
+<h3>Equivalency<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>Equivalency is defined as a part number that complies with the
+engineering specification for another part. Although an equivalent part
+will not be automatically allocated by the planning engine, suggestions
+may be made that a Certificate of Compliance for the lot in question.</p>
+</div>
+<div class="section" id="id23">
+<h3>Expiry Date<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>A demand may explicate the latest date of expiry for the supply. This
+filter ensures that the supply complies with the demand minimum
+expiration date.</p>
+</div>
+<div class="section" id="id24">
+<h3>Manufacturer<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h4>Explicit Manufacturer<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
+<p>A given demand may specify that a part must be made by one manufacturer.</p>
+</div>
+<div class="section" id="id26">
+<h4>Approved Manufacturer<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<p>Customers may be set up with rules for approved manufacturers
+inclusively or exclusively.</p>
+</div>
+</div>
+<div class="section" id="id27">
+<h3>Lot Date<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<p>A demand may have an associated maximum date of manufacture.</p>
+</div>
+<div class="section" id="id28">
+<h3>Revision Level<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id29">
+<h3>Substitutes<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id30">
+<h3>Sourcing Rule<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p>Sourcing rules</p>
+</div>
+<div class="section" id="planning-groups">
+<h3>Planning Groups<a class="headerlink" href="#planning-groups" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="aerospace-features">
+<h3>Aerospace Features<a class="headerlink" href="#aerospace-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Show which items could obtain certification rather than procure</p></li>
+<li><p>Generate Warehouse Transfers</p></li>
+<li><p>Generate Work Orders</p></li>
+<li><p>Overship Capability</p></li>
+</ul>
+</div>
+<div class="section" id="planning-mode">
+<h3>Planning Mode<a class="headerlink" href="#planning-mode" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="execution-planning-mode">
+<h3>Execution Planning Mode<a class="headerlink" href="#execution-planning-mode" title="Permalink to this headline">¶</a></h3>
+<p>In this mode demand the supply prioritizer gives higher precedence to
+the supply associated with delivery most prior to ???</p>
+</div>
+<div class="section" id="inventory-planning-mode">
+<h3>Inventory Planning Mode<a class="headerlink" href="#inventory-planning-mode" title="Permalink to this headline">¶</a></h3>
+<p>Inventory Planning Mode attempts to allocate demand such that on hand
+inventory is exhausted, deferring allocation to purchase orders or work
+orders to the first available by date. The result of this is that a
+reschedule date can be derived from the first requirement date.</p>
+</div>
+<div class="section" id="id31">
+<h3>Bound Allocations<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<p>A demand may be bound to a supply. These allocations are restored
+foremost in the first pass of allocation. Bound states include</p>
+<ul class="simple">
+<li><p>R Request</p></li>
+<li><p>B Bound</p></li>
+</ul>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>All of the decision paths for a planning group are incorporated into a
+single logging entity reflecting each of the decisions and
+prioritization. This data is persisted in XML, generally in a relational
+database.</p>
+</div>
+<div class="section" id="id32">
+<h3>Certifications<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">8130</span><span class="o">/</span><span class="n">MCC</span> <span class="n">BOEING</span> <span class="mi">8130</span> <span class="n">OR</span> <span class="n">MCC</span>
+<span class="n">AIRLREL</span>  <span class="n">AIRLINE</span> <span class="n">RELEASE</span> <span class="n">CERTIFICATE</span>
+<span class="n">AIRWORT</span>  <span class="n">AIRWORTHINESS</span> <span class="n">CERTIFICATE</span>
+<span class="n">ANODRIVT</span> <span class="n">ANODIZED</span> <span class="n">BOEING</span> <span class="n">RIVETS</span>
+<span class="n">CERTBAC</span>  <span class="n">CERTIFIED</span> <span class="n">BY</span> <span class="n">BOEING</span> <span class="n">CORP</span>
+<span class="n">CHEMTEST</span> <span class="n">CHEMICAL</span> <span class="n">TEST</span> <span class="n">REPORTS</span>
+<span class="n">CLASS3IN</span> <span class="n">CLASS3</span> <span class="n">INSPECTION</span> <span class="n">REQUIRED</span>
+<span class="n">CPT</span>      <span class="n">Certificate</span> <span class="n">Of</span> <span class="n">Proof</span> <span class="n">Test</span>
+<span class="n">D590BAC</span>  <span class="n">D590</span> <span class="n">Parts</span>
+<span class="n">DFARS</span>    <span class="n">Material</span> <span class="n">Compliance</span> <span class="n">With</span> <span class="n">Military</span> <span class="n">Requirements</span> <span class="p">(</span><span class="n">DFARS</span><span class="p">)</span>
+<span class="n">DSQAR</span>    <span class="n">Delegated</span> <span class="n">Supplier</span> <span class="n">QA</span> <span class="n">Representative</span>
+<span class="n">LINKCERT</span> <span class="n">LINKED</span> <span class="n">ALL</span> <span class="n">CERTIFICATES</span>
+<span class="n">MATRCERT</span> <span class="n">RAW</span> <span class="n">MATERIAL</span> <span class="n">TEST</span> <span class="n">REPORTS</span>
+<span class="n">MFGCOFC</span>  <span class="n">Manufacturer</span> <span class="n">Certificate</span> <span class="n">Of</span> <span class="n">Conformance</span>
+<span class="n">MFR</span><span class="o">-</span><span class="n">FAI</span>  <span class="n">Manufacturer</span><span class="s1">&#39;s FAI</span>
+<span class="n">MILSPEC</span>  <span class="n">MIL</span> <span class="n">SPEC</span> <span class="n">DOCUMENTATION</span>
+<span class="n">MISSTEST</span> <span class="n">missing</span> <span class="n">performance</span> <span class="n">test</span>
+<span class="n">PHYTEST</span>  <span class="n">PHYSICAL</span> <span class="n">TEST</span> <span class="n">REPORTS</span>
+<span class="n">PLATCERT</span> <span class="n">PLATING</span> <span class="n">CERTIFICATE</span>
+<span class="n">PPAPCERT</span> <span class="n">PPAP</span> <span class="n">CERTIFICATION</span>
+<span class="n">PROCESS</span>  <span class="n">PROCESS</span> <span class="n">CERT</span> <span class="n">FOR</span> <span class="n">PATCH</span>
+<span class="n">REPAIRPN</span> <span class="n">Item</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">repaired</span>
+<span class="n">ROHS</span>     <span class="n">RoHs</span> <span class="n">Compliant</span>
+<span class="n">VENDCERT</span> <span class="n">VENDOR</span> <span class="n">CERTIFICATE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="kitting">
+<h3>Kitting<a class="headerlink" href="#kitting" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html#document-index">APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Goals">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Integration">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ComponentsAndServices">Components and Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-AllocationLogic">Allocation Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-EligibilityTests">Eligibility Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Supply">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Functional">Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Glossary">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ApsTechnicalReferenceBook">ApsTechnicalReferenceBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-PlanningComponentsPaper">PlanningComponentsPaper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Technical">Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#architecture">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-todo">TODO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ApsFeatures">ApsFeaturesBook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pacific Data Services.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

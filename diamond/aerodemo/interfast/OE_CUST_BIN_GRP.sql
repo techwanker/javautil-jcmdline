@@ -1,0 +1,19 @@
+--------------------------------------------------------
+--  DDL for Table OE_CUST_BIN_GRP
+--------------------------------------------------------
+
+  CREATE TABLE "OE_CUST_BIN_GRP" 
+   (	"ORG_NBR_CUST" NUMBER(9,0), 
+	"CONTRACT_CD" VARCHAR2(8), 
+	"CUST_BIN_GRP" VARCHAR2(10), 
+	"CUST_BIN_GRP_DESCR" VARCHAR2(60), 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"NA_CATEGORY_NBR_SCAN" NUMBER(9,0), 
+	"URL_SCAN" VARCHAR2(255), 
+	"NA_CATEGORY_NBR_SUCCESS" NUMBER(9,0), 
+	"URL_SUCCESS" VARCHAR2(255), 
+	"NA_CATEGORY_NBR_FAILURE" NUMBER(9,0), 
+	"URL_FAILURE" VARCHAR2(255), 
+	"ORG_NBR_VND" NUMBER(9,0)
+   ) ;

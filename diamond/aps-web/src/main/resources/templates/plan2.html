@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Diamond APS - Part ${partCd}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="js/jquery.min.js"></script>
+<script src="js/jput.min.js"></script>
+<style src="css/w3.css"></style>
+</head>
+
+<body>
+	Eff:
+	<p id="effDt"></p>
+	<p th:text="'Part:, ' + ${partCd} " />
+	Number of item masters <p th:text="pdm.icItemMasts.size()"
+	<h2 id="iim">Item Masters</h2>
+	<ul>
+		<li>A</li>
+		<li>B</li>
+		<li>C</li>
+	</ul>
+	<script src="data/planGroup10.plandata.json"></script>
+	<!-- should be ajax call -->
+	<script>
+		for (var i = 0; i < icItemMasts.length; i++) {
+			alert("itemCd: " + icItemMasts[i].itemCd)
+		}
+		var items = '[{"itemCd":"A","itemDescr":"A Descr"},{"itemCd":"B","itemDescr":"B Descr"},{"itemCd":"C","itemDescr":"C Descr"},]'
+	</script>
+
+	<table jput="t_template">
+		<thead>
+			<tr>
+				<th>Item Cd</th>
+				<th>Description</th>
+		</thead>
+		<tbody jput="tbody_template">
+			<tr>
+				<td>{{itemCd}}</td>
+				<td>{{itemDescr}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<tbody id="tbody">
+		</tbody>
+	</table>
+
+
+
+	<script>
+		alert("is document ready")
+		$(document).ready(function() {
+			alert("document is ready");
+			$("h2").hide();
+			alert("about to populate table");
+			//while running this code the template will be appended in your div with json data
+			$("#tbody").jPut({
+				dataName : "items",
+				//ajax_url:"youfile.json",  if you want to call from a json file
+				name : "tbody_template",
+			});
+			alert("table populated")
+		});
+	</script>
+
+
+
+</body>
+</html>

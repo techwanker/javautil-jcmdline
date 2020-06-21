@@ -1,0 +1,34 @@
+\BOOKMARK [0][-]{chapter.1}{Document Organization}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Overview of logging types}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Flat file logging}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Database Logging}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Oracle trace information}{chapter.2}% 5
+\BOOKMARK [0][-]{chapter.3}{Database logs}{}% 6
+\BOOKMARK [1][-]{section.3.1}{Java Example}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.2}{Analyzing the logs}{chapter.3}% 8
+\BOOKMARK [0][-]{chapter.4}{Tracefile generation and persistence}{}% 9
+\BOOKMARK [0][-]{chapter.5}{Installation of database artifacts for oracle}{}% 10
+\BOOKMARK [1][-]{section.5.1}{prepare\137connnection}{chapter.5}% 11
+\BOOKMARK [1][-]{section.5.2}{my\137session\137info.sql}{chapter.5}% 12
+\BOOKMARK [1][-]{section.5.3}{logger\137message\137formatter}{chapter.5}% 13
+\BOOKMARK [1][-]{section.5.4}{dblogger\137intall\137tables}{chapter.5}% 14
+\BOOKMARK [1][-]{section.5.5}{Job Logging}{chapter.5}% 15
+\BOOKMARK [1][-]{section.5.6}{Installation}{chapter.5}% 16
+\BOOKMARK [1][-]{section.5.7}{Trace Repository}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.8}{logger\137persistence package}{chapter.5}% 18
+\BOOKMARK [0][-]{chapter.6}{Security in production}{}% 19
+\BOOKMARK [0][-]{chapter.7}{User priviliges}{}% 20
+\BOOKMARK [0][-]{chapter.8}{Performance}{}% 21
+\BOOKMARK [0][-]{chapter.9}{Tools and concepts}{}% 22
+\BOOKMARK [0][-]{chapter.10}{Connection Pools}{}% 23
+\BOOKMARK [1][-]{section.10.1}{After Getting a connection}{chapter.10}% 24
+\BOOKMARK [1][-]{section.10.2}{\043\043 DBMS\137SESSION}{chapter.10}% 25
+\BOOKMARK [1][-]{section.10.3}{Identifier}{chapter.10}% 26
+\BOOKMARK [1][-]{section.10.4}{Metrics}{chapter.10}% 27
+\BOOKMARK [1][-]{section.10.5}{References}{chapter.10}% 28
+\BOOKMARK [0][-]{chapter.11}{Spring Developers}{}% 29
+\BOOKMARK [0][-]{chapter.12}{TODO}{}% 30
+\BOOKMARK [0][-]{chapter.13}{Install}{}% 31
+\BOOKMARK [0][-]{chapter.14}{Trace file fields}{}% 32
+\BOOKMARK [1][-]{section.14.1}{Trace Record Fields}{chapter.14}% 33
+\BOOKMARK [0][-]{chapter.15}{TODO}{}% 34

@@ -1,0 +1,9 @@
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:dev12c
+spring.datasource.username=aerospace
+spring.datasource.password=diamondmine
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.OracleDialect
+spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+#hibernate.dialect = org.hibernate.dialect.OracleDialect
+spring.jpa.show-sql = true
+spring.jpa.properties.hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext

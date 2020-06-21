@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>ApsTechnicalReferenceBook</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="apstechnicalreferencebook">
+<h1>ApsTechnicalReferenceBook</h1>
+<p>try using aps inventoryForecasting</p>
+<div class="section" id="database-privileges">
+<h2>Database Privileges</h2>
+</div>
+<div class="section" id="synchronous-requests">
+<h2>Synchronous Requests</h2>
+</div>
+<div class="section" id="asynchronous-requests">
+<h2>Asynchronous Requests</h2>
+</div>
+<div class="section" id="properties-and-command-line-arguments">
+<h2>Properties and Command Line Arguments</h2>
+<div class="section" id="leadtimepaddingfactor">
+<h3>leadTimePaddingFactor</h3>
+<p>Double lp -
+PropertyHelper.getMandatoryDoubleSystemProperty(“leadTimePaddingFactor”);
+double totalLeadTime - lp * this.itemMaster.getLeadTmDy().floatValue();
+endLeadTime - DateHelper.toSqlDate(DateHelper.addDays(today,
+java.lang.Math.round((float)totalLeadTime))); comp -
+this.getNeedByDate().compareTo(endLeadTime);</p>
+</div>
+</div>
+<div class="section" id="cache-manager">
+<h2>Cache Manager</h2>
+</div>
+<div class="section" id="dbms-pipe">
+<h2>DBMS_PIPE</h2>
+<p>grant execute on dbms_pipe to diamond;</p>
+</div>
+<div class="section" id="planning-group">
+<h2>Planning Group</h2>
+</div>
+<div class="section" id="equivalent-items">
+<h2>Equivalent Items</h2>
+<p>Two items are equivalent if they have the same form, fit and function and can be certified
+to the other.</p>
+<p>This is in the case of engineered parts.</p>
+</div>
+<div class="section" id="customer-substitutes">
+<h2>Customer Substitutes</h2>
+<p>Customer substitutes are used when one part may be used in place of another.</p>
+<p>The parts may have identical specifications or just be satisfactory.</p>
+<p>For example a police department may need “D” Cell batteries for their flashlights.</p>
+<p>In lieu of customer substitutes a pseudo part can be created.</p>
+</div>
+<div class="section" id="global-substitutes">
+<h2>Global Substitutes</h2>
+<p>iimes - (IcItemMastEquivS) cache.get(IcItemMastEquivS.class.getName());
+iicss - (ApsCustItemSubstS)
+cache.get(ApsCustItemSubstS.class.getName()); aigs -
+(ApsItemGlobalSubstS) cache.get(ApsItemGlobalSubstS.class .getName());</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

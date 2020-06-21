@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Condition Identification &mdash; javautil-core 7.0.0
+	documentation</title>
+
+<link rel="stylesheet" href="_static/default.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '7.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script type="text/javascript" src="_static/jquery.js"></script>
+<script type="text/javascript" src="_static/underscore.js"></script>
+<script type="text/javascript" src="_static/doctools.js"></script>
+<link rel="top" title="javautil-core 7.0.0 documentation"
+	href="index.html" />
+</head>
+<body>
+	<div class="related">
+		<h3>Navigation</h3>
+		<ul>
+			<li class="right" style="margin-right: 10px"><a
+				href="genindex.html" title="General Index" accesskey="I">index</a></li>
+			<li><a href="index.html">javautil-core 7.0.0 documentation</a>
+				&raquo;</li>
+		</ul>
+	</div>
+
+	<div class="document">
+		<div class="documentwrapper">
+			<div class="bodywrapper">
+				<div class="body">
+
+					<div class="section" id="condition-identification">
+						<h1>
+							Condition Identification<a class="headerlink"
+								href="#condition-identification"
+								title="Permalink to this headline">¶</a>
+						</h1>
+						<p>Condition Identification supports the declarative
+							identification of records that meet one or more criteria.</p>
+						<p>It works by running a set of SQL queries against the data
+							and persisting the identification rule identifier and the primary
+							key for the records that satisfy the query.</p>
+						<div class="section" id="features">
+							<h2>
+								Features<a class="headerlink" href="#features"
+									title="Permalink to this headline">¶</a>
+							</h2>
+						</div>
+						<div class="section" id="concepts">
+							<h2>
+								Concepts<a class="headerlink" href="#concepts"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<div class="section" id="rule-group">
+								<h3>
+									Rule Group<a class="headerlink" href="#rule-group"
+										title="Permalink to this headline">¶</a>
+								</h3>
+							</div>
+							<div class="section" id="run-parms">
+								<h3>
+									Run Parms<a class="headerlink" href="#run-parms"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>Run Parms are bind variables used for the various rules.</p>
+								<p>Installation</p>
+								<p>Terminology</p>
+								<p>A rule group is a set of rules that collectively define
+									the conditions to be isolated.</p>
+							</div>
+							<div class="section" id="metrics">
+								<h3>
+									Metrics<a class="headerlink" href="#metrics"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>Metrics may be gathered for UT_TABLE_RULE This table
+									identifies the database table that contains the primary key for
+									table that is being identified.</p>
+							</div>
+						</div>
+						<div class="section" id="simple-processor">
+							<h2>
+								Simple Processor<a class="headerlink" href="#simple-processor"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<p>The simple processor reads rules such as the following</p>
+							<p>This is a sample .yaml file</p>
+							<p>code:</p>
+							<div class="highlight-python">
+								<pre>-   rule_name:  NO_CUSTOMER_TOTAL
+    table_name: ETL_FILE
+    msg:      No customer total record
+    sql_text: &gt;
+        select etl_file_id
+        from etl_file
+        where etl_file_id = %(ETL_FILE_ID)s
+        and not exists (
+           select 'x'
+           from etl_customer_tot
+           where etl_file_id = %(ETL_FILE_ID)s
+        )
+    narrative: &gt;
+          There is no customer total record
+    severity: 3
+    format_str: "No customer total record in %s"
+    java_format: "No customer total record for etl_file_id %s"</pre>
+							</div>
+							<div class="section" id="rule-parts">
+								<h3>
+									Rule Parts<a class="headerlink" href="#rule-parts"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<dl class="glossary docutils">
+									<dt id="term-rule-name">rule_name</dt>
+									<dd>Identifies the rule, should be globally unique, but
+										this is not enforced</dd>
+									<dt id="term-table-name">table_name</dt>
+									<dd>the name of the database table from which the primary
+										key is extracted</dd>
+									<dt id="term-sql-text">sql_text</dt>
+									<dd>a select statement that returns, minimally, the
+										primary key for the table as the first result, other columns
+										may be selected for formatting messages</dd>
+									<dt id="term-severity">severity</dt>
+									<dd>this should be further documented but may be used in
+										subsequent processing to determine processing, such as
+										refusing to post this record, or to reject an entire set of
+										records</dd>
+								</dl>
+								<p>One file defines a set of rules, each of which are run.</p>
+								<p>The bind variables %(ETL_FILE_ID)s are in python postgres
+									format in this example but may be specified as :ETL_FILE_ID.
+									Bind variables are not case sensitive.</p>
+								<p>The Complete Processor has a web interface and a large
+									variety of output formats.</p>
+							</div>
+						</div>
+						<div class="section" id="tables">
+							<h2>
+								Tables<a class="headerlink" href="#tables"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<div class="section" id="ut-condition-run">
+								<h3>
+									ut_condition_run<a class="headerlink" href="#ut-condition-run"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>One record is created or a run</p>
+							</div>
+							<div class="section" id="ut-condition-run-parm">
+								<h3>
+									ut_condition_run_parm<a class="headerlink"
+										href="#ut-condition-run-parm"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>This table stores the parameters used on a single run.</p>
+							</div>
+							<div class="section" id="ut-condition">
+								<h3>
+									ut_condition<a class="headerlink" href="#ut-condition"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>This table stores the rule as described above</p>
+							</div>
+							<div class="section" id="ut-condition-run-step">
+								<h3>
+									ut_condition_run_step<a class="headerlink"
+										href="#ut-condition-run-step"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>Associates a run with the condition</p>
+							</div>
+							<div class="section" id="ut-condition-row-msg">
+								<h3>
+									ut_condition_row_msg<a class="headerlink"
+										href="#ut-condition-row-msg"
+										title="Permalink to this headline">¶</a>
+								</h3>
+								<p>Stores the primary key and references to the condition
+									being identifieed</p>
+							</div>
+						</div>
+						<div class="section" id="full-project">
+							<h2>
+								Full Project<a class="headerlink" href="#full-project"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<ul class="simple">
+								<li>The full project includes the ability to persist the
+									rules in a database.</li>
+								<li>Support for running multiple queries as threads</li>
+								<li>Support for maximum execution time</li>
+								<li>Gathering metrics for comparison of based data for
+									determination of outliers and exceptional values.</li>
+							</ul>
+							<p>Rule Processor</p>
+							<p>Invocation Classes</p>
+							<p>Parallelism</p>
+							<p>Data Setup Output Review</p>
+							<dl class="docutils">
+								<dt>Fatal and Warn</dt>
+								<dd>
+									<ul class="first last simple">
+										<li>fix schema tables with no surrogate key, no foreign
+											keys etc. See exception processing.mer</li>
+										<li>document the package</li>
+										<li>document logging</li>
+										<li>document metrics</li>
+										<li>document ut_table_msg</li>
+										<li>document ut_table_report_sum</li>
+										<li>document exclusion rules</li>
+										<li>need functional area</li>
+										<li>document calling as a procedure</li>
+										<li>what does ut_query do with anything</li>
+										<li>no real support for ut_table_msg</li>
+										<li>item todo what is ds_table and why does ut_query
+											reference it?</li>
+										<li>document ut_table_rule and hist figure out what all
+											of these columns are used for</li>
+									</ul>
+								</dd>
+							</dl>
+							<p>The Javautil Exception Generator allows you to set up
+								simple rules to identify records or tables that fail to meet
+								business requirements.</p>
+							<p>Benefits</p>
+						</div>
+						<div class="section" id="pre-requisites">
+							<h2>
+								Pre-requisites<a class="headerlink" href="#pre-requisites"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<ul class="simple">
+								<li>Obtain javautil code</li>
+								<li>configure machine</li>
+								<li>item configure datasources</li>
+							</ul>
+						</div>
+						<div class="section" id="overview">
+							<h2>
+								Overview<a class="headerlink" href="#overview"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<blockquote>
+								<div>
+									<ul class="simple">
+										<li>getParms();</li>
+										<li>getRun();</li>
+										<li>getRules();</li>
+										<li>getBinds();</li>
+										<li>createProcessLog();</li>
+										<li>processRules();</li>
+										<li>updateRunStatus();</li>
+										<li>acknowledge()</li>
+									</ul>
+								</div>
+							</blockquote>
+						</div>
+						<div class="section" id="installation">
+							<h2>
+								Installation<a class="headerlink" href="#installation"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<p>Creating the User grant create sequence to &amp;&amp;user;
+								Parameters</p>
+							<p>Get UtRuleGrpRun Get UT_TABLE_RULE Get the rules for the
+								run. Get UT_RULE_GRP_RUN_PARMS Process Rules Connect to source -
+								todo describe data Connect to destination binds Run the query
+								insert into gtt_ut_table_row_msg merge into ut_table_row delete
+								where they don&#8217;t exist</p>
+						</div>
+						<div class="section" id="database-objects">
+							<h2>
+								Database Objects<a class="headerlink" href="#database-objects"
+									title="Permalink to this headline">¶</a>
+							</h2>
+							<p>Also depends on the logging tables in
+								Dbexperts3/ddl/oracle/logging
+								%includegraphics*[width=textwidth,viewport=0 0 3046 1632, bb=0 0
+								0 0]{ExceptionProcessing.jpeg</p>
+							<p>includegraphics*[width=textwidth,viewport=0 0 3046 1632,
+								bb=0 0 3046 1632]{ExceptionProcessing.jpeg</p>
+							<p>To generate the tables not only are the mapping files
+								required, the associated beans are even though they are never
+								used.</p>
+							<p>The dto&#8217;s must be in the classpath.</p>
+							<p>source and destination databases may be different</p>
+							<p>declarative rules</p>
+							<p>TODO need to support initialization procedure SqlDeveloper
+								cd /opt sudo unzip
+								/common/Downloads/sqldeveloper-4.2.0.16.260.1303-x64.zip</p>
+							<p>Installation</p>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+		<div class="sphinxsidebar">
+			<div class="sphinxsidebarwrapper">
+				<h3>
+					<a href="index.html">Table Of Contents</a>
+				</h3>
+				<ul>
+					<li><a class="reference internal" href="#">Condition
+							Identification</a>
+						<ul>
+							<li><a class="reference internal" href="#features">Features</a></li>
+							<li><a class="reference internal" href="#concepts">Concepts</a>
+								<ul>
+									<li><a class="reference internal" href="#rule-group">Rule
+											Group</a></li>
+									<li><a class="reference internal" href="#run-parms">Run
+											Parms</a></li>
+									<li><a class="reference internal" href="#metrics">Metrics</a></li>
+								</ul></li>
+							<li><a class="reference internal" href="#simple-processor">Simple
+									Processor</a>
+								<ul>
+									<li><a class="reference internal" href="#rule-parts">Rule
+											Parts</a></li>
+								</ul></li>
+							<li><a class="reference internal" href="#tables">Tables</a>
+								<ul>
+									<li><a class="reference internal" href="#ut-condition-run">ut_condition_run</a></li>
+									<li><a class="reference internal"
+										href="#ut-condition-run-parm">ut_condition_run_parm</a></li>
+									<li><a class="reference internal" href="#ut-condition">ut_condition</a></li>
+									<li><a class="reference internal"
+										href="#ut-condition-run-step">ut_condition_run_step</a></li>
+									<li><a class="reference internal"
+										href="#ut-condition-row-msg">ut_condition_row_msg</a></li>
+								</ul></li>
+							<li><a class="reference internal" href="#full-project">Full
+									Project</a></li>
+							<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+							<li><a class="reference internal" href="#overview">Overview</a></li>
+							<li><a class="reference internal" href="#installation">Installation</a></li>
+							<li><a class="reference internal" href="#database-objects">Database
+									Objects</a></li>
+						</ul></li>
+				</ul>
+
+				<h3>This Page</h3>
+				<ul class="this-page-menu">
+					<li><a href="_sources/ConditionIdentification.txt"
+						rel="nofollow">Show Source</a></li>
+				</ul>
+				<div id="searchbox" style="display: none">
+					<h3>Quick search</h3>
+					<form class="search" action="search.html" method="get">
+						<input type="text" name="q" /> <input type="submit" value="Go" />
+						<input type="hidden" name="check_keywords" value="yes" /> <input
+							type="hidden" name="area" value="default" />
+					</form>
+					<p class="searchtip" style="font-size: 90%">Enter search terms
+						or a module, class or function name.</p>
+				</div>
+				<script type="text/javascript">$('#searchbox').show(0);</script>
+			</div>
+		</div>
+		<div class="clearer"></div>
+	</div>
+	<div class="related">
+		<h3>Navigation</h3>
+		<ul>
+			<li class="right" style="margin-right: 10px"><a
+				href="genindex.html" title="General Index">index</a></li>
+			<li><a href="index.html">javautil-core 7.0.0 documentation</a>
+				&raquo;</li>
+		</ul>
+	</div>
+	<div class="footer">
+		&copy; Copyright 2019, Jim Schmidt. Created using <a
+			href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+	</div>
+</body>
+</html>

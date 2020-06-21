@@ -1,0 +1,3 @@
+set -x -e
+time saxon target/dbsnapshots/10.xml src/main/resources/pipeline.xsl /tmp/10.html
+firefox /tmp/10.html

@@ -1,0 +1,37 @@
+<h1 id="item-statistics">Item Statistics</h1>
+<h2 id="overview">Overview</h2>
+<p>During a team phone call on December 15 ABC code requirement was identified.</p>
+<p>This demonstrates computing a number of potentially useful statistics</p>
+<h2 id="approach">Approach</h2>
+<ul>
+<li>Create a table to hold statistics</li>
+<li>Create a script to populate statistics by item</li>
+<li>Create a service to obtain the data model for the web pages</li>
+<li>Modify the filter screen to allow query filters on the statistics</li>
+<li>Modify the web pages to show the statistics information</li>
+</ul>
+<h2 id="code">Code</h2>
+<h3 id="create-the-table">Create the table</h3>
+<pre class="sourceCode sql"><code class="sourceCode sql"></code></pre>
+<h3 id="sqlrunner-file">SQlrunner file</h3>
+<p>This is a yaml file <a href="https://en.wikipedia.org/wiki/YAML">https://en.wikipedia.org/wiki/YAML</a> .. code:: sql</p>
+<h3 id="create-a-service">Create a service</h3>
+<pre class="sourceCode java"><code class="sourceCode java"></code></pre>
+<p>package com.pacificdataservices.diamond.apsweb;</p>
+<p>import java.io.IOException; import java.sql.Connection; import java.sql.SQLException;</p>
+<p>import javax.sql.DataSource;</p>
+<p>import org.javautil.core.json.JsonSerializer; import org.javautil.core.json.JsonSerializerGson; import org.javautil.core.sql.Binds; import org.javautil.core.sql.SqlStatement; import org.javautil.util.NameValue; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RequestParam; import org.springframework.web.bind.annotation.RestController;</p>
+<p>@RestController public class IcItemStatController {</p>
+<blockquote>
+<p>private Logger logger = LoggerFactory.getLogger(getClass()); @Autowired private DataSource datasource;</p>
+<p>@RequestMapping(&quot;/icItemStat&quot;) public String planData( @RequestParam(value=&quot;itemNbr&quot;) String itemNbr) throws SQLException, IOException { logger.info(&quot;invoked with itemNumber {}&quot;,itemNbr); Connection conn = datasource.getConnection(); SqlStatement ss = new SqlStatement(conn, &quot;select * from ic_item_stat where item_nbr = :item_nbr&quot;); Binds binds = new Binds(); binds.put(&quot;item_nbr&quot;, itemNbr); NameValue nameValue = ss.getNameValue(binds,true); JsonSerializer serializer = new JsonSerializerGson(); String json = serializer.toJsonPretty(nameValue); return json; }</p>
+</blockquote>
+<p>}</p>
+<h3 id="create-a-node-service">Create a node service</h3>
+<pre class="sourceCode "><code>import { HttpClient } from &#39;@angular/common/http&#39;;
+import { Observable } from &#39;rxjs&#39;;
+...
+getIcItemStat(): Observable&lt;IcItemStat[]&gt; {
+     return this.http.get&lt;IcItemStat[]&gt;(HOST + &#39;/api/v1/icitemstat/&#39; + itemnbr);
+ }</code></pre>
+<h2 id="modify-web-page-template">Modify web page template</h2>

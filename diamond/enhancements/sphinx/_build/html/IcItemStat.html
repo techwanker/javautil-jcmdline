@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Item Statistics &#8212; Diamond Enhancement Requests 19.11 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Optimal Replenishment Quantity" href="OptimalReplenishmentQty.html" />
+    <link rel="prev" title="Diamond Enhancement Requests" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="item-statistics">
+<h1>Item Statistics<a class="headerlink" href="#item-statistics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>During a team phone call on December 15 ABC code requirement was
+identified.</p>
+<p>This demonstrates computing a number of potentially useful statistics</p>
+</div>
+<div class="section" id="approach">
+<h2>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Create a table to hold statistics</p></li>
+<li><p>Create a script to populate statistics by item</p></li>
+<li><p>Create a service to obtain the data model for the web pages</p></li>
+<li><p>Modify the filter screen to allow query filters on the statistics</p></li>
+<li><p>Modify the web pages to show the statistics information</p></li>
+</ul>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-the-table">
+<h3>Create the table<a class="headerlink" href="#create-the-table" title="Permalink to this headline">¶</a></h3>
+<p>drop table ic_item_stat;</p>
+<dl class="simple">
+<dt>create table ic_item_stat (</dt><dd><p>item_nbr integer primary key references ic_item_mast,
+abc_cd  varchar(1),
+distinct_open_ord_cust_count integer,
+distinct_org_cust_qte          integer,
+distinct_cust_open_order_count integer</p>
+</dd>
+</dl>
+<p>);</p>
+<dl class="simple">
+<dt>alter table ic_item_stat add(</dt><dd><p>check (abc_cd in (‘A’,’B’,’C’)</p>
+</dd>
+</dl>
+<p>);</p>
+</div>
+<div class="section" id="sqlrunner-file">
+<h3>SQlrunner file<a class="headerlink" href="#sqlrunner-file" title="Permalink to this headline">¶</a></h3>
+<p>This is a yaml file
+<a class="reference external" href="https://en.wikipedia.org/wiki/YAML">https://en.wikipedia.org/wiki/YAML</a></p>
+<p>&lt;pre&gt;
+.. include:: ../ddl/ic_item_stat_upd.yaml
+&lt;/pre&gt;</p>
+</div>
+<div class="section" id="create-a-service">
+<h3>Create a service<a class="headerlink" href="#create-a-service" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">pacificdataservices</span><span class="o">.</span><span class="n">diamond</span><span class="o">.</span><span class="n">apsweb</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.javautil.core.json.JsonSerializer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.javautil.core.json.JsonSerializerGson</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.javautil.core.sql.Binds</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.javautil.core.sql.SqlStatement</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.javautil.util.NameValue</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="p">;</span>
+
+<span class="nd">@RestController</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nc">IcItemStatController</span> <span class="p">{</span>
+
+
+    <span class="n">private</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">getClass</span><span class="p">());</span>
+    <span class="nd">@Autowired</span>
+    <span class="n">private</span> <span class="n">DataSource</span> <span class="n">datasource</span><span class="p">;</span>
+
+    <span class="nd">@RequestMapping</span><span class="p">(</span><span class="s2">&quot;/icItemStat&quot;</span><span class="p">)</span>
+    <span class="n">public</span> <span class="n">String</span>  <span class="n">planData</span><span class="p">(</span>
+                    <span class="nd">@RequestParam</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;itemNbr&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">itemNbr</span><span class="p">)</span>
+                                    <span class="n">throws</span> <span class="n">SQLException</span><span class="p">,</span> <span class="n">IOException</span> <span class="p">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;invoked with itemNumber </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">itemNbr</span><span class="p">);</span>
+            <span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">datasource</span><span class="o">.</span><span class="n">getConnection</span><span class="p">();</span>
+            <span class="n">SqlStatement</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SqlStatement</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;select * from ic_item_stat where item_nbr = :item_nbr&quot;</span><span class="p">);</span>
+            <span class="n">Binds</span> <span class="n">binds</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Binds</span><span class="p">();</span>
+            <span class="n">binds</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;item_nbr&quot;</span><span class="p">,</span> <span class="n">itemNbr</span><span class="p">);</span>
+            <span class="n">NameValue</span> <span class="n">nameValue</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">getNameValue</span><span class="p">(</span><span class="n">binds</span><span class="p">,</span><span class="n">true</span><span class="p">);</span>
+            <span class="n">JsonSerializer</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JsonSerializerGson</span><span class="p">();</span>
+            <span class="n">String</span> <span class="n">json</span> <span class="o">=</span> <span class="n">serializer</span><span class="o">.</span><span class="n">toJsonPretty</span><span class="p">(</span><span class="n">nameValue</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">json</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-node-service">
+<h3>Create a node service<a class="headerlink" href="#create-a-node-service" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="p">{</span> <span class="n">HttpClient</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">Observable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="n">getIcItemStat</span><span class="p">():</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">IcItemStat</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">IcItemStat</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HOST</span> <span class="o">+</span> <span class="s1">&#39;/api/v1/icitemstat/&#39;</span> <span class="o">+</span> <span class="n">itemnbr</span><span class="p">);</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modify-web-page-template">
+<h2>Modify web page template<a class="headerlink" href="#modify-web-page-template" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Diamond Enhancement Requests</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Item Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#approach">Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-web-page-template">Modify web page template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OptimalReplenishmentQty.html">Optimal Replenishment Quantity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeliveryLocation.html">Delivery Location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LeadTimeByVendor.html">Lead Time By Vendor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Questions.html">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dataload.html">Data Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Issues.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technology.html">Technology</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Diamond Enhancement Requests</a></li>
+      <li>Next: <a href="OptimalReplenishmentQty.html" title="next chapter">Optimal Replenishment Quantity</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/IcItemStat.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

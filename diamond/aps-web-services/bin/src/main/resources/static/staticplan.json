@@ -1,0 +1,50 @@
+[
+	{
+		"itemCd": "A",
+		"itemDescr": "A Descr"
+	},
+	{
+		"itemCd": "B",
+		"itemDescr": "B Descr"
+	},
+	{
+		"itemCd": "C",
+		"itemDescr": "C Descr"
+	},
+	{
+		"itemCd": "4 Xyzzy",
+		"itemDescr": "Xyzzy Description!!!!"
+	},
+	{
+		"itemCd": "AN",
+		"itemDescr": "Anyway"
+	},
+	{
+		"itemCd": "6 NAS1149",
+		"itemDescr": "NAS Descr"
+	},
+	{
+		"itemCd": "Test 27",
+		"itemDescr": "James Gang"
+	},
+	{
+		"itemCd": "8 Funk 49",
+		"itemDescr": "I know"
+	},
+	{
+		"itemCd": "Abc",
+		"itemDescr": "Switcheroo"
+	},
+	{
+		"itemCd": "10 James Bach",
+		"itemDescr": "Funky"
+	},
+	{
+		"itemCd": "Jimi",
+		"itemDescr": "Left"
+	},
+	{
+		"itemCd": "11",
+		"itemDescr": "Left"
+	}
+]

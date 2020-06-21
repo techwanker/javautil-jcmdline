@@ -1,0 +1,109 @@
+psql:foreign_keys.sql:4: ERROR:  syntax error at or near "Enter"
+LINE 1: Enter value for table_name: %
+        ^
+psql:foreign_keys.sql:102: ERROR:  insert or update on table "ar_inv_dtl" violates foreign key constraint "ar_inv_dtl_oe_ord_dtl_fk"
+DETAIL:  Key (oe_ord_dtl_nbr)=(1307610) is not present in table "oe_ord_dtl".
+psql:foreign_keys.sql:105: ERROR:  insert or update on table "ar_inv_dtl" violates foreign key constraint "ar_inv_dtl_ic_lot_mast_fk"
+DETAIL:  Key (lot_nbr)=(757018) is not present in table "ic_lot_mast".
+psql:foreign_keys.sql:106: ERROR:  insert or update on table "ar_inv_dtl" violates foreign key constraint "ar_inv_dtl_na_org_addr_fk"
+DETAIL:  Key (ship_to_addr_nbr)=(69959) is not present in table "na_org_addr".
+psql:foreign_keys.sql:107: ERROR:  insert or update on table "ar_inv_dtl" violates foreign key constraint "ar_inv_dtl_ar_inv_hdr_fk"
+DETAIL:  Key (inv_cd)=(148027) is not present in table "ar_inv_hdr".
+psql:foreign_keys.sql:108: ERROR:  insert or update on table "ar_inv_dtl" violates foreign key constraint "ar_inv_dtl_po_vnd_mast_fk"
+DETAIL:  Key (org_nbr_vnd)=(8975) is not present in table "po_vnd_mast".
+psql:foreign_keys.sql:163: ERROR:  insert or update on table "ar_rma_rcpt" violates foreign key constraint "ar_rma_rcpt_oe_cust_mast_fk"
+DETAIL:  Key (org_nbr_cust)=(5327) is not present in table "oe_cust_mast".
+psql:foreign_keys.sql:164: ERROR:  insert or update on table "ar_rma_rcpt" violates foreign key constraint "ar_rma_rcpt_ic_bin_fk"
+DETAIL:  Key (bin_nbr_stage)=(108626) is not present in table "ic_bin".
+psql:foreign_keys.sql:169: ERROR:  insert or update on table "ar_rma_rcpt" violates foreign key constraint "ar_rma_rcpt_ut_facility_fk"
+DETAIL:  Key (facility_recv)=(TORONTO) is not present in table "ut_facility".
+psql:foreign_keys.sql:289: ERROR:  insert or update on table "ic_item_loc_box" violates foreign key constraint "ic_item_loc_box_ic_item_loc_fk"
+DETAIL:  Key (ic_item_loc_nbr)=(6065116) is not present in table "ic_item_loc".
+psql:foreign_keys.sql:290: ERROR:  insert or update on table "ic_item_mast" violates foreign key constraint "ic_item_mast_na_indiv_fk"
+DETAIL:  Key (indiv_nbr_buyer)=(33203) is not present in table "na_indiv".
+psql:foreign_keys.sql:322: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:323: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:418: ERROR:  insert or update on table "na_org" violates foreign key constraint "na_org_cal_calendar_fk"
+DETAIL:  Key (calendar)=(DFLT) is not present in table "cal_calendar".
+psql:foreign_keys.sql:447: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:450: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:472: ERROR:  insert or update on table "oe_cust_mast" violates foreign key constraint "oe_cust_mast_na_org_addr_fk"
+DETAIL:  Key (ship_to_addr_nbr_dflt)=(71044) is not present in table "na_org_addr".
+psql:foreign_keys.sql:474: ERROR:  insert or update on table "oe_cust_mast" violates foreign key constraint "oe_cust_mast_fcst_grp_fk"
+DETAIL:  Key (fcst_grp)=(BRAD) is not present in table "fcst_grp".
+psql:foreign_keys.sql:475: ERROR:  insert or update on table "oe_cust_mast" violates foreign key constraint "oe_cust_mast_na_org_addr_fk"
+DETAIL:  Key (bill_to_addr_nbr_dflt)=(62306) is not present in table "na_org_addr".
+psql:foreign_keys.sql:477: ERROR:  insert or update on table "oe_cust_mast" violates foreign key constraint "oe_cust_mast_na_indiv_fk"
+DETAIL:  Key (sell_indiv_nbr)=(22176) is not present in table "na_indiv".
+psql:foreign_keys.sql:488: ERROR:  insert or update on table "oe_cust_mast" violates foreign key constraint "oe_cust_mast_na_indiv_fk"
+DETAIL:  Key (indiv_nbr_cust_contact)=(16136) is not present in table "na_indiv".
+psql:foreign_keys.sql:496: ERROR:  insert or update on table "oe_cust_mfr" violates foreign key constraint "oe_cust_mfr_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr)=(8018) is not present in table "po_mfr_mast".
+psql:foreign_keys.sql:520: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:527: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:530: ERROR:  insert or update on table "oe_ord_dtl" violates foreign key constraint "oe_ord_dtl_na_org_addr_fk"
+DETAIL:  Key (ship_to_addr_nbr)=(88188) is not present in table "na_org_addr".
+psql:foreign_keys.sql:537: ERROR:  insert or update on table "oe_ord_hdr" violates foreign key constraint "oe_ord_hdr_na_indiv_fk"
+DETAIL:  Key (sell_indiv_nbr)=(7572) is not present in table "na_indiv".
+psql:foreign_keys.sql:542: ERROR:  insert or update on table "oe_ord_hdr" violates foreign key constraint "oe_ord_hdr_na_org_addr_fk"
+DETAIL:  Key (bill_to_addr_nbr)=(58377) is not present in table "na_org_addr".
+psql:foreign_keys.sql:548: ERROR:  insert or update on table "oe_ord_hdr" violates foreign key constraint "oe_ord_hdr_na_org_addr_fk"
+DETAIL:  Key (ship_to_addr_nbr_dflt)=(67115) is not present in table "na_org_addr".
+psql:foreign_keys.sql:578: ERROR:  insert or update on table "po_line_dtl" violates foreign key constraint "po_line_dtl_na_org_addr_fk"
+DETAIL:  Key (ship_to_addr_nbr)=(220) is not present in table "na_org_addr".
+psql:foreign_keys.sql:599: ERROR:  insert or update on table "po_line_hdr" violates foreign key constraint "po_line_hdr_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr)=(8851) is not present in table "po_mfr_mast".
+psql:foreign_keys.sql:607: ERROR:  insert or update on table "po_mfr_mast" violates foreign key constraint "po_mfr_mast_na_org_addr_fk"
+DETAIL:  Key (bill_to_addr_nbr_dflt)=(5401) is not present in table "na_org_addr".
+psql:foreign_keys.sql:610: ERROR:  insert or update on table "po_mfr_mast" violates foreign key constraint "po_mfr_mast_na_org_addr_fk"
+DETAIL:  Key (mail_to_addr_nbr_dflt)=(2877) is not present in table "na_org_addr".
+psql:foreign_keys.sql:612: ERROR:  insert or update on table "po_ord_hdr" violates foreign key constraint "po_ord_hdr_na_org_addr_fk"
+DETAIL:  Key (addr_nbr_vnd)=(39898) is not present in table "na_org_addr".
+psql:foreign_keys.sql:615: ERROR:  insert or update on table "po_ord_hdr" violates foreign key constraint "po_ord_hdr_na_indiv_fk"
+DETAIL:  Key (indiv_nbr_buy)=(53) is not present in table "na_indiv".
+psql:foreign_keys.sql:616: ERROR:  insert or update on table "po_ord_hdr" violates foreign key constraint "po_ord_hdr_na_org_addr_fk"
+DETAIL:  Key (bill_to_addr_nbr)=(248) is not present in table "na_org_addr".
+psql:foreign_keys.sql:618: ERROR:  insert or update on table "po_ord_hdr" violates foreign key constraint "po_ord_hdr_po_vnd_mast_fk"
+DETAIL:  Key (org_nbr_vnd)=(272) is not present in table "po_vnd_mast".
+psql:foreign_keys.sql:619: ERROR:  insert or update on table "po_ord_hdr" violates foreign key constraint "po_ord_hdr_na_org_addr_fk"
+DETAIL:  Key (ship_to_addr_nbr_dflt)=(243) is not present in table "na_org_addr".
+psql:foreign_keys.sql:630: ERROR:  insert or update on table "po_unplanned_rcpt" violates foreign key constraint "po_unplanned_rcpt_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr)=(1711) is not present in table "po_mfr_mast".
+psql:foreign_keys.sql:631: ERROR:  insert or update on table "po_unplanned_rcpt" violates foreign key constraint "po_unplanned_rcpt_ic_bin_fk"
+DETAIL:  Key (bin_nbr)=(19261) is not present in table "ic_bin".
+psql:foreign_keys.sql:644: ERROR:  insert or update on table "po_vnd_mast" violates foreign key constraint "po_vnd_mast_na_indiv_fk"
+DETAIL:  Key (indiv_nbr_vnd_contact)=(36752) is not present in table "na_indiv".
+psql:foreign_keys.sql:646: ERROR:  insert or update on table "po_vnd_mast" violates foreign key constraint "po_vnd_mast_na_org_addr_fk"
+DETAIL:  Key (mail_to_addr_nbr_dflt)=(40692) is not present in table "na_org_addr".
+psql:foreign_keys.sql:647: ERROR:  insert or update on table "po_vnd_mast" violates foreign key constraint "po_vnd_mast_na_org_addr_fk"
+DETAIL:  Key (bill_to_addr_nbr_dflt)=(43591) is not present in table "na_org_addr".
+psql:foreign_keys.sql:648: ERROR:  insert or update on table "po_vnd_mast" violates foreign key constraint "po_vnd_mast_na_indiv_fk"
+DETAIL:  Key (buy_indiv_nbr)=(53) is not present in table "na_indiv".
+psql:foreign_keys.sql:714: ERROR:  insert or update on table "sq_qte_dtl" violates foreign key constraint "sq_qte_dtl_oe_ord_dtl_fk"
+DETAIL:  Key (oe_ord_dtl_nbr)=(1896218) is not present in table "oe_ord_dtl".
+psql:foreign_keys.sql:715: ERROR:  insert or update on table "sq_qte_dtl" violates foreign key constraint "sq_qte_dtl_sq_qte_hdr_fk"
+DETAIL:  Key (sq_qte_hdr_nbr)=(367084) is not present in table "sq_qte_hdr".
+psql:foreign_keys.sql:716: ERROR:  insert or update on table "sq_qte_dtl" violates foreign key constraint "sq_qte_dtl_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr_rqst)=(1711) is not present in table "po_mfr_mast".
+psql:foreign_keys.sql:726: ERROR:  insert or update on table "ut_facility" violates foreign key constraint "ut_facility_na_org_addr_fk"
+DETAIL:  Key (primary_addr_nbr)=(93706) is not present in table "na_org_addr".
+psql:foreign_keys.sql:727: ERROR:  insert or update on table "ut_facility" violates foreign key constraint "ut_facility_cal_calendar_fk"
+DETAIL:  Key (calendar)=(DFLT) is not present in table "cal_calendar".
+psql:foreign_keys.sql:753: ERROR:  insert or update on table "ut_user" violates foreign key constraint "ut_user_ut_facility_fk"
+DETAIL:  Key (facility)=(TORONTO) is not present in table "ut_facility".
+psql:foreign_keys.sql:754: ERROR:  insert or update on table "ut_user" violates foreign key constraint "ut_user_na_indiv_fk"
+DETAIL:  Key (indiv_nbr)=(15906) is not present in table "na_indiv".
+psql:foreign_keys.sql:776: ERROR:  insert or update on table "vq_qte_dtl" violates foreign key constraint "vq_qte_dtl_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr_rqst)=(8989) is not present in table "po_mfr_mast".
+psql:foreign_keys.sql:781: ERROR:  insert or update on table "vq_qte_hdr" violates foreign key constraint "vq_qte_hdr_po_vnd_mast_fk"
+DETAIL:  Key (org_nbr_vnd)=(753) is not present in table "po_vnd_mast".
+psql:foreign_keys.sql:841: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:850: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:foreign_keys.sql:853: ERROR:  there is no primary key for referenced table "wo_release"
+psql:foreign_keys.sql:870: ERROR:  insert or update on table "wo_dtl" violates foreign key constraint "wo_dtl_wo_hdr_fk"
+DETAIL:  Key (wo_hdr_nbr)=(1158) is not present in table "wo_hdr".
+psql:foreign_keys.sql:884: ERROR:  insert or update on table "wo_hdr" violates foreign key constraint "wo_hdr_oe_ord_dtl_fk"
+DETAIL:  Key (oe_ord_dtl_nbr)=(1090327) is not present in table "oe_ord_dtl".
+psql:foreign_keys.sql:899: ERROR:  syntax error at or near "892"
+LINE 1: 892 rows selected.
+        ^

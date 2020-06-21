@@ -1,0 +1,32 @@
+<h2>Vendor Quotes</h2>
+	Ways of looking at this
+	
+	Same vendor, same qty over time.
+	
+	Same time, same qty different vendors.
+	
+	This complete list is kind of useless.
+	<table id="vqQteVws">
+	<thead>
+	<tr>
+		<th>Vendor</th>
+		<th>Item Code</th>
+		<th>Quantity</th>
+		<th>U/M</th>
+		<th>Cost</th>
+		<th>Quote Date</th>
+		<th>Lead Time Weeks>
+	</tr>
+	</thead>
+	<tbody>
+		<tr th:each="r : ${pdm.getVqQteVws()}" th:if="${r.getQteCost() != null}">
+		   <td th:text="${r.getOrgCd()}">XYS</td>
+		   <td th:text="${r.getItemCdQte()}">NAS1149</td>
+		   <td th:text="${r.getQteQty()}" align="right">1000</td>
+		   <td th:text="${r.getQteUm()}" >EA</td>
+		   <td th:text="${#numbers.formatDecimal(r.getQteCost(), 0, 'COMMA', 5, 'POINT')}" align="right" >1.75</td>
+		   <td th:text="${#dates.format(r.getVqQteEffDt(), 'yyyy-MM-dd')}">2018/12/25</td>
+		   <td th:text="${r.getLeadTmWkProm()}">30</td>	   
+		</tr>
+	</tbody>
+	</table>

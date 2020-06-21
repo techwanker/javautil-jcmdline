@@ -1,0 +1,24 @@
+
+spring.datasource.url=jdbc:postgresql://localhost/aps19?currentSchema=aerodemo
+spring.datasource.username=jjs
+spring.datasource.password=jjs
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.show-sql = false
+spring.jpa.properties.hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext
+#spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+#spring.datasource.url=jdbc:oracle:thin:@//localhost:1526/xepdb1
+#spring.datasource.username=aerodemo
+#spring.datasource.password=diamondmine
+#sprint.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+#hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
+spring.jpa.show-sql = false
+spring.jpa.properties.hibernate.id.new_generator_mappings=true
+#hibernate.connection.url=jdbc:oracle:thin:@//localhost:1521/diamond_pdb
+#spring.datasource.url=jdbc:oracle:thin:@localhost:1526/xepdb1
+#spring.datasource.username=aerodemo
+#spring.datasource.password=diamondmine
+#spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+#spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext

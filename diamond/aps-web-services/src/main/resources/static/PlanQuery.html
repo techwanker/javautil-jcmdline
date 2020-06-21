@@ -1,0 +1,439 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Planning</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>type</th>
+				<th>Late?</th>
+				<th>Unallocated</th>
+			</tr>
+		</thead>
+		<tr>
+			<th>Customer Orders</th>
+			<td><input type="checkbox" name="lateCustomerOrder"
+				value="lateCustomerOrder"></td>
+			<td><input type="checkbox" name="unallocatedCustomerOrder"
+				value="unallocatedCustomerOrder">`</td>
+		</tr>
+		<tr>
+			<th>Forecasts</th>
+			<td><input type="checkbox" name="lateForecast"
+				value="lateForecast"></td>
+			<td><input type="checkbox" name="unallocatedForecast"
+				value="unallocatedForecast"></td>
+		</tr>
+		<tr>
+			<th>Safety Stock</th>
+			<td><input type="checkbox" name="lateSafetyStock"
+				value="lateSafetyStock"></td>
+			<td><input type="checkbox" name="unallocatedSafetyStock"
+				value="unallocatedSafetyStock"></td>
+		</tr>
+		<tr>
+			<th>Work Orders</th>
+			<td><input type="checkbox" name="lateWorkOrder"
+				value="lateWorkOrder"></td>
+			<td><input type="checkbox" name="unallocatedWorkOrder"
+				value="unallocatedWorkOrder"></td>
+		</tr>
+	</table>
+
+
+	<table width="100%" summary="" height="70%">
+		<tr>
+			<td class="t12ContentBody" valign="top"><div class="t12Messages">
+					<span id="APEX_SUCCESS_MESSAGE"
+						data-template-id="8203377463819457_S"
+						class="apex-page-success u-hidden"></span><span
+						id="APEX_ERROR_MESSAGE" data-template-id="8203377463819457_E"
+						class="apex-page-error u-hidden"></span>
+				</div>
+				<table class="t12FormRegion" id="R6766465558156612" summary="">
+					<tr>
+						<td class="t12Header">Demand Shortages</td>
+					</tr>
+					<tr>
+						<td class="t12ButtonHolder"></td>
+					</tr>
+					<tr>
+						<td class="t12Body">
+						<input type="hidden" id="USER_FLD_LABEL_1" name="USER_FLD_LABEL_1" value="Prod Line">
+						<input type="hidden" id="USER_FLD_LABEL_2" name="USER_FLD_LABEL_2" value="">
+						<input type="hidden" id="USER_FLD_LABEL_3" name="USER_FLD_LABEL_3" value="">
+						<input type="hidden" id="USER_FLD_LABEL_4" name="USER_FLD_LABEL_4" value="">
+						<input type="hidden" id="USER_FLD_LABEL_5" name="USER_FLD_LABEL_5" value="">
+						<input type="hidden" id="USER_FLD_LABEL_6" name="USER_FLD_LABEL_6" value="">
+						<input type="hidden" id="USER_FLD_LABEL_7" name="USER_FLD_LABEL_7" value="Status">
+						<input type="hidden" id="USER_FLD_LABEL_8" name="USER_FLD_LABEL_8" value="">
+					<tr>
+						<td nowrap="nowrap" align="right"><label for="ITEM_CD"
+							id="ITEM_CD_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6767575517178441','8812756284690')"
+								tabindex="999">Part # Mask</a></label></td>
+						<td align="left"><input type="text" id="ITEM_CD"
+							name="ITEM_CD" class="text_field&#x20;apex-item-text"
+							onBlur="javascript:{this.value = this.value.toUpperCase(); }"
+							value="" size="50" maxlength="2000" /></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label for="USER_FLD_1"
+							id="USER_FLD_1_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6910574505686292','8812756284690')"
+								tabindex="999">Prod Line</a></label></td>
+						<td align="left"><select id="USER_FLD_1"
+							name="USER_FLD_1" class="selectlist&#x20;apex-item-select"
+							size="1"><option value="" selected="selected">&amp;nbsp;</option>
+								<option value=""></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label for="USER_FLD_7"
+							id="USER_FLD_7_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6914263338701968','8812756284690')"
+								tabindex="999">Status</a></label></td>
+						<td align="left"><select id="USER_FLD_7"
+							name="USER_FLD_7" class="selectlist&#x20;apex-item-select"
+							size="1"><option value="" selected="selected">&amp;nbsp;</option>
+								<option value=""></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right">
+						<label
+							for="IC_CATEGORY_NM" id="IC_CATEGORY_NM_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6785462554363895','8812756284690')"
+								tabindex="999">Part Category</a></label></td>
+						<td align="left"><div
+								class="apex-item-group apex-item-group--popup-lov" role="group"
+								aria-labelledby="IC_CATEGORY_NM_LABEL">
+								<input type="text" id="IC_CATEGORY_NM"
+									name="IC_CATEGORY_NM"
+									class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+									onBlur="javascript:{this.value = this.value.toUpperCase(); }"
+									size="20" maxlength="2000" value="" /><span
+									class="apex-item-popup-lov-button"><a href="#"
+									id="IC_CATEGORY_NM_lov_btn"><img src="/i/list_gray.gif"
+										width="13" height="13" alt="Popup Lov" /></a></span>
+							</div></td>
+						<td nowrap="nowrap" align="right"><label
+							for="WITHIN_LEAD_TM_FLG" id="WITHIN_LEAD_TM_FLG_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6787864986790413','8812756284690')"
+								tabindex="999">Within Lead Time</a></label></td>
+						<td align="left"><div tabindex="-1"
+								id="WITHIN_LEAD_TM_FLG"
+								aria-labelledby="WITHIN_LEAD_TM_FLG_LABEL"
+								class="radio_group&#x20;apex-item-group&#x20;apex-item-group--rc&#x20;apex-item-radio"
+								role="group" aria-labelledby="WITHIN_LEAD_TM_FLG_LABEL">
+								<div class="apex-item-option">
+									<input type="radio" id="WITHIN_LEAD_TM_FLG_0"
+										name="WITHIN_LEAD_TM_FLG" value="N"><label
+										for="WITHIN_LEAD_TM_FLG_0">No</label>
+								</div>
+								<div class="apex-item-option">
+									<input type="radio" id="WITHIN_LEAD_TM_FLG_1"
+										name="WITHIN_LEAD_TM_FLG" value="Y"><label
+										for="WITHIN_LEAD_TM_FLG_1">Yes</label>
+								</div>
+							</div></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label for="ORG_CD_VND"
+							id="ORG_CD_VND_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6789851573543505','8812756284690')"
+								tabindex="999">Vendor Code</a></label></td>
+						<td align="left"><div
+								class="apex-item-group apex-item-group--popup-lov" role="group"
+								aria-labelledby="ORG_CD_VND_LABEL">
+								<input type="text" id="ORG_CD_VND" name="ORG_CD_VND"
+									class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+									onBlur="javascript:{this.value = this.value.toUpperCase(); }"
+									size="20" maxlength="2000" value="" /><span
+									class="apex-item-popup-lov-button"><a href="#"
+									id="ORG_CD_VND_lov_btn"><img src="/i/list_gray.gif"
+										width="13" height="13" alt="Popup Lov" /></a></span>
+							</div></td>
+						<td nowrap="nowrap" align="right">
+							<label
+							for="VND_QTE_OUTSTANDING_DAYS"
+							id="VND_QTE_OUTSTANDING_DAYS_LABEL">
+							<a class="t12OptionalLabelWithHelp" href="javascript:popupFieldHelp('6790957591554671','8812756284690')" tabindex="999">Outstanding Vendor Quote<br>less than (Days) </a>
+							</label></td>
+						<td align="left"><input type="text"
+							id="VND_QTE_OUTSTANDING_DAYS"
+							name="VND_QTE_OUTSTANDING_DAYS"
+							class="text_field&#x20;apex-item-text" value="" size="5"
+							maxlength="2000" /></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label
+							for="PLAN_HORIZON_DT" id="PLAN_HORIZON_DT_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6792582525561951','8812756284690')"
+								tabindex="999">Planning Horizon<br>End Date
+							</a></label></td>
+						<td align="left"><fieldset id="PLAN_HORIZON_DT_fieldset"
+								class="datepicker apex-item-fieldset apex-item-fieldset--classic-datepicker"
+								tabindex="-1">
+								<table class="datepicker" "/usr/share/applications/firefox.desktop"="0" cellspacing="0"
+									border="0" role="presentation" id="PLAN_HORIZON_DT_holder">
+									<tr>
+										<td class="datepicker"><input type="text"
+											name="PLAN_HORIZON_DT" size="12" maxlength="2000"
+											value="" id="PLAN_HORIZON_DT" /></td>
+										<td><a
+											href="javascript:void($p_DatePicker('PLAN_HORIZON_DT','0','MM/DD/YYYY','#666666','','','','','2019','en-us','Y','102','1640397643818623','06','210'));"><img
+												id="PLAN_HORIZON_DT_IMG" src="/i/asfdcldr.gif"
+												align="absmiddle"
+												alt="Popup Calendar: Planning Horizon<br>End Date"
+												title="Popup Calendar: Planning Horizon<br>End Date" /></a></td>
+									</tr>
+								</table>
+							</fieldset></td>
+						<td nowrap="nowrap" align="right"><label
+							for="INDIV_NBR_BUYER" id="INDIV_NBR_BUYER_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6793554437601132','8812756284690')"
+								tabindex="999">Buyer Name</a></label></td>
+						<td align="left">
+							<div
+								class="apex-item-group apex-item-group--popup-lov" role="group"
+								aria-labelledby="INDIV_NBR_BUYER_LABEL">
+								<input type="text" id="INDIV_NBR_BUYER"
+									name="INDIV_NBR_BUYER"
+									class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+									size="30" maxlength="45" value="" /><span
+									class="apex-item-popup-lov-button"><a href="#"
+									id="INDIV_NBR_BUYER_lov_btn"><img
+										src="/i/list_gray.gif" width="13" height="13" alt="Popup Lov" /></a></span>
+							</div>
+							</td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label
+							for="ORG_CD_CUST" id="ORG_CD_CUST_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6794476601607523','8812756284690')"
+								tabindex="999">Customer Code</a></label></td>
+						<td align="left"><div
+								class="apex-item-group apex-item-group--popup-lov" role="group"
+								aria-labelledby="ORG_CD_CUST_LABEL">
+								<input type="text" id="ORG_CD_CUST" name="ORG_CD_CUST"
+									class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+									onBlur="javascript:{this.value = this.value.toUpperCase(); }"
+									size="20" maxlength="16" value="" /><span
+									class="apex-item-popup-lov-button"><a href="#"
+									id="ORG_CD_CUST_lov_btn"><img src="/i/list_gray.gif"
+										width="13" height="13" alt="Popup Lov" /></a></span>
+							</div></td>
+						<td nowrap="nowrap" align="right"><label for="FCST_GRP"
+							id="FCST_GRP_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6796662664622438','8812756284690')"
+								tabindex="999">Forecast Group</a></label></td>
+						<td align="left"><select id="FCST_GRP"
+							name="FCST_GRP" class="selectlist&#x20;apex-item-select"
+							onBlur="javascript:{this.value = this.value.toUpperCase(); }"
+							size="1"><option value="" selected="selected">&amp;nbsp;</option>
+								<option value="BRAD">BRAD</option>
+								<option value="CLCORE">CLCORE</option>
+								<option value="FLCORE">FLCORE</option>
+								<option value="LACORE">LACORE</option>
+								<option value="LAJITS">LAJITS</option>
+								<option value="MICORE">MICORE</option>
+								<option value="MTCORE">MTCORE</option>
+								<option value="MTJITS">MTJITS</option>
+								<option value="OTCORE">OTCORE</option>
+								<option value="OTJITS">OTJITS</option>
+								<option value="PARISCOR">PARISCOR</option>
+								<option value="PARISJIT">PARISJIT</option>
+								<option value="TMP">TMP</option>
+								<option value="TOCORE">TOCORE</option>
+								<option value="TOJITS">TOJITS</option>
+								<option value="USCORE">USCORE</option>
+								<option value="USJITS">USJITS</option>
+								<option value="VCCORE">VCCORE</option>
+								<option value="VCJITS">VCJITS</option>
+								<option value="WPJITS">WPJITS</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label for="ORG_CD_MFR"
+							id="ORG_CD_MFR_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6795081795609023','8812756284690')"
+								tabindex="999">Manufacturer Code</a></label></td>
+						<td align="left"><div
+								class="apex-item-group apex-item-group--popup-lov" role="group"
+								aria-labelledby="ORG_CD_MFR_LABEL">
+								<input type="text" id="ORG_CD_MFR" name="ORG_CD_MFR"
+									class="popup_lov&#x20;apex-item-text&#x20;apex-item-popup-lov"
+									onBlur="javascript:{this.value = this.value.toUpperCase(); }"
+									size="20" maxlength="16" value="" /><span
+									class="apex-item-popup-lov-button"><a href="#"
+									id="ORG_CD_MFR_lov_btn"><img src="/i/list_gray.gif"
+										width="13" height="13" alt="Popup Lov" /></a></span>
+							</div></td>
+						<td nowrap="nowrap" align="right"><label
+							for="ITEM_STAT_ID" id="ITEM_STAT_ID_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6797552752628993','8812756284690')"
+								tabindex="999">Item Status</a></label></td>
+						<td align="left"><select id="ITEM_STAT_ID"
+							name="ITEM_STAT_ID" class="selectlist&#x20;apex-item-select"
+							size="1"><option value="" selected="selected">&amp;nbsp;</option>
+								<option value="A">Active</option>
+								<option value="I">Inactive</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="right"><label
+							for="NBR_RECORDS" id="NBR_RECORDS_LABEL"><a
+								class="t12OptionalLabelWithHelp"
+								href="javascript:popupFieldHelp('6798364873632478','8812756284690')"
+								tabindex="999">Number of Records<br>to Display
+							</a></label></td>
+						<td align="left"><input type="text" id="NBR_RECORDS"
+							name="NBR_RECORDS" class="text_field&#x20;apex-item-text"
+							value="100" size="10" maxlength="2000" /><input type="hidden"
+							id="FCST_GRP_ACT" name="FCST_GRP_ACT" value=""><input
+							type="hidden" id="ITEM_STAT_ID_ACT"
+							name="ITEM_STAT_ID_ACT" value=""><input type="hidden"
+							id="USER_FLD_1_ACT" name="USER_FLD_1_ACT" value=""><input
+							type="hidden" id="USER_FLD_2_ACT" name="USER_FLD_2_ACT"
+							value=""><input type="hidden" id="USER_FLD_3_ACT"
+							name="USER_FLD_3_ACT" value=""><input type="hidden"
+							id="USER_FLD_4_ACT" name="USER_FLD_4_ACT" value=""><input
+							type="hidden" id="USER_FLD_5_ACT" name="USER_FLD_5_ACT"
+							value=""><input type="hidden" id="USER_FLD_6_ACT"
+							name="USER_FLD_6_ACT" value=""><input type="hidden"
+							id="USER_FLD_7_ACT" name="USER_FLD_7_ACT" value=""><input
+							type="hidden" id="USER_FLD_8_ACT" name="USER_FLD_8_ACT"
+							value=""></td>
+					</tr>
+				</table>
+				<table summary="" cellspacing="0" cellpadding="0" border="0"
+					width="100%">
+					<tr>
+						<td align="right"><a
+							href="javascript:apex.submit(%7Brequest:'FIND'%7D);"
+							class="t12Button">Find</a><a
+							href="javascript:apex.submit(%7Brequest:'RESET'%7D);"
+							class="t12Button">Reset</a></td>
+					</tr>
+				</table></td>
+		</tr>
+		<tr>
+			<td><img src="/i/themes/theme_12/t.gif" width="400" height="1"></td>
+		</tr>
+	</table>
+	</td>
+	<td align="right" valign="top" class="t12ContentBody"><br /></td>
+	</tr>
+	</table>
+	<table class="t12PageFooter" width="100%" cellpadding="0"
+		cellspacing="0" summary="">
+		<tr>
+			<td align="right"></td>
+		</tr>
+		<tr>
+			<td class="t12FooterTop">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="t12FooterBottom">&nbsp;</td>
+		</tr>
+	</table>
+	<input type="hidden" id="pPageItemsRowVersion" value="" />
+	<input type="hidden" id="pPageItemsProtected"
+		value="bUpyz5Z-bm9b2EoMSArT9g" />
+	</form>
+	<div id="apexDevToolbar" class="a-DevToolbar a-DevToolbar--bottom"
+		style="display: none">
+		<h1 class="u-VisuallyHidden">Developer Toolbar</h1>
+		<ul class="a-DevToolbar-list">
+			<li><button id="apexDevToolbarHome" type="button"
+					class="a-Button a-Button--devToolbar" title="Oracle APEX Home"
+					aria-label="Home" data-link="f?p=4500:1000:360807453348">
+					<span class="a-Icon icon-home" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">Home</span>
+				</button></li>
+			<li><button id="apexDevToolbarApp" type="button"
+					class="a-Button a-Button--devToolbar" title="Application 102"
+					aria-label="Application 102"
+					data-link="f?p=4000:1:360807453348::NO:1,4150,RP:FB_FLOW_ID,FB_FLOW_PAGE_ID,F4000_P1_FLOW,F4000_P4150_GOTO_PAGE,F4000_P1_PAGE:102,40,102,40,40">
+					<span class="a-Icon icon-edit-app" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">Application 102</span>
+				</button></li>
+			<li><button id="apexDevToolbarPage" type="button"
+					class="a-Button a-Button--devToolbar" title="Edit Page 40"
+					aria-label="Edit Page 40"
+					data-link="f?p=4000:4500:360807453348::NO:1,4150:FB_FLOW_ID,FB_FLOW_PAGE_ID,F4000_P1_FLOW,F4000_P4150_GOTO_PAGE,F4000_P1_PAGE:102,40,102,40,40">
+					<span class="a-Icon icon-edit-page-alt" aria-hidden="true"></span>
+					<span class="a-DevToolbar-buttonLabel">Edit Page 40</span>
+				</button></li>
+			<li><button id="apexDevToolbarSession" type="button"
+					class="a-Button a-Button--devToolbar" title="Session"
+					aria-label="Session"
+					data-link="f?p=4000:34:360807453348:PAGE:NO:34:F4000_P34_SESSION,F4000_P34_FLOW,F4000_P34_PAGE,FB_FLOW_ID:8812756284690,102,40,102">
+					<span class="a-Icon icon-page-session" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">Session</span>
+				</button></li>
+			<li><button id="apexDevToolbarViewDebug" type="button"
+					class="a-Button a-Button--devToolbar" title="View Debug"
+					aria-label="View Debug"
+					data-link="f?p=4000:19:360807453348:::RIR,19:IR_APPLICATION_ID,IR_PAGE_ID:102,40">
+					<span class="a-Icon icon-page-debug" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">View Debug</span>
+				</button></li>
+			<li><button id="apexDevToolbarDebug" type="button"
+					class="a-Button a-Button--devToolbar" title="Debug"
+					aria-label="Debug" data-link="f?p=102:40:8812756284690::YES">
+					<span class="a-Icon icon-debug" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">Debug</span>
+				</button></li>
+			<li><button id="apexDevToolbarInfo" type="button"
+					class="a-Button a-Button--devToolbar js-menuButton"
+					title="Page Info" aria-label="Page Info"
+					data-menu="apexDevToolbarInfoMenu">
+					<span class="a-Icon icon-info" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">Page Info</span>
+				</button></li>
+			<li><button id="apexDevToolbarQuickEdit" type="button"
+					class="a-Button a-Button--devToolbar" title="Quick Edit"
+					aria-label="Quick Edit"
+					data-link="f?p=4000:4500:360807453348::NO:1,4150,4500:FB_FLOW_ID,FB_FLOW_PAGE_ID,F4000_P1_FLOW,F4000_P4150_GOTO_PAGE,F4000_P1_PAGE:102,40,102,40,40">
+					<span class="a-Icon icon-quick-edit" aria-hidden="true"></span> <span
+						class="a-DevToolbar-buttonLabel">Quick Edit</span>
+				</button></li>
+			<li><button id="apexDevToolbarOptions" type="button"
+					class="a-Button a-Button--devToolbar js-menuButton"
+					title="Developer Toolbar Options"
+					aria-label="Developer Toolbar Options"
+					data-menu="apexDevToolbarOptionsMenu">
+					<span class="a-Icon icon-gear" aria-hidden="true"></span>
+				</button></li>
+		</ul>
+	</div>
+	<div id="apexDevToolbarOptionsMenu"></div>
+	<div id="apexDevToolbarInfoMenu"></div>
+
+
+
+
+
+
+
+	<script
+		src="/i/libraries/apex/minified/widget.datepickerClassic.min.js?v=18.2.0.00.12"></script>
+	
+
+</body>
+</html>

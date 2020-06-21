@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Business Process Improvement : APS Features and Benefits</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="business-process-improvement-aps-features-and-benefits">
+<h1>Business Process Improvement : APS Features and Benefits</h1>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="index.html">Business Process Improvement</a></p></li>
+<li><p><a class="reference external" href="Project-Description_786630.html">Project Description</a></p></li>
+<li><p><a class="reference external" href="Diamond-Portal_4653081.html">Diamond Portal</a></p></li>
+<li><p><a class="reference external" href="Portal-Functionality_4653133.html">Portal Functionality</a></p></li>
+<li><p><a class="reference external" href="Data-Prerequisites_4063449.html">Data Prerequisites</a></p></li>
+</ol>
+<div class="section" id="id1">
+<h2>Business Process Improvement : APS Features and Benefits</h2>
+<p>Created by James Schmidt on Dec 21, 2019</p>
+</div>
+<div class="section" id="purpose">
+<h2>Purpose</h2>
+<div class="line-block">
+<div class="line">This document is intended to introduced Align to Diamond APS and lay</div>
+</div>
+<p>out
+| Align objectives and a pathroad to satisfy those objectives.</p>
+<div class="line-block">
+<div class="line">This is intended to be evergreen, to evolve as requirements are</div>
+</div>
+<p>determined and to be
+| fleshed out with technical details.</p>
+<div class="line-block">
+<div class="line">Personally, I would rather a revisioned, indexed, searchable single</div>
+</div>
+<p>document than hundreds of
+| documents. I will assume the responsibility of maintaining this.</p>
+</div>
+<div class="section" id="current-state">
+<h2>Current State</h2>
+<p>Align has headquarters in Las Angeles and Paris.</p>
+<p>The Las Angeles shop is running a highly modified SAP system.</p>
+<p>The Paris operation is running Dymax, which is a COBOL/ISAM VMS
+application.</p>
+</div>
+<div class="section" id="future-state">
+<h2>Future State</h2>
+<div class="line-block">
+<div class="line">Create a central repository of inventory from both systems in a</div>
+</div>
+<p>relational
+| database accessible through a browser.</p>
+<p>Use all open source software whenever possible</p>
+<div class="line-block">
+<div class="line">AWS</div>
+<div class="line">Redhat 8</div>
+<div class="line">Postgres 10</div>
+<div class="line">Maven 3.2</div>
+<div class="line">Java open jdk 8/Spring/Hibernate</div>
+<div class="line">Tomcat/Node/Angular</div>
+</div>
+</div>
+<div class="section" id="align-objectives">
+<h2>Align Objectives</h2>
+<div class="section" id="team">
+<h3>Team</h3>
+</div>
+<div class="section" id="migration-plan">
+<h3>Migration Plan</h3>
+<div class="line-block">
+<div class="line">Export Dymax ISAM files to flat files</div>
+<div class="line">Using javautil fixed record mapping utility populate RDBMS tables that</div>
+</div>
+<p>map to Dymax records</p>
+<p>Write conversion scripts to convert to Diamond Schema.</p>
+<p>Supplement with additional data as necessary</p>
+<dl class="simple">
+<dt>Choose the 100 highest value parts as the basis of test suite of data.</dt><dd><p>Setup Rules Augment data - setup multiple equivalents, quality assurance valuations, etc.</p>
+</dd>
+</dl>
+<p>Run a plan against the parts and review</p>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>The Diamond Advanced Planning System (APS) is the most feature-rich
+planning engine out there that can match the Diamond APS in terms of
+speed and versatility.</p>
+<p>Diamond APS is a unique combination of DRP/MRP planning and execution
+that is aware</p>
+<blockquote>
+<div><p>of engineered parts and Aerospace constraints.</p>
+<p>Diamond distribution was designed to address the
+supply chain planning and execution requirements of distributors.
+Diamond was custom designed to address the rigorous specifications of</p>
+</div></blockquote>
+<dl>
+<dt>the Aerospace industry, which imposes significantly tighter controls and</dt><dd><p>tracking functionality than a normal distribution environment.</p>
+<p>Features Supports Synchronous and Asynchronous planning queues. Parts</p>
+</dd>
+</dl>
+<p>in the synchronous planning queue are planned the instant they are put
+nto</p>
+<blockquote>
+<div><p>the queue. The planning engine plans parts in the asynchronous planning</p>
+</div></blockquote>
+<dl class="simple">
+<dt>queue when it reaches the top of the queue. The asynchronous planning</dt><dd><p>queue is activated every time a part is inserted into the queue.</p>
+</dd>
+</dl>
+<div class="section" id="demand-types">
+<h3>Demand Types</h3>
+<p>Supports multiple types of Demand. Demand types supported are</p>
+<ul class="simple">
+<li><p>Firm Customer Order</p></li>
+<li><p>Work Orders (Components of Work Orders)</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Forecast</p></li>
+</ul>
+</div>
+<div class="section" id="supply-types">
+<h3>Supply Types</h3>
+<p>Supports multiple types of Supply. Supply Types supported are</p>
+<ul class="simple">
+<li><p>On-Hand at Location</p></li>
+<li><p>In-Transit from another Location</p></li>
+<li><p>Purchase Orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</div>
+<div class="section" id="supply-partitioning">
+<h3>Supply Partitioning</h3>
+<div class="line-block">
+<div class="line">Physical Segregration</div>
+<div class="line">^^^^^^^^^^^^^^^^^^^^^</div>
+</div>
+<p>Physical Segregation of Inventory is done using Facilities</p>
+<div class="line-block">
+<div class="line">Logical Segregation</div>
+<div class="line">^^^^^^^^^^^^^^^^^^^</div>
+</div>
+<p>Logical of Inventory within a facility is done using <em>Supply Pools</em></p>
+<div class="line-block">
+<div class="line"><em>Sourcing Rules</em> attached to every demand specify which supply to</div>
+</div>
+<p>consume
+| and the order in which to consume.</p>
+<p>Part Number, substitutes and equivalents are all planned together</p>
+</div>
+<div class="section" id="qualifying-inventory">
+<h3>Qualifying Inventory</h3>
+<ul>
+<li><div class="line-block">
+<div class="line">Ability to specify the revision level required for Sales Order and</div>
+<div class="line">Work Order, Safety Stock and Forecast. The revision level hierarchy</div>
+<div class="line">setup in the Parts Master will automatically allocate a higher</div>
+<div class="line">revision level if the requested revision level is not available.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Ability to specify certification requirements for Sales Order and</div>
+<div class="line">Work Order and associate it with the demand.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Certification requirements for Safety Stock and Forecasts are</div>
+</div>
+<p>picked
+| up from the Customer Master</p>
+</li>
+<li><div class="line-block">
+<div class="line">Each certification has a weight associated with it. APS uses</div>
+<div class="line">qualifying lots with the lowest weight to satisfy any demand.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Ability to specify the manufacturer required at the Demand level or</div>
+<div class="line">can specify a list of approved manufacturers at the Customer Level.</div>
+<div class="line">Customer List can be set to Include or Exclude approved</div>
+<div class="line">manufacturers</div>
+</div>
+</li>
+<li><p>Ability to specify Country of Origin on the Sales Orders</p></li>
+<li><div class="line-block">
+<div class="line">Ability to specify “manufactured after” or “must not expire before”</div>
+<div class="line">date on Sales Orders for parts with a shelf life.</div>
+</div>
+</li>
+<li><p>Automatically excludes expired part numbers</p></li>
+<li><div class="line-block">
+<div class="line">Kits can be setup in the system to not have mixed manufacturer lots</div>
+<div class="line">allocated to them for any single kit. APS automatically determines</div>
+<div class="line">the lot quantity and how many full kits it can satisfy and then</div>
+<div class="line">switches to the next available lot to satisfy any remaining kits.</div>
+</div>
+<p>Tests include</p>
+<div class="highlight-syntaxhighlighter-pre notranslate"><div class="highlight"><pre><span></span>* BuybackTest
+* CertTest
+* ConsignmentTest
+* CountryOfOriginTest
+* CustomerItemManufacturers
+* CustomerItemManufacturerTest
+* ExpiryDateTest
+* ExpiryDateTest
+* ExpiryDateTest
+* IsCustomerSubstitute
+* IsGlobalSubstitute
+* IsItemOrSubstitute
+* IsSubstitute
+* ManufacturerTest
+* RevisionLevelTest
+* SourcingRuleTest
+* StandardAerospaceEligibilityCompositeTest
+* SupplyEligibilityTest
+* SupplyIsBuybackFromCustomerTest
+* SupplyItemSatifiesDemandItem
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="demand-prioritization">
+<h3>Demand Prioritization</h3>
+<div class="line-block">
+<div class="line">Demand Prioritization module compares every demand for a given set of</div>
+<div class="line">part numbers and sorts them in the following order</div>
+</div>
+<ul class="simple">
+<li><p>Sales Orders</p></li>
+<li><p>Work Orders</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Forecasts</p></li>
+</ul>
+</div>
+<div class="section" id="preserve-allocations">
+<h3>Preserve Allocations</h3>
+<div class="line-block">
+<div class="line">Once prioritized, Demand Prioritization also preserves On-hand</div>
+</div>
+<p>allocations to
+| Customer Orders and Work Orders within lead-time. All allocations to
+| Safety Stock are preserved. Preserving existing allocations prevents
+| demands that have been put in later from taking stock away from
+already
+| existing orders. Safety Stock demand is allocated to Customer Orders
+and
+| Work Orders within the same forecast groups if there is a shortage.
+| Forecast Demands are reduced by the quantity of open Customer Order
+| demands for the same month for the same forecast group, which stops
+over
+| stating of demand for a given month.</p>
+</div>
+<div class="section" id="supply-prioritization">
+<h3>Supply Prioritization</h3>
+<div class="line-block">
+<div class="line">Supply prioritization uses the sourcing rules to determine which</div>
+<div class="line">supplies to use to satisfy a given demand.</div>
+</div>
+<div class="line-block">
+<div class="line">Once the qualifying supplies are identified, they are then sorted</div>
+</div>
+<p>based on the type of the demand and
+| type of the supply.</p>
+<div class="line-block">
+<div class="line">An example for this would be to use the oldest lots</div>
+<div class="line">to satisfy open sales orders while using the newest possible lots to</div>
+<div class="line">satisfy safety stock demand. Since safety stock demand is never</div>
+</div>
+<p>shipped,
+| it blocks the newer inventory allowing the older lots to ship out
+before
+| the newer ones. Supply prioritization changes the FIFO order for parts
+| based on the settings in the Parts Master. Parts with a shelf life can
+| be consumed based on the Manufacture Date or on the Expiration Date of
+| the lots. Supply Prioritization also automatically relaxes all the
+| constraints on the demand when allocating consignment or buyback
+supply
+| to a demand. Buyback and consignment supply is stock received from the
+| customer that is shipped back to them when they need it. This stock is
+| always deemed to meet customer requirements.</p>
+<ul>
+<li><div class="line-block">
+<div class="line">Allocations against on-hand supply are classified as Firm or</div>
+</div>
+<p>Planned
+| depending on if the on-hand supply is readily available in the
+| primary facility or if the on-hand supply is a planned facility
+| transfer or a processed facility transfer in transit to the primary
+| facility. The primary facility for a demand is identified based on
+| the sourcing rule used to determine the eligible supply for the
+| demand.</p>
+</li>
+<li><div class="line-block">
+<div class="line">APS automatically creates work orders for kits. Since APS supports</div>
+<div class="line">multi-level Bills of Material, it creates work orders for sub-kits</div>
+<div class="line">and re-plans all the items recursively till all the demands for</div>
+</div>
+<p>kits
+| have been allocated either to on-hand inventory or to a work order.</p>
+</li>
+<li><div class="line-block">
+<div class="line">Purchase Orders schedules that are late are automatically padded by</div>
+<div class="line">a user-defined factor and pushed forward. This enables the system</div>
+</div>
+<p>to
+| provide realistic availability dates for the demands which are
+| allocated to those PO schedules.</p>
+</li>
+<li><div class="line-block">
+<div class="line">Automatically allocates demands to a Purchase Order if the demand</div>
+</div>
+<p>is
+| “X” days out in the future and there is a PO Schedule coming
+| available “X” days before the demand is due. The value of “X” is
+| read in from a Control table.</p>
+</li>
+<li><div class="line-block">
+<div class="line">APS will suggest a optimum reschedule date for the PO Schedules</div>
+</div>
+<p>that
+| have allocations against demands that need to be expedited or
+| rescheduled to come in at a date later than the current promise
+date
+| provided by the vendor</p>
+</li>
+<li><div class="line-block">
+<div class="line">APS will also suggest cancellation of PO schedules that are not</div>
+<div class="line">needed to meet any demand that is present in the system.</div>
+</div>
+</li>
+</ul>
+<div class="line-block">
+<div class="line">Allocation logic fully traceable. An XML or JSON log file may be</div>
+</div>
+<p>created created
+| for each item group planned detailing each demand and all supplies,
+| which ones were allocated and which ones were rejected and the reason
+| for rejection.</p>
+<div class="line-block">
+<div class="line">Ability to bind a given supply to a given demand as long as the supply</div>
+<div class="line">is qualified for the demand. Allocations once bound are held bound</div>
+<div class="line">unless unbound by the user.</div>
+</div>
+</div>
+<div class="section" id="aps-output">
+<h3>APS Output</h3>
+<div class="line-block">
+<div class="line">The Inventory planning process is the most affect by running Diamond</div>
+<div class="line">APS. The APS output is fully web-based and provides the Inventory</div>
+<div class="line">planners with all the information required to make sound buying</div>
+<div class="line">decisions. Inventory planners have the ability to lookup shortfalls by</div>
+<div class="line">specifying a whole range of filter conditions. Listed below are the</div>
+<div class="line">details of the outputs provided by Diamond APS.</div>
+</div>
+</div>
+<div class="section" id="projected-inventory-position">
+<h3>Projected Inventory Position</h3>
+<p><em>PIP</em> Projected Inventory Position.</p>
+<p>Each supply has an <em>available date</em></p>
+<div class="line-block">
+<div class="line">For on-hand inventory that is the current date or the <em>effective date</em></div>
+</div>
+<p>in case of some
+| simulations.</p>
+<p>For purchase orders that is the <em>current promise date</em>.</p>
+<p>For work orders that is the <em>need by date</em>.</p>
+<p>A timeline is created by generating <em>buckets</em>, typically calendar
+months.</p>
+<div class="line-block">
+<div class="line">Each supply has its own PIP, which is strictly decreasing. Allocations</div>
+</div>
+<p>of demand are bucketed based on <em>current promise date</em>
+| or the associated supply <em>available date</em>, whichever is later.</p>
+<div class="line-block">
+<div class="line">In the aggregate positions can increase and decrease as in a</div>
+</div>
+<p>traditional DRP system. Aggregations can
+| be at the part, supply pool, facility level or any combination
+thereof.</p>
+<div class="line-block">
+<div class="line">If the availability date for a demand is greater than the <a href="#id2"><span class="problematic" id="id3">*</span></a>current</div>
+</div>
+<p>promise date*, there is a shortage. This shortage
+| may be actionable</p>
+<ul class="simple">
+<li><p>Expedite the purchase order</p></li>
+<li><p>Relieve other supply to satisfy this demand by changing its supply
+pool</p></li>
+<li><p>Create a new requisition</p></li>
+</ul>
+<p>If the earliest demand date for a supply falls in a later bucket than
+the supply availability this may be actionable:</p>
+<ul class="simple">
+<li><p>Reschedule the Purchase Order or Work Order</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Consideration must be made to eliminate <em>nervouos</em> adjustments, those</div>
+</div>
+<p>for a short time period or for dollar amounts
+| such that de-expediting costs exceed the time value of the early
+receipt</p>
+<p>Traditional DRP PIP</p>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line">.. code-block::</div>
+<div class="line">11/2019 12/2019 01/2020 02/2020 03/2020</div>
+<div class="line">Onhand 1000 400 250 900 750</div>
+<div class="line">Forecast 150 150 150 150 150</div>
+<div class="line">Orders 600 30</div>
+<div class="line">Replen</div>
+<div class="line">Additional Replen 800</div>
+<div class="line">Projected 400 250 900 750 600</div>
+</div>
+<p>In traditional DRP the additional replenishment is an Economic Order
+Quantity <em>EOQ</em></p>
+<p>This is not applicable to aerospace due to the unit price sensitivity to
+order quantity.</p>
+<p>You probably know what an <em>EOQ</em>, if not a quick refresher is just a
+<em>google</em> or <em>duckduckgo</em> search away.</p>
+<div class="line-block">
+<div class="line">This model also fails to take into consideration a myriad of</div>
+</div>
+<p>constraints which may
+| make a given supply ineligible for a given demand. This is a model for
+SKU inventory,
+| not for engineered parts.</p>
+<div class="line-block">
+<div class="line">Note that orders and forecast are both demands but are not aggregated,</div>
+</div>
+<p>orders <em>consume</em>
+| <em>the forecast</em>.</p>
+<p>Optimal Replenishment Quantity</p>
+</div>
+<div class="section" id="shortages">
+<h3>Shortages</h3>
+<p>Diamond APS classifies shortages into the following categories</p>
+<ul class="simple">
+<li><p>Unallocated Customer Orders</p></li>
+<li><p>Unallocated Work Orders</p></li>
+<li><p>Unallocated Safety Stock</p></li>
+<li><p>Unallocated Forecasts</p></li>
+<li><p>Customers Orders allocated beyond the requested date</p></li>
+<li><p>Work Orders allocated beyond the requested date</p></li>
+<li><p>Safety Stock allocated beyond the requested date</p></li>
+<li><p>Forecasts allocated beyond the requested date</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Users can choose a combination of any of these shortage conditions and</div>
+<div class="line">then apply the following filters to narrow their search</div>
+</div>
+<p>Part Number Mask (A wildcard search for a range of Part Numbers)</p>
+<div class="line-block">
+<div class="line">The Part Category. Normally buyers are responsible for purchasing a</div>
+<div class="line">certain category or categories of parts. This help narrow the results</div>
+</div>
+<p>to
+| only the parts they are responsible for purchasing.</p>
+<div class="line-block">
+<div class="line">Within Lead Time. This restricts the output only to shortages that</div>
+</div>
+<p>occur within the lead
+| time for a given</p>
+<div class="line-block">
+<div class="line">Part Outstanding Vendor Quotes less than “X” days. This</div>
+<div class="line">further narrows the search and ignores the parts that have outstanding</div>
+<div class="line">vendor quotes that are less than “X” days old. Vendors normally take</div>
+<div class="line">some time to respond to quotes and this help buyers from seeing the</div>
+</div>
+<p>same
+| parts on the list even after they have worked on it.</p>
+<div class="line-block">
+<div class="line">Planning Horizon End Date. This restricts the list of parts being</div>
+</div>
+<p>shown to have shortages
+| only within the Date specified here Buyer. This only shows the parts
+the
+| specified buyer is responsible for buying.</p>
+<div class="line-block">
+<div class="line">Customer Code. This restricts the list of parts only to the shortages</div>
+</div>
+<p>for the customer specified.
+| Maximum Part to display. The default is set to 100. The users can
+specify any number greater than 0.</p>
+<div class="line-block">
+<div class="line">Once the search criteria is specified, APS will go through its</div>
+</div>
+<p>planning
+| results and find all the part numbers that match the specified search
+| criteria. It will then sort them into 4 groups.</p>
+<ul class="simple">
+<li><p>Unallocated or Late Customer Orders</p></li>
+<li><p>Unallocated or Late Work Orders</p></li>
+<li><p>Unallocated or Late Safety Stock</p></li>
+<li><p>Unallocated or Late Forecasts</p></li>
+</ul>
+<div class="line-block">
+<div class="line">A Part will only appear in one of these groups, the group in which the</div>
+<div class="line">part has the earliest shortage. Each part then links off into a</div>
+</div>
+<p>12-month
+| time-phased view of the Demand and Supply outlook. The time-phased
+| output has columns for past due, current, 12 months starting with the
+| current month and a column for demands and supplies coming in beyond
+12
+| months. This page also provides links to see the following information
+| The Allocation Trace Log. This file contains a complete log of the
+| allocation process for the part and all its substitutes and
+equivalents.
+| Provides a listing of all the supplies available to allocation and
+also
+| lists each demand followed by which supplies were allocated to it and
+| which supplies were not and also provides a reason for ineligible
+| supplies for the Demand.</p>
+<div class="line-block">
+<div class="line">Work Book. The Work Book create an excel spread sheet with the</div>
+</div>
+<p>following
+| information about the Part.</p>
+<p>The On-Hand inventory summary by Lot, Facility and Supply Pool,</p>
+<ul class="simple">
+<li><p>Customer Quotes</p></li>
+<li><p>Vendor Quotes</p></li>
+<li><p>Open Purchase Orders</p></li>
+<li><p>Open Sales Orders</p></li>
+<li><p>Shipments and a forecast by forecast group.</p></li>
+<li><p>Provides a cross-tab view of the customers and their approved
+manufacturers. Helps buyers make a choice of buying from the
+manufacturer that will satisfy the most number of customers.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">The work book can then be saved of and helps buyers</div>
+<div class="line">maintain a log of the demand/supply scenario at the time they made any</div>
+<div class="line">purchase. The system takes a snapshot of the full state of planning at</div>
+</div>
+<p>the time
+| of requisition approval.</p>
+<div class="line-block">
+<div class="line">A listing of all available supply and which demands it is</div>
+<div class="line">allocated to A listing of all demands and what supplies are allocated</div>
+</div>
+<p>to
+| it Approved Manufacturers.</p>
+<div class="line-block">
+<div class="line">Rescheduling information for any PO Schedules in the system Shipment</div>
+<div class="line">Details. Provides a listing of all the shipment of this part to any</div>
+<div class="line">customer. Forecast History. Provides a time-phased display of the</div>
+<div class="line">forecast history by forecast group for the given part. Also lists the</div>
+<div class="line">forecasts by forecast group. Shipment Summary. Provides a year-month</div>
+<div class="line">cross-tab of shipment of this part. Shipment Summary by Customer.</div>
+<div class="line">Provides a year-month cross-tab of shipment by customer of this part.</div>
+<div class="line">Ability to lookup shortfalls by the following</div>
+</div>
+<ul>
+<li><p>Item Certification</p></li>
+<li><p>Manufacturer and vendor certification</p></li>
+<li><div class="line-block">
+<div class="line">Lists shortfalls based on explicit certifications requested on the</div>
+<div class="line">Demand. A review of these might help the user offer</div>
+</div>
+</li>
+<li><p>Country of Origin</p></li>
+<li><p>Approved Manufacturer</p></li>
+<li><p>Explicit Manufacturer Requested on the Demand</p></li>
+<li><p>Revision Level</p></li>
+<li><p>Re-certification opportunities</p></li>
+</ul>
+<p>Ability to lookup Rescheduling Requirements in the following groups</p>
+<div class="section" id="reports">
+<h4>Reports</h4>
+<div class="line-block">
+<div class="line">Purchase Orders to be Expedited</div>
+</div>
+<div class="line-block">
+<div class="line">Provides a summary by Vendor of the Purchase Orders that need to be</div>
+<div class="line">expedited to meet current and forecasted demand. Users can then drill</div>
+<div class="line">down into each Vendor and look at each individual PO Schedules need to</div>
+<div class="line">be expedited and the system also suggested expedite date taking into</div>
+<div class="line">account the time required to process the receipt after it arrives.</div>
+</div>
+</div>
+<div class="section" id="purchase-orders-to-be-rescheduled">
+<h4>Purchase Orders to be Rescheduled</h4>
+<div class="line-block">
+<div class="line">Provides a summary by Vendor of the Carrying Cost and the Cancelable</div>
+<div class="line">Cost for PO Schedules that can either be pushed out for cancelled.</div>
+</div>
+<p>Users
+| can then drill down into each Vendor and look at each individual PO
+| Schedule that needs to be rescheduled. For PO schedules that need to
+be
+| pushed out, the system suggests the new date by which they are
+required.</p>
+</div>
+<div class="section" id="purchase-orders-to-be-cancelled">
+<h4>Purchase Orders to be Cancelled</h4>
+<div class="line-block">
+<div class="line">Provides a summary by Vendor of the Cancelable cost of outstanding PO</div>
+<div class="line">Schedules. Users can then drill down into each Vendor and see the</div>
+<div class="line">individual PO Schedules that need to be cancelled.Export Dymax ISAM</div>
+</div>
+<p>files to flat files
+| Using javautil fixed record mapping utility populate RDBMS tables that
+map to Dymax records</p>
+<p>Write conversion scripts to convert to Diamond Schema.</p>
+<p>Supplement with additional data as necessary</p>
+<p>Choose the 100 highest value parts as the basis of test suite of data.</p>
+<p>Setup Rules</p>
+<p>Augment data - setup multiple equivalents, quality assurance valuations,
+etc.</p>
+<p>Run a plan against the parts and review</p>
+<p>Document generated by Confluence on Dec 22, 2019 07:29</p>
+<p><a class="reference external" href="http://www.atlassian.com/">Atlassian</a><span class="link-target"> [http://www.atlassian.com/]</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

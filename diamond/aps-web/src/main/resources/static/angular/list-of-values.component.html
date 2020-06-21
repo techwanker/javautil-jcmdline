@@ -1,0 +1,23 @@
+	<div ng-app="listOfValuesApp" ng-controller="listOfValuesCtrl">
+		??? Lookup <input id="searchKey" ng-model="searchKey" name="searchKey"
+			ng-minlength="1" ng-trim="true"> 
+			le by one, each time the button is clicked:
+		<button ng-click="count = count + 1" ng-init="count=0">Search</button> 
+		<table class="table table-stripe">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tr *ngFor="let v in values">
+				<td>{{ v.name }}</td>
+				<td>{{ v.description }}</td>
+			</tr>
+		</table>
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click=closeThisDialog("Cancel")>Cancel
+			<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click=confirm("OK")>OK
+		</div>
+	</div>
+	

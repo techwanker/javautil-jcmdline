@@ -1,0 +1,46 @@
+
+.tblelite {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #999999}
+.dktext {  font-family: "Trebuchet MS", Verdana, Arial, sans-serif; font-size: 12px; color: #333333}
+
+a                  { color: blue; font-family: arial;          }
+a:link 	           { color: #333333; text-decoration: underline}
+a:active           { color: #333333; text-decoration: underline}
+a:visited          { color: #333333; text-decoration: underline}
+a:hover   	       { color: #FF9900; text-decoration: underline}
+a.tblelite:link    { color: #887830; text-decoration: underline}
+a.tblelite:visited { color: #999999; text-decoration: none     }
+a.tblelite:hover   { color: #CCCCCC                            }
+
+.tblheader       { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #FF9900}
+.laybrdr         { border-color: #999999 black; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px}
+.datatbltx       { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #AB9987}
+.netscape        { font-size: 10px; color: #666666}
+.txtfld          { background-color: #FFFFFF; border: #333333; border-style: groove; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.button          { font-family: Verdana, Arial, Helvetica, sans-serif; color: #333333; background-color: #9999CC; font-size: 1h2px}
+  .data        { color: black; font-family: Helvetica; font-size: 14px; font-weight: 800}
+  
+  h1             { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 16px; color: #666666}
+  h2             { color: blue; font-family: arial; font-size: 14pt }
+  h3             { color: blue; font-family: arial; font-size: 12pt }
+  p              { font-family: arial; }
+  p.internalLink { COLOR: blue; TEXT-DECORATION: underline }  
+
+  td.label       { color: blue ; font-family: Helvetica; font-size: 10pt}
+  td.data        { color: black; font-family: Helvetica; font-size: 10pt}
+  th             { BACKGROUND-COLOR: #C0C0F0; color: black; font-family: arial; font-size: 10pt}
+  tr.odd         { BACKGROUND-COLOR: "#cecece"; color: black; font-family: arial; }
+  tr.even        { BACKGROUND-COLOR: white; color: black; font-family: arial;}
+  .modernTable   { border-color: #999999 black; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px}
+  .tblheader     {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #FFFFFF}
+  .laybrdr       {  border-color: #999999 black; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px}
+  .datatbltx     {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #AB9987}
+  .parentbl      {  background-color: #9999CC}
+  .detailrow     {  background-color: #FFFFFF}
+  .coolTable          { border: solid; border-width: 1px 2px 2px 1px;} 
+  table.coolTable td { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; border: 1px solid #AAAAAA}
+  table.coolTable th { BACKGROUND-COLOR: #C0C0F0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; border: 1px #AAAAAA solid}
+  table {border: solid; border-width: 1px 2px 2px 1px;}
+  td             { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px;  border: 1px solid #AAAAAA}
+  body           { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;}
+  .highlight     { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;}
+.pageHeaderApplication {  font-family: Geneva, Arial, Helvetica, san-serif; font-size: 18px; font-style: oblique}

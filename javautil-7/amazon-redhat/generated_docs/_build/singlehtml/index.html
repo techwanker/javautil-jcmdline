@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>redhat-configure 7.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '7.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="None" href="index.html#document-index" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">redhat-configure 7.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-redhat-configure-s-documentation">
+<h1>Welcome to redhat-configure&#8217;s documentation!<a class="headerlink" href="#welcome-to-redhat-configure-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<span id="document-INSTALL"></span><div class="section" id="server-configure">
+<h2>Server Configure<a class="headerlink" href="#server-configure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>./20-install-packages.sh
+./25-install-postgres.sh
+./30-install-maven.sh
+./40-clone-the-code
+./50-oracle19rpmInstall.sh</pre>
+</div>
+</div>
+<span id="document-01-push-to-amazon"></span><div class="section" id="from-the-client-machine-push-to-the-amazon-instance">
+<h2>From the client machine push to the amazon instance<a class="headerlink" href="#from-the-client-machine-push-to-the-amazon-instance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>set -x
+if [ -z "$amazon" ]; then
+   echo "Need to set amazon to hostname"
+   exit 1
+fi
+echo amazon is $amazon
+scp  -r ../amazon-redhat/*.sh ec2-user@$amazon:~/amazon-redhat
+scp  -r ../artifacts ec2-user@$amazon:~/artfifacts
+set +x</pre>
+</div>
+<ul class="simple">
+<li>push the oracle files <sub>~</sub> echo PUSH_ORACLE
+<span class="formula"><i>PUSH</i><sub><i>ORACLE</i></sub><i>set</i> − <i>x</i><i>if</i>[! − <i>z</i></span>
+amazon:Downloads/oracle19/ojdbc8-full
+scp ~/Downloads/oracle19c/oracle-database-ee-19c-1.0-1.x86_64.rpm
+ec2-user&#64;$amazon:Downloads/oracle19 else echo oracle files will not
+be pushed echo if you wish to push oracle files export
+PUSH_ORACLE=YES fi <sub>~</sub></li>
+<li>push home files <sub>~</sub> scp -r home_files/* <a class="reference external" href="mailto:ec2-user&#37;&#52;&#48;$amazon">ec2-user<span>&#64;</span>$amazon</a>:
+<sub>~</sub></li>
+<li>push bootstrap files <sub>~</sub> ssh
+ec2-user&#64;<span class="formula"><i>amazon</i><i>mkdir</i><i>amazon</i> − <i>redhat</i><i>scp</i>*.<i>sh</i><i>ec</i>2 − <i>user</i></span>
+amazon:amazon-redhat
+scp ../get-javautil-7.sh ec2-user&#64;$amazon:javautil-7.sh <sub>~</sub></li>
+</ul>
+</div>
+<span id="document-20-install-packages"></span><div class="section" id="install-operating-system-requirements">
+<h2>Install operating system requirements<a class="headerlink" href="#install-operating-system-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Install required packages for development TODO need X? sudo yum -y</div>
+</div>
+<p>install git bc binutils elfutils-libelf elfutils-libelf-devel
+|  fontconfig-devel glibc glibc-devel
+|  java java-1.8.0-openjdk-devel
+|  ksh libaio libaio-devel
+|  libgcc libnsl librdmacm-devel libstdc++ libstdc++-devel libX11
+|  mlocate
+|  libXau libxcb libXi libXrender libXrender-devel libXtst make
+net-tools
+|  nfs-utils python3 python3-configshell python3-rtslib
+|  python3-six smartmontools sysstat targetcli wget zip</p>
+</div>
+<span id="document-25-install-postgres"></span><div class="section" id="postgres">
+<h2>postgres<a class="headerlink" href="#postgres" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>set -x
+sudo amazon-linux-extras install postgresql10 vim epel -y
+sudo yum install -y postgresql-server postgresql-devel
+sudo /usr/bin/postgresql-setup --initdb</pre>
+</div>
+<div class="section" id="nasty-hack-for-permissions-read-the-docs-in-sphinxdoc">
+<h3>nasty hack for permissions, read the docs in sphinxdoc<a class="headerlink" href="#nasty-hack-for-permissions-read-the-docs-in-sphinxdoc" title="Permalink to this headline">¶</a></h3>
+<p>sudo sed -i -e &#8220;s/ident/trust/&#8221; /var/lib/pgsql/data/pg_hba.conf sudo
+sed -i -e &#8220;s/peer/trust/&#8221; /var/lib/pgsql/data/pg_hba.conf</p>
+</div>
+<div class="section" id="enable-and-start">
+<h3>enable and start<a class="headerlink" href="#enable-and-start" title="Permalink to this headline">¶</a></h3>
+<p>sudo systemctl enable postgresql sudo systemctl start postgresql</p>
+</div>
+<div class="section" id="create-the-user-and-database">
+<h3>create the user and database<a class="headerlink" href="#create-the-user-and-database" title="Permalink to this headline">¶</a></h3>
+<p>sudo su - postgres -c &#8216;createuser ec2-user&#8217; sudo su - postgres -c
+&#8220;createdb &#8211;owner ec2-user sales_reporting&#8221;</p>
+</div>
+</div>
+<div class="section" id="psql-h-localhost-sales-reporting">
+<h2>psql -h localhost sales_reporting<a class="headerlink" href="#psql-h-localhost-sales-reporting" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-30-install-maven"></span><div class="section" id="install-maven-sh">
+<h2>30-install-maven.sh<a class="headerlink" href="#install-maven-sh" title="Permalink to this headline">¶</a></h2>
+<p>This will download apache maven 3.6.2 and install it in
+/opt/apache-maven-3.6.2 maven is a build tool see
+<a class="reference external" href="https://maven.apache.org/">maven</a></p>
+<div class="highlight-python"><pre>set -x
+set -e
+maven_ver='apache-maven-3.6.2'
+
+file=${maven_ver}.zip
+download_file=~/Downloads/${file}
+
+if [ ! -d ~/Downloads ] ; then
+    echo creating Downloads
+    mkdir ~/Downloads
+fi</pre>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>get the file if we do not have it **</p>
+<div class="highlight-python"><pre>if [ ! -f ${download_file} ] ; then
+     echo file getting ${download_file}
+        curl http://ftp.cixug.es/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip  &gt; ${download_file}
+else
+     echo using ${download_file}
+fi</pre>
+</div>
+<p><em>create /opt if it does not exist</em> <sub>~</sub> if [ ! -d /opt ] ; then sudo
+mkdir /opt fi</p>
+<p>if [ ! -d /opt/${maven_ver} ] ; then #! * file has not been unzipped
+do it * cd /opt ls -l ~/Downloads # just show tfile an size sudo unzip
+${download_file} fi</p>
+</div>
+<div class="section" id="add-to-path-if-not-already-specified">
+<h2>add to path if not already specified<a class="headerlink" href="#add-to-path-if-not-already-specified" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>set +e
+mvn_path=`grep ${maven_ver} ~/.bashrc`
+set -e
+if [ -z $mvn_path] ; then  #  not specified so add to .bashrc
+#    echo adding maven path
+        echo "PATH=/opt/${maven_ver}/bin:\$PATH" &gt;&gt; ~/.bashrc
+else
+     echo not adding $mvn_path
+fi
+. ~/.bashrc
+echo path is now $PATH
+mvn --version</pre>
+</div>
+</div>
+<span id="document-50-oracle19rpmInstall"></span><div class="section" id="oracle-19c-installation">
+<h2>Oracle 19c Installation<a class="headerlink" href="#oracle-19c-installation" title="Permalink to this headline">¶</a></h2>
+<p>ORACLE_FILES=~/Downloads/oracle19 # Install os packages</p>
+<div class="highlight-python"><pre>sudo yum -y install git bc binutils elfutils-libelf elfutils-libelf-devel \
+    fontconfig-devel glibc glibc-devel \
+    java \
+    ksh libaio libaio-devel \
+    libgcc libnsl librdmacm-devel libstdc++ libstdc++-devel libX11 \
+    libXau libxcb libXi libXrender libXrender-devel libXtst make net-tools \
+    nfs-utils python3 python3-configshell python3-rtslib  \
+    smartmontools sysstat targetcli wget zip
+
+if [ ! -d $ORACLE_FILES ] ; then
+    echo directory $ORACLE_FILES does not exist, exiting 2&gt;&amp;1
+    exit 1
+fi</pre>
+</div>
+</div>
+<div class="section" id="add-helpful-files">
+<h2>add helpful files<a class="headerlink" href="#add-helpful-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="oracle">
+<h3>oracle<a class="headerlink" href="#oracle" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>sudo mkdir -p ~oracle/bin
+sudo cp  ../home_files/bin/* ~/oracle/bin
+if [ ! grep  "addbindir" ~/oracle/.bashrc ] ; then
+    sudo echo PATH=\$PATH:~/bin # addbindir &gt;&gt; ~/oracle/.bashrc
+fi</pre>
+</div>
+</div>
+<div class="section" id="this-user">
+<h3>this user<a class="headerlink" href="#this-user" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>if [ ! grep  "addbindir" ~/.bashrc ] ; then
+mkdir ~/bin
+sudo cp  ../home_files/bin* ~/bin
+    echo PATH=\$PATH:~/bin # addbindir &gt;&gt; ~.bashrc
+fi</pre>
+</div>
+<p>echo ***************************** echo
+about to install oracle echo
+***************************** sleep 1
+<sub>~</sub>
+*https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/checking-server-hardware-and-memory-configuration.html#GUID-DC04ABB6-1822-444A-AB1B-8C306079439C</p>
+<div class="highlight-python"><pre>set -x
+set -e
+grep MemTotal /proc/meminfo
+grep SwapTotal /proc/meminfo
+df -h /tmp
+free
+uname -m
+df -h /dev/shm</pre>
+</div>
+</div>
+</div>
+<div class="section" id="preinstall">
+<h2>preinstall<a class="headerlink" href="#preinstall" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-the-package">
+<h3>get the package<a class="headerlink" href="#get-the-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>set -e
+cd ${ORACLE_FILES}
+ #**These files are required but are not available in redhat 8, so we take them from centos**
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/compat-libcap1-1.10-7.el7.x86_64.rpm
+curl -o oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm \
+    https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm</pre>
+</div>
+</div>
+<div class="section" id="install-it">
+<h3>install it<a class="headerlink" href="#install-it" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>sudo yum -y localinstall compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
+sudo yum -y localinstall compat-libcap1-1.10-7.el7.x86_64.rpm
+sudo yum -y localinstall oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm</pre>
+</div>
+</div>
+<div class="section" id="references">
+<h3>references<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://oracle-base.com/articles/vm/aws-ec2-installation-of-oracle">https://oracle-base.com/articles/vm/aws-ec2-installation-of-oracle</a></li>
+<li><a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/cwsol/checking-the-oracle-database-prerequisites-packages-configuration.html#GUID-F0F28CEB-41DD-47CF-A1FE-DCF5F557A947">https://docs.oracle.com/en/database/oracle/oracle-database/19/cwsol/checking-the-oracle-database-prerequisites-packages-configuration.html#GUID-F0F28CEB-41DD-47CF-A1FE-DCF5F557A947</a></li>
+<li><a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="install-oracle">
+<h2>Install Oracle<a class="headerlink" href="#install-oracle" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>cd ${ORACLE_FILES}
+sudo yum -y localinstall  compat-libcap1-1.10-7.el7.x86_64.rpm</pre>
+</div>
+<p><strong>bug, there is no digest it must be installed with rpm</strong> <sub>~</sub> sudo
+rpm -i &#8211;nodigest oracle-database-ee-19c-1.0-1.x86_64.rpm export
+CV_ASSUME_DISTID=OEL7.6 <sub>~</sub></p>
+</div>
+<div class="section" id="configure-the-database">
+<h2>configure the database<a class="headerlink" href="#configure-the-database" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>sudo /etc/init.d/oracledb_ORCLCDB-19c configure</pre>
+</div>
+<div class="section" id="id1">
+<h3>references<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/install-and-upgrade.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/install-and-upgrade.html</a></li>
+<li><a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-the-oracle-preinstallation-rpm-from-unbreakable-linux-network.html#GUID-555F704E-BD48-4E0E-AC9D-038596601194">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-the-oracle-preinstallation-rpm-from-unbreakable-linux-network.html#GUID-555F704E-BD48-4E0E-AC9D-038596601194</a></li>
+<li><a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02</a></li>
+</ul>
+</div>
+</div>
+<span id="document-70-cp-sys_scripts"></span><div class="section" id="cp-sys-scripts">
+<h2>70-cp-sys-scripts<a class="headerlink" href="#cp-sys-scripts" title="Permalink to this headline">¶</a></h2>
+<p>copies sql scripts that must be run as sys to ~oracle/oracle/ddl/sys set
+-x sys_scripts_dir_dest=~oracle/oracle/ddl/sys sudo mkdir -p
+:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>sys_scripts_dir_dest      sudo cp  ../oracle/ddl/sys/* <a href="#id3"><span class="problematic" id="id4">`</span></a>sys_scripts_dir_dest
+sudo chown -R oracle ~oracle/oracle</p>
+</div>
+</div>
+<p># Push the files to Amazon
+.. toctree:</p>
+<div class="highlight-python"><pre>:maxdepth: 2
+
+01-push-to-amazon</pre>
+</div>
+<p># Install the operating system packages</p>
+<div class="toctree-wrapper compound">
+<span id="document-01-push-to-amazon"></span><div class="section" id="from-the-client-machine-push-to-the-amazon-instance">
+<h2>From the client machine push to the amazon instance<a class="headerlink" href="#from-the-client-machine-push-to-the-amazon-instance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>set -x
+if [ -z "$amazon" ]; then
+   echo "Need to set amazon to hostname"
+   exit 1
+fi
+echo amazon is $amazon
+scp  -r ../amazon-redhat/*.sh ec2-user@$amazon:~/amazon-redhat
+scp  -r ../artifacts ec2-user@$amazon:~/artfifacts
+set +x</pre>
+</div>
+<ul class="simple">
+<li>push the oracle files <sub>~</sub> echo PUSH_ORACLE
+<span class="formula"><i>PUSH</i><sub><i>ORACLE</i></sub><i>set</i> − <i>x</i><i>if</i>[! − <i>z</i></span>
+amazon:Downloads/oracle19/ojdbc8-full
+scp ~/Downloads/oracle19c/oracle-database-ee-19c-1.0-1.x86_64.rpm
+ec2-user&#64;$amazon:Downloads/oracle19 else echo oracle files will not
+be pushed echo if you wish to push oracle files export
+PUSH_ORACLE=YES fi <sub>~</sub></li>
+<li>push home files <sub>~</sub> scp -r home_files/* <a class="reference external" href="mailto:ec2-user&#37;&#52;&#48;$amazon">ec2-user<span>&#64;</span>$amazon</a>:
+<sub>~</sub></li>
+<li>push bootstrap files <sub>~</sub> ssh
+ec2-user&#64;<span class="formula"><i>amazon</i><i>mkdir</i><i>amazon</i> − <i>redhat</i><i>scp</i>*.<i>sh</i><i>ec</i>2 − <i>user</i></span>
+amazon:amazon-redhat
+scp ../get-javautil-7.sh ec2-user&#64;$amazon:javautil-7.sh <sub>~</sub></li>
+</ul>
+</div>
+</div>
+<p># Install postgresql</p>
+<div class="toctree-wrapper compound">
+<span id="document-25-install-postgres"></span><div class="section" id="postgres">
+<h2>postgres<a class="headerlink" href="#postgres" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>set -x
+sudo amazon-linux-extras install postgresql10 vim epel -y
+sudo yum install -y postgresql-server postgresql-devel
+sudo /usr/bin/postgresql-setup --initdb</pre>
+</div>
+<div class="section" id="nasty-hack-for-permissions-read-the-docs-in-sphinxdoc">
+<h3>nasty hack for permissions, read the docs in sphinxdoc<a class="headerlink" href="#nasty-hack-for-permissions-read-the-docs-in-sphinxdoc" title="Permalink to this headline">¶</a></h3>
+<p>sudo sed -i -e &#8220;s/ident/trust/&#8221; /var/lib/pgsql/data/pg_hba.conf sudo
+sed -i -e &#8220;s/peer/trust/&#8221; /var/lib/pgsql/data/pg_hba.conf</p>
+</div>
+<div class="section" id="enable-and-start">
+<h3>enable and start<a class="headerlink" href="#enable-and-start" title="Permalink to this headline">¶</a></h3>
+<p>sudo systemctl enable postgresql sudo systemctl start postgresql</p>
+</div>
+<div class="section" id="create-the-user-and-database">
+<h3>create the user and database<a class="headerlink" href="#create-the-user-and-database" title="Permalink to this headline">¶</a></h3>
+<p>sudo su - postgres -c &#8216;createuser ec2-user&#8217; sudo su - postgres -c
+&#8220;createdb &#8211;owner ec2-user sales_reporting&#8221;</p>
+</div>
+</div>
+<div class="section" id="psql-h-localhost-sales-reporting">
+<h2>psql -h localhost sales_reporting<a class="headerlink" href="#psql-h-localhost-sales-reporting" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-INSTALL">Server Configure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-01-push-to-amazon">From the client machine push to the amazon instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-20-install-packages">Install operating system requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-25-install-postgres">postgres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#nasty-hack-for-permissions-read-the-docs-in-sphinxdoc">nasty hack for permissions, read the docs in sphinxdoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-and-start">enable and start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-the-user-and-database">create the user and database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#psql-h-localhost-sales-reporting">psql -h localhost sales_reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-30-install-maven">30-install-maven.sh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#add-to-path-if-not-already-specified">add to path if not already specified</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-50-oracle19rpmInstall">Oracle 19c Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#add-helpful-files">add helpful files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#oracle">oracle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#this-user">this user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#preinstall">preinstall</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#get-the-package">get the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#install-it">install it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#references">references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#install-oracle">Install Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#configure-the-database">configure the database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id1">references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-70-cp-sys_scripts">70-cp-sys-scripts</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-01-push-to-amazon">From the client machine push to the amazon instance</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-25-install-postgres">postgres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#nasty-hack-for-permissions-read-the-docs-in-sphinxdoc">nasty hack for permissions, read the docs in sphinxdoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-and-start">enable and start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#create-the-user-and-database">create the user and database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#psql-h-localhost-sales-reporting">psql -h localhost sales_reporting</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">redhat-configure 7.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2019, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

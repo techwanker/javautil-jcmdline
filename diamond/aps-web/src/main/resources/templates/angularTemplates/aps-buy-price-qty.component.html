@@ -1,0 +1,38 @@
+<div>
+		<h2>Buy Price Quantity</h2>
+
+		Setup Cost <input type="text" name="setupCost" id="setupCost"  />
+		Incremental Cost <input type="text" name="incrementalCost" id="incrementalCost" />
+		<!-- 
+	 <button onClick="alert('before');graphIt("graph",Number(setupCost),Number(incrementalCost));alert('after');">Plot</button>
+	 -->
+		<button onClick="graphitClicked();">Plot</button>
+		<div id="graph" style="width: 600px; height: 250px;"></div>
+
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Qty</th>
+					<th>Unit Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" name="qty1" id="qty1" /></td>
+					<td><input type="text" name="unitCost1" id="unitCost1" /></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="qty2" id="qty2" /></td>
+					<td><input type="text" name="unitCost2" id="unitCost2" /></td>
+				</tr>
+
+			</tbody>
+		</table>
+		<button onClick="computeSetupIncr();">Compute and Plot</button>
+
+		Enter the quantity and cost per unit for two different vendor quote
+		quantities. The setup cost and incremental cost will be computed and
+		the qty vs cost per unit will be plotted.
+	</div>
+	

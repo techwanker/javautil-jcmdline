@@ -1,0 +1,915 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>APS Portal 2019-12-22-22-02 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="portal">
+<h1>Portal<a class="headerlink" href="#portal" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This is the portal.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Purpose</p></li>
+<li><p>Functionality</p></li>
+<li><p>Description</p></li>
+</ul>
+<blockquote>
+<div><p>This document reflects the primary source of interaction with the system</p>
+</div></blockquote>
+<div class="toctree-wrapper compound">
+<span id="document-ABC"></span><div class="section" id="abc-pareto-item-statistics-xyzz">
+<h3>ABC - Pareto - Item Statistics XYZZ<a class="headerlink" href="#abc-pareto-item-statistics-xyzz" title="Permalink to this headline">¶</a></h3>
+<p>Metric</p>
+<div class="section" id="assumptions">
+<h4>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h4>
+<p>Users wish to quickly summarize the characteristics of an item</p>
+</div>
+<div class="section" id="item-statistics">
+<h4>Item Statistics<a class="headerlink" href="#item-statistics" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="overview">
+<h4>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h4>
+<p>This demonstrates computing a number of potentially useful statistics</p>
+</div>
+<div class="section" id="definition">
+<h4>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
+<p>This is also known as Pareto or 80/20 rule</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Pareto_principle">https://en.wikipedia.org/wiki/Pareto_principle</a></p>
+<ul class="simple">
+<li><p>Top 20 percent of sales items are rated A</p></li>
+<li><p>Next 60 percent rated B</p></li>
+<li><p>Bottom 20 Rated C</p></li>
+</ul>
+<p>This has the following problems, an item may be at 21% but is indistinguishable from a 79</p>
+</div>
+<div class="section" id="approach">
+<h4>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Create a table to hold statistics</p></li>
+<li><p>Create a script to populate statistics by item</p></li>
+<li><p>Create a service to obtain the data model for the web page</p></li>
+<li><p>create an angular 8 controsk</p></li>
+<li><p>Modify the filter screen to allow query filters on the statistics</p></li>
+<li><p>Modify the web pages to show the statistics information</p></li>
+</ul>
+</div>
+<div class="section" id="purpose">
+<h4>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h4>
+<p>Concentrate inventory and dollars on</p>
+<ul class="simple">
+<li><p>high volume,</p></li>
+<li><p>high profit item</p></li>
+<li><p>hightest service leve</p></li>
+<li><p>core products</p></li>
+</ul>
+<p>package com.pacificdataservices.diamond.apsweb;</p>
+<p>import java.io.IOException; import java.sql.Connection; import
+java.sql.SQLException;</p>
+<p>import javax.sql.DataSource;</p>
+<p>import org.javautil.core.json.JsonSerializer; import
+org.javautil.core.json.JsonSerializerGson; import
+org.javautil.core.sql.Binds; import org.javautil.core.sql.SqlStatement;
+import org.javautil.util.NameValue; import org.slf4j.Logger; import
+org.slf4j.LoggerFactory; import
+org.springframework.beans.factory.annotation.Autowired; import
+org.springframework.web.bind.annotation.RequestMapping; import
+org.springframework.web.bind.annotation.RequestParam; import
+org.springframework.web.bind.annotation.RestController;</p>
+<p>&#64;RestController public class IcItemStatController {</p>
+<blockquote>
+<div><p>private Logger logger = LoggerFactory.getLogger(getClass());
+&#64;Autowired private DataSource datasource;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>&#64;RequestMapping(“/icItemStat”) public String planData(</dt><dd><p>&#64;RequestParam(value=”itemNbr”) String itemNbr) throws SQLException,
+IOException { <a class="reference external" href="http://logger.info">logger.info</a>(“invoked with
+itemNumber {}”,itemNbr); Connection conn =
+datasource.getConnection(); SqlStatement ss = new SqlStatement(conn,
+“select * from ic_item_stat where item_nbr = :item_nbr”); Binds
+binds = new Binds(); binds.put(“item_nbr”, itemNbr); NameValue
+nameValue = ss.getNameValue(binds,true); JsonSerializer serializer =
+new JsonSerializerGson(); String json =
+serializer.toJsonPretty(nameValue); return json; }</p>
+</dd>
+</dl>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a><a class="reference external" href="https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/">https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/</a> &lt;<a class="reference external" href="https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/">https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/</a>&gt;</p>
+<p>}</p>
+<div class="section" id="create-a-node-service">
+<h5>Create a node service<a class="headerlink" href="#create-a-node-service" title="Permalink to this headline">¶</a></h5>
+<dl>
+<dt>i    import { HttpClient } from <a class="reference external" href="mailto:'&#37;&#52;&#48;angular/common/http">‘<span>&#64;</span>angular/common/http</a>’;</dt><dd><p>import { Observable } from ‘rxjs’;
+…
+getIcItemStat(): Observable&lt;IcItemStat[]&gt; {</p>
+<blockquote>
+<div><blockquote>
+<div><p>return this.http.get&lt;IcItemStat[]&gt;(HOST + ‘/api/v1/icitemstat/’ + itemnbr);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="modify-web-page-template">
+<h4>Modify web page template<a class="headerlink" href="#modify-web-page-template" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Pareto_principle">https://en.wikipedia.org/wiki/Pareto_principle</a></p>
+<p><a class="reference external" href="https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/">https://www.briantracy.com/blog/personal-success/how-to-use-the-80-20-rule-pareto-principle/</a></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="index.html">Business Process Improvement</a></p></li>
+<li><p><a class="reference external" href="Project-Description_786630.html">Project Description</a></p></li>
+<li><p><a class="reference external" href="Diamond-Portal_4653081.html">Diamond Portal</a></p></li>
+<li><p><a class="reference external" href="Portal-Functionality_4653133.html">Portal Functionality</a></p></li>
+<li><p><a class="reference external" href="Purchasing_4030570.html">Purchasing</a></p></li>
+<li><p><a class="reference external" href="ABC-Code-Overview_4063370.html">ABC Code Overview</a></p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h4>Item Statistics<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id4">
+<h4>Purpose<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Concentrate inventory and dollars on</p>
+<ul class="simple">
+<li><p>high volume,</p></li>
+<li><p>high profit item</p></li>
+<li><p>hightest service level</p></li>
+<li><p>core products</p></li>
+</ul>
+</div>
+<div class="section" id="item-statistics-fields">
+<h4>Item Statistics Fields<a class="headerlink" href="#item-statistics-fields" title="Permalink to this headline">¶</a></h4>
+<p><strong>Name</strong></p>
+<p><strong>Code</strong></p>
+<p><strong>Description</strong></p>
+<p><strong>Benefit</strong></p>
+<p><strong>Disadvantage</strong></p>
+<p><strong>Compare to</strong></p>
+<p>ABC</p>
+<p>ABCSLS</p>
+<p>Top 20 of previous12 month contribution to sales dollars</p>
+<p>Does not adequately support new product introduction</p>
+<p>ABCUSTQUOTE</p>
+<p>Top 20 percent of CUST OPEN Quotes</p>
+<p>Similar to ABc</p>
+</div>
+<div class="section" id="id5">
+<h4>Approach<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Create a table to hold statistics</p></li>
+<li><p>Create a script to populate statistics by item</p></li>
+<li><p>Create a service to obtain the data model for the web pages</p></li>
+<li><p>Modify the filter screen to allow query filters on the statistics</p></li>
+<li><p>Modify the web pages to show the statistics information</p></li>
+</ul>
+</div>
+</div>
+<span id="document-UnitCost"></span><div class="section" id="unit-cost">
+<h3>Unit Cost<a class="headerlink" href="#unit-cost" title="Permalink to this headline">¶</a></h3>
+<p>During one of my calls with Peter he told me that he was reviewing
+purchase orders a simple line such as “Buyers don’’t buy the correct
+quantities to get a good price” was extended to:</p>
+<div class="section" id="compute-optimal-purchase-quantity">
+<h4>Compute Optimal Purchase Quantity<a class="headerlink" href="#compute-optimal-purchase-quantity" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="cost-types">
+<h5>Cost Types<a class="headerlink" href="#cost-types" title="Permalink to this headline">¶</a></h5>
+<p>Compute a projected per unit cost by solving the equation</p>
+<p>unit_cost = (setup_cost / qty) + incremental cost</p>
+<p>For two different known qty and prices (vendor quotes) using linear
+algebra</p>
+</div>
+</div>
+<div class="section" id="graph-this-relationsihip">
+<h4>Graph this relationsihip<a class="headerlink" href="#graph-this-relationsihip" title="Permalink to this headline">¶</a></h4>
+<p>Find the “price knee” the first derivative of the function, the slope of
+the tangent starts to level off (it asymptotically approaches 0, meaning
+the limit is the unit cost doesn’’t decrease at all. Depending on setup
+cost, incremental cost and annual consumption a three year supply may be
+ten percent more than a one year supply, it may also be three times the
+acquisition cost and additional carrying costs must be considered.</p>
+<p>Vendor quotes should include this range of quantities, purchasing
+quantities should be in this range, buys can be made and even scheduled
+so that lower per unit costs can be realized.</p>
+<p>During one of my calls with Peter he told me that he was reviewing
+purchase orders a simple line such as “Buyers don’’t buy the correct
+quantities to get a good price” was extended to:</p>
+</div>
+<div class="section" id="id1">
+<h4>Compute Optimal Purchase Quantity<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Compute a projected per unit cost by solving the equation</p>
+<p>unit_cost = (setup_cost / qty) + incremental cost</p>
+<p>For two different known qty and prices (vendor quotes) using linear
+algebra</p>
+</div>
+<div class="section" id="id2">
+<h4>Graph this relationsihip<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Find the “price knee” the first derivative of the function, the slope of
+the tangent starts to level off (it asymptotically approaches 0, meaning
+the limit is the unit cost doesn’’t decrease at all. Depending on setup
+cost, incremental cost and annual consumption a three year supply may be
+ten percent more than a one year supply, it may also be three times the
+acquisition cost and additional carrying costs must be considered.</p>
+<p>Vendor quotes should include this range of quantities, purchasing
+quantities should be in this range, buys can be made and even scheduled
+so that lower per unit costs can be realized.</p>
+<p>When a part needs to be replenished</p>
+<ol class="arabic simple">
+<li><p>Vendor quotes for the price range should be required.</p></li>
+<li><p>Purchase amounts over a defined limit should be reviewed and
+approved.</p></li>
+<li><p>Requisitions should be created in the new purchase decision
+application and once approved, be created as purchase orders in the
+execution system (Dymax and SAP).</p></li>
+<li><p>Checks for any constraints including approved manufacturers should be
+simulated</p></li>
+<li><p>Existing inventory carried under equivalent part numbers should be
+considered.</p></li>
+</ol>
+<p>The opportunities for process improvement are best addressed by
+evaluating your current processes and the issues your experts realize
+and developing a system to address those issues.</p>
+<p>Your new process should:</p>
+<ol class="arabic simple">
+<li><p>Be external to SAP and Dymax, requiring no modifications to either
+system. This eliminates risk and complexity.</p></li>
+<li><p>Should include data from both operations for inventory, purchases and
+demands</p></li>
+<li><p>Incorporate new procedures and policies to reflect best practices</p></li>
+<li><p>Reduce the effort of sales staff and purchasing staff to perform
+their functions</p></li>
+<li><p>Define metrics to evaluate performance and progress</p></li>
+<li><p>Have an alert system of reports of issues that need to be addressed.</p></li>
+<li><p>Require no hardware or other infrastructure or the installation of
+any software on any Align computer.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
+<p>What is the current cost of:</p>
+<ol class="arabic simple">
+<li><p>Not buying the correct quantities</p></li>
+<li><p>Not taking into consideration multiple certifications</p></li>
+<li><p>Buying inventory in one operation that is excess inventory in the
+other operation</p></li>
+<li><p>Time wasted gathering information to create a purchase order</p></li>
+</ol>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>Align has the expertise in house to participate in the design of a
+business process and software to optimize the purchasing and sales
+operations, there is no need to wait for an IT person who has much less
+experience than your director of purchasing and other operations
+personnel.</p>
+<p>A one hour phone call every two weeks is not going to ever get you a
+design.</p>
+<p>I have no doubt that several times every day a sub-optimal purchase
+results in a expense greater than the cost of developing a design.</p>
+<p>A design is best done by whiteboard meetings, starting with a blank
+whiteboard. Even with 25 years experience in Aerospace, it would be
+presumptious, and flat out wrong for me to give a powerpoint
+presentation and say “This is the universal answer to all problems, it
+will fit your situation”; this is the approach of someone hawking
+software.</p>
+</div>
+<div class="section" id="proposal">
+<h3>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="planning-control-data">
+<h4>Planning Control Data<a class="headerlink" href="#planning-control-data" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="planning-group-data">
+<h4>Planning Group Data<a class="headerlink" href="#planning-group-data" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Supply</p>
+<ul>
+<li><p>Types</p>
+<ul>
+<li><p>Onhand</p></li>
+<li><p>Purchase orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</li>
+<li><p>Certifications</p></li>
+<li><p>Item Certifications</p></li>
+</ul>
+</li>
+<li><p>Demands</p>
+<ul>
+<li><p>Sales History</p></li>
+<li><p>Open Demands</p></li>
+<li><p>Types</p>
+<ul>
+<li><p>Forecast</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Customer Orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</li>
+<li><p>Demand Certs</p></li>
+</ul>
+</li>
+<li><p>Item information</p>
+<ul>
+<li><p>Item Master</p></li>
+<li><p>Substitutes and Equivalents</p></li>
+<li><p>Forecasting entitities</p></li>
+</ul>
+</li>
+<li><p>Customer Information</p>
+<ul>
+<li><p>Customer Master</p></li>
+<li><p>Forecast group</p></li>
+<li><p>Approved Manufacturers</p></li>
+</ul>
+</li>
+<li><p>Rules</p>
+<ul>
+<li><p>Sourcing Rules</p></li>
+<li><p>Supply Pools</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="system-will-produce">
+<h3>System will produce<a class="headerlink" href="#system-will-produce" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Projected Position</p></li>
+<li><p>Expedite</p></li>
+<li><p>De-expedite</p></li>
+<li><p>Requsitions</p></li>
+<li><p>Unallocated Demand</p></li>
+<li><p>Unallocated Supply</p></li>
+<li><p>Allocations</p></li>
+<li><p>Detailed explanation of why a supply was ineligible for a demand</p></li>
+<li><p>Allocation based pricing</p></li>
+<li><p>Work order generation</p></li>
+<li><p>Exception Reports</p></li>
+</ul>
+<p>Allow simulations</p>
+<p>During one of my calls with Peter he told me that he was reviewing
+purchase orders a simple line such as “Buyers don’’t buy the correct
+quantities to get a good price” was extended to:</p>
+<div class="section" id="id3">
+<h4>Compute Optimal Purchase Quantity<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Compute a projected per unit cost by solving the equation</p>
+<p>unit_cost = (setup_cost / qty) + incremental cost</p>
+<p>For two different known qty and prices (vendor quotes) using linear
+algebra</p>
+</div>
+<div class="section" id="id4">
+<h4>Graph this relationsihip<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Find the “price knee” the first derivative of the function, the slope of
+the tangent starts to level off (it asymptotically approaches 0, meaning
+the limit is the unit cost doesn’’t decrease at all. Depending on setup
+cost, incremental cost and annual consumption a three year supply may be
+ten percent more than a one year supply, it may also be three times the
+acquisition cost and additional carrying costs must be considered.</p>
+<p>Vendor quotes should include this range of quantities, purchasing
+quantities should be in this range, buys can be made and even scheduled
+so that lower per unit costs can be realized.</p>
+<p>When a part needs to be replenished</p>
+<ol class="arabic simple">
+<li><p>Vendor quotes for the price range should be required.</p></li>
+<li><p>Purchase amounts over a defined limit should be reviewed and
+approved.</p></li>
+<li><p>Requisitions should be created in the new purchase decision
+application and once approved, be created as purchase orders in the
+execution system (Dymax and SAP).</p></li>
+<li><p>Checks for any constraints including approved manufacturers should be
+simulated</p></li>
+<li><p>Existing inventory carried under equivalent part numbers should be
+considered.</p></li>
+</ol>
+<p>The opportunities for process improvement are best addressed by
+evaluating your current processes and the issues your experts realize
+and developing a system to address those issues.</p>
+<p>Your new process should:</p>
+<ol class="arabic simple">
+<li><p>Be external to SAP and Dymax, requiring no modifications to either
+system. This eliminates risk and complexity.</p></li>
+<li><p>Should include data from both operations for inventory, purchases and
+demands</p></li>
+<li><p>Incorporate new procedures and policies to reflect best practices</p></li>
+<li><p>Reduce the effort of sales staff and purchasing staff to perform
+their functions</p></li>
+<li><p>Define metrics to evaluate performance and progress</p></li>
+<li><p>Have an alert system of reports of issues that need to be addressed.</p></li>
+<li><p>Require no hardware or other infrastructure or the installation of
+any software on any Align computer.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Questions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>What is the current cost of:</p>
+<ol class="arabic simple">
+<li><p>Not buying the correct quantities</p></li>
+<li><p>Not taking into consideration multiple certifications</p></li>
+<li><p>Buying inventory in one operation that is excess inventory in the
+other operation</p></li>
+<li><p>Time wasted gathering information to create a purchase order</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>Conclusion<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Align has the expertise in house to participate in the design of a
+business process and software to optimize the purchasing and sales
+operations, there is no need to wait for an IT person who has much less
+experience than your director of purchasing and other operations
+personnel.</p>
+<p>A one hour phone call every two weeks is not going to ever get you a
+design.</p>
+<p>I have no doubt that several times every day a sub-optimal purchase
+results in a expense greater than the cost of developing a design.</p>
+<p>A design is best done by whiteboard meetings, starting with a blank
+whiteboard. Even with 25 years experience in Aerospace, it would be
+presumptious, and flat out wrong for me to give a powerpoint
+presentation and say “This is the universal answer to all problems, it
+will fit your situation”; this is the approach of someone hawking
+software.</p>
+</div>
+<div class="section" id="id7">
+<h3>Proposal<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>Planning Control Data<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id9">
+<h4>Planning Group Data<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Supply</p>
+<ul>
+<li><p>Types</p>
+<ul>
+<li><p>Onhand</p></li>
+<li><p>Purchase orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</li>
+<li><p>Certifications</p></li>
+<li><p>Item Certifications</p></li>
+</ul>
+</li>
+<li><p>Demands</p>
+<ul>
+<li><p>Sales History</p></li>
+<li><p>Open Demands</p></li>
+<li><p>Types</p>
+<ul>
+<li><p>Forecast</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Customer Orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</li>
+<li><p>Demand Certs</p></li>
+</ul>
+</li>
+<li><p>Item information</p>
+<ul>
+<li><p>Item Master</p></li>
+<li><p>Substitutes and Equivalents</p></li>
+<li><p>Forecasting entitities</p></li>
+</ul>
+</li>
+<li><p>Customer Information</p>
+<ul>
+<li><p>Customer Master</p></li>
+<li><p>Forecast group</p></li>
+<li><p>Approved Manufacturers</p></li>
+</ul>
+</li>
+<li><p>Rules</p>
+<ul>
+<li><p>Sourcing Rules</p></li>
+<li><p>Supply Pools</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>System will produce<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Projected Position</p></li>
+<li><p>Expedite</p></li>
+<li><p>De-expedite</p></li>
+<li><p>Requsitions</p></li>
+<li><p>Unallocated Demand</p></li>
+<li><p>Unallocated Supply</p></li>
+<li><p>Allocations</p></li>
+<li><p>Detailed explanation of why a supply was ineligible for a demand</p></li>
+<li><p>Allocation based pricing</p></li>
+<li><p>Work order generation</p></li>
+<li><p>Exception Reports</p></li>
+</ul>
+<p>Allow simulations</p>
+</div>
+<span id="document-MultipleLeadTimes"></span><div class="section" id="lead-time-by-vendor-multiple-lead-times">
+<h3>Lead Time By Vendor  - Multiple Lead Times<a class="headerlink" href="#lead-time-by-vendor-multiple-lead-times" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="overview">
+<h4>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h4>
+<p>Vendors may have drastically different lead times.</p>
+</div>
+<div class="section" id="acquiring">
+<h4>Acquiring<a class="headerlink" href="#acquiring" title="Permalink to this headline">¶</a></h4>
+<p>Data for lead times should be derived from the latest vendor quotes that is the longest lead tie from
+the maximum effective date for a vendor quote.</p>
+<p>Note that item_nbr, the item surrogate key is not used, allowing you to
+get vendor quotes for items that have not been set up;</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">view</span> <span class="n">ic_item_vnd_lead_time</span> <span class="k">as</span>
+<span class="k">select</span>  <span class="n">item_cd_qte</span><span class="p">,</span>
+    <span class="n">vq_qte_dt</span><span class="p">,</span>
+    <span class="n">vq_qte_eff_dt</span><span class="p">,</span>
+    <span class="k">max</span><span class="p">(</span><span class="n">vq_qte_exp_dt</span><span class="p">)</span> <span class="n">max_qte_exp_dt</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">max</span><span class="p">(</span><span class="n">vq_qte_exp_dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">vq_qte_eff_dt</span><span class="p">)</span> <span class="o">/</span> <span class="mi">7</span> <span class="n">lead_tm_wks</span>
+<span class="k">from</span> <span class="n">vq_qte_vw</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">org_nbr_vnd</span><span class="p">,</span>
+    <span class="n">item_cd_qte</span><span class="p">,</span>
+    <span class="n">vq_qte_eff_dt</span><span class="p">,</span>
+    <span class="n">vq_qte_dt</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="yaml">
+<h4>YAML<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h4>
+<dl>
+<dt>ic_item_vnd_lead_tm:</dt><dd><dl>
+<dt>sql: &gt;</dt><dd><blockquote>
+<div><p>create view ic_item_vnd_lead_time as
+select item_cd_qte,</p>
+<blockquote>
+<div><blockquote>
+<div><p>vq_qte_dt,
+vq_qte_eff_dt,
+max(vq_qte_exp_dt) max_qte_exp_dt,
+(max(vq_qte_exp_dt) - vq_qte_eff_dt) / 7 lead_tm_wks</p>
+</div></blockquote>
+<p>from vq_qte_vw
+group by org_nbr_vnd,</p>
+<blockquote>
+<div><p>item_cd_qte,
+vq_qte_eff_dt,
+vq_qte_dt;</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>description: Create ic_item_vnd_lead_tm
+narrative: &gt;</p>
+<blockquote>
+<div><p>TODO describe consequence of using the quote expiration date, vq_qte_exp_dt
+rather than the quote of quotation or the effective date of quotation.</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="assumptions">
+<h4>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h4>
+<p>The most recent vendor quote for lead times will be used.</p>
+<p>If multiple vendor quotes exist for the same quote date, the maximum
+lead time will be used.</p>
+<p>Full historical vendor quotes are useful to see trends in cost and lead
+time.</p>
+</div>
+<div class="section" id="issues">
+<h4>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h4>
+<p>Vendor on-time performance.</p>
+<p>TODO flesh out</p>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-Requisitions"></span><div class="section" id="requisition">
+<h3>Requisition<a class="headerlink" href="#requisition" title="Permalink to this headline">¶</a></h3>
+<p>]How and why to create a requisition</p>
+<div class="section" id="instructions">
+<h4>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Look at the report section of the portal</p></li>
+<li><p>Review the information</p></li>
+<li><p>Fill out the checkist</p></li>
+<li><p>Create the requistition</p></li>
+</ol>
+<div class="section" id="requisition-checklist">
+<h5>Requisition Checklist<a class="headerlink" href="#requisition-checklist" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+<div class="section" id="sequence-diagram">
+<h4>Sequence Diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this headline">¶</a></h4>
+<img alt="_images/Requisitions.png" src="_images/Requisitions.png" />
+<div class="section" id="intrinsic-information">
+<h5>Intrinsic Information<a class="headerlink" href="#intrinsic-information" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="extrinsic-information">
+<h5>Extrinsic Information<a class="headerlink" href="#extrinsic-information" title="Permalink to this headline">¶</a></h5>
+<p>Gather all information, it should all be available in the portal</p>
+</div>
+</div>
+<div class="section" id="related-articles">
+<h4>Related articles<a class="headerlink" href="#related-articles" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<span id="document-Create-Requisition"></span><div class="section" id="business-process-improvement-create-requisition">
+<h3>Business Process Improvement : Create Requisition<a class="headerlink" href="#business-process-improvement-create-requisition" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="index.html">Business Process Improvement</a></p></li>
+<li><p><a class="reference external" href="Project-Description_786630.html">Project Description</a></p></li>
+<li><p><a class="reference external" href="Diamond-Portal_4653081.html">Diamond Portal</a></p></li>
+<li><p><a class="reference external" href="Portal-Functionality_4653133.html">Portal Functionality</a></p></li>
+<li><p><a class="reference external" href="Purchasing_4030570.html">Purchasing</a></p></li>
+</ol>
+<div class="section" id="id1">
+<h4>Business Process Improvement : Create Requisition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Created by James Schmidt, last modified on Dec 21, 2019</p>
+<p>]How and why to create a requisition</p>
+<div class="section" id="instructions">
+<h5>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h5>
+<ol class="arabic simple">
+<li><p>Look at the report section of the portal</p></li>
+<li><p>Review the information</p></li>
+<li><p>Fill out the checkist</p></li>
+<li><p>Create the requistitio</p></li>
+</ol>
+<div class="section" id="requisition-checklist">
+<h6>Requisition Checklist<a class="headerlink" href="#requisition-checklist" title="Permalink to this headline">¶</a></h6>
+</div>
+</div>
+<div class="section" id="sequence-diagram">
+<h5>Sequence Diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this headline">¶</a></h5>
+<img alt="_images/Requisitions.png" src="_images/Requisitions.png" />
+<div class="section" id="intrinsic-information">
+<h6>Intrinsic Information<a class="headerlink" href="#intrinsic-information" title="Permalink to this headline">¶</a></h6>
+</div>
+<div class="section" id="extrinsic-information">
+<h6>Extrinsic Information<a class="headerlink" href="#extrinsic-information" title="Permalink to this headline">¶</a></h6>
+<p>Gather all information, it should all be available in the portal</p>
+</div>
+</div>
+<div class="section" id="related-articles">
+<h5>Related articles<a class="headerlink" href="#related-articles" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+</div>
+<span id="document-OptimalReplenishmentQuantity"></span><div class="section" id="optimal-replenishment-quantity">
+<h3>Optimal Replenishment Quantity<a class="headerlink" href="#optimal-replenishment-quantity" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="objectives">
+<h4>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Highest Profit</p></li>
+<li><p>Highest Customer Satisfaction</p></li>
+<li><p>JITS / KITS / SLA</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<div class="section" id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h2>
+<p>Users wish to quickly summarize the characteristics of an item</p>
+</div>
+<div class="section" id="user-interaction-and-design">
+<h2>User interaction and design<a class="headerlink" href="#user-interaction-and-design" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="open-questions">
+<h2>Open Questions<a class="headerlink" href="#open-questions" title="Permalink to this headline">¶</a></h2>
+<p>Question</p>
+<p>Answer</p>
+<p>Date Answered</p>
+</div>
+<div class="section" id="out-of-scope">
+<h2>Out of Scope<a class="headerlink" href="#out-of-scope" title="Permalink to this headline">¶</a></h2>
+<p>Lead times can vary drastically based on</p>
+<ul class="simple">
+<li><p>vendor</p></li>
+<li><p>material shortages</p></li>
+<li><p>new product introduction</p></li>
+<li><p>product recall MRO (Maintenance, Repair and Overhaul)Definition</p></li>
+</ul>
+<p>The elapsed time, usually measured in weeks between when a product
+is ordered and receivied.</p>
+<p>Usually not considered</p>
+<ul class="simple">
+<li><p>Recieving time</p></li>
+<li><p>Inspection Time</p></li>
+<li><p>Intra-facility transfer time</p></li>
+<li><p>These are consider <em>availability times</em></p></li>
+</ul>
+<p>Typically in DRP Planning</p>
+<ul class="simple">
+<li><p>There is only one lead time</p></li>
+<li><p>This lead time is fairly consistent</p></li>
+<li><p>Costs due not vary based on lead time.</p></li>
+</ul>
+</div>
+<div class="section" id="in-aerospace">
+<h2>In aerospace<a class="headerlink" href="#in-aerospace" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="source-of-lead-time">
+<h2>Source of Lead Time<a class="headerlink" href="#source-of-lead-time" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vendor-quotes">
+<h3>vendor quotes<a class="headerlink" href="#vendor-quotes" title="Permalink to this headline">¶</a></h3>
+<p>Take the lead time from the maximum quote expiration date</p>
+</div>
+<div class="section" id="summarized-lead-times-should-include">
+<h3>Summarized Lead Times should include<a class="headerlink" href="#summarized-lead-times-should-include" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Vendor Code</p></li>
+<li><p>Vendor type (Manufacturer, Distibutor, intra-company</p></li>
+<li><p>Vendor quote beginning and ending effective date</p></li>
+<li><p>Date of request for quote</p></li>
+</ul>
+</div>
+<div class="section" id="lead-time-details-should-include">
+<h3>Lead time details should include:<a class="headerlink" href="#lead-time-details-should-include" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Historical lead times</p></li>
+</ul>
+</div>
+<div class="section" id="lead-time-projections">
+<h3>Lead time projections<a class="headerlink" href="#lead-time-projections" title="Permalink to this headline">¶</a></h3>
+<p>Factors that can effect lead time, Lead times can vary drastically based
+on</p>
+<ul class="simple">
+<li><p>vendor</p></li>
+<li><p>Some vendors will stock</p></li>
+<li><p>Some manufacturers will build to stock</p></li>
+<li><p>Some manufactureres will build only on demand, see Cost per Unit</p></li>
+<li><p>material shortages</p></li>
+<li><p>new product introduction</p></li>
+<li><p>product recall MRO (Maintenance, Repair and Overhaul)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="optimal-replenishment-quantity">
+<h1>Optimal Replenishment Quantity<a class="headerlink" href="#optimal-replenishment-quantity" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="create-requisition">
+<h1>Create Requisition<a class="headerlink" href="#create-requisition" title="Permalink to this headline">¶</a></h1>
+<p>]How and why to create a requisition</p>
+<div class="section" id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Look at the report section of the portal</p></li>
+<li><p>Review the information</p></li>
+<li><p>Fill out the checklist</p></li>
+<li><p>Create the requisition</p></li>
+</ol>
+<div class="section" id="requisition-checklist">
+<h3>Requisition Checklist<a class="headerlink" href="#requisition-checklist" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="sequence-diagram">
+<h2>Sequence Diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/Requisitions.png" src="_images/Requisitions.png" />
+<div class="section" id="intrinsic-information">
+<h3>Intrinsic Information<a class="headerlink" href="#intrinsic-information" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="extrinsic-information">
+<h3>Extrinsic Information<a class="headerlink" href="#extrinsic-information" title="Permalink to this headline">¶</a></h3>
+<p>Gather all information, it should all be available in the portal</p>
+</div>
+</div>
+<div class="section" id="related-articles">
+<h2>Related articles<a class="headerlink" href="#related-articles" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="service-level-agreements">
+<h1>Service Level Agreements<a class="headerlink" href="#service-level-agreements" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="definitions">
+<h1>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h1>
+<p>Definitions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ABC_SLS_PCT_DLR</span>
+
+    <span class="n">Top</span> <span class="mi">20</span> <span class="n">of</span> <span class="n">previous</span> <span class="mi">12</span> <span class="n">month</span> <span class="n">contribution</span> <span class="n">to</span> <span class="n">sales</span> <span class="n">dollars</span>
+    <span class="n">Does</span> <span class="ow">not</span> <span class="n">adequately</span> <span class="n">support</span> <span class="n">new</span> <span class="n">product</span> <span class="n">introduction</span>
+
+<span class="n">ABC_CUST_QTE</span>
+
+<span class="n">SVC_LVL</span>
+
+    <span class="n">Contractual</span> <span class="n">service</span> <span class="n">levels</span>
+
+<span class="n">ABC_SLS_PCT</span> <span class="n">ABC</span> <span class="n">Sales</span> <span class="n">Percent</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html#document-index">APS Portal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ABC">ABC - Pareto - Item Statistics XYZZ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-UnitCost">Unit Cost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#questions">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#conclusion">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#proposal">Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#system-will-produce">System will produce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id5">Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id6">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id7">Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id10">System will produce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-MultipleLeadTimes">Lead Time By Vendor  - Multiple Lead Times</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Requisitions">Requisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Create-Requisition">Business Process Improvement : Create Requisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-OptimalReplenishmentQuantity">Optimal Replenishment Quantity</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

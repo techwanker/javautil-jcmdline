@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Record Layouts</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="record-layouts">
+<h1>Record Layouts</h1>
+<p>This details the reporting format as last posted by custdata.com
+on their website.  This is available at</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">web</span><span class="o">.</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">web</span><span class="o">/*/</span><span class="n">custdata</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+<div class="section" id="inventory">
+<h2>Inventory</h2>
+<table class="docutils">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>field_name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>offset</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DISTRIBUTOR_ID</p></td>
+<td><p>DIGITS</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>MFR_ID</p></td>
+<td><p>DIGITS</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-even"><td><p>MFR_PRODUCT_ID</p></td>
+<td><p>DIGITS</p></td>
+<td><p>20</p></td>
+<td><p>8</p></td>
+<td><p>{:0&gt;8s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>COMMENTS</p></td>
+<td><p>TEXT</p></td>
+<td><p>28</p></td>
+<td><p>96</p></td>
+<td><p>{:&lt;96s}</p></td>
+</tr>
+<tr class="row-even"><td><p>CASES</p></td>
+<td><p>INTEGER</p></td>
+<td><p>124</p></td>
+<td><p>6</p></td>
+<td><p>{0:06d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOXES</p></td>
+<td><p>INTEGER</p></td>
+<td><p>130</p></td>
+<td><p>6</p></td>
+<td><p>{0:06d}</p></td>
+</tr>
+<tr class="row-even"><td><p>UNITS</p></td>
+<td><p>INTEGER</p></td>
+<td><p>136</p></td>
+<td><p>6</p></td>
+<td><p>{0:06d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>CASE_GTIN</p></td>
+<td><p>DIGITS</p></td>
+<td><p>142</p></td>
+<td><p>14</p></td>
+<td><p>{:0&lt;14s}</p></td>
+</tr>
+<tr class="row-even"><td><p>FILLER</p></td>
+<td><p>LITERAL</p></td>
+<td><p>156</p></td>
+<td><p>12</p></td>
+<td><p>{:&lt;12s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>RECORD_TYPE</p></td>
+<td><p>LITERAL</p></td>
+<td><p>168</p></td>
+<td><p>2</p></td>
+<td><p>{:&lt;2s}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="customer">
+<h2>Customer</h2>
+<table class="docutils">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>field_name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>offset</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FILLER_00_05</p></td>
+<td><p>LITERAL</p></td>
+<td><p>0</p></td>
+<td><p>6</p></td>
+<td><p>{:&gt;6}</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLASS_OF_TRADE</p></td>
+<td><p>TEXT</p></td>
+<td><p>6</p></td>
+<td><p>4</p></td>
+<td><p>{:&lt;4s}</p></td>
+</tr>
+<tr class="row-even"><td><p>SHIP_TO_CUST_ID</p></td>
+<td><p>TEXT</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>CUST_NM</p></td>
+<td><p>TEXT</p></td>
+<td><p>20</p></td>
+<td><p>30</p></td>
+<td><p>{:&lt;30s}</p></td>
+</tr>
+<tr class="row-even"><td><p>ADDR_1</p></td>
+<td><p>TEXT</p></td>
+<td><p>50</p></td>
+<td><p>30</p></td>
+<td><p>{:&lt;30s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADDR_2</p></td>
+<td><p>TEXT</p></td>
+<td><p>80</p></td>
+<td><p>30</p></td>
+<td><p>{:&lt;30s}</p></td>
+</tr>
+<tr class="row-even"><td><p>CITY</p></td>
+<td><p>TEXT</p></td>
+<td><p>110</p></td>
+<td><p>25</p></td>
+<td><p>{:&lt;25s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>STATE</p></td>
+<td><p>TEXT</p></td>
+<td><p>135</p></td>
+<td><p>2</p></td>
+<td><p>{:&lt;2s}</p></td>
+</tr>
+<tr class="row-even"><td><p>POSTAL_CD</p></td>
+<td><p>DIGITS</p></td>
+<td><p>137</p></td>
+<td><p>9</p></td>
+<td><p>{:0&gt;9s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>TEL_NBR</p></td>
+<td><p>DIGITS</p></td>
+<td><p>146</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-even"><td><p>NATIONAL_ACCT_ID</p></td>
+<td><p>TEXT</p></td>
+<td><p>156</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPECIAL_FLG</p></td>
+<td><p>TEXT</p></td>
+<td><p>166</p></td>
+<td><p>1</p></td>
+<td><p>{:&gt;1s}</p></td>
+</tr>
+<tr class="row-even"><td><p>FILLER_1</p></td>
+<td><p>LITERAL</p></td>
+<td><p>167</p></td>
+<td><p>1</p></td>
+<td><p>{:&gt;1s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>RECORD_TYPE</p></td>
+<td><p>LITERAL</p></td>
+<td><p>168</p></td>
+<td><p>2</p></td>
+<td><p>{:&gt;2s}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inventory-total">
+<h2>Inventory Total</h2>
+<table class="docutils">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>field_name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>offset</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HEADER</p></td>
+<td><p>LITERAL</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+<td><p>{:&gt;1s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER36</p></td>
+<td><p>LITERAL</p></td>
+<td><p>10</p></td>
+<td><p>36</p></td>
+<td><p>{:&gt;36}</p></td>
+</tr>
+<tr class="row-even"><td><p>INVENTORY_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>46</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILE_CREATION_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>54</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-even"><td><p>RECORD_CNT_REPORTED</p></td>
+<td><p>INTEGER</p></td>
+<td><p>62</p></td>
+<td><p>9</p></td>
+<td><p>{0:09d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER97</p></td>
+<td><p>LITERAL</p></td>
+<td><p>71</p></td>
+<td><p>97</p></td>
+<td><p>{:&gt;97}</p></td>
+</tr>
+<tr class="row-even"><td><p>RECORD_TYPE</p></td>
+<td><p>LITERAL</p></td>
+<td><p>168</p></td>
+<td><p>2</p></td>
+<td><p>{:&gt;2}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="customer-total">
+<h2>Customer Total</h2>
+<table class="docutils">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>field_name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>offset</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HEADER</p></td>
+<td><p>LITERAL</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+<td><p>{:&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER_127</p></td>
+<td><p>LITERAL</p></td>
+<td><p>10</p></td>
+<td><p>127</p></td>
+<td><p>{:&gt;127s}</p></td>
+</tr>
+<tr class="row-even"><td><p>CUSTOMER_COUNT</p></td>
+<td><p>INTEGER</p></td>
+<td><p>137</p></td>
+<td><p>9</p></td>
+<td><p>{0:09d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER_22</p></td>
+<td><p>LITERAL</p></td>
+<td><p>146</p></td>
+<td><p>22</p></td>
+<td><p>{:&gt;22s}</p></td>
+</tr>
+<tr class="row-even"><td><p>RECORD_TYPE</p></td>
+<td><p>LITERAL</p></td>
+<td><p>168</p></td>
+<td><p>2</p></td>
+<td><p>{:&gt;2s}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sales">
+<h2>Sales</h2>
+<table class="docutils">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>field_name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>offset</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DISTRIB_ID</p></td>
+<td><p>TEXT</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>MFR_ID</p></td>
+<td><p>TEXT</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-even"><td><p>MFR_PRODUCT_ID</p></td>
+<td><p>TEXT</p></td>
+<td><p>20</p></td>
+<td><p>8</p></td>
+<td><p>{:0&gt;8s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>SHIP_TO_CUST_ID</p></td>
+<td><p>TEXT</p></td>
+<td><p>28</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-even"><td><p>INVOICE_CD</p></td>
+<td><p>TEXT</p></td>
+<td><p>38</p></td>
+<td><p>10</p></td>
+<td><p>{:0&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>INVOICE_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>48</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-even"><td><p>SHIP_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>56</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER</p></td>
+<td><p>LITERAL</p></td>
+<td><p>64</p></td>
+<td><p>9</p></td>
+<td><p>{:&lt;9s}</p></td>
+</tr>
+<tr class="row-even"><td><p>EXTENDED_NET_AMT</p></td>
+<td><p>INTEGER</p></td>
+<td><p>73</p></td>
+<td><p>9</p></td>
+<td><p>{0:09d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>DISTRIB_PRODUCT_REF</p></td>
+<td><p>TEXT</p></td>
+<td><p>82</p></td>
+<td><p>12</p></td>
+<td><p>{:&lt;12s}</p></td>
+</tr>
+<tr class="row-even"><td><p>PRODUCT_DESCR</p></td>
+<td><p>TEXT</p></td>
+<td><p>94</p></td>
+<td><p>30</p></td>
+<td><p>{:&lt;30s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>CASES_SHIPPED</p></td>
+<td><p>INTEGER</p></td>
+<td><p>124</p></td>
+<td><p>6</p></td>
+<td><p>{0:06d}</p></td>
+</tr>
+<tr class="row-even"><td><p>BOXES_SHIPPED</p></td>
+<td><p>INTEGER</p></td>
+<td><p>130</p></td>
+<td><p>6</p></td>
+<td><p>{0:06d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>UNITS_SHIPPED</p></td>
+<td><p>INTEGER</p></td>
+<td><p>136</p></td>
+<td><p>6</p></td>
+<td><p>{0:06d}</p></td>
+</tr>
+<tr class="row-even"><td><p>CASE_GTIN</p></td>
+<td><p>TEXT</p></td>
+<td><p>142</p></td>
+<td><p>14</p></td>
+<td><p>{:0&gt;14s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER_12</p></td>
+<td><p>LITERAL</p></td>
+<td><p>156</p></td>
+<td><p>12</p></td>
+<td><p>{:&gt;12s}</p></td>
+</tr>
+<tr class="row-even"><td><p>RECORD_TYPE</p></td>
+<td><p>LITERAL</p></td>
+<td><p>168</p></td>
+<td><p>2</p></td>
+<td><p>{:&lt;2s}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sales-total">
+<h2>Sales Total</h2>
+<table class="docutils">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>field_name</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>offset</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HEADER</p></td>
+<td><p>LITERAL</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+<td><p>{:&gt;10s}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER_28</p></td>
+<td><p>LITERAL</p></td>
+<td><p>10</p></td>
+<td><p>28</p></td>
+<td><p>{:&gt;28s}</p></td>
+</tr>
+<tr class="row-even"><td><p>SALES_START_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>38</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-odd"><td><p>SALES_END_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>46</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-even"><td><p>FILE_CREATE_DT</p></td>
+<td><p>DATE</p></td>
+<td><p>54</p></td>
+<td><p>8</p></td>
+<td><p>%Y%m%d</p></td>
+</tr>
+<tr class="row-odd"><td><p>SALES_REC_CNT</p></td>
+<td><p>INTEGER</p></td>
+<td><p>62</p></td>
+<td><p>9</p></td>
+<td><p>{:0&gt;9d}</p></td>
+</tr>
+<tr class="row-even"><td><p>SUM_EXT_NET_AMT</p></td>
+<td><p>INTEGER</p></td>
+<td><p>71</p></td>
+<td><p>11</p></td>
+<td><p>{:0&gt;11d}</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILLER_86</p></td>
+<td><p>LITERAL</p></td>
+<td><p>82</p></td>
+<td><p>86</p></td>
+<td><p>{:&gt;86s}</p></td>
+</tr>
+<tr class="row-even"><td><p>RECORD_TYPE</p></td>
+<td><p>LITERAL</p></td>
+<td><p>168</p></td>
+<td><p>2</p></td>
+<td><p>{:&lt;2s}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+Tables
+
+  apsAllocOnhandFcs
+  apsAllocOnhandOos
+  apsAllocOnhandSss
+  apsAllocOnhandWos
+  apsAllocReplenFcs
+  apsAllocReplenOos
+  apsAllocReplenSss
+  apsAllocReplenWos
+  apsAllocWoFcs
+  apsAllocWoOos
+  apsAllocWoSss
+  apsAllocWoWos
+  apsAvailOnhands
+  apsAvailReplens
+  apsAvailWos
+  apsDmdFcs
+  apsDmdOos
+  apsDmdSss
+  apsDmdWos
+  apsItemGlobalSubsts
+  apsSplySubPools
+  apsSrcRules
+  apsSrcRuleSets
+  fcItemMasts
+  fcstGrps
+  icCertCds
+  icItemCustsSubsts
+  icItemMastEquivs
+  icItemMasts
+  oeCustMasts
+  oeCustMfrs
+  oeOrdDtlCerts
+  utFacilities
+  
+}

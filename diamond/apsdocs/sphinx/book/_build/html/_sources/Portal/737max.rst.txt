@@ -1,0 +1,14 @@
+Airframe Scenario 737 Max
+===========================
+
+As Boeing grounds planes and stops manufacturing 737 Max, 
+
+lead times from and costs from distributors are presumably dropping, but Align would carry until ramp up resumes. Can they be bought at manufacturer costs now and sat on until production resumes?  Lower acquisition cost, higher carrying costs and intermediate turns will be non existent but risk of obsolescence decreases. We can only plug in the variables and run various simulations or a Monte Carlo simulation.
+
+All intrinsic system information for my formulas is worthless in this scenario. 
+
+Buy a bunch of parts at lower cost now and take delivery now from distributors or buy for delivery in 30 weeks?  When will production resume?   These are judgment calls based communication with the manufacturer.  The distributors are probably offering for less, the lead times should be shorter, the costs less, but the will sit idle for six to eighteen months.
+
+We can only plug in these assumptions and come up with buys based on those assumptions, historical data in the system has significantly less value.  We can only come up with investment cost and carrying cost based on this extrinsic information and the formulas I have developed but not yet published.
+
+Can we talk today? It sure doesn't take the whole team.  Have you had chance to look at the Confluence to which I set you an invite?

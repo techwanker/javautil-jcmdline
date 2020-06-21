@@ -1,0 +1,282 @@
+psql:generate_fk.sql:10: ERROR:  syntax error at or near "SQL"
+LINE 1: SQL> SELECT 'alter table ' || a.table_name || ' add constrai...
+        ^
+psql:generate_fk.sql:14: ERROR:  syntax error at or near "Enter"
+LINE 1: Enter value for table_name: IC%
+        ^
+psql:generate_fk.sql:15: ERROR:  constraint "ic_item_attr_ic_item_mast_fk" for relation "ic_item_attr" already exists
+psql:generate_fk.sql:16: ERROR:  constraint "ic_kit_mast_aps_sply_sub_pool_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:17: ERROR:  constraint "ic_lot_mast_ic_item_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:18: ERROR:  relation "ic_lot_mast_bound" does not exist
+psql:generate_fk.sql:19: ERROR:  relation "wh_pick_scan_id" does not exist
+psql:generate_fk.sql:20: ERROR:  constraint "ic_item_loc_ic_lot_mast_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:21: ERROR:  constraint "ic_item_loc_ic_lot_mast_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:22: ERROR:  constraint "ic_lot_mast_ic_lot_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:23: ERROR:  constraint "ic_item_mast_ic_category_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:24: ERROR:  constraint "ic_bin_ut_facility_fk" for relation "ic_bin" already exists
+psql:generate_fk.sql:25: ERROR:  relation "ic_um_cnvt" does not exist
+psql:generate_fk.sql:26: ERROR:  constraint "ic_item_loc_aps_sply_sub_pool_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:27: ERROR:  constraint "ic_lot_mast_ic_lot_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:28: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:generate_fk.sql:29: ERROR:  relation "ic_tote" does not exist
+psql:generate_fk.sql:30: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr)=(7866) is not present in table "po_mfr_mast".
+psql:generate_fk.sql:31: ERROR:  constraint "ic_item_restrict_cust_ic_item_mast_fk" for relation "ic_item_restrict_cust" already exists
+psql:generate_fk.sql:32: ERROR:  constraint "ic_item_mfg_path_ic_item_mast_fk" for relation "ic_item_mfg_path" already exists
+psql:generate_fk.sql:33: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:34: ERROR:  insert or update on table "ic_item_loc_box" violates foreign key constraint "ic_item_loc_box_ic_item_loc_fk"
+DETAIL:  Key (ic_item_loc_nbr)=(6065116) is not present in table "ic_item_loc".
+psql:generate_fk.sql:35: ERROR:  constraint "ic_lot_mast_cert_ic_lot_mast_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:36: ERROR:  constraint "ic_item_narr_ic_item_mast_fk" for relation "ic_item_narr" already exists
+psql:generate_fk.sql:37: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:38: ERROR:  constraint "ic_item_mast_rel_ic_item_mast_fk" for relation "ic_item_mast_rel" already exists
+psql:generate_fk.sql:39: ERROR:  relation "ic_lot_mast_cert_log" does not exist
+psql:generate_fk.sql:40: ERROR:  relation "wh_whse_zone" does not exist
+psql:generate_fk.sql:41: ERROR:  relation "ic_lot_mast_po_dtl" does not exist
+psql:generate_fk.sql:42: ERROR:  constraint "ic_item_attr_ic_item_mast_fk" for relation "ic_item_attr" already exists
+psql:generate_fk.sql:43: ERROR:  insert or update on table "ic_item_mast_nomen" violates foreign key constraint "ic_item_mast_nomen_na_org_fk"
+DETAIL:  Key (org_nbr_nomen)=(8988) is not present in table "na_org".
+psql:generate_fk.sql:44: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:45: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_vnd_mast_fk"
+DETAIL:  Key (org_nbr_vnd)=(8974) is not present in table "po_vnd_mast".
+psql:generate_fk.sql:46: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:47: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:48: ERROR:  constraint "ic_bom_ic_item_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:49: ERROR:  constraint "ic_attr_val_ic_attr_fk" for relation "ic_attr_val" already exists
+psql:generate_fk.sql:50: ERROR:  constraint "ic_attr_val_ic_attr_fk" for relation "ic_attr_val" already exists
+psql:generate_fk.sql:51: ERROR:  constraint "ic_item_rev_lvl_ic_item_mast_fk" for relation "ic_item_rev_lvl" already exists
+psql:generate_fk.sql:52: ERROR:  insert or update on table "ic_kit_mast" violates foreign key constraint "ic_kit_mast_ut_facility_fk"
+DETAIL:  Key (facility_dflt)=(TORONTO) is not present in table "ut_facility".
+psql:generate_fk.sql:53: ERROR:  constraint "ic_bom_cert_ic_cert_cd_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:54: ERROR:  constraint "ic_bom_cert_ic_item_mast_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:55: ERROR:  constraint "ic_item_cust_subst_ic_item_mast_fk" for relation "ic_item_cust_subst" already exists
+psql:generate_fk.sql:56: ERROR:  constraint "ic_item_loc_ic_lot_mast_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:57: ERROR:  constraint "ic_item_price_matrix_ic_item_mast_fk" for relation "ic_item_price_matrix" already exists
+psql:generate_fk.sql:58: ERROR:  constraint "ic_item_cost_ic_item_mast_fk" for relation "ic_item_cost" already exists
+psql:generate_fk.sql:59: ERROR:  relation "ut_label_class" does not exist
+psql:generate_fk.sql:60: ERROR:  constraint "ic_item_mast_equiv_ic_item_mast_fk" for relation "ic_item_mast_equiv" already exists
+psql:generate_fk.sql:61: ERROR:  constraint "ic_item_price_matrix_ic_item_mast_fk" for relation "ic_item_price_matrix" already exists
+psql:generate_fk.sql:62: ERROR:  constraint "ic_item_loc_aps_sply_sub_pool_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:63: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:64: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:65: ERROR:  insert or update on table "ic_item_attr" violates foreign key constraint "ic_item_attr_ic_attr_fk"
+DETAIL:  Key (ic_attr_nbr)=(107) is not present in table "ic_attr".
+psql:generate_fk.sql:66: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:67: ERROR:  constraint "ic_multiple_cert_ic_item_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:68: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:69: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_mfr_mast_fk"
+DETAIL:  Key (org_nbr_mfr)=(7866) is not present in table "po_mfr_mast".
+psql:generate_fk.sql:70: ERROR:  relation "ic_trans_gl_acct" does not exist
+psql:generate_fk.sql:71: ERROR:  relation "ic_trans_gl_acct" does not exist
+psql:generate_fk.sql:72: ERROR:  constraint "ic_item_mast_nomen_ic_item_mast_fk" for relation "ic_item_mast_nomen" already exists
+psql:generate_fk.sql:73: ERROR:  constraint "ic_lot_mast_cert_ic_cert_cd_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:74: ERROR:  constraint "ic_item_loc_ic_bin_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:75: ERROR:  relation "ic_category_narr" does not exist
+psql:generate_fk.sql:76: ERROR:  constraint "ic_item_mast_nomen_ic_item_mast_fk" for relation "ic_item_mast_nomen" already exists
+psql:generate_fk.sql:77: ERROR:  constraint "ic_lot_mast_cert_ic_lot_mast_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:78: ERROR:  relation "ic_um_cnvt" does not exist
+psql:generate_fk.sql:79: ERROR:  constraint "ic_item_loc_aps_sply_sub_pool_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:80: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:81: ERROR:  constraint "ic_attr_val_ic_attr_fk" for relation "ic_attr_val" already exists
+psql:generate_fk.sql:82: ERROR:  constraint "ic_lot_mast_ic_lot_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:83: ERROR:  relation "ic_category_attr" does not exist
+psql:generate_fk.sql:84: ERROR:  constraint "ic_lot_mast_po_line_hdr_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:85: ERROR:  relation "ic_item_ser_dtl" does not exist
+psql:generate_fk.sql:86: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:87: ERROR:  relation "ic_lot_image" does not exist
+psql:generate_fk.sql:88: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_ord_hdr_fk"
+DETAIL:  Key (po_ord_hdr_nbr)=(43526) is not present in table "po_ord_hdr".
+psql:generate_fk.sql:89: ERROR:  constraint "ic_kit_mast_ic_item_mast_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:90: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:91: ERROR:  relation "mfg_operation" does not exist
+psql:generate_fk.sql:92: ERROR:  constraint "ic_item_mast_ic_category_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:93: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:generate_fk.sql:94: ERROR:  relation "ic_inventory_snapshot" does not exist
+psql:generate_fk.sql:95: ERROR:  constraint "ic_item_mast_upd_queue_ic_item_mast_fk" for relation "ic_item_mast_upd_queue" already exists
+psql:generate_fk.sql:96: ERROR:  constraint "ic_item_mast_upd_queue_ut_user_fk" for relation "ic_item_mast_upd_queue" already exists
+psql:generate_fk.sql:97: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:98: ERROR:  constraint "ic_um_cnvt_item_ic_item_mast_fk" for relation "ic_um_cnvt_item" already exists
+psql:generate_fk.sql:99: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:100: ERROR:  constraint "ic_item_loc_ic_bin_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:101: ERROR:  constraint "ic_lot_mast_cert_ic_lot_mast_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:102: ERROR:  constraint "ic_item_loc_ic_bin_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:103: ERROR:  constraint "ic_item_rev_lvl_ic_item_mast_fk" for relation "ic_item_rev_lvl" already exists
+psql:generate_fk.sql:104: ERROR:  constraint "ic_lot_mast_ic_lot_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:105: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:106: ERROR:  relation "ic_duty_rate" does not exist
+psql:generate_fk.sql:107: ERROR:  constraint "ic_item_stat_ic_item_mast_fk" for relation "ic_item_stat" already exists
+psql:generate_fk.sql:108: ERROR:  constraint "ic_item_vnd_cost_matrix_ic_item_mast_fk" for relation "ic_item_vnd_cost_matrix" already exists
+psql:generate_fk.sql:109: ERROR:  relation "ic_lot_image" does not exist
+psql:generate_fk.sql:110: ERROR:  constraint "ic_multiple_cert_ic_lot_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:111: ERROR:  relation "ic_item_ser" does not exist
+psql:generate_fk.sql:112: ERROR:  relation "ic_inventory_snapshot" does not exist
+psql:generate_fk.sql:113: ERROR:  constraint "ic_attr_val_ic_attr_fk" for relation "ic_attr_val" already exists
+psql:generate_fk.sql:114: ERROR:  relation "ic_item_cost_type" does not exist
+psql:generate_fk.sql:115: ERROR:  constraint "ic_item_vnd_cost_matrix_po_vnd_mast_fk" for relation "ic_item_vnd_cost_matrix" already exists
+psql:generate_fk.sql:116: ERROR:  constraint "ic_lot_mast_po_line_hdr_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:117: ERROR:  constraint "ic_bom_ic_item_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:118: ERROR:  constraint "ic_item_mast_equiv_ic_item_mast_fk" for relation "ic_item_mast_equiv" already exists
+psql:generate_fk.sql:119: ERROR:  constraint "ic_item_restrict_cust_oe_cust_mast_fk" for relation "ic_item_restrict_cust" already exists
+psql:generate_fk.sql:120: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:121: ERROR:  relation "ic_item_ser_dtl" does not exist
+psql:generate_fk.sql:122: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:123: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:124: ERROR:  insert or update on table "ic_item_mast_nomen" violates foreign key constraint "ic_item_mast_nomen_na_org_fk"
+DETAIL:  Key (org_nbr_nomen)=(8988) is not present in table "na_org".
+psql:generate_fk.sql:125: ERROR:  constraint "ic_bom_cert_ic_item_mast_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:126: ERROR:  constraint "ic_bom_cert_ic_item_mast_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:127: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:128: ERROR:  constraint "ic_item_cust_subst_ic_item_mast_fk" for relation "ic_item_cust_subst" already exists
+psql:generate_fk.sql:129: ERROR:  constraint "ic_multiple_cert_ic_item_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:130: ERROR:  constraint "ic_bom_cert_ic_item_mast_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:131: ERROR:  constraint "ic_item_loc_aps_sply_sub_pool_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:132: ERROR:  constraint "ic_kit_mast_aps_src_rule_set_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:133: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_vnd_mast_fk"
+DETAIL:  Key (org_nbr_vnd)=(8974) is not present in table "po_vnd_mast".
+psql:generate_fk.sql:134: ERROR:  constraint "ic_item_mast_equiv_ic_item_mast_fk" for relation "ic_item_mast_equiv" already exists
+psql:generate_fk.sql:135: ERROR:  constraint "ic_item_mast_cert_ic_item_mast_fk" for relation "ic_item_mast_cert" already exists
+psql:generate_fk.sql:136: ERROR:  constraint "ic_item_mast_upd_queue_ut_user_fk" for relation "ic_item_mast_upd_queue" already exists
+psql:generate_fk.sql:137: ERROR:  constraint "ic_kit_mast_ic_item_mast_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:138: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:139: ERROR:  constraint "ic_item_loc_ic_bin_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:140: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:141: ERROR:  relation "img_image_set_hdr" does not exist
+psql:generate_fk.sql:142: ERROR:  relation "ic_category_attr" does not exist
+psql:generate_fk.sql:143: ERROR:  constraint "ic_kit_mast_oe_cust_mast_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:144: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:145: ERROR:  relation "ic_lot_image" does not exist
+psql:generate_fk.sql:146: ERROR:  constraint "ic_category_ic_category_fk" for relation "ic_category" already exists
+psql:generate_fk.sql:147: ERROR:  constraint "ic_bin_ut_facility_fk" for relation "ic_bin" already exists
+psql:generate_fk.sql:148: ERROR:  relation "ic_lot_mast_cert_log" does not exist
+psql:generate_fk.sql:149: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_ord_hdr_fk"
+DETAIL:  Key (po_ord_hdr_nbr)=(43526) is not present in table "po_ord_hdr".
+psql:generate_fk.sql:150: ERROR:  constraint "ic_lot_mast_po_line_hdr_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:151: ERROR:  constraint "ic_multiple_cert_ic_lot_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:152: ERROR:  relation "ic_whse_zone_grp_dtl" does not exist
+psql:generate_fk.sql:153: ERROR:  insert or update on table "ic_item_mast" violates foreign key constraint "ic_item_mast_na_indiv_fk"
+DETAIL:  Key (indiv_nbr_buyer)=(33203) is not present in table "na_indiv".
+psql:generate_fk.sql:154: ERROR:  constraint "ic_item_loc_aps_sply_sub_pool_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:155: ERROR:  constraint "ic_lot_mast_ic_lot_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:156: ERROR:  constraint "ic_lot_mast_cert_ic_lot_mast_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:157: ERROR:  constraint "ic_item_loc_ic_lot_mast_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:158: ERROR:  constraint "ic_item_loc_ic_bin_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:159: ERROR:  constraint "ic_item_cust_subst_oe_cust_mast_fk" for relation "ic_item_cust_subst" already exists
+psql:generate_fk.sql:160: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:161: ERROR:  relation "ic_item_ser" does not exist
+psql:generate_fk.sql:162: ERROR:  constraint "ic_kit_mast_oe_cust_mast_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:163: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:164: ERROR:  constraint "ic_item_mast_equiv_ic_item_mast_fk" for relation "ic_item_mast_equiv" already exists
+psql:generate_fk.sql:165: ERROR:  constraint "ic_bom_ic_item_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:166: ERROR:  constraint "ic_item_attr_ic_item_mast_fk" for relation "ic_item_attr" already exists
+psql:generate_fk.sql:167: ERROR:  constraint "ic_item_operation_yield_ic_item_mast_fk" for relation "ic_item_operation_yield" already exists
+psql:generate_fk.sql:168: ERROR:  constraint "ic_item_operation_yield_ic_item_mast_fk" for relation "ic_item_operation_yield" already exists
+psql:generate_fk.sql:169: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:170: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:171: ERROR:  constraint "ic_kit_mast_aps_sply_sub_pool_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:172: ERROR:  constraint "ic_item_attr_ic_item_mast_fk" for relation "ic_item_attr" already exists
+psql:generate_fk.sql:173: ERROR:  constraint "ic_vnd_onhand_ic_item_mast_fk" for relation "ic_vnd_onhand" already exists
+psql:generate_fk.sql:174: ERROR:  insert or update on table "ic_item_attr" violates foreign key constraint "ic_item_attr_ic_attr_fk"
+DETAIL:  Key (ic_attr_nbr)=(107) is not present in table "ic_attr".
+psql:generate_fk.sql:175: ERROR:  constraint "ic_lot_mast_cert_ic_cert_cd_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:176: ERROR:  constraint "ic_um_cnvt_item_ic_item_mast_fk" for relation "ic_um_cnvt_item" already exists
+psql:generate_fk.sql:177: ERROR:  constraint "ic_item_mast_cert_ic_item_mast_fk" for relation "ic_item_mast_cert" already exists
+psql:generate_fk.sql:178: ERROR:  insert or update on table "ic_item_attr" violates foreign key constraint "ic_item_attr_ic_attr_fk"
+DETAIL:  Key (ic_attr_nbr)=(107) is not present in table "ic_attr".
+psql:generate_fk.sql:179: ERROR:  there is no primary key for referenced table "po_vnd_set_hdr"
+psql:generate_fk.sql:180: ERROR:  relation "ic_category_auth" does not exist
+psql:generate_fk.sql:181: ERROR:  constraint "ic_item_mast_cert_ic_cert_cd_fk" for relation "ic_item_mast_cert" already exists
+psql:generate_fk.sql:182: ERROR:  constraint "ic_bom_ic_item_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:183: ERROR:  constraint "ic_category_ic_category_fk" for relation "ic_category" already exists
+psql:generate_fk.sql:184: ERROR:  constraint "ic_lot_mast_cert_ic_lot_mast_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:185: ERROR:  relation "ic_item_ser_dtl" does not exist
+psql:generate_fk.sql:186: ERROR:  constraint "ic_item_cust_subst_ic_item_mast_fk" for relation "ic_item_cust_subst" already exists
+psql:generate_fk.sql:187: ERROR:  constraint "ic_item_restrict_cust_ic_item_mast_fk" for relation "ic_item_restrict_cust" already exists
+psql:generate_fk.sql:188: ERROR:  constraint "ic_bom_po_mfr_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:189: ERROR:  relation "ic_category_auth" does not exist
+psql:generate_fk.sql:190: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:191: ERROR:  there is no primary key for referenced table "po_vnd_set_hdr"
+psql:generate_fk.sql:192: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:193: ERROR:  relation "ic_lot_mast_bound" does not exist
+psql:generate_fk.sql:194: ERROR:  relation "cycle_cnt_rule" does not exist
+psql:generate_fk.sql:195: ERROR:  constraint "ic_attr_val_ic_attr_fk" for relation "ic_attr_val" already exists
+psql:generate_fk.sql:196: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:197: ERROR:  constraint "ic_item_cust_subst_oe_cust_mast_fk" for relation "ic_item_cust_subst" already exists
+psql:generate_fk.sql:198: ERROR:  relation "geo_country" does not exist
+psql:generate_fk.sql:199: ERROR:  relation "ic_tote" does not exist
+psql:generate_fk.sql:200: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:generate_fk.sql:201: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:202: ERROR:  relation "ic_recv_rule" does not exist
+psql:generate_fk.sql:203: ERROR:  constraint "ic_item_restrict_cust_oe_cust_mast_fk" for relation "ic_item_restrict_cust" already exists
+psql:generate_fk.sql:204: ERROR:  constraint "ic_lot_mast_ic_item_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:205: ERROR:  constraint "ic_item_cost_ic_item_mast_fk" for relation "ic_item_cost" already exists
+psql:generate_fk.sql:206: ERROR:  relation "ic_lot_cost_hist" does not exist
+psql:generate_fk.sql:207: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_ord_hdr_fk"
+DETAIL:  Key (po_ord_hdr_nbr)=(43526) is not present in table "po_ord_hdr".
+psql:generate_fk.sql:208: ERROR:  constraint "ic_lot_mast_ut_user_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:209: ERROR:  constraint "ic_item_narr_ic_item_mast_fk" for relation "ic_item_narr" already exists
+psql:generate_fk.sql:210: ERROR:  relation "ic_whse_zone_xx" does not exist
+psql:generate_fk.sql:211: ERROR:  constraint "ic_item_mast_cert_ic_cert_cd_fk" for relation "ic_item_mast_cert" already exists
+psql:generate_fk.sql:212: ERROR:  number of referencing and referenced columns for foreign key disagree
+psql:generate_fk.sql:213: ERROR:  constraint "ic_item_mast_upd_queue_ic_item_mast_fk" for relation "ic_item_mast_upd_queue" already exists
+psql:generate_fk.sql:214: ERROR:  constraint "ic_multiple_cert_ic_lot_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:215: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:216: ERROR:  relation "ic_lot_cost_hist" does not exist
+psql:generate_fk.sql:217: ERROR:  constraint "ic_bom_ic_item_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:218: ERROR:  constraint "ic_item_mast_rel_ic_item_mast_fk" for relation "ic_item_mast_rel" already exists
+psql:generate_fk.sql:219: ERROR:  constraint "ic_bom_cert_ic_item_mast_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:220: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:221: ERROR:  constraint "ic_item_loc_ic_lot_mast_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:222: ERROR:  constraint "ic_item_cust_subst_ic_item_mast_fk" for relation "ic_item_cust_subst" already exists
+psql:generate_fk.sql:223: ERROR:  constraint "ic_lot_mast_ic_lot_mast_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:224: ERROR:  constraint "ic_item_loc_aps_sply_sub_pool_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:225: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:226: ERROR:  constraint "ic_lot_mast_po_line_hdr_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:227: ERROR:  relation "ic_trans_hist" does not exist
+psql:generate_fk.sql:228: ERROR:  relation "ic_whse_zone_grp" does not exist
+psql:generate_fk.sql:229: ERROR:  constraint "ic_item_attr_ic_item_mast_fk" for relation "ic_item_attr" already exists
+psql:generate_fk.sql:230: ERROR:  constraint "ic_item_mast_ic_item_mast_fk" for relation "ic_item_mast" already exists
+psql:generate_fk.sql:231: ERROR:  insert or update on table "ic_item_mast" violates foreign key constraint "ic_item_mast_na_indiv_fk"
+DETAIL:  Key (indiv_nbr_buyer)=(33203) is not present in table "na_indiv".
+psql:generate_fk.sql:232: ERROR:  constraint "ic_attr_val_ic_attr_fk" for relation "ic_attr_val" already exists
+psql:generate_fk.sql:233: ERROR:  insert or update on table "ic_lot_mast" violates foreign key constraint "ic_lot_mast_po_ord_hdr_fk"
+DETAIL:  Key (po_ord_hdr_nbr)=(43526) is not present in table "po_ord_hdr".
+psql:generate_fk.sql:234: ERROR:  relation "qa_reject_codes" does not exist
+psql:generate_fk.sql:235: ERROR:  relation "ic_duty_rate" does not exist
+psql:generate_fk.sql:236: ERROR:  constraint "ic_item_attr_ic_item_mast_fk" for relation "ic_item_attr" already exists
+psql:generate_fk.sql:237: ERROR:  relation "ic_lot_cost_hist" does not exist
+psql:generate_fk.sql:238: ERROR:  relation "ic_tote" does not exist
+psql:generate_fk.sql:239: ERROR:  relation "ic_inventory_snapshot" does not exist
+psql:generate_fk.sql:240: ERROR:  there is no primary key for referenced table "currency"
+psql:generate_fk.sql:241: ERROR:  constraint "ic_lot_mast_cert_ic_lot_mast_fk" for relation "ic_lot_mast_cert" already exists
+psql:generate_fk.sql:242: ERROR:  relation "ic_item_ser" does not exist
+psql:generate_fk.sql:243: ERROR:  constraint "ic_kit_mast_aps_src_rule_set_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:244: ERROR:  relation "ic_lot_mast_po_dtl" does not exist
+psql:generate_fk.sql:245: ERROR:  constraint "ic_item_loc_ic_lot_mast_fk" for relation "ic_item_loc" already exists
+psql:generate_fk.sql:246: ERROR:  insert or update on table "ic_vnd_onhand" violates foreign key constraint "ic_vnd_onhand_po_vnd_mast_fk"
+DETAIL:  Key (org_nbr_vnd)=(1711) is not present in table "po_vnd_mast".
+psql:generate_fk.sql:247: ERROR:  relation "mfg_path" does not exist
+psql:generate_fk.sql:248: ERROR:  constraint "ic_item_cost_ic_item_mast_fk" for relation "ic_item_cost" already exists
+psql:generate_fk.sql:249: ERROR:  constraint "ic_item_vnd_cost_matrix_po_vnd_mast_fk" for relation "ic_item_vnd_cost_matrix" already exists
+psql:generate_fk.sql:250: ERROR:  constraint "ic_multiple_cert_ic_lot_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:251: ERROR:  constraint "ic_item_mast_rel_ic_item_mast_fk" for relation "ic_item_mast_rel" already exists
+psql:generate_fk.sql:252: ERROR:  constraint "ic_item_mast_rel_ic_item_mast_fk" for relation "ic_item_mast_rel" already exists
+psql:generate_fk.sql:253: ERROR:  constraint "ic_multiple_cert_ic_lot_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:254: ERROR:  constraint "ic_lot_mast_po_line_hdr_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:255: ERROR:  insert or update on table "ic_kit_mast" violates foreign key constraint "ic_kit_mast_ut_facility_fk"
+DETAIL:  Key (facility_dflt)=(TORONTO) is not present in table "ut_facility".
+psql:generate_fk.sql:256: ERROR:  constraint "ic_kit_mast_aps_src_rule_set_fk" for relation "ic_kit_mast" already exists
+psql:generate_fk.sql:257: ERROR:  constraint "ic_lot_mast_po_line_hdr_fk" for relation "ic_lot_mast" already exists
+psql:generate_fk.sql:258: ERROR:  relation "ic_um" does not exist
+psql:generate_fk.sql:259: ERROR:  relation "ic_whse_zone_grp_dtl" does not exist
+psql:generate_fk.sql:260: ERROR:  constraint "ic_item_mfg_path_ic_item_mast_fk" for relation "ic_item_mfg_path" already exists
+psql:generate_fk.sql:261: ERROR:  constraint "ic_bom_po_mfr_mast_fk" for relation "ic_bom" already exists
+psql:generate_fk.sql:262: ERROR:  insert or update on table "ic_item_attr" violates foreign key constraint "ic_item_attr_ic_attr_fk"
+DETAIL:  Key (ic_attr_nbr)=(107) is not present in table "ic_attr".
+psql:generate_fk.sql:263: ERROR:  constraint "ic_item_vnd_cost_matrix_ic_item_mast_fk" for relation "ic_item_vnd_cost_matrix" already exists
+psql:generate_fk.sql:264: ERROR:  constraint "ic_multiple_cert_ic_lot_mast_fk" for relation "ic_multiple_cert" already exists
+psql:generate_fk.sql:265: ERROR:  insert or update on table "ic_item_loc_box" violates foreign key constraint "ic_item_loc_box_ic_item_loc_fk"
+DETAIL:  Key (ic_item_loc_nbr)=(6065116) is not present in table "ic_item_loc".
+psql:generate_fk.sql:266: ERROR:  constraint "ic_bom_cert_ic_cert_cd_fk" for relation "ic_bom_cert" already exists
+psql:generate_fk.sql:270: ERROR:  syntax error at or near "253"
+LINE 1: 253 rows selected.
+        ^

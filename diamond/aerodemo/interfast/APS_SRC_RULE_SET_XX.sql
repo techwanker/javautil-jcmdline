@@ -1,0 +1,16 @@
+--------------------------------------------------------
+--  DDL for Table APS_SRC_RULE_SET_XX
+--------------------------------------------------------
+
+  CREATE TABLE "APS_SRC_RULE_SET_XX" 
+   (	"APS_SRC_RULE_SET_NBR" NUMBER(9,0), 
+	"APS_SRC_RULE_SET_CD" VARCHAR2(20), 
+	"APS_SRC_RULE_SET_DESCR" VARCHAR2(60), 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"FACILITY_FCST_CONSUME" VARCHAR2(16), 
+	"APS_SPLY_POOL_CD_FCST_CONSUME" VARCHAR2(20), 
+	"APS_SRC_RULE_NBR_REPLEN" NUMBER(9,0), 
+	"APS_SRC_RULE_NBR_PRIMARY" NUMBER(9,0), 
+	"SRC_RULE_SET_STAT_ID" VARCHAR2(1)
+   ) ;

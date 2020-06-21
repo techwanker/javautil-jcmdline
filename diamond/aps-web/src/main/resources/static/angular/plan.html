@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Diamond APS - Part ${partCd}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="js/jquery.js"></script>
+<script src="js/jput.min.js"></script>
+<style src="css/w3.css"></style>
+<script src="js/jquery.dataTables.js"></script>
+<script src="js/plotly.min.js"></script>
+<script src="js/PricePerUnit.js"></script>
+<link rel="stylesheet" type="text/css" href="css/topnav.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="css/table.css">
+<style>
+.noshow {
+	disply: none;
+}
+
+.pdsDisplayNone {
+	display: none;
+}
+
+.pdsDisplayShow {
+	display: inline
+}
+</style>
+<script>
+	function pdsShow(elementId) {
+		var element = document.getElementById(elementId);
+		element.className = "show";
+	}
+
+	function explode() {
+		alert("about to explode")
+		document.getElementById('demands').className = "show";
+		document.getElementById('supplies').className = "show";
+		document.getElementById('apsSrcRuleSets').className = "show";
+		alert("exploded")
+
+	}
+</script>
+<script type="text/javascript">
+	function showSuppliesHandle() {
+		alert('processing showSuppliesHandle');
+		if ($('#showSupplies').is(":checked")) {
+			document.getElementById('supplies').className = "show";
+		} else {
+			document.getElementById('supplies').className = "noshow";
+		}
+	}
+</script>
+</head>
+
+<body>
+
+	<div class="topnav" id="myTopnav">
+		<a href="#home" class="active">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">
+				Show <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#demands" onclick="pdsShow('demands')">Demands</a> <a
+					href="#supplies" onclick="pdsShow('supplies')">Supplies</a> <a
+					href="#icItemMasts">Item Masters</a> <a href="#pipeline">Pipeline</a>
+				<a href="#customerItemManufacturers">Approved Mfrs</a> <a
+					href="#apsSrcRuleSets" onclick="pdsShow('apsSrcRuleSets')">Sourcing
+					Rules</a>
+			</div>
+		</div>
+		<a href="#explode" class="active" onclick="explode()">Explode</a> <a
+			href="#about">About</a><a href="javascript:void(0);" class="icon"
+			onclick="myFunction()">&#9776;</a>
+	</div>
+<h2>WTF angulart</h2>
+	<div>
+		Perspective <input type="radio" id="salesPerspective"
+			name="perspective" value="salesPerspective"> <label
+			for="salesPerspective">Sales</label> <input type="radio"
+			id="purchasingPerspective" name="perspective"
+			value="purchasingPerspective"> <label
+			for="purchasingPerspective">Purchasing</label>
+	</div>
+
+
+	Demands?
+	<input id="showDemands" type="checkbox" /> Supplies?
+	<input id="showSupplies" type="checkbox"
+		onClick="alert('wtf'); showSuppliesHandle();" /> Item Masters?
+	<input type="checkbox" /> Customer Manufacturers?
+	<input type="checkbox" /> Sourcing Rules?
+	<input type="checkbox" /> Vendor Quotes?
+	<input type="checkbox" /> Customer Quotes?
+	<input type="checkbox" />
+
+	</div>
+	Effective Date:
+	<p id="effDt"></p>
+	<p th:text="'Part: ' + ${partCd} " />
+	<h1>Pipeline</h1>
+	
+
+	
+	<h2>Forecast Groups</h2>
+	<table>
+		<tr>
+			<th>?</th>
+			<th>Forecast Group</th>
+			<th>Item Cd</th>
+			<th>Description</th>
+			<th>Lead Time (days)</th>
+			<!-- 
+			<th>Fcst Master #</th>
+			<th>Item #</th>
+			-->
+		</tr>
+		<tr th:each="fb : ${forecastGroups.getForecastBuckets()}">
+			<td><input type="checkbox" /></td>
+			<td th:text="${fb.getForecastGroup()}">Group 1</td>
+			<td th:text="${fb.getIcItemMast().getItemCd()}">NAS</td>
+			<td th:text="${fb.getIcItemMast().getItemDescr()}">PIN</td>
+			<td th:text="${fb.getIcItemMast().getLeadTmDy()}">PIN</td>
+			<!--  
+			<td th:text="${fb.getFcItemMast().getFcItemMastNbr()}">1</td>
+			<td th:text="${fb.getIcItemMast().getItemNbr()}">32</td>
+			-->
+		</tr>
+	</table>
+
+	
+
+
+	<h2>Forecast Entities</h2>
+
+	<div id="customerItemManufacturers" class="pdsDisplayNone">
+		<h2>Customer Approved Manufacturers</h2>
+		<h3 th:each="ds: ${cimr}" th:text="${ds.getName()}" />
+		<table th:each="ds: ${cimr}">
+			<thead>
+				<tr>
+					<th th:each="c: ${ds.getColumnNames()}" th:text="${c}" />
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="r: ${ds.getRows()}">
+					<td th:each="c : ${r}" th:text="${c}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="supplies" class="pdsDisplayNone">
+		<hr />
+		<h2>Supplies</h2>
+		<p onclick="$(supplies).css('display','none')">hide</p>
+
+		<div style="overflow-x: auto;">
+			<h3>Onhand</h3>
+			<table id="onhandTable" class="stripe">
+				<thead>
+					<tr>
+						<!--   <th align="left">ID</th> -->
+						<th>Item Nbr</th>
+						<th>Item Code</th>
+						<th>Subpool #</th>
+						<th>Facility</th>
+						<th>Pool</th>
+						<th>Subpool</th>
+						<th>Lot Cost</th>
+						<th>Gross Qty</th>
+						<th>Qty Allocated</th>
+						<th>Unallocated</th>
+						<th>Country</th>
+						<th>Cert Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${pdm.supplyOnhandById.values()}">
+						<!--  	<td align="left" th:text="${r.splyXmlId}" /> -->
+						<td align="right" th:text="${r.itemNbr}" />
+						<td align="left" th:text="${r.icItemMast.itemCd}" />
+						<td align="right" th:text="${r.apsSplySubPoolNbr}" />
+						<td align="left" th:text="${r.facility}" />
+						<td align="left" th:text="${r.apsSplyPool.apsSplyPoolCd}" />
+						<td align="left" th:text="${r.apsSplySubPool.apsSplySubPoolCd}" />
+						<td align="right" th:text="${r.lotCost}" />
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.grossAvailQty, 0, 'COMMA', 2, 'POINT')}">
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.getQtyAllocatedFirstPass(), 0, 'COMMA', 2, 'POINT')}">
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.getQtyUnallocatedFirstPass(), 0, 'COMMA', 2, 'POINT')}">
+						<td align="left" th:text="${r.cntryCdOrigin}" />
+						<td align="right" th:text="${r.certValue}" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div style="overflow-x: auto;">
+			<h3>Purchase Orders</h3>
+			<table id="purchaseOrdersTable" class="stripe">
+				<thead>
+					<tr>
+						<!--   <th align="left">ID</th> -->
+						<th>Facility</th>
+						<th>Pool</th>
+						<th>Subpool</th>
+						<th>Available Date</th>
+						<th>Lot Cost</th>
+						<th>Gross Qty</th>
+						<th>Qty Allocated</th>
+						<th>Unallocated</th>
+						<th>Country</th>
+						<th>Cert Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${pdm.supplyReplenById.values()}">
+						<!--            <td align="left" th:text="${r.splyXmlId}" /> -->
+						<td align="left" th:text="${r.facility}" />
+						<td align="left" th:text="${r.apsSplyPool.apsSplyPoolCd}" />
+						<td align="left" th:text="${r.apsSplySubPool.apsSplySubPoolCd}" />
+						<td align="left"
+							th:text="${#dates.format(r.availDt, 'yyyy-MM-dd')}" />
+						<td align="right" th:text="${r.lotCost}" />
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.grossAvailQty, 0, 'COMMA', 2, 'POINT')}">
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.getQtyAllocatedFirstPass(), 0, 'COMMA', 2, 'POINT')}">
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.getQtyUnallocatedFirstPass(), 0, 'COMMA', 2, 'POINT')}">
+						<td align="left" th:text="${r.cntryCdOrigin}" />
+						<td align="right" th:text="${r.certValue}" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="demandBuckets">
+		<h2>Demand Bucketed</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Group</th>
+					<th>Item Code</th>
+					<th>Type</th>
+					<th th:each="nm : ${orderGroups.getBucketNames()}" th:text="${nm}" />
+			</thead>
+			<tbody>
+				<th:block th:each="ob : ${orderGroups.getOrderBuckets()}">
+					<tr th:each="b : ${ob.getBucketList()}">
+						<td th:text="${b.getIdentifiers().get(0)}">key0</td>
+						<td th:text="${b.getIdentifiers().get(1)}">key0</td>
+						<td th:text="${b.getIdentifiers().get(2)}">key0</td>
+						<td align="right"
+							th:each="v : ${b.getBucketMap(false,false).values()}"
+							th:text="${v == null || v == 0.0} ? '' : ${#numbers.formatDecimal(v, 0, 'COMMA', 0, 'POINT')}">
+					</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<div id="demands" class="pdsDisplayNone">
+		<hr />
+		<h2>Demands</h2>
+
+		<div style="overflow-x: auto;">
+			<h3>Customer Orders</h3>
+			<table id="apsDmdOosTable" class="stripe">
+				<thead>
+					<tr>
+						<th>Cust Code</th>
+						<th>Item Code</th>
+						<th>Forecast Group</th>
+						<th>Rqst Date</th>
+
+						<th align="right">Open Qty</th>
+						<th align="right">Qty Allocated</th>
+						<th align="right">Unallocated</th>
+						<th>Country</th>
+
+						<th>Mfr Cd</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${pdm.demandCustomerById.values()}"
+						onClick="showEligibleSupplyFor(xxx);">
+						<td th:text="${r.orgCdCust}" />
+						<td th:text="${r.icItemMast.itemCd}" />
+						<td th:text="${r.fcstGrp}" />
+						<td th:text="${#dates.format(r.needByDate, 'yyyy-MM-dd')}" />
+
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.openQty, 0, 'COMMA', 2, 'POINT')}" /></td>
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.getQtyAllocatedFirstPass(), 0, 'COMMA', 2, 'POINT')}" />
+						<td />
+						<!-- 
+						<td align="right" th:text="${r.getQtyUnallocatedFirstPass()}" />
+						-->
+						<td th:text="${r.cntryCdOrigin}" />
+
+						<td th:text="${r.naOrgMfrRqst?.orgCd}" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div style="overflow-x: auto;">
+			<h2>Forecasts</h2>
+			<table id="demandForecastTable" class="stripe">
+				<thead>
+					<tr>
+						<th>Cust Code</th>
+						<th>Item Code</th>
+						<th>Forecast Group</th>
+						<th>Rqst Date</th>
+						<th align="right">Open Qty</th>
+						<th align="right">Qty Allocated</th>
+						<th align="right">Unallocated</th>
+						<th>Mfr Cd</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${pdm.demandForecastById.values()}">
+						<!--   onClick="showEligibleSupplyFor(xxx);"> -->
+						<td th:text="${r.orgCdCust}" />
+						<td th:text="${r.icItemMast.itemCd}" />
+						<td th:text="${r.fcstGrp}" />
+						<td th:text="${#dates.format(r.needByDate, 'yyyy-MM-dd')}" />
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.openQty, 0, 'COMMA', 2, 'POINT')}" /></td>
+						<td align="right"
+							th:text="${#numbers.formatDecimal(r.getQtyAllocatedFirstPass(), 0, 'COMMA', 2, 'POINT')}" />
+						<td>WOW</td>
+						<!-- 
+					<td align="right" th:text="${r.getQtyUnallocatedFirstPass()}" />
+					-->
+						<td th:text="${r.naOrgMfrRqst?.orgCd}" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+	<!-- 
+	//	 Initially hidden
+    //
+	-->
+	<div id="divAttrCert" style="clear: left; clear: right; display: none"
+		class="left defaultNonDisplay">
+
+		<h2>Attribute Certs</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Cert Code</th>
+					<th>Description</th>
+					<th>Weight</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="r : ${pdm.icCertCds}">
+					<td th:text="${r.certCd}" />
+					<td th:text="${r.certCdDescr}" />
+					<td th:text="${r.certValue}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div id="divApsSrcRuleSets"
+		style="clear: left; clear: right; display: none"
+		class="left defaultNonDisplay">
+		<!-- sourcing rules h2 -->
+		<h2 id="apsSrcRuleSets">Sourcing Rules</h2>
+		<div class="left">
+			<!-- source rule set -->
+			<h3>Source Rule Set</h3>
+			<table id="apsSrcRuleSetsTable">
+				<thead>
+					<tr>
+						<th>Sourcing Rule Set</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${pdm.apsSrcRuleSets}">
+						<td th:text="${r.apsSrcRuleSetCd}" />
+						<td th:text="${r.apsSrcRuleSetDescr}" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- end: Sourcing Rulesets -->
+	</div>
+
+	
+	
+	</div>
+	<script>
+		$(document).ready(function() {
+			$('#onhandTable').DataTable();
+			$('#apsDmdOosTable').DataTable();
+			$('#purchaseOrdersTable').DataTable();
+			$('#demandForecastTable').DataTable();
+			$('#apsSrcRuleSetsTable').DataTable();
+			$('#forecastGroups').DataTable();
+			$('#vqQteVws').DataTable();
+		});
+	</script>
+</body>
+</html>

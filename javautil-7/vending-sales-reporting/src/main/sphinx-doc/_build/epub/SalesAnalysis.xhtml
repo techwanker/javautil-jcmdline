@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sales Analysis</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sales-analysis">
+<h1>Sales Analysis</h1>
+<div class="section" id="missing-product">
+<h2>Missing Product</h2>
+<div class="section" id="objective">
+<h3>Objective</h3>
+<p>List customers and the products they are should be selling but are not.</p>
+</div>
+<div class="section" id="approach">
+<h3>Approach</h3>
+<ul class="simple">
+<li><p>Rank Products</p></li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="customers">
+<h3>Customers</h3>
+<p>As we are dealing with CDS reporting format and the scope of creation of customers in posting
+is beyond the scope of this section I will create a customer with a simple database view.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span>
+<span class="n">customer_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">distinct</span> <span class="n">ship_to_cust_id</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="effective-date">
+<h3>Effective Date</h3>
+<p>In order for these queries to work without recreating the database we assume
+an <em>effective date</em> which is the date of the last reported sale.</p>
+<dl class="simple">
+<dt>code::</dt>
+<dd><p>create or replace view effective_date as
+select max(invoice_dt) report_date from etl_sale;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="total-sales">
+<h3>Total Sales</h3>
+<p>Total $ amount of sales for the preceeding 12 months based on last invoice date.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">tot_sales_12</span> <span class="k">as</span>
+<span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">report_date</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customer-product-sales-last-12-months">
+<h3>Customer &amp; Product Sales Last 12 months</h3>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_last_12_months</span> <span class="k">as</span>
+<span class="n">select</span>  <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span><span class="p">,</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_extended_net_amt</span>
+<span class="kn">from</span>    <span class="nn">etl_sale</span><span class="p">,</span>
+        <span class="n">effective_date</span>
+<span class="n">where</span>   <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">report_date</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span>
+<span class="n">order</span> <span class="n">by</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">desc</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="product-rank">
+<h3>Product Rank</h3>
+<p>There are many ways to rank product.</p>
+<p>Units, gross revenue, profit, turns…</p>
+<p>This is based simply on gross revenue</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_rank_12_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_ext</span><span class="p">,</span>
+       <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">tot_sales_12</span><span class="o">.</span><span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">tot_sales_12</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">report_date</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span>
+                <span class="n">group</span> <span class="n">by</span> <span class="n">case_gtin</span>
+                <span class="n">order</span> <span class="n">by</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">desc</span>
+        <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="product-not-sold">
+<h1>Product Not Sold</h1>
+<p>What products are customers not selling?</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_undersold_by_customer_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">customers</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+       <span class="n">top_products</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span> <span class="nn">customers</span><span class="p">,</span>
+     <span class="n">top_products</span>
+<span class="n">where</span> <span class="ow">not</span> <span class="n">exists</span>
+  <span class="p">(</span> <span class="n">select</span> <span class="s1">&#39;x&#39;</span> <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span> <span class="n">top_products</span>
+    <span class="n">where</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">customers</span><span class="o">.</span><span class="n">ship_to_cust_id</span>  <span class="ow">and</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">top_products</span><span class="o">.</span><span class="n">case_gtin</span>
+  <span class="p">)</span>
+<span class="n">order</span> <span class="n">by</span> <span class="n">customers</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+         <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="potential-revenue">
+<h2>Potential Revenue</h2>
+<p>Now let us consider the amount that could be sold if these customers were to sell
+your standard ratio of product.</p>
+<p>We do that by multiplying the ratio to the dollar total for the customer.</p>
+<p>In the best case scenario, the vending operator will add a slot for the product, replacing
+with a product you don’t distribute to him.  There is a distinct possibility that the sale
+will be slightly parasitic and a lower volume product you do distribute will be replaced.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

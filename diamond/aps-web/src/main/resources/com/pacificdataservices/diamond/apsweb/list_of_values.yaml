@@ -1,0 +1,40 @@
+fcst_grp:
+  name: fcst_grp
+  sql: >
+    select fcst_grp as name,
+           fcst_grp_descr as description 
+    from fcst_grp
+    where :key is null or upper(fcst_grp) like upper(:key)
+    order by fcst_grp 
+  descr: >
+    Forecast Groups by group name 
+  name: po_mfr_mast_vw
+po_org_mast_vw: 
+  sql: >
+    select org_cd as name,
+           org_name as description
+    from po_org_mast_vw
+    where upper(org_cd) like upper(:key)
+    order by org_cd
+  descr: >
+    po_mfr_mast_vw by org_cd
+  name: oe_cust_mast_id_vw
+oe_cust_mast_id_vw:
+  sql: >
+    select org_cd as name,
+           org_name as description
+    from oe_cust_mast_id_vw
+    where upper(org_cd) like upper(:key)
+    order by org_cd
+  descr: >
+    oe_cust_mast_id_vw by org_cd
+  name: ic_category
+ic_category:
+  sql: >
+    select ic_category_name as name,
+           ic_category_descr as description
+    from ic_category
+    where upper(ic_category_name) like upper(:key)
+    order by ic_category_name
+  descr: >
+    ic_category by ic_category_name

@@ -1,0 +1,58 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Overview}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Objective}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}ABC - Pareto}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Purpose}{5}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Assumptions}{5}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Item Statistics}{5}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Overview}{5}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Definition}{5}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Approach}{6}{subsection.3.1.6}
+\contentsline {subsection}{\numberline {3.1.7}Purpose}{6}{subsection.3.1.7}
+\contentsline {subsubsection}{Create a node service}{7}{subsubsection*.3}
+\contentsline {subsection}{\numberline {3.1.8}Modify web page template}{7}{subsection.3.1.8}
+\contentsline {subsection}{\numberline {3.1.9}Item Statistics}{7}{subsection.3.1.9}
+\contentsline {subsection}{\numberline {3.1.10}Item Statistics Fields}{7}{subsection.3.1.10}
+\contentsline {subsection}{\numberline {3.1.11}Approach}{8}{subsection.3.1.11}
+\contentsline {section}{\numberline {3.2}Optimal Replenishment Quantity}{8}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Objectives}{8}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Unit Cost}{8}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Compute Optimal Purchase Quantity}{8}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Cost Types}{8}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Graph this relationship}{8}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Compute Optimal Purchase Quantity}{9}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}Graph this relationsihip}{9}{subsection.3.3.5}
+\contentsline {section}{\numberline {3.4}Multiple Lead Times}{9}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Overview}{9}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Acquiring}{9}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}YAML}{9}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Assumptions}{10}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Issues}{10}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}Lead Time By Vendor}{10}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Overview}{10}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Acquiring}{10}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}YAML}{11}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Assumptions}{11}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}Issues}{11}{subsection.3.5.5}
+\contentsline {section}{\numberline {3.6}Requisition}{11}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Instructions}{11}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Gather Information}{12}{subsection.3.6.2}
+\contentsline {subsubsection}{Requisition Checklist}{12}{subsubsection*.4}
+\contentsline {subsubsection}{Intrinsic Information}{12}{subsubsection*.5}
+\contentsline {subsubsection}{Extrinsic Information}{12}{subsubsection*.6}
+\contentsline {subsubsection}{Simulate}{12}{subsubsection*.7}
+\contentsline {subsubsection}{Sequence Diagram}{13}{subsubsection*.8}
+\contentsline {subsection}{\numberline {3.6.3}Out of Scope}{14}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}In aerospace}{14}{subsection.3.6.4}
+\contentsline {subsection}{\numberline {3.6.5}Source of Lead Time}{14}{subsection.3.6.5}
+\contentsline {subsubsection}{vendor quotes}{14}{subsubsection*.9}
+\contentsline {subsubsection}{Summarized Lead Times should include}{14}{subsubsection*.10}
+\contentsline {subsubsection}{Lead time details should include:}{14}{subsubsection*.11}
+\contentsline {subsubsection}{Lead time projections}{15}{subsubsection*.12}
+\contentsline {subsection}{\numberline {3.6.6}Instructions}{15}{subsection.3.6.6}
+\contentsline {subsubsection}{Requisition Checklist}{16}{subsubsection*.13}
+\contentsline {subsection}{\numberline {3.6.7}Sequence Diagram}{16}{subsection.3.6.7}
+\contentsline {subsubsection}{Intrinsic Information}{16}{subsubsection*.14}
+\contentsline {subsubsection}{Extrinsic Information}{17}{subsubsection*.15}
+\contentsline {subsection}{\numberline {3.6.8}Related articles}{17}{subsection.3.6.8}

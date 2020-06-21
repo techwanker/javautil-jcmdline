@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks
+	jjs:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2020.01.16.20.45.00;	author jjs;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@select 
+    table_schema,
+    table_name,
+    column_name,
+    ordinal_position,
+    column_default,
+    is_nullable,
+    data_type,
+    character_maximum_length,
+    character_octet_length,
+    numeric_precision,
+    numeric_precision_radix,
+    numeric_scale
+from information_schema
+order by
+    table_schema,
+    table_name,
+    column_name;
+    
+@

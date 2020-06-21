@@ -1,0 +1,21 @@
+--------------------------------------------------------
+--  DDL for Table WH_PICK_BATCH_TRANS
+--------------------------------------------------------
+
+  CREATE TABLE "WH_PICK_BATCH_TRANS" 
+   (	"WH_PICK_BATCH_TRANS_NBR" NUMBER(9,0), 
+	"FACILITY_SRC" VARCHAR2(16), 
+	"FACILITY_DEST" VARCHAR2(16), 
+	"UT_USER_NBR_ASSIGN" NUMBER(9,0), 
+	"WH_PICK_BATCH_CREATE_TM" DATE, 
+	"WH_PICK_BATCH_START_TM" DATE, 
+	"SERVICE_RQST_NBR" NUMBER(9,0), 
+	"TRANS_BATCH_STAT_ID" VARCHAR2(1), 
+	"TRANS_BATCH_PRTY" NUMBER(3,0), 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"NEED_BOX_CD_DEST_LBL" VARCHAR2(1) DEFAULT 'N', 
+	"BOX_CD_DEST_LBL_PRINT_FLG" VARCHAR2(1) DEFAULT 'N'
+   ) ;
+
+   COMMENT ON COLUMN "WH_PICK_BATCH_TRANS"."TRANS_BATCH_STAT_ID" IS 'Q-Queued, P-In Pick, I-Incomplete, S-Suspended, C-Complete, X-Cancelled';

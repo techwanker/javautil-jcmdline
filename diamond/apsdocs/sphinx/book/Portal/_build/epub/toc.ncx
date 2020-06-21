@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>APS Portal</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Portal</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Objective</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint3" playOrder="3">
+      <navLabel>
+        <text>Success metrics</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#success-metrics" />  
+    </navPoint>
+    <navPoint id="navPoint4" playOrder="4">
+      <navLabel>
+        <text>Assumptions</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#assumptions" />  
+    </navPoint>
+    <navPoint id="navPoint5" playOrder="5">
+      <navLabel>
+        <text>Milestones</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#milestones" />  
+    </navPoint>
+    <navPoint id="navPoint6" playOrder="6">
+      <navLabel>
+        <text>User interaction and design</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#user-interaction-and-design" />  
+    </navPoint>
+    <navPoint id="navPoint7" playOrder="7">
+      <navLabel>
+        <text>Open Questions</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#open-questions" />  
+    </navPoint>
+    <navPoint id="navPoint8" playOrder="8">
+      <navLabel>
+        <text>Out of Scope</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#out-of-scope" />  
+      <navPoint id="navPoint9" playOrder="8">
+        <navLabel>
+          <text>Out of Scope</text>
+        </navLabel>
+        <content src="ABC/ABC-Code-Discussion.xhtml#out-of-scope" />  
+      </navPoint>
+      <navPoint id="navPoint10" playOrder="9">
+        <navLabel>
+          <text>Item Statistics</text>
+        </navLabel>
+        <content src="ABC/ABC-Code-Discussion.xhtml#item-statistics" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint11" playOrder="10">
+      <navLabel>
+        <text>Overview</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#overview" />  
+    </navPoint>
+    <navPoint id="navPoint12" playOrder="11">
+      <navLabel>
+        <text>Definition</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#definition" />  
+    </navPoint>
+    <navPoint id="navPoint13" playOrder="12">
+      <navLabel>
+        <text>Approach</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#approach" />  
+    </navPoint>
+    <navPoint id="navPoint14" playOrder="13">
+      <navLabel>
+        <text>Purpose</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#purpose" />  
+    </navPoint>
+    <navPoint id="navPoint15" playOrder="14">
+      <navLabel>
+        <text>Addititional Fields</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#addititional-fields" />  
+    </navPoint>
+    <navPoint id="navPoint16" playOrder="15">
+      <navLabel>
+        <text>Modify web page template</text>
+      </navLabel>
+      <content src="ABC/ABC-Code-Discussion.xhtml#modify-web-page-template" />  
+    </navPoint>
+    <navPoint id="navPoint17" playOrder="16">
+      <navLabel>
+        <text>Business Process Improvement : Multiple Lead Times</text>
+      </navLabel>
+      <content src="MultipleLeadTimes.xhtml" />  
+      <navPoint id="navPoint18" playOrder="16">
+        <navLabel>
+          <text>Business Process Improvement : Multiple Lead Times</text>
+        </navLabel>
+        <content src="MultipleLeadTimes.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint19" playOrder="17">
+        <navLabel>
+          <text>Business Process Improvement : Multiple Lead Times</text>
+        </navLabel>
+        <content src="MultipleLeadTimes.xhtml#id1" />  
+        <navPoint id="navPoint20" playOrder="17">
+          <navLabel>
+            <text>Business Process Improvement : Multiple Lead Times</text>
+          </navLabel>
+          <content src="MultipleLeadTimes.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint21" playOrder="18">
+          <navLabel>
+            <text>In aerospace</text>
+          </navLabel>
+          <content src="MultipleLeadTimes.xhtml#in-aerospace" />  
+        </navPoint>
+        <navPoint id="navPoint22" playOrder="19">
+          <navLabel>
+            <text>Source of Lead Time</text>
+          </navLabel>
+          <content src="MultipleLeadTimes.xhtml#source-of-lead-time" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint23" playOrder="20">
+      <navLabel>
+        <text>Business Process Improvement : Create Requisition</text>
+      </navLabel>
+      <content src="Requisition.xhtml" />  
+      <navPoint id="navPoint24" playOrder="20">
+        <navLabel>
+          <text>Business Process Improvement : Create Requisition</text>
+        </navLabel>
+        <content src="Requisition.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint25" playOrder="21">
+        <navLabel>
+          <text>Business Process Improvement : Create Requisition</text>
+        </navLabel>
+        <content src="Requisition.xhtml#id1" />  
+        <navPoint id="navPoint26" playOrder="21">
+          <navLabel>
+            <text>Business Process Improvement : Create Requisition</text>
+          </navLabel>
+          <content src="Requisition.xhtml#id1" />  
+        </navPoint>
+        <navPoint id="navPoint27" playOrder="22">
+          <navLabel>
+            <text>Instructions</text>
+          </navLabel>
+          <content src="Requisition.xhtml#instructions" />  
+        </navPoint>
+        <navPoint id="navPoint28" playOrder="23">
+          <navLabel>
+            <text>Sequence Diagram</text>
+          </navLabel>
+          <content src="Requisition.xhtml#sequence-diagram" />  
+        </navPoint>
+        <navPoint id="navPoint29" playOrder="24">
+          <navLabel>
+            <text>Related articles</text>
+          </navLabel>
+          <content src="Requisition.xhtml#related-articles" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint30" playOrder="25">
+      <navLabel>
+        <text>Business Process Improvement : Vendor Quotes</text>
+      </navLabel>
+      <content src="Vendor-Quotes.xhtml" />  
+      <navPoint id="navPoint31" playOrder="25">
+        <navLabel>
+          <text>Business Process Improvement : Vendor Quotes</text>
+        </navLabel>
+        <content src="Vendor-Quotes.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint32" playOrder="26">
+        <navLabel>
+          <text>Business Process Improvement : Vendor Quotes</text>
+        </navLabel>
+        <content src="Vendor-Quotes.xhtml#id1" />  
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

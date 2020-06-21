@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>postgres &mdash; oracle 19c redhat 6 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="oracle 19c redhat 6 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">oracle 19c redhat 6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="postgres">
+<h1>postgres<a class="headerlink" href="#postgres" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><pre>set -x
+sudo amazon-linux-extras install postgresql10 vim epel -y
+sudo yum install -y postgresql-server postgresql-devel
+sudo /usr/bin/postgresql-setup --initdb</pre>
+</div>
+<div class="section" id="nasty-hack-for-permissions-read-the-docs-in-sphinxdoc">
+<h2>nasty hack for permissions, read the docs in sphinxdoc<a class="headerlink" href="#nasty-hack-for-permissions-read-the-docs-in-sphinxdoc" title="Permalink to this headline">¶</a></h2>
+<p>sudo sed -i -e &#8220;s/ident/trust/&#8221; /var/lib/pgsql/data/pg_hba.conf sudo
+sed -i -e &#8220;s/peer/trust/&#8221; /var/lib/pgsql/data/pg_hba.conf</p>
+</div>
+<div class="section" id="enable-and-start">
+<h2>enable and start<a class="headerlink" href="#enable-and-start" title="Permalink to this headline">¶</a></h2>
+<p>sudo systemctl enable postgresql sudo systemctl start postgresql</p>
+</div>
+<div class="section" id="create-the-user-and-database">
+<h2>create the user and database<a class="headerlink" href="#create-the-user-and-database" title="Permalink to this headline">¶</a></h2>
+<p>sudo su - postgres -c &#8216;createuser ec2-user&#8217; sudo su - postgres -c
+&#8220;createdb &#8211;owner ec2-user sales_reporting&#8221;</p>
+<p>psql -h localhost sales_reporting</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">postgres</a><ul>
+<li><a class="reference internal" href="#nasty-hack-for-permissions-read-the-docs-in-sphinxdoc">nasty hack for permissions, read the docs in sphinxdoc</a></li>
+<li><a class="reference internal" href="#enable-and-start">enable and start</a></li>
+<li><a class="reference internal" href="#create-the-user-and-database">create the user and database</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/25-install-postgres.sh.md.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">oracle 19c redhat 6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2019, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

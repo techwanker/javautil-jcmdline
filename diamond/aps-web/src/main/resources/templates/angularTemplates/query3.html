@@ -1,0 +1,201 @@
+<p></p>
+<p></p>
+<p>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+</p>
+<div ng-app="planQueryApp" ng-controller="planQueryCtrl">
+	<table style="height: 286px;">
+		<tbody>
+			<tr style="height: 10px;"></tr>
+			<tr style="height: 21px;">
+				<td style="height: 21px;">Demand Shortages</td>
+			</tr>
+			<tr style="height: 61px;">
+				<td nowrap="nowrap" align="right" style="height: 61px;"><label
+					for="ITEM_CD" id="ITEM_CD_LABEL"> <a>Part # Mask</a>
+				</label></td>
+				<td align="left" style="height: 61px;"><button type=""
+						class="btn grn-btn" ng-click="listOfValues('ic_categry');">LOV</button>
+					<input type="text" id="ITEM_CD" name="ITEM_CD" value="" size="50"
+					maxlength="2000" /></td>
+			</tr>
+			<tr style="height: 55px;">
+				<td nowrap="nowrap" align="right"><label for="IC_CATEGORY_NM"
+					id="IC_CATEGORY_NM_LABEL"><a>Part Category</a></label></td>
+				<td align="left"><button type=""
+						ng-click="listOfValues('ic_categry');">LOV</button> <input
+					type="text" id="IC_CATEGORY_NM" name="IC_CATEGORY_NM" size="20"
+					maxlength="2000" value="" /></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" align="right" style="height: 55px;"><label
+					for="WITHIN_LEAD_TM_FLG" id="WITHIN_LEAD_TM_FLG_LABEL"><a>Within
+							Lead Time</a></label></td>
+				<td align="left" style="height: 55px;"></td>
+			</tr>
+			<tr></tr>
+			<tr style="height: 46px;">
+				<td nowrap="nowrap" align="right" style="height: 46px;"><label
+					for="ORG_CD_VND" id="ORG_CD_VND_LABEL"> <a>Vendor Code</a></label></td>
+				<td align="left" style="height: 46px;"><button type=""
+						class="btn grn-btn" ng-click="listOfValues('ic_category');">LOV</button>
+					<input type="text" id="ORG_CD_VND" name="ORG_CD_VND" size="20"
+					maxlength="2000" value="" /></td>
+			</tr>
+			<tr>
+				<td><label for="VND_QTE_OUTSTANDING_DAYS"
+					id="VND_QTE_OUTSTANDING_DAYS_LABEL"> <a>Outstanding
+							Vendor Quote<br />less than (Days)
+					</a>
+				</label></td>
+				<td align="left" style="height: 46px;"><input type="text"
+					id="VND_QTE_OUTSTANDING_DAYS" name="VND_QTE_OUTSTANDING_DAYS"
+					value="" size="5" maxlength="2000" /></td>
+			</tr>
+			<tr style="height: 46px;">
+				<td nowrap="nowrap" align="right" style="height: 46px;"><label
+					for="PLAN_HORIZON_DT" id="PLAN_HORIZON_DT_LABEL"><a>Planning
+							Horizon<br />End Date
+					</a></label></td>
+				<td align="left" style="height: 46px;"><fieldset
+						id="PLAN_HORIZON_DT_fieldset" tabindex="-1">
+						<table cellspacing="0" border="0" role="presentation"
+							id="PLAN_HORIZON_DT_holder">
+							<tbody>
+								<tr>
+									<td><input type="text" name="PLAN_HORIZON_DT" size="12"
+										maxlength="2000" value="" id="PLAN_HORIZON_DT" /></td>
+									<td><a><img id="PLAN_HORIZON_DT_IMG"
+											src="/i/asfdcldr.gif" /> </a></td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" align="right" style="height: 46px;"><label
+					for="INDIV_NBR_BUYER" id="INDIV_NBR_BUYER_LABEL"><a>Buyer
+							Name</a></label></td>
+				<td align="left" style="height: 46px;">
+					<div role="group" aria-labelledby="INDIV_NBR_BUYER_LABEL">
+						<input type="text" id="INDIV_NBR_BUYER" name="INDIV_NBR_BUYER"
+							size="30" maxlength="45" value="" />
+					</div>
+				</td>
+			</tr>
+			<tr style="height: 47px;">
+				<td nowrap="nowrap" align="right" style="height: 47px;"><label
+					for="ORG_CD_CUST" id="ORG_CD_CUST_LABEL"><a>Customer
+							Code</a></label></td>
+				<td align="left" style="height: 47px;">
+					<div input="" type="text" id="ORG_CD_CUST" name="ORG_CD_CUST"
+						size="20" maxlength="16" value=""></div> <span>
+						<button type="" ng-click="listOfValues('ic_categry');">LOV</button>
+				</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	<label>Forecast Group</label>
+</p>
+<select id="FCST_GRP" name="FCST_GRP" size="1">
+	<option value="" selected="selected"></option>
+	<option value="BRAD">BRAD</option>
+	<option value="CLCORE">CLCORE</option>
+	<option value="FLCORE">FLCORE</option>
+	<option value="LACORE">LACORE</option>
+	<option value="LAJITS">LAJITS</option>
+	<option value="MICORE">MICORE</option>
+	<option value="MTCORE">MTCORE</option>
+	<option value="MTJITS">MTJITS</option>
+	<option value="OTCORE">OTCORE</option>
+	<option value="OTJITS">OTJITS</option>
+	<option value="PARISCOR">PARISCOR</option>
+	<option value="PARISJIT">PARISJIT</option>
+	<option value="TMP">TMP</option>
+	<option value="TOCORE">TOCORE</option>
+	<option value="TOJITS">TOJITS</option>
+	<option value="USCORE">USCORE</option>
+	<option value="USJITS">USJITS</option>
+	<option value="VCCORE">VCCORE</option>
+	<option value="VCJITS">VCJITS</option>
+	<option value="WPJITS">WPJITS</option>
+</select>
+<p>
+	<label>Manufacturer Code</label>
+</p>
+<div role="group" aria-labelledby="ORG_CD_MFR_LABEL">
+	<input type="text" id="ORG_CD_MFR" name="ORG_CD_MFR" size="20"
+		maxlength="16" value="" />
+	<button type="" ng-click="listOfValues('org_mfr');">LOV</button>
+</div>
+<p>
+	<label><a>Item Status</a></label>
+</p>
+<select id="ITEM_STAT_ID" name="ITEM_STAT_ID" size="1">
+	<option value="" selected="selected"></option>
+	<option value="A">Active</option>
+	<option value="I">Inactive</option>
+</select>
+<p>
+	<label> <a>Number of Records<br />to Display
+	</a>
+	</label><input type="text" id="NBR_RECORDS" name="NBR_RECORDS" value="100"
+		size="10" maxlength="2000" /><input type="hidden" id="FCST_GRP_ACT"
+		name="FCST_GRP_ACT" value="" /> <input type="hidden"
+		id="ITEM_STAT_ID_ACT" name="ITEM_STAT_ID_ACT" value="" />
+</p>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tbody>
+		<tr>
+			<td align="right"><a>Find</a><a>Reset</a></td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	<img src="/i/themes/theme_12/t.gif" width="400" height="1" alt="" />
+</p>
+<hr />
+<h2>Planning Shortages</h2>
+<table>
+	<thead>
+		<tr>
+			<th>type</th>
+			<th>Late?</th>
+			<th>Unallocated?</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Customer Orders</th>
+			<td><input type="checkbox" name="lateCustomerOrder"
+				value="lateCustomerOrder" /></td>
+			<td><input type="checkbox" name="unallocatedCustomerOrder"
+				value="unallocatedCustomerOrder" />`</td>
+		</tr>
+		<tr>
+			<th>Forecasts</th>
+			<td><input type="checkbox" name="lateForecast"
+				value="lateForecast" /></td>
+			<td><input type="checkbox" name="unallocatedForecast"
+				value="unallocatedForecast" /></td>
+		</tr>
+		<tr>
+			<th>Safety Stock</th>
+			<td><input type="checkbox" name="lateSafetyStock"
+				value="lateSafetyStock" /></td>
+			<td><input type="checkbox" name="unallocatedSafetyStock"
+				value="unallocatedSafetyStock" /></td>
+		</tr>
+		<tr>
+			<th>Work Orders</th>
+			<td><input type="checkbox" name="lateWorkOrder"
+				value="lateWorkOrder" /></td>
+			<td><input type="checkbox" name="unallocatedWorkOrder"
+				value="unallocatedWorkOrder" /></td>
+		</tr>
+	</tbody>
+</table>

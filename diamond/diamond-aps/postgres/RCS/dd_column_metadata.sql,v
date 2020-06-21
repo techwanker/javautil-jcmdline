@@ -1,0 +1,63 @@
+head	1.1;
+access;
+symbols;
+locks
+	jjs:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2020.01.16.20.45.00;	author jjs;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@create table dd_column_metadata 
+(
+ table_catalog            varchar(32), 
+ table_schema             varchar(32),
+ table_name               varchar(64),
+ column_name              varchar(64),
+ column_index              int,    -- ordinal_position          int,
+ column_default            varchar(64),
+ is_nullable_flg           varchar(1) ,  -- nullable
+ data_type                 varchar(32),
+ column_size               int,   -- character_maximum_length  int,
+ column_display_size       int,   -- character_maximum_length  int,
+ precision                 int,
+ scale                     int,
+ comments                  text,
+ label                     varchar(32),
+ heading                   varchar(32),
+ excelFormat               varchar(32),
+ java_Format               varchar(32), 
+ data_type_name            varchar(32), 
+ workbook_formula          varchar(128)
+);
+
+/*
+	private String                 aggregateFunction;
+	private String                 attributeName;
+	private Integer                columnDisplaySize;
+	private String                 columnTypeName;
+	private Integer                columnType;
+	private boolean                externalFlag;
+	private String                 groupName;
+	private HorizontalAlignment    horizontalAlignment;
+	private boolean                injectedGroupField = false;
+	private SimpleDateFormat       inputDateFormat;
+	private String                 inputDateFormatString;
+	// 
+	private Boolean                definitelyNullable;
+	private Boolean                unKnownNullable;,
+*/
+@

@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+body { 
+	margin: 0; 
+	font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+table {
+	border-collapse: collapse;
+}
+					
+tr:hover {
+	background-color: #ddd;
+}
+					
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+					
+					
+th,	td {
+	font-family: Helvetica; 
+	font-size: 10pt;
+	border: 1px solid #ddd;
+	padding: 2px;
+}

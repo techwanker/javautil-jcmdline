@@ -1,0 +1,1999 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pdssr 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pacific-data-services-sales-reporting">
+<h1>Pacific Data Services - Sales Reporting<a class="headerlink" href="#pacific-data-services-sales-reporting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Pepsi-Frito uses Custom Data solutions to record and report vending sales.  I am extremely
+familiar with this operation as I taught Custom Data Solutions the technology for 25 years
+and functioned as their first Chief Information Officer</p>
+<p>I redesigned the entire process in the two years I was an employee.</p>
+<p>More in <a class="reference internal" href="index.html#document-Contributions"><span class="doc">Contributions</span></a></p>
+</div>
+<div class="section" id="benefits">
+<h2>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Audit the data and rebate calculations. <a class="reference internal" href="index.html#document-Audit"><span class="doc">Audit</span></a></li>
+<li>Get answers without asking questions <a class="reference internal" href="index.html#document-Answers"><span class="doc">Answers to Questions you should have asked</span></a></li>
+<li>Custom Reporting</li>
+<li>Online analytical processing</li>
+<li>Startup is negligible<ul>
+<li>Just need copies of the files the distributors already report <a class="reference internal" href="index.html#document-cds_record_layout"><span class="doc">Record Layouts</span></a></li>
+<li>A product master file</li>
+<li>No computing resources, no long term contracts</li>
+</ul>
+</li>
+</ul>
+<p>Once installed:</p>
+<ol class="arabic simple">
+<li>Reporting data is loaded into staging tables</li>
+<li>Verification of compliance with requirements and self consistency of data is ensured</li>
+<li>Data is posted to history tables</li>
+<li>Customer addresses are validated</li>
+<li>Exceptional conditions are identified and reported</li>
+<li>Rebate Calculations are made and reported</li>
+<li>Rebate amounts are computed and an ACH file for transmission to a bank for payment is created</li>
+<li>Spreadsheets for sales analysis are created</li>
+</ol>
+</div>
+<div class="section" id="functioning-real-world-usage">
+<h2>Functioning Real World Usage<a class="headerlink" href="#functioning-real-world-usage" title="Permalink to this headline">¶</a></h2>
+<p>Any distributor currently writing files in the CDS reporting format can easily load files
+into a local database in order to analyze the data.</p>
+<p>We have provided many analyses that report data worthy of further inspection.</p>
+<p>This approach is our “answers to questions you should have asked”.</p>
+</div>
+</div>
+<div class="section" id="audit">
+<h1>Audit<a class="headerlink" href="#audit" title="Permalink to this headline">¶</a></h1>
+<p>Pacific Data Services will audit the data and rebate calculations for your distributors.</p>
+<div class="section" id="findings">
+<h2>Findings<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="item-accuracy">
+<h3>Item Accuracy<a class="headerlink" href="#item-accuracy" title="Permalink to this headline">¶</a></h3>
+<p>We will compare the items assigned by Custdata to the actual items sold by the distributors.</p>
+<p>This affect sales history and rebate calculations</p>
+</div>
+<div class="section" id="addresses">
+<h3>Addresses<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h3>
+<p>Report incorrect addresses and undeliverable addresses.</p>
+</div>
+<div class="section" id="rebate">
+<h3>Rebate<a class="headerlink" href="#rebate" title="Permalink to this headline">¶</a></h3>
+<p>Calculate the actual rebate for the top 50 rebate amounts issued versus what Custdata
+computed.</p>
+</div>
+</div>
+<div class="section" id="report-augmentation">
+<h2>Report augmentation<a class="headerlink" href="#report-augmentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="answers-to-questions-you-should-have-asked">
+<h3>Answers to Questions you should have asked<a class="headerlink" href="#answers-to-questions-you-should-have-asked" title="Permalink to this headline">¶</a></h3>
+<p>Rather than spend time on the Custdata website creating spreadsheets and trying to spot
+interesting and unusual data we will create <em>Alert Reports</em> and notify you that
+there is research warranted.</p>
+<div class="section" id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Newly introduced items not being bought by distributor</li>
+<li>Top selling items by category not being bought by distributor</li>
+<li>Top selling items by category not being bought by a vending operator</li>
+<li>Product declining sales for a vending operator</li>
+<li>Dropped products for a vending operator</li>
+<li>Parasitic promotion effect (Items not on promotion having declining sales during a promotion</li>
+</ul>
+<p>as slot contention has had a parasitic effect.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sales">
+<h1>Sales<a class="headerlink" href="#sales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="required-data">
+<h2>Required Data<a class="headerlink" href="#required-data" title="Permalink to this headline">¶</a></h2>
+<p>Distributors already report their data to custdata.com.</p>
+<p>They have to do nothing but send us the same data files, no additional work.</p>
+</div>
+<div class="section" id="id1">
+<h2>Benefits<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manufacturers">
+<h3>Manufacturers<a class="headerlink" href="#manufacturers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Benefits<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Far lower costs</p>
+</li>
+<li><p class="first">Faster and Cheaper Custom Reports Generation</p>
+</li>
+<li><p class="first">Improved Data Quality</p>
+</li>
+<li><p class="first">Far Lower Costs</p>
+</li>
+<li><p class="first">Data Identified for them</p>
+<p>Currently the manufactures have to click through the Custdata website and create a spreadsheet and see if there is
+interesting data.</p>
+<p>We can analyze the data and inform them of interesting conditions, for example</p>
+</li>
+</ul>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>New Vending Operators</li>
+<li>Vendors with Declining Sales</li>
+<li>Vendors not carrying products</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="new-capabilities">
+<h4>New Capabilities<a class="headerlink" href="#new-capabilities" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Address Correction</li>
+<li></li>
+</ul>
+</div>
+</div>
+<div class="section" id="distributors">
+<h3>Distributors<a class="headerlink" href="#distributors" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Ability to create an operator facing website</li>
+</ul>
+</div>
+<div class="section" id="vending-operators">
+<h3>Vending Operators<a class="headerlink" href="#vending-operators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Find new  products to be offered</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-Analyze"></span><div class="section" id="sales-analysis">
+<h2>Sales Analysis<a class="headerlink" href="#sales-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gather-product-statistics">
+<h3>Gather Product Statistics<a class="headerlink" href="#gather-product-statistics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Total sales prior 12 months</li>
+<li>Percent of total sales by product</li>
+<li>Operator maximum percentage</li>
+<li>First sale date</li>
+<li>Trend line slope</li>
+<li>Seasonality</li>
+</ul>
+</div>
+<div class="section" id="operator-product-statistics">
+<h3>Operator Product Statistics<a class="headerlink" href="#operator-product-statistics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Pct of sales for product by operator</li>
+<li>Ratio of percent of sales for this operator to median percentage</li>
+<li>Total dollars sales by product previous twelve months</li>
+</ul>
+</div>
+<div class="section" id="opportunities">
+<h3>Opportunities<a class="headerlink" href="#opportunities" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="operator-call-report">
+<h3>Operator Call Report<a class="headerlink" href="#operator-call-report" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Product mix to standard mix</li>
+<li>Suggested products to carry</li>
+</ul>
+</div>
+</div>
+<span id="document-Answers"></span><div class="section" id="answers-to-questions-you-should-have-asked">
+<h2>Answers to Questions you should have asked<a class="headerlink" href="#answers-to-questions-you-should-have-asked" title="Permalink to this headline">¶</a></h2>
+<p>We do the work of finding data that is interesting and provide email notices
+that these reports exist.  Anyone subscribing to that event can get an email summary
+notification and click directly to the report, only having to login.  We can support
+gmail or facebook authentication so the user doesn’t need another username and password.</p>
+<p>It couldn’t be easier.</p>
+<p>Answers phone friendy format or downloadable in a variety of formats.</p>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Which operators are not selling recently introduced products</li>
+<li>Which operators have a sub-optimal mix of the top selling items by category</li>
+<li>Product declining sales for a vending operator</li>
+<li>Dropped products for a vending operator</li>
+<li>Parasitic promotion effect (Items not on promotion having declining sales during a promotion</li>
+</ul>
+<p>as slot contention has had a parasitic effect.</p>
+</div>
+</div>
+<div class="section" id="sales-analysis">
+<h2>Sales Analysis<a class="headerlink" href="#sales-analysis" title="Permalink to this headline">¶</a></h2>
+<p>List customers and the products they are should be selling but are not.</p>
+<ul class="simple">
+<li>Rank Products</li>
+<li></li>
+</ul>
+<p>As we are dealing with CDS reporting format and the scope of creation of customers in posting
+is beyond the scope of this section I will create a customer with a simple database view.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span>
+<span class="n">customer_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">distinct</span> <span class="n">ship_to_cust_id</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In order for these queries to work without recreating the database we assume
+an <em>effective date</em> which is the date of the last reported sale.</p>
+<dl class="docutils">
+<dt>code::</dt>
+<dd>create or replace view effective_date as
+select max(invoice_dt) report_date from etl_sale;</dd>
+</dl>
+<p>Total $ amount of sales for the preceeding 12 months based on last invoice date.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">tot_sales_12</span> <span class="k">as</span>
+<span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">report_date</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_last_12_months</span> <span class="k">as</span>
+<span class="n">select</span>  <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span><span class="p">,</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_extended_net_amt</span>
+<span class="kn">from</span>    <span class="nn">etl_sale</span><span class="p">,</span>
+        <span class="n">effective_date</span>
+<span class="n">where</span>   <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">report_date</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span>
+<span class="n">order</span> <span class="n">by</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">desc</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>There are many ways to rank product.</p>
+<p>Units, gross revenue, profit, turns…</p>
+<p>This is based simply on gross revenue</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_rank_12_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_ext</span><span class="p">,</span>
+       <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">tot_sales_12</span><span class="o">.</span><span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">tot_sales_12</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">report_date</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span>
+                <span class="n">group</span> <span class="n">by</span> <span class="n">case_gtin</span>
+                <span class="n">order</span> <span class="n">by</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">desc</span>
+        <span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="product-not-sold">
+<h2>Product Not Sold<a class="headerlink" href="#product-not-sold" title="Permalink to this headline">¶</a></h2>
+<p>What products are customers not selling?</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_undersold_by_customer_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">customers</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+       <span class="n">top_products</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span> <span class="nn">customers</span><span class="p">,</span>
+     <span class="n">top_products</span>
+<span class="n">where</span> <span class="ow">not</span> <span class="n">exists</span>
+  <span class="p">(</span> <span class="n">select</span> <span class="s1">&#39;x&#39;</span> <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span> <span class="n">top_products</span>
+    <span class="n">where</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">customers</span><span class="o">.</span><span class="n">ship_to_cust_id</span>  <span class="ow">and</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">top_products</span><span class="o">.</span><span class="n">case_gtin</span>
+  <span class="p">)</span>
+<span class="n">order</span> <span class="n">by</span> <span class="n">customers</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+         <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now let us consider the amount that could be sold if these customers were to sell
+your standard ratio of product.</p>
+<p>We do that by multiplying the ratio to the dollar total for the customer.</p>
+<p>In the best case scenario, the vending operator will add a slot for the product, replacing
+with a product you don’t distribute to him.  There is a distinct possibility that the sale
+will be slightly parasitic and a lower volume product you do distribute will be replaced.</p>
+</div>
+<span id="document-Audit"></span><div class="section" id="audit">
+<h2>Audit<a class="headerlink" href="#audit" title="Permalink to this headline">¶</a></h2>
+<p>Pacific Data Services will audit the data and rebate calculations for your distributors.</p>
+<div class="section" id="findings">
+<h3>Findings<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="item-accuracy">
+<h4>Item Accuracy<a class="headerlink" href="#item-accuracy" title="Permalink to this headline">¶</a></h4>
+<p>We will compare the items assigned by Custdata to the actual items sold by the distributors.</p>
+<p>This affect sales history and rebate calculations</p>
+</div>
+<div class="section" id="addresses">
+<h4>Addresses<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h4>
+<p>Report incorrect addresses and undeliverable addresses.</p>
+</div>
+<div class="section" id="rebate">
+<h4>Rebate<a class="headerlink" href="#rebate" title="Permalink to this headline">¶</a></h4>
+<p>Calculate the actual rebate for the top 50 rebate amounts issued versus what Custdata
+computed.</p>
+</div>
+</div>
+</div>
+<span id="document-Benefits"></span><div class="section" id="benefits">
+<h2>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="frito-lay-pepsi">
+<h3>Frito-Lay Pepsi<a class="headerlink" href="#frito-lay-pepsi" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="audit">
+<h4>Audit<a class="headerlink" href="#audit" title="Permalink to this headline">¶</a></h4>
+<p>Identify product miscategorization.  Product GTINS may be “guessed” from the product description,
+this is error prone.</p>
+</div>
+<div class="section" id="ach-rebate-payments">
+<h4>ACH rebate payments<a class="headerlink" href="#ach-rebate-payments" title="Permalink to this headline">¶</a></h4>
+<p>Rather than mail out checks, ACH transactions can be made, Pepsico-Frito can review and forward to
+its bank and rebate payments can be sent out electronically for about $0.01 per transaction.</p>
+<p>This is faster, less expensive and less error prone than mailing out checks and more convenient for
+the distributors.</p>
+</div>
+<div class="section" id="anomolies">
+<h4>Anomolies<a class="headerlink" href="#anomolies" title="Permalink to this headline">¶</a></h4>
+<p>Report outliers on data reporting.</p>
+<p>This is performed by the <em>javautil.org</em> <em>Condition Identification</em> package, written by
+Jim Schmidt for use by Trinity Technical Services customers to identify potential problems
+with data loading into the data warehouse.</p>
+<p>Jim Schmidt demonstrated this while building an entire rebate program for a Custom Data Solutions
+client and it was used to replace the paper reporting system, saving a huge amount of time and increasing
+the identification of suspect data using metrics derived from historical data.  This was completely
+designed and written by Jim Schmidt prior to joining CDS.</p>
+</div>
+<div class="section" id="product-assignment">
+<h4>Product Assignment<a class="headerlink" href="#product-assignment" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="distributors">
+<h3>Distributors<a class="headerlink" href="#distributors" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="address-standardization">
+<h4>Address Standardization<a class="headerlink" href="#address-standardization" title="Permalink to this headline">¶</a></h4>
+<p>Correct and standardize all mailing addresses and report undeliverable USPS addresses for vending operators.</p>
+</div>
+<div class="section" id="geo-coding">
+<h4>Geo Coding<a class="headerlink" href="#geo-coding" title="Permalink to this headline">¶</a></h4>
+<p>Return latitude and longitude for all valid mailing addresses.</p>
+</div>
+<div class="section" id="product-identification">
+<h4>Product Identification<a class="headerlink" href="#product-identification" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="phone-app">
+<h4>Phone App<a class="headerlink" href="#phone-app" title="Permalink to this headline">¶</a></h4>
+<p>Salesmen can generate reports from their phone and forward to vending operators.</p>
+</div>
+<div class="section" id="customer-facing-reports">
+<h4>Customer Facing Reports<a class="headerlink" href="#customer-facing-reports" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="apps">
+<h3>Apps<a class="headerlink" href="#apps" title="Permalink to this headline">¶</a></h3>
+<p>Phone app for</p>
+</div>
+<div class="section" id="vending-operators">
+<h3>Vending Operators<a class="headerlink" href="#vending-operators" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Product Identification<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-Contributions"></span><div class="section" id="contributions">
+<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h2>
+<p>Jim Schmidt and his company Trinity Technical Services introduced and mentored
+Custom Data Solutions on every technology they used since 1990.</p>
+<p>In 1990 Chuck Schmidt, the owner and president of Custom Data Solutions was
+developing software in assembly language on alphamicro computers.</p>
+<div class="section" id="unix-linux">
+<h3>Unix/Linux<a class="headerlink" href="#unix-linux" title="Permalink to this headline">¶</a></h3>
+<p>I introduced Chuck to Unix, starting with Interactive Unix, a Kodak supported
+version of AT&amp;T Unix System 5 in 1991.</p>
+<p>Thereafter Trinity became a reseller of MIPS computers and then
+Digital Equipment.</p>
+</div>
+<div class="section" id="oracle">
+<h3>Oracle<a class="headerlink" href="#oracle" title="Permalink to this headline">¶</a></h3>
+<p>Jim introduced Chuck to Oracle and provided training and technical assistance
+from 1992 to 2007. Trinity staff trained Custom Data Staff on Oracle Forms,
+Oracle Reports and the Database.</p>
+</div>
+<div class="section" id="c">
+<h3>C<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="java">
+<h3>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="became-employee">
+<h3>Became Employee<a class="headerlink" href="#became-employee" title="Permalink to this headline">¶</a></h3>
+<p>In 2007 I made an agreement with Custom Data Solutions to become
+the CIO with the understanding that he could work remotely.</p>
+<p>So I sold everything I owned, two houses, two boats, two jet-skis, two ATVs
+and the rest of my possessions.</p>
+<p>When my youngest son went off to college, I drove him to Purdue and
+went to Michigan to fix a few problems for a couple of months, that
+turned out to be over a year.</p>
+<p>During that time period</p>
+<ul class="simple">
+<li>Migrated 10 vending databases to a single database</li>
+<li>Upgraded from Oracle 7 to Oracle 11</li>
+<li>Installed Oracle Enterprise manager and taught how to use it</li>
+<li>Created a development and a test database. Formerly all testing was done in production.</li>
+</ul>
+</div>
+<div class="section" id="technical-standards">
+<h3>Technical Standards<a class="headerlink" href="#technical-standards" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Estabished the use of build tools, Ant and Maven</li>
+<li>Instituted source version control, CVS and Subversion</li>
+<li>Unit Testing</li>
+<li>Integration Testing</li>
+<li>Designed and build a document management service</li>
+<li>Migrated off Digital Unix to Linux</li>
+<li>Introduced virtualization, vmware, openvz and virtualbox</li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="products">
+<h3>Products<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="check-21">
+<h4>Check 21<a class="headerlink" href="#check-21" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="document-management">
+<h4>Document Management<a class="headerlink" href="#document-management" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="workbook-parser">
+<h4>Workbook Parser<a class="headerlink" href="#workbook-parser" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="dexterous">
+<h4>Dexterous<a class="headerlink" href="#dexterous" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="redesign">
+<h3>Redesign<a class="headerlink" href="#redesign" title="Permalink to this headline">¶</a></h3>
+<p>CDS had a prospective client that needed rebate process</p>
+<div class="section" id="data-load">
+<h4>Data Load<a class="headerlink" href="#data-load" title="Permalink to this headline">¶</a></h4>
+<p>I replaced the java program that loaded the data into a stored procedure
+that loaded into staging tables.</p>
+</div>
+<div class="section" id="exception-processing">
+<h4>Exception Processing<a class="headerlink" href="#exception-processing" title="Permalink to this headline">¶</a></h4>
+<p>I employed the javautil Exception Processing system to identify load problems.</p>
+<p>Unknown to me at the time, Custom Data Solutions identified problems with reports.
+The report modification was cumbersome, execution was slow, printing was slow
+and wasteful.</p>
+<p>By generating metrics of minimum and maximum and standard deviations from
+the mean the identification of outlier input data was greatly improved.</p>
+</div>
+<div class="section" id="maintenance-system">
+<h4>Maintenance System<a class="headerlink" href="#maintenance-system" title="Permalink to this headline">¶</a></h4>
+<p>The maintenance and control system was all written in Apex, whereas CDS was
+using Oracle Forms.  My staff trained CDS on developing in Apex.</p>
+</div>
+<div class="section" id="posting">
+<h4>Posting<a class="headerlink" href="#posting" title="Permalink to this headline">¶</a></h4>
+</div>
+<hr class="docutils" />
+<div class="section" id="workbooks">
+<h4>Workbooks<a class="headerlink" href="#workbooks" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="others">
+<h3>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Servlets</li>
+<li>Javascripts</li>
+<li>Excel workbooks</li>
+<li>Detachable tablespaces</li>
+<li>Materialized Views</li>
+<li>Virtual Private Databases</li>
+</ul>
+</div>
+<div class="section" id="javautil">
+<h3>Javautil<a class="headerlink" href="#javautil" title="Permalink to this headline">¶</a></h3>
+<p>javautil.org was Jim Schmidt’s domain
+javautil.com still is</p>
+</div>
+</div>
+<div class="section" id="history-of-jim-schmidt-and-custom-data-solutions">
+<h2>History of Jim Schmidt and Custom Data Solutions<a class="headerlink" href="#history-of-jim-schmidt-and-custom-data-solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creation">
+<h3>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<p>Custom Data Solutions was initially called CDS for Chuck and Dee Schmidt.</p>
+<p>Chuck is my older brother and Dee is his wife.</p>
+<p>Chuck left his job at Michigan National Bank to offer data processing services, initially using a TRS-80 to print mailing labels.</p>
+<p>He subsequently bought an Alpha Micro <a class="reference external" href="http://www.s100computers.com/Hardware%20Folder/Alpha%20Micro/History/History.htm">http://www.s100computers.com/Hardware%20Folder/Alpha%20Micro/History/History.htm</a> and wrote some business applications.</p>
+<p>On a visit to Detroit I explained to him the benefits of Unix and got him started, installing Interactive Unix from Kodak on a PC from 133 floppy disks in 1990.</p>
+<p>Between 1983 and 1990 I worked as Vice President of International Banking Systems for RepublicBank Dallas, as a principal at a Distribution Requirements Planning Company and then at Computer Associates where I single handedly designed and wrote the ACH settlement software system in six weeks.</p>
+<p>In 1990 I started Trinity Technical Services with two partners and ended up buying them both out.</p>
+<p>My first contract was the selection of an ERP system for a distributor in Texas.  The chosen vendor was CIM-JIT and it was my first exposure to Oracle. I soon
+became more proficient in the CIM-JIT software than the vendor and flew around
+country to modify to delivered software to comply with commitments to customers.</p>
+<p>In the process I became quite proficient in fixing performance problems.</p>
+<p>Convinced that Oracle was the finest relational database, I convinced Chuck to
+come down to my Dallas office for a quick introduction.</p>
+<p>He immediately saw the benefits of SQL over procedural file manipulation and
+also became an Oracle Partner.</p>
+<p>CDS somehow happened to land a contract to handle rebates for Leaf Gum.</p>
+</div>
+<div class="section" id="technologies">
+<h3>Technologies<a class="headerlink" href="#technologies" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="unix">
+<h4>Unix<a class="headerlink" href="#unix" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id1">
+<h4>Oracle<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="oracle-forms">
+<h5>Oracle Forms<a class="headerlink" href="#oracle-forms" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="oracle-reports">
+<h5>Oracle Reports<a class="headerlink" href="#oracle-reports" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="pl-sql">
+<h5>PL/SQL<a class="headerlink" href="#pl-sql" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>C<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id3">
+<h4>Java<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="jsp">
+<h4>JSP<a class="headerlink" href="#jsp" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="graphics">
+<h4>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="javascript">
+<h4>Javascript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="spreadsheets">
+<h4>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="digital-unix">
+<h4>Digital Unix<a class="headerlink" href="#digital-unix" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="build-tools">
+<h4>Build tools<a class="headerlink" href="#build-tools" title="Permalink to this headline">¶</a></h4>
+<p>Build scripts were shell scripts.</p>
+<p>I introduced standardized build tools, first ant and then Maven</p>
+</div>
+<div class="section" id="unit-tests">
+<h4>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h4>
+<p>I introduced junit for unit testing code and cobertura for code coverage analysis.</p>
+</div>
+<div class="section" id="integration-tests">
+<h4>Integration Tests<a class="headerlink" href="#integration-tests" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="chuck-retires">
+<h3>Chuck Retires<a class="headerlink" href="#chuck-retires" title="Permalink to this headline">¶</a></h3>
+<p>Each client had a separate database version 7 of Oracle.
+I consolidated 10 databases into one, eliminated database links.</p>
+<p>There was a daemon that ran that attempted to match customers on addresses.</p>
+<p>I utilized javautils service to call the USPS API to actually standardize the
+addresses for exact matches and identify undeliverable addresses</p>
+<div class="section" id="help">
+<h4>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h4>
+<p>Make files
+C
+Pro*C
+Forms</p>
+</div>
+</div>
+</div>
+<div class="section" id="business-model">
+<h2>Business Model<a class="headerlink" href="#business-model" title="Permalink to this headline">¶</a></h2>
+<p>Custom Data Services was created by my brother Chuck.  I consulted to them for over 25 years and
+taught him everything he knew from linux to relational databases, website creation, c and java.</p>
+<p>In 2007 I accepted the position of CIO when my brother sold the company.  I gave up my consulting practice
+on the promise that I could work remotely after my son went to college.</p>
+<p>After I completely revised all of the infrastructure, which was horrible in more ways than can be credibly described
+including the fact that they were seven years out of date on Oracle and had 14 instances running on three different
+machines, I upgraded to Oracle 10 and migrated everything to one instance and finally into one schema.</p>
+<p>After I sold my house and all my possessions and moved to Costa Rica, they fired me.</p>
+<div class="section" id="while-cio">
+<h3>While CIO<a class="headerlink" href="#while-cio" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Document Management</li>
+<li>Migrated off of Digital Unix</li>
+<li>Changed backup procedures</li>
+<li>Introduced Software Version Control</li>
+<li>Created development and test databases</li>
+<li>Trained a cafeteria worker and a pizza delivery person to program</li>
+<li>Coded up the most complex spreadsheets for Frito</li>
+<li>Introduced virtualization vmware, openvz, virtualbox</li>
+<li>Upgraded to Oracle 10</li>
+<li>Introduced Oracle Enterprise Manager</li>
+<li>Materialized Views</li>
+<li>Detachable Tablespaces</li>
+<li>Virtual Private Databases</li>
+<li>Spring inversion of control, hibernate, aspects</li>
+<li>Unit Testing</li>
+<li>Check 21 solution</li>
+<li>Wikis for documentation procedures</li>
+<li>xml</li>
+<li>dexterous</li>
+<li>workbook parser</li>
+</ul>
+</div>
+<div class="section" id="terminated">
+<h3>Terminated<a class="headerlink" href="#terminated" title="Permalink to this headline">¶</a></h3>
+<p>They claimed ownership of javautil despite the facts
+* javautil.org was owned by Jim Schmidt
+* javautil.com was owned by Jim Schmidt</p>
+<p>The code base dated back to 1999.</p>
+<p>CDS sued Jim Schmidt and claimed ownership of the code, but I would have had to have their current employees testify that
+the code they were using was in production at my customer sites before I joined CDS.</p>
+<p>A settlement was reached, I allowed them to continue to use the code as it was at them time  while I retained all rights.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>History of Jim Schmidt and Custom Data Solutions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Creation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Custom Data Solutions was initially called CDS for Chuck and Dee Schmidt.</p>
+<p>Chuck is my older brother and Dee is his wife.</p>
+<p>Chuck left his job at Michigan National Bank to offer data processing services, initially using a TRS-80 to print mailing labels.</p>
+<p>He subsequently bought an Alpha Micro <a class="reference external" href="http://www.s100computers.com/Hardware%20Folder/Alpha%20Micro/History/History.htm">http://www.s100computers.com/Hardware%20Folder/Alpha%20Micro/History/History.htm</a> and wrote some business applications.</p>
+<p>On a visit to Detroit I explained to him the benefits of Unix and got him started, installing Interactive Unix from Kodak on a PC from 133 floppy disks in 1990.</p>
+<p>Between 1983 and 1990 I worked as Vice President of International Banking Systems for RepublicBank Dallas, as a principal at a Distribution Requirements Planning Company and then at Computer Associates where I single handedly designed and wrote the ACH settlement software system in six weeks.</p>
+<p>In 1990 I started Trinity Technical Services with two partners and ended up buying them both out.</p>
+<p>My first contract was the selection of an ERP system for a distributor in Texas.  The chosen vendor was CIM-JIT and it was my first exposure to Oracle. I soon
+became more proficient in the CIM-JIT software than the vendor and flew around
+country to modify to delivered software to comply with commitments to customers.</p>
+<p>In the process I became quite proficient in fixing performance problems.</p>
+<p>Convinced that Oracle was the finest relational database, I convinced Chuck to
+come down to my Dallas office for a quick introduction.</p>
+<p>He immediately saw the benefits of SQL over procedural file manipulation and
+also became an Oracle Partner.</p>
+<p>CDS somehow happened to land a contract to handle rebates for Leaf Gum.</p>
+</div>
+<div class="section" id="id6">
+<h3>Technologies<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>Unix<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id8">
+<h4>Oracle<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id9">
+<h5>Oracle Forms<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="id10">
+<h5>Oracle Reports<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="id11">
+<h5>PL/SQL<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>C<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id13">
+<h4>Java<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id14">
+<h4>JSP<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id15">
+<h4>Graphics<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id16">
+<h4>Javascript<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id17">
+<h4>Spreadsheets<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id18">
+<h4>Digital Unix<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id19">
+<h4>Linux<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id20">
+<h4>Build tools<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id21">
+<h4>Unit Tests<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id22">
+<h4>Integration Tests<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id23">
+<h3>Chuck Retires<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h4>Help<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<p>Make files
+C
+Pro*C
+Forms</p>
+</div>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>Business Model<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="custom-data-solutions">
+<h3>Custom Data Solutions<a class="headerlink" href="#custom-data-solutions" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://custdata.com">http://custdata.com</a></p>
+<div class="section" id="relationship">
+<h4>Relationship<a class="headerlink" href="#relationship" title="Permalink to this headline">¶</a></h4>
+<p>Custom Data Services was created by my brother Chuck.  I consulted to them for over 25 years and
+taught him everything he knew from linux to relational databases, website creation, c and java.</p>
+<p>In 2007 I accepted the position of CIO when my brother sold the company.  I gave up my consulting practice
+on the promise that I could work remotely after my son went to college.</p>
+<p>After I completely revised all of the infrastructure, which was horrible in more ways than can be credibly described
+including the fact that they were seven years out of date on Oracle and had 14 instances running on three different
+machines, I upgraded to Oracle 10 and migrated everything to one instance and finally into one schema.</p>
+<p>After I sold my house and all my possessions and moved to Costa Rica, they fired me.</p>
+<p>They stole my javautil code, there was a lawsuit, but I would have had to have their current employees testify that
+the code they were using was in production at my customer sites before I joined CDS.</p>
+<p>A settlement was reached, I allowed them to continue to use the code while retaining all rights.</p>
+</div>
+</div>
+<div class="section" id="processing-steps">
+<h3>Processing Steps<a class="headerlink" href="#processing-steps" title="Permalink to this headline">¶</a></h3>
+<p>Data is uploaded to the data processing service.</p>
+<p>The file loads are analyzed at CDS using an old version of my javautil conditionidentification package.</p>
+<p>The data is loading into prepost tables.</p>
+<p>The data is posted</p>
+<p>A snapshot of the data is made once a day for online web reporting in the form of spreadsheets.</p>
+<p>Rebate programs are designed and the sales are tracked and the rebates calculated.</p>
+<p>Rebate checks are mailed out.</p>
+</div>
+</div>
+<span id="document-ProductOffering"></span><div class="section" id="product-offering">
+<h2>Product Offering<a class="headerlink" href="#product-offering" title="Permalink to this headline">¶</a></h2>
+<p>So I can offer</p>
+<ul class="simple">
+<li>Data Reporting</li>
+<li>Web Site for Data</li>
+<li>Sales Analytics*</li>
+<li>Address Validation and Correction</li>
+<li>ACH processing for rebates</li>
+<li>Availability to Vending operators</li>
+<li>A version that runs on Frito/Pepsico laptops so they can work offline while traveling</li>
+<li>High level management financial analysis</li>
+</ul>
+<div class="section" id="benefits">
+<h3>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Availability of site to operators for tracking rebate progress</li>
+<li>Internationalization works outside the U.S.</li>
+<li>Lower cost<ul>
+<li>Using open source database allows for many database servers at minimal incremental cost</li>
+<li>Using Asian resources is far less expensive</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="how-to-get-started">
+<h3>How to get started<a class="headerlink" href="#how-to-get-started" title="Permalink to this headline">¶</a></h3>
+<p>I simply need</p>
+<ul class="simple">
+<li>the data that is currently reported by the distributors</li>
+<li>product master list</li>
+</ul>
+<p>No cost, no additional work, just send me the data and let me do my magic.</p>
+</div>
+</div>
+<span id="document-sa_views"></span><div class="section" id="sales-analysis-views">
+<h2>Sales Analysis Views<a class="headerlink" href="#sales-analysis-views" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="todo">
+<h3>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h3>
+<p>Validate these views in integration testing.</p>
+<div class="section" id="customer">
+<h4>Customer<a class="headerlink" href="#customer" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>create or replace view customer_vw as</dt>
+<dd>select distinct ship_to_cust_id
+from etl_sale;</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="product">
+<h4>Product<a class="headerlink" href="#product" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>code::</dt>
+<dd>create or replace view product_vw as
+select distinct case_gtin
+from etl_sale;</dd>
+</dl>
+</div>
+<div class="section" id="effective-date">
+<h4>Effective Date<a class="headerlink" href="#effective-date" title="Permalink to this headline">¶</a></h4>
+<p>In order for these queries to work without recreating the database we assume
+an <em>effective date</em> which is the date of the last reported sale.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">drop</span> <span class="n">table</span> <span class="k">if</span> <span class="n">exists</span> <span class="n">effective_date</span><span class="p">;</span>
+
+<span class="n">create</span> <span class="n">table</span> <span class="n">effective_date</span> <span class="k">as</span>
+<span class="n">select</span> <span class="nb">max</span><span class="p">(</span><span class="n">invoice_dt</span><span class="p">)</span> <span class="n">report_date</span> <span class="p">,</span>
+       <span class="nb">max</span><span class="p">(</span><span class="n">invoice_dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">interval</span> <span class="s1">&#39;1 year&#39;</span>   <span class="n">year_ago</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">effective_date</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>Product<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Populate the product table for the fake manufacturer <em>TX EXOTIC</em></p>
+<p>insert into org_mfr(org_id,cds_mfr_id) values (17,‘0000000017d ‘);
+code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span> <span class="n">into</span> <span class="n">product</span>
+<span class="p">(</span>
+    <span class="n">case_gtin</span><span class="p">,</span>
+        <span class="n">product_descr</span><span class="p">,</span>
+    <span class="n">mfr_id</span>
+<span class="p">)</span>
+<span class="n">select</span> <span class="n">case_gtin</span><span class="p">,</span>
+       <span class="nb">min</span><span class="p">(</span><span class="n">product_descr</span><span class="p">),</span>
+       <span class="mi">17</span>
+<span class="kn">from</span>   <span class="nn">etl_sale</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="total-sales">
+<h4>Total Sales<a class="headerlink" href="#total-sales" title="Permalink to this headline">¶</a></h4>
+<p>Total $ amount of sales for the preceeding 12 months based on last invoice date.</p>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">tot_sales_12_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This should link to product TODO</p>
+</div>
+<div class="section" id="customer-product-sales-last-12-months">
+<h4>Customer &amp; Product Sales Last 12 months<a class="headerlink" href="#customer-product-sales-last-12-months" title="Permalink to this headline">¶</a></h4>
+<p>code-block:: postgresql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_12_vw</span> <span class="k">as</span>
+<span class="n">select</span>
+        <span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span><span class="p">,</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+       <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span>
+<span class="n">group</span> <span class="n">by</span>  <span class="n">ship_to_cust_id</span><span class="p">,</span>
+          <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="every-product-and-every-customer">
+<h3>Every product and every customer<a class="headerlink" href="#every-product-and-every-customer" title="Permalink to this headline">¶</a></h3>
+<p>code-block:: postgresql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_all_product_vw</span> <span class="k">as</span>
+    <span class="n">select</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+           <span class="n">product_vw</span><span class="o">.</span><span class="n">case_gtin</span>
+    <span class="kn">from</span>   <span class="nn">product_vw</span><span class="p">,</span>
+           <span class="n">customer_vw</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">customer_vw</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">product_vw</span><span class="p">;</span>
+
+<span class="k">with</span> <span class="n">c</span> <span class="k">as</span> <span class="p">(</span>
+    <span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">customer_count</span> <span class="kn">from</span> <span class="nn">customer_vw</span>
+<span class="p">),</span>
+<span class="n">p</span> <span class="k">as</span> <span class="p">(</span>
+    <span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">product_count</span> <span class="kn">from</span> <span class="nn">product_vw</span>
+<span class="p">)</span>
+<span class="n">select</span> <span class="n">c</span><span class="o">.</span><span class="n">customer_count</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">product_count</span>
+<span class="kn">from</span> <span class="nn">c</span><span class="p">,</span><span class="n">p</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="customer-all-products-sales-vw">
+<h4>customer_all_products_sales_vw<a class="headerlink" href="#customer-all-products-sales-vw" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-postgresql notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_all_product_sales_vw</span> <span class="k">as</span>
+<span class="n">select</span>
+      <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+      <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+      <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+<span class="kn">from</span> <span class="nn">customer_all_product_vw</span> <span class="n">cap</span>
+      <span class="n">left</span> <span class="n">outer</span> <span class="n">join</span> <span class="n">etl_sale</span>
+            <span class="n">on</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="ow">and</span>
+               <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="n">group</span> <span class="n">by</span>  <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+                <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="etl-sale-12-vw">
+<h3>etl_sale_12_vw<a class="headerlink" href="#etl-sale-12-vw" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-postgresql notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">etl_sale_12_vw</span> <span class="k">as</span>
+ <span class="n">select</span> <span class="n">etl_sale</span><span class="o">.*</span>
+ <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+      <span class="n">effective_date</span>
+ <span class="n">where</span>
+       <span class="n">etl_sale</span><span class="o">.</span><span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span> <span class="p">;</span>
+
+ <span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_all_product_sales_12_vw</span> <span class="k">as</span>
+     <span class="n">select</span>
+             <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+             <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+             <span class="nb">sum</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">tot_extended_net_amt</span>
+       <span class="kn">from</span>
+            <span class="nn">customer_all_product_vw</span> <span class="n">cap</span>
+       <span class="n">left</span> <span class="n">outer</span> <span class="n">join</span> <span class="n">etl_sale_12_vw</span> <span class="n">es</span>
+             <span class="n">on</span> <span class="n">es</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="ow">and</span>
+                <span class="n">es</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span>
+       <span class="n">group</span> <span class="n">by</span>  <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+                 <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">;</span>
+
+ <span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tot_extended_net_amt</span><span class="p">)</span> <span class="kn">from</span>
+ <span class="nn">customer_all_product_sales_12_vw</span><span class="p">;</span>
+
+     <span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span>
+     <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+          <span class="n">effective_date</span>
+     <span class="n">where</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">invoice_dt</span> <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span><span class="p">;</span>
+
+ <span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_missing_product_sales_12_vw</span> <span class="k">as</span>
+ <span class="n">select</span> <span class="n">cap</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+             <span class="n">cap</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+             <span class="n">tot_extended_net_amt</span>
+ <span class="kn">from</span> <span class="nn">customer_all_product_sales_12_vw</span> <span class="n">cap</span>
+ <span class="n">where</span> <span class="n">tot_extended_net_amt</span> <span class="ow">is</span> <span class="n">null</span><span class="p">;</span>
+
+
+<span class="o">/*</span> <span class="n">these</span> <span class="n">numbers</span> <span class="n">should</span> <span class="n">add</span> <span class="n">up</span> <span class="o">*/</span>
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span>
+ <span class="nn">customer_all_product_sales_12_vw</span><span class="p">;</span>
+
+
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">customer_product_12_vw</span> <span class="p">;</span>
+
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span>
+ <span class="nn">customer_missing_product_sales_12_vw</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="product-rank">
+<h4>Product Rank<a class="headerlink" href="#product-rank" title="Permalink to this headline">¶</a></h4>
+<p>There are many ways to rank product.</p>
+<p>Units, gross revenue, profit, turns…</p>
+<p>This is based simply on gross revenue</p>
+<p>code-block:: postgresql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_rank_12_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+          <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_ext</span><span class="p">,</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="n">etl_sale</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">tot_sales_12_vw</span><span class="o">.</span><span class="n">tot_extended_net_amt</span>
+          <span class="n">pct_product</span>
+<span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+     <span class="n">tot_sales_12_vw</span><span class="p">,</span>
+     <span class="n">effective_date</span>
+<span class="n">where</span> <span class="n">invoice_dt</span>  <span class="o">&gt;</span> <span class="n">effective_date</span><span class="o">.</span><span class="n">year_ago</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">case_gtin</span><span class="p">,</span>
+         <span class="n">tot_sales_12_vw</span><span class="o">.</span><span class="n">tot_extended_net_amt</span>
+<span class="n">order</span> <span class="n">by</span> <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">desc</span><span class="p">;</span>
+
+  <span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pct_product</span><span class="p">)</span>
+  <span class="kn">from</span> <span class="nn">product_rank_12_vw</span><span class="p">;</span>
+
+<span class="n">select</span> <span class="o">*</span>
+  <span class="kn">from</span> <span class="nn">product_rank_12_vw</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="product-not-sold">
+<h3>Product Not Sold<a class="headerlink" href="#product-not-sold" title="Permalink to this headline">¶</a></h3>
+<p>What products are customers not selling?</p>
+<p>code-block:: postgresql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">product_undersold_by_customer_vw</span> <span class="k">as</span>
+<span class="n">select</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+       <span class="n">product_rank_12_vw</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span> <span class="nn">customer_vw</span><span class="p">,</span>
+     <span class="n">product_rank_12_vw</span>
+<span class="n">where</span> <span class="ow">not</span> <span class="n">exists</span> <span class="p">(</span>
+   <span class="n">select</span> <span class="s1">&#39;x&#39;</span> <span class="kn">from</span> <span class="nn">etl_sale</span><span class="p">,</span>
+                  <span class="n">product_rank_12_vw</span>
+    <span class="n">where</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span>  <span class="ow">and</span>
+        <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">product_rank_12_vw</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="p">)</span>
+<span class="n">order</span> <span class="n">by</span> <span class="n">customer_vw</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+         <span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sales-product-customer">
+<h3>Sales Product Customer<a class="headerlink" href="#sales-product-customer" title="Permalink to this headline">¶</a></h3>
+<p>code-block:: postgresql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span>
+<span class="n">customer_product_ext_net_vw</span> <span class="k">as</span>
+<span class="k">with</span> <span class="n">cust_product</span> <span class="k">as</span>
+<span class="p">(</span>
+        <span class="n">select</span> <span class="n">cv</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+                <span class="n">pv</span><span class="o">.</span><span class="n">case_gtin</span>
+                <span class="kn">from</span> <span class="nn">customer_vw</span> <span class="n">cv</span><span class="p">,</span>
+                <span class="n">product_vw</span> <span class="n">pv</span>
+<span class="p">)</span>
+<span class="n">select</span> <span class="n">cust_product</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+       <span class="n">cust_product</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+       <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_extended_net_amt</span><span class="p">,</span>
+       <span class="n">count</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">invoice_count</span>
+<span class="kn">from</span> <span class="nn">cust_product</span><span class="p">,</span>
+        <span class="n">etl_sale</span>
+<span class="n">where</span> <span class="n">cust_product</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="ow">and</span>
+        <span class="n">cust_product</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="n">group</span> <span class="n">by</span>
+        <span class="n">cust_product</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">cust_product</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="potential-revenue">
+<h3>Potential Revenue<a class="headerlink" href="#potential-revenue" title="Permalink to this headline">¶</a></h3>
+<p>Now let us consider the amount that could be sold if these customers were to sell
+your standard ratio of product.</p>
+<p>We do that by multiplying the ratio to the dollar total for the customer.</p>
+<p>In the best case scenario, the vending operator will add a slot for the product, replacing
+with a product you don’t distribute to him.  There is a distinct possibility that the sale
+will be slightly parasitic and a lower volume product you do distribute will be replaced.</p>
+<p>select every customer and product combination</p>
+<p>code-block:: postgresql</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_vw</span> <span class="k">as</span>
+<span class="n">select</span>  <span class="n">cv</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">pv</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span>    <span class="nn">customer_vw</span> <span class="n">cv</span><span class="p">,</span>
+        <span class="n">product_vw</span> <span class="n">pv</span><span class="p">;</span>
+
+<span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_sum_vw</span>
+<span class="k">as</span>
+<span class="n">select</span>
+        <span class="n">cpv</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">cpv</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">sales</span><span class="o">.</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_extended_net_amt</span>
+<span class="kn">from</span>
+        <span class="nn">customer_product_vw</span>
+
+<span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_product_ext_net_vw</span> <span class="k">as</span>
+<span class="k">with</span> <span class="n">cust_product</span> <span class="k">as</span>
+<span class="p">(</span>
+        <span class="n">select</span> <span class="n">cv</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+                <span class="n">pv</span><span class="o">.</span><span class="n">case_gtin</span>
+        <span class="kn">from</span> <span class="nn">customer_vw</span> <span class="n">cv</span><span class="p">,</span>
+                <span class="n">product_vw</span> <span class="n">pv</span>
+<span class="p">)</span>
+<span class="n">select</span>  <span class="n">cust_product</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">cust_product</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">,</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">sum_extended_net_amt</span><span class="p">,</span>
+        <span class="n">count</span><span class="p">(</span><span class="n">extended_net_amt</span><span class="p">)</span> <span class="n">invoice_count</span>
+<span class="kn">from</span>    <span class="nn">cust_product</span><span class="p">,</span>
+        <span class="n">etl_sale</span>
+<span class="n">where</span>   <span class="n">cust_product</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span> <span class="ow">and</span>
+        <span class="n">cust_product</span><span class="o">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="n">group</span> <span class="n">by</span> <span class="n">cust_product</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">cust_product</span><span class="o">.</span><span class="n">case_gtin</span><span class="p">;</span>
+
+<span class="n">create</span> <span class="ow">or</span> <span class="n">replace</span> <span class="n">view</span> <span class="n">customer_noproduct_vw</span> <span class="k">as</span>
+<span class="k">with</span> <span class="n">cust_product_all</span> <span class="k">as</span>
+<span class="p">(</span>
+        <span class="n">select</span> <span class="n">cv</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+                <span class="n">pv</span><span class="o">.</span><span class="n">case_gtin</span>
+        <span class="kn">from</span> <span class="nn">customer_vw</span> <span class="n">cv</span><span class="p">,</span>
+                <span class="n">product_vw</span> <span class="n">pv</span>
+<span class="p">),</span>
+<span class="n">cust_product_sold</span> <span class="k">as</span>
+<span class="p">(</span>
+        <span class="n">select</span> <span class="n">distinct</span>
+                <span class="n">etl_sale</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span>
+                <span class="n">etl_sale</span><span class="o">.</span><span class="n">case_gtin</span>
+        <span class="kn">from</span> <span class="nn">etl_sale</span>
+<span class="p">)</span>
+<span class="n">select</span> <span class="n">cust_product_all</span><span class="o">.</span><span class="n">ship_to_cust_id</span><span class="p">,</span> <span class="o">--</span> <span class="n">huh</span> <span class="n">cust_product_all</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span> <span class="nn">cust_product_all</span><span class="p">,</span>
+        <span class="n">cust_product_sold</span><span class="o">.</span><span class="n">case_gtin</span>
+<span class="kn">from</span> <span class="nn">cust_product_sold</span>
+<span class="n">order</span> <span class="n">by</span> <span class="n">ship_to_cust_id</span><span class="p">,</span>
+        <span class="n">case_gtin</span>
+<span class="p">;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>select cust_product.ship_to_cust_id,</dt>
+<dd>cust_product.case_gtin,
+sum(extended_net_amt) sum_extended_net_amt,
+count(extended_net_amt) invoice_count</dd>
+<dt>from cust_product,</dt>
+<dd>etl_sale</dd>
+<dt>where cust_product.ship_to_cust_id = etl_sale.ship_to_cust_id and</dt>
+<dd>cust_product.case_gtin = etl_sale.case_gtin</dd>
+<dt>group by</dt>
+<dd><blockquote class="first">
+<div>cust_product.ship_to_cust_id,</div></blockquote>
+<p class="last">cust_product.case_gtin;</p>
+</dd>
+</dl>
+<p>create table customer_mv
+(</p>
+<blockquote>
+<div>customer_id serial primary key,
+ship_to_cust_id  varchar(10)</div></blockquote>
+<p>);</p>
+<p>insert into customer_mv
+(</p>
+<blockquote>
+<div>ship_to_cust_id</div></blockquote>
+<p>)
+select</p>
+<blockquote>
+<div>distinct ship_to_cust_id</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>etl_sale;</dd>
+</dl>
+<p>create table customer_product_12_mv
+(</p>
+<blockquote>
+<div>ship_to_cust_id varchar(10),
+case_gtin       varchar(14),
+extended_net_amt numeric(14,2)</div></blockquote>
+<p>);</p>
+<p>create table product_mv
+(</p>
+<blockquote>
+<div>case_gtin varchar(14)</div></blockquote>
+<p>);</p>
+<p>insert into product_mv
+(</p>
+<blockquote>
+<div>case_gtin</div></blockquote>
+<p>)
+select distinct case_gtin from etl_sale;</p>
+<p>insert into customer_product_12_mv
+(</p>
+<blockquote>
+<div>ship_to_cust_id,
+case_gtin,
+extended_net_amt</div></blockquote>
+<p>)
+select etl_sale.ship_to_cust_id,</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div>case_gtin,
+sum(extended_net_amt)</div></blockquote>
+<dl class="docutils">
+<dt>from    etl_sale,</dt>
+<dd>effective_date_vw</dd>
+</dl>
+<p>where   invoice_dt  &gt; effective_date_vw.report_date - interval ‘1 year’
+group by ship_to_cust_id,</p>
+<blockquote>
+<div>case_gtin</div></blockquote>
+<p>order by sum(extended_net_amt) desc;</p>
+</div></blockquote>
+<p>create or replace view customer_vw as
+select distinct ship_to_cust_id
+from etl_sale;</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>select customer_product_12_mv.ship_to_cust_id,</dt>
+<dd><blockquote class="first">
+<div>customer_product_12_mv.extended_net_amt,
+product_mv.case_gtin</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>product_mv</dd>
+<dt>left outer join  customer_product_12_mv  on</dt>
+<dd>customer_product_12_mv.case_gtin = product_mv.case_gtin</dd>
+</dl>
+<p class="last">order by product_mv.case_gtin;</p>
+</dd>
+</dl>
+<p>with customer_product_outer_12_mv as (
+select customer_product_12_mv.ship_to_cust_id,</p>
+<blockquote>
+<div><blockquote>
+<div>customer_product_12_mv.extended_net_amt,
+product_mv.case_gtin</div></blockquote>
+<dl class="docutils">
+<dt>from</dt>
+<dd>product_mv</dd>
+<dt>left outer join  customer_product_12_mv  on</dt>
+<dd>customer_product_12_mv.case_gtin = product_mv.case_gtin</dd>
+</dl>
+</div></blockquote>
+<p>)
+select * from customer_product_outer_12_mv
+where ship_to_cust_cd is null</p>
+<blockquote>
+<div>and case_gtin = ‘00012345523142’</div></blockquote>
+<dl class="docutils">
+<dt>where case_gtin =</dt>
+<dd><p class="first">order by product_mv.case_gtin;</p>
+<p>create or replace view customer_product_invoice_vw as
+select etl_sale.ship_to_cust_id,</p>
+<blockquote>
+<div>count(*),
+sum(extended_net_amt) sum_extended_net_amt</div></blockquote>
+<dl class="last docutils">
+<dt>from</dt>
+<dd>etl_sale</dd>
+<dt>left join  product_vw on</dt>
+<dd>etl_sale.case_gtin = product_vw.case_gtin</dd>
+<dt>group by etl_sale.ship_to_cust_id,</dt>
+<dd>etl_sale.case_gtin;</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<span id="document-ProjectDescription"></span><div class="section" id="project-description">
+<h2>Project Description<a class="headerlink" href="#project-description" title="Permalink to this headline">¶</a></h2>
+<p>This project showcases javautil.org functionality in a simple real world example.</p>
+<p>This is a simple application the provides real functionality for sales reporting and rebate
+processing.</p>
+<p>The objective is to dive into a wide variety of technologies rather than go deep into any
+given technology.</p>
+<p>With a working app exploring additional features of this technology is easy.</p>
+<div class="section" id="software-description">
+<h3>Software Description<a class="headerlink" href="#software-description" title="Permalink to this headline">¶</a></h3>
+<p>Distributors of various products report their sales as specified by the data processor, custdata.com.  This
+software reads the data currently being reported and</p>
+<ul class="simple">
+<li>Loads the data into ETL (Extract Transform and Load) tables</li>
+<li>Runs a variety of tests to ensure the self consistency of the data and compliance with reporting rules.</li>
+<li>Posts the data</li>
+<li>Extracts data into various reporting formats</li>
+<li>Analyses Data</li>
+<li>Creates spreadsheets for users</li>
+<li>Validates customer mailing addresses and standardizes them</li>
+<li>Computes rebates</li>
+<li>Provides Vending operator spreadsheets</li>
+<li>Creates ACH files for submitting to a bank to issue rebates to customers</li>
+</ul>
+</div>
+<div class="section" id="tech-steps">
+<h3>Tech Steps<a class="headerlink" href="#tech-steps" title="Permalink to this headline">¶</a></h3>
+<p>Install the required software
+Configure for build
+Build</p>
+</div>
+<div class="section" id="history">
+<h3>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h3>
+<p>Processing Steps</p>
+</div>
+</div>
+<span id="document-Technologies"></span><div class="section" id="technologies">
+<h2>Technologies<a class="headerlink" href="#technologies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application">
+<h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Java</dt>
+<dd><ul class="first last">
+<li>JDBC</li>
+<li>Hibernate</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Build Tools</dt>
+<dd><ul class="first last">
+<li>Maven</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Postgres</dt>
+<dd><ul class="first last">
+<li>SQL</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Testing</dt>
+<dd><ul class="first last">
+<li>Unit Testing - SureFire</li>
+<li>Integration Testing</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Spring
+* JSON RPC
+* Dependency Injection
+* Spring Boot</li>
+<li>YAML</li>
+<li>Sphinx</li>
+<li>javautil</li>
+</ul>
+</div>
+<div class="section" id="deployment">
+<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h3>
+<p>Amazon Web Services with high availability and security, unlimited scalability and robust administration.</p>
+<p>Service Contracts monthly.</p>
+</div>
+</div>
+<span id="document-cds_record_layout"></span><div class="section" id="record-layouts">
+<h2>Record Layouts<a class="headerlink" href="#record-layouts" title="Permalink to this headline">¶</a></h2>
+<p>This details the reporting format as last posted by custdata.com
+on their website.  This is available at</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">web</span><span class="o">.</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">web</span><span class="o">/*/</span><span class="n">custdata</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+<div class="section" id="inventory">
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">field_name</th>
+<th class="head">type</th>
+<th class="head">offset</th>
+<th class="head">length</th>
+<th class="head">format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DISTRIBUTOR_ID</td>
+<td>DIGITS</td>
+<td>0</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>MFR_ID</td>
+<td>DIGITS</td>
+<td>10</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-even"><td>MFR_PRODUCT_ID</td>
+<td>DIGITS</td>
+<td>20</td>
+<td>8</td>
+<td>{:0&gt;8s}</td>
+</tr>
+<tr class="row-odd"><td>COMMENTS</td>
+<td>TEXT</td>
+<td>28</td>
+<td>96</td>
+<td>{:&lt;96s}</td>
+</tr>
+<tr class="row-even"><td>CASES</td>
+<td>INTEGER</td>
+<td>124</td>
+<td>6</td>
+<td>{0:06d}</td>
+</tr>
+<tr class="row-odd"><td>BOXES</td>
+<td>INTEGER</td>
+<td>130</td>
+<td>6</td>
+<td>{0:06d}</td>
+</tr>
+<tr class="row-even"><td>UNITS</td>
+<td>INTEGER</td>
+<td>136</td>
+<td>6</td>
+<td>{0:06d}</td>
+</tr>
+<tr class="row-odd"><td>CASE_GTIN</td>
+<td>DIGITS</td>
+<td>142</td>
+<td>14</td>
+<td>{:0&lt;14s}</td>
+</tr>
+<tr class="row-even"><td>FILLER</td>
+<td>LITERAL</td>
+<td>156</td>
+<td>12</td>
+<td>{:&lt;12s}</td>
+</tr>
+<tr class="row-odd"><td>RECORD_TYPE</td>
+<td>LITERAL</td>
+<td>168</td>
+<td>2</td>
+<td>{:&lt;2s}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="customer">
+<h3>Customer<a class="headerlink" href="#customer" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">field_name</th>
+<th class="head">type</th>
+<th class="head">offset</th>
+<th class="head">length</th>
+<th class="head">format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FILLER_00_05</td>
+<td>LITERAL</td>
+<td>0</td>
+<td>6</td>
+<td>{:&gt;6}</td>
+</tr>
+<tr class="row-odd"><td>CLASS_OF_TRADE</td>
+<td>TEXT</td>
+<td>6</td>
+<td>4</td>
+<td>{:&lt;4s}</td>
+</tr>
+<tr class="row-even"><td>SHIP_TO_CUST_ID</td>
+<td>TEXT</td>
+<td>10</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>CUST_NM</td>
+<td>TEXT</td>
+<td>20</td>
+<td>30</td>
+<td>{:&lt;30s}</td>
+</tr>
+<tr class="row-even"><td>ADDR_1</td>
+<td>TEXT</td>
+<td>50</td>
+<td>30</td>
+<td>{:&lt;30s}</td>
+</tr>
+<tr class="row-odd"><td>ADDR_2</td>
+<td>TEXT</td>
+<td>80</td>
+<td>30</td>
+<td>{:&lt;30s}</td>
+</tr>
+<tr class="row-even"><td>CITY</td>
+<td>TEXT</td>
+<td>110</td>
+<td>25</td>
+<td>{:&lt;25s}</td>
+</tr>
+<tr class="row-odd"><td>STATE</td>
+<td>TEXT</td>
+<td>135</td>
+<td>2</td>
+<td>{:&lt;2s}</td>
+</tr>
+<tr class="row-even"><td>POSTAL_CD</td>
+<td>DIGITS</td>
+<td>137</td>
+<td>9</td>
+<td>{:0&gt;9s}</td>
+</tr>
+<tr class="row-odd"><td>TEL_NBR</td>
+<td>DIGITS</td>
+<td>146</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-even"><td>NATIONAL_ACCT_ID</td>
+<td>TEXT</td>
+<td>156</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>SPECIAL_FLG</td>
+<td>TEXT</td>
+<td>166</td>
+<td>1</td>
+<td>{:&gt;1s}</td>
+</tr>
+<tr class="row-even"><td>FILLER_1</td>
+<td>LITERAL</td>
+<td>167</td>
+<td>1</td>
+<td>{:&gt;1s}</td>
+</tr>
+<tr class="row-odd"><td>RECORD_TYPE</td>
+<td>LITERAL</td>
+<td>168</td>
+<td>2</td>
+<td>{:&gt;2s}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inventory-total">
+<h3>Inventory Total<a class="headerlink" href="#inventory-total" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">field_name</th>
+<th class="head">type</th>
+<th class="head">offset</th>
+<th class="head">length</th>
+<th class="head">format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HEADER</td>
+<td>LITERAL</td>
+<td>0</td>
+<td>10</td>
+<td>{:&gt;1s}</td>
+</tr>
+<tr class="row-odd"><td>FILLER36</td>
+<td>LITERAL</td>
+<td>10</td>
+<td>36</td>
+<td>{:&gt;36}</td>
+</tr>
+<tr class="row-even"><td>INVENTORY_DT</td>
+<td>DATE</td>
+<td>46</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-odd"><td>FILE_CREATION_DT</td>
+<td>DATE</td>
+<td>54</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-even"><td>RECORD_CNT_REPORTED</td>
+<td>INTEGER</td>
+<td>62</td>
+<td>9</td>
+<td>{0:09d}</td>
+</tr>
+<tr class="row-odd"><td>FILLER97</td>
+<td>LITERAL</td>
+<td>71</td>
+<td>97</td>
+<td>{:&gt;97}</td>
+</tr>
+<tr class="row-even"><td>RECORD_TYPE</td>
+<td>LITERAL</td>
+<td>168</td>
+<td>2</td>
+<td>{:&gt;2}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="customer-total">
+<h3>Customer Total<a class="headerlink" href="#customer-total" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">field_name</th>
+<th class="head">type</th>
+<th class="head">offset</th>
+<th class="head">length</th>
+<th class="head">format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HEADER</td>
+<td>LITERAL</td>
+<td>0</td>
+<td>10</td>
+<td>{:&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>FILLER_127</td>
+<td>LITERAL</td>
+<td>10</td>
+<td>127</td>
+<td>{:&gt;127s}</td>
+</tr>
+<tr class="row-even"><td>CUSTOMER_COUNT</td>
+<td>INTEGER</td>
+<td>137</td>
+<td>9</td>
+<td>{0:09d}</td>
+</tr>
+<tr class="row-odd"><td>FILLER_22</td>
+<td>LITERAL</td>
+<td>146</td>
+<td>22</td>
+<td>{:&gt;22s}</td>
+</tr>
+<tr class="row-even"><td>RECORD_TYPE</td>
+<td>LITERAL</td>
+<td>168</td>
+<td>2</td>
+<td>{:&gt;2s}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sales">
+<h3>Sales<a class="headerlink" href="#sales" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">field_name</th>
+<th class="head">type</th>
+<th class="head">offset</th>
+<th class="head">length</th>
+<th class="head">format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DISTRIB_ID</td>
+<td>TEXT</td>
+<td>0</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>MFR_ID</td>
+<td>TEXT</td>
+<td>10</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-even"><td>MFR_PRODUCT_ID</td>
+<td>TEXT</td>
+<td>20</td>
+<td>8</td>
+<td>{:0&gt;8s}</td>
+</tr>
+<tr class="row-odd"><td>SHIP_TO_CUST_ID</td>
+<td>TEXT</td>
+<td>28</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-even"><td>INVOICE_CD</td>
+<td>TEXT</td>
+<td>38</td>
+<td>10</td>
+<td>{:0&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>INVOICE_DT</td>
+<td>DATE</td>
+<td>48</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-even"><td>SHIP_DT</td>
+<td>DATE</td>
+<td>56</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-odd"><td>FILLER</td>
+<td>LITERAL</td>
+<td>64</td>
+<td>9</td>
+<td>{:&lt;9s}</td>
+</tr>
+<tr class="row-even"><td>EXTENDED_NET_AMT</td>
+<td>INTEGER</td>
+<td>73</td>
+<td>9</td>
+<td>{0:09d}</td>
+</tr>
+<tr class="row-odd"><td>DISTRIB_PRODUCT_REF</td>
+<td>TEXT</td>
+<td>82</td>
+<td>12</td>
+<td>{:&lt;12s}</td>
+</tr>
+<tr class="row-even"><td>PRODUCT_DESCR</td>
+<td>TEXT</td>
+<td>94</td>
+<td>30</td>
+<td>{:&lt;30s}</td>
+</tr>
+<tr class="row-odd"><td>CASES_SHIPPED</td>
+<td>INTEGER</td>
+<td>124</td>
+<td>6</td>
+<td>{0:06d}</td>
+</tr>
+<tr class="row-even"><td>BOXES_SHIPPED</td>
+<td>INTEGER</td>
+<td>130</td>
+<td>6</td>
+<td>{0:06d}</td>
+</tr>
+<tr class="row-odd"><td>UNITS_SHIPPED</td>
+<td>INTEGER</td>
+<td>136</td>
+<td>6</td>
+<td>{0:06d}</td>
+</tr>
+<tr class="row-even"><td>CASE_GTIN</td>
+<td>TEXT</td>
+<td>142</td>
+<td>14</td>
+<td>{:0&gt;14s}</td>
+</tr>
+<tr class="row-odd"><td>FILLER_12</td>
+<td>LITERAL</td>
+<td>156</td>
+<td>12</td>
+<td>{:&gt;12s}</td>
+</tr>
+<tr class="row-even"><td>RECORD_TYPE</td>
+<td>LITERAL</td>
+<td>168</td>
+<td>2</td>
+<td>{:&lt;2s}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sales-total">
+<h3>Sales Total<a class="headerlink" href="#sales-total" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">field_name</th>
+<th class="head">type</th>
+<th class="head">offset</th>
+<th class="head">length</th>
+<th class="head">format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HEADER</td>
+<td>LITERAL</td>
+<td>0</td>
+<td>10</td>
+<td>{:&gt;10s}</td>
+</tr>
+<tr class="row-odd"><td>FILLER_28</td>
+<td>LITERAL</td>
+<td>10</td>
+<td>28</td>
+<td>{:&gt;28s}</td>
+</tr>
+<tr class="row-even"><td>SALES_START_DT</td>
+<td>DATE</td>
+<td>38</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-odd"><td>SALES_END_DT</td>
+<td>DATE</td>
+<td>46</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-even"><td>FILE_CREATE_DT</td>
+<td>DATE</td>
+<td>54</td>
+<td>8</td>
+<td>%Y%m%d</td>
+</tr>
+<tr class="row-odd"><td>SALES_REC_CNT</td>
+<td>INTEGER</td>
+<td>62</td>
+<td>9</td>
+<td>{:0&gt;9d}</td>
+</tr>
+<tr class="row-even"><td>SUM_EXT_NET_AMT</td>
+<td>INTEGER</td>
+<td>71</td>
+<td>11</td>
+<td>{:0&gt;11d}</td>
+</tr>
+<tr class="row-odd"><td>FILLER_86</td>
+<td>LITERAL</td>
+<td>82</td>
+<td>86</td>
+<td>{:&gt;86s}</td>
+</tr>
+<tr class="row-even"><td>RECORD_TYPE</td>
+<td>LITERAL</td>
+<td>168</td>
+<td>2</td>
+<td>{:&lt;2s}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Analyze">Sales Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#gather-product-statistics">Gather Product Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#operator-product-statistics">Operator Product Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#opportunities">Opportunities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#operator-call-report">Operator Call Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Answers">Answers to Questions you should have asked</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#sales-analysis">Sales Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#product-not-sold">Product Not Sold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Audit">Audit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#findings">Findings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Benefits">Benefits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#frito-lay-pepsi">Frito-Lay Pepsi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#distributors">Distributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#apps">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#vending-operators">Vending Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id1">Product Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Contributions">Contributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#unix-linux">Unix/Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#oracle">Oracle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#c">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#became-employee">Became Employee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#technical-standards">Technical Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#products">Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#redesign">Redesign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#others">Others</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#javautil">Javautil</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#history-of-jim-schmidt-and-custom-data-solutions">History of Jim Schmidt and Custom Data Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#creation">Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#technologies">Technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#chuck-retires">Chuck Retires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#business-model">Business Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#while-cio">While CIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#terminated">Terminated</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id4">History of Jim Schmidt and Custom Data Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id5">Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id6">Technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id23">Chuck Retires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#id25">Business Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#custom-data-solutions">Custom Data Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#processing-steps">Processing Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ProductOffering">Product Offering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#benefits">Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-get-started">How to get started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-sa_views">Sales Analysis Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#every-product-and-every-customer">Every product and every customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#etl-sale-12-vw">etl_sale_12_vw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#product-not-sold">Product Not Sold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sales-product-customer">Sales Product Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#potential-revenue">Potential Revenue</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-ProjectDescription">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#software-description">Software Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tech-steps">Tech Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#history">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Technologies">Technologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#application">Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#deployment">Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-cds_record_layout">Record Layouts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#inventory">Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#customer">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#inventory-total">Inventory Total</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#customer-total">Customer Total</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sales">Sales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sales-total">Sales Total</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pacific Data Services.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

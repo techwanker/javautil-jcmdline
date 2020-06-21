@@ -1,0 +1,1076 @@
+SET search_path = aerodemo;
+SET
+BEGIN;
+BEGIN
+SET CONSTRAINTS ALL DEFERRED;
+SET CONSTRAINTS
+SET search_path = aerodemo;
+SET
+COPY ail_back (item_nbr,aps_log_file_name,last_plan_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY alloc_stats (nbr_oo_old,nbr_oo_new,nbr_wo_old,nbr_wo_new,nbr_ss_old,nbr_ss_new,nbr_fc_old,nbr_fc_new,nbr_oo_alloc_full_old,nbr_oo_alloc_full_new,nbr_wo_alloc_full_old,nbr_wo_alloc_full_new,nbr_ss_alloc_full_old,nbr_ss_alloc_full_new,nbr_fc_alloc_full_old,nbr_fc_alloc_full_new,nbr_oo_unalloc_old,nbr_oo_unalloc_new,nbr_wo_unalloc_old,nbr_wo_unalloc_new,nbr_ss_unalloc_old,nbr_ss_unalloc_new,nbr_fc_unalloc_old,nbr_fc_unalloc_new,nbr_oo_alloc_full_ontime_old,nbr_oo_alloc_full_ontime_new,nbr_wo_alloc_full_ontime_old,nbr_wo_alloc_full_ontime_new,nbr_ss_alloc_full_ontime_old,nbr_ss_alloc_full_ontime_new,nbr_fc_alloc_full_ontime_old,nbr_fc_alloc_full_ontime_new) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY app_ctl (property_nm,property_val) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY app_ctl2 (property_nm,property_val) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_delete_log (delete_dt,aps_alloc_onhand_nbr,dmd_key,lot_nbr,alloc_qty,aps_sply_sub_pool_nbr,subst_id,facility_rqst,facility_act,item_nbr_rqst,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,alloc_type_id,wh_facility_trans_onhand_nbr,avail_dt,avail_dt_type_id,dmd_type,log_comm,notify_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_nbr (nextval) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_oh_fc (aps_alloc_oh_fc_nbr,item_nbr,fc_fcst_nbr,facility_act,lot_nbr,aps_sply_sub_pool_nbr,alloc_qty,alloc_type_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_oh_oo (aps_alloc_oh_oo_nbr,item_nbr,oe_ord_dtl_nbr,facility_act,lot_nbr,aps_sply_sub_pool_nbr,alloc_qty,alloc_type_id,item_nbr_rqst,wh_facility_trans_onhand_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_onhand_fc (aps_alloc_onhand_fc_nbr,item_nbr_rqst,fc_fcst_nbr,lot_nbr,aps_sply_sub_pool_nbr,facility_rqst,facility_act,alloc_qty,subst_id,alloc_type_id,wh_facility_trans_onhand_nbr,avail_dt,avail_dt_type_id,fc_item_mast_nbr,fcst_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_onhand_oo (aps_alloc_onhand_oo_nbr,item_nbr_rqst,oe_ord_dtl_nbr,lot_nbr,aps_sply_sub_pool_nbr,facility_rqst,facility_act,subst_id,alloc_qty,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,alloc_type_id,wh_facility_trans_onhand_nbr,avail_dt,avail_dt_type_id,alloc_rqst_qty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_onhand_ss (aps_alloc_onhand_ss_nbr,item_nbr_rqst,fc_item_mast_nbr,lot_nbr,aps_sply_sub_pool_nbr,facility_rqst,facility_act,alloc_qty,subst_id,alloc_type_id,wh_facility_trans_onhand_nbr,avail_dt,avail_dt_type_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_onhand_wo (aps_alloc_onhand_wo_nbr,item_nbr_rqst,wo_dtl_nbr,lot_nbr,aps_sply_sub_pool_nbr,facility_rqst,facility_act,alloc_qty,alloc_type_id,wh_facility_trans_onhand_nbr,avail_dt,avail_dt_type_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_po_ss (aps_alloc_po_ss_nbr,item_nbr,fc_item_mast_nbr,po_line_dtl_nbr,facility_act,aps_sply_sub_pool_nbr,alloc_qty,alloc_type_id,item_nbr_rqst,wh_facility_trans_replen_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_replen_fc (aps_alloc_replen_fc_nbr,item_nbr_rqst,fc_fcst_nbr,po_line_dtl_nbr,facility_rqst,facility_act,subst_id,alloc_qty,alloc_type_id,wh_facility_trans_replen_nbr,fc_item_mast_nbr,fcst_dt,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_replen_oo (aps_alloc_replen_oo_nbr,item_nbr_rqst,oe_ord_dtl_nbr,po_line_dtl_nbr,facility_rqst,facility_act,subst_id,alloc_qty,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,alloc_type_id,wh_facility_trans_replen_nbr,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_replen_ss (aps_alloc_replen_ss_nbr,item_nbr_rqst,fc_item_mast_nbr,po_line_dtl_nbr,facility_rqst,facility_act,subst_id,alloc_qty,alloc_type_id,wh_facility_trans_replen_nbr,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_replen_wo (aps_alloc_replen_wo_nbr,item_nbr_rqst,wo_dtl_nbr,po_line_dtl_nbr,facility_rqst,facility_act,alloc_qty,alloc_type_id,wh_facility_trans_replen_nbr,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_wo_fc (aps_alloc_wo_fc_nbr,item_nbr_rqst,wo_hdr_nbr,fc_fcst_nbr,facility_rqst,facility_act,alloc_qty,alloc_type_id,wh_facility_trans_wo_nbr,fc_item_mast_nbr,fcst_dt,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_wo_oo (aps_alloc_wo_oo_nbr,item_nbr_rqst,wo_hdr_nbr,oe_ord_dtl_nbr,facility_rqst,facility_act,alloc_qty,alloc_type_id,wh_facility_trans_wo_nbr,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_wo_ss (aps_alloc_wo_ss_nbr,item_nbr_rqst,wo_hdr_nbr,fc_item_mast_nbr,facility_rqst,facility_act,alloc_qty,alloc_type_id,wh_facility_trans_wo_nbr,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_alloc_wo_wo (aps_alloc_wo_wo_nbr,item_nbr_rqst,wo_hdr_nbr,wo_dtl_nbr,facility_rqst,facility_act,alloc_qty,alloc_type_id,wh_facility_trans_wo_nbr,aps_sply_sub_pool_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_ctl (pipe_nm,pipe_nm_synch,lock_pick,push_window_dy,push_limit_cost,push_limit_pct,pull_window_dy,pull_limit_pct,asynch_notify_pipe_nm,effective_date) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_dispatch_queue (item_nbr,dispatch_time,plan_grp_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_ideal_global_replen (item_nbr,replen_dt,replen_qty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_item_global_subst (item_nbr,item_nbr_subst,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_item_log (item_nbr,aps_log_file_name,last_plan_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_item_replen_policy (item_nbr,facility,replen_qty_min_unit,replen_qty_max_unit,replen_qty_min_prd,replen_qty_max_prd,replen_qty_incr_unit) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_plan_grp (plan_grp_nbr,item_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_result_dtl_dmd (aps_result_dtl_dmd_nbr,item_nbr_rqst,dmd_identifier,oe_ord_dtl_nbr,wo_dtl_nbr,fc_fcst_nbr,fc_item_mast_nbr,dmd_qty,dmd_qty_adj,alloc_qty,rqst_dt_alloc_qty,rqst_dt,prom_dt_curr,avail_dt,aps_src_rule_set_nbr_dmd,facility_dmd,org_nbr_cust,org_nbr_mfr_rqst) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_result_dtl_dmd_seq (nextval) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_result_dtl_sply (aps_result_dtl_dmd_nbr,sply_identifier,lot_nbr_sply,facility_sply,aps_sply_sub_pool_nbr_sply,po_line_dtl_nbr,wo_hdr_nbr,sply_qty,sply_qty_alloc,avail_dt,org_nbr_mfr_sply,org_nbr_vnd_sply,aps_avail_dt,wh_facility_trans_onhand_nbr,wh_facility_trans_replen_nbr,wh_facility_trans_wo_nbr,src_rule_flg,sply_cert_to_demand_flg,explicit_mfr_flg,apprv_mfr_flg,attribute_cert_flg,rev_lvl_flg,lot_dt_flg,cntry_of_origin_flg,cust_subst_flg,global_subst_flg,equiv_flg,avail_dt_type_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_rqst_queue (item_nbr,dmd_oo_flg,dmd_fc_flg,dmd_wo_flg,sply_oh_flg,sply_po_flg,sply_wo_flg,rqst_tm,aps_exception,item_prty,dispatch_tm,rqst_src) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_sply_pool (aps_sply_pool_cd,aps_sply_pool_descr,ut_user_nbr,last_mod_dt,aps_sply_pool_stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_sply_sub_pool (aps_sply_sub_pool_nbr,aps_sply_pool_cd,aps_sply_sub_pool_cd,sply_pool_type_id,aps_sply_sub_pool_descr,org_nbr_vnd,ut_user_nbr,last_mod_dt,aps_sply_sub_pool_stat_id,avail_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_src_rule (aps_src_rule_nbr,aps_src_rule_set_nbr,aps_sply_sub_pool_nbr,facility,sply_type_id,src_prty,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_src_rule_primary (aps_src_rule_set_nbr,aps_src_rule_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_src_rule_replen (aps_src_rule_set_nbr,aps_src_rule_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY aps_src_rule_set (aps_src_rule_set_nbr,aps_src_rule_set_cd,aps_src_rule_set_descr,ut_user_nbr,last_mod_dt,facility_fcst_consume,aps_sply_pool_cd_fcst_consume,src_rule_set_stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ar_inv_dtl (ar_inv_dtl_nbr,inv_cd,line_nbr,ord_cd,oe_ord_dtl_nbr,line_nbr_ord,cust_po_cd,cust_line_cd,item_nbr,item_cd,item_descr,ship_to_addr_nbr,ship_to_addr_cd,sell_um,qty_open,qty_ship,lot_nbr,org_nbr_vnd,org_nm_vnd,org_nbr_mfr,org_nm_mfr,mfr_lot_cd,rev_lvl,unit_cost_stk_um,unit_cost_denom_stk_um,unit_cost_sell_um,unit_cost_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,unit_price_sell_um,unit_price_denom_sell_um,tie_cd,contract_cd,cust_bin_cd,aps_sply_sub_pool_nbr,facility,org_cd_mfr,org_cd_vnd,qty_open_stk_um,qty_ship_stk_um,bin_cd,ic_category_nbr,ic_category_nm,ic_category_descr,cust_bin_cd_new) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ar_inv_dtl (ar_inv_dtl_nbr,inv_cd,line_nbr,ord_cd,oe_ord_dtl_nbr,line_nbr_ord,cust_po_cd,cust_line_cd,item_nbr,item_cd,item_descr,ship_to_addr_nbr,ship_to_addr_cd,sell_um,qty_open,qty_ship,lot_nbr,org_nbr_vnd,org_nm_vnd,org_nbr_mfr,org_nm_mfr,mfr_lot_cd,rev_lvl,unit_cost_stk_um,unit_cost_denom_stk_um,unit_cost_sell_um,unit_cost_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,unit_price_sell_um,unit_price_denom_sell_um,tie_cd,contract_cd,cust_bin_cd,aps_sply_sub_pool_nbr,facility,org_cd_mfr,org_cd_vnd,qty_open_stk_um,qty_ship_stk_um,bin_cd,ic_category_nbr,ic_category_nm,ic_category_descr,cust_bin_cd_new) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ar_inv_hdr (inv_cd,inv_dt,inv_stat_id,org_nbr_cust,org_nm_cust,oe_ord_hdr_nbr,ord_cd,cust_po_cd,curr_cd,ship_dt,bill_to_addr_nbr,bill_to_addr_cd,bill_to_addr_descr,bill_to_addr_1,bill_to_addr_2,bill_to_addr_3,bill_to_city,bill_to_state_cd,bill_to_postal_cd,bill_to_cntry_cd,ship_to_addr_nbr,ship_to_addr_cd,ship_to_addr_descr,ship_to_addr_1,ship_to_addr_2,ship_to_addr_3,ship_to_city,ship_to_state_cd,ship_to_postal_cd,ship_to_cntry_cd,ship_via_cd,term_cd,gross_inv_value,wght,ctn_cnt,frgt_charge,net_inv_value,waybill_cd,trd_flg,ar_inv_batch_nbr,fob_cd,org_cd_cust,sales_terr_cd,sell_indiv_nbr,ar_summary_inv_nbr,gl_tax_grp_nbr,print_flg,inv_print_dt_orig,inv_print_dt_last,ut_user_nbr_print,ord_type_cd,summary_inv_ref) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ar_rma_dtl (ar_rma_dtl_nbr,rma_cd,ar_rma_line_nbr,rma_reason_cd,ar_inv_dtl_nbr,item_nbr,item_cd,item_descr,sell_um,qty_rtrn_auth,qty_rtrn_auth_stk_um,qty_received,qty_received_stk_um,qty_accepted,qty_accepted_stk_um,qty_credited,qty_credited_stk_um,unit_price_stk_um,unit_price_denom_stk_um,unit_price_sell_um,unit_price_denom_sell_um,credit_price_denom,credit_price,ut_user_nbr,last_mod_dt,unit_cost_stk_um,unit_cost_denom_stk_um,unit_cost_sell_um,unit_cost_denom_sell_um) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ar_rma_rcpt (ar_rma_rcpt_nbr,rcpt_dt,ar_rma_dtl_nbr,org_nbr_cust,item_nbr,qty_received,qty_received_stk_um,qty_accepted,qty_accepted_stk_um,rma_um,bin_nbr_stage,rma_comments,rcpt_stat_id,lot_nbr_recv,facility_recv,aps_sply_sub_pool_nbr_recv,ut_user_nbr_recv,ut_user_nbr_inspect,process_dt,ut_user_nbr,last_mod_dt,lot_cost_landed,ic_trans_gl_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY cal_calendar (calendar,intvl_per_cycle,stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY cal_dt (cal_dt,calendar,cycle,intvl,intvl_pct,work_day_flg,prd_start_dt,cal_qtr,work_day_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY cal_holiday (cal_holiday_nbr,calendar,month,day_of_month,recurs,align,start_dt,end_dt,occurence,day_of_week) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY currency (curr_cd,curr_cd_descr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY databasechangelog (id,author,filename,dateexecuted,orderexecuted,exectype,md5sum,description,comments,tag,liquibase,contexts,labels,deployment_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY databasechangeloglock (id,locked,lockgranted,lockedby) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY debug_table (debug_nbr,debug_msg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fake_date (max_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fake_emails (buyer_email_addr,fake_email) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fake_indiv_nm (indiv_nm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fake_names (indiv_nm_buyer,fake_name) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fake_org_nm (org_nm,fake_org_nm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fake_phn_nbrs (phn_nbr,type,fake_phn_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fcst_grp (fcst_grp,fcst_grp_descr,ut_user_nbr,last_mod_dt,oo_prty,wo_prty,ss_prty,fc_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fcst_report_dtl (session_id,grouping_string,sort_seq,dmd_type,qty_mnth_1,qty_mnth_2,qty_mnth_3,qty_mnth_4,qty_mnth_5,qty_mnth_6,qty_mnth_7,qty_mnth_8,qty_mnth_9,qty_mnth_10,qty_mnth_11,qty_mnth_12) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_adj (fc_adj_nbr,fc_item_mast_nbr,adj_id,adj_amt,adj_comm,indiv_nbr_adj,adj_tm,effective_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_aggr_mast (fc_aggr_mast_nbr,fc_aggr_mast_descr,fcst_grp,fcst_type_id,fcst_aggr_type_id,calendar,tot_lead_time,store_alt_fcst_flg,fc_aggr_mast_stat_id,trc_file_nm_absolute) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_aggr_mast_attr (fc_aggr_mast_nbr,ic_attr_nbr,attr_val) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_aggr_mast_dtl (fc_aggr_mast_nbr,fc_item_mast_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_attr (fc_attr_nbr,attr_nm,attr_descr,attr_seq,reqr_flg,attr_constr_flg,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_attr_val (fc_attr_nbr,attr_val,attr_val_descr,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_build_rate (fc_build_rate_grp_cd,build_rate_eff_dt,build_rate_units) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_build_rate_grp (fc_build_rate_grp_cd,fc_build_rate_grp_descr,fc_build_rate_grp_stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_ctl (run_date,prd_per_cycle,cycle,prd,intvl_per_cycle,intvl,next_run_nbr,cycle_nm,intvl_nm,prd_nm,fc_reg_nbr,safety_stk_lead_tm_flg,carry_cost,aquis_cost,hit_cnt_force_mdl_other,hit_cnt_force_mdl_under,hit_cnt_cost,hit_cnt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_dtl_tmp (fc_item_mast_nbr,item_nbr,item_cd,user_fld_1,user_fld_2,user_fld_3,raw_fcst_tot) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst (fc_fcst_nbr,fc_item_mast_nbr,cycle,intvl,raw_fcst,adj_fcst,fcst_consumed_qty,fc_item_fcst_mdl_nbr,fcst_alloc_qty,fc_fcst_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_aggr (fc_aggr_mast_nbr,fc_fcst_dt,raw_fcst,adj_fcst) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_bak (fc_fcst_nbr,fc_item_mast_nbr,raw_fcst,adj_fcst,fcst_consumed_qty,fc_item_fcst_mdl_nbr,fcst_alloc_qty,fc_fcst_dt,run_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_bucket (fc_item_mast_nbr,prd_start_dt,intvl,intvl_start_dt,fc_fcst_dt,frac_prd_dmd_raw,whole_prd_dmd_raw,whole_prd_adj_raw,frac_prd_dmd_adj,whole_prd_dmd_adj,whole_prd_adj_adj) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_mdl (fc_fcst_mdl_nbr,class_name,alpha_1,alpha_2,alpha_3,fcst_mdl_descr,mdl_intvl_cnt_min,mdl_intvl_cnt_max,min_non_zero_intvl_prev_cycle,mdl_stat_id,min_sim_cnt,trace_flg,is_user_defined,season_flg,short_fcst_mdl_descr,long_fcst_mdl_descr,mdl_intvl_cnt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_mdl_grp (fcst_mdl_grp,fcst_mdl_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_mdl_grp_hdr (fcst_mdl_grp,fcst_mdl_grp_descr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_mdl_old (fc_fcst_mdl_nbr,class_name,alpha_1,alpha_2,alpha_3,fcst_mdl_descr,mdl_intvl_cnt_min,mdl_intvl_cnt_max,min_non_zero_intvl_prev_cycle,mdl_stat_id,min_sim_cnt,trace_flg,is_user_defined,season_flg,short_fcst_mdl_descr,long_fcst_mdl_descr,mdl_intvl_cnt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_prd (fc_item_mast_nbr,fc_fcst_dt,raw_fcst,adj_fcst,fcst_alloc_qty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_prd_old (fc_item_mast_nbr,prd_start_dt,frac_prd_dmd,fc_fcst_prd_nbr,whole_prd_dmd,whole_prd_adj) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_fcst_xx (fc_fcst_nbr,fc_item_mast_nbr,cycle,intvl,raw_fcst,adj_fcst,fcst_consumed_qty,fc_item_fcst_mdl_nbr,fcst_alloc_qty,fc_fcst_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_hdr_tmp (user_fld_1,user_fld_2,raw_fcst_tot) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_hist (fc_hist_nbr,fc_item_mast_nbr,dmd_act,dmd_adj,dmd_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_hist_dist (fc_item_mast_nbr,item_nbr,item_cd,hist,pct_dist_hist) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_item_attr (fc_item_mast_nbr,fc_attr_nbr,attr_val) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_item_dflt (fc_item_dflt_nbr,item_nbr,svc_lvl,ord_qty_min,ord_qty_incr,ord_qty_max,stk_cd,tot_lead_time,lead_time_ship,safety_stk_min_prd,safety_stk_max_prd,safety_stk_min_unit,safety_stk_max_unit,intro_dt,shelf_life,whsl_price,fob_cost,currency_cd,ex_whse_cost,land_cost,carry_cost,ord_qty_min_unit,ord_qty_max_unit,ord_qty_min_prd,ord_qty_max_prd,store_alt_fcst_flag,arch_alt_fcst_flag,calendar,aquis_cost,distrib_lead_time,fcst_mdl_grp,recv_cost,resource_units_init,resource_units_incr,max_work_order_qty,replen_lead_time,fcst_lead_time,stat_id,econ_ord_qty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_item_fcst_mdl (fc_item_fcst_mdl_nbr,fc_item_mast_nbr,fc_fcst_mdl_nbr,std_dev,mean_abs_dev,rvw_cnt,safety_stk_raw,fcst_mdl_descr,safety_stk_adj,econ_ord_qty,ord_qty_adj,safety_stk_min_days,safety_stk_max_days,safety_stk_min_units,safety_stk_max_units,lead_time_fcst,run_nbr,chosen_flg,thiel,lead_time_hist,error_ratio) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_item_mast (fc_item_mast_nbr,item_nbr,svc_lvl,tot_lead_time,safety_stk_min_prd,safety_stk_max_prd,safety_stk_min_unit,safety_stk_max_unit,replen_qty_min_unit,replen_qty_max_unit,replen_qty_min_prd,replen_qty_max_prd,store_alt_fcst_flg,arch_alt_fcst_flg,calendar,fcst_mdl_grp,stat_id,aps_src_rule_set_nbr,safety_stk_adj,fcst_type_id,org_nbr_cust,rev_lvl,org_nbr_mfr_rqst,fcst_grp,fc_item_mast_stat_id,fc_item_mast_descr,safety_stk_alloc_qty,fcst_end_dt,fc_build_rate_grp_cd,cust_ref_cd,safety_stk_avail_to_sell,hard_alloc_fc_within_lead_tm,safety_stk_constrain,descr,replen_policy,fc_item_mast_nbr_replen_policy,facility,trc_file_nm_absolute,fc_item_alloc_policy_id,trc_fcst_flg,safety_stk_calc,unit_cost_stk_um,fcst_aggr_type_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_item_mast_dtl (fc_item_mast_nbr_src,fc_item_mast_nbr,fcst_ratio) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_item_unforecastable (fc_item_mast_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fc_queue (fc_item_mast_nbr,rqst_stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fim_attr (fc_item_mast_nbr,item_nbr,svc_lvl,tot_lead_time,safety_stk_min_prd,safety_stk_max_prd,safety_stk_min_unit,safety_stk_max_unit,replen_qty_min_unit,replen_qty_max_unit,replen_qty_min_prd,replen_qty_max_prd,store_alt_fcst_flg,arch_alt_fcst_flg,calendar,fcst_mdl_grp,stat_id,aps_src_rule_set_nbr,safety_stk_adj,fcst_type_id,org_nbr_cust,rev_lvl,org_nbr_mfr_rqst,fcst_grp,fc_item_mast_stat_id,fc_item_mast_descr,safety_stk_alloc_qty,fcst_end_dt,unit_cost_stk_um,safety_stk_calc,safety_stk_constrain,cust_ref_cd,safety_stk_avail_to_sell,hard_alloc_fc_within_lead_tm,fc_build_rate_grp_cd,descr,prod_line,style,color,prod_size,cust_grp) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY fim_msg (fim_msg_nbr,fc_item_mast_nbr,msg_cd,msg,msg_time) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_attr (ic_attr_nbr,attr_nm,attr_descr,attr_seq,reqr_flg,attr_constr_flg,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_attr_val (ic_attr_nbr,attr_val,attr_val_descr,ut_user_nbr,last_mod_dt,sort_seq) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_attr_val_bak (ic_attr_nbr,attr_val,attr_val_descr,ut_user_nbr,last_mod_dt,sort_seq) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_bin (bin_nbr,facility,bin_cd,pick_flg,pack_station_flg,inspect_flg,bin_stat_cd,walk_seq,ut_user_nbr,last_mod_dt,pick_ease,delete_when_empty_flg,put_away_flg,mrb_flg,wh_whse_zone_nbr,work_station_flg,transit_bin_flg,bin_consume_seq) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_bom (item_nbr,item_nbr_parent,child_qty,child_um,ut_user_nbr,last_mod_dt,mix_mfr_lot_flg,print_bag_lbl_flg,rev_lvl,org_nbr_mfr_rqst,mandatory_item_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_bom_cert (item_nbr,item_nbr_parent,cert_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_category (ic_category_nbr,ic_category_nbr_parent,ic_category_nm,ic_category_descr,ut_user_nbr,last_mod_dt,po_vnd_set_hdr_nbr,ic_category_collate_nbr,print_mfr_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_category_old (ic_category_nbr,ic_category_nbr_parent,ic_category_nm,ic_category_descr,ut_user_nbr,last_mod_dt,po_vnd_set_hdr_nbr,ic_category_collate_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_cert_cd (cert_cd,cert_cd_descr,ut_user_nbr,last_mod_dt,doc_flg,cert_value,cert_src_id,stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_attr (item_nbr,ic_attr_nbr,attr_val,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_attr_bak (item_nbr,ic_attr_nbr,attr_val,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_cost (item_nbr,cost_type_cd,unit_cost,cost_calc_dt,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_cust_subst (item_nbr,org_nbr_cust,item_nbr_subst,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc (ic_item_loc_nbr,lot_nbr,bin_nbr,avail_dt,ut_user_nbr,last_mod_dt,aps_sply_sub_pool_nbr,box_fix_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_loc_box (ic_item_loc_nbr,box_cd,box_qty,box_stat_id,mfr_serial_cd,serial_cd,loc_confirm_rqst_dt,loc_confirm_act_dt,ut_user_nbr_loc_confirm,qty_confirm_rqst_dt,qty_confirm_act_dt,ut_user_nbr_qty_confirm,qty_confirm_rqst_prty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast (item_cd,item_nbr,item_descr,stk_um,sell_um,std_cost,list_price,upc_cd,ean,qty_per_box,box_per_ctn,sls_qty_min,sls_qty_incr,replen_qty_min,replen_qty_incr,ic_category_nbr,non_stk_flg,ser_nbr_reqr_flg,mfr_ser_nbr_reqr_flg,inspect_reqr_flg,mfr_lot_ctrl_flg,kit_flg,price_chg_flg,ut_user_nbr,last_mod_dt,sell_flg,harmonized_cd,plan_bucket_sz,curr_cd,reqr_mfr_flg,shelf_life_dy,lead_tm_dy,indiv_nbr_buyer,stat_id,pick_scan_id,intro_dt,split_at_bin_flg,label_nm_box,ic_recv_rule_cd,cycle_cnt_rule_cd,fifo_dt_id,replen_type_id,item_nbr_primary,item_nbr_supersede,sched_qty_optimal,img_image_set_hdr_nbr,item_wght,ctn_volume,user_fld_1,user_fld_2,user_fld_3,user_fld_4,user_fld_5,user_fld_6,user_fld_7,user_fld_8,user_fld_9) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast_cert (item_nbr,cert_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast_equiv (item_nbr,item_nbr_equiv,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast_equiv_ref (item_nbr,item_nbr_equiv,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast_nomen (item_nbr,org_nbr_nomen,item_cd_nomen,item_descr_nomen,ut_user_nbr,last_mod_dt,display_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast_rel (item_nbr,item_nbr_rel,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mast_upd_queue (item_nbr,lead_tm_dy_new,ut_user_nbr_upd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_mfg_path (item_nbr,mfg_path_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_narr (item_nbr,item_narr,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_operation_yield (item_nbr,operation_cd,yield_pct,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_price_matrix (item_nbr,qty_ord,list_price,ut_user_nbr,last_mod_dt,curr_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_restrict_cust (item_nbr,org_nbr_cust,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_rev_lvl (item_nbr,rev_lvl,rev_lvl_eff_dt,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_rev_lvl_apply (item_nbr,rev_lvl,rev_lvl_apply,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_item_vnd_cost_matrix (item_nbr,org_nbr_vnd,pkg_qty,qty_ord,unit_cost,unit_cost_curr_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_kit_mast (item_nbr,org_nbr_cust,aps_src_rule_set_nbr_dflt,facility_dflt,aps_sply_sub_pool_nbr_dflt,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_lot_mast (item_nbr,lot_nbr,rev_lvl,mfr_lot_cd,po_ord_hdr_nbr,po_line_hdr_nbr,org_nbr_vnd,org_nbr_mfr,rcpt_dt,lot_cost_um,lot_cost,lot_cost_curr_cd,lot_cost_denom,lot_cost_curr_cd_denom,lot_stat_id,mfr_date,lot_cre_comm,recv_qty,inspect_qty,ut_user_nbr_inspect,accept_qty,inspect_dt,rej_qty,trd_flg,ut_user_nbr,last_mod_dt,item_cd_vnd,cntry_cd_origin,lot_nbr_orig,expire_dt,box_qty,qty_on_hand_flg,reject_cd,lot_cost_landed_orig,lot_cost_landed_denom_orig,lot_cost_landed_curr,lot_cost_landed_denom_curr,processed_for_ap_flg,lot_cd,wo_hdr_nbr,wo_release_nbr,ut_user_nbr_recv) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_lot_mast_cert (lot_nbr,cert_cd,cert_rcpt_dt,ut_user_nbr,last_mod_dt,cert_stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_multiple_cert (lot_nbr,item_nbr,rev_lvl,inspected_flg,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_um_cnvt_item (item_nbr,um_id_from,um_id_to,um_cnvt_fact_item,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ic_vnd_onhand (ic_vnd_onhand_nbr,item_nbr,item_cd_vnd,org_nbr_vnd,load_dt,qty_on_hand,stk_um,unit_price) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_ar_inv_dtl (ar_inv_dtl_nbr,inv_cd,ord_cd,ord_type_cd,org_cd_cust,cust_po_cd,term_cd,ship_via_cd,fob_cd,curr_cd,sales_terr_cd,inv_line_nbr,ord_line_nbr,item_cd_ship,item_cd_cust,qty_ship,unit_price_denom,sell_um,ship_from_facility,inv_dt,ship_dt,rqst_dt,prom_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_cust_mast (idl_cust_mast_nbr,org_cd_cust,fcst_grp,sls_terr_cd,sls_grp,salesman_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_fc_adj (fc_item_mast_nbr,item_cd,fcst_grp,mnth_1_adj,mnth_2_adj,mnth_3_adj,mnth_4_adj,mnth_5_adj,mnth_6_adj,mnth_7_adj,mnth_8_adj,mnth_9_adj,mnth_10_adj,mnth_11_adj,mnth_12_adj,prod_line,style,color,sz,status_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_fc_fcst (idl_fc_fcst_nbr,fc_item_mast_nbr,fc_fcst_dt,adj_fcst) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_ic_item_attr (idl_ic_item_attr_nbr,item_cd,attr_1,attr_2,attr_3,attr_4,attr_5,attr_6,attr_7,attr_8,attr_9,attr_10) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_ic_item_loc (idl_ic_item_loc_nbr,item_cd,item_descr,stk_um,qty_on_hand,facility,sply_pool_cd,bin_cd,rcpt_dt,org_cd_vnd,org_cd_mfr,rcpt_dt_txt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_ic_item_mast (idl_ic_item_mast_nbr,item_cd,item_descr,stk_um,std_cost,ic_category_nm,intro_dt,list_price) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_mfr_mfg_cap (idl_mfr_mfg_cap_nbr,org_cd_mfr,daily_cap,ic_category_nm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_oe_ord_dtl (idl_oe_ord_dtl_nbr,ord_cd,ord_dt,ord_type_cd,org_cd_cust,cust_po_cd,term_cd,ship_via_cd,fob_cd,curr_cd,sales_terr_cd,line_nbr,item_cd,item_cd_cust,qty_ord,sell_um,rqst_dt,prom_dt,ship_from_facility,ord_dt_text,rqst_dt_text,prom_dt_text) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_po_ord_dtl (idl_po_ord_dtl_nbr,po_cd,curr_cd,po_dt,org_cd_vnd,po_line_nbr,item_cd,replen_um,unit_cost,replen_qty,replen_curr_est_dt,delivery_facility,delivery_sply_pool_cd,recv_qty,open_qty,replen_curr_est_dt_txt,po_dt_txt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY idl_so_hist_dtl (sales_order_number,customer_number,salesperson_code,item_cd,qty_ordered,unit_price,avg_cost,prod_line,style,color,sz,order_dt,start_ship_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY item_tmp2 (item_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY item_tmp3 (item_cd,style,color,sz,prod_line,status,season,never_out) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY jhi_authority (name) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY jhi_persistent_audit_event (event_id,principal,event_date,event_type) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY jhi_persistent_audit_evt_data (event_id,name,value) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY jhi_user (id,login,password_hash,first_name,last_name,email,image_url,activated,lang_key,activation_key,reset_key,created_by,created_date,reset_date,last_modified_by,last_modified_date) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY jhi_user_authority (user_id,authority_name) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY missing_items (item_nbr,item_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY na_indiv (indiv_nbr,sort_nm,first_nm,middle_init,last_nm,salutation_cd,ut_user_nbr,last_mod_dt,indiv_descr,phn_nbr_dflt,fax_nbr_dflt,email_addr_dflt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY na_org (org_nbr,org_nm,ut_user_nbr,last_mod_dt,org_web_site,curr_cd_dflt,org_cd,phn_nbr_dflt,fax_nbr_dflt,calendar,ut_locale_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY na_org_addr (addr_nbr,org_nbr,addr_type_id,addr_1,addr_2,addr_3,city,state_cd,cntry_cd,addr_cd,addr_descr,role_nm,pick_prty,pick_prty_past_due_mult,gl_tax_grp_nbr,ut_user_nbr,last_mod_dt,postal_cd,addr_active_id,aps_src_rule_set_nbr,calendar,phn_nbr_dflt,fax_nbr_dflt,indiv_nbr_contact_dflt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY na_org_indiv (org_nbr,indiv_nbr,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_contract_item (org_nbr_cust,contract_cd,item_cd_cust,item_nbr,item_nbr_supersede,eff_dt_beg,eff_dt_end,ut_user_nbr,last_mod_dt,tot_contract_qty,note_nbr_ref,use_contract_item_cert,supersession_stat_id,supersession_est_eff_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_contract_item_log (org_nbr_cust,contract_cd,item_cd_cust,item_nbr,item_nbr_supersede,eff_dt_beg,eff_dt_end,tot_contract_qty,ut_user_nbr_mod,mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_cust_contract (contract_cd,org_nbr_cust,ut_user_nbr,last_mod_dt,contract_cd_descr,bin_grp_reqr_flg,fcst_grp,accept_multi_scan_for_bin_flg,ord_turn_around_dy) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_cust_mast (org_nbr_cust,stat_id,cust_price_grp,cust_grp,sic_cd,reqr_po_flg,contract_cust_flg,price_chg_flg,trd_flg,trd_gl_acct,ut_user_nbr,last_mod_dt,sell_indiv_nbr,intro_dt,virtual_cust_flg,ship_to_addr_nbr_dflt,bill_to_addr_nbr_dflt,term_cd_dflt,ship_via_cd_dflt,fob_cd_dflt,curr_cd_dflt,ship_pct_line_dflt,ship_pct_dollar_dflt,cust_alloc_prty,ord_type_cd_dflt,dup_po_allow_flg,credit_limit,curr_ar_bal,sales_terr_cd_dflt,label_nm_bag,label_nm_pack_box,pack_box_contents_rpt_nm,pack_slip_rpt_nm,show_price_on_pack_slip_flg,nbr_pack_slip_copies,add_addr_flg,fcst_grp,summary_inv_rpt_nm,avg_days_to_pay,indiv_nbr_cust_contact,nbr_invoice_copies,ar_integration_tm,sales_region_cd_dflt,ship_line_pct_dflt,auto_close_line_pct_dflt,max_shipments_per_line_dflt,org_nbr_cust_parent,wh_ship_prty_nbr_dflt,payment_method_cd_dflt,price_policy_cd,transmit_pack_slip_on_ship_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_cust_mast_cert (org_nbr_cust,cert_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_cust_mfr (item_nbr,org_nbr_cust,org_nbr_mfr,eff_dt_beg,eff_dt_end,mfr_restrict_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl (oe_ord_dtl_nbr,oe_ord_hdr_nbr,org_nbr_cust,line_nbr,item_nbr_rqst,qty_ord,sell_um,rqst_dt,ship_to_addr_nbr,prom_dt_orig,tie_cd,line_stat_id,item_cd_cust,pkg_qty,pick_prty_cust,pick_prty_rqst,pick_prty_past_due_mult,ut_user_nbr,last_mod_dt,ship_via_cd,cust_bin_cd,cust_line_cd,org_nbr_mfr_rqst,contract_cd,qty_ship,item_nbr_ord,aps_src_rule_set_nbr,cancel_cd,cancel_dt,ut_user_nbr_cancel,lot_not_expire_before_dt,lot_manufacture_after_dt,cntry_cd_origin,qty_ord_stk_um,rev_lvl,unit_price_stk_um,unit_price_denom_stk_um,qty_ship_stk_um,part_mismatch_reason_cd,unit_price_sell_um,unit_price_denom_sell_um,cust_ref,qty_alloc,qty_alloc_stk_um,prom_dt_curr,ship_from_facility,ship_cmplt_flg,hot_flg,ship_line_pct,oe_close_reason_cd,close_tm,ut_user_nbr_close,auto_close_line_pct,max_shipments_per_line,wh_ship_prty_nbr,payment_method_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl_cert (oe_ord_dtl_nbr,cert_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl_hist (oe_ord_hdr_nbr,ord_dt,ord_stat_id,org_nbr_cust,org_cd_cust,cust_po_cd,cust_po_dt,fob_cd,curr_cd,trd_flg,ord_type_cd,ord_cd,sales_terr_cd,transmit_flg,line_nbr,cust_line_cd,item_nbr_rqst,item_nbr_ord,qty_ord,qty_ord_stk_um,sell_um,rqst_dt,ship_to_addr_nbr,prom_dt_orig,prom_dt_curr,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,item_cd_cust,aps_src_rule_set_nbr,org_nbr_mfr_rqst,lot_not_expire_before_dt,lot_manufacture_after_dt,cntry_cd_origin,rev_lvl,ship_via_cd,contract_cd,cust_bin_cd,qty_ship,qty_ship_stk_um,qty_alloc,qty_alloc_stk_um,part_mismatch_reason_cd,cust_ref,ship_from_facility,ship_cmplt_flg,hot_flg,ship_line_pct,cancel_cd,cancel_dt,oe_ord_dtl_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl_hist (oe_ord_hdr_nbr,ord_dt,ord_stat_id,org_nbr_cust,org_cd_cust,cust_po_cd,cust_po_dt,fob_cd,curr_cd,trd_flg,ord_type_cd,ord_cd,sales_terr_cd,transmit_flg,line_nbr,cust_line_cd,item_nbr_rqst,item_nbr_ord,qty_ord,qty_ord_stk_um,sell_um,rqst_dt,ship_to_addr_nbr,prom_dt_orig,prom_dt_curr,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,item_cd_cust,aps_src_rule_set_nbr,org_nbr_mfr_rqst,lot_not_expire_before_dt,lot_manufacture_after_dt,cntry_cd_origin,rev_lvl,ship_via_cd,contract_cd,cust_bin_cd,qty_ship,qty_ship_stk_um,qty_alloc,qty_alloc_stk_um,part_mismatch_reason_cd,cust_ref,ship_from_facility,ship_cmplt_flg,hot_flg,ship_line_pct,cancel_cd,cancel_dt,oe_ord_dtl_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl_hist_fcst_grp (oe_ord_hdr_nbr,ord_dt,ord_stat_id,org_nbr_cust,org_cd_cust,curr_cd,ord_type_cd,ord_cd,item_nbr_rqst,item_nbr_ord,qty_ord,qty_ord_stk_um,sell_um,rqst_dt,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,item_cd_cust,aps_src_rule_set_nbr,org_nbr_mfr_rqst,lot_not_expire_before_dt,lot_manufacture_after_dt,cntry_cd_origin,rev_lvl,qty_ship,qty_ship_stk_um,qty_alloc,qty_alloc_stk_um,oe_ord_dtl_nbr,fcst_grp) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl_hist_fcst_grp (oe_ord_hdr_nbr,ord_dt,ord_stat_id,org_nbr_cust,org_cd_cust,curr_cd,ord_type_cd,ord_cd,item_nbr_rqst,item_nbr_ord,qty_ord,qty_ord_stk_um,sell_um,rqst_dt,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,item_cd_cust,aps_src_rule_set_nbr,org_nbr_mfr_rqst,lot_not_expire_before_dt,lot_manufacture_after_dt,cntry_cd_origin,rev_lvl,qty_ship,qty_ship_stk_um,qty_alloc,qty_alloc_stk_um,oe_ord_dtl_nbr,fcst_grp) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_dtl_log (oe_ord_dtl_nbr,oe_ord_hdr_nbr,org_nbr_cust,line_nbr,cust_line_cd,item_nbr_rqst,item_nbr_ord,qty_ord,qty_ord_stk_um,sell_um,rqst_dt,ship_to_addr_nbr,prom_dt_orig,prom_dt_curr,unit_price_sell_um,unit_price_denom_sell_um,unit_price_stk_um,unit_price_denom_stk_um,tie_cd,line_stat_id,item_cd_cust,aps_src_rule_set_nbr,org_nbr_mfr_rqst,lot_not_expire_before_dt,lot_manufacture_after_dt,cntry_cd_origin,rev_lvl,ship_via_cd,contract_cd,cust_bin_cd,pkg_qty,pick_prty_cust,pick_prty_rqst,pick_prty_past_due_mult,qty_ship,qty_ship_stk_um,qty_alloc,qty_alloc_stk_um,part_mismatch_reason_cd,cust_ref,ship_from_facility,ship_cmplt_flg,hot_flg,ship_line_pct,cancel_cd,cancel_dt,ut_user_nbr_cancel,close_reason_cd,close_dt,ut_user_nbr_close,ut_user_nbr,last_mod_dt,action,ut_user_nbr_action,action_tm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY oe_ord_hdr (oe_ord_hdr_nbr,ord_dt,ord_stat_id,org_nbr_cust,bill_to_addr_nbr,ship_to_addr_nbr_dflt,cust_po_cd,cust_po_dt,rqst_dt_dflt,cancel_dt,term_cd,ship_via_cd_dflt,fob_cd,curr_cd,ut_user_nbr_cancel,cancel_cd,ord_prty,sell_indiv_nbr,trd_flg,ut_user_nbr,last_mod_dt,ship_pct_line,ship_pct_dollar,next_line_nbr,org_nm_cust,ord_type_cd,ord_cd,buyer_email_addr,indiv_nm_buyer,buyer_phn_nbr,sales_terr_cd,buyer_fax_nbr,transmit_flg,wh_ship_prty_nbr_dflt,payment_method_cd_dflt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY plan_po (plan_po_nbr,avail_type_cd,item_nbr,whse_id,whse_area,item_cd,mfr_cd,vndr_cd,unit_cost,unit_cost_curr_cd,unit_cost_denom,unit_cost_curr_cd_denom,avail_dt,gross_avail_qty,ic_sply_tree_nbr,po_line_dtl_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY pos_dtl (pos_dtl_nbr,pos_hdr_nbr,box_cd,qty_ship,qty_ship_stk_um,item_nbr_ship,lot_nbr,facility,aps_sply_sub_pool_nbr,unit_price_denom_sell_um,unit_price_sell_um,unit_price_denom_stk_um,unit_price_stk_um,contract_cd,cust_bin_cd,ut_user_nbr,last_mod_dt,item_cd_cust,oe_ord_dtl_nbr,oe_ord_line_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_line_dtl (po_line_dtl_nbr,po_line_hdr_nbr,sched_qty,recv_qty,replen_rqst_ship_dt,replen_est_ship_dt,replen_curr_est_dt,ship_to_addr_nbr,ship_via_cd,ut_user_nbr,last_mod_dt,aps_sply_sub_pool_nbr,facility,cancel_cd,cancel_dt,ut_user_nbr_cancel,sched_qty_stk_um,recv_qty_stk_um,aps_avail_dt,cannot_resched_flg,buy_reason_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_line_hdr (po_line_hdr_nbr,po_ord_hdr_nbr,po_line_nbr,item_nbr,replen_um,unit_cost,unit_cost_denom,rev_lvl,org_nbr_mfr,line_stat_id,vndr_ord_line_cd,cntry_cd_origin,ut_user_nbr,last_mod_dt,enter_dt,item_cd_vnd,cancel_cd,cancel_dt,ut_user_nbr_cancel,lot_not_expire_before_dt,lot_manufacture_after_dt,replen_qty,replen_qty_stk_um,unit_cost_stk_um,unit_cost_denom_stk_um,po_close_reason_cd,close_tm,ut_user_nbr_close) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_line_hdr_cert (po_line_hdr_nbr,cert_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_line_multiple_cert (po_line_hdr_nbr,item_nbr,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_mfr_mast (org_nbr_mfr,stat_id,intro_dt,ut_user_nbr,last_mod_dt,mail_to_addr_nbr_dflt,bill_to_addr_nbr_dflt,mfr_cage_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_ord_dtl (po_line_dtl_nbr,po_ord_hdr_nbr,po_line_hdr_nbr,po_line_nbr,po_cd,po_dt,vndr_ord_cd,curr_cd,trd_flg,org_nbr_vnd,org_cd_vnd,org_nm_vnd,vndr_ord_line_cd,replen_qty,unit_cost,unit_cost_denom,sched_qty,item_nbr,item_cd,item_descr,stk_um,item_cd_vnd,replen_um,recv_qty,replen_est_ship_dt,replen_rqst_ship_dt,replen_curr_est_dt,rev_lvl,org_nbr_mfr,org_cd_mfr,org_nm_mfr,line_stat_id,cntry_cd_origin,facility,aps_sply_sub_pool_nbr,ship_via_cd,ship_to_addr_nbr,aps_sply_pool_cd,aps_sply_sub_pool_cd,ic_category_nbr,po_cancel_cd,line_cancel_cd,sched_cancel_cd,reqr_mfr_flg,std_cost,list_price,indiv_nbr_buy,indiv_nm_seller,seller_phn_nbr,seller_email_addr,sched_qty_stk_um,recv_qty_stk_um,unit_cost_stk_um,unit_cost_denom_stk_um,ord_stat_id,lot_manufacture_after_dt,lot_not_expire_before_dt,aps_avail_dt,buy_reason_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_ord_hdr (po_ord_hdr_nbr,po_cd,po_dt,org_nbr_vnd,addr_nbr_vnd,curr_cd,ship_to_addr_nbr_dflt,bill_to_addr_nbr,indiv_nbr_buy,next_po_line_nbr,ord_stat_id,vndr_ord_cd,term_cd,fob_cd,trd_flg,ut_user_nbr,last_mod_dt,ship_via_cd_dflt,cancel_cd,cancel_dt,ut_user_nbr_cancel,indiv_nm_seller,seller_phn_nbr,seller_email_addr,ack_flg,seller_fax_nbr,transmit_flg,po_type_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_requisition (item_nbr,need_by_dt,need_qty,facility) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_resched (po_line_dtl_nbr,resched_dt,resched_qty,org_nbr_vnd,prd_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_resched_bak (po_line_dtl_nbr,resched_dt,resched_qty,org_nbr_vnd,prd_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_unplanned_rcpt (po_unplanned_rcpt_nbr,item_nbr,rcpt_dt,org_nbr_vnd,qty_recv,lot_um,mfr_lot_cd,mfr_dt,org_nbr_mfr,rev_lvl,po_ord_hdr_nbr,po_line_hdr_nbr,ut_user_nbr,last_mod_dt,rcpt_stat_id,processed_dt,bin_nbr,aps_sply_sub_pool_nbr,facility,qty_recv_stk_um,expire_dt,lot_nbr,cntry_cd_origin,item_cd_vnd,unit_cost_denom_replen_um,unit_cost_replen_um,unit_cost_stk_um,unit_cost_denom_stk_um,rcpt_comm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_vnd_mast (org_nbr_vnd,buy_indiv_nbr,ut_user_nbr,last_mod_dt,trd_flg,trd_gl_acct,intro_dt,mail_to_addr_nbr_dflt,bill_to_addr_nbr_dflt,term_cd_dflt,ship_via_cd_dflt,fob_cd_dflt,curr_cd_dflt,replen_allow_flg,receive_allow_flg,stat_id,alloc_slip_dy,indiv_nbr_vnd_contact,work_order_rpt_nm,vnd_ein_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_vnd_set_dtl (po_vnd_set_hdr_nbr,org_nbr_vnd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY po_vnd_set_hdr (po_vnd_set_hdr_nbr,po_vnd_set_hdr_cd,po_vnd_set_hdr_descr,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY qa_cust_rtrn (qa_cust_rtrn_nbr,oe_ord_hdr_nbr,oe_ord_dtl_nbr,item_nbr,org_nbr_mfr,mfr_lot_cd,rtrn_reason_cd,dt_init,org_nbr_cust,lot_nbr,org_nbr_vnd,disp_cd,dt_closed,ut_user_nbr_init,qty_rtrn_from_cust,qty_rtrn_to_vnd,bad_lot_flg,reject_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY qa_mfr_apprv (qa_proj_cd,item_nbr,org_nbr_mfr,mfr_restrict_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY qa_tst_rslt (qa_tst_rslt_nbr,qa_proj_cd,qa_tst_cd,org_nbr_mfr,org_nbr_vnd,item_nbr,tst_rslt,qty_on_hand,sample_size,sample_size_um,mfr_lot_cd,org_nbr_cust,lot_nbr,recv_indicator,ic_attr_nbr,attr_val,test_lab,sent_to_tst_facility_dt,recv_from_tst_facility_dt,tst_invoiced_flg,test_cost,qa_tst_ste_cd,plan_nbr,plan_line_nbr,rcpt_cnt,cycle_cnt,skip_flg,tst_cre_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY season_start_dates (season,start_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY service_rqst (service_rqst_cd,service_rqst_descr,classname,pipe_nm,validate_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY service_rqst_parms (service_rqst_cd,parm_nm,parm_data_type,parm_nm_descr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY sq_qte_dtl (sq_qte_dtl_nbr,sq_qte_hdr_nbr,item_nbr_qte,item_cd_qte,item_cd_cust,qte_um,qte_qty,qte_qty_stk_um,qte_price,qte_price_denom,qte_price_stk_um,qte_price_denom_stk_um,org_nbr_mfr_rqst,rqst_dt,lead_tm_wk_prom,prom_dt,sq_lost_cd,oe_ord_dtl_nbr,rev_lvl,qte_price_basis_id,qte_price_basis_key,qte_price_basis_cost,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY sq_qte_dtl (sq_qte_dtl_nbr,sq_qte_hdr_nbr,item_nbr_qte,item_cd_qte,item_cd_cust,qte_um,qte_qty,qte_qty_stk_um,qte_price,qte_price_denom,qte_price_stk_um,qte_price_denom_stk_um,org_nbr_mfr_rqst,rqst_dt,lead_tm_wk_prom,prom_dt,sq_lost_cd,oe_ord_dtl_nbr,rev_lvl,qte_price_basis_id,qte_price_basis_key,qte_price_basis_cost,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY sq_qte_hdr (sq_qte_hdr_nbr,sq_qte_cd,org_nbr_cust,sq_qte_dt,curr_cd_qte,indiv_nm_spoken_to,indiv_phn_nbr,indiv_fax_nbr,indiv_email_addr,sq_qte_eff_dt,sq_qte_exp_dt,cust_qte_ref_cd,sq_qte_indiv_nbr,ut_user_nbr,last_mod_dt,transmit_flg,org_nm_cust) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ss_adj (fc_item_mast_nbr,ss_adj) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ss_tmp (fc_item_mast_nbr,ss_adj) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY td_task (td_task_nbr,descr,due_dt,complete_dt,status_cd,who_responsible) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY tmp_fim (fc_item_mast_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY tmp_item (item_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY toad_lick (lick) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY user_field_ctl (table_name,column_name,header,label,column_values_query,ref_table_name,ref_table_column,ref_table_column_val,ref_table_user_val) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_cache (object_name,change_time,cache_change_nbr,class_name) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_data_src (data_src_nm,data_src_url,data_src_driver_nm,data_src_username,data_src_password) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_etl (ut_etl_nbr,ut_etl_descr,trunc_flg,table_id,data_select_stmt,data_insert_stmt,data_src_nm_src,data_src_nm_dest) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_etl_grp (ut_etl_grp_cd,ut_etl_grp_descr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_etl_grp_dtl (ut_etl_grp_cd,ut_etl_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_facility (facility,primary_addr_nbr,ut_user_nbr,last_mod_dt,calendar,facility_stat_id,ut_facility_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_note (note_nbr,table_id,table_key,note,ut_user_nbr_enter,entry_dt,entry_tm,ut_user_nbr_mod,action_dt,action_flg,last_mod_dt,last_mod_tm,note_type_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_process_status (ut_process_status_nbr,process_nm,thread_nm,process_run_nbr,status_msg,status_id,status_ts) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_query (query_nm,table_id,query_text) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_table (table_id,table_name) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_table_row_msg (table_id,primary_key,msg_id,msg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_table_rule (table_id,msg_id,sql_text,msg_descr,query_nm,rule_type) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_user (org_nbr,ut_user_nbr,user_name,passwd,calendar,facility,printer,printer_label,pick_rule_cd,pack_station,rf_passwd,indiv_nbr,last_login_tm,show_tooltip_flg,user_stat_id,ldap_attr_val,ldap_user_hash,ldap_conn_expire_tm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_user_role (ut_user_nbr,role_nm) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY ut_web_session (session_id,user_name) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY vq_na_org (org_nbr,org_nm,ut_user_nbr,last_mod_dt,org_web_site,curr_cd_dflt,org_cd,phn_nbr_dflt,fax_nbr_dflt,calendar,ut_locale_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY vq_qte_dtl (vq_qte_dtl_nbr,vq_qte_hdr_nbr,item_nbr_qte,item_cd_qte,item_cd_vnd,qte_um,qte_qty,qte_qty_stk_um,qte_cost,qte_cost_denom,qte_cost_stk_um,qte_cost_denom_stk_um,org_nbr_mfr_rqst,rev_lvl,rqst_dt,lead_tm_wk_prom,prom_dt,vq_lost_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY vq_qte_hdr (vq_qte_hdr_nbr,vq_qte_cd,org_nbr_vnd,vq_qte_dt,curr_cd_qte,indiv_nm_spoken_to,indiv_phn_nbr,indiv_fax_nbr,indiv_email_addr,vq_qte_eff_dt,vq_qte_exp_dt,vnd_qte_ref_cd,vq_qte_indiv_nbr,ut_user_nbr,last_mod_dt,transmit_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY vq_qte_multiple_cert (vq_qte_dtl_nbr,item_nbr,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY web_report (web_report_nbr,report_cd,report_descr,xsql_file_nm,xsl_file_nm,apex_app_nbr_src,apex_app_nbr_dest,apex_page_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wh_facility_trans_onhand (wh_facility_trans_onhand_nbr,rqst_stat_id,facility_src,aps_sply_sub_pool_nbr_src,facility_dest,aps_sply_sub_pool_nbr_dest,qty_rqst,rqst_dt,lot_nbr,ut_user_nbr_rqst,ut_user_nbr_confirm,ut_user_nbr,last_mod_dt,box_cd,avail_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wh_facility_trans_replen (wh_facility_trans_replen_nbr,rqst_stat_id,po_line_dtl_nbr,facility_dest,aps_sply_sub_pool_nbr_dest,qty_rqst,rqst_dt,ut_user_nbr_rqst,ut_user_nbr_confirm,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wh_pick_dtl_cop_rqst (wh_pick_dtl_cop_rqst_nbr,wh_pick_batch_cop_nbr,ic_item_loc_nbr,box_cd,cop_pick_qty_rqst,cop_pick_qty_act,oe_ord_dtl_nbr,aps_alloc_onhand_oo_nbr,wh_pick_dtl_cop_rqst_nbr_src,box_cnt,box_cd_dest,pick_scan_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wh_pick_dtl_trans_rqst (wh_pick_dtl_trans_rqst_nbr,wh_pick_batch_trans_nbr,ic_item_loc_nbr,box_cd,trans_pick_qty_rqst,trans_pick_qty_act,wh_facility_trans_onhand_nbr,wh_pick_dtl_trans_rqst_nbr_src,box_cd_dest,box_cnt,pick_scan_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wh_pick_dtl_wo_rqst (wh_pick_dtl_wo_rqst_nbr,wh_pick_batch_wo_nbr,ic_item_loc_nbr,wo_pick_qty_rqst,wo_dtl_nbr,wo_release_nbr,aps_alloc_onhand_wo_nbr,box_cd,wo_pick_qty_act,wh_pick_dtl_wo_rqst_nbr_src,pick_scan_cd,box_cnt,box_cd_dest) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wo_dtl (wo_dtl_nbr,wo_hdr_nbr,item_nbr_component,component_um,ut_user_nbr,last_mod_dt,component_qty_per_unit,rev_lvl,org_nbr_mfr_rqst,qty_alloc,qty_alloc_stk_um,mix_mfr_lot_flg,mandatory_item_flg,print_bag_lbl_flg) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wo_dtl_cert (wo_dtl_nbr,cert_cd) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wo_hdr (wo_hdr_nbr,wo_descr,item_nbr_rqst,rqst_qty,wo_um,release_qty,fill_qty,need_by_dt,aps_sply_sub_pool_nbr,facility,aps_src_rule_set_nbr,org_nbr_cust,ut_user_nbr_rqst,oe_ord_dtl_nbr,ut_user_nbr,last_mod_dt,wo_stat_id) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wo_hdr_cert (wo_hdr_nbr,cert_cd,ut_user_nbr,last_mod_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY wo_release (wo_release_nbr,wo_hdr_nbr,qty_release,release_stat_id,qty_fill,ut_user_nbr,last_mod_dt,release_fill_dt) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY y (item_nbr,need_by_dt,facility,need_qty) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY z (item_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY zz_item_nbr (item_nbr) FROM STDIN;
+SET search_path = aerodemo;
+SET
+COPY zz_row_count (table_name,row_count) FROM STDIN;
+ALTER SEQUENCE IF EXISTS addr_nbr_seq RESTART WITH 118386;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_alloc_seq RESTART WITH 237918884;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ap_inv_batch_nbr_seq RESTART WITH 19177;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ap_inv_hdr_charge_nbr_seq RESTART WITH 5657;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_payment_rcpt_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_summary_inv_nbr_seq RESTART WITH 7097;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_item_fcst_mdl_nbr_seq RESTART WITH 1303856;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_trans_gl_nbr_seq RESTART WITH 10184477;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS item_nbr_seq RESTART WITH 1309131;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_category_nbr_seq RESTART WITH 113;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_org_phn_nbr_seq RESTART WITH 9833;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_alloc_onhand_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_hold_rel_nbr_seq RESTART WITH 43513;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_pick_hdr_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_line_dtl_seq RESTART WITH 386907;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS unbrako_ord_nbr_seq RESTART WITH 4499;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS unbrako_trans_dtl_nbr_seq RESTART WITH 182;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS vq_qte_hdr_nbr_seq RESTART WITH 271316;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS hundred_seq RESTART WITH 1500101;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_summary_dat_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ap_inv_hdr_nbr_seq RESTART WITH 81349;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_inv_dtl_nbr_seq RESTART WITH 2458962;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_payment_rcpt_apply_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_item_dflt_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS gl_tax_grp_dtl_nbr_seq RESTART WITH 42;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_sply_tree_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_summary_dat_plan_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS jit_trans_batch_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_ord_hdr_nbr_seq RESTART WITH 638565;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ord_cd_seq RESTART WITH 292424;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS pos_dtl_nbr_seq RESTART WITH 85166;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS qa_tst_ste_nbr_seq RESTART WITH 8456;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS sales_call_hdr_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS unbrako_ord_dtl_cert_nbr_seq RESTART WITH 636;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS unbrako_trans_hdr_nbr_seq RESTART WITH 102;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ut_facility_nbr_seq RESTART WITH 42;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS vnd_rtrn_hdr_nbr_seq RESTART WITH 5776;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_fcst_nbr_skip_seq RESTART WITH 27354400;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS brad_rel_cert_seq RESTART WITH 4580;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS cm_dtl_nbr_seq RESTART WITH 15730;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_adj_seq RESTART WITH 1100544;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_attr_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_trans_hist_nbr_seq RESTART WITH 17608932;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_trans_pend_hdr_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS img_image_set_hdr_nbr_seq RESTART WITH 1866;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS inv_cd_seq RESTART WITH 343424;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS jit_transaction_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_indiv_phn_nbr_seq RESTART WITH 19369;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS org_nbr_seq RESTART WITH 32998;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_ord_hdr_auth_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_unplanned_rcpt_nbr_seq RESTART WITH 88755;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS sales_call_dtl_nbr_seq RESTART WITH 62;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_container_nbr_seq RESTART WITH 35742;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_cycle_cnt_batch_nbr_seq RESTART WITH 50731;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_facility_trans_nbr_seq RESTART WITH 155026;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wo_dtl_nbr_seq RESTART WITH 446096;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_src_rule_set_nbr_seq RESTART WITH 668;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_inv_hdr_charge_nbr_seq RESTART WITH 184638;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_rma_dtl_charge_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_rma_rcpt_nbr_seq RESTART WITH 21032;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS bill_of_lading_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS box_cd_seq RESTART WITH 452488;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS edi_bin_scan_dtl_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_fcst_mdl_nbr_seq RESTART WITH 42;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_lot_cost_hist_nbr_seq RESTART WITH 12265;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_trans_pend_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS img_scan_batch_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS note_nbr_ref_seq RESTART WITH 132862;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_alloc_replen_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_line_hdr_seq RESTART WITH 352151;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS rma_cd_seq RESTART WITH 4671;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS sales_lead_nbr_seq RESTART WITH 102;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS sq_qte_hdr_nbr_seq RESTART WITH 494602;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ut_locale_nbr_seq RESTART WITH 22;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS vq_qte_dtl_nbr_seq RESTART WITH 1226928;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_pack_box_cd_seq RESTART WITH 286311;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wo_release_nbr_seq RESTART WITH 37286;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_plan_grp_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wank_seq RESTART WITH 522;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS cm_hdr_cd_seq RESTART WITH 2482;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS debug_nbr_seq RESTART WITH 30002;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_item_mast_nbr_seq RESTART WITH 126151;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS hold_nbr_seq RESTART WITH 209;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_category_nbr_seq RESTART WITH 738;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_item_mast_nomen_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_whse_zone_grp_dtl_nbr_seq RESTART WITH 24;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_whse_zone_grp_nbr_seq RESTART WITH 24;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS img_image_set_dtl_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS pos_hdr_nbr_seq RESTART WITH 20120;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_ord_hdr_seq RESTART WITH 154256;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS qa_cust_rtrn_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS scenario_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS unbrako_ord_charge_nbr_seq RESTART WITH 84;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS unbrako_ord_dtl_nbr_seq RESTART WITH 20779;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ut_form_tab_nbr_seq RESTART WITH 82;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ut_user_nbr_seq RESTART WITH 3107;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_whse_zone_nbr_seq RESTART WITH 262;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wo_dtl_mfg_nbr_seq RESTART WITH 16442;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wo_hdr_nbr_seq RESTART WITH 52304;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wo_unit_nbr_seq RESTART WITH 121165;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_fcst_prd_nbr_seq RESTART WITH 1324062;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_ar_inv_dtl_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_ic_item_attr_nbr_seq RESTART WITH 80402;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_ic_item_loc_nbr_seq RESTART WITH 66582;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_ic_item_mast_nbr_seq RESTART WITH 62962;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS plan_grp_nbr_seq RESTART WITH 348382;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ut_surrogate_seq RESTART WITH 25622;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS sequence_generator RESTART WITH 3100;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_result_dtl_dmd_nbr_seq RESTART WITH 327942361;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS dn_dtl_nbr_seq RESTART WITH 9144;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS edi_bin_scan_batch_nbr_seq RESTART WITH 31830;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_cat_adj_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_fcst_nbr_seq RESTART WITH 23889083;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_item_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_item_loc_nbr_seq RESTART WITH 6301148;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS indiv_nbr_seq RESTART WITH 37700;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_ord_dtl_nbr_seq RESTART WITH 1912277;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_pick_run_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_cd_seq RESTART WITH 95623;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS qa_tst_rslt_nbr_seq RESTART WITH 245928;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ship_notify_log_seq RESTART WITH 5918;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS sq_qte_dtl_nbr_seq RESTART WITH 1744710;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_facility_trans_ship_nbr_seq RESTART WITH 29360;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_pick_batch_nbr_seq RESTART WITH 274887;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_aggr_mast_nbr_seq RESTART WITH 124442;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_item_nbr_seq RESTART WITH 10202;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_cust_mast_nbr_seq RESTART WITH 22;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_po_ord_dtl_nbr_seq RESTART WITH 33182;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS td_task_nbr_seq RESTART WITH 22;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_dmd_rule_set_item_nbr_seq RESTART WITH 359298;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_sply_sub_pool_nbr_seq RESTART WITH 336;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_src_rule_nbr_seq RESTART WITH 1944;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ap_inv_dtl_charge_nbr_seq RESTART WITH 6919;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ap_inv_dtl_nbr_seq RESTART WITH 173260;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_inv_dtl_charge_nbr_seq RESTART WITH 3800;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS dn_hdr_cd_seq RESTART WITH 734;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS edi_bin_scan_dtl_nbr RESTART WITH 365338;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_fcst_nbr RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_hist_nbr_seq RESTART WITH 7200098;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_attr_nbr_seq RESTART WITH 285;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_item_mast_org_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_summary_dat_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS inv_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_indiv_email_nbr_seq RESTART WITH 1771;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_pick_dtl_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS qa_log_run_nbr_seq RESTART WITH 113383;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS service_rqst_nbr_seq RESTART WITH 1070126;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS vnd_rtrn_dtl_nbr_seq RESTART WITH 6063;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_pick_dtl_nbr_seq RESTART WITH 4207189;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_mfr_mfg_cap_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS aps_summary_dat_amt_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_inv_batch_nbr_seq RESTART WITH 380513;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ar_rma_dtl_nbr_seq RESTART WITH 34138;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS bin_nbr_seq RESTART WITH 450301;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS gl_tax_grp_nbr_seq RESTART WITH 43;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS ic_vnd_onhand_nbr_seq RESTART WITH 15384654;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS lot_nbr_seq RESTART WITH 1020308;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_addr_tax_nbr_seq RESTART WITH 15961;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_org_attr_mast_nbr_seq RESTART WITH 206;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_org_dept_indiv_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS na_org_dept_nbr_seq RESTART WITH 2;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS note_nbr_seq RESTART WITH 35270294;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_contract_price_nbr_seq RESTART WITH 167704;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS oe_hold_nbr_seq RESTART WITH 213643;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_std_note_nbr_seq RESTART WITH 22;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS po_vnd_set_hdr_nbr_seq RESTART WITH 62;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS service_rqst_log_nbr_seq RESTART WITH 3696947;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_cycle_cnt_rqst_nbr_seq RESTART WITH 204029;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS wh_facility_trans_log_nbr_seq RESTART WITH 159453;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS fc_adj_nbr_seq RESTART WITH 2383682;
+ALTER SEQUENCE
+ALTER SEQUENCE IF EXISTS idl_oe_ord_dtl_nbr_seq RESTART WITH 9902;
+ALTER SEQUENCE
+COMMIT;
+COMMIT

@@ -1,0 +1,375 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pacific Data Services - Sales Reporting &#8212; pdssr 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sales Analysis" href="Analyze.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pacific-data-services-sales-reporting">
+<h1>Pacific Data Services - Sales Reporting<a class="headerlink" href="#pacific-data-services-sales-reporting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Pepsi-Frito uses Custom Data solutions to record and report vending sales.  I am extremely
+familiar with this operation as I taught Custom Data Solutions the technology for 25 years
+and functioned as their first Chief Information Officer</p>
+<p>I redesigned the entire process in the two years I was an employee.</p>
+<p>More in <a class="reference internal" href="Contributions.html"><span class="doc">Contributions</span></a></p>
+</div>
+<div class="section" id="benefits">
+<h2>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Audit the data and rebate calculations. <a class="reference internal" href="Audit.html"><span class="doc">Audit</span></a></li>
+<li>Get answers without asking questions <a class="reference internal" href="Answers.html"><span class="doc">Answers to Questions you should have asked</span></a></li>
+<li>Custom Reporting</li>
+<li>Online analytical processing</li>
+<li>Startup is negligible<ul>
+<li>Just need copies of the files the distributors already report <a class="reference internal" href="cds_record_layout.html"><span class="doc">Record Layouts</span></a></li>
+<li>A product master file</li>
+<li>No computing resources, no long term contracts</li>
+</ul>
+</li>
+</ul>
+<p>Once installed:</p>
+<ol class="arabic simple">
+<li>Reporting data is loaded into staging tables</li>
+<li>Verification of compliance with requirements and self consistency of data is ensured</li>
+<li>Data is posted to history tables</li>
+<li>Customer addresses are validated</li>
+<li>Exceptional conditions are identified and reported</li>
+<li>Rebate Calculations are made and reported</li>
+<li>Rebate amounts are computed and an ACH file for transmission to a bank for payment is created</li>
+<li>Spreadsheets for sales analysis are created</li>
+</ol>
+</div>
+<div class="section" id="functioning-real-world-usage">
+<h2>Functioning Real World Usage<a class="headerlink" href="#functioning-real-world-usage" title="Permalink to this headline">¶</a></h2>
+<p>Any distributor currently writing files in the CDS reporting format can easily load files
+into a local database in order to analyze the data.</p>
+<p>We have provided many analyses that report data worthy of further inspection.</p>
+<p>This approach is our “answers to questions you should have asked”.</p>
+</div>
+</div>
+<div class="section" id="audit">
+<h1>Audit<a class="headerlink" href="#audit" title="Permalink to this headline">¶</a></h1>
+<p>Pacific Data Services will audit the data and rebate calculations for your distributors.</p>
+<div class="section" id="findings">
+<h2>Findings<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="item-accuracy">
+<h3>Item Accuracy<a class="headerlink" href="#item-accuracy" title="Permalink to this headline">¶</a></h3>
+<p>We will compare the items assigned by Custdata to the actual items sold by the distributors.</p>
+<p>This affect sales history and rebate calculations</p>
+</div>
+<div class="section" id="addresses">
+<h3>Addresses<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h3>
+<p>Report incorrect addresses and undeliverable addresses.</p>
+</div>
+<div class="section" id="rebate">
+<h3>Rebate<a class="headerlink" href="#rebate" title="Permalink to this headline">¶</a></h3>
+<p>Calculate the actual rebate for the top 50 rebate amounts issued versus what Custdata
+computed.</p>
+</div>
+</div>
+<div class="section" id="report-augmentation">
+<h2>Report augmentation<a class="headerlink" href="#report-augmentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="answers-to-questions-you-should-have-asked">
+<h3>Answers to Questions you should have asked<a class="headerlink" href="#answers-to-questions-you-should-have-asked" title="Permalink to this headline">¶</a></h3>
+<p>Rather than spend time on the Custdata website creating spreadsheets and trying to spot
+interesting and unusual data we will create <em>Alert Reports</em> and notify you that
+there is research warranted.</p>
+<div class="section" id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Newly introduced items not being bought by distributor</li>
+<li>Top selling items by category not being bought by distributor</li>
+<li>Top selling items by category not being bought by a vending operator</li>
+<li>Product declining sales for a vending operator</li>
+<li>Dropped products for a vending operator</li>
+<li>Parasitic promotion effect (Items not on promotion having declining sales during a promotion</li>
+</ul>
+<p>as slot contention has had a parasitic effect.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sales">
+<h1>Sales<a class="headerlink" href="#sales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="required-data">
+<h2>Required Data<a class="headerlink" href="#required-data" title="Permalink to this headline">¶</a></h2>
+<p>Distributors already report their data to custdata.com.</p>
+<p>They have to do nothing but send us the same data files, no additional work.</p>
+</div>
+<div class="section" id="id1">
+<h2>Benefits<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manufacturers">
+<h3>Manufacturers<a class="headerlink" href="#manufacturers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Benefits<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Far lower costs</p>
+</li>
+<li><p class="first">Faster and Cheaper Custom Reports Generation</p>
+</li>
+<li><p class="first">Improved Data Quality</p>
+</li>
+<li><p class="first">Far Lower Costs</p>
+</li>
+<li><p class="first">Data Identified for them</p>
+<p>Currently the manufactures have to click through the Custdata website and create a spreadsheet and see if there is
+interesting data.</p>
+<p>We can analyze the data and inform them of interesting conditions, for example</p>
+</li>
+</ul>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>New Vending Operators</li>
+<li>Vendors with Declining Sales</li>
+<li>Vendors not carrying products</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="new-capabilities">
+<h4>New Capabilities<a class="headerlink" href="#new-capabilities" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Address Correction</li>
+<li></li>
+</ul>
+</div>
+</div>
+<div class="section" id="distributors">
+<h3>Distributors<a class="headerlink" href="#distributors" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Ability to create an operator facing website</li>
+</ul>
+</div>
+<div class="section" id="vending-operators">
+<h3>Vending Operators<a class="headerlink" href="#vending-operators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Find new  products to be offered</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Analyze.html">Sales Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Analyze.html#gather-product-statistics">Gather Product Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analyze.html#operator-product-statistics">Operator Product Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analyze.html#opportunities">Opportunities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analyze.html#operator-call-report">Operator Call Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Answers.html">Answers to Questions you should have asked</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Answers.html#sales-analysis">Sales Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Answers.html#product-not-sold">Product Not Sold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benefits.html">Benefits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Benefits.html#frito-lay-pepsi">Frito-Lay Pepsi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Benefits.html#distributors">Distributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Benefits.html#apps">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Benefits.html#vending-operators">Vending Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Benefits.html#id1">Product Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributions.html">Contributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#unix-linux">Unix/Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#oracle">Oracle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#c">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#became-employee">Became Employee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#technical-standards">Technical Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#products">Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#redesign">Redesign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#others">Others</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#javautil">Javautil</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributions.html#history-of-jim-schmidt-and-custom-data-solutions">History of Jim Schmidt and Custom Data Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#creation">Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#technologies">Technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#chuck-retires">Chuck Retires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributions.html#business-model">Business Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#while-cio">While CIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#terminated">Terminated</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributions.html#id4">History of Jim Schmidt and Custom Data Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#id5">Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#id6">Technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#id23">Chuck Retires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributions.html#id25">Business Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#custom-data-solutions">Custom Data Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#business-process">Business Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#processing-steps">Processing Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#manufacturers">Manufacturers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributions.html#distributors">Distributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ProductOffering.html">Product Offering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ProductOffering.html#benefits">Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ProductOffering.html#how-to-get-started">How to get started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa_views.html">Sales Analysis Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sa_views.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sa_views.html#etl-sale-12-vw">etl_sale_12_vw</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa_views.html#product-not-sold">Product Not Sold</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sa_views.html#potential-revenue">Potential Revenue</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectDescription.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ProjectDescription.html#software-description">Software Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ProjectDescription.html#tech-steps">Tech Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ProjectDescription.html#history">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Technologies.html">Technologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Technologies.html#application">Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Technologies.html#deployment">Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cds_record_layout.html">Record Layouts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cds_record_layout.html#inventory">Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cds_record_layout.html#customer">Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cds_record_layout.html#inventory-total">Inventory Total</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cds_record_layout.html#customer-total">Customer Total</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cds_record_layout.html#sales">Sales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cds_record_layout.html#sales-total">Sales Total</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pacific Data Services - Sales Reporting</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#benefits">Benefits</a></li>
+<li><a class="reference internal" href="#functioning-real-world-usage">Functioning Real World Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#audit">Audit</a><ul>
+<li><a class="reference internal" href="#findings">Findings</a><ul>
+<li><a class="reference internal" href="#item-accuracy">Item Accuracy</a></li>
+<li><a class="reference internal" href="#addresses">Addresses</a></li>
+<li><a class="reference internal" href="#rebate">Rebate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#report-augmentation">Report augmentation</a><ul>
+<li><a class="reference internal" href="#answers-to-questions-you-should-have-asked">Answers to Questions you should have asked</a><ul>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sales">Sales</a><ul>
+<li><a class="reference internal" href="#required-data">Required Data</a></li>
+<li><a class="reference internal" href="#id1">Benefits</a><ul>
+<li><a class="reference internal" href="#manufacturers">Manufacturers</a><ul>
+<li><a class="reference internal" href="#id2">Benefits</a></li>
+<li><a class="reference internal" href="#new-capabilities">New Capabilities</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#distributors">Distributors</a></li>
+<li><a class="reference internal" href="#vending-operators">Vending Operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#background">Background</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="Analyze.html" title="next chapter">Sales Analysis</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pacific Data Services.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

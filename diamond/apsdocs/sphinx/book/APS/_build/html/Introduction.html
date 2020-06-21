@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; APS 0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/pds.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Goals" href="Goals.html" />
+    <link rel="prev" title="Indices and tables" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The Diamond Advanced Planning System (APS) is the most feature-rich
+inventory planning system in the market today. There is no other
+planning engine out there that can match the Diamond APS in terms of
+speed and versatility.</p>
+<p>Diamond was custom designed to address the rigorous specifications of
+the Aerospace industry, which imposes significantly tighter controls and
+tracking functionality than a normal distribution environment and has numerous
+other constraints uniquely solved by Diamond APS.</p>
+<p>Diamond Advanced Planning is a module that associates demand for product
+with inventory that satisfies the demand according to pluggable
+(“extensible”) filters.</p>
+<p>Although it was designed explicitly to accomodate the requirements of
+aerospace subsets of its features will readily support virtually any
+distribution, MRO or discrete manufacturing environment.</p>
+<p>Diamond Advanced Planning was first written in 1983 by the author of
+this document and served well in planning for Fine China and giftware.
+Same was employed for a clothing manufacturer and subsequently for
+Tri-Star Aerospace. In 2001 a total rewrite was effected written in Java
+accommodating Aerospace requirements in version 10 of Diamond.</p>
+<div class="section" id="demand-types">
+<h2>Demand Types<a class="headerlink" href="#demand-types" title="Permalink to this headline">¶</a></h2>
+<p>Supports multiple types of Demand. Demand types supported are</p>
+<ul class="simple">
+<li><p>Firm Customer Order</p></li>
+<li><p>Work Orders and (Components of Work Orders)</p></li>
+<li><p>Safety Stock</p></li>
+<li><p>Forecast</p></li>
+</ul>
+</div>
+<div class="section" id="supply-types">
+<h2>Supply Types<a class="headerlink" href="#supply-types" title="Permalink to this headline">¶</a></h2>
+<p>Supports multiple types of Supply:</p>
+<ul class="simple">
+<li><p>On-Hand at Location</p></li>
+<li><p>In-Transit from another Location</p></li>
+<li><p>Purchase Orders</p></li>
+<li><p>Work Orders</p></li>
+</ul>
+</div>
+<div class="section" id="eligible-supply-rules">
+<h2>Eligible Supply Rules<a class="headerlink" href="#eligible-supply-rules" title="Permalink to this headline">¶</a></h2>
+<p>Diamond APS is very flexible with respect to filtering supply that is eligible to meet demand.</p>
+<p>Many filters are supplied and others may be added by writing a new one that complies with the
+EligibleSupplyFilter interface.  New filters are “wired in” and existing code is not touched.</p>
+<p>This allows for customization and rigorous testing of the customization with no risk associated with
+changes to the base code or precluding update support.</p>
+</div>
+<div class="section" id="supply-partitioning">
+<h2>Supply Partitioning<a class="headerlink" href="#supply-partitioning" title="Permalink to this headline">¶</a></h2>
+<p>Physical segregation of Inventory is done using facilities.</p>
+<p>Logical Segregation of Inventory within a facility is done using Supply
+Pools.</p>
+<p>Sourcing rules attached to every demand specify which supply to consume
+and the order in which to consume.</p>
+<p>The most commonly used database entities are cached in memory. Cached
+entities include Facilities, Supply Pools, Sourcing Rules,
+Certifications, Business Calendar, Equivalent Part Numbers, Customer
+specific Substitutes, Global Substitutes, Organizations, Forecast
+Groups, Application Control variables and Purchase Order Equivalents.
+Caching saves on the expensive operations of database access for the
+most commonly used entities.</p>
+<p>Triggers on cached tables signal the Planning engine to refresh those
+values.</p>
+<p>Part Number, substitutes and equivalents are all planned together.</p>
+</div>
+<div class="section" id="qualifying-inventory">
+<h2>Qualifying Inventory<a class="headerlink" href="#qualifying-inventory" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ability to specify the revision level required for Sales Order and
+Work Order, Safety Stock and Forecast. The revision level hierarchy
+setup in the Parts Master will automatically allocate a higher
+revision level if the requested revision level is not available.</p></li>
+<li><p>Ability to specify certification requirements for Sales Order and
+Work Order and associate it with the demand.</p></li>
+<li><p>Certification requirements for Safety Stock and Forecasts are picked
+up from the Customer Master.</p></li>
+<li><p>Each certification has a weight associated with it. APS uses
+qualifying lots with the lowest weight to satisfy any demand.</p></li>
+<li><p>Ability to specify the manufacturer required at the Demand level or
+can specify a list of approved manufacturers at the Customer Level.
+Customer List can be set to Include or Exclude approved manufacturers</p></li>
+<li><p>Ability to specify Country of Origin on the Sales Orders.</p></li>
+<li><p>Ability to specify “manufactured after” or “must not expire before”
+date on Sales Orders for parts with a shelf life.</p></li>
+<li><p>Automatically excludes expired part numbers</p></li>
+<li><p>Kits can be setup in the system to not have mixed manufacturer lots
+allocated to them for any single kit. APS automatically determines
+the lot quantity and how many full kits it can satisfy and then
+switches to the next available lot to satisfy any remaining kits.</p></li>
+</ul>
+</div>
+<div class="section" id="demand-prioritization">
+<h2>Demand Prioritization<a class="headerlink" href="#demand-prioritization" title="Permalink to this headline">¶</a></h2>
+<p>Demand Prioritization module compares every demand for a given set of
+part numbers and sorts them according to a deterministic process that complies with
+the EligibleSupplyPrioritizer.</p>
+</div>
+<div class="section" id="preserve-allocations">
+<h2>Preserve Allocations<a class="headerlink" href="#preserve-allocations" title="Permalink to this headline">¶</a></h2>
+<p>Once sorted, Demand Prioritization also preserves On-hand allocations to
+Customer Orders and Work Orders within lead-time. All allocations to
+Safety Stock are preserved. Preserving existing allocations prevents
+demands that have been put in later from taking stock away from already
+existing orders. Safety Stock demand is allocated to Customer Orders and
+Work Orders within the same forecast groups if there is a shortage.
+Forecast Demands are reduced by the quantity of open Customer Order
+demands for the same month for the same forecast group, which stops over
+stating of demand for a given month.</p>
+</div>
+<div class="section" id="supply-prioritization">
+<h2>Supply Prioritization<a class="headerlink" href="#supply-prioritization" title="Permalink to this headline">¶</a></h2>
+<p>Supply prioritization uses the sourcing rules to determine which
+supplies to use to satisfy a given demand.</p>
+<p>Different rules are applied in different scenarios.</p>
+</div>
+<div class="section" id="demand-execution-mode">
+<h2>Demand Execution Mode<a class="headerlink" href="#demand-execution-mode" title="Permalink to this headline">¶</a></h2>
+<p>TODO describe the various modes</p>
+<p>Firm customer orders may be allocated to on-hand inventory or to the latest
+replenishment prior to request date.</p>
+<p>Assignment to replenishments is based on vendor on time performance.</p>
+<p>Once the qualifying supplies are identified, they are then sorted based on the type of the
+demand and type of the supply.</p>
+<p>An example for this would be to use the oldest lots
+to satisfy open sales orders while using the newest possible lots to
+satisfy safety stock demand.</p>
+<p>Since safety stock demand is never shipped,
+it blocks the newer inventory allowing the older lots to ship out before
+the newer ones. Supply prioritization changes the FIFO order for parts
+based on the settings in the Parts Master.</p>
+<p>Parts with a shelf life can
+be consumed based on the Manufacture Date or on the Expiration Date of
+the lots. Supply Prioritization also automatically relaxes all the
+constraints on the demand when allocating consignment or buyback supply
+to a demand.</p>
+<p>Buyback and consignment supply is stock received from the
+customer that is shipped back to them when they need it. This stock is
+always deemed to meet customer requirements.</p>
+<ul class="simple">
+<li><p>Allocations against on-hand supply are classified as Firm or Planned
+depending on if the on-hand supply is readily available in the
+primary facility or if the on-hand supply is a planned facility
+transfer or a processed facility transfer in transit to the primary
+facility. The primary facility for a demand is identified based on
+the sourcing rule used to determine the eligible supply for the
+demand.</p></li>
+<li><p>APS automatically creates work orders for kits. Since APS supports
+multi-level Bills of Material, it creates work orders for sub-kits
+and re-plans all the items recursively till all the demands for kits
+have been allocated either to on-hand inventory or to a work order.</p></li>
+<li><p>Purchase Orders schedules that are late are automatically padded by a
+user-defined factor and pushed forward. This enables the system to
+provide realistic availability dates for the demands which are
+allocated to those PO schedules.</p></li>
+<li><p>Automatically allocates demands to a Purchase Order if the demand is
+“X” days out in the future and there is a PO Schedule coming
+available “X” days before the demand is due. The value of “X” is read
+in from a Control table.</p></li>
+<li><p>APS will suggest a optimum reschedule date for the PO Schedules that
+have allocations against demands that need to be expedited or
+rescheduled to come in at a date later than the current promise date
+provided by the vendor</p></li>
+<li><p>APS will also suggest cancellation of PO schedules that are not
+needed to meet any demand that is present in the system.</p></li>
+</ul>
+</div>
+<div class="section" id="auditing-and-traceability">
+<h2>Auditing and Traceability<a class="headerlink" href="#auditing-and-traceability" title="Permalink to this headline">¶</a></h2>
+<p>Allocation logic fully traceable. An XML log file may be created created
+for each item group planned detailing each demand and all supplies,
+which ones were allocated and which ones were rejected and the reason
+for rejection.</p>
+<p>Ability to bind a given supply to a given demand as long as the supply
+is qualified for the demand. Allocations once bound are held bound
+unless unbound by the user.</p>
+</div>
+<div class="section" id="aps-output">
+<h2>APS Output<a class="headerlink" href="#aps-output" title="Permalink to this headline">¶</a></h2>
+<p>The Inventory planning process is the most impacted by running Diamond
+APS. The APS output is fully web-based and provides the Inventory
+planners with all the information required to make sound buying
+decisions. Inventory planners have the ability to lookup shortfalls by
+specifying a whole range of filter conditions. Listed below are the
+details of the outputs provided by Diamond APS.</p>
+</div>
+<div class="section" id="shortages">
+<h2>Shortages<a class="headerlink" href="#shortages" title="Permalink to this headline">¶</a></h2>
+<p>Diamond APS classifies shortages into the following categories</p>
+<p>Demand           Unallocated     Late
+—————  ———–     —-
+Customer Orders
+Work Orders
+Forecast
+Safety Stock</p>
+<p>Customer Orders</p>
+<ul class="simple">
+<li><p>Unallocated Customer Orders</p></li>
+<li><p>Unallocated Work Orders</p></li>
+<li><p>Unallocated Safety Stock</p></li>
+<li><p>Unallocated Forecasts</p></li>
+<li><p>Customers Orders allocated beyond the requested date</p></li>
+<li><p>Work Orders allocated beyond the requested date</p></li>
+<li><p>Safety Stock allocated beyond the requested date</p></li>
+<li><p>Forecasts allocated beyond the requested date</p></li>
+</ul>
+<p>Users can choose a combination of any of these shortage conditions and
+then apply the following filters to narrow their search</p>
+<p>Part Number Mask (A Wildcard search for a range of Part Numbers)</p>
+<p>The Part Category. Normally buyers are responsible for purchasing a
+certain category or categories of parts. This help narrow the results to
+only the parts they are responsible for purchasing. Within Lead Time.
+This restricts the output only to shortages that occur within the lead
+time for a given Part Outstanding Vendor Quotes less than “X” days. This
+further narrows the search and ignores the parts that have outstanding
+vendor quotes that are less than “X” days old. Vendors normally take
+some time to respond to quotes and this help buyers from seeing the same
+parts on the list even after they have worked on it. Planning Horizon
+End Date. This restricts the list of parts being shown to have shortages
+only within the Date specified here Buyer. This only shows the parts the
+specified buyer is responsible for buying. Customer Code. This restricts
+the list of parts only to the shortages for the customer specified.
+Maximum Part to display. The default is set to 100. The users can
+specify any number greater than 0.</p>
+<p>Once the search criteria is specified, APS will go through its planning
+results and find all the part numbers that match the specified search
+criteria. It will then sort them into 4 groups.</p>
+<p>A Part will only appear in one of these groups, the group in which the
+part has the earliest shortage. Each part then links off into a 12-month
+time-phased view of the Demand and Supply outlook. The time-phased
+output has columns for past due, current, 12 months starting with the
+current month and a column for demands and supplies coming in beyond 12
+months. This page also provides links to see the following information
+The Allocation Trace Log. This file contains a complete log of the
+allocation process for the part and all its substitutes and equivalents.
+Provides a listing of all the supplies available to allocation and also
+lists each demand followed by which supplies were allocated to it and
+which supplies were not and also provides a reason for ineligible
+supplies for the Demand.</p>
+</div>
+<div class="section" id="workbook">
+<h2>Workbook<a class="headerlink" href="#workbook" title="Permalink to this headline">¶</a></h2>
+<p>The Work Book create an excel spread sheet with the following
+information about the Part.</p>
+<ul>
+<li><p>The On-Hand inventory summary by Lot, Facility and Supply Pool,</p></li>
+<li><p>Customer and Vendor Quotes for the Part,</p></li>
+<li><p>Open Purchase Orders,</p></li>
+<li><p>Open Sales Orders,</p></li>
+<li><p>Historical Shipments</p></li>
+<li><p>a 12 month forecast by forecast group.</p></li>
+<li><p>Customer Quotes Listing</p></li>
+<li><p>Vendor Quotes Listing</p></li>
+<li><p>Approved Manufacturers by customer</p>
+<p>The work book can then be saved of and helps buyers</p>
+</li>
+</ul>
+<p>maintain a log of the demand/supply scenario at the time they made any
+purchase. A listing of all available supply and which demands it is
+allocated to A listing of all demands and what supplies are allocated to
+it Approved Manufacturers. Provides a cross-tab view of the customers
+and their approved manufacturers. Helps buyers make a choice of buying
+from the manufacturer that will satisfy the most number of customers.</p>
+<p>Rescheduling information for any PO Schedules in the system Shipment
+Details. Provides a listing of all the shipment of this part to any
+customer. Forecast History. Provides a time-phased display of the
+forecast history by forecast group for the given part. Also lists the
+forecasts by forecast group. Shipment Summary. Provides a year-month
+cross-tab of shipment of this part. Shipment Summary by Customer.
+Provides a year-month cross-tab of shipment by customer of this part.
+Ability to lookup shortfalls by the following</p>
+<ul class="simple">
+<li><p>Item Certification</p></li>
+<li><p>Manufacturer and vendor certification</p></li>
+<li><p>Lists shortfalls based on explicit certifications requested on the
+Demand. A review of these might help the user offer</p></li>
+<li><p>Country of Origin</p></li>
+<li><p>Approved Manufacturer</p></li>
+<li><p>Explicit Manufacturer Requested on the Demand</p></li>
+<li><p>Revision Level</p></li>
+<li><p>Re-certification opportunities</p></li>
+</ul>
+<p>Ability to lookup Rescheduling Requirements in the following groups</p>
+<div class="section" id="purchase-orders-to-be-expedited">
+<h3>Purchase Orders to be Expedited<a class="headerlink" href="#purchase-orders-to-be-expedited" title="Permalink to this headline">¶</a></h3>
+<p>Provides a summary by Vendor of the Purchase Orders that need to be
+expedited to meet current and forecasted demand. Users can then drill
+down into each Vendor and look at each individual PO Schedules need to
+be expedited and the system also suggested expedite date taking into
+account the time required to process the receipt after it arrives.</p>
+</div>
+<div class="section" id="purchase-orders-to-be-rescheduled">
+<h3>Purchase Orders to be Rescheduled<a class="headerlink" href="#purchase-orders-to-be-rescheduled" title="Permalink to this headline">¶</a></h3>
+<p>Provides a summary by Vendor of the Carrying Cost and the Cancelable
+Cost for PO Schedules that can either be pushed out for cancelled. Users
+can then drill down into each Vendor and look at each individual PO
+Schedule that needs to be rescheduled. For PO schedules that need to be
+pushed out, the system suggests the new date by which they are required.</p>
+</div>
+<div class="section" id="purchase-orders-to-be-cancelled">
+<h3>Purchase Orders to be Cancelled<a class="headerlink" href="#purchase-orders-to-be-cancelled" title="Permalink to this headline">¶</a></h3>
+<p>Provides a summary by Vendor of the cancelable cost of outstanding PO
+Schedules. Users can then drill down into each Vendor and see the
+individual PO Schedules that need to be cancelled.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demand-types">Demand Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supply-types">Supply Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eligible-supply-rules">Eligible Supply Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supply-partitioning">Supply Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qualifying-inventory">Qualifying Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demand-prioritization">Demand Prioritization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preserve-allocations">Preserve Allocations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supply-prioritization">Supply Prioritization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demand-execution-mode">Demand Execution Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auditing-and-traceability">Auditing and Traceability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aps-output">APS Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shortages">Shortages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workbook">Workbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComponentsAndServices.html">Components and Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AllocationLogic.html">Allocation Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EligibilityTests.html">Eligibility Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Supply.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functional.html">Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApsTechnicalReferenceBook.html">ApsTechnicalReferenceBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlanningComponentsPaper.html">PlanningComponentsPaper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technical.html">Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Technical.html#architecture">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">TODO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApsFeatures.html">ApsFeaturesBook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Indices and tables</a></li>
+      <li>Next: <a href="Goals.html" title="next chapter">Goals</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pacific Data Services.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Introduction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,28 @@
+--------------------------------------------------------
+--  DDL for Table IC_TRANS_HIST
+--------------------------------------------------------
+
+  CREATE TABLE "IC_TRANS_HIST" 
+   (	"IC_TRANS_HIST_NBR" NUMBER(9,0), 
+	"BIN_CD" VARCHAR2(16), 
+	"ITEM_NBR" NUMBER(9,0), 
+	"TRANS_QTY" NUMBER(13,5), 
+	"LOT_NBR" NUMBER(9,0), 
+	"IC_TRANS_COMM" VARCHAR2(1024), 
+	"PROCESS_NM" VARCHAR2(61), 
+	"UT_USER_NBR" NUMBER(9,0), 
+	"LAST_MOD_DT" DATE, 
+	"IC_TRANS_ID" VARCHAR2(2), 
+	"BOX_CD" VARCHAR2(20), 
+	"LOT_NBR_ORIG" NUMBER(9,0), 
+	"LOT_QTY_NEW" NUMBER(13,5), 
+	"BOX_QTY_NEW" NUMBER(13,5), 
+	"APS_SPLY_SUB_POOL_NBR" NUMBER(9,0), 
+	"FACILITY" VARCHAR2(16), 
+	"ADJ_CD" VARCHAR2(8), 
+	"BIN_QTY_OLD" NUMBER(13,5), 
+	"BIN_QTY_NEW" NUMBER(13,5), 
+	"SERIAL_CD" VARCHAR2(20), 
+	"MFR_SERIAL_CD" VARCHAR2(20), 
+	"LOT_COST" NUMBER(17,6)
+   ) ;

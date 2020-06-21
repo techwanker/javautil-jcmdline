@@ -1,0 +1,20 @@
+
+alter table plan_po alter column  unit_cost type numeric(18,6);
+alter table fc_item_dflt alter column carry_cost type numeric(3,3);
+drop table fc_fcst_mdl_old;
+drop table item_tmp3;
+drop table oe_ord_dtl_log;
+drop table oe_ord_dtl_hist;
+drop table td_task;
+alter table fim_attr alter column cust_grp type varchar(8);
+alter table aps_dmd_fc alter column cust_alloc_prty type smallint;
+alter table aps_dmd_oo alter column cust_alloc_prty type smallint;
+alter table aps_dmd_ss alter column cust_alloc_prty type smallint;
+alter table aps_dmd_wo alter column cust_alloc_prty type smallint;
+alter table aps_dmd_oo alter column contract_cust_flg type varchar(1);
+drop table user_field_ctl;
+alter table na_org alter column calendar type varchar(6);
+alter table na_org_addr alter column calendar type varchar(6);
+alter table aps_alloc_onhand_wo alter column alloc_qty type numeric(13,5);
+drop table fc_fcst_bak;
+drop table fc_fcst_xx;

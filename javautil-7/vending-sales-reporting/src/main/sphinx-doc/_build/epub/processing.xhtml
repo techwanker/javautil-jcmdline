@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Processing</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/pds.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="processing">
+<h1>Processing</h1>
+<div class="section" id="initialize">
+<h2>Initialize</h2>
+</div>
+<div class="section" id="data-load">
+<h2>Data Load</h2>
+<p>The data files are parsed and the data is loaded into a relational database
+with one table per record type, sufficient information is retained that
+an identical output file can be created for an input file.</p>
+<p>This allows the data file to accessed using SQL and provides atomic operations.</p>
+<p>A file is completely loaded or is rejected and not loaded at all.</p>
+<p>Being completely loaded does not mean that the file is satisfactory.</p>
+<p>Relational Databases supported are</p>
+<ul class="simple">
+<li><p>Oracle</p></li>
+<li><p>postgress</p></li>
+<li><p>sqlite</p></li>
+</ul>
+<div class="section" id="data-format">
+<h3>Data Format</h3>
+</div>
+</div>
+<div class="section" id="exception-identification">
+<h2>Exception Identification</h2>
+<p>The exception identification is performed by <em>javautil.org</em> program, condition identification.</p>
+<p>This code was developed by Trinity Technical Services (My company) for
+importing data from other systems into Diamond Distribution but is extremely
+generic.</p>
+<p>There are several versions of this code, the one employed at Custom Data
+Services at the time of my departure was based on rules stored in the database.</p>
+<p>While that version and subsequent improved versions could be used, I recommend
+the latest version that stores all the rules in a flat file.</p>
+<p>Prior to use of the exception identification system Custom Data Solutions
+ran stacks of reports that were hand examined.  It was a slow and inflexible process.</p>
+<p>The new system allowed for acceptance of conditions and partial posting while
+suspect records were corrected.</p>
+<ul class="simple">
+<li><p>Sales with no associated customer</p></li>
+<li><p>Products not on product master</p></li>
+<li><p>Suspicious quantity</p></li>
+<li><p>Suspicious price</p></li>
+</ul>
+<div class="section" id="rule-examples">
+<h3>Rule Examples</h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>   <span class="n">rule_name</span><span class="p">:</span>  <span class="n">NO_CUSTOMER_TOTAL</span>
+    <span class="k">table_name</span><span class="p">:</span> <span class="n">ETL_FILE</span>
+    <span class="n">msg</span><span class="p">:</span>      <span class="k">No</span> <span class="n">customer</span> <span class="n">total</span> <span class="n">record</span>
+    <span class="n">sql_text</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="k">select</span> <span class="n">etl_file_id</span>
+            <span class="k">from</span> <span class="n">etl_file</span>
+            <span class="k">where</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="k">and</span> <span class="k">not</span> <span class="k">exists</span> <span class="p">(</span>
+               <span class="k">select</span> <span class="s1">&#39;x&#39;</span>
+               <span class="k">from</span> <span class="n">etl_customer_tot</span>
+               <span class="k">where</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="p">)</span>
+    <span class="n">narrative</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="n">There</span> <span class="k">is</span> <span class="k">no</span> <span class="n">customer</span> <span class="n">total</span> <span class="n">record</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="n">format_str</span><span class="p">:</span> <span class="ss">&quot;No customer total record in %s&quot;</span>
+    <span class="n">java_format</span><span class="p">:</span> <span class="ss">&quot;No customer total record for etl_file_id %s&quot;</span>
+
+<span class="o">-</span>   <span class="n">rule_name</span><span class="p">:</span>  <span class="n">CUSTOMERS_BUT_NO_TOTAL</span>
+    <span class="k">table_name</span><span class="p">:</span> <span class="n">ETL_FILE</span>
+    <span class="n">msg</span><span class="p">:</span>      <span class="n">Customers</span> <span class="o">/</span> <span class="k">No</span> <span class="n">customer</span> <span class="n">total</span>
+    <span class="n">sql_text</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="k">select</span> <span class="n">etl_file_id</span>
+            <span class="k">from</span> <span class="n">etl_file</span>
+            <span class="k">where</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="k">and</span> <span class="k">not</span> <span class="k">exists</span> <span class="p">(</span>
+               <span class="k">select</span> <span class="s1">&#39;x&#39;</span>
+               <span class="k">from</span> <span class="n">etl_customer_tot</span>
+               <span class="k">where</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="p">)</span> <span class="k">and</span> <span class="k">exists</span> <span class="p">(</span>
+               <span class="k">select</span> <span class="s1">&#39;x&#39;</span>
+               <span class="k">from</span> <span class="n">etl_customer</span>
+               <span class="k">where</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="p">)</span>
+    <span class="n">narrative</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="n">There</span> <span class="k">is</span> <span class="k">no</span> <span class="n">customer</span> <span class="n">total</span> <span class="n">record</span> <span class="n">but</span> <span class="n">customers</span> <span class="n">were</span> <span class="n">reported</span>
+            <span class="n">It</span> <span class="k">is</span> <span class="n">impossible</span> <span class="k">to</span> <span class="n">determine</span> <span class="n">the</span> <span class="n">effective</span> <span class="nb">date</span> <span class="k">of</span> <span class="n">the</span>
+            <span class="n">customer</span> <span class="n">information</span> <span class="k">without</span> <span class="n">this</span> <span class="n">record</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="n">format_str</span><span class="p">:</span> <span class="ss">&quot;No customer total record in %s&quot;</span>
+    <span class="n">java_format</span><span class="p">:</span> <span class="ss">&quot;No customer total record for etl_file_id %s&quot;</span>
+
+<span class="o">-</span>   <span class="n">rule_name</span><span class="p">:</span> <span class="n">NO_SALES_FOR_CUSTOMER</span>
+    <span class="k">table_name</span><span class="p">:</span> <span class="n">ETL_CUSTOMER</span>
+    <span class="n">msg</span><span class="p">:</span>      <span class="k">No</span> <span class="n">sales</span> <span class="k">for</span> <span class="n">customer</span>
+    <span class="n">sql_text</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="k">select</span> <span class="n">ec</span><span class="p">.</span><span class="n">etl_customer_id</span><span class="p">,</span> <span class="n">ship_to_cust_id</span><span class="p">,</span> <span class="n">ec</span><span class="p">.</span><span class="n">cust_nm</span><span class="p">,</span> <span class="n">etl_file_id</span>
+            <span class="k">from</span> <span class="n">etl_customer</span> <span class="n">ec</span>
+            <span class="k">where</span> <span class="n">ec</span><span class="p">.</span><span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span> <span class="k">and</span> <span class="k">not</span> <span class="k">exists</span> <span class="p">(</span>
+               <span class="k">select</span> <span class="s1">&#39;x&#39;</span>
+               <span class="k">from</span> <span class="n">etl_sale</span>
+               <span class="k">where</span> <span class="n">etl_sale</span><span class="p">.</span><span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span> <span class="k">and</span>
+                     <span class="n">ec</span><span class="p">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="p">.</span><span class="n">ship_to_cust_id</span>
+            <span class="p">)</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="n">format_str</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="n">etl_customer_id</span> <span class="o">%</span><span class="n">s</span> <span class="n">ship_to_cust_id</span> <span class="o">%</span><span class="n">s</span> <span class="n">name</span><span class="p">:</span> <span class="o">%</span><span class="n">s</span> <span class="n">has</span> <span class="k">no</span> <span class="n">sales</span> <span class="k">in</span> <span class="k">load</span> <span class="o">%</span><span class="n">s</span>
+    <span class="n">java_format</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="n">etl_customer_id</span> <span class="o">%</span><span class="n">s</span> <span class="n">ship_to_cust_id</span> <span class="o">%</span><span class="n">s</span> <span class="n">name</span><span class="p">:</span> <span class="o">%</span><span class="n">s</span> <span class="n">has</span> <span class="k">no</span> <span class="n">sales</span> <span class="k">in</span> <span class="k">load</span> <span class="o">%</span><span class="n">s</span>
+
+<span class="o">-</span>   <span class="n">rule_name</span><span class="p">:</span> <span class="n">INVALID_CUSTOMER_TOTAL</span>
+    <span class="k">table_name</span><span class="p">:</span> <span class="n">ETL_FILE</span><span class="p">,</span>
+    <span class="n">msg</span><span class="p">:</span>      <span class="n">Customer</span> <span class="n">Total</span> <span class="n">Record</span> <span class="n">Incorrect</span>
+    <span class="n">sql_text</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="k">select</span> <span class="n">etl_file_id</span>
+            <span class="k">from</span>   <span class="n">etl_customer_tot</span>
+            <span class="k">where</span>  <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="k">and</span> <span class="n">customer_count</span> <span class="k">is</span> <span class="k">null</span> <span class="k">or</span>
+                <span class="n">customer_count</span> <span class="o">!=</span> <span class="p">(</span><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+                                 <span class="k">from</span> <span class="n">etl_customer</span>
+                                 <span class="k">where</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="n">format_str</span><span class="p">:</span> <span class="ss">&quot;Customer total is incorrect for etl_file %s &quot;</span>
+    <span class="n">java_format</span><span class="p">:</span> <span class="ss">&quot;Customer total is incorrect for etl_file %s &quot;</span>
+
+
+<span class="o">-</span>   <span class="n">rule_name</span><span class="p">:</span> <span class="n">SALE_NO_CUST</span>
+    <span class="k">table_name</span><span class="p">:</span>     <span class="n">ETL_SALE</span>
+    <span class="n">msg</span><span class="p">:</span>         <span class="n">Sales</span> <span class="n">record</span> <span class="k">with</span> <span class="k">no</span> <span class="n">customer</span> <span class="k">in</span> <span class="k">load</span>
+    <span class="n">sql_text</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="k">select</span> <span class="n">etl_sale_id</span><span class="p">,</span> <span class="n">ship_to_cust_id</span><span class="p">,</span> <span class="n">etl_file_Id</span>
+            <span class="k">from</span>   <span class="n">etl_sale</span>
+            <span class="k">where</span>  <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span> <span class="k">and</span>
+            <span class="k">not</span> <span class="k">exists</span> <span class="p">(</span><span class="k">select</span> <span class="s1">&#39;x&#39;</span> <span class="k">from</span> <span class="n">etl_customer</span>
+                        <span class="k">where</span> <span class="n">etl_customer</span><span class="p">.</span><span class="n">ship_to_cust_id</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="p">.</span><span class="n">ship_to_cust_id</span><span class="p">)</span>
+    <span class="n">narrative</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="n">The</span> <span class="n">customer</span> <span class="n">specified</span> <span class="k">in</span> <span class="n">a</span> <span class="n">sales</span> <span class="n">record</span> <span class="n">does</span> <span class="k">not</span> <span class="n">have</span>
+            <span class="n">a</span> <span class="n">corresponding</span> <span class="n">customer</span> <span class="n">record</span> <span class="k">in</span> <span class="n">this</span> <span class="k">load</span><span class="p">.</span>
+
+            <span class="n">A</span> <span class="n">separate</span> <span class="n">test</span> <span class="k">is</span> <span class="n">made</span> <span class="k">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">the</span> <span class="n">customer</span> <span class="n">has</span>
+            <span class="n">been</span> <span class="n">previously</span> <span class="n">transmitted</span> <span class="k">by</span> <span class="n">this</span> <span class="n">distributor</span><span class="p">.</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="n">format_str</span><span class="p">:</span> <span class="o">&gt;</span>
+         <span class="ss">&quot;etl_sale_id %s has ship_to_cust_id %s in load %s sales record but there is no such customer&quot;</span>
+    <span class="n">java_format</span><span class="p">:</span> <span class="o">&gt;</span>
+         <span class="ss">&quot;etl_sale_id %s has ship_to_cust_id %s in load %s sales record but there is no such customer&quot;</span>
+    <span class="n">corrective_action</span><span class="p">:</span> <span class="o">&gt;</span>
+       <span class="k">None</span> <span class="n">required</span><span class="p">,</span> <span class="k">if</span> <span class="n">the</span> <span class="n">customer</span> <span class="n">was</span> <span class="n">never</span> <span class="n">reported</span> <span class="n">a</span> <span class="n">separate</span> <span class="n">test</span> <span class="n">will</span> <span class="n">mark</span> <span class="n">this</span> <span class="k">load</span> <span class="n">invalid</span>
+
+<span class="o">-</span>   <span class="n">rule_name</span><span class="p">:</span> <span class="n">UNIDENTIFIED_PRODUCT_IN_SALE</span>
+    <span class="k">table_name</span><span class="p">:</span> <span class="n">ETL_SALE</span>
+    <span class="n">msg</span><span class="p">:</span>     <span class="n">Sales</span> <span class="n">record</span> <span class="k">with</span> <span class="k">no</span> <span class="n">identifiable</span> <span class="n">product</span> <span class="k">in</span> <span class="k">load</span>
+    <span class="n">sql_text</span><span class="p">:</span> <span class="o">&gt;</span>
+            <span class="k">select</span> <span class="n">etl_sale_id</span><span class="p">,</span> <span class="n">mfr_product_id</span><span class="p">,</span> <span class="n">case_gtin</span>
+            <span class="k">from</span>   <span class="n">etl_sale</span>
+            <span class="k">where</span> <span class="k">not</span> <span class="k">exists</span> <span class="p">(</span><span class="k">select</span> <span class="n">product_id</span>
+                      <span class="k">from</span> <span class="n">product</span>
+                      <span class="k">where</span> <span class="n">product</span><span class="p">.</span><span class="n">case_gtin</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="p">.</span><span class="n">case_gtin</span>
+                            <span class="k">or</span> <span class="n">product</span><span class="p">.</span><span class="n">mfr_product_id</span> <span class="o">=</span> <span class="n">etl_sale</span><span class="p">.</span><span class="n">mfr_product_id</span><span class="p">)</span>
+            <span class="k">and</span> <span class="n">etl_file_id</span> <span class="o">=</span> <span class="o">%</span><span class="p">(</span><span class="n">ETL_FILE_ID</span><span class="p">)</span><span class="n">s</span>
+            <span class="k">order</span> <span class="k">by</span> <span class="n">etl_sale_id</span>
+    <span class="n">narrative</span><span class="p">:</span> <span class="o">&gt;</span>
+                <span class="n">This</span> <span class="n">sales</span> <span class="n">does</span> <span class="k">not</span> <span class="n">identify</span> <span class="n">an</span> <span class="n">authoritative</span> <span class="n">product</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="mi">6</span>
+    <span class="n">format_str</span><span class="p">:</span> <span class="ss">&quot;etl_sale_id: %s, mfr_product_id: %s case_gtin: %s&quot;</span>
+    <span class="n">java_format</span><span class="p">:</span> <span class="ss">&quot;etl_sale_id: %s, mfr_product_id: %s case_gtin: %s&quot;</span>
+    <span class="n">corrective_action</span><span class="p">:</span>
+                <span class="k">Update</span> <span class="n">the</span> <span class="n">product</span> <span class="n">master</span> <span class="k">or</span> <span class="n">correct</span> <span class="n">the</span> <span class="n">sales</span> <span class="n">master</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pre-post">
+<h2>Pre-post</h2>
+<p>The prepost process</p>
+</div>
+<div class="section" id="posting">
+<h2>Posting</h2>
+</div>
+<div class="section" id="address-validation">
+<h2>Address Validation</h2>
+</div>
+<div class="section" id="processing-steps">
+<h2>Processing Steps</h2>
+<p>Data is uploaded to the data processing service.</p>
+<p>The file loads are analyzed at CDS using an old version of my javautil conditionidentification package.</p>
+<p>The data is loading into prepost tables.</p>
+<p>The data is posted</p>
+<p>A snapshot of the data is made once a day for online web reporting in the form of spreadsheets.</p>
+<p>Rebate programs are designed and the sales are tracked and the rebates calculated.</p>
+<p>Rebate checks are mailed out.</p>
+</div>
+<div class="section" id="distributors">
+<h2>Distributors</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

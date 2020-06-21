@@ -1,0 +1,149 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/checking-server-hardware-and-memory-configuration.html#GUID-DC04ABB6-1822-444A-AB1B-8C306079439C &mdash; oracle 19c redhat 6 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="oracle 19c redhat 6 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">oracle 19c redhat 6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="https-docs-oracle-com-en-database-oracle-oracle-database-19-ladbi-checking-server-hardware-and-memory-configuration-html-guid-dc04abb6-1822-444a-ab1b-8c306079439c">
+<h1><a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/checking-server-hardware-and-memory-configuration.html#GUID-DC04ABB6-1822-444A-AB1B-8C306079439C">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/checking-server-hardware-and-memory-configuration.html#GUID-DC04ABB6-1822-444A-AB1B-8C306079439C</a><a class="headerlink" href="#https-docs-oracle-com-en-database-oracle-oracle-database-19-ladbi-checking-server-hardware-and-memory-configuration-html-guid-dc04abb6-1822-444a-ab1b-8c306079439c" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><pre>set -x
+set -e
+grep MemTotal /proc/meminfo
+grep SwapTotal /proc/meminfo
+df -h /tmp
+free
+uname -m
+df -h /dev/shm</pre>
+</div>
+</div>
+<div class="section" id="preinstall">
+<h1>preinstall<a class="headerlink" href="#preinstall" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-the-package">
+<h2>get the package<a class="headerlink" href="#get-the-package" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>cd ~/Downloads/oracle19
+curl -o oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm</pre>
+</div>
+</div>
+<div class="section" id="install-it">
+<h2>install it<a class="headerlink" href="#install-it" title="Permalink to this headline">¶</a></h2>
+<p># must use-skip broken because of /etc/redhat-version dependency</p>
+<p>sudo yum -y &#8211;skip-broken localinstall
+oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>preinstall<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># https://oracle-base.com/articles/vm/aws-ec2-installation-of-oracle</span>
+<span class="c"># https://docs.oracle.com/en/database/oracle/oracle-database/19/cwsol/checking-the-oracle-database-prerequisites-packages-configuration.html#GUID-F0F28CEB-41DD-47CF-A1FE-DCF5F557A947</span>
+</pre></div>
+</div>
+<p>#
+<a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02</a></p>
+</div>
+<div class="section" id="install-oracle">
+<h1>install oracle<a class="headerlink" href="#install-oracle" title="Permalink to this headline">¶</a></h1>
+<p>#
+<a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/install-and-upgrade.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/install-and-upgrade.html</a>
+#
+<a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-the-oracle-preinstallation-rpm-from-unbreakable-linux-network.html#GUID-555F704E-BD48-4E0E-AC9D-038596601194">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-the-oracle-preinstallation-rpm-from-unbreakable-linux-network.html#GUID-555F704E-BD48-4E0E-AC9D-038596601194</a></p>
+<p>#
+<a class="reference external" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02</a></p>
+<p>cd ~/Downloads/oracle19</p>
+<p>sudo yum -y localinstall compat-libcap1-1.10-7.el7.x86_64.rpm sudo yum
+-y localinstall oracle-database-ee-19c-1.0-1.x86_64.rpm</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/checking-server-hardware-and-memory-configuration.html#GUID-DC04ABB6-1822-444A-AB1B-8C306079439C</a></li>
+<li><a class="reference internal" href="#preinstall">preinstall</a><ul>
+<li><a class="reference internal" href="#get-the-package">get the package</a></li>
+<li><a class="reference internal" href="#install-it">install it</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">preinstall</a></li>
+<li><a class="reference internal" href="#install-oracle">install oracle</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/oracleInstall.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">oracle 19c redhat 6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2019, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

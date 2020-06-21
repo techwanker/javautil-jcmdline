@@ -1,0 +1,44 @@
+	/* standard elements */
+	a p td th tr h1 h2 h3  {
+		font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+		text-decoration: none;
+		font-style: italic;
+	}
+
+
+table {
+	border-collapse: collapse;
+}
+					
+tr:hover {
+	background-color: #ddd;
+}
+					
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+					
+					
+th,	td {
+	font-family: Helvetica; 
+	font-size: 10pt;
+	border: 1px solid #ddd;
+	padding: 2px;
+}
+
+					tr:nth-child(even) {
+						background-color: #f2fff2;
+					}
+
+
+					table.defaultNonDisplay {
+						display: none;
+					}
+
+					div.defaultNonDisplay {
+						display: none;
+					}

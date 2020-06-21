@@ -1,0 +1,14 @@
+--------------------------------------------------------
+--  DDL for Table SERVICE_RQST_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "SERVICE_RQST_LOG" 
+   (	"SERVICE_RQST_LOG_NBR" NUMBER(9,0), 
+	"SERVICE_RQST_CD" VARCHAR2(20), 
+	"SERVICE_RQST_PARMS" VARCHAR2(2048), 
+	"SERVICE_RQST_ISSUE_TM" DATE, 
+	"SERVICE_RQST_COMPLETE_TM" DATE, 
+	"SERVICE_RQST_ELAPSED_MS" NUMBER(9,0), 
+	"SERVICE_RQST_TRACE" VARCHAR2(4000), 
+	"SERVICE_RQST_STAT_ID" VARCHAR2(1)
+   ) ;

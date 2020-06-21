@@ -1,0 +1,18 @@
+--------------------------------------------------------
+--  DDL for Table WH_FACILITY_TRANS_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "WH_FACILITY_TRANS_LOG" 
+   (	"WH_FACILITY_TRANS_LOG_NBR" NUMBER(9,0), 
+	"FACILITY_SRC" VARCHAR2(16), 
+	"FACILITY_DEST" VARCHAR2(16), 
+	"APS_SPLY_SUB_POOL_NBR_SRC" NUMBER(9,0), 
+	"APS_SPLY_SUB_POOL_NBR_DEST" NUMBER(9,0), 
+	"TRANSFER_DT" DATE, 
+	"LOT_NBR" NUMBER(9,0), 
+	"LOT_COST_LANDED_CURR" NUMBER(17,6), 
+	"SHIP_VIA_CD" VARCHAR2(8), 
+	"WAYBILL_CD" VARCHAR2(20), 
+	"IC_TRANS_GL_NBR" NUMBER(9,0), 
+	"TRANS_QTY" NUMBER(13,5)
+   ) ;

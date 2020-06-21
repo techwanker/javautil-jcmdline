@@ -1,0 +1,21 @@
+--------------------------------------------------------
+--  DDL for Table OE_CREDIT_CARD_INFO
+--------------------------------------------------------
+
+  CREATE TABLE "OE_CREDIT_CARD_INFO" 
+   (	"OE_ORD_HDR_NBR" NUMBER(9,0), 
+	"CURR_CD" VARCHAR2(3), 
+	"CREDIT_CARD_TYPE" VARCHAR2(30), 
+	"ACCOUNT_NAME" VARCHAR2(60), 
+	"EXPIRY_DT" DATE, 
+	"CHARGED_AMT" NUMBER, 
+	"UT_USER_NBR" NUMBER, 
+	"LAST_MOD_DT" DATE, 
+	"STAT_ID" VARCHAR2(1) DEFAULT 'O', 
+	"UT_USER_NBR_ENTER" NUMBER, 
+	"ENTER_DT" DATE, 
+	"UT_USER_NBR_APPROVE" NUMBER, 
+	"APROVE_DT" DATE, 
+	"APPROVE_REF_NBR" VARCHAR2(60), 
+	"CREDIT_CARD_NBR" VARCHAR2(19)
+   ) ;

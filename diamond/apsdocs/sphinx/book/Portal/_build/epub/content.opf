@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="en"
+ unique-identifier="unknown"
+ prefix="ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/">
+  <metadata xmlns:opf="http://www.idpf.org/2007/opf"
+        xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:language>en</dc:language>
+    <dc:title>APS Portal</dc:title>
+    <dc:description>unknown</dc:description>
+    <dc:creator>Jim Schmidt</dc:creator>
+    <dc:contributor>unknown</dc:contributor>
+    <dc:publisher>Jim Schmidt</dc:publisher>
+    <dc:rights>2019, Jim Schmidt</dc:rights>
+    <dc:identifier id="unknown">unknown</dc:identifier>
+    <dc:date>2019-12-25T05:11:04Z</dc:date>
+    <meta property="dcterms:modified">2019-12-25T05:11:04Z</meta>
+    <meta property="ibooks:version"></meta>
+    <meta property="ibooks:specified-fonts">true</meta>
+    <meta property="ibooks:binding">true</meta>
+    <meta property="ibooks:scroll-axis">vertical</meta>
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml" />
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="epub-0" href="Diamond-Portal.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-1" href="MultipleLeadTimes.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-2" href="Optimal-Replenishment-Quantity.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-3" href="Post-Portal-Opportunities.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-4" href="Purchasing.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-5" href="Requisition-Review-Board.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-6" href="Requisition.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-7" href="Service-Level-Agreements.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-8" href="Vendor-Quotes.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-9" href="genindex.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-10" href="index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-11" href="ABC/ABC-Code-Discussion.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-12" href="ABC/ABC-Code-Overview.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-13" href="ABC/ABC-Pareto.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-14" href="ABC/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-15" href="MultipleLeadTime/Multiple-Lead-Times.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-16" href="MultipleLeadTime/source/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-17" href="Requisitions/Create-Requisition.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-18" href="_images/Requisitions.png" media-type="image/png" />
+    <item id="epub-19" href="_static/basic.css" media-type="text/css" />
+    <item id="epub-20" href="_static/epub.css" media-type="text/css" />
+    <item id="epub-21" href="_static/file.png" media-type="image/png" />
+    <item id="epub-22" href="_static/minus.png" media-type="image/png" />
+    <item id="epub-23" href="_static/plus.png" media-type="image/png" />
+    <item id="epub-24" href="_static/pygments.css" media-type="text/css" />
+  </manifest>
+  <spine toc="ncx" page-progression-direction="ltr">
+    <itemref idref="epub-10" />
+    <itemref idref="epub-11" />
+    <itemref idref="epub-1" />
+    <itemref idref="epub-6" />
+    <itemref idref="epub-8" />
+    <itemref idref="epub-9" />
+    <itemref idref="epub-0" linear="no" />
+    <itemref idref="epub-2" linear="no" />
+    <itemref idref="epub-3" linear="no" />
+    <itemref idref="epub-4" linear="no" />
+    <itemref idref="epub-5" linear="no" />
+    <itemref idref="epub-7" linear="no" />
+    <itemref idref="epub-12" linear="no" />
+    <itemref idref="epub-13" linear="no" />
+    <itemref idref="epub-14" linear="no" />
+    <itemref idref="epub-15" linear="no" />
+    <itemref idref="epub-16" linear="no" />
+    <itemref idref="epub-17" linear="no" />
+  </spine>
+  <guide>
+    <reference type="toc" title="Table of Contents" href="index.xhtml" />
+  </guide>
+</package>

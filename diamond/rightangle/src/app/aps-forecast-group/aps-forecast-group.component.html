@@ -1,0 +1,24 @@
+<h2>Forecast Groups</h2>	
+	raw <input type="checkbox" />
+	adjusted <input type="checkbox" />
+	consumed <input type="checkbox" />
+	unconsumed <input type="checkbox" />
+	allocated <input type="checkbox" />
+	unallocated <input type="checkbox" />
+	late <input type="checkbox" />
+	<table id="forecastGroups">
+		<thead>
+			<tr>
+				<th>Group</th>
+				<th>Type</th>
+				<th nowrap>Part #</th>
+				<th width="10" align="right" *ngFor="let nm of bucketNames">{{nm}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr width="10" align="right" *ngFor="let b of forecastGroupLines.lines">
+			<th *ngFor="let nm of b.identifiers">{{nm}}</th>
+				<td align="right" *ngFor="let v of b.values">{{v | NullIfZero}}</td>
+			</tr>
+		</tbody>
+	</table>

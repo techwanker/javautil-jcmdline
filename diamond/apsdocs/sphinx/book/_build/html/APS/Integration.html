@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Integration &#8212; Diamond APS 2019-12-14-03 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="integration">
+<h1>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-loading">
+<h2>Data Loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h2>
+<p>Diamond APS provides IDL (Interface Data Load) tables</p>
+<p>These tables provide a consistent source of data from
+which the planning tables are populated for batch processing.</p>
+<p>Interfaces are available execution mode, not addressed
+in this document.</p>
+<div class="section" id="scrubbing">
+<h3>Scrubbing<a class="headerlink" href="#scrubbing" title="Permalink to this headline">¶</a></h3>
+<p>After the tables are loaded the javautil.org ConditionIdentifications
+tests are run to identify whether the data is fit to load.</p>
+<p>There are no referential constraints and few data checks
+in the IDL tables to allow unsatisfactory data to be loaded
+and analyzed as the rigorous data requirements of planning might
+make it impossible to load.</p>
+</div>
+<div class="section" id="rules">
+<h3>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h3>
+<p>Your Diamond Consultant will assist you in defining and
+loading the rules.</p>
+<p>These rule data is generally programatically generated
+and a few passes of planning are made in order to
+explain the ramifications.</p>
+</div>
+</div>
+<div class="section" id="consulting">
+<h2>Consulting<a class="headerlink" href="#consulting" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="rules-data">
+<h2>Rules Data<a class="headerlink" href="#rules-data" title="Permalink to this headline">¶</a></h2>
+<p>Customer Substitutes</p>
+<p>Global Substitutes</p>
+<p>Replenishment Policies</p>
+<p>Planning Groups</p>
+<p>Supply Pools</p>
+<p>Supply Sub Pools</p>
+<p>Sourcing Rules</p>
+<p>Customer Item Manufacturer Rules</p>
+</div>
+<div class="section" id="logic-review">
+<h2>Logic Review<a class="headerlink" href="#logic-review" title="Permalink to this headline">¶</a></h2>
+<p>Goals</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Diamond APS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-18-Meeting-notes.html">Business Process Improvement : 2019-12-18 Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Introductory-Meeting.html">Business Process Improvement : Introductory Meeting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Meeting-notes.html">Business Process Improvement : Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Product-Launch.html">Business Process Improvement : Product Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/Project-Overview.html">Business Process Improvement : Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-17-Meeting-notes.html">Business Process Improvement : 2019-12-17 Meeting notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html">Business Process Improvement : ABC - Pareto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html#item-statistics">Item Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html">Objective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#success-metrics">Success metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#assumptions">Assumptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#milestones">Milestones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#user-interaction-and-design">User interaction and design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#open-questions">Open Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#out-of-scope">Out of Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#definition">Definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#approach">Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#purpose">Purpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#addititional-fields">Addititional Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#modify-web-page-template">Modify web page template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html">Welcome to Multiple Lead Times’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-Functionality.html">Business Process Improvement : Portal Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-index.html">Business Process Improvement : Requisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Purchasing.html">Business Process Improvement : Purchasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisition-Review-Board.html">Business Process Improvement : Requisition Review Board</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisitions/Create-Requisition.html">Business Process Improvement : Create Requisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Service-Level-Agreements.html">Business Process Improvement : Service Level Agreements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Portal/Vendor-Quotes.html">Business Process Improvement : Vendor Quotes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jim Schmidt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/APS/Integration.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
