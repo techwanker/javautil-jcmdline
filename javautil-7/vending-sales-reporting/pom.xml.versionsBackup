@@ -23,17 +23,17 @@
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-core</artifactId>
-			<version>8.6.21</version>
+			<version>VER-7.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-poi</artifactId>
-			<version>8.6.21</version>
+			<version>VER-7.4.0</version>
 		</dependency>
 			<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-condition-identification</artifactId>
-			<version>8.6.21</version>
+			<version>VER-7.4.0</version>
 		</dependency>
 		<!--  unit testing  -->
 		<dependency>

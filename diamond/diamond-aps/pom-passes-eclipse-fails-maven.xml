@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-core</artifactId>
-			<version>VER-7.4.0</version>
+			<version>8.6.21</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-hibernate</artifactId>
-			<version>VER-7.4.0</version>
+			<version>8.6.21</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>

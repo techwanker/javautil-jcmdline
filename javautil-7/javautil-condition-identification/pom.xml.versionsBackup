@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>javautil-core</artifactId>
+	<artifactId>javautil-condition-identification</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
 		<artifactId>javautil-pom</artifactId>
 		<groupId>org.javautil</groupId>
-		<version>8.6.21</version>
+		<version>VER-7.4.0</version>
 		<relativePath>../javautil-pom</relativePath>
 	</parent>
 
@@ -30,6 +30,17 @@
 
 
 	<dependencies>
+		<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>javautil-core</artifactId>
+			<version>VER-7.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>javautil-joblog</artifactId>
+			<version>VER-7.4.0</version>
+			
+		</dependency>
 		<!-- commons -->
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -109,11 +120,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- TODO unify across p<dependency>
-    <groupId>javax.xml.bind</groupId>
-    <artifactId>jaxb-api</artifactId>
-    <version>2.3.1</version>
-</dependency>rojects -->
+		<!-- TODO unify across projects -->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>oracle-jdbc8</artifactId>
@@ -173,19 +180,6 @@
 			<scope>test</scope>
 		</dependency>
 
-<!--  afer jdk 1.8 you need these  -->
-<!--  https://www.jesperdj.com/2018/09/30/jaxb-on-java-9-10-11-and-beyond/ -->
-<dependency>
-    <groupId>javax.xml.bind</groupId>
-    <artifactId>jaxb-api</artifactId>
-    <version>2.3.1</version>
-</dependency>
-<dependency>
-    <groupId>org.glassfish.jaxb</groupId>
-    <artifactId>jaxb-runtime</artifactId>
-    <version>2.3.1</version>
-    <scope>runtime</scope>
-</dependency>
 	</dependencies>
 
 	<build>

@@ -5,7 +5,7 @@
 
 	<groupId>org.javautil</groupId>
 	<artifactId>javautil-pom</artifactId>
-	<version>8.6.21</version>
+	<version>VER-7.4.0</version>
 	<packaging>pom</packaging>
 
 	<name>javautil</name>
