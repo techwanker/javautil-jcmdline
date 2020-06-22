@@ -8,14 +8,13 @@ import org.javautil.document.MimeType;
 /**
  * 
  * @author jjs
- * 
  */
 public interface RendererRequest {
 
 	public MimeType getMimeType();
 
 	public void setMimeType(final MimeType mimeType);
-
+    // TODO make output Stream
 	public StreamResult getStreamResult();
 
 	public void setStreamResult(StreamResult sr);
