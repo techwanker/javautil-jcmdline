@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-06-21T09:04:14-05",
+  "effectiveDate": "2020-06-21T21:09:03-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -6683,6 +6683,62 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1757638,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 126,
+      "lastModDt": "2007-10-04T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910099,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910096,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910103,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910101,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1757635,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 126,
+      "lastModDt": "2007-10-04T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910113,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1910097,
         "certCd": "8130/MCC"
       },
@@ -6715,39 +6771,7 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1757638,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 126,
-      "lastModDt": "2007-10-04T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910099,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910096,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1910107,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910103,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 1702,
@@ -6779,35 +6803,11 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1910101,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1757635,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 126,
-      "lastModDt": "2007-10-04T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1906831,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 1,
       "lastModDt": "2008-06-09T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910113,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
     }
   ],
   "utFacilities": [

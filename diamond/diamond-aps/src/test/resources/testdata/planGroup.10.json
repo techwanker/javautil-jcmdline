@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-06-21T09:04:15-05",
+  "effectiveDate": "2020-06-21T21:09:03-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -7206,22 +7206,6 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1873126,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873124,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1873128,
         "certCd": "MFGCOFC"
       },
@@ -7235,14 +7219,6 @@
       },
       "utUserNbr": 302,
       "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1782589,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 124,
-      "lastModDt": "2007-11-13T00:00:00-06"
     },
     {
       "id": {
@@ -7270,14 +7246,6 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1873122,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1873129,
         "certCd": "MFGCOFC"
       },
@@ -7294,23 +7262,7 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1873114,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1873113,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873117,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 302,
@@ -7342,7 +7294,7 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1873120,
+        "oeOrdDtlNbr": 1873112,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 302,
@@ -7350,7 +7302,55 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1873112,
+        "oeOrdDtlNbr": 1873126,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873124,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1782589,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 124,
+      "lastModDt": "2007-11-13T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873122,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873114,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873117,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873120,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 302,
