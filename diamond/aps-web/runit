@@ -1,1 +1,2 @@
-java -classpath target/classes:target/diamond-aps-web-2020-6.0-SNAPSHOT.jar com.pacificdataservices.diamond.apsweb.Application
+#sjava -classpath target/classes:target/diamond-aps-web-2020-6.0-SNAPSHOT.jar com.pacificdataservices.diamond.apsweb.Application
+mvn build  spring-boot:run 
