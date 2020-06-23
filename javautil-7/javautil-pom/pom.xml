@@ -15,8 +15,9 @@
 		<module>../javautil-commandline</module>
 		<module>../javautil-core</module>
 		<module>../javautil-hibernate</module> 
+		<module>../javautil-joblog</module>
 		<module>../javautil-condition-identification</module> 
-		<module>../javautil-poi</module>
+		<module>../javautil-poi</module>      
 		<module>../javautil-test</module>
 		<module>../javautil-oracle-trace</module>
 		<!-- <module>../javautil-cli</module> -->
