@@ -1,0 +1,36 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Features}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Concepts}{chapter.1}% 3
+\BOOKMARK [-1][-]{part.1}{I Installation}{}% 4
+\BOOKMARK [0][-]{section.1.3}{Terminology}{part.1}% 5
+\BOOKMARK [1][-]{subsection.1.3.1}{Rule Group}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.2}{Run Parms}{subsection.1.3.1}% 7
+\BOOKMARK [1][-]{section.1.4}{Metrics}{section.1.3}% 8
+\BOOKMARK [1][-]{section.1.5}{UT\137TABLE\137RULE}{section.1.3}% 9
+\BOOKMARK [0][-]{chapter.2}{Schema}{part.1}% 10
+\BOOKMARK [0][-]{chapter.3}{Processing}{part.1}% 11
+\BOOKMARK [0][-]{chapter.4}{Components}{part.1}% 12
+\BOOKMARK [1][-]{section.4.1}{Rule Processor}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.2}{Invocation}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.3}{Classes}{chapter.4}% 15
+\BOOKMARK [2][-]{subsection.4.3.1}{ExceptionRuleService}{section.4.3}% 16
+\BOOKMARK [1][-]{section.4.4}{todo}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.5}{Parallism}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.6}{Data Setup}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.7}{Output Review}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.8}{Fatal and Warn}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.9}{Benefits}{chapter.4}% 22
+\BOOKMARK [0][-]{chapter.5}{Pre-requisites}{part.1}% 23
+\BOOKMARK [0][-]{chapter.6}{How it works}{part.1}% 24
+\BOOKMARK [1][-]{section.6.1}{Overview}{chapter.6}% 25
+\BOOKMARK [1][-]{section.6.2}{Creating the User}{chapter.6}% 26
+\BOOKMARK [1][-]{section.6.3}{Parameters}{chapter.6}% 27
+\BOOKMARK [2][-]{subsection.6.3.1}{Run Number}{section.6.3}% 28
+\BOOKMARK [1][-]{section.6.4}{Get UtRuleGrpRun}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.5}{Get UT\137TABLE\137RULE}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.6}{Get UT\137RULE\137GRP\137RUN\137PARMS}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.7}{Process Rules}{chapter.6}% 32
+\BOOKMARK [0][-]{chapter.7}{Database Objects}{part.1}% 33
+\BOOKMARK [1][-]{section.7.1}{SqlDeveloper}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.2}{Installation}{chapter.7}% 35
+\BOOKMARK [2][-]{subsection.7.2.1}{Create Database Objects}{section.7.2}% 36
