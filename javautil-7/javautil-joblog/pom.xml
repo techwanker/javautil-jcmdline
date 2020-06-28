@@ -33,7 +33,12 @@
 			<version>${org.javautil.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
+	<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>javautil-joblog</artifactId>
+			<version>${org.javautil.version}</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
 		<dependency>
 			<groupId>org.dom4j</groupId>
@@ -41,12 +46,13 @@
 			<version>2.1.1</version>
 		</dependency>
 
+<!-- 
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>oracle-jdbc8</artifactId>
 			<version>19</version>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>

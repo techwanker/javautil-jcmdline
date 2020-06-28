@@ -27,9 +27,14 @@ public enum Dialect {
 		if (metadata.getDatabaseProductName().equals("PostgreSQL")) {
 			return POSTGRES;
 		}
+		if (metadata.getDatabaseProductName().equals("Oracle")) {
+			return ORACLE;
+		}
+		/*
 		if (connection.isWrapperFor(oracle.jdbc.OracleConnection.class)) {
 			return ORACLE;
 		}
+		*/
 		if (connection.isWrapperFor(org.h2.jdbc.JdbcConnection.class)
 		    || connection.getClass().equals(org.h2.jdbc.JdbcConnection.class)) {
 			return H2;

@@ -14,12 +14,7 @@ import org.junit.Test;
 
 public class TestDataSourceTest {
 
-	@Test
-	public void testOracle() throws SQLException, PropertyVetoException, IOException {
-		DataSource ds = TestDataSource.getDataSource(Dialect.ORACLE);
-		assertNotNull(ds);
-		((Closeable) ds).close();
-	}
+
 	@Test
 	public void testPostgres() throws SQLException, PropertyVetoException, IOException {
 		DataSource ds = TestDataSource.getDataSource(Dialect.POSTGRES);

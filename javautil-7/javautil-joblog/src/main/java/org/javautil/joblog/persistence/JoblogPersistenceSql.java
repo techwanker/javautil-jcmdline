@@ -14,11 +14,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.javautil.core.sql.Binds;
+import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.NamedSqlStatements;
 import org.javautil.core.sql.SequenceHelper;
 import org.javautil.core.sql.SqlStatement;
 import org.javautil.lang.ThreadUtil;
-import org.javautil.oracle.OracleConnectionHelper;
+//import org.javautil.oracle.OracleConnectionHelper;
 import org.javautil.util.NameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,7 +82,8 @@ public class JoblogPersistenceSql extends AbstractJoblogPersistence implements J
 		this.applicationConnection = applogConnection;
 		statements = NamedSqlStatements.getNameSqlStatementsFromSqlSplitterResource(this, "ddl/logjob_dml.ss.sql");
 		sequenceHelper = new SequenceHelper(joblogConnection);
-		isJoblogConnectionOracle = OracleConnectionHelper.isOracleConnection(joblogConnection) ;
+		isJoblogConnectionOracle = Dialect.getDialect(joblogConnection).equals(Dialect.ORACLE);
+	//	isJoblogConnectionOracle = OracleConnectionHelper.isOracleConnection(joblogConnection) ;
 
 	}
 
