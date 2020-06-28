@@ -1,0 +1,2 @@
+pg_dump--format=custom sales_reporting > sales_repoerting.dump
+pg_dump --format=custom --schema aerodemo aps_19 aps19_aerodemo.dump

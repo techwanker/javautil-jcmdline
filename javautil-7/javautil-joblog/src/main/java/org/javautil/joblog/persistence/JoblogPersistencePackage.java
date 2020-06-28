@@ -36,6 +36,8 @@ public class JoblogPersistencePackage extends AbstractJoblogPersistence implemen
 	public String joblogInsert(String processName, String className, String moduleName) throws SQLException {
 		return joblogInsert(processName, className, moduleName,"");
 	}
+	
+	
 	// TODO externalize
 	@Override
 	public String joblogInsert(String processName, String className, 
@@ -104,7 +106,6 @@ public class JoblogPersistencePackage extends AbstractJoblogPersistence implemen
 		logger.warn("job terminated with: '{}'", abortMessage);
 	}
 
-	
 	@Override
 	public long insertStep(String jobToken, String stepName, String className, String stepInfo) {
 		long jobStepId = -1L;
@@ -170,6 +171,9 @@ public class JoblogPersistencePackage extends AbstractJoblogPersistence implemen
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
 
 
 

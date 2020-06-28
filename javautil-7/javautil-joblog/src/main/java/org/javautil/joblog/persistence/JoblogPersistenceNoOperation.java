@@ -64,5 +64,15 @@ public class JoblogPersistenceNoOperation extends AbstractJoblogPersistence impl
 	@Override
 	public void abortStep(long stepId, SQLException sqe, String message) throws SQLException {
 	}
+
+	@Override
+	public long insertStep(String jobToken, String stepName, Class clazz) throws SQLException {
+		return 0;
+	}
+
+	@Override
+	public long insertStep(String jobToken, String stepName, Class clazz, String stepInfo) throws SQLException {
+		return 0;
+	}
 	
 }

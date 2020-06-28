@@ -83,4 +83,17 @@ public class TestDataSource {
 		conn.close();
 		return ds;
 	}
+	
+	public static DataSource getPostgresSrDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {
+		logger.debug("getting connection");
+		DataSourceFactory dsf = new DataSourceFactory();
+		DataSource ds = dsf.getDatasource("integration_postgres_sr");
+		Connection conn = ds.getConnection();
+		Statement s = conn.createStatement();
+		s.execute("drop table if exists test_table");
+		s.execute("create table test_table (test_id int)");
+		s.close();
+		conn.close();
+		return ds;
+	}
 }

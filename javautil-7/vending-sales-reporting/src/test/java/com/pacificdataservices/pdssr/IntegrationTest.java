@@ -72,7 +72,7 @@ public class IntegrationTest extends SetupTest implements FilenameFilter {
 	public void postgresAppH2JoblogTest() throws SqlSplitterException, Exception {
 		logger.info("Postgres test begins");
 		DataSource joblogDataSource = TestDataSource.getH2FileDataSource(logDatabaseFullPath);
-		DataSource appDataSource = TestDataSource.getDataSource(Dialect.POSTGRES);
+		DataSource appDataSource = TestDataSource.getPostgresSrDataSource();
 
 		joblogConnection = joblogDataSource.getConnection();
 		appConnection = appDataSource.getConnection();
