@@ -19,3 +19,5 @@ if [ -f $zipped ] && [ -f $export_unzipped ] ; then
 fi
 ls -ltr *
 
+pg_dump -Fc   --schema aerodemo aps19 > aerodemo.dump
+
