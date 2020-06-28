@@ -67,7 +67,7 @@ public class MultiKey extends ArrayList<Comparable> implements Comparable{
 	}
 
 	public String format() {
-		ArrayList formats = getAutoFormats(this);
+		ArrayList<String> formats = getAutoFormats(this);
 		return format(formats);
 	}
 
