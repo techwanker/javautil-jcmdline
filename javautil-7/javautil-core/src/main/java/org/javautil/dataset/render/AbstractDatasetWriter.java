@@ -39,14 +39,14 @@ public abstract class AbstractDatasetWriter<T> implements DatasetEventListener<T
 			writer = streamResult.getWriter();
 		} else {
 			throw new IllegalStateException(
-			    "rendererRequest.streamResult.writer and " + "rendererRequest.streamResult.outputStream" + " are both null");
+					"rendererRequest.streamResult.writer and " + "rendererRequest.streamResult.outputStream" + " are both null");
 		}
 		return writer;
 	}
 
 	@Override
 	public void handleEvent(final DatasetRendererRequest rendererRequest, final DatasetEventType type,
-	    final DatasetEvent<T> event) throws DatasetRenderException {
+			final DatasetEvent<T> event) throws DatasetRenderException {
 		final Writer writer = getWriterFor(rendererRequest);
 		try {
 			writeEventData(rendererRequest, writer, type, event);
@@ -57,6 +57,6 @@ public abstract class AbstractDatasetWriter<T> implements DatasetEventListener<T
 	}
 
 	public abstract void writeEventData(DatasetRendererRequest request, Writer writer, DatasetEventType type,
-	    DatasetEvent<T> event) throws DatasetRenderException;
+			DatasetEvent<T> event) throws DatasetRenderException;
 
 }

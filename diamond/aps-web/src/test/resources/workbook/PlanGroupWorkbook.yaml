@@ -98,4 +98,6 @@ worksheets:
             where item_nbr in (
                 select item_nbr from aps_plan_grp where plan_grp_nbr = :plan_grp_nbr
             )
-       
+        crosstabColumns: 
+            rowIdentifiers:
+         

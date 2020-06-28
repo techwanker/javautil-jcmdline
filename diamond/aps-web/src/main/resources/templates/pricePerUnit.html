@@ -1,0 +1,109 @@
+
+<head>
+<meta charset="UTF-8">
+<title>Price per Unit v3</title>
+<script>
+	function pricePerUnit(setupCost, incrementalCost, qty) {
+		var retval = setupCost / qty + incrementalCost;
+		// failure to convert to numbers results in the concatenation of a number with a string
+		//alert("retval " + retval + " setup " + setupCost + " incremental " + incrementalCost + " qty " + qty);
+		return retval;
+	}
+
+	function isNumber(x) {
+		var v = x.trim();
+		var retval = (v.length > 0 && !isNaN(x));
+		return retval;
+	}
+
+	function getMinQty(setupCost, incrementalCost) {
+		var low = Math.round(setupCost / incrementalCost);
+		var stump = Math.log10(low);
+		var floorStump = Math.floor(stump);
+		var retval = Math.pow(10, floorStump);
+		//alert("getMinQty(): low " + low + " stump " + stump + " floorStump " + floorStump + " retval " + retval);
+		return retval;
+	}
+
+	function getQuantities(setupCost, incrementalCost) {
+		var min = getMinQty(setupCost, incrementalCost);
+		var retvals = [];
+		for (var i = 1; i <= 25; i++) {
+			retvals.push(min * i)
+		}
+		//alert("quantities " + retvals);
+		return retvals;
+	}
+
+	function graphIt() {
+		var setupCost = document.getElementById("setupCost").value;
+		var incrementalCost = document.getElementById("incrementalCost").value;
+		//alert("setup " + setupCost + " incremental " + incrementalCost);
+		if (isNumber(setupCost) && isNumber(incrementalCost)) {
+			//alert("both are numbers setup " + setupCost + " incremental " + incrementalCost);
+			//var xValues = [ 1000, 2000, 2500, 5000, 10000, 100000 ];
+			var xValues = getQuantities(Number(setupCost),
+					Number(incrementalCost));
+			var yValues = []
+			for (var i = 0; i < xValues.length; i++) {
+				qty = xValues[i];
+				yv = pricePerUnit(Number(setupCost), Number(incrementalCost),
+						qty);
+				//alert('qty ' + qty + " yv " + yv);
+				yValues.push(pricePerUnit(Number(setupCost),
+						Number(incrementalCost), qty));
+			}
+			//alert("about to graph xValues" + xValues + "\n yValues " + yValues);
+			TESTER = document.getElementById('tester');
+			Plotly.plot(TESTER, [ {
+				x : xValues,
+				y : yValues
+			} ], {
+				margin : {
+					t : 0
+				}
+			});
+		//	alert("graphIt complete");
+		} else {
+			//alert("skipping graphing");
+		}
+	}
+</script>
+<script src="js/plotly.min.js"></script>
+</head>
+<body>
+	Setup Cost
+	<input type="text" name="setupCost" id="setupCost" /> Incremental
+	Cost
+	<input type="text" name="incrementalCost" id="incrementalCost" />
+	<button onClick="graphIt();">Plot</button>
+	<div id="tester" style="width: 600px; height: 250px;"></div>
+
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>Qty</th>
+				<th>Unit Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" name="qty1" id="qty1" /></td>
+				<td><input type="text" name="unitCost1" id="unitCost1" />
+				</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="qty2" id="qty2" /></td>
+				<td><input type="text" name="unitCost2" id="unitCost2" /></td>
+			</tr>
+
+		</tbody>
+	</table>
+	<button onClick="computeSetupIncr();">Compute and Plot</button>
+	
+	Enter the quantity and cost per unit for two different vendor quote quantities.
+	
+	The setup cost and incremental cost will be computed and the qty vs cost per unit will be plotted.
+</body>
+</html>

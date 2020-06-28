@@ -21,6 +21,7 @@
 			<artifactId>diamond-planning</artifactId>
 			<version>2020.6.0-SNAPSHOT</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -64,6 +65,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+			<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>javautil-joblog</artifactId>
+			<version>8.6.21</version>
+		</dependency>
+			<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>javautil-poi</artifactId>
+			<version>8.6.21</version>
 		</dependency>
 	</dependencies>
 

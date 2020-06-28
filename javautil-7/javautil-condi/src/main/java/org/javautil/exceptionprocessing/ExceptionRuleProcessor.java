@@ -6,14 +6,14 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.hibernate.hql.QuerySplitter;
 import org.javautil.exceptionprocessing.dto.GttTableRowMsgId;
 import org.javautil.exceptionprocessing.dto.GttUtTableRowMsg;
 import org.javautil.exceptionprocessing.dto.UtRuleGrpRunParm;
 import org.javautil.exceptionprocessing.dto.UtTableRule;
-import org.javautil.jdbc.datasources.DataSources;
 import org.javautil.jdbc.datasources.SimpleDatasourcesFactory;
 import org.javautil.sql.QueryHelper;
+import org.slf4j.Logger;
 
 public class ExceptionRuleProcessor implements Runnable {
 
@@ -121,7 +121,7 @@ public class ExceptionRuleProcessor implements Runnable {
 		try {
 			sourceConnection.close();
 		} catch (final SQLException e) {
-			logger.error(e);
+			logger.error(e.getMessage());
 		}
 		if (destinationConnection != sourceConnection) {
 			try {
@@ -149,7 +149,7 @@ public class ExceptionRuleProcessor implements Runnable {
 	}
 
 	private void prepareIn() throws SQLException {
-		inStmt = new QueryHelper(sourceConnection, rule.getSqlText());
+		inStmt = new QuerySplitter(sourceConnection, rule.getSqlText());
 		if (rule.getMaxQuerySec() != null) {
 			logger.info("maxQuerySec " + rule.getMaxQuerySec());
 		}

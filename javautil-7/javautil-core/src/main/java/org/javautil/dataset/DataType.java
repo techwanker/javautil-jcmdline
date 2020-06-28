@@ -108,7 +108,73 @@ public enum DataType {
 		}
 		return retval;
 	}
-
+	/*
+	static int 	ARRAY
+	static int 	BIGINT
+	static int 	BINARY
+	static int 	BIT
+	static int 	BLOB
+	static int 	BOOLEAN
+	static int 	CHAR
+	static int 	CLOB
+	static int 	DATALINK
+	static int 	DATE
+	static int 	DECIMAL
+	static int 	DISTINCT
+	static int 	DOUBLE
+	static int 	FLOAT
+	static int 	INTEGER
+	static int 	JAVA_OBJECT
+	static int 	LONGNVARCHAR
+	static int 	LONGVARBINARY
+	static int 	LONGVARCHAR
+	static int 	NCHAR
+	static int 	NCLOB
+	static int 	NULL
+	static int 	NUMERIC
+	static int 	NVARCHAR
+	static int 	OTHER
+	static int 	REAL
+	static int 	REF
+	static int 	REF_CURSOR
+	static int 	ROWID
+	static int 	SMALLINT
+	static int 	SQLXML
+	static int 	STRUCT
+	static int 	TIME
+	static int 	TIME_WITH_TIMEZONE
+	static int 	TIMESTAMP
+	static int 	TIMESTAMP_WITH_TIMEZONE
+	static int 	TINYINT
+	static int 	VARBINARY
+	static int 	VARCHAR
+	 */
+	/*
+	static int 	ARRAY
+	static int 	BINARY
+	static int 	BIT
+	static int 	BLOB
+	static int 	BOOLEAN
+	static int 	DATALINK
+	static int 	DISTINCT
+	static int 	JAVA_OBJECT
+	static int 	LONGVARBINARY
+	static int 	NCHAR
+	static int 	NULL
+	static int 	NVARCHAR
+	static int 	OTHER
+	static int 	REAL
+	static int 	REF
+	static int 	REF_CURSOR
+	static int 	ROWID
+	static int 	SMALLINT
+	static int 	SQLXML
+	static int 	STRUCT
+	static int 	TIME
+	static int 	TIME_WITH_TIMEZONE
+	static int 	TIMESTAMP_WITH_TIMEZONE
+	static int 	TINYINT
+	 */
 	public static DataType getAsDataType(final int dataType) {
 		DataType returnValue = null;
 		switch (dataType) {
@@ -131,8 +197,9 @@ public enum DataType {
 		case Types.VARBINARY:
 			returnValue = VARBINARY;
 			break;
-		// case Types.SHORT:
-		// (no database equivalent)
+			// case Types.SHORT:
+			// (no database equivalent)
+		case Types.SMALLINT:
 		case Types.INTEGER:
 			returnValue = INTEGER;
 			break;
@@ -152,7 +219,76 @@ public enum DataType {
 			returnValue = NUMERIC;
 			break;
 		default:
-			throw new java.lang.IllegalArgumentException("unknown java.sql.Type: " + dataType);
+			String typeName = null;
+			switch(dataType) {
+			case Types.ARRAY:
+				typeName = "ARRAY";
+				break;
+			case Types.BINARY:
+				typeName = "BINARY";
+				break;
+			case Types.BIT:
+				typeName = "BIT";
+				break;
+			case Types.BLOB:
+				typeName = "BLOB";
+				break;
+			case Types.BOOLEAN:
+				typeName = "BOOLEAN";
+				break;
+			case Types.DATALINK:
+				typeName = "DATALINK";
+				break;
+			case Types.DISTINCT:
+				typeName = "DISTINCT";
+				break;
+			case Types.JAVA_OBJECT:
+				typeName = "JAVA_OBJECT";
+				break;
+			case Types.LONGVARBINARY:
+				typeName = "LONGVARBINARY";
+				break;
+			case Types.NULL:
+				typeName = "NULL";
+				break;
+			case Types.OTHER:
+				typeName = "OTHER";
+				break;
+			case Types.REAL:
+				typeName = "REAL";
+				break;
+			case Types.REF:
+				typeName = "REF";
+				break;
+			case Types.REF_CURSOR:
+				typeName = "REF_CURSOR";
+				break;
+			case Types.ROWID:
+				typeName = "ROwID";
+				break;
+			case Types.SMALLINT:
+				typeName = "SMALLINT";
+				break;
+			case Types.SQLXML:
+				typeName = "SQLXML";
+				break;
+			case Types.STRUCT:
+				typeName = "STRUCT";
+				break;
+			case Types.TIME:
+				typeName = "TIME";
+				break;
+			case Types.TIME_WITH_TIMEZONE:
+				typeName = "TIME_WITH_TIMEZONE";
+				break;
+			case Types.TIMESTAMP_WITH_TIMEZONE:
+				typeName = "TIMESTAMM_WITH_TIMEZONE"; 
+				break;
+			case Types.TINYINT:
+				typeName = "TINYINT"; 
+				break;
+			}
+			throw new java.lang.IllegalArgumentException("unknown java.sql.Type: " + dataType + " typename " + typeName);
 		}
 
 		return returnValue;
@@ -228,8 +364,8 @@ public enum DataType {
 	public static boolean isNumberType(final DataType type) {
 
 		return type == DataType.BIG_DECIMAL || type == DataType.BIG_INTEGER || type == DataType.DOUBLE
-		    || type == DataType.FLOAT || type == DataType.INTEGER || type == DataType.LONG || type == DataType.NUMERIC
-		    || type == DataType.SHORT;
+				|| type == DataType.FLOAT || type == DataType.INTEGER || type == DataType.LONG || type == DataType.NUMERIC
+				|| type == DataType.SHORT;
 	}
 
 	/**

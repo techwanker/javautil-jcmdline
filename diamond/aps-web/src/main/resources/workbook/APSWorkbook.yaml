@@ -1,0 +1,182 @@
+name:  Dataload Workbook
+description: Workbook for Dataload
+narrative:
+bindDefinitions:
+    item_nbr:
+       bindTypeName: long
+columns:
+    extended_net_amt:
+       excelFormat: "#,###.00;[RED]-#,###.00"
+       dataTypeName: NUMERIC
+       heading: "Invoice $"
+    ship_dt:
+       dataTypeName: DATE
+       excelFormat:  YYYY-MM-DD
+    invoice_dt:
+       dataTypeName: DATE
+       excelFormat:  YYYY-MM-DD
+    cases:
+       excelFormat: "#,###;[RED]-#,###"    
+    boxes:
+       excelFormat: "#,###;[RED]-#,###"    
+    units:  
+       excelFormat: "#,###;[RED]-#,###"    
+worksheets:
+    ic_item_mast:   
+       name: "Item Master"
+       sql: > 
+         select
+           item_cd, item_descr, stk_um, sell_um,
+           std_cost, list_price, kit_flg, sell_flg,
+           harmonized_cd, reqr_mfr_flg, shelf_life_dy, lead_tm_dy,
+           sort_nm, stat_id, pick_scan_id, intro_dt,
+           ic_recv_rule_cd, fifo_dt_id, replen_type_id, sched_qty_optimal,
+           user_fld_1, user_fld_2, user_fld_3, user_fld_4,
+           user_fld_5, user_fld_6, user_fld_7, user_fld_8,
+           user_fld_9
+         from ic_item_mast_vw
+         where  item_nbr in (
+           select item_nbr 
+           from   aps_plan_grp 
+           where plan_grp_nbr = (
+              select plan_grp_nbr 
+              from    aps_plan_grp 
+              where   item_nbr = :item_nbr)
+           )
+    OpenOrders:   
+       name: Open Orders
+       sql: >
+          select
+            oe_ord_hdr_nbr,
+            ord_dt,
+            ord_stat_id,
+            org_cd_cust,
+            item_cd, 
+            fcst_grp,
+            curr_cd,
+            ord_type_cd,
+            ord_cd,
+            qty_ord,
+            qty_ship,
+            qty_ord_stk_um,
+            unit_price_sell_um,
+            unit_price_denom_sell_um,
+            unit_price_stk_um,
+            unit_price_denom_stk_um,
+            item_cd_cust,
+            -- aps_src_rule_set_nbr,
+            org_nbr_mfr_rqst,
+            lot_not_expire_before_dt,
+            lot_manufacture_after_dt,
+            cntry_cd_origin,
+            rev_lvl
+          from oe_ord_dtl_hist_fcst_grp_vw 
+          where
+             ord_stat_id = 'O' and 
+             item_nbr_rqst in (
+                 select  item_nbr 
+                 from    aps_plan_grp   
+                 where   plan_grp_nbr = (select plan_grp_nbr from aps_plan_grp where item_nbr = :item_nbr)
+             ) 
+
+    OrderHistoryDetail:   
+       name: Order History Detail
+       sql: >
+          select
+            oe_ord_hdr_nbr,
+            ord_dt,
+            ord_stat_id,
+            org_cd_cust,
+            item_cd, 
+            fcst_grp,
+            curr_cd,
+            ord_type_cd,
+            ord_cd,
+            qty_ord,
+            qty_ship,
+            qty_ord_stk_um,
+            unit_price_sell_um,
+            unit_price_denom_sell_um,
+            unit_price_stk_um,
+            unit_price_denom_stk_um,
+            item_cd_cust,
+            -- aps_src_rule_set_nbr,
+            org_nbr_mfr_rqst,
+            lot_not_expire_before_dt,
+            lot_manufacture_after_dt,
+            cntry_cd_origin,
+            rev_lvl
+          from oe_ord_dtl_hist_fcst_grp_vw 
+          where
+             item_nbr_rqst in (
+                 select  item_nbr 
+                 from    aps_plan_grp   
+                 where   plan_grp_nbr = (select plan_grp_nbr from aps_plan_grp where item_nbr = :item_nbr)
+             ) 
+    OrderHistoryFcstGrpMonth:
+       name: Order History Fcst Grp Month
+       sql: >
+          select
+            fcst_grp,
+            org_cd_cust,
+            item_cd,
+            rqst_mnth,
+            sum(qty_ord_stk_um) qty_ord_stk_um
+          from oe_ord_dtl_hist_fcst_grp_vw
+          where
+             item_nbr_rqst in (
+                 select  item_nbr
+                 from    aps_plan_grp
+                 where   plan_grp_nbr = (
+                    select plan_grp_nbr
+                    from aps_plan_grp
+                    where item_nbr = :item_nbr
+                 )
+             )
+          group by 
+                   item_cd,
+                   fcst_grp,
+                   org_cd_cust,
+                   rqst_mnth
+          order by 
+                   item_cd,
+                   fcst_grp,
+                   org_cd_cust,
+                   rqst_mnth;
+    VendorQuotes:  
+       name: "Vendor Quotes"
+       sql: >
+           select *
+           from  vq_qte_vw_xl
+                 where  item_nbr_qte in (
+                  select item_nbr 
+                  from   aps_plan_grp 
+                  where plan_grp_nbr = (select plan_grp_nbr 
+                                       from    aps_plan_grp 
+                                       where   item_nbr = :item_nbr)
+                  )
+    CustomerQuotes:   
+       name: "Customer Quotes"
+       sql: >
+           select *
+           from  sq_qte_vw_xl
+                 where  item_nbr_qte in (
+                  select item_nbr 
+                  from   aps_plan_grp 
+                  where plan_grp_nbr = (select plan_grp_nbr 
+                                       from    aps_plan_grp 
+                                       where   item_nbr = :item_nbr)
+                  )
+                   
+    ApsAvailOnhandDtl:   
+       name: "Onhand"
+       sql: >
+           select *
+           from  aps_avail_onhand_dtl_multi_vw
+                 where  item_nbr in (
+                  select item_nbr 
+                  from   aps_plan_grp 
+                  where plan_grp_nbr = (select plan_grp_nbr 
+                                       from    aps_plan_grp 
+                                       where   item_nbr = :item_nbr)
+                  )
