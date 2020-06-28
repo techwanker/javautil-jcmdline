@@ -5,6 +5,7 @@ package com.pacificdataservices.diamond.planning.services;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.javautil.core.misc.Timer;
 import org.javautil.hibernate.HibernateMarshallerFactory;
@@ -38,7 +39,7 @@ public class PlanningDataServiceTest {
 	
 	private int loopNbr = 0;
 	 
-	public void testPartCd() throws IOException {
+	public void testPartCd() throws IOException, SQLException {
 		Timer t = new Timer();
 		String partCd = "B0206001AG6-3";
 		Timer dataTimer = new Timer();
@@ -56,7 +57,7 @@ public class PlanningDataServiceTest {
 	}
 	
 	@Test 
-	public void testPartCdBurn() throws IOException {
+	public void testPartCdBurn() throws IOException, SQLException {
 		while (++loopNbr < loopCounts) {
 			testPartCd();
 		}

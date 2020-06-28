@@ -1,5 +1,6 @@
 package com.pacificdataservices.diamond.planning.services;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.transaction.Transactional;
@@ -26,7 +27,7 @@ public class PlanningDataResultService {
 	
 	Logger logger = LoggerFactory.getLogger(getClass());
 	
-	String getPlanningDataJsonForItem(int itemNbr) {
+	String getPlanningDataJsonForItem(int itemNbr) throws SQLException {
 		ArrayList<Integer> itemNbrs = new ArrayList<>();
 		
 		logger.debug("get planning data");

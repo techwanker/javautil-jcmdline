@@ -1,0 +1,8 @@
+set -x
+for pom in `find . -name "pom.xml"` 
+do
+    pushd `dirname $pom`
+    mvn eclipse:clean eclipse:eclipse
+    popd
+done
+

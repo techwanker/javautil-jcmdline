@@ -9,6 +9,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
+import org.javautil.joblog.persistence.JoblogPersistence;
+import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,12 @@ public class BaseDataServices {
 	@Autowired
 	protected HibernateJpaSessionFactoryBean sessionFactory;
 	protected SessionFactory hibernateFactory;
+	
+	private boolean logSteps = false;
+	
+	private String jobToken;
+	
+	private JoblogPersistence jobLogger;
 
 	public BaseDataServices() {
 		super();
@@ -131,5 +139,33 @@ public class BaseDataServices {
 
 	protected void cleanTable(String tableName) {
 		throw new UnsupportedOperationException();
+	}
+
+	public boolean isLogSteps() {
+		return logSteps;
+	}
+
+	public void setLogSteps(boolean logSteps) {
+		this.logSteps = logSteps;
+	}
+
+	public String getJobToken() {
+		return jobToken;
+	}
+
+	public void setJobToken(String jobToken) {
+		this.jobToken = jobToken;
+	}
+
+	public JoblogPersistence getJobLogger() {
+		if (jobLogger == null) {
+			logger.warn("joblogger was null - providing no-operation logger");
+			jobLogger = new JoblogPersistenceNoOperation();
+		}
+		return jobLogger;
+	}
+
+	public void setJobLogger(JoblogPersistence jobLogger) {
+		this.jobLogger = jobLogger;
 	}
 }

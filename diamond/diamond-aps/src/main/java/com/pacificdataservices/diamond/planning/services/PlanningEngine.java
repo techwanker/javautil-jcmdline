@@ -1,5 +1,6 @@
 package com.pacificdataservices.diamond.planning.services;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 import com.pacificdataservices.diamond.planning.data.PlanningData;
@@ -9,6 +10,7 @@ public interface PlanningEngine {
 	void run();
 
 	/**
+	 * @throws SQLException 
 	 * @todo fix to create work orders
 	 * @todo passing this an itemNbr is goofy By now, the items to be planned
 	 *       should be in tmp_item. Steps
@@ -22,6 +24,6 @@ public interface PlanningEngine {
 	 *       
 	 * TODO needs to restore allocations 
 	 */
-	PlanningData planItem(Collection<Integer> itemNbrs);
+	PlanningData planItem(Collection<Integer> itemNbrs) throws SQLException;
 
 }

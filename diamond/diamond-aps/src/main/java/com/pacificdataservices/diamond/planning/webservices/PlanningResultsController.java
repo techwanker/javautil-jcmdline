@@ -2,6 +2,7 @@ package com.pacificdataservices.diamond.planning.webservices;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.javautil.dataset.MatrixDataset;
@@ -33,7 +34,7 @@ public class PlanningResultsController {
 	private PlanningDataService pds;
 
 	@GetMapping("/plan")
-	public String plan(@RequestParam(name="partCd", required=true) String partCd, Model model) throws IOException {
+	public String plan(@RequestParam(name="partCd", required=true) String partCd, Model model) throws IOException, SQLException {
 		String partDescription="The description";
 		model.addAttribute("partCd", partCd);
 		model.addAttribute("partDescription",partDescription);

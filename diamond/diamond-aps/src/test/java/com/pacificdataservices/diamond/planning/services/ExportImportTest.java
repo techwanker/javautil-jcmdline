@@ -2,6 +2,7 @@ package com.pacificdataservices.diamond.planning.services;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,14 +20,14 @@ public class ExportImportTest {
 
     @Ignore // takes too long to run
 	@Test
-	public void exportAll() throws IOException {
+	public void exportAll() throws IOException, SQLException {
 		//File exportDir = new File("target/exportData");
 		File exportDir = new File("src/test/resources/testdata");
 		exportDir.mkdirs();
 		exportImport.exportAll(exportDir);
 	}
 	@Test
-	public void createTestData() throws IOException {
+	public void createTestData() throws IOException, SQLException {
 		File exportDir = new File("src/test/resources/testdata");
 		exportDir.mkdirs();
 		if (exportImport == null) {
@@ -38,7 +39,7 @@ public class ExportImportTest {
 	}
 	
 	@Test 
-	public  void testGroup9() throws IOException {
+	public  void testGroup9() throws IOException, SQLException {
 		File exportDir = new File("target/exportData");
 		exportDir.mkdirs();
 		if (exportImport == null) {

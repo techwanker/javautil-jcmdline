@@ -1,5 +1,6 @@
 package com.pacificdataservices.diamond.planning.services;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -31,12 +32,18 @@ public class DiamondDataServices extends BaseDataServices {
 	 * although through planning rules this is not necessarily what was allocated.
 	 * @param session
 	 * @return
+	 * @throws SQLException 
 	 */
-	List getTableDataItemNbrRqst(String tableName, Session session) {
+	List getTableDataItemNbrRqst(String tableName, Session session) throws SQLException {
+		long stepId = getJobLogger().insertStep(getJobToken(), 
+				"getTableDataItemNbrRqst", 
+				getClass(),
+				tableName);
 		  String queryText = "from " + tableName + " where item_nbr_rqst in "
 		  		+ " (select itemNbr from TmpItem)";
 		  List retval = getList(tableName, queryText, session);
 		  analytics.debug("fetch for " + tableName + " returns rows: " + retval.size());
+		  getJobLogger().finishStep(stepId);
 		  return retval;
 	  }
 	

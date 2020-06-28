@@ -3,6 +3,7 @@ package com.pacificdataservices.diamond.planning.services;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
@@ -42,7 +43,7 @@ public class ExportPlanningResult {
 	public ExportPlanningResult() {
 	}
 
-	public void exportAll(File directory) throws IOException {
+	public void exportAll(File directory) throws IOException, SQLException {
 		LinkedHashMap<Integer,Exception> exceptions = new LinkedHashMap<Integer,Exception>();
 		for (ApsPlanGrp apg : pgr.getAll()) { // TODO need to get distinct
 			int planGroupNumber = apg.getPlanGrpNbr();

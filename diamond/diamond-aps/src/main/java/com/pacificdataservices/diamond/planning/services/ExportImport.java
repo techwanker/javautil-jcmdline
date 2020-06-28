@@ -3,6 +3,7 @@ package com.pacificdataservices.diamond.planning.services;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
@@ -35,7 +36,7 @@ public class ExportImport {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void exportAll(File directory) throws IOException {
+	public void exportAll(File directory) throws IOException, SQLException {
 		LinkedHashMap<Integer,Exception> exceptions = new LinkedHashMap<Integer,Exception>();
 		for (ApsPlanGrp apg : pgr.getAll()) {
 			try {
@@ -56,7 +57,7 @@ public class ExportImport {
 		}
 	}
 
-	public void exportPlanningGroup(int groupNumber, File directory) throws IOException {
+	public void exportPlanningGroup(int groupNumber, File directory) throws IOException, SQLException {
 		logger.info("exporting plan group {}", groupNumber, directory.getAbsoluteFile());
 		PlanningData pd = pds.getPlanningDataForGroup(groupNumber);
 		File f = new File(directory.getAbsoluteFile() +  "/" + "planGroup." + groupNumber + ".json");

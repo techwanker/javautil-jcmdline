@@ -2,6 +2,7 @@ package com.pacificdataservices.diamond.planning.services;
 
 import java.io.File;
 import java.math.BigInteger;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 //https://stackoverflow.com/questions/25063995/spring-boot-handle-to-hibernate-sessionfactory
@@ -75,6 +76,8 @@ public class PlanningDataService extends DiamondDataServices {
 	private boolean trimSourcingRules = false;
 	private File marshallFile;
 	private Object itemNbrsByLotNbr;
+	
+
 
 	public void assertNotNull(Object o) {
 		if (o == null) {
@@ -82,7 +85,7 @@ public class PlanningDataService extends DiamondDataServices {
 		}
 	}
 
-	public PlanningData getPlanningData(Collection<Integer> itemNumbers) {
+	public PlanningData getPlanningData(Collection<Integer> itemNumbers) throws SQLException {
 		Session session = getSession();
 		populateTmpItemSql(itemNumbers, session);
 		PlanningData pd =  getPlanningData();
@@ -90,7 +93,7 @@ public class PlanningDataService extends DiamondDataServices {
 		return pd;
 	}
 
-	public PlanningData getPlanningDataForGroup(Integer planGrpNbr) {
+	public PlanningData getPlanningDataForGroup(Integer planGrpNbr) throws SQLException {
 		Session session = getSession();
 		//Collection<Integer>itemNbrs = getItemNbrsInPlanGroup(planGrpNbr, session);
 		analytics.debug("getPlanningData for group " + planGrpNbr);
@@ -98,7 +101,7 @@ public class PlanningDataService extends DiamondDataServices {
 		return getPlanningData(itemNumbers);
 	}
 
-	public PlanningData getPlanningDataForPartCd(String partCd) {
+	public PlanningData getPlanningDataForPartCd(String partCd) throws SQLException {
 		Session session = getSession();
 		String sql = "select item_nbr from ic_item_mast where item_cd = :item_cd";
 		Query q = session.createSQLQuery(sql);
@@ -111,13 +114,14 @@ public class PlanningDataService extends DiamondDataServices {
 		}
 		return getPlanningData(qdata);
 	}
-	public PlanningData getPlanningDataForItemNumber(int itemNbr) {
+	public PlanningData getPlanningDataForItemNumber(int itemNbr) throws SQLException {
 //		Session sesssion = getSession();
 		int planGrp = getPlanGroupForItemNumber(itemNbr);
 		return getPlanningDataForGroup(planGrp);
 	}
 
-	public List<Integer>  getItemNumbersInPlanGrp(int planGrp)  {
+	public List<Integer>  getItemNumbersInPlanGrp(int planGrp) throws SQLException  {
+		getJobLogger().insertStep(getJobToken(), "getItemNbrsInPlanGrp", getClass());
 		Session session = getSession();
 		String sql = "select item_nbr from aps_plan_grp where plan_grp_nbr = :plan_grp_nbr";
 		Query q = session.createSQLQuery(sql);
@@ -142,8 +146,9 @@ public class PlanningDataService extends DiamondDataServices {
 	}
 
 	@SuppressWarnings("unchecked")
-	private PlanningData getPlanningData() {
+	private PlanningData getPlanningData() throws SQLException {
 		//logger.debug("\n***********\ngetting {}\n************",itemNumbers);
+		long jobStepId = getJobLogger().insertStep(getJobToken(), "getPlanningData", getClass(), null);
 		pd = new PlanningData();
 		Timer getPlanningDataTimer = new Timer();
 		String logMessage = null;
@@ -249,6 +254,7 @@ public class PlanningDataService extends DiamondDataServices {
 		pd.setApsResultDtlDmdId(arddNext);
 		pd.setOeItemHistFcstGrps(getOeItemHistFcstGrps());
 		analytics.debug(logMessage);
+		getJobLogger().finishStep(jobStepId);
 		return pd;
 	}
 
@@ -580,4 +586,5 @@ public class PlanningDataService extends DiamondDataServices {
 		return retval;
 		
 	}
+
 }

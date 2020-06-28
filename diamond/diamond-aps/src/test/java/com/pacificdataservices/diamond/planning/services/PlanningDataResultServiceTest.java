@@ -2,6 +2,8 @@ package com.pacificdataservices.diamond.planning.services;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.sql.SQLException;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,9 +21,17 @@ public class PlanningDataResultServiceTest {
 	PlanningDataResultService  pdrs;
 	@Ignore
 	@Test
-	public void testOneItem() {
+	public void testOneItem() throws SQLException {
 		String json = pdrs.getPlanningDataJsonForItem(253491);
 		assertNotNull(json);
 		logger.info("json {}",json);
 	}
+	
+	@Test
+	public void testOneItemInstrumented() throws SQLException {
+		String json = pdrs.getPlanningDataJsonForItem(253491);
+		assertNotNull(json);
+		logger.info("json {}",json);
+	}
+	
 }

@@ -1,6 +1,7 @@
 package com.pacificdataservices.diamond.planning.services;
 
 import java.io.BufferedWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -170,7 +171,12 @@ public class PlanningEngineImpl implements Runnable, PlanningEngine {
 
 			Set<Integer> itemsToPlan = planningQueue.getItemNumbers();
 			if (itemsToPlan.size() > 0) {
-				planItem(itemNumbers);
+				try {
+					planItem(itemNumbers);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 //				conn.commit();
 			} else {
 				if (batchMode) {
@@ -194,7 +200,7 @@ public class PlanningEngineImpl implements Runnable, PlanningEngine {
 	 * @see com.pacificdataservices.diamond.planning.services.PlanningEngine#planItem(java.util.Collection)
 	 */
 	@Override
-	public PlanningData planItem(Collection<Integer> itemNbrs) {
+	public PlanningData planItem(Collection<Integer> itemNbrs) throws SQLException {
 		Day today = new Day();
 		planningData = planningDataService.getPlanningData(itemNbrs); // TODO this is gooofy
 		System.out.println("\n" + marshaller.marshall(planningData));
