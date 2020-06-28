@@ -33,12 +33,6 @@
 			<version>${org.javautil.version}</version>
 			<scope>compile</scope>
 		</dependency>
-	<dependency>
-			<groupId>org.javautil</groupId>
-			<artifactId>javautil-joblog</artifactId>
-			<version>${org.javautil.version}</version>
-			<scope>compile</scope>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
 		<dependency>
 			<groupId>org.dom4j</groupId>
