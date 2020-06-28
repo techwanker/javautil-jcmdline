@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-06-27T09:21:23-05",
+  "effectiveDate": "2020-06-28T08:30:49-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -22,7 +22,7 @@
       "lotNbr": 905509,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 15.00000,
       "revLvl": "H",
       "pkSupply": 905509,
@@ -39,12 +39,30 @@
       "lotNbr": 954078,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 10.00000,
       "revLvl": "H",
       "pkSupply": 954078,
       "lotCost": 12.156785,
       "rcptDt": "2018-01-31T00:00:00-06",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "999961-133-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 133,
+      "orgNbrMfr": 8383,
+      "orgNbrVnd": 22032,
+      "lotNbr": 999961,
+      "lotUm": "EA",
+      "itemNbr": 35409,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 696.00000,
+      "revLvl": "J",
+      "pkSupply": 999961,
+      "lotCost": 4.620000,
+      "cntryCdOrigin": "USA",
+      "rcptDt": "2018-11-24T00:00:00-06",
       "availDtId": "F"
     },
     {
@@ -66,24 +84,6 @@
       "availDtId": "P"
     },
     {
-      "splyIdentifier": "999961-133-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 133,
-      "orgNbrMfr": 8383,
-      "orgNbrVnd": 22032,
-      "lotNbr": 999961,
-      "lotUm": "EA",
-      "itemNbr": 35409,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 696.00000,
-      "revLvl": "J",
-      "pkSupply": 999961,
-      "lotCost": 4.620000,
-      "cntryCdOrigin": "USA",
-      "rcptDt": "2018-11-24T00:00:00-06",
-      "availDtId": "F"
-    },
-    {
       "splyIdentifier": "1019449-133-LA-20200201",
       "facility": "LA",
       "apsSplySubPoolNbr": 133,
@@ -92,7 +92,7 @@
       "lotNbr": 1019449,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 750.00000,
       "revLvl": "J",
       "pkSupply": 1019449,
@@ -1836,7 +1836,7 @@
       "itemNbrDmd": 35409,
       "itemNbrAllocRqst": 35409,
       "fcItemMastNbr": 6258,
-      "rqstDt": "2020-06-27T00:00:00-05",
+      "rqstDt": "2020-06-28T00:00:00-05",
       "apsSrcRuleSetNbr": 174,
       "orgNbrCust": 7841,
       "orgCdCust": "OKJIT",
@@ -1851,7 +1851,7 @@
       "itemNbrDmd": 35409,
       "itemNbrAllocRqst": 35409,
       "fcItemMastNbr": 22533,
-      "rqstDt": "2020-06-27T00:00:00-05",
+      "rqstDt": "2020-06-28T00:00:00-05",
       "apsSrcRuleSetNbr": 173,
       "orgNbrCust": 7823,
       "orgCdCust": "BFJIT",
@@ -6683,62 +6683,6 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1757638,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 126,
-      "lastModDt": "2007-10-04T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910099,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910096,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910103,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910101,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1757635,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 126,
-      "lastModDt": "2007-10-04T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910113,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1910097,
         "certCd": "8130/MCC"
       },
@@ -6771,7 +6715,39 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1757638,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 126,
+      "lastModDt": "2007-10-04T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910099,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910096,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1910107,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910103,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 1702,
@@ -6803,11 +6779,35 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1910101,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1757635,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 126,
+      "lastModDt": "2007-10-04T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1906831,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 1,
       "lastModDt": "2008-06-09T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910113,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
     }
   ],
   "utFacilities": [

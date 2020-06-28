@@ -41,7 +41,11 @@ public class PricePerUnitController {
         return "pricePerUnit";
     }
     
-    
+    @GetMapping("/ppu")
+    public String ppu( Model model) throws IOException {
+
+        return "pricePerUnit";
+    }
    
 
 }

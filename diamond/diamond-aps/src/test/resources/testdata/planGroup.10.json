@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-06-27T09:21:23-05",
+  "effectiveDate": "2020-06-28T08:30:49-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -14,54 +14,6 @@
   "apsAllocWoWos": [],
   "apsAvailOnhands": [
     {
-      "splyIdentifier": "975319-293-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 293,
-      "orgNbrMfr": 22154,
-      "orgNbrVnd": 22154,
-      "lotNbr": 975319,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 5375.00000,
-      "pkSupply": 975319,
-      "lotCost": 0.000000,
-      "rcptDt": "2018-06-29T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "975457-293-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 293,
-      "orgNbrMfr": 22154,
-      "orgNbrVnd": 22154,
-      "lotNbr": 975457,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 8000.00000,
-      "pkSupply": 975457,
-      "lotCost": 0.000000,
-      "rcptDt": "2018-06-30T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "991563-293-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 293,
-      "orgNbrMfr": 22154,
-      "orgNbrVnd": 22154,
-      "lotNbr": 991563,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 5000.00000,
-      "pkSupply": 991563,
-      "lotCost": 0.000000,
-      "rcptDt": "2018-09-28T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
       "splyIdentifier": "916987-133-LA-20200201",
       "facility": "LA",
       "apsSplySubPoolNbr": 133,
@@ -70,97 +22,12 @@
       "lotNbr": 916987,
       "lotUm": "EA",
       "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 900.00000,
       "revLvl": "AJ",
       "pkSupply": 916987,
       "lotCost": 0.951954,
       "rcptDt": "2017-05-13T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "996366-133-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 133,
-      "orgNbrMfr": 8098,
-      "orgNbrVnd": 1177,
-      "lotNbr": 996366,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 175.00000,
-      "revLvl": "AL",
-      "pkSupply": 996366,
-      "lotCost": 1.250000,
-      "cntryCdOrigin": "USA",
-      "rcptDt": "2018-11-04T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "991590-293-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 293,
-      "orgNbrMfr": 22154,
-      "orgNbrVnd": 22154,
-      "lotNbr": 991590,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 10000.00000,
-      "pkSupply": 991590,
-      "lotCost": 0.000000,
-      "rcptDt": "2018-09-28T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "945147-133-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 133,
-      "orgNbrMfr": 8539,
-      "orgNbrVnd": 1177,
-      "lotNbr": 945147,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 1499.00000,
-      "revLvl": "AJ",
-      "pkSupply": 945147,
-      "lotCost": 1.253990,
-      "cntryCdOrigin": "USA",
-      "rcptDt": "2017-11-26T00:00:00-06",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "991595-293-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 293,
-      "orgNbrMfr": 22154,
-      "orgNbrVnd": 22154,
-      "lotNbr": 991595,
-      "lotUm": "EA",
-      "itemNbr": 33791,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 10000.00000,
-      "pkSupply": 991595,
-      "lotCost": 0.000000,
-      "rcptDt": "2018-09-28T00:00:00-05",
-      "availDtId": "F"
-    },
-    {
-      "splyIdentifier": "928833-132-LA-20200201",
-      "facility": "LA",
-      "apsSplySubPoolNbr": 132,
-      "orgNbrMfr": 8539,
-      "orgNbrVnd": 1177,
-      "lotNbr": 928833,
-      "lotUm": "EA",
-      "itemNbr": 53515,
-      "availDt": "2020-06-27T00:00:00-05",
-      "grossAvailQty": 45.00000,
-      "revLvl": "26",
-      "pkSupply": 928833,
-      "lotCost": 0.929555,
-      "rcptDt": "2017-07-22T00:00:00-05",
       "availDtId": "F"
     },
     {
@@ -172,13 +39,29 @@
       "lotNbr": 993008,
       "lotUm": "EA",
       "itemNbr": 53515,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 17276.00000,
       "revLvl": "27",
       "pkSupply": 993008,
       "lotCost": 0.517100,
       "cntryCdOrigin": "USA",
       "rcptDt": "2018-10-18T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "991595-293-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 293,
+      "orgNbrMfr": 22154,
+      "orgNbrVnd": 22154,
+      "lotNbr": 991595,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 10000.00000,
+      "pkSupply": 991595,
+      "lotCost": 0.000000,
+      "rcptDt": "2018-09-28T00:00:00-05",
       "availDtId": "F"
     },
     {
@@ -190,11 +73,128 @@
       "lotNbr": 984763,
       "lotUm": "EA",
       "itemNbr": 346096,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 9633.00000,
       "pkSupply": 984763,
       "lotCost": 0.000000,
       "rcptDt": "2018-08-19T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "928833-132-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 132,
+      "orgNbrMfr": 8539,
+      "orgNbrVnd": 1177,
+      "lotNbr": 928833,
+      "lotUm": "EA",
+      "itemNbr": 53515,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 45.00000,
+      "revLvl": "26",
+      "pkSupply": 928833,
+      "lotCost": 0.929555,
+      "rcptDt": "2017-07-22T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "996366-133-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 133,
+      "orgNbrMfr": 8098,
+      "orgNbrVnd": 1177,
+      "lotNbr": 996366,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 175.00000,
+      "revLvl": "AL",
+      "pkSupply": 996366,
+      "lotCost": 1.250000,
+      "cntryCdOrigin": "USA",
+      "rcptDt": "2018-11-04T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "975457-293-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 293,
+      "orgNbrMfr": 22154,
+      "orgNbrVnd": 22154,
+      "lotNbr": 975457,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 8000.00000,
+      "pkSupply": 975457,
+      "lotCost": 0.000000,
+      "rcptDt": "2018-06-30T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "991590-293-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 293,
+      "orgNbrMfr": 22154,
+      "orgNbrVnd": 22154,
+      "lotNbr": 991590,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 10000.00000,
+      "pkSupply": 991590,
+      "lotCost": 0.000000,
+      "rcptDt": "2018-09-28T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "975319-293-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 293,
+      "orgNbrMfr": 22154,
+      "orgNbrVnd": 22154,
+      "lotNbr": 975319,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 5375.00000,
+      "pkSupply": 975319,
+      "lotCost": 0.000000,
+      "rcptDt": "2018-06-29T00:00:00-05",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "945147-133-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 133,
+      "orgNbrMfr": 8539,
+      "orgNbrVnd": 1177,
+      "lotNbr": 945147,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 1499.00000,
+      "revLvl": "AJ",
+      "pkSupply": 945147,
+      "lotCost": 1.253990,
+      "cntryCdOrigin": "USA",
+      "rcptDt": "2017-11-26T00:00:00-06",
+      "availDtId": "F"
+    },
+    {
+      "splyIdentifier": "991563-293-LA-20200201",
+      "facility": "LA",
+      "apsSplySubPoolNbr": 293,
+      "orgNbrMfr": 22154,
+      "orgNbrVnd": 22154,
+      "lotNbr": 991563,
+      "lotUm": "EA",
+      "itemNbr": 33791,
+      "availDt": "2020-06-28T00:00:00-05",
+      "grossAvailQty": 5000.00000,
+      "pkSupply": 991563,
+      "lotCost": 0.000000,
+      "rcptDt": "2018-09-28T00:00:00-05",
       "availDtId": "F"
     },
     {
@@ -206,7 +206,7 @@
       "lotNbr": 984761,
       "lotUm": "EA",
       "itemNbr": 346096,
-      "availDt": "2020-06-27T00:00:00-05",
+      "availDt": "2020-06-28T00:00:00-05",
       "grossAvailQty": 5253.00000,
       "pkSupply": 984761,
       "lotCost": 0.000000,
@@ -2036,7 +2036,7 @@
       "itemNbrDmd": 33791,
       "itemNbrAllocRqst": 33791,
       "fcItemMastNbr": 102,
-      "rqstDt": "2020-06-27T00:00:00-05",
+      "rqstDt": "2020-06-28T00:00:00-05",
       "apsSrcRuleSetNbr": 172,
       "orgNbrCust": 7822,
       "orgCdCust": "BAJIT",
@@ -2051,7 +2051,7 @@
       "itemNbrDmd": 53515,
       "itemNbrAllocRqst": 53515,
       "fcItemMastNbr": 125373,
-      "rqstDt": "2020-06-27T00:00:00-05",
+      "rqstDt": "2020-06-28T00:00:00-05",
       "apsSrcRuleSetNbr": 170,
       "orgNbrCust": 4211,
       "orgCdCust": "153600",
@@ -7206,6 +7206,22 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1873126,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873124,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1873128,
         "certCd": "MFGCOFC"
       },
@@ -7219,6 +7235,14 @@
       },
       "utUserNbr": 302,
       "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1782589,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 124,
+      "lastModDt": "2007-11-13T00:00:00-06"
     },
     {
       "id": {
@@ -7246,6 +7270,14 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1873122,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1873129,
         "certCd": "MFGCOFC"
       },
@@ -7262,7 +7294,23 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1873114,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1873113,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873117,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 302,
@@ -7294,63 +7342,15 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1873112,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873126,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873124,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1782589,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 124,
-      "lastModDt": "2007-11-13T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873122,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873114,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1873117,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 302,
-      "lastModDt": "2008-04-14T00:00:00-05"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1873120,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 302,
+      "lastModDt": "2008-04-14T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1873112,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 302,
