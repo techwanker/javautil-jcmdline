@@ -18,7 +18,7 @@ public class TestDataSourceOracleTest {
 
 	@Test
 	public void testOracle() throws SQLException, PropertyVetoException, IOException {
-		DataSource ds = TestDataSource.getDataSource(Dialect.ORACLE);
+		DataSource ds = new TestDataSource().getDataSource(Dialect.ORACLE);
 		assertNotNull(ds);
 		((Closeable) ds).close();
 	}

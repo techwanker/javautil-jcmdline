@@ -58,7 +58,7 @@ public class SampleUsage {
 
 	private void stepNoAction() throws SQLException {
 
-		dblogger.insertStep(jobToken,"Useless join", "full join", getClass().getName());
+		dblogger.insertStep(jobToken,"Useless join", getClass(),"full join");
 		ConnectionHelper.exhaustQuery(connection, "select * from user_tab_columns, user_tables");
 	}
 

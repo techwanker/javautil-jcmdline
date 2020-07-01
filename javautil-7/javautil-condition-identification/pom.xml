@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-joblog</artifactId>
-			<version>VER-7.4.0</version>
+			<version>8.6.21</version>
 			
 		</dependency>
 		<!-- commons -->

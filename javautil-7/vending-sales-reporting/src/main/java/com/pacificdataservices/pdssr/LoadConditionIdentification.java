@@ -40,7 +40,7 @@ public class LoadConditionIdentification {
 		this.connection = conn;
 		this.joblog = joblog;
 		jobToken = joblog.joblogInsert("LoadConditionIdentification", getClass().getName(), null);
-		prepStep = joblog.insertStep(jobToken, "init", getClass().getName(), null);
+		prepStep = joblog.insertStep(jobToken, "init", getClass(), null);
 		connection.setAutoCommit(false);
 		this.dialect = Dialect.getDialect(conn);
 		logger.info("LoadConditionIdentification dialect " + dialect);
@@ -71,7 +71,7 @@ public class LoadConditionIdentification {
 	 * @throws SQLException hopefully not
 	 */
 	public void process(Binds binds, int verbosity) throws SQLException {
-		long stepId = joblog.insertStep(jobToken, "process", getClass().getName(), binds.toString());
+		long stepId = joblog.insertStep(jobToken, "process", getClass(), binds.toString());
 		long etlFileId = binds.getLong("ETL_FILE_ID");
 		logger.info("processing for etl_file_id " + binds.get("ETL_FILE_ID"));
 		Long runId = getUtConditionRunId(etlFileId);

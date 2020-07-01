@@ -70,7 +70,7 @@ public class Prepost {
 
 	public void process(long etlFileId) throws SQLException, InvalidLoadFileException {
 		String jobToken = joblog.joblogInsert("Prepost", getClass().getName(), "Post");
-		long stepId = joblog.insertStep(jobToken, "Prepost", getClass().getName(), null);
+		long stepId = joblog.insertStep(jobToken, "Prepost", getClass());
 		logger.info("preposting processing etl_file_id " + etlFileId);
 		Binds binds = new Binds();
 		Date effectiveDate = getEffectiveDate(etlFileId);

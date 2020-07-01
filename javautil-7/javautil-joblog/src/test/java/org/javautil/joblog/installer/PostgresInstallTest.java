@@ -32,7 +32,7 @@ public class PostgresInstallTest {
 	@BeforeClass
 	public static void beforeClass() throws SQLException, PropertyVetoException, IOException {
 		if (jobDataSource == null) {
-			jobDataSource = TestDataSource.getDataSource(Dialect.POSTGRES);
+			jobDataSource = new TestDataSource().getDataSource(Dialect.POSTGRES);
 //			String url= "jdbc:postgresql://localhost/joblog";
 //			String username = System.getenv("USER");
 //			String password = "";

@@ -39,7 +39,7 @@ public class DatasourceFactoryTest {
 		logger.debug("testYaml");
 		String homeDir = System.getProperty("user.home");
 		String yamlName = homeDir + "/connections_java.yaml";
-		String datasourceName = "integration_postgres";
+		String datasourceName = "integration_postgres_sr";
 		DataSourceFactory dsf = new DataSourceFactory(yamlName);
 		logger.debug("getting datasourceName {} from {}", datasourceName, yamlName);
 		DataSource ds = dsf.getDatasource(datasourceName);

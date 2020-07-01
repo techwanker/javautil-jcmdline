@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.TestDataSource;
 import org.javautil.io.ResourceHelper;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class JoblogOracleInstallTest {
@@ -28,9 +29,10 @@ public class JoblogOracleInstallTest {
 		is.close();
 	}
 
+	@Ignore // TODO create profile
 	@Test
 	public void testInstall() throws Exception  {
-		DataSource ds = TestDataSource.getDataSource(Dialect.ORACLE);
+		DataSource ds = new TestDataSource().getDataSource(Dialect.ORACLE);
 		Connection loggerConnection = ds.getConnection();
 		try {
 			JoblogOracleInstall installer = new JoblogOracleInstall(loggerConnection, true, true);

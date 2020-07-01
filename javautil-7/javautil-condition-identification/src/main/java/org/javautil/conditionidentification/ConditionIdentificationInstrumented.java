@@ -107,14 +107,14 @@ public class ConditionIdentificationInstrumented
 	 * @throws SQLException Unlikely
 	 */
 	public List<String> process(Binds binds, int verbosity) throws SQLException {
-		long processStepId = joblog.insertStep(jobToken, "Process Rule", getClass().getName(), binds.toString());
+		long processStepId = joblog.insertStep(jobToken, "Process Rule", getClass(), binds.toString());
 		Timer t = new Timer(getClass(), getClass().getName(), binds.toString());
 		messages = new ArrayList<String>();
 		long utConditionRunId = persister.startRun(binds); // # Record the start of the run
 
 		for (ConditionRule rule : conditionRules) {
 			long start_ts = System.nanoTime();
-			long stepId = joblog.insertStep(jobToken, "Process Rule", getClass().getName(), rule.getRuleName() + " " + binds.toString()); 
+			long stepId = joblog.insertStep(jobToken, "Process Rule", getClass(), rule.getRuleName() + " " + binds.toString()); 
 			try { 
 				long run_step_id = persister.utConditionRunStepInsert(utConditionRunId, start_ts, rule);
 				processRule(run_step_id, rule, binds);

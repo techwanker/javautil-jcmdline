@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-06-28T15:19:08-05",
+  "effectiveDate": "2020-07-01T16:48:09-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -1355,7 +1355,7 @@
       "itemNbrDmd": 56372,
       "itemNbrAllocRqst": 56372,
       "fcItemMastNbr": 112174,
-      "rqstDt": "2020-06-28T00:00:00-05",
+      "rqstDt": "2020-07-01T00:00:00-05",
       "apsSrcRuleSetNbr": 168,
       "orgNbrCust": 7847,
       "orgCdCust": "TO",

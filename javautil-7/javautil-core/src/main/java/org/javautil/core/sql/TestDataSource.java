@@ -22,9 +22,17 @@ public class TestDataSource {
 	
 	private static DataSourceFactory dataSourceFactory = new DataSourceFactory();
 
+	public TestDataSource() throws FileNotFoundException {
+		String connectionsYaml =System.getenv("CONNECTIONS_YAML");
+		if (connectionsYaml != null) {
+			dataSourceFactory  = new DataSourceFactory(connectionsYaml);
+			logger.info("using connections {}",connectionsYaml);
+		} else {
+			dataSourceFactory  = new DataSourceFactory();
+		}
+	}
 
-
-	public static DataSource getDataSource(Dialect dialect) throws SQLException, PropertyVetoException, IOException {
+	public DataSource getDataSource(Dialect dialect) throws SQLException, PropertyVetoException, IOException {
 		DataSource datasource = null;
 		switch (dialect) {
 		case H2:
@@ -62,32 +70,23 @@ public class TestDataSource {
 		return ds;
 	}
 	
-	public static DataSource getH2FileDataSource() throws SQLException, PropertyVetoException, IOException {
+	public  DataSource getH2FileDataSource() throws SQLException, PropertyVetoException, IOException {
 		return getH2FileDataSource("target/targetdb");
 	}
 	
-	public static DataSource getOracleDataSource() throws PropertyVetoException, SQLException {
+	public DataSource getOracleDataSource() throws PropertyVetoException, SQLException {
 		DataSource ds = dataSourceFactory.getDatasource("integration_oracle");
 		return ds;
 	}
 
-	public static DataSource getPostgresDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {
-		logger.debug("getting connection");
-		DataSourceFactory dsf = new DataSourceFactory();
-		DataSource ds = dsf.getDatasource("integration_postgres");
-		Connection conn = ds.getConnection();
-		Statement s = conn.createStatement();
-		s.execute("drop table if exists test_table");
-		s.execute("create table test_table (test_id int)");
-		s.close();
-		conn.close();
-		return ds;
+	public DataSource getPostgresDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {
+		return getPostgresSrDataSource();
 	}
 	
 	public static DataSource getPostgresSrDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {
 		logger.debug("getting connection");
-		DataSourceFactory dsf = new DataSourceFactory();
-		DataSource ds = dsf.getDatasource("integration_postgres_sr");
+		
+		DataSource ds = dataSourceFactory.getDatasource("integration_postgres_sr");
 		Connection conn = ds.getConnection();
 		Statement s = conn.createStatement();
 		s.execute("drop table if exists test_table");

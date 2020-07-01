@@ -107,7 +107,7 @@ public class JoblogPersistencePackage extends AbstractJoblogPersistence implemen
 	}
 
 	@Override
-	public long insertStep(String jobToken, String stepName, String className, String stepInfo) {
+	public long insertStep(String jobToken, String stepName, Class  clazz, String stepInfo) {
 		long jobStepId = -1L;
 		String callSql = "begin \n"
 				+ ":p_job_step_id := joblog.job_step_insert (\n"
@@ -127,7 +127,7 @@ public class JoblogPersistencePackage extends AbstractJoblogPersistence implemen
 			insertStepStatement.setString("p_job_token", jobToken);
 			insertStepStatement.setString("p_step_name", stepName);
 			insertStepStatement.setString("p_step_info", stepInfo);
-			insertStepStatement.setString("p_classname", className);
+			insertStepStatement.setString("p_classname", clazz.getName());
 			insertStepStatement.setTimestamp("p_start_ts", new Timestamp(System.currentTimeMillis()));
 			insertStepStatement.setString("p_stack_trace", ThreadUtil.getStackTrace(4000));
 			insertStepStatement.registerOutParameter("p_job_step_id", java.sql.Types.INTEGER);

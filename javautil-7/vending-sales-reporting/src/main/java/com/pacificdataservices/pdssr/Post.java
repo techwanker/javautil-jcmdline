@@ -73,7 +73,7 @@ public class Post {
 
 	public void process(long etlFileId) throws SQLException, InvalidLoadFileException {
 		String jobToken = joblog.joblogInsert("Post", getClass().getName(), "Post");
-		long stepId = joblog.insertStep(jobToken, "Post", getClass().getName(), Long.toString(etlFileId));
+		long stepId = joblog.insertStep(jobToken, "Post", getClass(), Long.toString(etlFileId));
 		logger.info("processing etl_file_id " + etlFileId);
 		Binds binds = new Binds();
 		Date effectiveDate = getEffectiveDate(etlFileId);

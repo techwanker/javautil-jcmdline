@@ -69,7 +69,7 @@ public class CdsDataLoader implements FilenameFilter {
 	public void process(String filename, Connection conn, String distributor_cd, boolean validate) throws Exception {
 
 		String jobToken = joblogger.joblogInsert("CdsDataLoader", getClass().getName(), "CdsDataLoader");
-		long jobstepId = joblogger.insertStep(jobToken, "CdsDataLoader", getClass().getName(), null);
+		long jobstepId = joblogger.insertStep(jobToken, "CdsDataLoader", getClass(), null);
 		try {
 			processInternal(filename,  conn, distributor_cd, validate);
 			joblogger.finishStep(jobstepId);

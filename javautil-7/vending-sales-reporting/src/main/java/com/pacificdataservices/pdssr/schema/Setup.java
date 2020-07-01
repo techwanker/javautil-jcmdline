@@ -40,8 +40,6 @@ public class Setup {
 	private static Logger logger = LoggerFactory.getLogger(Setup.class);
 	private boolean showSqlOnCreate = true;
 
-
-
 	private static final String logDatabasePath = "target" + "/" + "logdb";
 	private static final File logDatabaseFile = new File(logDatabasePath);
 	public final static String logDatabaseFullPath = logDatabaseFile.getAbsolutePath();
@@ -50,49 +48,49 @@ public class Setup {
 	private static final  File appDatabaseFile = new File(appDatabasePath);
 	public final static String appDatabaseFullPath = appDatabaseFile.getAbsolutePath();
 
-
-
 	public static  void beforeClassSetup() throws SqlSplitterException, Exception {
 		Checkpoint cp = new Checkpoint("target/setup.checkpoint");
 		cp.delete();
-		//	if (!cp.exists()) {
-		setupOracleJoblog();
-		setupOracleApp();
 		setupPostgresApp();
-
-		//
-		DataSource h2AppDataSource = null;
-		Connection h2AppConn = null;
-		try {
-		h2AppDataSource = TestDataSource.getH2FileDataSource(appDatabaseFullPath);
-		h2AppConn = h2AppDataSource.getConnection();
-		Setup setup = new Setup();
-		setupH2App(h2AppDataSource,false);
-		setup.validateVendingSchema(h2AppConn);
-		} finally {
-			((Closeable) h2AppDataSource).close();
-			h2AppConn.close();
-		}
-		//
+		setupH2App();
+		setupH2Log();
+	}
+	
+	public static void setupH2Log() throws SqlSplitterException, Exception {
 		DataSource joblogDataSource = null;
 		Connection joblogConnection = null;
 		try {
 			joblogDataSource = TestDataSource.getH2FileDataSource(logDatabaseFullPath);
 			joblogConnection = joblogDataSource.getConnection();
 			setupH2Joblog(joblogConnection);
-		Setup setup = new Setup();
+			Setup setup = new Setup();
 			setup.validateJobLogSchema(joblogConnection);
 		} finally {
 			((Closeable) joblogDataSource).close();
 			joblogConnection.close();
 		}
-		// Oracle
-
-
+	}
+	
+	
+	public static void setupApp(DataSource ds) throws SqlSplitterException, Exception {
+		Connection conn = null;
+		try {
+		
+			conn = ds.getConnection();
+			createAppSchema(conn,false);
+			Setup.validateVendingSchema(conn);
+		} finally {
+			conn.close();
+			((Closeable) ds).close();
+		}
+	}
+	
+	public static void setupH2App() throws SqlSplitterException, Exception {
+		setupApp(TestDataSource.getH2FileDataSource(appDatabaseFullPath));
 	}
 
 	public static void setupOracleJoblog() throws SqlSplitterException, Exception {
-		DataSource joblogDataSource = TestDataSource.getDataSource(Dialect.ORACLE);
+		DataSource joblogDataSource = new TestDataSource().getDataSource(Dialect.ORACLE);
 		Connection joblogConnection = joblogDataSource.getConnection();
 		Setup.nukeSchema(joblogConnection,"joblog");  // app
 		Setup setup = new Setup();
@@ -101,38 +99,30 @@ public class Setup {
 	}
 
 	public static void setupOracleApp() throws SqlSplitterException, Exception {
-		DataSource appDataSource = TestDataSource.getDataSource(Dialect.ORACLE);
+		DataSource appDataSource = new TestDataSource().getDataSource(Dialect.ORACLE);
 		Connection appConnection = appDataSource.getConnection();
 		Setup.nukeSchema(appConnection,"app");  // app
-		createAppSchema(appDataSource,true);
+		createAppSchema(appConnection,true);
 	}
 
 	public static void setupPostgresApp() throws SqlSplitterException, Exception {
-		logger.info("Postgres test begins");
-		DataSource appDataSource = TestDataSource.getDataSource(Dialect.POSTGRES);
-		createAppSchema(appDataSource,true);
+		setupApp( TestDataSource.getPostgresSrDataSource());
 	}
 
 	public static void setupH2App(DataSource ds, boolean closeDataSource) throws SqlSplitterException, Exception {
-		logger.info("H2 begins");
-		//DataSource h2AppDataSource = TestDataSource.getH2FileDataSource(appDatabaseFullPath);
-		createAppSchema(ds,closeDataSource);
+		setupApp( TestDataSource.getH2MemoryDataSource());
 	}
 
-	public static void createAppSchema(DataSource ds, boolean closeDataSource) throws SqlSplitterException, Exception  {
-		Connection  appConnection = null ;
+	public static void createAppSchema(Connection appConnection, boolean closeDataSource) throws SqlSplitterException, Exception  {
+	
 		try {
-			appConnection = ds.getConnection();
+		
 			Setup setup = new Setup();
 			Setup.nukeSchema(appConnection, "app");
 			setup.createSalesSchema(appConnection);
-			setup.validateVendingSchema(appConnection);
+			Setup.validateVendingSchema(appConnection);
 		} finally {
 			appConnection.commit();
-			appConnection.close();
-			if (closeDataSource) {
-				((Closeable) ds).close();
-			}
 		}
 	}
 
@@ -156,14 +146,14 @@ public class Setup {
 		}
 		return retval;
 	}
+	
+	//  TODO this is in to many places
 
 	public boolean createSalesSchema(Connection conn) throws SqlSplitterException, Exception {
 
 		Checkpoint cp = new Checkpoint("target/checkpoint." + Dialect.getDialect(conn) + ".sales");
 		boolean retval = true;
-		//		if (! cp.exists()) {
-		//			logger.warn("not creating sales schema because " + cp.name() + " exists");
-		//			nukeSchema(conn);
+
 		CreateUtConditionDatabaseObjects condi = new CreateUtConditionDatabaseObjects(conn,  showSqlOnCreate);
 		condi.process();
 		InputStream salesReportingDdl;
@@ -190,10 +180,6 @@ public class Setup {
 		conn.commit();
 		cp.create();
 		logger.info("createSalesSchema performed complete for " + Dialect.getDialect(conn));
-		//		}  else {
-		//			logger.info("createSalesSchema skipped complete for " + Dialect.getDialect(conn));
-		//			retval = false;
-		//		}
 		return retval;
 	}
 
@@ -287,7 +273,7 @@ public class Setup {
 		t.logElapsed();
 	}
 
-	public boolean validateVendingSchema(Connection conn) throws SQLException {  
+	public static boolean validateVendingSchema(Connection conn) throws SQLException {  
 		DatabaseMetaData meta = conn.getMetaData();
 		TableDaoJdbc dao = new TableDaoJdbc(conn, meta, "SR", null, "%");
 		dao.process();
@@ -316,12 +302,6 @@ public class Setup {
 		ss.close();
 		logger.info("joblog {}",lonv);
 		return true;
-
-	}
-
-
-	public static void main(String[] args) {
-
 	}
 
 

@@ -33,14 +33,14 @@ public abstract class AbstractJoblogPersistence  implements JoblogPersistence{
 
 	@Override
 	public long insertStep(String jobToken, String stepName, Class clazz) throws SQLException {
-		return insertStep(jobToken,stepName,clazz.getName(),null);
+		return insertStep(jobToken,stepName,clazz,null);
 
 	}
 
 
 	@Override
 	public long insertStep(String jobToken, String stepName, Class clazz, String stepInfo) throws SQLException {
-		return insertStep(jobToken,stepName,clazz.getName(),stepInfo);
+		return insertStep(jobToken,stepName,clazz,stepInfo);
 	}
 	@Override
 	public void setPersistPlansOnJobCompletion(boolean persistPlans) {

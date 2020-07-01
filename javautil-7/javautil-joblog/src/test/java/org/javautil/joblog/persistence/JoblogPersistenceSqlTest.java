@@ -106,7 +106,7 @@ public class JoblogPersistenceSqlTest {
 	}
 	
 	public String sampleJob(JoblogPersistence joblog, String token) throws SQLException {
-		long stepId = joblog.insertStep(token, "tables", getClass().getName(), null);
+		long stepId = joblog.insertStep(token, "tables", getClass(), null);
 		SqlStatement ss  = new SqlStatement(appConnection,"select * from information_schema.tables");
 		ListOfNameValue lonv  = ss.getListOfNameValue();
 		joblog.finishStep(stepId);
@@ -115,10 +115,10 @@ public class JoblogPersistenceSqlTest {
 		
 	}
 	public String sampleAbortJob(JoblogPersistence joblog, String token) throws SQLException {
-		long stepId = joblog.insertStep(token, "tables", getClass().getName(), null);
+		long stepId = joblog.insertStep(token, "tables", getClass(), null);
 		try {
 			token = joblog.joblogInsert("JobLogPersistenceSqlTest", getClass().getName(), "JobLogPersistenceSqlTest");
-			stepId = joblog.insertStep(token, "tables", getClass().getName(), null);
+			stepId = joblog.insertStep(token, "tables", getClass(), null);
 			SqlStatement ss  = new SqlStatement(appConnection,"select * from inform_schema.tables"); // no such schema forced error
 			@SuppressWarnings("unused")
 			ListOfNameValue lonv  = ss.getListOfNameValue();

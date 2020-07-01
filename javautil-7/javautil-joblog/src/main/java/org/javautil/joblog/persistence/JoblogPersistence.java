@@ -20,7 +20,7 @@ public interface JoblogPersistence {
 	void endJob(String jobToken) throws SQLException;
 	long insertStep(String jobToken, String stepName, Class clazz) throws SQLException;
 	long insertStep(String jobToken, String stepName, Class clazz, String stepInfo) throws SQLException;
-	long insertStep(String jobToken, String stepName, String className, String stepInfo) throws SQLException;
+//	long insertStep(String jobToken, String stepName, String className, String stepInfo) throws SQLException;
 	void finishStep(long jobStepId) throws SQLException;
 
 

@@ -50,7 +50,7 @@ public class WorkbookRenderInstrumentedTest {
 		installer.process();
 
 		DataSourceFactory dataSourceFactory = new DataSourceFactory();
-		dataSource = dataSourceFactory.getDatasource("integration_postgres");
+		dataSource = dataSourceFactory.getDatasource("integration_postgres_sr");
 		conn = dataSource.getConnection();
 	}
 

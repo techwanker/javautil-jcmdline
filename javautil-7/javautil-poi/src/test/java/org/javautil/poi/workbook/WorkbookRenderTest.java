@@ -37,7 +37,7 @@ public class WorkbookRenderTest {
 		File file = new File("src/test/resources/workbook/DataLoadWorkbookMeta2.yaml");
 		logger.info("processing file: '{}'", file.getAbsoluteFile());
 		DataSourceFactory dataSourceFactory = new DataSourceFactory();
-		DataSource dataSource = dataSourceFactory.getDatasource("integration_postgres");
+		DataSource dataSource = dataSourceFactory.getDatasource("integration_postgres_sr");
 		Connection conn = dataSource.getConnection();
 		WorkbookDefinition wd = WorkbookDefinition.getWorkbookDefinition(file);
 		

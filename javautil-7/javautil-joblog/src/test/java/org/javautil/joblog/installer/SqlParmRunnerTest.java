@@ -32,7 +32,7 @@ public class SqlParmRunnerTest {
 		DataSource  ds = null;
 		Connection conn = null;
 		try {
-			ds = TestDataSource.getDataSource(Dialect.ORACLE);
+			ds = new TestDataSource().getDataSource(Dialect.ORACLE);
 			conn = ds.getConnection();
 			
 			String isname = "src/test/resources/testsr/job_tables.sr.sql";
@@ -98,7 +98,7 @@ public class SqlParmRunnerTest {
 		Connection conn = null;
 		try {
 			ArrayList<SqlRunnerParms> parmList = new ArrayList<>();
-			ds = TestDataSource.getDataSource(Dialect.POSTGRES);
+			ds = new TestDataSource().getDataSource(Dialect.POSTGRES);
 			conn = ds.getConnection();
 			
 			String dropNameResource = "/ddl/postgresql/job_tables_drop.sr.sql";

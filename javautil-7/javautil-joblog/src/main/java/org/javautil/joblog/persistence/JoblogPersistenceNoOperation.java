@@ -42,10 +42,6 @@ public class JoblogPersistenceNoOperation extends AbstractJoblogPersistence impl
 	public void finishStep(long stepId) {
 	}
 
-	@Override
-	public long insertStep(String jobToken,String stepName, String stepInfo, String className) {
-		return -1;
-	}
 
 
 	@Override

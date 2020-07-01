@@ -188,7 +188,7 @@ public class JoblogPersistenceSql extends AbstractJoblogPersistence implements J
 
 
 	@Override
-	public long insertStep(String jobToken, String stepName, String className, String stepInfo ) throws SQLException {
+	public long insertStep(String jobToken, String stepName, Class clazz, String stepInfo ) throws SQLException {
 		long retval = -1;
 		try {
 			if (sequenceHelper == null) {
@@ -220,7 +220,7 @@ public class JoblogPersistenceSql extends AbstractJoblogPersistence implements J
 			binds.put("job_log_id", nvJob.get("job_log_id"));
 			binds.put("step_name", stepName,Types.VARCHAR);
 			binds.put("step_info", stepInfo, Types.VARCHAR);
-			binds.put("classname", className,Types.VARCHAR);
+			binds.put("classname", clazz.getName(),Types.VARCHAR);
 			binds.put("start_ts", new java.sql.Timestamp(System.currentTimeMillis()));
 			binds.putNull("stack_trace", Types.VARCHAR);
 			binds.putType("module_name", Types.VARCHAR);

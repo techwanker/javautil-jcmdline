@@ -34,7 +34,7 @@ public class DatasetToRDBMSTableTest {
 	@Before 
 	public void before() throws SQLException, PropertyVetoException, IOException {
 		if (dataSource == null) {
-			dataSource = TestDataSource.getDataSource(Dialect.POSTGRES);
+			dataSource = new TestDataSource().getDataSource(Dialect.POSTGRES);
 		}
 		conn = dataSource.getConnection();
 	}

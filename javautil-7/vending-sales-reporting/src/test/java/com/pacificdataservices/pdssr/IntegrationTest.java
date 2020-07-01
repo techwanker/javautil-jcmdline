@@ -46,14 +46,13 @@ public class IntegrationTest extends SetupTest implements FilenameFilter {
 	private JoblogPersistence joblog;
 	public IntegrationTest() throws FileNotFoundException, PropertyVetoException, SQLException {
 	}
-	//@Ignore
+	@Ignore
 	@Test
 	public void fullOracleDialectTest() throws SqlSplitterException, Exception {
-		DataSource joblogDataSource = TestDataSource.getDataSource(Dialect.ORACLE);
+		DataSource joblogDataSource = new TestDataSource().getDataSource(Dialect.ORACLE);
 		joblogConnection = joblogDataSource.getConnection();
-		appConnection = joblogDataSource.getConnection();
-		Setup setup = new Setup();
-		setup.validateVendingSchema(appConnection);
+		appConnection = joblogDataSource.getConnection(); 
+		Setup.validateVendingSchema(appConnection);
 		try {
 			logger.info("Oracle test begins");
 
@@ -67,7 +66,7 @@ public class IntegrationTest extends SetupTest implements FilenameFilter {
 		}
 	}
 
-	//@Ignore
+	
 	@Test
 	public void postgresAppH2JoblogTest() throws SqlSplitterException, Exception {
 		logger.info("Postgres test begins");
@@ -76,6 +75,7 @@ public class IntegrationTest extends SetupTest implements FilenameFilter {
 
 		joblogConnection = joblogDataSource.getConnection();
 		appConnection = appDataSource.getConnection();
+		Setup.validateVendingSchema(appConnection);
 		try {
 			joblog = JoblogPersistenceFactory.getJoblogPersistence(joblogConnection, appConnection, false);
 			fullTest(Dialect.POSTGRES);

@@ -37,10 +37,11 @@ public class CrosstabPlanGroup10 extends BaseTest {
 	CrosstabColumns ctc;
 	Binds           binds  = new Binds();
 
+	// TODO remove aerodemo from test
 	@Before
 	public void before() throws PropertyVetoException, SQLException {
 		DataSourceFactory dsf = new DataSourceFactory();
-		DataSource datasource = dsf.getDatasource("aerodemo_postgres");
+		DataSource datasource = dsf.getDatasource("integration_postgres_aerodemo");
 		Connection conn = datasource.getConnection();
 		Statement stmt = conn.createStatement();
 		stmt.execute("set search_path to aerodemo");

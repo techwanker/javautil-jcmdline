@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.core.sql.TestDataSource;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;;
@@ -33,13 +34,14 @@ public class SetupTest extends Setup {
 	
 	@Test
 	public void postgresAppTest() throws SQLException, IOException, PropertyVetoException {
-		DataSource ds = TestDataSource.getPostgresDataSource();
+		DataSource ds =  TestDataSource.getPostgresSrDataSource();
 		testAppSchema(ds);
 	}
 	
+	@Ignore
 	@Test
 	public void oracleAppTest() throws SQLException, IOException, PropertyVetoException {
-		DataSource ds = TestDataSource.getOracleDataSource();
+		DataSource ds = new TestDataSource().getOracleDataSource();
 		testAppSchema(ds);
 	}
 	
@@ -50,7 +52,7 @@ public class SetupTest extends Setup {
 		try {
 		conn = ds.getConnection();
 		Setup setup  = new Setup();
-		setup.validateVendingSchema(conn);
+		Setup.validateVendingSchema(conn);
 		} finally {
 			conn.close();
 			((Closeable) ds).close();

@@ -97,7 +97,7 @@ public class JoblogForDictionaryExample {
 	 * This will set the v$session.action
 	 */
 	private void limitedFullJoin() throws SQLException {
-		long stepId = 	joblog.insertStep(jobToken, "limitedFullJoin",  getClass().getName(), "info1");
+		long stepId = 	joblog.insertStep(jobToken, "limitedFullJoin",  getClass(), "info1");
 		String q;
 		switch (dialect) {
 		case ORACLE:
@@ -113,7 +113,7 @@ public class JoblogForDictionaryExample {
 
 	private void fullJoin() throws SQLException {
 		// TODO insertStep should set the action
-		long stepId = joblog.insertStep(jobToken,"fullJoin",  getClass().getName(), "info2");
+		long stepId = joblog.insertStep(jobToken,"fullJoin",  getClass(), "info2");
 		
 		String q;
 		switch (dialect) {
@@ -128,7 +128,7 @@ public class JoblogForDictionaryExample {
 	}
 
 	private void userTablesCount() throws SQLException {
-		long stepId = joblog.insertStep(jobToken,"count full", getClass().getName(),"userTablesCount");
+		long stepId = joblog.insertStep(jobToken,"count full", getClass(),"userTablesCount");
 
 		String q;
 		switch (dialect) {
