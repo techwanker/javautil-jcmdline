@@ -27,15 +27,20 @@
 		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
+			<artifactId>javautil-commandline</artifactId>
+			<version>8.6.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javautil</groupId>
 			<artifactId>javautil-poi</artifactId>
 			<version>8.6.21</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-condition-identification</artifactId>
 			<version>8.6.21</version>
 		</dependency>
-		<!--  unit testing  -->
+		<!-- unit testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -54,8 +59,8 @@
 			<artifactId>snakeyaml</artifactId>
 			<version>1.5</version>
 		</dependency>
-		
-	    <!-- database -->
+
+		<!-- database -->
 		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>

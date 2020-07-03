@@ -4,6 +4,7 @@ import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.channels.IllegalSelectorException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,7 +20,7 @@ import org.slf4j.LoggerFactory;
 public class TestDataSource {
 
 	private static final Logger logger = LoggerFactory.getLogger(TestDataSource.class);
-	
+
 	private static DataSourceFactory dataSourceFactory = new DataSourceFactory();
 
 	public TestDataSource() throws FileNotFoundException {
@@ -69,11 +70,11 @@ public class TestDataSource {
 		DataSource ds = DataSourceFactory.getDatasource(parms);
 		return ds;
 	}
-	
+
 	public  DataSource getH2FileDataSource() throws SQLException, PropertyVetoException, IOException {
 		return getH2FileDataSource("target/targetdb");
 	}
-	
+
 	public DataSource getOracleDataSource() throws PropertyVetoException, SQLException {
 		DataSource ds = dataSourceFactory.getDatasource("integration_oracle");
 		return ds;
@@ -82,17 +83,35 @@ public class TestDataSource {
 	public DataSource getPostgresDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {
 		return getPostgresSrDataSource();
 	}
-	
-	public static DataSource getPostgresSrDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {
+
+	public static DataSource getPostgresSrDataSource() throws SQLException, PropertyVetoException {
 		logger.debug("getting connection");
-		
-		DataSource ds = dataSourceFactory.getDatasource("integration_postgres_sr");
-		Connection conn = ds.getConnection();
-		Statement s = conn.createStatement();
-		s.execute("drop table if exists test_table");
-		s.execute("create table test_table (test_id int)");
-		s.close();
-		conn.close();
+
+		DataSource ds = null;
+		Statement s = null;
+		Connection conn = null;
+//		try {
+			ds = dataSourceFactory.getDatasource("integration_postgres_sr");
+
+			conn = ds.getConnection();
+			s = conn.createStatement();
+			s.execute("drop table if exists test_table");
+			s.execute("create table test_table (test_id int)");
+			s.close();
+			conn.close();
+//		} catch (PropertyVetoException e) {
+//			logger.error(e.getMessage());
+//			throw new IllegalStateException(e.getMessage());
+//		} catch (SQLException e) {
+//			logger.error(e.getMessage());
+//			throw e;
+//		} finally {
+//			if (s != null) {
+//				s.close();
+//				conn.close();
+//			}
+//		}
+
 		return ds;
 	}
 }

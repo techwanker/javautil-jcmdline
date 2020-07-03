@@ -1,6 +1,8 @@
 package com.pacificdataservices.pdssr;
 
 import java.io.File;
+import java.beans.PropertyVetoException;
+import java.io.Closeable;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -12,15 +14,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.sql.DataSource;
+
 import java.util.TreeMap;
 
+import org.javautil.commandline.CommandLineHandler;
 import org.javautil.core.misc.Timer;
 import org.javautil.core.sql.Binds;
+import org.javautil.core.sql.DataSourceFactory;
 import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.SequenceHelper;
 import org.javautil.core.sql.SqlStatement;
 import org.javautil.core.sql.SqlStatements;
 import org.javautil.joblog.persistence.JoblogPersistence;
+import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
 import org.javautil.util.ListOfNameValue;
 import org.javautil.util.TreeHash;
 import org.slf4j.Logger;
@@ -34,16 +42,13 @@ public class CdsDataLoader implements FilenameFilter {
 	 * 
 	 */
 	private Connection connection = null;
-	private Dialect dialect;
-	// TODO load from resource
-	// private String etlSqlYamlFileName =
-	// "src/main/resources/com/pacificdataservices/pdssr/etl_persistence_colon.yaml";
 	private InputStream etlPersistenceStream = this.getClass().getResourceAsStream("etl_persistence_colon.yaml");
 
 	SqlStatements sqlStatements;
 
 	private Map<String, String> sqlNameByType = new HashMap<String, String>();
-	private JoblogPersistence joblogger;
+	private JoblogPersistence joblogger = new JoblogPersistenceNoOperation();
+	private CdsDataLoaderArgs args;
 
 	private static final String CUSTOMER_RECORD = "CD";
 	private static final String CUSTOMER_TOTAL_RECORD = "CT";
@@ -51,19 +56,43 @@ public class CdsDataLoader implements FilenameFilter {
 	private static final String INVENTORY_TOTAL_RECORD = "IT";
 	private static final String SALES_RECORD = "SA";
 	private static final String SALES_TOTAL_RECORD = "AT";
+	
+	public CdsDataLoader() {
+		super();
+	
+	}
 
 	public CdsDataLoader(Connection conn, JoblogPersistence joblogger) throws FileNotFoundException, SQLException {
 		this.connection = conn;
 		this.joblogger = joblogger;
-		connection.setAutoCommit(false);
+		init(conn,joblogger);
+		//logger.info("sqlStatements:\n{}", getSqlStatementsToString());
+	}
+	
+	private void init(Connection conn, JoblogPersistence jobLogger) throws SQLException {
 		sqlNameByType.put(CUSTOMER_RECORD, "etl_customer_insert");
 		sqlNameByType.put(CUSTOMER_TOTAL_RECORD, "etl_customer_tot_insert");
 		sqlNameByType.put(INVENTORY_RECORD, "etl_inventory_insert");
 		sqlNameByType.put(INVENTORY_TOTAL_RECORD, "etl_inventory_tot_insert");
 		sqlNameByType.put(SALES_RECORD, "etl_sale_insert");
 		sqlNameByType.put(SALES_TOTAL_RECORD, "etl_sale_tot_insert");
+		connection = conn;
+		conn.setAutoCommit(false);
+		
 		sqlStatements = new SqlStatements(etlPersistenceStream, conn);
-		//logger.info("sqlStatements:\n{}", getSqlStatementsToString());
+	}
+	public void process(CdsDataLoaderArgs args) throws IOException, Exception {
+		
+		DataSourceFactory dsf = new DataSourceFactory();
+		DataSource ds = dsf.getDatasource(args.getDataSourceName());
+		Connection conn  = ds.getConnection();
+		this.joblogger = new JoblogPersistenceNoOperation();
+		init(conn,joblogger);
+		process(args.getInputFile().getCanonicalPath(),conn,args.getDistributorCode(),false);
+		conn.commit();
+		conn.close();
+		((Closeable) ds).close();
+		
 	}
 	
 	public void process(String filename, Connection conn, String distributor_cd, boolean validate) throws Exception {
@@ -139,6 +168,7 @@ public class CdsDataLoader implements FilenameFilter {
 				binds.put("ETL_INVENTORY_ID",etlInventoryId);
 			}
 			logger.debug("line #: {} binds: {}", reader.getLineNumber(), binds);
+			System.out.println(binds);
 //			logger.debug("line#: {}\nline: {}\nsql:{}\nbinds: {}", reader.getLineNumber(), reader.getInputLine(),
 //					sh.getSql(), binds);
 			sh.execute(binds);
@@ -257,4 +287,27 @@ public class CdsDataLoader implements FilenameFilter {
 	public void infoStatements() {
 		logger.info("sqlStatements:\n{}", getSqlStatementsToString());
 	}
+	
+	public static CdsDataLoaderArgs processArguments(String [] args) {
+	     CdsDataLoaderArgs arguments = new CdsDataLoaderArgs();
+	       
+	        final CommandLineHandler clh = new CommandLineHandler(arguments);
+			clh.setDieOnParseError(false);
+			clh.evaluateArguments(args);
+			return arguments;
+	}
+	
+	
+	 public static void main(String[] args) throws Exception {
+	        for (String arg :args) { 
+	           logger.info("arg " + arg);
+	        }
+
+	        CdsDataLoaderArgs arguments = processArguments(args);
+	        CdsDataLoader invocation = new CdsDataLoader();
+	    
+	        invocation.process(arguments);
+	    }
+
+
 }

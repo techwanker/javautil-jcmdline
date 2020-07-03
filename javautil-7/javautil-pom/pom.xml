@@ -105,7 +105,7 @@
 		<org.hibernate.core.version>3.3.1.GA</org.hibernate.core.version>
 		<org.hibernate.ehcache.version>3.3.1.GA</org.hibernate.ehcache.version>
 		<org.mockito.version>1.10.19</org.mockito.version>
-		<org.slf4j.version>1.7.25</org.slf4j.version>
+		<org.slf4j.version>1.7.30</org.slf4j.version>
 		<org.springframework.core.version>5.2.7.RELEASE</org.springframework.core.version>
 		<org.springframework.version>5.2.7.RELEASE</org.springframework.version>
 		<org.springframework.spring-context.version>5.2.7.RELEASE</org.springframework.spring-context.version>
