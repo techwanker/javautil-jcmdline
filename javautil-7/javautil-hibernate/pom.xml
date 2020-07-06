@@ -64,7 +64,7 @@
 		</dependency>
 				<dependency>
 			<groupId>org.javautil</groupId>
-			<artifactId>javautil-commandline</artifactId>
+			<artifactId>javautil-jcmdline</artifactId>
 			<version>${org.javautil.version}</version>
 		</dependency>
 		<dependency>

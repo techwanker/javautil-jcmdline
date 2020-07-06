@@ -56,10 +56,10 @@ public class CdsDataLoader implements FilenameFilter {
 	private static final String INVENTORY_TOTAL_RECORD = "IT";
 	private static final String SALES_RECORD = "SA";
 	private static final String SALES_TOTAL_RECORD = "AT";
-	
+
 	public CdsDataLoader() {
 		super();
-	
+
 	}
 
 	public CdsDataLoader(Connection conn, JoblogPersistence joblogger) throws FileNotFoundException, SQLException {
@@ -68,7 +68,7 @@ public class CdsDataLoader implements FilenameFilter {
 		init(conn,joblogger);
 		//logger.info("sqlStatements:\n{}", getSqlStatementsToString());
 	}
-	
+
 	private void init(Connection conn, JoblogPersistence jobLogger) throws SQLException {
 		sqlNameByType.put(CUSTOMER_RECORD, "etl_customer_insert");
 		sqlNameByType.put(CUSTOMER_TOTAL_RECORD, "etl_customer_tot_insert");
@@ -78,11 +78,11 @@ public class CdsDataLoader implements FilenameFilter {
 		sqlNameByType.put(SALES_TOTAL_RECORD, "etl_sale_tot_insert");
 		connection = conn;
 		conn.setAutoCommit(false);
-		
+
 		sqlStatements = new SqlStatements(etlPersistenceStream, conn);
 	}
 	public void process(CdsDataLoaderArgs args) throws IOException, Exception {
-		
+
 		DataSourceFactory dsf = new DataSourceFactory();
 		DataSource ds = dsf.getDatasource(args.getDataSourceName());
 		Connection conn  = ds.getConnection();
@@ -92,9 +92,9 @@ public class CdsDataLoader implements FilenameFilter {
 		conn.commit();
 		conn.close();
 		((Closeable) ds).close();
-		
+
 	}
-	
+
 	public void process(String filename, Connection conn, String distributor_cd, boolean validate) throws Exception {
 
 		String jobToken = joblogger.joblogInsert("CdsDataLoader", getClass().getName(), "CdsDataLoader");
@@ -111,9 +111,9 @@ public class CdsDataLoader implements FilenameFilter {
 				throw e1;
 			}
 		}
-		
+
 	}
-	
+
 	/**
 	 * 
 	 * @param filename
@@ -168,9 +168,9 @@ public class CdsDataLoader implements FilenameFilter {
 				binds.put("ETL_INVENTORY_ID",etlInventoryId);
 			}
 			logger.debug("line #: {} binds: {}", reader.getLineNumber(), binds);
-			System.out.println(binds);
-//			logger.debug("line#: {}\nline: {}\nsql:{}\nbinds: {}", reader.getLineNumber(), reader.getInputLine(),
-//					sh.getSql(), binds);
+//			System.out.println(binds);
+			//			logger.debug("line#: {}\nline: {}\nsql:{}\nbinds: {}", reader.getLineNumber(), reader.getInputLine(),
+			//					sh.getSql(), binds);
 			sh.execute(binds);
 		}
 
@@ -274,9 +274,9 @@ public class CdsDataLoader implements FilenameFilter {
 		sqlStatements.close();
 	}
 
-//	public static void main(String [] args) throws FileNotFoundException, SQLException, ParseException, IOException, PropertyVetoException {
-//		new CdsDataLoader(getConnection()).loadFiles();
-//	}
+	//	public static void main(String [] args) throws FileNotFoundException, SQLException, ParseException, IOException, PropertyVetoException {
+	//		new CdsDataLoader(getConnection()).loadFiles();
+	//	}
 
 	// TODO put in SqlStatements a nice format
 	// TODO this should be in SqlStatements 
@@ -287,27 +287,22 @@ public class CdsDataLoader implements FilenameFilter {
 	public void infoStatements() {
 		logger.info("sqlStatements:\n{}", getSqlStatementsToString());
 	}
-	
-	public static CdsDataLoaderArgs processArguments(String [] args) {
-	     CdsDataLoaderArgs arguments = new CdsDataLoaderArgs();
-	       
-	        final CommandLineHandler clh = new CommandLineHandler(arguments);
-			clh.setDieOnParseError(false);
-			clh.evaluateArguments(args);
-			return arguments;
-	}
-	
-	
-	 public static void main(String[] args) throws Exception {
-	        for (String arg :args) { 
-	           logger.info("arg " + arg);
-	        }
 
-	        CdsDataLoaderArgs arguments = processArguments(args);
-	        CdsDataLoader invocation = new CdsDataLoader();
-	    
-	        invocation.process(arguments);
-	    }
+	public static CdsDataLoaderArgs processArguments(String [] args) {
+		CdsDataLoaderArgs arguments = new CdsDataLoaderArgs();
+
+		final CommandLineHandler clh = new CommandLineHandler(arguments);
+		clh.setDieOnParseError(false);
+		clh.evaluateArguments(args);
+		return arguments;
+	}
+
+
+	public static void main(String[] args) throws Exception {
+		CdsDataLoaderArgs arguments = processArguments(args);
+		new CdsDataLoader().process(arguments);
+
+	}
 
 
 }

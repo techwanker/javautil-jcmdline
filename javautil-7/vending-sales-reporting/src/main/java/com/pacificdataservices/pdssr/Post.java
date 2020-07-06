@@ -1,18 +1,24 @@
 package com.pacificdataservices.pdssr;
 
 import java.io.IOException;
+import java.io.Closeable;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 
+import javax.sql.DataSource;
+
+import org.javautil.commandline.CommandLineHandler;
 import org.javautil.core.sql.Binds;
+import org.javautil.core.sql.DataSourceFactory;
 import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.MappedResultSetIterator;
 import org.javautil.core.sql.SqlStatement;
 import org.javautil.core.sql.SqlStatementRunner;
 import org.javautil.core.sql.SqlStatements;
 import org.javautil.joblog.persistence.JoblogPersistence;
+import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
 import org.javautil.util.ListOfNameValue;
 import org.javautil.util.NameValue;
 import org.slf4j.Logger;
@@ -31,7 +37,6 @@ public class Post {
 	private Connection connection;
 
 	private SqlStatements sqlStatements;
-	private SqlStatements postQueries; // TODO not used??????
 	private Dialect dialect;
 	private int verbosity;
 	private JoblogPersistence joblog;
@@ -58,17 +63,13 @@ public class Post {
 		} else {
 			throw new InvalidLoadFileException("load " + etlFileId + " has no etl_sale_tot");
 		}
-		MappedResultSetIterator it = ss.iterator(binds);
-		// TODO should get use a get one method
-//		NameValue result;
-//		if (it.hasNext()) {
-//			result = it.next();
-//			logger.debug("result is {}", result);
-//			retval = (Date) result.get("file_create_dt");
-//		} else {
-//			throw new InvalidLoadFileException("load " + etlFileId + " has no etl_sale_tot");
-//		}
+	//	MappedResultSetIterator it = ss.iterator(binds);
+
 		return retval;
+	}
+	
+	public void process(PostArgs arguments) throws SQLException, InvalidLoadFileException {
+		process(arguments.getFileNbr());
 	}
 
 	public void process(long etlFileId) throws SQLException, InvalidLoadFileException {
@@ -110,32 +111,35 @@ public class Post {
 		sqlStatements = new SqlStatements(is, connection);
 		is.close();
 
-		is = getClass().getResourceAsStream(qpath);
-		postQueries = new SqlStatements(is, connection);
-		is.close();
+//		is = getClass().getResourceAsStream(qpath);
+//		postQueries = new SqlStatements(is, connection);
+//		is.close();
 
 	}
 
-	// SqlStatements getSqlStatements(String path, boolean isMap) throws IOException
-	// {
-	// if (path == null) {
-	// throw new IllegalArgumentException("path is null");
-	// }
-	// SqlStatements retval = null;
-	// ClassLoader classLoader = getClass().getClassLoader();
-	// URL url = classLoader.getResource(path);
-	// if (url == null) {
-	// throw new IllegalArgumentException("unable to get url for " + path);
-	// }
-	// File file = new File(classLoader.getResource(path).getFile());
-	// logger.info(file.getAbsolutePath());
-	// try {
-	// //retval = new SqlStatements(file.getAbsolutePath(), connection, isMap);
-	// retval = new SqlStatements(file.getAbsolutePath(), connection);
-	// } catch (FileNotFoundException e) {
-	// throw new RuntimeException(e);
-	// }
-	// return retval;
-	// }
+
+	public static PostArgs processArguments(String [] args) {
+		PostArgs arguments = new PostArgs();
+
+		final CommandLineHandler clh = new CommandLineHandler(arguments);
+		clh.setDieOnParseError(false);
+		clh.evaluateArguments(args);
+		return arguments;
+	}
+
+
+	public static void main(String[] args) throws Exception {
+		PostArgs arguments = processArguments(args);
+		DataSourceFactory dsf = new DataSourceFactory();
+		DataSource ds = dsf.getDatasource(arguments.getDataSourceName());
+		Connection conn = ds.getConnection();	
+		JoblogPersistence joblog = new JoblogPersistenceNoOperation();
+		Post post = new Post(conn,joblog,0);
+		post.process(arguments);
+		conn.commit();
+		conn.close();
+		((Closeable) ds).close();
+
+	}
 
 }

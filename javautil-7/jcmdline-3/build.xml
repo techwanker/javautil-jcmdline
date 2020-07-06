@@ -1,0 +1,296 @@
+<project name="jcmdline" default="help" basedir=".">
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is the Java jcmdline (command line management) package.
+   -
+   - The Initial Developer of the Original Code is Lynne Lawrence.
+   - 
+   - Portions created by the Initial Developer are Copyright (C) 2002
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):    Lynne Lawrence <lglawrence@users.sourceforge.net>
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+    <!-- Override on command line for actual release number -->
+    <property name="release" value="1.0.3" />
+
+    <property name="srcdir" value="${basedir}/src" />
+    <property name="testsrcdir" value="${basedir}/testsrc" />
+    <property name="builddir" value="${basedir}/build" />
+    <property name="distdir" value="${basedir}/dist" />
+    <property name="docdir" value="${builddir}/doc" />
+    <property name="tmpdir" value="${builddir}/tmp" />
+    <property environment="env" />
+
+    <!-- Path used to compile code -->
+    <path id="project.class.path">
+    </path>
+
+    <!-- Path used to run code -->
+    <path id="run.class.path">
+        <pathelement path="${builddir}/classes" />
+        <pathelement path="${builddir}/properties" />
+    </path>
+
+    <!-- Path used to compile test code -->
+    <path id="test.class.path">
+        <path refid="project.class.path" />
+        <pathelement path="${builddir}/classes" />
+        <pathelement path="/usr/local/java/junit/junit.jar" />
+    </path>
+
+    <!-- Path used to run test code -->
+    <path id="testrun.class.path">
+        <path refid="run.class.path" />
+        <pathelement path="${builddir}/testclasses" />
+        <pathelement path="/usr/local/java/junit/junit.jar" />
+    </path>
+
+    <target name="help">
+        <echo>
+        This file builds the jcmdline package.  For a list of targets,
+        execute 'ant -projecthelp'
+        </echo>
+    </target>
+
+    <target name="init">
+        <mkdir dir="${builddir}" />
+    </target>
+
+    <target name="clean" description="deletes all output from build process">
+        <delete dir="${builddir}" />
+        <delete dir="${distdir}" />
+    </target>
+
+    <target name="build" depends="init" description="compile the source files">
+        <mkdir dir="${builddir}/classes" />
+        <javac srcdir="${srcdir}" 
+               destdir="${builddir}/classes" 
+               debug="on">
+            <classpath refid="project.class.path" />
+        </javac>
+        <copy todir="${builddir}/classes">
+            <fileset dir="${srcdir}">
+                <include name="**/*.properties" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="buildtest" depends="build" description="compile the test code">
+        <mkdir dir="${builddir}/testclasses" />
+        <javac srcdir="${testsrcdir}" 
+               destdir="${builddir}/testclasses" 
+               debug="on">
+            <classpath>
+                <path refid="test.class.path" />
+            </classpath>
+        </javac>
+        <copy todir="${builddir}/testclasses">
+            <fileset dir="${testsrcdir}">
+                <include name="**/*.properties" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="doc" depends="init" 
+            description="Create jcmdline docs">
+        <filter token="VERSION" value="${release}" />
+        <mkdir dir="${docdir}/jcmdline/api" />
+        <mkdir dir="${tmpdir}/jcmdline/api" />
+        <!--================================================================-->
+        <!-- Create files in a temp dir so that the filter can be used when -->
+        <!-- copying to the actual directory.                               -->
+        <!--================================================================-->
+        <javadoc sourcepath="${srcdir}"
+                 packagenames="jcmdline.*"
+                 classpathref="run.class.path"
+                 destdir="${tmpdir}/jcmdline/api"
+                 author="true"
+                 Protected="true"
+                 version="true"
+                 use="true"
+                 windowtitle="jcmdline API" />
+        <!--================================================================-->
+        <!-- OK, now copy and set the version in all the files that need it.-->
+        <!--================================================================-->
+        <copy todir="${docdir}/jcmdline/api" filtering="true">
+            <fileset dir="${tmpdir}/jcmdline/api" />
+        </copy>
+        <copy todir="${docdir}/jcmdline/api" filtering="true">
+            <fileset dir="${srcdir}">
+                <include name="**/doc-files/*" />
+            </fileset>
+        </copy>
+        <copy todir="${docdir}" filtering="true">
+            <fileset dir="${basedir}/doc" />
+        </copy>
+
+        <!-- Clean up a little.                                             -->
+        <delete dir="${tmpdir}/jcmdline" />
+
+        <echo message="jcmdline docs have been written to ${docdir}/jcmdline/api" />
+    </target>
+    
+    <target name="webpkg" depends="doc"
+            description="Create SourceForge homepage .gz file suitable for upload/unpacking">
+      <!-- create a gzipped tarball to ftp to SourceForge ==================-->
+        <mkdir dir="${tmpdir}" />
+        <tar tarfile="${tmpdir}/homepage.tar" basedir="${docdir}" />
+        <gzip src="${tmpdir}/homepage.tar" 
+              zipfile="${tmpdir}/homepage.tar.gz" />
+        <delete file="${tmpdir}/homepage.tar" />
+        <echo message="SourceForge homepage tarball has been written to ${tmpdir}/homepage.tar.gz" />
+    </target>
+
+    <target name="utdoc" depends="init" 
+            description="Create jcmdline Unit Test docs">
+        <mkdir dir="${docdir}/jcmdline/utapi" />
+        <javadoc sourcepath="${testsrcdir}"
+                 packagenames="jcmdline.*"
+                 classpathref="test.class.path"
+                 destdir="${docdir}/jcmdline/utapi"
+                 author="true"
+                 Protected="true"
+                 version="true"
+                 use="true"
+                 windowtitle="jcmdline Unit Test API" />
+        <echo message="jcmdline Unit Test docs have been written to ${docdir}/jcmdline/utapi" />
+    </target>
+
+    <!-- Don't jar anything that will not pass UTs -->
+    <target name="jar" depends="clean, ut"
+            description="prepare jar file">
+
+      <!-- create the jar ==================================================-->
+        <jar jarfile="${builddir}/jcmdline.jar" 
+             basedir="${builddir}/classes" />
+
+      <!-- inform user where the file went =================================-->
+        <echo message="Jar file have been written to ${builddir}/jcmdline.jar" />
+    </target>
+
+    <!-- Don't dist anything that will not pass UTs, (jar target runs UT) -->
+    <target name="dist" depends="jar, doc"
+            description="prepare distribution files">
+
+        <property name="projRelease" value="${ant.project.name}-${release}" />
+        <property name="tmpDistBuildDir" value="${tmpdir}/${projRelease}" />
+
+        <mkdir dir="${distdir}" />
+
+      <!-- make the source tarball =========================================-->
+        <!-- Copy files to project-rel so that when the tar file            -->
+        <!-- is unwrapped, the files will be under that directory           -->
+        <!--================================================================-->
+      <!-- get the source files ============================================-->
+        <delete dir="${tmpDistBuildDir}" />
+        <mkdir dir="${tmpDistBuildDir}" />
+        <copy todir="${tmpDistBuildDir}">
+            <fileset dir="${basedir}">
+                 <exclude name="dist/**" />
+                 <exclude name="build/**" />
+                 <exclude name="**/*.swp" />
+                 <exclude name="**/*.bak" />
+            </fileset>
+        </copy>
+
+      <!-- pick up the API docs ============================================-->
+        <copy todir="${tmpDistBuildDir}">
+            <fileset dir="${builddir}">
+                <include name="doc/**" />
+            </fileset>
+        </copy>
+
+      <!-- add the jar =====================================================-->
+        <copy tofile="${tmpDistBuildDir}/${projRelease}.jar"
+              file="${builddir}/jcmdline.jar" />
+
+      <!-- create a gzipped tarball for the Unix crowd =====================-->
+        <tar tarfile="${distdir}/${projRelease}.tar" 
+             basedir="${tmpdir}"
+             includes="${projRelease}/**"
+        />
+        <gzip src="${distdir}/${projRelease}.tar"
+              zipfile="${distdir}/${projRelease}.tar.gz"
+        />
+        <delete file="${distdir}/${projRelease}.tar" />
+
+      <!-- create a zip file for others ====================================-->
+        <zip zipfile="${distdir}/${projRelease}.zip"
+             basedir="${tmpdir}"
+             includes="${projRelease}/**"
+        />
+
+      <!-- get rid of the temporary build directory ========================-->
+        <delete dir="${tmpDistBuildDir}" />
+
+      <!-- copy CHANGES file to dist dir ===================================-->
+        <copy file="${basedir}/CHANGES" tofile="${distdir}/CHANGES" />
+
+      <!-- inform user where the files went ================================-->
+        <echo message="Distribution files have been written to ${distdir}" />
+    </target>
+
+    <target name="ut" depends="buildtest"
+            description="run unit tests (will build first)">
+        <mkdir dir="${tmpdir}/testresults" />
+        <mkdir dir="${tmpdir}/testresults/reports" />
+        <junit fork="on" dir="${basedir}" >
+            <classpath>
+                <path refid="testrun.class.path" />
+            </classpath>
+            <formatter type="xml" />
+            <batchtest todir="${tmpdir}/testresults">
+                <fileset dir="${testsrcdir}">
+                    <include name="**/*_UT.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+        <junitreport todir="${tmpdir}/testresults/reports">
+            <fileset dir="${tmpdir}/testresults">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="frames" todir="${tmpdir}/testresults/reports" />
+        </junitreport>
+        <echo message="See results in:" />
+        <echo message="  ${tmpdir}/testresults/reports/index.html" />
+    </target>
+
+    <target name="utone" depends="buildtest"
+            description="run one ut (-Dtest=StringParam_UT, will build first)">
+        <mkdir dir="${tmpdir}/testresults" />
+        <mkdir dir="${tmpdir}/testresults/reports" />
+        <junit fork="on" dir="${basedir}" >
+            <classpath>
+                <path refid="testrun.class.path" />
+            </classpath>
+            <formatter type="xml" />
+            <batchtest todir="${tmpdir}/testresults">
+                <fileset dir="${testsrcdir}">
+                    <include name="**/${test}.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+        <junitreport todir="${tmpdir}/testresults/reports">
+            <fileset dir="${tmpdir}/testresults">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="frames" todir="${tmpdir}/testresults/reports" />
+        </junitreport>
+        <echo message="See results in:" />
+        <echo message="  ${tmpdir}/testresults/reports/index.html" />
+    </target>
+</project>

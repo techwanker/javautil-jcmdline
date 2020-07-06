@@ -1,0 +1,25 @@
+Release 1.0.3
+===============================================================================
+Bugs Fixed:
+Bug 1038722 - setOptions() and setArgs() in BasicCmdLineHandler throw 
+              NullPointerExceptions when passed null as the parameter.
+Bug 759800  - make StringParam.UNSPECIFIED_LENGTH public.
+
+Other Changes:
+    Added 'jar' target to the build.xml so that 'ant jar' will generate a
+    jcmdline.jar file to the ./build directory for use by other projects that
+    need to build from source.
+
+    Deprecated the StringParam.setMaxLength() method in favor of setMaxValLen(),
+    which is more in keeping with the naming of other methods in the class.
+
+Release 1.0.2
+===============================================================================
+Bugs Fixed:
+
+Bug 759797 - BasicCmdLineHandler parameters passed as Collection cause
+             ClassCastException.
+
+Release 1.0.1
+===============================================================================
+This is the initial release of the jcmdline package.

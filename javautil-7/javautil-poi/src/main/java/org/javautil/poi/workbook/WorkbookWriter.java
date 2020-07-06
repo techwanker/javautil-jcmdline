@@ -7,6 +7,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -14,6 +17,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.javautil.commandline.CommandLineHandler;
 import org.javautil.core.misc.Timer;
+import org.javautil.core.sql.BindPair;
 import org.javautil.core.sql.Binds;
 import org.javautil.core.sql.DataSourceFactory;
 import org.javautil.core.sql.SqlSplitterException;
@@ -30,6 +34,8 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+
+import jcmdline.StringParam;
 
 public class WorkbookWriter  {
 
@@ -66,12 +72,26 @@ public class WorkbookWriter  {
 		File fileDefinition = arguments.getDefinition();
 		WorkbookDefinition wd = WorkbookDefinition.getWorkbookDefinition(fileDefinition);
 		this.workbookDefinition = wd;
-		this.binds = arguments.getBinds();
+		setBindPairs(arguments.getBindPair());
+//		this.binds = arguments.getBinds();
 		this.workbook = new HSSFWorkbook();
 		this.cellStyleFactory = new HSSFCellStyleFactory(workbook);
 		conn.close();
 		// TODO Auto-generated method stub
 		
+	}
+
+	private void setBindPairs(ArrayList<StringParam> bindPair) {
+		Binds binds  = new Binds();
+		for (StringParam pairs : bindPair) {
+		   Collection values = pairs.getValues();
+		    
+			for (Object pair  : values) {
+				String pairload = (String) pair;
+				BindPair bp = new BindPair(pairload);
+				binds.put(bp.getName(),bp.getStringValue());
+			}
+		}
 	}
 
 	public void process() throws SQLException {

@@ -17,7 +17,7 @@
 		<version>8.6.21</version>
 		<relativePath>../javautil-pom</relativePath>
 	</parent>
-	
+
 	<organization>
 		<name>org.javautil</name>
 		<url>http://javautil.org</url> <!-- fix -->
@@ -39,10 +39,12 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j.version}</version>
 		</dependency>
+		<!-- <dependency> <groupId>jcmdline</groupId> <artifactId>jcmdline</artifactId> 
+			<version>1.0.3</version> </dependency> -->
 		<dependency>
 			<groupId>jcmdline</groupId>
 			<artifactId>jcmdline</artifactId>
-			<version>1.0.3</version>
+			<version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-configuration</groupId>
