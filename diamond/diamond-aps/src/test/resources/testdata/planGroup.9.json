@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-07-02T22:47:10-05",
+  "effectiveDate": "2020-07-06T18:33:12-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -14,20 +14,20 @@
   "apsAllocWoWos": [],
   "apsAvailOnhands": [
     {
-      "splyIdentifier": "905509-133-LA-20200201",
+      "splyIdentifier": "954078-133-LA-20200201",
       "facility": "LA",
       "apsSplySubPoolNbr": 133,
-      "orgNbrMfr": 8383,
-      "orgNbrVnd": 245,
-      "lotNbr": 905509,
+      "orgNbrMfr": 8799,
+      "orgNbrVnd": 10735,
+      "lotNbr": 954078,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-07-02T00:00:00-05",
-      "grossAvailQty": 15.00000,
+      "availDt": "2020-07-06T00:00:00-05",
+      "grossAvailQty": 10.00000,
       "revLvl": "H",
-      "pkSupply": 905509,
-      "lotCost": 6.719677,
-      "rcptDt": "2017-03-22T00:00:00-05",
+      "pkSupply": 954078,
+      "lotCost": 12.156785,
+      "rcptDt": "2018-01-31T00:00:00-06",
       "availDtId": "F"
     },
     {
@@ -39,7 +39,7 @@
       "lotNbr": 1019449,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-07-02T00:00:00-05",
+      "availDt": "2020-07-06T00:00:00-05",
       "grossAvailQty": 750.00000,
       "revLvl": "J",
       "pkSupply": 1019449,
@@ -57,7 +57,7 @@
       "lotNbr": 999961,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-07-02T00:00:00-05",
+      "availDt": "2020-07-06T00:00:00-05",
       "grossAvailQty": 696.00000,
       "revLvl": "J",
       "pkSupply": 999961,
@@ -85,20 +85,20 @@
       "availDtId": "P"
     },
     {
-      "splyIdentifier": "954078-133-LA-20200201",
+      "splyIdentifier": "905509-133-LA-20200201",
       "facility": "LA",
       "apsSplySubPoolNbr": 133,
-      "orgNbrMfr": 8799,
-      "orgNbrVnd": 10735,
-      "lotNbr": 954078,
+      "orgNbrMfr": 8383,
+      "orgNbrVnd": 245,
+      "lotNbr": 905509,
       "lotUm": "EA",
       "itemNbr": 35409,
-      "availDt": "2020-07-02T00:00:00-05",
-      "grossAvailQty": 10.00000,
+      "availDt": "2020-07-06T00:00:00-05",
+      "grossAvailQty": 15.00000,
       "revLvl": "H",
-      "pkSupply": 954078,
-      "lotCost": 12.156785,
-      "rcptDt": "2018-01-31T00:00:00-06",
+      "pkSupply": 905509,
+      "lotCost": 6.719677,
+      "rcptDt": "2017-03-22T00:00:00-05",
       "availDtId": "F"
     }
   ],
@@ -1836,7 +1836,7 @@
       "itemNbrDmd": 35409,
       "itemNbrAllocRqst": 35409,
       "fcItemMastNbr": 6258,
-      "rqstDt": "2020-07-02T00:00:00-05",
+      "rqstDt": "2020-07-06T00:00:00-05",
       "apsSrcRuleSetNbr": 174,
       "orgNbrCust": 7841,
       "orgCdCust": "OKJIT",
@@ -1851,7 +1851,7 @@
       "itemNbrDmd": 35409,
       "itemNbrAllocRqst": 35409,
       "fcItemMastNbr": 22533,
-      "rqstDt": "2020-07-02T00:00:00-05",
+      "rqstDt": "2020-07-06T00:00:00-05",
       "apsSrcRuleSetNbr": 173,
       "orgNbrCust": 7823,
       "orgCdCust": "BFJIT",
@@ -6675,87 +6675,7 @@
   "oeOrdDtlCerts": [
     {
       "id": {
-        "oeOrdDtlNbr": 1910111,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910097,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910116,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910094,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910105,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1757638,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 126,
-      "lastModDt": "2007-10-04T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910099,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910096,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910107,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1910103,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1757639,
+        "oeOrdDtlNbr": 1757635,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 126,
@@ -6771,23 +6691,15 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1910109,
+        "oeOrdDtlNbr": 1757638,
         "certCd": "8130/MCC"
       },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
+      "utUserNbr": 126,
+      "lastModDt": "2007-10-04T00:00:00-05"
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1910101,
-        "certCd": "8130/MCC"
-      },
-      "utUserNbr": 1702,
-      "lastModDt": "2008-06-13T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1757635,
+        "oeOrdDtlNbr": 1757639,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 126,
@@ -6803,7 +6715,95 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1910094,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910096,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910097,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910099,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910101,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910103,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910105,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910107,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910109,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910111,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1910113,
+        "certCd": "8130/MCC"
+      },
+      "utUserNbr": 1702,
+      "lastModDt": "2008-06-13T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1910116,
         "certCd": "8130/MCC"
       },
       "utUserNbr": 1702,
@@ -7295,6 +7295,28 @@
       "rqstDt": "2018-01-12T00:00:00-06"
     },
     {
+      "vqQteDtlNbr": 378877,
+      "vqQteHdrNbr": 64802,
+      "vqQteCd": "INQ96637",
+      "orgNbrVnd": 1680,
+      "vqQteDt": "2012-02-02T00:00:00-06",
+      "orgCd": "76100",
+      "orgNm": "Aerospace 1680",
+      "currCdQte": "USD",
+      "vqQteEffDt": "2012-02-02T00:00:00-06",
+      "vqQteExpDt": "2012-02-09T00:00:00-06",
+      "vndQteRefCd": "QTOF7JSR",
+      "vqQteIndivNbr": 47,
+      "transmitFlg": "N",
+      "itemNbrQte": 35409,
+      "itemCdQte": "BACN11N6CD",
+      "itemCdVnd": "BACN11N6CD",
+      "qteUm": "EA",
+      "qteQty": 2500.00000,
+      "qteQtyStkUm": 2500.00000,
+      "rqstDt": "2012-01-05T00:00:00-06"
+    },
+    {
       "vqQteDtlNbr": 378878,
       "vqQteHdrNbr": 64802,
       "vqQteCd": "INQ96637",
@@ -7318,28 +7340,6 @@
       "qteCostDenom": 5.430000,
       "qteCostStkUm": 8.525100,
       "qteCostDenomStkUm": 13.384407,
-      "rqstDt": "2012-01-05T00:00:00-06"
-    },
-    {
-      "vqQteDtlNbr": 378877,
-      "vqQteHdrNbr": 64802,
-      "vqQteCd": "INQ96637",
-      "orgNbrVnd": 1680,
-      "vqQteDt": "2012-02-02T00:00:00-06",
-      "orgCd": "76100",
-      "orgNm": "Aerospace 1680",
-      "currCdQte": "USD",
-      "vqQteEffDt": "2012-02-02T00:00:00-06",
-      "vqQteExpDt": "2012-02-09T00:00:00-06",
-      "vndQteRefCd": "QTOF7JSR",
-      "vqQteIndivNbr": 47,
-      "transmitFlg": "N",
-      "itemNbrQte": 35409,
-      "itemCdQte": "BACN11N6CD",
-      "itemCdVnd": "BACN11N6CD",
-      "qteUm": "EA",
-      "qteQty": 2500.00000,
-      "qteQtyStkUm": 2500.00000,
       "rqstDt": "2012-01-05T00:00:00-06"
     },
     {
@@ -7439,6 +7439,29 @@
       "rqstDt": "2018-08-24T00:00:00-05"
     },
     {
+      "vqQteDtlNbr": 1133768,
+      "vqQteHdrNbr": 251054,
+      "vqQteCd": "251054",
+      "orgNbrVnd": 1711,
+      "vqQteDt": "2018-11-14T00:00:00-06",
+      "orgCd": "78000",
+      "orgNm": "Aerospace 1711",
+      "currCdQte": "USD",
+      "indivPhnNbr": "13107846447",
+      "indivFaxNbr": "13107846605",
+      "vqQteEffDt": "2018-11-14T00:00:00-06",
+      "vqQteExpDt": "2018-12-14T00:00:00-06",
+      "vqQteIndivNbr": 35667,
+      "transmitFlg": "N",
+      "itemNbrQte": 35409,
+      "itemCdQte": "BACN11N6CD",
+      "itemCdVnd": "BACN11N6CD",
+      "qteUm": "EA",
+      "qteQty": 1000.00000,
+      "qteQtyStkUm": 1000.00000,
+      "rqstDt": "2018-10-17T00:00:00-05"
+    },
+    {
       "vqQteDtlNbr": 1133776,
       "vqQteHdrNbr": 251058,
       "vqQteCd": "251058",
@@ -7463,29 +7486,6 @@
       "qteCostDenom": 0.000000,
       "rqstDt": "2018-10-17T00:00:00-05",
       "vqLostCd": "NOBID"
-    },
-    {
-      "vqQteDtlNbr": 1133768,
-      "vqQteHdrNbr": 251054,
-      "vqQteCd": "251054",
-      "orgNbrVnd": 1711,
-      "vqQteDt": "2018-11-14T00:00:00-06",
-      "orgCd": "78000",
-      "orgNm": "Aerospace 1711",
-      "currCdQte": "USD",
-      "indivPhnNbr": "13107846447",
-      "indivFaxNbr": "13107846605",
-      "vqQteEffDt": "2018-11-14T00:00:00-06",
-      "vqQteExpDt": "2018-12-14T00:00:00-06",
-      "vqQteIndivNbr": 35667,
-      "transmitFlg": "N",
-      "itemNbrQte": 35409,
-      "itemCdQte": "BACN11N6CD",
-      "itemCdVnd": "BACN11N6CD",
-      "qteUm": "EA",
-      "qteQty": 1000.00000,
-      "qteQtyStkUm": 1000.00000,
-      "rqstDt": "2018-10-17T00:00:00-05"
     },
     {
       "vqQteDtlNbr": 1133777,

@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-07-02T22:47:11-05",
+  "effectiveDate": "2020-07-06T18:33:13-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -1355,7 +1355,7 @@
       "itemNbrDmd": 56372,
       "itemNbrAllocRqst": 56372,
       "fcItemMastNbr": 112174,
-      "rqstDt": "2020-07-02T00:00:00-05",
+      "rqstDt": "2020-07-06T00:00:00-05",
       "apsSrcRuleSetNbr": 168,
       "orgNbrCust": 7847,
       "orgCdCust": "TO",
@@ -6036,55 +6036,7 @@
   "oeOrdDtlCerts": [
     {
       "id": {
-        "oeOrdDtlNbr": 1790514,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1865162,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 66,
-      "lastModDt": "2008-04-02T00:00:00-05"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1835882,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2008-02-13T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790525,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790515,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790526,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790521,
+        "oeOrdDtlNbr": 1790512,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
@@ -6100,15 +6052,7 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1835871,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2008-02-13T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790527,
+        "oeOrdDtlNbr": 1790514,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
@@ -6116,7 +6060,7 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1790512,
+        "oeOrdDtlNbr": 1790515,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
@@ -6132,15 +6076,15 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1835884,
+        "oeOrdDtlNbr": 1790520,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
-      "lastModDt": "2008-02-13T00:00:00-06"
+      "lastModDt": "2007-11-26T00:00:00-06"
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1790524,
+        "oeOrdDtlNbr": 1790521,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
@@ -6156,11 +6100,67 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1790520,
+        "oeOrdDtlNbr": 1790524,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
       "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790525,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790526,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790527,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1865162,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 66,
+      "lastModDt": "2008-04-02T00:00:00-05"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1835871,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2008-02-13T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1835882,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2008-02-13T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1835884,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2008-02-13T00:00:00-06"
     }
   ],
   "utFacilities": [
@@ -7001,9 +7001,9 @@
       "leadTmWkProm": 45
     },
     {
-      "vqQteDtlNbr": 1140683,
-      "vqQteHdrNbr": 253048,
-      "vqQteCd": "253048",
+      "vqQteDtlNbr": 1140684,
+      "vqQteHdrNbr": 253049,
+      "vqQteCd": "253049",
       "orgNbrVnd": 390,
       "vqQteDt": "2018-11-29T00:00:00-06",
       "orgCd": "173742",
@@ -7025,9 +7025,9 @@
       "rqstDt": "2018-11-01T00:00:00-05"
     },
     {
-      "vqQteDtlNbr": 1140684,
-      "vqQteHdrNbr": 253049,
-      "vqQteCd": "253049",
+      "vqQteDtlNbr": 1140683,
+      "vqQteHdrNbr": 253048,
+      "vqQteCd": "253048",
       "orgNbrVnd": 390,
       "vqQteDt": "2018-11-29T00:00:00-06",
       "orgCd": "173742",
@@ -19458,20 +19458,20 @@
       197396
     ],
     "785695": [
-      197302,
-      197396
+      197396,
+      197302
     ],
     "786036": [
-      197302,
-      197396
+      197396,
+      197302
     ],
     "786048": [
-      197302,
-      197396
+      197396,
+      197302
     ],
     "786318": [
-      197302,
-      197396
+      197396,
+      197302
     ],
     "791824": [
       197396
@@ -19483,8 +19483,8 @@
       197396
     ],
     "796697": [
-      197302,
-      197396
+      197396,
+      197302
     ],
     "799217": [
       197396
@@ -19563,8 +19563,8 @@
       197396
     ],
     "821365": [
-      197302,
-      197396
+      197396,
+      197302
     ],
     "823836": [
       197396
