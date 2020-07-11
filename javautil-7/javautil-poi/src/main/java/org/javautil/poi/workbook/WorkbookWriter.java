@@ -1,9 +1,13 @@
 package org.javautil.poi.workbook;
+//
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertNotNull;
 
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -29,6 +33,7 @@ import org.javautil.joblog.persistence.JoblogPersistenceSql;
 import org.javautil.document.style.StyleFactory;
 import org.javautil.poi.sheet.ListWorksheetRenderer;
 import org.javautil.poi.style.HSSFCellStyleFactory;
+import org.javautil.util.Day;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,12 +77,17 @@ public class WorkbookWriter  {
 		File fileDefinition = arguments.getDefinition();
 		WorkbookDefinition wd = WorkbookDefinition.getWorkbookDefinition(fileDefinition);
 		this.workbookDefinition = wd;
-		setBindPairs(arguments.getBindPair());
+		setBinds(arguments.getBinds());
 //		this.binds = arguments.getBinds();
 		this.workbook = new HSSFWorkbook();
 		this.cellStyleFactory = new HSSFCellStyleFactory(workbook);
 		conn.close();
 		// TODO Auto-generated method stub
+		
+	}
+
+	private void setBinds(Binds binds) {
+		this.binds = binds;
 		
 	}
 
@@ -138,12 +148,13 @@ public class WorkbookWriter  {
 	}
 	
 	public static void main(String[] args) throws SQLException, IOException, ParseException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, PropertyVetoException {
+		
+		WorkbookWriterArguments arguments = WorkbookWriterArguments.processArguments(args);
+		new WorkbookWriter().process(arguments);
+//		invocation.process(arguments);
+//		WorkbookWriter invocation = new WorkbookWriter();
+//		invocation.process(arguments);
 
-	
-		WorkbookWriterArguments arguments = new WorkbookWriterArguments();
-		new CommandLineHandler(arguments).evaluateArguments(args);
-		WorkbookWriter invocation = new WorkbookWriter();
-		invocation.process(arguments);
 	}
 
 

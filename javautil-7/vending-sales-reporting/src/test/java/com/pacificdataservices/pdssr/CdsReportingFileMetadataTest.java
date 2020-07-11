@@ -21,5 +21,6 @@ public class CdsReportingFileMetadataTest {
 		assertNotNull(recordDefs);
 		logger.info("recordDefs.size {}", recordDefs.size());
 		assertEquals(6, recordDefs.size());
+		logger.info("testDefinitions complete");
 	}
 }

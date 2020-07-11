@@ -40,13 +40,13 @@ public class WorkbookDefinition {
 	@Expose
 	private LinkedHashMap<String, Worksheet>      worksheets = null;
 
-//	private Map<String, BindDefinition> bindDefinitions;
+	//	private Map<String, BindDefinition> bindDefinitions;
 	private BindDefinitions                       bindDefinitions;
 	private File                                  file;
 
-//	@SerializedName("binds")
-//	@Expose
-//	private List<Bind> binds = null;
+	//	@SerializedName("binds")
+	//	@Expose
+	//	private List<Bind> binds = null;
 
 	@SuppressWarnings("unused")
 	private transient static Logger               logger     = LoggerFactory.getLogger(WorkbookDefinition.class);
@@ -59,8 +59,8 @@ public class WorkbookDefinition {
 	}
 
 	public WorkbookDefinition(String name, String description, String narrative, String connectionName,
-	    LinkedHashMap<String, ColumnMetadata> columns, LinkedHashMap<String, Worksheet> worksheets,
-	    BindDefinitions bindDefinitions) {
+			LinkedHashMap<String, ColumnMetadata> columns, LinkedHashMap<String, Worksheet> worksheets,
+			BindDefinitions bindDefinitions) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -72,18 +72,22 @@ public class WorkbookDefinition {
 	}
 
 	public static WorkbookDefinition getWorkbookDefinition(InputStream is) throws JsonParseException,
-	    JsonMappingException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	JsonMappingException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		if (is == null) {
 			throw new IllegalArgumentException("is is null");
 		}
 		Yaml yaml = new Yaml();
 		WorkbookDefinition retval = yaml.loadAs(is, WorkbookDefinition.class);
+		if (retval == null) {
+			throw new IllegalStateException("loading inputStream {} resulted in null from yaml.loadAs"
+					);
+		}
 		retval.populateColumnNames();
 		return retval;
 	}
 
 	public static WorkbookDefinition getWorkbookDefinition(File file) throws JsonParseException, JsonMappingException,
-	    IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		if (file == null) {
 			throw new IllegalArgumentException("file is null");
 		}
@@ -93,16 +97,24 @@ public class WorkbookDefinition {
 		FileInputStream is = new FileInputStream(file.getAbsoluteFile());
 		WorkbookDefinition retval = getWorkbookDefinition(is);
 		retval.file = file;
-		retval.populateColumnNames();
+		//	retval.populateColumnNames();
 		return retval;
 	}
 
 	void populateColumnNames() {
-		for (Entry<String, ColumnMetadata> c : columns.entrySet()) {
-			String k = c.getKey();
-			ColumnMetadata col = c.getValue();
-			if (col.getColumnName() == null) {
-				col.setColumnName(k);
+		if (columns == null) {
+			logger.warn("populateColumnNames columns is null");
+		} else {
+			for (Entry<String, ColumnMetadata> c : columns.entrySet()) {
+				if (c == null) {
+					logger.error("columns k {} v {}", c);
+					throw new IllegalStateException("wutinthelivinfaq");
+				}
+				String k = c.getKey();
+				ColumnMetadata col = c.getValue();
+				if (col.getColumnName() == null) {
+					col.setColumnName(k);
+				}
 			}
 		}
 	}

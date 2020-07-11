@@ -13,11 +13,7 @@ import org.javautil.document.renderer.CsvRendererRequestImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * 
- * @author jjs@dbexperts.com
- * 
- */
+
 public class DatasetMarshaller {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());

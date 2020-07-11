@@ -1,0 +1,1 @@
+m4 README.m4 > README.md

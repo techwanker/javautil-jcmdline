@@ -17,7 +17,7 @@ worksheets:
            select * 
            from etl_sale
            where etl_file_id =:etl_file_id
-    Invenotory:   
+    Inventory:   
        name: Inventory
        sql: >
            select * 
