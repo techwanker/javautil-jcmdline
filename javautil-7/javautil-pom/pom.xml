@@ -13,7 +13,7 @@
 	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>../javautil-commandline</module>
+		<module>../javautil-jcmdline</module>
 		<module>../javautil-core</module>
 		<module>../javautil-hibernate</module>
 		<module>../javautil-joblog</module>
