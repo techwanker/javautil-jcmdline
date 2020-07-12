@@ -30,5 +30,14 @@ public class WorkbookWriterArgumentsTest {
 		assertEquals(new BigDecimal(19), binds.get("nbr"));
 		assertEquals("hello",binds.get("text"));
 	}
+	
+	@Test
+	public void showHelp() {
+		final String  DATASOURCE="integration_postgres_sr";
+
+		String args[] = {"--help"};
+		WorkbookWriterArguments arguments = WorkbookWriterArguments.processArguments(args);
+
+	}
 
 }

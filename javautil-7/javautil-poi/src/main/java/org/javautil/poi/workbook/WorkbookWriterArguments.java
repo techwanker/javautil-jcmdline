@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.CommandLineOptionsAndArgumentsHandler;
 import org.javautil.commandline.ParamType;
 import org.javautil.commandline.annotations.Argument;
@@ -19,8 +19,9 @@ import org.slf4j.LoggerFactory;
 import jcmdline.StringParam;
 
 
-public class AllArguments {
-
+public class WorkbookWriterArguments {
+	private static final transient Logger logger  = LoggerFactory.getLogger(WorkbookWriterArguments.class);
+	
 	@Required
 	private File definition;
 	
@@ -34,13 +35,11 @@ public class AllArguments {
 	@Argument
 	@MultiValue(type = ParamType.STRING)
 	private ArrayList<String> bindPair;
-	
+
+	/**
+	 * This is populated from the bindPair arguments which should be specially formatted
+	 */
 	private Binds binds;
-
-
-	private static final transient Logger logger  = LoggerFactory.getLogger(WorkbookWriterArguments.class);
-	
-
 
 	public File getDefinition() {
 		return definition;

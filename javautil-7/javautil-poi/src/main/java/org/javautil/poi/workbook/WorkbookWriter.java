@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.core.misc.Timer;
 import org.javautil.core.sql.BindPair;
 import org.javautil.core.sql.Binds;
