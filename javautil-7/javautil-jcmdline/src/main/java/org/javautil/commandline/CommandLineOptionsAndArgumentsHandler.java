@@ -1,6 +1,7 @@
 package org.javautil.commandline;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -104,19 +105,22 @@ public class CommandLineOptionsAndArgumentsHandler {
 	private final Map<String, Parameter> parametersByTag;
 	private Parameter[] argumentParameters ;
 
-	public CommandLineOptionsAndArgumentsHandler(final Object argumentsBean) {
+	public CommandLineOptionsAndArgumentsHandler(final Object argumentsBean)  {
 
 		if (argumentsBean == null) {
 			errorHandler.handleException("argumentsBean is null");
 		}
 		this.argumentsBean = argumentsBean;
+		
+			this.resourceBundle = BeanPropertyResourceBundle.getPropertyResourceBundle(argumentsBean);
+		
+	
 		parameterCreator = new ParameterCreator(argumentsBean);
 		parametersByTag = parameterCreator.generateParametersForArgumentBean();
 		argumentParameters = parameterCreator.generateParameterArgumentsForClass(this.argumentsBean.getClass());
 		for (Parameter argumentParameter : argumentParameters) {
 			logger.info("argumentParm {} tag []",argumentParameter, argumentParameter.getTag() );
 		}
-
 	}
 
 	/**

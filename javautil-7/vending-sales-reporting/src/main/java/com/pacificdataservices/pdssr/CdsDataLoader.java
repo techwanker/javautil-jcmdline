@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 import java.util.TreeMap;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.core.misc.Timer;
 import org.javautil.core.sql.Binds;
 import org.javautil.core.sql.DataSourceFactory;
@@ -291,7 +291,7 @@ public class CdsDataLoader implements FilenameFilter {
 	public static CdsDataLoaderArgs processArguments(String [] args) {
 		CdsDataLoaderArgs arguments = new CdsDataLoaderArgs();
 
-		final CommandLineHandler clh = new CommandLineHandler(arguments);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(arguments);
 		clh.setDieOnParseError(false);
 		clh.evaluateArguments(args);
 		return arguments;

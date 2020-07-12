@@ -31,18 +31,21 @@ public class BindsFactory {
 	}		};
 
 	public Binds  getStringParamBinds(List<String> args)  {
-		logger.info("StringParam is {} ", args.getClass().getName());
-		Object o = args.get(0);
-		logger.info("o is {} {}", o,o.getClass());
-	//	logger.info("args,get(1) {}",args.get(1));
 		Binds binds = new Binds();
-		for (String wtf : args) {
-		//'	for (String wtf : arg.getValues()) {
-			logger.debug("wtf {}",wtf);
+		if (args == null) { 
+			logger.warn("args is null");
+		} else {
+			logger.info("StringParam is {} ", args.getClass().getName());
+			Object o = args.get(0);
+			logger.info("o is {} {}", o,o.getClass());
+
+			for (String wtf : args) {
+				logger.debug("wtf {}",wtf);
 				NamedObject no = getNamedObject(wtf);
 				binds.put(no.getName(),no.getObject());
-	//		}
+			}
 		}
+
 		return binds;
 	}
 
