@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 import org.javautil.commandline.annotations.Exclusive;
 import org.javautil.commandline.annotations.MultiValue;
@@ -26,9 +25,7 @@ import jcmdline.CmdLineHandler;
 import jcmdline.DateParam;
 import jcmdline.DefaultCmdLineHandler;
 import jcmdline.FileParam;
-import jcmdline.HelpCmdLineHandler;
 import jcmdline.Parameter;
-import jcmdline.StringParam;
 import jcmdline.VersionCmdLineHandler;
 
 /**
@@ -49,7 +46,7 @@ import jcmdline.VersionCmdLineHandler;
  * TODO RequiredUnless Annotation that references a non existent field does not
  * throw an error unless the argument is specified
  */
-public class CommandLineOptionsAndArgumentsHandler {
+public class CommandLineHandlerDelete {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private static final String APPLICATION_NAME = "application.name";
@@ -102,9 +99,8 @@ public class CommandLineOptionsAndArgumentsHandler {
 	private final ParameterCreator parameterCreator;
 
 	private final Map<String, Parameter> parametersByTag;
-	private Parameter[] argumentParameters ;
 
-	public CommandLineOptionsAndArgumentsHandler(final Object argumentsBean) {
+	public CommandLineHandlerDelete(final Object argumentsBean) {
 
 		if (argumentsBean == null) {
 			errorHandler.handleException("argumentsBean is null");
@@ -112,10 +108,6 @@ public class CommandLineOptionsAndArgumentsHandler {
 		this.argumentsBean = argumentsBean;
 		parameterCreator = new ParameterCreator(argumentsBean);
 		parametersByTag = parameterCreator.generateParametersForArgumentBean();
-		argumentParameters = parameterCreator.generateParameterArgumentsForClass(this.argumentsBean.getClass());
-		for (Parameter argumentParameter : argumentParameters) {
-			logger.info("argumentParm {} tag []",argumentParameter, argumentParameter.getTag() );
-		}
 
 	}
 
@@ -170,9 +162,8 @@ public class CommandLineOptionsAndArgumentsHandler {
 		if (commandLineArguments == null) {
 			throw new IllegalArgumentException("commandLineArguments is null");
 		}
-		final Parameter[] params = parametersByTag.values().toArray(
-				new Parameter[parametersByTag.size()]);
-		cmd = createCommandHandler(params);
+
+		createCommandHandler();
 		// TODO make modern
 		final String[] parameters = parser.parseArgumentsAsParameters(commandLineArguments);
 		showParameters(parameters);
@@ -197,74 +188,35 @@ public class CommandLineOptionsAndArgumentsHandler {
 	}
 
 
-	private CmdLineHandler createCommandHandler(Parameter[] optionParameters) {
-		CmdLineHandler retval = null;
-//		final Parameter[] optionParameters = parametersByTag.values().toArray(
-//				new Parameter[parametersByTag.size()]);
+
+	private void createCommandHandler() {
+		final Parameter[] parameters = parametersByTag.values().toArray(
+				new Parameter[parametersByTag.size()]);
 		parser = new CommandLineParser();
 		// todo this is weird
 		final String appDescr = getApplicationDescription() == null ? "No Application Description is available "
 				: getApplicationDescription();
 		final String appName = getApplicationName();
-
 		final DefaultCmdLineHandler dflt = new DefaultCmdLineHandler(appName,
-				appDescr, optionParameters, argumentParameters, parser);
-		dflt.setDieOnParseError(dieOnParseError);
-		retval = dflt;
-		
-		String help = getApplicationHelpText();
-		final HelpCmdLineHandler helper = new HelpCmdLineHandler(help,dflt);
-		
-		errorHandler.setCmdLineHandler(helper);
+				appDescr, parameters, null, parser);
+		cmd = dflt;
+		cmd.setDieOnParseError(dieOnParseError);
+		errorHandler.setCmdLineHandler(cmd);
 		if (applicationVersion != null) {
 			final VersionCmdLineHandler ver = new VersionCmdLineHandler(
 					applicationVersion, dflt);
-			retval = ver;
+			cmd = ver;
 		}
 
 		parser.setIgnoreUnrecognizedOptions(ignoreUnrecognizedOptions);
-		return retval;
 	}
 
-//	private void createCommandHandler() {
-//		final Parameter[] optionParameters = parametersByTag.values().toArray(
-//				new Parameter[parametersByTag.size()]);
-//		parser = new CommandLineParser();
-//		// todo this is weird
-//		final String appDescr = getApplicationDescription() == null ? "No Application Description is available "
-//				: getApplicationDescription();
-//		final String appName = getApplicationName();
-//
-//
-//
-//
-//
-//		final DefaultCmdLineHandler dflt = new DefaultCmdLineHandler(appName,
-//				appDescr, optionParameters, argumentParameters, parser);
-//		cmd = dflt;
-//		cmd.setDieOnParseError(dieOnParseError);
-//		errorHandler.setCmdLineHandler(cmd);
-//		if (applicationVersion != null) {
-//			final VersionCmdLineHandler ver = new VersionCmdLineHandler(
-//					applicationVersion, dflt);
-//			cmd = ver;
-//		}
-//
-//		parser.setIgnoreUnrecognizedOptions(ignoreUnrecognizedOptions);
-//	}
-
-	private void applyParameterValues()
-	{
-		applyParameterValues(parametersByTag.values());
-		applyParameterValues(Arrays.asList			(		argumentParameters));
-
-	}
 	/**
-		loops through the pa
+
 	 */
 	@SuppressWarnings("unchecked")
-	private void applyParameterValues(Iterable<Parameter> parameters) {
-		for (final Parameter parameter : parameters) {
+	private void applyParameterValues() {
+		for (final Parameter parameter : parametersByTag.values()) {
 			final IntrospectedFieldHelper introspection = new IntrospectedFieldHelper(
 					argumentsBean, parameter.getTag());
 			introspection.setRequireGetter(true);
@@ -313,7 +265,6 @@ public class CommandLineOptionsAndArgumentsHandler {
 	 */
 	void multiValueAssign(final Parameter parameter, final Field field,
 			final IntrospectedFieldHelper introspection) {
-		logger.debug("parameter {} getValues []",parameter,parameter.getValues());
 		if (parameter.getValues().size() > 0) {
 			final MultiValue multiValue = field.getAnnotation(MultiValue.class);
 			// TODO if the annotation
@@ -340,9 +291,7 @@ public class CommandLineOptionsAndArgumentsHandler {
 					introspection.invokeSetter(values);
 				}
 			}
-		} else {
-			logger.info("parameter {} has no values");
-			}
+		}
 	}
 
 	/**
@@ -602,9 +551,6 @@ public class CommandLineOptionsAndArgumentsHandler {
 	}
 
 	public ResourceBundle getResourceBundle() {
-		if (resourceBundle == null) {
-			logger.warn("resourceBundle is null");
-		}
 		return resourceBundle;
 	}
 
@@ -633,8 +579,8 @@ public class CommandLineOptionsAndArgumentsHandler {
 	}
 
 	/** Should be allthe parameters after the options */
-
-	public Collection<StringParam> getArguments() {
+	
+	public Collection<String> getArguments() {
 		// TODO Auto-generated method stub
 		return cmd.getArgs();
 	}

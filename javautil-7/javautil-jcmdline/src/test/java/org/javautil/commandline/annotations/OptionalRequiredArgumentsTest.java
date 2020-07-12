@@ -3,7 +3,7 @@ package org.javautil.commandline.annotations;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.junit.Test;
 
 public class OptionalRequiredArgumentsTest extends BaseTest {
@@ -11,7 +11,7 @@ public class OptionalRequiredArgumentsTest extends BaseTest {
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void testEtc() throws CmdLineException {
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		final String argString = "-requiredDirectory /etc";
 		clh.evaluateArgumentsString(argString);
 	}

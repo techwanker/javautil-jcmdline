@@ -8,7 +8,7 @@ import java.util.Date;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.Day;
 import org.javautil.commandline.ParamType;
 
@@ -47,7 +47,7 @@ public class DateArgumentsTest extends BaseTest {
 
 	@Test
 	public void testDate() throws CmdLineException {
-		final CommandLineHandler clh = new CommandLineHandler(this);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(this);
 		final String argString = "-date 08/07/10 -dates 08/09/10 -dates 08/10/10";
 		clh.evaluateArgumentsString(argString);
 		final Day day = new Day(2010, 8, 7);

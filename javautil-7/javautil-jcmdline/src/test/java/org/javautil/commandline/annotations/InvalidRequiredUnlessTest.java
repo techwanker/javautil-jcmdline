@@ -3,7 +3,7 @@ package org.javautil.commandline.annotations;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.junit.Test;
 
 public class InvalidRequiredUnlessTest extends BaseTest {
@@ -48,6 +48,6 @@ public class InvalidRequiredUnlessTest extends BaseTest {
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void test1() throws CmdLineException {
-		new CommandLineHandler(this);
+		new CommandLineHandlerDelete(this);
 	}
 }

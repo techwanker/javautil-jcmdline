@@ -19,7 +19,7 @@ public class WorkbookWriterArgumentsTest {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Ignore
+
 	@Test
 	public void test2() {
 		String args[] = {"--dataSource","integration_postgres_sr","--definition","file.yaml","--outfile=/tmp/out.xls","a=b","c","d"};
@@ -30,7 +30,7 @@ public class WorkbookWriterArgumentsTest {
 		
 		
 	}
-	@Ignore
+	
 	@Test
 	public void test3() {
 		final String dataSource = "integraton_postgress_sr";

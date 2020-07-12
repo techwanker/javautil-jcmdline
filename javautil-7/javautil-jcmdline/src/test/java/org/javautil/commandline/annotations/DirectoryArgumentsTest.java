@@ -3,7 +3,7 @@ package org.javautil.commandline.annotations;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.junit.Test;
 
 public class DirectoryArgumentsTest extends BaseTest {
@@ -11,7 +11,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void optionalDirectory() throws CmdLineException {
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		final String argString = "-optionalDirectory ";
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString(argString);
@@ -20,7 +20,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void test2() throws CmdLineException {
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		final String argString = "-yo ";
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString(argString);
@@ -31,7 +31,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	public void optionalNonExistentDirectory() throws CmdLineException {
 		// todo ensure that this directory doesn't exist
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		clh.setDieOnParseError(false);
 		final String argString = "-optionalReadableDirectory swizzle ";
 		clh.evaluateArgumentsString(argString);
@@ -41,7 +41,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	public void test6() throws CmdLineException {
 		// todo ensure that this directory doesn't exist
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		final String argString = "-requiredDirectory src ";
 		clh.evaluateArgumentsString(argString);
 	}
@@ -50,7 +50,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	public void optionalExistingReadableDirectoryTest() throws CmdLineException {
 		// todo ensure that this directory doesn't exist
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		clh.setDieOnParseError(false);
 		final String argString = "-requiredDirectory src -optionalExistingReadableDirectory swizzle";
 		clh.evaluateArgumentsString(argString);
@@ -60,7 +60,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	public void optionalReadableDirectoryTest() throws CmdLineException {
 		// todo ensure that this directory doesn't exist
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		clh.setDieOnParseError(false);
 		final String argString = "-requiredDirectory src -optionalReadableDirectory swizzle";
 		clh.evaluateArgumentsString(argString);
@@ -71,7 +71,7 @@ public class DirectoryArgumentsTest extends BaseTest {
 	public void test5() throws CmdLineException {
 		// todo ensure that this directory doesn't exist
 		final DirectoryArguments da = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(da);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(da);
 		clh.setDieOnParseError(false);
 		final String argString = "-requiredDirectory swizzle ";
 		clh.evaluateArgumentsString(argString);

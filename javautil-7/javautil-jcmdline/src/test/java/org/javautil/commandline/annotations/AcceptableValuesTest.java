@@ -2,7 +2,7 @@ package org.javautil.commandline.annotations;
 
 import jcmdline.CmdLineException;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.NoExitSecurityManager;
 import org.junit.After;
 import org.junit.Before;
@@ -20,7 +20,7 @@ public class AcceptableValuesTest {
 		System.setSecurityManager(null);
 	}
 
-	private final CommandLineHandler clh = new CommandLineHandler(this);
+	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(this);
 
 	@Required
 	@AcceptableValues(values = { "a", "b" })

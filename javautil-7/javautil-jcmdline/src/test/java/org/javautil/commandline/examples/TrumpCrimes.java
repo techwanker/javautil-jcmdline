@@ -1,6 +1,6 @@
 package org.javautil.commandline.examples;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +17,7 @@ public class TrumpCrimes {
 			logger.info("arg " + arg);
 		}
 		TrumpCrimesArguments  arguments = new TrumpCrimesArguments();
-		new CommandLineHandler(arguments).evaluateArguments(args);
+		new CommandLineHandlerDelete(arguments).evaluateArguments(args);
 		new TrumpCrimes(arguments);
 		//invocation.process(arguments);
 	}

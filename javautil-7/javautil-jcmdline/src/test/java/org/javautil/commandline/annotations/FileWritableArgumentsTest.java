@@ -7,7 +7,7 @@ import jcmdline.CmdLineException;
 import jcmdline.Parameter;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class FileWritableArgumentsTest extends BaseTest {
 
 	private final FileWritableArguments argumentBean = new FileWritableArguments();
 
-	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 
 	
 	@Test

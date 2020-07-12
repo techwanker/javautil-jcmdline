@@ -4,80 +4,29 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.javautil.commandline.CommandLineOptionsAndArgumentsHandler;
 import org.javautil.commandline.ParamType;
-import org.javautil.commandline.annotations.AcceptableValues;
 import org.javautil.commandline.annotations.Argument;
-import org.javautil.commandline.annotations.DirectoryExists;
-import org.javautil.commandline.annotations.DirectoryReadable;
-import org.javautil.commandline.annotations.DirectoryWritable;
-import org.javautil.commandline.annotations.Exclusive;
-import org.javautil.commandline.annotations.FileExists;
-import org.javautil.commandline.annotations.FileReadable;
-import org.javautil.commandline.annotations.FileWritable;
 import org.javautil.commandline.annotations.MultiValue;
 import org.javautil.commandline.annotations.Optional;
 import org.javautil.commandline.annotations.Required;
+import org.javautil.core.sql.Binds;
+import org.javautil.text.BindsFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import jcmdline.StringParam;
 
 
-public class AllArguments {
-	
-	
+public class WorkbookWriterArguments {
 
-//    @DependentField
-
-//    @FieldValue
-//
-//    @FileWritable
-//    @Hidden
-//    @MultiValueBean
-//    @MultiValue
-//    @Optional
-//    
-//    @Required
-//    @RequiredUnless
-//    @Requires
-//    @StringSet
-//    private String toadlick;
-
-   
-    @Optional
-     @AcceptableValues(values = {"a", "b"}) 
-    
-    private String acceptable;
-    
-    
-	@FileReadable
-	@FileExists
 	@Required
 	private File definition;
-	
-	@FileWritable
-	@Required
-	private File definitionOutput;
-
 	
 	@Required
 	private String dataSourceName;
 	
-	@DirectoryReadable
-	@DirectoryWriteable
-	@DirectoryExists
-	private File databaseDirectory;
-	
-	@Optional
-	@Exclusive(property = "inputFile") Long workbookLoadId = null;
-	
-	@Optional
-	File inputFile ;
-	
-	
-	@FileWritable
 	@Required
 	private File outfile;
 	
@@ -85,9 +34,11 @@ public class AllArguments {
 	@Argument
 	@MultiValue(type = ParamType.STRING)
 	private ArrayList<String> bindPair;
+	
+	private Binds binds;
 
 
-	private static final transient Logger logger  = LoggerFactory.getLogger(AllArguments.class);
+	private static final transient Logger logger  = LoggerFactory.getLogger(WorkbookWriterArguments.class);
 	
 
 
@@ -127,16 +78,28 @@ public class AllArguments {
 		this.bindPair = bindPair;
 	}
 
-	public static AllArguments processArguments(String [] args) {
-		AllArguments argumentBean = new AllArguments();
+	public Binds getBinds() {
+		return binds;
+	}
+
+	public void setBinds(Binds binds) {
+		this.binds = binds;
+	}
+
+	public static WorkbookWriterArguments processArguments(String [] args) {
+		WorkbookWriterArguments argumentBean = new WorkbookWriterArguments();
 
 		final CommandLineOptionsAndArgumentsHandler clh = new CommandLineOptionsAndArgumentsHandler(argumentBean);
 		clh.setIgnoreUnrecognizedOptions(false);
 		clh.setDieOnParseError(false);
 		clh.evaluateArguments(args);
-		logger.info("binds {}", argumentBean.bindPair);
+		BindsFactory bf = new BindsFactory();
+		argumentBean.setBinds(bf.getStringParamBinds(argumentBean.bindPair));
+		logger.info("binds {}", argumentBean.getBinds());
 		//argumentBean.bindPair = clh.getArguments();
 		return argumentBean;
 	}
+
+
 	
 }

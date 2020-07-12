@@ -1,3 +1,5 @@
+changequote(`{{', `}}')
+<a name="home"/>
 # javautil-commandline
 
 Create command line arguments by creating an annotated commandline bean
@@ -6,15 +8,42 @@ Create command line arguments by creating an annotated commandline bean
 
 clone this repository and *mvn clean install*
 
-## Example
+# Quick Start
 
+Using the *javautil-jcmdline*  requires the following steps:
 
+*   Define the option and argument [Parameters](#param) the command will
+    accept by annotating an *Argument Bean* TODO
+*   Create a properties file that describes the program and parameters TODO properties file 
+*   Call the **getArguments** method on the Arguments Bean
 
-### Arguments Bean
+TODO checks 
+TODO better than 100 set methods not just for main
+TODO validate a populated bean
 
-changequote(`{{', `}}')
+## Semantics
+
+Throughout this document, the following semantics are used:
+
+* **option**    A command line **option** is comprised of an identifying "tag",
+    typically preceded by a dash or two, and optionally requires a
+    value. A typical *option* might be "`-outfile /tmp/myfile`".
+* **argument**   A command line *argument* is specified on the command line after all
+    of the options and their values.
+* **parameter**  A command line *parameter* is an *option* or an *argument*.
+
+<a name="ArgumentBean">
+## Arguments Bean
+</a>
+The *argument bean* will hold all of the specified options and parameters.
+
+Each member has one or more [annotations](#Annotations) that describe the requirements for
+the parameter and affect the parsing response to user input and validation.
+
+### Example Arguments Bean 
+
 ```
-include({{md/DataLoadWorkbookMeta2.yaml}})
+include({{md/WorkbookWriterArguments.java}})
 ```
 
 	
@@ -52,9 +81,6 @@ datasourceName.description=JNDI or connections.yaml datasource name
 include({{md/DataLoadWorkbookArguments.properties}})
 ```
 
-	
-
-```
 
 ### Prerequisites
 
@@ -65,41 +91,13 @@ Give examples
 
 
 ## Annotations
+include({{md/DataLoadWorkbookArguments.properties}})
 
-* File Parameterfs
-  * FileExists
-  * FileReadable
-  * FileWritable
-  * DirectoryArguments
-  * DirectoryExists
-  * DirectoryReadable
-  * DirectoryWritable
-* Mandatoriness
-  * DependentField
-  * Optional
-  * OptionalRequiredArguments
-  * Required
-  * RequiredUnlessArguments
-  * RequiredUnless
-  * RequiresArguments
-  * Requires
-* Cardinality
-  * MultiValue
-  * MultiValueBean
-* Constraints
-   * AcceptableValues
 
- 
-* ExclusiveArguments
-* Exclusive
-* FieldValue
-* Hidden
-* InheritenceArguments
-* IntegerArguments
-* StringSet
+# jcmdline Package User Guide Release 3.0.0
 
-jcmdline Package User Guide Release 3.0.0
-=========================================
+
+<a name="toc"/>
 
 [Introduction](#toc1)\
  [Obtaining this Document](#toc2)\
@@ -122,9 +120,9 @@ jcmdline Package User Guide Release 3.0.0
  [Best Practices Suggestions](#toc19)\
 
 [[toc]](#toc)
+
 <a name="Introduction">
 Introduction</a>
-============
 
 The *jcmdline* package contains classes used to parse and process
 command line options and arguments from a Java program. This package was
@@ -138,8 +136,8 @@ written with the following goals:
 
 [[toc]](#toc)
 
-Obtaining this Document
-=======================
+# Obtaining this Document
+
 
 The most current version of this user guide is supplied in the
 *doc-files* directory for the jcmdline package. It is accessible from a
@@ -148,8 +146,7 @@ jcmdline API javadoc and/or may be downloaded with the source files.
 
 [[toc]](#toc)
 
-Some Semantics
-==============
+# Some Semantics
 
 Throughout this document, the following semantics are used.
 
@@ -173,22 +170,21 @@ For instance:
 
 [[toc]](#toc)
 
-Quick Start
-===========
+# Quick Start
+
 
 Using the *jcmdline* package requires the following steps:
 
--   Define the option and argument [Parameters](#param) the command will
+*   Define the option and argument [Parameters](#param) the command will
     accept.
--   Create a [CmdLineHandler](#clh) using the defined options and
+*   Create a [CmdLineHandler](#clh) using the defined options and
     arguments.
--   Call the `parse()` method of the CmdLineHandler.
--   Access the values that have been set in the parameters.
+*   Call the `parse()` method of the CmdLineHandler.
+*   Access the values that have been set in the parameters.
 
 [[toc]](#toc)
 
-Define The Parameters
----------------------
+## Define The Parameters
 
 For this example, set up some parameters for a program that will work
 sort of like the Unix "grep" command:
@@ -226,8 +222,7 @@ sort of like the Unix "grep" command:
 
 [[toc]](#toc)
 
-Create a CmdLineHandler
------------------------
+## Create a CmdLineHandler
 
 Next a `CmdLineHandler` is instantiated to process the command line:
 
@@ -248,8 +243,7 @@ options)..
 
 [[toc]](#toc)
 
-Parse the Command Line
-----------------------
+## Parse the Command Line
 
 Now parse the command line:
 
@@ -293,8 +287,7 @@ specified is:
 
 [[toc]](#toc)
 
-Access the Processed Parameters
--------------------------------
+## Access the Processed Parameters
 
 Following the call to the `CmdLineHandler`, it can be assumed that:
 
@@ -332,8 +325,7 @@ display the usage and error message in case of error.
 
 [[toc]](#toc)
 
-Parameters
-==========
+## Parameters
 
 All command line options and arguments are represented by
 [Parameter](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/Parameter.html)
@@ -372,20 +364,9 @@ objects. All parameters support the following characteristics:
 |                                      | This is frequently used with the     |
 |                                      | final command line argument when the |
 |                                      | command accepts multiple instances.  |
-```
-application.name=CdsDataLoader
-application.HelpText=Reads a CDS reporting format file and populates Load table
-datasourceName.description=JNDI or connections.yaml datasource name
-distributorCode.description=The identifier for the reporting distributor 
-
-```
-
-### Prerequisites
-
-What things you need to install the software and how to install them
 
 
-Give examples
+
 
 
 ## Annotations

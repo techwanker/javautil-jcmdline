@@ -9,7 +9,7 @@ public class ArgumentBeanTest {
 	// No such directory
 	public void testArguments() throws CmdLineException {
 		final ArgumentBean argumentBean = new ArgumentBean();
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString("-required twit");
 	}

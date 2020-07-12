@@ -4,14 +4,14 @@ import static org.junit.Assert.assertEquals;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.NoExitException;
 import org.junit.Test;
 
 public class RequiresTest extends BaseTest {
 
 	private final RequiresArguments argumentBean = new RequiresArguments();
-	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 
 	@Test
 	public void test1() throws CmdLineException {

@@ -5,14 +5,14 @@ import jcmdline.CmdLineException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.NoExitException;
 import org.junit.Test;
 
 public class ExclusiveArgumentsTest extends BaseTest {
 
 	private final ExclusiveArguments argumentBean = new ExclusiveArguments();
-	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Test

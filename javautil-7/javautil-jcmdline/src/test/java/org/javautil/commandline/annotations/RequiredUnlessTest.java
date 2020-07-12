@@ -3,14 +3,14 @@ package org.javautil.commandline.annotations;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.NoExitException;
 import org.junit.Test;
 
 public class RequiredUnlessTest extends BaseTest {
 
 	private final RequiredUnlessArguments argumentBean = new RequiredUnlessArguments();
-	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 
 	public void test1() throws CmdLineException {
 		final String argString = "-frog 1 -toad 2 ";

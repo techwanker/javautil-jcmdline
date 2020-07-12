@@ -41,7 +41,7 @@ public class CommandLineHandlerTest extends BaseTest {
 		// ResourceBundle resources =
 		// ResourceBundle.getBundle("org.javautil.commandline.annotations.DirectoryArguments");
 		final DirectoryArguments argumentBean = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString("-required twit");
 	}
@@ -51,7 +51,7 @@ public class CommandLineHandlerTest extends BaseTest {
 		// ResourceBundle resources =
 		// ResourceBundle.getBundle("org.javautil.commandline.annotations.DirectoryArguments");
 		final DirectoryArguments argumentBean = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		clh.throwIllegalArgumentException();
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString("-requires twit");
@@ -60,14 +60,14 @@ public class CommandLineHandlerTest extends BaseTest {
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	// null bean not allowed.
 	public void testNullBean() {
-		new CommandLineHandler(null);
+		new CommandLineHandlerDelete(null);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	// null bean not allowed.
 	public void testNullArguments() {
 		final DirectoryArguments argumentBean = new DirectoryArguments();
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		clh.evaluateArguments(null);
 	}
 

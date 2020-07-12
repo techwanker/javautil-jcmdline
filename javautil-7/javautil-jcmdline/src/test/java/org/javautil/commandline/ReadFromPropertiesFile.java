@@ -12,7 +12,7 @@ public class ReadFromPropertiesFile extends BaseTest {
 	@Test
 	public void testEquals() throws CmdLineException {
 		final IntegerArguments argumentBean = new IntegerArguments();
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		clh.evaluateArgumentsString("--from-properties=src/test/resources/org/javautil/commandline/ReadFromPropertiesFile.properties");
 		assertEquals(new Integer(1), argumentBean.getIntValue());
 	}
@@ -20,7 +20,7 @@ public class ReadFromPropertiesFile extends BaseTest {
 	@Test
 	public void test2() throws CmdLineException {
 		final IntegerArguments argumentBean = new IntegerArguments();
-		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 		clh.evaluateArgumentsString("--from-properties src/test/resources/org/javautil/commandline/ReadFromPropertiesFile.properties");
 		assertEquals(new Integer(1), argumentBean.getIntValue());
 	}

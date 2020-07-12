@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.junit.Test;
 
 /**
@@ -36,7 +36,7 @@ public class BooleanArgumentsTest extends BaseTest {
 	@Test
 	public void testBools() throws CmdLineException {
 		final BooleanArguments bools = new BooleanArguments();
-		final CommandLineHandler clh = new CommandLineHandler(bools);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(bools);
 		final String argString = "-bean ";
 		clh.evaluateArgumentsString(argString);
 

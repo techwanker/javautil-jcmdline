@@ -4,12 +4,12 @@ import static org.junit.Assert.assertEquals;
 import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.junit.Test;
 
 public class Example1ArgumentsTest extends BaseTest {
 	private final Example1Arguments argumentBean = new Example1Arguments();
-	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
+	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
 
 	// @Test (expected=org.javautil.security.NoExitException.class)
 	@Test(expected = java.lang.IllegalArgumentException.class)
