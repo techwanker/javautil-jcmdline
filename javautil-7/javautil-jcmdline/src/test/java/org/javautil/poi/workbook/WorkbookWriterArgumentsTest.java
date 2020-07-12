@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -26,9 +27,7 @@ public class WorkbookWriterArgumentsTest {
 		WorkbookWriterArguments arguments = WorkbookWriterArguments.processArguments(args);
 		assertNotNull(arguments);
 
-		assertEquals("integration_postgres_sr",arguments.getDataSourceName());
-		
-		
+		assertEquals("integration_postgres_sr",arguments.getDataSourceName());		
 	}
 	
 	@Test
@@ -50,6 +49,7 @@ public class WorkbookWriterArgumentsTest {
 		}
 		// for (Object String v : bindPairs.)
 	}
+	
 	@Test
 	public void test4() {
 		final String dataSource = "integraton_postgress_sr";
