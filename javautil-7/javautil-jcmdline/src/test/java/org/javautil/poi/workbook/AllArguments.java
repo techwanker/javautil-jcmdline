@@ -1,6 +1,7 @@
 package org.javautil.poi.workbook;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -111,7 +112,7 @@ public class AllArguments {
 		this.bindPair = bindPair;
 	}
 
-	public static AllArguments processArguments(String [] args) {
+	public static AllArguments processArguments(String [] args) throws IOException {
 		AllArguments argumentBean = new AllArguments();
 
 		final CommandLineOptionsAndArgumentsHandler clh = new CommandLineOptionsAndArgumentsHandler(argumentBean);

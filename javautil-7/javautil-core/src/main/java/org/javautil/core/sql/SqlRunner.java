@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.io.ResourceHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -254,7 +254,7 @@ public class SqlRunner {
 	public static void main(String[] args) throws SQLException, IOException, ParseException {
 		SqlRunner invocation = new SqlRunner();
 		SqlRunnerArgs arguments = new SqlRunnerArgs();
-		new CommandLineHandler(arguments).evaluateArguments(args);
+		new CommandLineHandlerDelete(arguments).evaluateArguments(args);
 		invocation.process(arguments);
 	}
 

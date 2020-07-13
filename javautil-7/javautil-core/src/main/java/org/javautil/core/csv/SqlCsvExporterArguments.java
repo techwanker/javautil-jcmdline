@@ -2,7 +2,7 @@ package org.javautil.core.csv;
 
 import java.io.File;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.commandline.annotations.Optional;
 import org.javautil.commandline.annotations.Required;
 
@@ -53,7 +53,7 @@ public class SqlCsvExporterArguments {
 	}
 
 	public void parseArguments(String[] args) {
-		new CommandLineHandler(this).evaluateArguments(args);
+		new CommandLineHandlerDelete(this).evaluateArguments(args);
 	}
 
 }

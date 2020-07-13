@@ -1,6 +1,8 @@
 package org.javautil.poi.workbook;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -18,6 +20,9 @@ import jcmdline.StringParam;
 
 
 public class WorkbookWriterArguments {
+	
+
+	private static final transient Logger logger  = LoggerFactory.getLogger(WorkbookWriterArguments.class);
 
 	@Required
 	private File definition;
@@ -33,9 +38,6 @@ public class WorkbookWriterArguments {
 	@MultiValue(type = ParamType.STRING)
 	private ArrayList<String> bindPair;
 
-
-	private static final transient Logger logger  = LoggerFactory.getLogger(WorkbookWriterArguments.class);
-	
 
 
 	public File getDefinition() {
@@ -73,6 +75,32 @@ public class WorkbookWriterArguments {
 	public void setBindPair(ArrayList<String> bindPair) {
 		this.bindPair = bindPair;
 	}
+	
+	
+	public void trythis(String name) throws IOException {
+		InputStream is = getClass().getClassLoader().getResourceAsStream(name); 
+		logger.info("name {} is {}", name, is);	
+		if (is != null) {
+			is.close();
+		}
+	}
+	
+//	public void testResource() throws IOException {
+//		//String propertiesFileName = getClass().getName() + ".properties";
+//		String propertiesFileName = getClass().getSimpleName() + ".properties";
+//		logger.info("propertiesFileName is " + propertiesFileName);
+//		String fileName = "target/test-classes/" + getClass().getName().replace(".", "/") + ".properties";
+//		File file = new File(fileName);
+//		if (! file.exists()) {
+//			logger.error("file " + file + " does not exist");
+//		} else {
+//			logger.error("file " + file + " exists");
+//		}
+//		trythis(propertiesFileName); 
+//		trythis("/org/javautil/poi/workbook/WorkbookWriterArguments.properties");
+//		trythis("org/javautil/poi/workbook/WorkbookWriterArguments.properties");
+//		logger.info("testResource complete");
+//	}
 
 	public static WorkbookWriterArguments processArguments(String [] args) {
 		WorkbookWriterArguments argumentBean = new WorkbookWriterArguments();

@@ -33,12 +33,18 @@ Throughout this document, the following semantics are used:
 * **parameter**  A command line *parameter* is an *option* or an *argument*.
 
 <a name="ArgumentBean">
+
 ## Arguments Bean
 </a>
+
 The *argument bean* will hold all of the specified options and parameters.
 
 Each member has one or more [annotations](#Annotations) that describe the requirements for
 the parameter and affect the parsing response to user input and validation.
+
+After the arguments are parsed and validated the argument bean members will be populated and 
+are accessed using the *get* and *is* accessors; the receiving program has no dependency or awareness
+of how the bean was populated.
 
 ### Example Arguments Bean 
 
@@ -97,9 +103,9 @@ include({{md/DataLoadWorkbookArguments.properties}})
 # jcmdline Package User Guide Release 3.0.0
 
 
-<a name="toc"/>
+<a name="toc">
 
-[Introduction](#toc1)\
+[Introduction](#Introduction)\
  [Obtaining this Document](#toc2)\
  [Some Semantics](#toc3)\
  [Quick Start](#toc4)\
@@ -118,8 +124,9 @@ include({{md/DataLoadWorkbookArguments.properties}})
        [CmdLineHandler Decorators](#toc17)\
        [Writing CmdLineHandler Decorators](#toc18)\
  [Best Practices Suggestions](#toc19)\
+</a>
 
-[[toc]](#toc)
+
 
 <a name="Introduction">
 Introduction</a>
@@ -423,8 +430,7 @@ jcmdline Package User Guide Release 2.0.0
 
 [[toc]](#toc)
 
-Introduction
-============
+# Introduction
 
 The *jcmdline* package contains classes used to parse and process
 command line options and arguments from a Java program. This package was
@@ -438,8 +444,7 @@ written with the following goals:
 
 [[toc]](#toc)
 
-Obtaining this Document
-=======================
+# Obtaining this Document
 
 The most current version of this user guide is supplied in the
 *doc-files* directory for the jcmdline package. It is accessible from a
@@ -448,8 +453,7 @@ jcmdline API javadoc and/or may be downloaded with the source files.
 
 [[toc]](#toc)
 
-Some Semantics
-==============
+# Some Semantics
 
 Throughout this document, the following semantics are used.
 
@@ -473,8 +477,7 @@ For instance:
 
 [[toc]](#toc)
 
-Quick Start
-===========
+# Quick Start
 
 Using the *jcmdline* package requires the following steps:
 
@@ -487,8 +490,7 @@ Using the *jcmdline* package requires the following steps:
 
 [[toc]](#toc)
 
-Define The Parameters
----------------------
+## Define The Parameters
 
 For this example, set up some parameters for a program that will work
 sort of like the Unix "grep" command:
@@ -526,8 +528,7 @@ sort of like the Unix "grep" command:
 
 [[toc]](#toc)
 
-Create a CmdLineHandler
------------------------
+## Create a CmdLineHandler
 
 Next a `CmdLineHandler` is instantiated to process the command line:
 
@@ -548,8 +549,7 @@ options)..
 
 [[toc]](#toc)
 
-Parse the Command Line
-----------------------
+## Parse the Command Line
 
 Now parse the command line:
 
@@ -593,8 +593,7 @@ specified is:
 
 [[toc]](#toc)
 
-Access the Processed Parameters
--------------------------------
+## Access the Processed Parameters
 
 Following the call to the `CmdLineHandler`, it can be assumed that:
 
@@ -632,8 +631,7 @@ display the usage and error message in case of error.
 
 [[toc]](#toc)
 
-Parameters
-==========
+# Parameters
 
 All command line options and arguments are represented by
 [Parameter](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/Parameter.html)
@@ -723,7 +721,6 @@ types of common parameters. See the list of subclasses for
 for a complete list. As of this writing, the following `Parameter`
 classes are available:
 
-  ------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------
   [StringParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/StringParam.html)       handles generic string parameters - can be used for any parameter for which a more specific class does not exist
   [FileParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/FileParam.html)           handles filename parameters
   [IntParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/IntParam.html)             handles numeric integer parameters
@@ -731,7 +728,6 @@ classes are available:
   [DateTimeParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/DateTimeParam.html)   handles parameters consisting of a date and time
   [DateParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/DateParam.html)           handles parameters consisting of a date only
   [TimeParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/TimeParam.html)           handles parameters consisting of a time only
-  ------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------
 
 If an application supports several different commands, more than one of
 which accepts a new and different type of Parameter, it is strongly
@@ -742,8 +738,7 @@ amongst the commands in the application.
 
 [[toc]](#toc)
 
-When Supplied Parameters Are Not Adequate
------------------------------------------
+## When Supplied Parameters Are Not Adequate
 
 It may sometimes be the case that the Parameter classes supplied by the
 *jcmdline* package cannot completely validate a parameter. For instance,
@@ -792,8 +787,7 @@ for the class.
 
 [[toc]](#toc)
 
-Command Line Handlers
-=====================
+# Command Line Handlers
 
 The CmdLineHandler classes control the parsing and validation of command
 line parameters. This package comes with one basic CmdLineHandler,
@@ -823,8 +817,7 @@ The CmdLineHandler performs the following functions:
 
 [[toc]](#toc)
 
-Parsers
--------
+## Parsers
 
 A `CmdLineHandler` uses a
 [CmdLineParser](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/CmdLineParser.html)
@@ -880,8 +873,7 @@ but the option is there for a user to define their own.
 
 [[toc]](#toc)
 
-CmdLineHandler Decorators
--------------------------
+## CmdLineHandler Decorators
 
 A Decorator, or Wrapper, pattern has been set up to facilitate the
 implementation of options whose processing can take place entirely at
@@ -908,7 +900,6 @@ package include the following. All of these classes take their option
 tags from a resource bundle. The values defined for English are used in
 the descriptions.
 
-  ----------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [DefaultCmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/DefaultCmdLineHandler.html)   A `CmdLineHandler` that implements options that will cause command usage to be displayed. The option tags are "-h" or "-?" to display regular usage, "-h!" to display a usage that includes hidden parameters.
   [HelpCmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/HelpCmdLineHandler.html)         A `CmdLineHandler` that implements options that will cause command usage and a more verbose help message to be displayed. The option tags are "-help" to display regular help and "-help!" to display a help text that includes hidden parameters.
   [VersionCmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/VersionCmdLineHandler.html)   A `CmdLineHandler` that implements an option that will cause the command version to be displayed. The option tag is "-version".
@@ -936,8 +927,7 @@ specific options and arguments, the following would work:
 
 [[toc]](#toc)
 
-Writing CmdLineHandler Decorators
----------------------------------
+## Writing CmdLineHandler Decorators
 
 The class
 [AbstractHandlerDecorator](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/AbstractHandlerDecorator.html)
@@ -955,8 +945,7 @@ for `AbstractHandlerDecorator`, so they will not be repeated here.
 
 [[toc]](#toc)
 
-Best Practices Suggestions
-==========================
+# Best Practices Suggestions
 
 Following are suggestions from the author of this package for how to get
 the best results, particularly when your application includes multiple
@@ -985,9 +974,6 @@ executables.
     demonstrates this can be found
     [here](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/doc-files/MyappCmdLineHandler.java.txt).
 
-* * * * *
-
-*Last Updated on 10/29/02*
 
 Lynne Lawrence\
  [lgl@visuallink.com](mailto:lgl@visuallink.com)\

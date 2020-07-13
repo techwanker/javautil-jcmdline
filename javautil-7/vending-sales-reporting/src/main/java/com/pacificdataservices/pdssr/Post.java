@@ -9,7 +9,7 @@ import java.util.Date;
 
 import javax.sql.DataSource;
 
-import org.javautil.commandline.CommandLineHandler;
+import org.javautil.commandline.CommandLineHandlerDelete;
 import org.javautil.core.sql.Binds;
 import org.javautil.core.sql.DataSourceFactory;
 import org.javautil.core.sql.Dialect;
@@ -121,7 +121,7 @@ public class Post {
 	public static PostArgs processArguments(String [] args) {
 		PostArgs arguments = new PostArgs();
 
-		final CommandLineHandler clh = new CommandLineHandler(arguments);
+		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(arguments);
 		clh.setDieOnParseError(false);
 		clh.evaluateArguments(args);
 		return arguments;
