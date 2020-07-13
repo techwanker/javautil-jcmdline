@@ -17,6 +17,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<commons.lang.version>2.4</commons.lang.version>
+                <org.yaml.version>1.26</org.yaml.version>
 	</properties>
 
 	<dependencies>
@@ -36,6 +37,11 @@
 			<artifactId>javautil-condition-identification</artifactId>
 			<version>8.6.21</version>
 		</dependency>
+		<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>javautil-poi</artifactId>
+			<version>8.6.21</version>
+		</dependency>
 		<!-- unit testing -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -53,7 +59,7 @@
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
-			<version>1.5</version>
+			<version>${org.yaml.version}</version>
 		</dependency>
 
 		<!-- database -->
@@ -62,7 +68,7 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.2.1</version>
-			<scope>test</scope>
+	
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
 		<dependency>
@@ -77,4 +83,35 @@
 			<version>3.5</version>
 		</dependency>
 	</dependencies>
+	
+	<build>
+    <finalName>vending-sales-reporting-demo</finalName>
+    <plugins>
+
+        <!-- other Maven plugins ... -->
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.1</version>
+
+            <configuration>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+
+        </plugin>
+    </plugins>
+</build>
 </project>

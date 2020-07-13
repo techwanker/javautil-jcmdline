@@ -28,6 +28,10 @@ public class WorkbookWriterArguments {
 	@Required
 	private String dataSourceName;
 	
+	@Optional
+	private String loggerDataSourceName = null;
+	
+
 	@Required
 	private File outfile;
 	
@@ -83,6 +87,14 @@ public class WorkbookWriterArguments {
 
 	public void setBinds(Binds binds) {
 		this.binds = binds;
+	}
+
+	public String getLoggerDataSourceName() {
+		return loggerDataSourceName;
+	}
+
+	public void setLoggerDataSourceName(String loggerDataSourceName) {
+		this.loggerDataSourceName = loggerDataSourceName;
 	}
 
 	public static WorkbookWriterArguments processArguments(String [] args) {

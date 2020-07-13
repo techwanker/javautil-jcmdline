@@ -76,16 +76,22 @@ public class WorkbookRenderInstrumentedTest {
 
 		Binds binds = new Binds();
 		binds.put("etl_file_id", 1);
-		WorkbookWriter workbookRenderer = new WorkbookWriter(conn, loggingConnection, wd, binds);
-		workbookRenderer.process();
-		conn.close();
-		((Closeable) dataSource).close();
 		// write
 		String tmpDir = "target/tmp/";
 		File f = new File(tmpDir);
 		f.mkdirs();
+	
 		String outFileName = tmpDir + "LoadFileWorkbook.xls";
 		File outFile = new File(outFileName);
+		if (outFile.exists()) {
+			outFile.delete();
+		}
+	
+		WorkbookWriter workbookRenderer = new WorkbookWriter(conn, loggingConnection, wd, binds,outFile);
+		workbookRenderer.process();
+		conn.close();
+		((Closeable) dataSource).close();
+
 		workbookRenderer.write(new File(outFileName));
 		logger.warn("wrote {}", outFile.getAbsoluteFile());
 		assertTrue(outFile.canRead());
