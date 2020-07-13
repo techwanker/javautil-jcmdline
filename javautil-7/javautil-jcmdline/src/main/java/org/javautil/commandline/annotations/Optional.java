@@ -11,7 +11,10 @@ import java.lang.annotation.Target;
  * 
  * TODO jjs is one or the other required? What happens if a field has neither
  * 
- * @author bcm
+ * code:
+ * 
+ * @Optional
+ * private String breed;
  * 
  */
 @Retention(RetentionPolicy.RUNTIME)

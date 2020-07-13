@@ -9,7 +9,13 @@ import java.lang.annotation.Target;
  * Annotation type to indicate a parameter should be treated as required unless
  * another parameter is specified.
  * 
- * @author bcm
+ * code:
+ * 
+ * @RequiredUnless(property = "toad")
+ * private String frog;
+ * 
+ * @Optional
+ * private String toad;
  * 
  */
 @Retention(RetentionPolicy.RUNTIME)

@@ -8,7 +8,8 @@ import java.lang.annotation.Target;
 /**
  * Annotation type to indicate a file must be readable.
  * 
- * @author bcm
+ * @FileReadable
+ * private File definition;
  * 
  */
 @Retention(RetentionPolicy.RUNTIME)
