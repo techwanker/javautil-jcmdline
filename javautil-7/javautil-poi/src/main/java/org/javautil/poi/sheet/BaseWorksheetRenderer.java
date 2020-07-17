@@ -16,7 +16,6 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.javautil.core.text.SimpleDateFormatFactory;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DataType;
 import org.javautil.document.style.FontAttributes;
@@ -28,6 +27,7 @@ import org.javautil.document.style.VerticalAlignment;
 import org.javautil.poi.cell.CellAddress;
 import org.javautil.poi.cell.CellFormula;
 import org.javautil.poi.style.HSSFCellStyleFactory;
+import org.javautil.text.SimpleDateFormatFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

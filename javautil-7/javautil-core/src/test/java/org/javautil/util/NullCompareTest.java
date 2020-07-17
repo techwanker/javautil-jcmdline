@@ -2,6 +2,7 @@ package org.javautil.util;
 
 import static org.junit.Assert.assertEquals;
 
+import org.javautil.containers.NullPair;
 import org.junit.Test;
 
 public class NullCompareTest {

@@ -8,9 +8,10 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.json.JsonSerializerJackson;
-import org.javautil.core.sql.DataSourceFactory;
 import org.javautil.io.IOUtils;
+import org.javautil.jdbc.metadata.dao.SchemaDaoJdbc;
+import org.javautil.json.JsonSerializerJackson;
+import org.javautil.sql.DataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

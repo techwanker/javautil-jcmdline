@@ -4,12 +4,10 @@ import java.sql.CallableStatement;
 import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.SQLType;
 import java.sql.Timestamp;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.SequenceHelper;
 import org.javautil.lang.ThreadUtil;
+import org.javautil.sql.SequenceHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

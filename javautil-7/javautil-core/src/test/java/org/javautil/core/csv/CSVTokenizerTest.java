@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.javautil.csv.CSVTokenizer;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,7 @@ public class CSVTokenizerTest {
 	/**
 	 * looks like 1,2,"toad"" should be 1,2,"toad""" so it is missing an end quote.
 	 */
-	@Test(expected = org.javautil.core.text.TokenizingException.class)
+	@Test(expected = org.javautil.text.TokenizingException.class)
 	public void test2() {
 		final String csvString = "1,2,\"toad\"\"";
 		tokenizer.parse(csvString);

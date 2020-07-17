@@ -12,9 +12,9 @@ import java.sql.Connection;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.TestDataSource;
 import org.javautil.io.ResourceHelper;
+import org.javautil.sql.Dialect;
 import org.junit.Ignore;
 import org.junit.Test;
 

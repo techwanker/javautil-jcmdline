@@ -5,7 +5,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.TreeMap;
 
-import org.javautil.core.text.SimpleDateFormats;
+import org.javautil.containers.MultiKey;
+import org.javautil.text.SimpleDateFormats;
 import org.javautil.util.DateGenerator;
 
 public class DoubleBuckets extends  Buckets<Double>  {

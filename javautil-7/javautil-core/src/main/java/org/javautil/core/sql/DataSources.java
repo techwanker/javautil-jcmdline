@@ -8,6 +8,8 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.DataSourceHelper;
 import org.yaml.snakeyaml.Yaml;
 
 public class DataSources {

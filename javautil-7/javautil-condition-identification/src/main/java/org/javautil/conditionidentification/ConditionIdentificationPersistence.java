@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map.Entry;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.core.sql.SqlStatements;
+import org.javautil.sql.Binds;
+import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

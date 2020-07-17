@@ -2,7 +2,7 @@ package org.javautil.document.crosstab;
 
 import java.util.List;
 
-import org.javautil.core.text.AsString;
+import org.javautil.text.AsString;
 
 /**
  * @author jjs

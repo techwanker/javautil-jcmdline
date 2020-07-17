@@ -12,7 +12,6 @@ import java.util.TreeMap;
 
 import javax.xml.transform.stream.StreamResult;
 
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;
 import org.javautil.document.renderer.CsvRendererRequestImpl;

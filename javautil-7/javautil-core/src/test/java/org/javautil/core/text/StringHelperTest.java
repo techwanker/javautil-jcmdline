@@ -3,6 +3,7 @@ package org.javautil.core.text;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import org.javautil.text.StringUtils;
 import org.junit.Test;
 
 public class StringHelperTest {

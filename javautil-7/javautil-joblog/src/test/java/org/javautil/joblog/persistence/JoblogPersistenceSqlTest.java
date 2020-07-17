@@ -4,26 +4,22 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.beans.PropertyVetoException;
+import java.io.Closeable;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.SqlStatement;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
 import org.javautil.core.sql.TestDataSource;
 import org.javautil.joblog.JoblogModels;
 import org.javautil.joblog.installer.JoblogH2Install;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
-import org.junit.After;
+import org.javautil.sql.SqlStatement;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import java.io.Closeable;
-import java.io.IOException;
 
 public class JoblogPersistenceSqlTest {
 	

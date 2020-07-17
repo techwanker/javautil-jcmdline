@@ -1,16 +1,5 @@
 package org.javautil.text;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
-import org.javautil.core.sql.Binds;
-import org.javautil.util.Day;
-import org.javautil.util.NameValueTest;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -18,6 +7,16 @@ import static org.junit.Assert.assertNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import org.javautil.sql.Binds;
+import org.javautil.util.Day;
+import org.javautil.util.NameValueTest;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BindsFactoryTest {
 	private final static   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

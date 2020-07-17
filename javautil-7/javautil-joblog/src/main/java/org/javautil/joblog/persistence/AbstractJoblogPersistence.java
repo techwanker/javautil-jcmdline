@@ -5,11 +5,11 @@ import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.SequenceHelper;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.SequenceHelper;
+import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

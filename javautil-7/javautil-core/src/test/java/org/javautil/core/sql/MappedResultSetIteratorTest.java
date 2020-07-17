@@ -10,7 +10,9 @@ import java.util.Iterator;
 
 import javax.sql.DataSource;
 
-import org.javautil.util.NameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.MappedResultSetIterator;
 
 public class MappedResultSetIteratorTest {
 

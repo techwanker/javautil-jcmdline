@@ -2,7 +2,7 @@ package org.javautil.oracle;
 
 
 import java.io.File;
-import java.sql.*;
+import java.sql.SQLException;
 
 public class DirectoryList {
 

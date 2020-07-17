@@ -2,11 +2,7 @@ package org.javautil.core.sql;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

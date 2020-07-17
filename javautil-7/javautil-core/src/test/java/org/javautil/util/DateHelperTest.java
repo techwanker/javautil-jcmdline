@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

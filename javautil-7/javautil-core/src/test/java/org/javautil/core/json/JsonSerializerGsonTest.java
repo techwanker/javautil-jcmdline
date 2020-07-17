@@ -2,14 +2,12 @@ package org.javautil.core.json;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 
-import org.javautil.core.json.JsonSerializerGson;
 import org.javautil.core.misc.Timer;
-import org.javautil.util.Day;
+import org.javautil.json.JsonSerializerGson;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

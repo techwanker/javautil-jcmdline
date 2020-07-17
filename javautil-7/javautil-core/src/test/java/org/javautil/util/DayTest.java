@@ -7,8 +7,8 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.javautil.core.text.SimpleDateFormatter;
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.SimpleDateFormatter;
+import org.javautil.text.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

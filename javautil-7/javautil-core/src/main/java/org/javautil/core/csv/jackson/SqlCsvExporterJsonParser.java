@@ -3,8 +3,8 @@ package org.javautil.core.csv.jackson;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.core.json.JsonSerializerJackson;
 import org.javautil.dataset.ColumnMetadata;
+import org.javautil.json.JsonSerializerJackson;
 
 public class SqlCsvExporterJsonParser {
 

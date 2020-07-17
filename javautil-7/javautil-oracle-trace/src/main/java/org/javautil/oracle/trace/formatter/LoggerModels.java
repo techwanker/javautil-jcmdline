@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.SqlStatement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

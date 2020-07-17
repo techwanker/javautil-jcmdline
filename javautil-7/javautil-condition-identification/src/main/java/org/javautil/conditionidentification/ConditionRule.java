@@ -3,7 +3,7 @@ package org.javautil.conditionidentification;
 import java.sql.Types;
 import java.util.Map;
 
-import org.javautil.core.sql.Binds;
+import org.javautil.sql.Binds;
 
 public class ConditionRule {
 	private String  ruleName;

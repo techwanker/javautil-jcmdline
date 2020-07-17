@@ -6,8 +6,9 @@ import java.util.List;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.XPath;
-import org.javautil.core.jdbc.metadata.Messages;
-import org.javautil.core.jdbc.metadata.dao.TableJdbc;
+import org.javautil.jdbc.metadata.Messages;
+import org.javautil.jdbc.metadata.dao.TableJdbc;
+import org.javautil.jdbc.metadata.renderer.XmlMeta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

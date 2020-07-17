@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.javautil.core.json.Serialize;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

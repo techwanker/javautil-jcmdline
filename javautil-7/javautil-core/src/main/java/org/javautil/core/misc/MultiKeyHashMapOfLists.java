@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
+import org.javautil.containers.MultiKey;
+
 public class MultiKeyHashMapOfLists<T>  extends LinkedHashMap<MultiKey,ArrayList<T>> {
         
     private ArrayList<String>  formats;

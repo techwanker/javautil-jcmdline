@@ -2,7 +2,7 @@ package org.javautil.core.text;
 
 import static org.junit.Assert.assertEquals;
 
-import org.javautil.core.collections.ArrayComparator;
+import org.javautil.collections.ArrayComparator;
 import org.junit.Test;
 
 public class WordFrequencyTest {

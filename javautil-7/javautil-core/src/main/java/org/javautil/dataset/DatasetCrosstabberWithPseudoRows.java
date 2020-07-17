@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeMap;
 
-import org.javautil.core.collections.ListHelper;
-import org.javautil.core.collections.StaticArrayComparator;
-import org.javautil.core.text.SimpleDateFormatter;
-import org.javautil.document.crosstab.CrosstabColumns;
+import org.javautil.collections.ListHelper;
+import org.javautil.collections.StaticArrayComparator;
 import org.javautil.document.crosstab.CrosstabRow;
 import org.javautil.lang.ArrayHelper;
+import org.javautil.text.SimpleDateFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

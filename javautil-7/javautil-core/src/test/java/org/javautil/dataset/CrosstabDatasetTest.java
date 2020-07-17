@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.javautil.dataset.csv.DatasetCsvMarshaller;
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

@@ -9,11 +9,8 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.Dialect;
-import org.javautil.core.sql.SqlStatement;
 import org.javautil.core.sql.TestDataSource;
+import org.javautil.sql.Dialect;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;

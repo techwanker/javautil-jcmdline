@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.javautil.sql.ApplicationPropertiesDataSource;
+import org.javautil.sql.Dialect;
 import org.junit.Test;
 
 public class DialectTest {

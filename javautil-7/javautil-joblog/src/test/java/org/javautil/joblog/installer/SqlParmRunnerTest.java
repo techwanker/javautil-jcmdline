@@ -7,17 +7,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.SqlParmRunner;
 import org.javautil.core.sql.SqlRunnerParms;
 import org.javautil.core.sql.TestDataSource;
-import org.junit.Ignore;
+import org.javautil.sql.Binds;
+import org.javautil.sql.Dialect;
 import org.junit.Test;
 
 

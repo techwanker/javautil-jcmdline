@@ -4,7 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
-import org.javautil.core.sql.SqlStatements;
+import org.javautil.sql.SqlStatements;
 import org.junit.Test;
 
 public class ConditionIdentificationPersistenceTest {

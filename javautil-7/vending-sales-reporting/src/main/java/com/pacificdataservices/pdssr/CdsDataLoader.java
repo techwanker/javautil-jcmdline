@@ -20,16 +20,18 @@ import javax.sql.DataSource;
 import java.util.TreeMap;
 
 import org.javautil.commandline.CommandLineHandlerDelete;
-import org.javautil.core.misc.Timer;
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.Dialect;
-import org.javautil.core.sql.SequenceHelper;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.core.sql.SqlStatements;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SequenceHelper;
+
+import org.javautil.misc.Timer;
+
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
-import org.javautil.util.ListOfNameValue;
+import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatements;
+import org.javautil.containers.ListOfNameValue;
 import org.javautil.util.TreeHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

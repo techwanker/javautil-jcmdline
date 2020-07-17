@@ -7,7 +7,7 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.javautil.core.text.SimpleDateFormatFactory;
+import org.javautil.text.SimpleDateFormatFactory;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

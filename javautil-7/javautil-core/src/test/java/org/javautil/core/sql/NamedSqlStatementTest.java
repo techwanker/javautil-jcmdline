@@ -6,6 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
+import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatements;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

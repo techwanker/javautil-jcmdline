@@ -1,13 +1,5 @@
 package org.javautil.joblog;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
-import org.javautil.joblog.installer.H2LoggerDataSource;
-//import org.javautil.oracle.trace.formatter.LoggerModels;
-
 //public class LoggerModelsTest {
 //
 //	// @Test Need populate with test data H2LoggerDataSource

@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.core.sql.SequenceHelper;
 import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.oracle.OracleConnectionHelper;
+import org.javautil.sql.SequenceHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

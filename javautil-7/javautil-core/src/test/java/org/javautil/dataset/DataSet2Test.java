@@ -13,12 +13,11 @@ import java.util.TreeMap;
 
 import javax.xml.transform.stream.StreamResult;
 
-import org.javautil.core.collections.ListHelper;
+import org.javautil.collections.ListHelper;
 import org.javautil.dataset.testdata.ConvictionsDataset;
 import org.javautil.dataset.testdata.FeesDataset;
 import org.javautil.dataset.testdata.TicketsDataset;
 import org.javautil.dataset.testdata.TrailingNullsDataset;
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;
 import org.javautil.document.renderer.CsvRendererRequestImpl;

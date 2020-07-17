@@ -1,6 +1,6 @@
 package org.javautil.dataset;
 
-import org.javautil.core.collections.ListHelper;
+import org.javautil.collections.ListHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

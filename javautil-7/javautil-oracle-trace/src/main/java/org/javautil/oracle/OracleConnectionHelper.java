@@ -10,12 +10,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.javautil.core.sql.Binds;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
 import org.javautil.core.sql.ConnectionHelper;
-import org.javautil.core.sql.SqlStatement;
 import org.javautil.io.FileUtil;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

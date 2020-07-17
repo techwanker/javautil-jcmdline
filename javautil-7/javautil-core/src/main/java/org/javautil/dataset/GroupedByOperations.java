@@ -2,7 +2,7 @@ package org.javautil.dataset;
 
 import java.util.List;
 
-import org.javautil.core.collections.Tuple;
+import org.javautil.collections.Tuple;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

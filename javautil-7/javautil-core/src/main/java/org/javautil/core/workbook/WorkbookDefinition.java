@@ -3,21 +3,18 @@ package org.javautil.core.workbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
-import org.javautil.core.text.YamlUtils;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.io.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -71,8 +68,25 @@ public class WorkbookDefinition {
 		this.bindDefinitions = bindDefinitions;
 	}
 
-	public static WorkbookDefinition getWorkbookDefinition(InputStream is) throws JsonParseException,
-	JsonMappingException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public WorkbookDefinition(WorkbookDefinition wd) {
+		this.name = wd.getName();
+		this.description = wd.getDescription();
+		this.narrative = wd.getNarrative();
+		this.connectionName = wd.getConnectionName();
+		
+		columns  = new 	LinkedHashMap<String, ColumnMetadata>();
+		for (Entry<String, ColumnMetadata> e : wd.getColumns().entrySet()) {
+			ColumnMetadata cmd = new ColumnMetadata(e.getValue());
+			columns.put(e.getKey(),cmd);
+		}
+		
+		this.worksheets = wd.getWorksheets();
+		this.bindDefinitions =  new BindDefinitions(wd.getBindDefinitions());
+	}
+
+	public static WorkbookDefinition getWorkbookDefinition(InputStream is) { 
+//			throws JsonParseException,
+//	JsonMappingException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		if (is == null) {
 			throw new IllegalArgumentException("is is null");
 		}
@@ -86,15 +100,22 @@ public class WorkbookDefinition {
 		return retval;
 	}
 
-	public static WorkbookDefinition getWorkbookDefinition(File file) throws JsonParseException, JsonMappingException,
-	IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static WorkbookDefinition getWorkbookDefinition(File file) 
+//			throws JsonParseException, JsonMappingException,
+//	IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException 
+	{
 		if (file == null) {
 			throw new IllegalArgumentException("file is null");
 		}
 		if (!file.canRead()) {
 			throw new IllegalArgumentException("can't read " + file.getAbsolutePath());
 		}
-		FileInputStream is = new FileInputStream(file.getAbsoluteFile());
+		FileInputStream is;
+		try {
+			is = new FileInputStream(file.getAbsoluteFile());
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
 		WorkbookDefinition retval = getWorkbookDefinition(is);
 		retval.file = file;
 		//	retval.populateColumnNames();
@@ -200,7 +221,7 @@ public class WorkbookDefinition {
 		return FileUtil.getAsString(filePath);
 	}
 
-	public String toString() {
-		return YamlUtils.asYaml(this);
-	}
+//	public String toString() {
+//		return YamlUtils.asYaml(this);
+//	}
 }

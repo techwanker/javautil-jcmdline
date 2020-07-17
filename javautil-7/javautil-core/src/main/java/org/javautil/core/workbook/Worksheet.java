@@ -3,8 +3,8 @@ package org.javautil.core.workbook;
 
 import java.util.List;
 
-import org.javautil.core.text.StringBuilderHelper;
-import org.javautil.document.crosstab.CrosstabColumns;
+import org.javautil.dataset.CrosstabColumns;
+import org.javautil.text.StringBuilderHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

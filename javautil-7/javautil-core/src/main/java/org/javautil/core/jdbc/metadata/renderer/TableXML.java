@@ -2,13 +2,14 @@ package org.javautil.core.jdbc.metadata.renderer;
 
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import org.javautil.core.jdbc.metadata.ForeignKey;
-import org.javautil.core.jdbc.metadata.ForeignKeyColumn;
-import org.javautil.core.jdbc.metadata.ForeignKeys;
-import org.javautil.core.jdbc.metadata.PrimaryKey;
-import org.javautil.core.jdbc.metadata.Table;
-import org.javautil.core.text.StringUtils;
-import org.javautil.dataset.ColumnAttributes;
+import org.javautil.jdbc.metadata.ForeignKey;
+import org.javautil.jdbc.metadata.ForeignKeyColumn;
+import org.javautil.jdbc.metadata.ForeignKeys;
+import org.javautil.jdbc.metadata.PrimaryKey;
+import org.javautil.jdbc.metadata.Table;
+import org.javautil.jdbc.metadata.renderer.XmlMeta;
+import org.javautil.sql.ColumnAttributes;
+import org.javautil.text.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import org.javautil.core.collections.CollectionsUtil;
-import org.javautil.core.sql.Dialect;
-import org.javautil.core.text.StringUtils;
+import org.javautil.collections.CollectionsUtil;
+import org.javautil.sql.Dialect;
+import org.javautil.text.StringUtils;
 
 public class DatasetToRdbmsTable {
 

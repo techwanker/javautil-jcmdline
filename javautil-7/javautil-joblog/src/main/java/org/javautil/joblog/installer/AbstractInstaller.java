@@ -3,11 +3,7 @@ package org.javautil.joblog.installer;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.Dialect;
-import org.javautil.core.sql.SqlSplitterException;
+import org.javautil.sql.Dialect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

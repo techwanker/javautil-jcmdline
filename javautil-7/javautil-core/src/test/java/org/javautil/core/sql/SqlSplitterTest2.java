@@ -2,17 +2,15 @@ package org.javautil.core.sql;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
-import org.javautil.core.text.StringUtils;
-import org.junit.Ignore;
+import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatements;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

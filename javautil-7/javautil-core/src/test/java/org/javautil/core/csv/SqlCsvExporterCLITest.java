@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
+import org.javautil.csv.SqlCsvExporterCLI;
+
 public class SqlCsvExporterCLITest {
 	// @Test
 	public void test() throws SQLException, IOException, ParseException {

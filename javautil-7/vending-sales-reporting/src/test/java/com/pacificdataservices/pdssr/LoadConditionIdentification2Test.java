@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.Dialect;
+import org.javautil.sql.Binds;
+import org.javautil.sql.Dialect;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

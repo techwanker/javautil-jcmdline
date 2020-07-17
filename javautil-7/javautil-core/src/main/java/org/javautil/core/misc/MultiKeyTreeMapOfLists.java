@@ -3,6 +3,9 @@ package org.javautil.core.misc;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map.Entry;
+
+import org.javautil.containers.MultiKey;
+
 import java.util.TreeMap;
 
 public class MultiKeyTreeMapOfLists<T>  extends TreeMap<MultiKey,ArrayList<T>> {

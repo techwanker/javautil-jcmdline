@@ -11,12 +11,12 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.jdbc.metadata.PrimaryKey;
-import org.javautil.core.jdbc.metadata.PrimaryKeys;
-import org.javautil.core.jdbc.metadata.Table;
-import org.javautil.core.jdbc.metadata.containers.DatabaseTables;
-import org.javautil.core.jdbc.metadata.dao.TableDaoJdbc;
-import org.javautil.core.sql.DataSourceFactory;
+import org.javautil.jdbc.metadata.PrimaryKey;
+import org.javautil.jdbc.metadata.PrimaryKeys;
+import org.javautil.jdbc.metadata.Table;
+import org.javautil.jdbc.metadata.containers.DatabaseTables;
+import org.javautil.jdbc.metadata.dao.TableDaoJdbc;
+import org.javautil.sql.DataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

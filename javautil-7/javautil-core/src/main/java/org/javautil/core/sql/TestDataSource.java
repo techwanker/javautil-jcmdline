@@ -4,7 +4,6 @@ import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.channels.IllegalSelectorException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,8 +11,8 @@ import java.util.HashMap;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.Dialect;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.Dialect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.javautil.core.collections.MapOfProperties;
-import org.javautil.core.collections.PropertiesResolver;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

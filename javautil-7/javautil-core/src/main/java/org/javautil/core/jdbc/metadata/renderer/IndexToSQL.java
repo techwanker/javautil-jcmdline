@@ -1,8 +1,8 @@
 package org.javautil.core.jdbc.metadata.renderer;
 
-import org.javautil.core.jdbc.metadata.Index;
-import org.javautil.core.jdbc.metadata.IndexColumn;
-import org.javautil.core.jdbc.metadata.NameEscaper;
+import org.javautil.jdbc.metadata.Index;
+import org.javautil.jdbc.metadata.IndexColumn;
+import org.javautil.jdbc.metadata.NameEscaper;
 
 public class IndexToSQL {
 	private static final String newline       = System.getProperty("line.separator");

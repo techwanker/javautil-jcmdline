@@ -2,7 +2,8 @@ package org.javautil.core.csv;
 
 import static org.junit.Assert.assertEquals;
 
-import org.javautil.core.collections.ListHelper;
+import org.javautil.collections.ListHelper;
+import org.javautil.csv.CsvWriter;
 import org.javautil.dataset.csv.BaseTest;
 import org.junit.Test;
 import org.slf4j.Logger;

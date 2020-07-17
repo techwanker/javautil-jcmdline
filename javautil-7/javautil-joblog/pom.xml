@@ -29,6 +29,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.javautil</groupId>
+			<artifactId>nucleus</artifactId>
+			<version>${org.javautil.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.javautil</groupId>
 			<artifactId>javautil-core</artifactId>
 			<version>${org.javautil.version}</version>
 			<scope>compile</scope>

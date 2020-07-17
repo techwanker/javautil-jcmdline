@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import org.javautil.sql.DataSourceFactory;
 import org.junit.Test;
 
 public class DatasourceFactoryH2Test {

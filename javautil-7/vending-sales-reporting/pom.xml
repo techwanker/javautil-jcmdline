@@ -26,7 +26,11 @@
 			<artifactId>javautil-core</artifactId>
 			<version>8.6.21</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>nucleus</artifactId>
+			<version>8.6.21</version>
+		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-poi</artifactId>
@@ -37,11 +41,7 @@
 			<artifactId>javautil-condition-identification</artifactId>
 			<version>8.6.21</version>
 		</dependency>
-		<dependency>
-			<groupId>org.javautil</groupId>
-			<artifactId>javautil-poi</artifactId>
-			<version>8.6.21</version>
-		</dependency>
+	
 		<!-- unit testing -->
 		<dependency>
 			<groupId>junit</groupId>

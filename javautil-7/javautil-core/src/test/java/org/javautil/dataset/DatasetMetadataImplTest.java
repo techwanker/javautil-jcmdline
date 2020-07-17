@@ -3,10 +3,10 @@ package org.javautil.dataset;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.ResultSetMetaDataCache;
-import org.javautil.core.sql.SqlStatement;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.ResultSetMetaDataCache;
+import org.javautil.sql.SqlStatement;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

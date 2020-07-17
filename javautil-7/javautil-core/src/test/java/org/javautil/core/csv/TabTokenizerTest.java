@@ -2,6 +2,7 @@ package org.javautil.core.csv;
 
 import java.util.List;
 
+import org.javautil.csv.CSVTokenizer;
 import org.junit.BeforeClass;
 
 public class TabTokenizerTest extends CSVTokenizerTest {

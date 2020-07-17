@@ -24,7 +24,7 @@ public class H2InMemorySessionFactory {
 	 */
 	public static SessionFactory getInstance(final File hbmDirectory) {
 		final Configuration cfg = new DatasourceConfiguration(
-				org.javautil.core.sql.DataSourceFactory.getInMemoryDataSource());
+				org.javautil.sql.DataSourceFactory.getInMemoryDataSource());
 				//new H2InMemoryDataSource());
 		cfg.setProperty(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
 		cfg.addDirectory(hbmDirectory);

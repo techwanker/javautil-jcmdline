@@ -1,5 +1,7 @@
 package org.javautil.core.sql;
 
+import org.javautil.sql.SqlStatement;
+
 public class SqlStatementFormatter {
 	public String format(SqlStatement statement) {
 		final StringBuilder sb = new StringBuilder();

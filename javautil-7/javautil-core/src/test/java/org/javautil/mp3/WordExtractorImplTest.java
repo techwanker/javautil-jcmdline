@@ -2,7 +2,7 @@ package org.javautil.mp3;
 
 import java.util.HashSet;
 
-import org.javautil.core.collections.ArrayComparator;
+import org.javautil.collections.ArrayComparator;
 import org.javautil.core.text.WordExtractor;
 import org.javautil.core.text.WordExtractorImpl;
 import org.junit.Test;

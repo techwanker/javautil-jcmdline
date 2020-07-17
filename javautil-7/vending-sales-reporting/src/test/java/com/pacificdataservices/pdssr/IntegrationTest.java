@@ -8,30 +8,24 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.ParseException;
 import java.util.Arrays;
 
 import javax.sql.DataSource;
 
-import org.javautil.conditionidentification.DropUtConditionDatabaseObjects;
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.Dialect;
+import org.javautil.containers.NameValue;
 import org.javautil.core.sql.SqlSplitterException;
-import org.javautil.core.sql.SqlStatement;
 import org.javautil.core.sql.TestDataSource;
-import org.javautil.joblog.installer.JoblogOracleInstall;
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.joblog.persistence.JoblogPersistenceFactory;
-import org.javautil.core.misc.Timer;
-import org.javautil.util.NameValue;
+import org.javautil.misc.Timer;
+import org.javautil.sql.Binds;
+import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlStatement;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.pacificdataservices.pdssr.schema.DropSchema;
-import com.pacificdataservices.pdssr.schema.SeedSalesReportingDatabase;
 import com.pacificdataservices.pdssr.schema.Setup;
 import com.pacificdataservices.pdssr.schema.SetupTest;
 

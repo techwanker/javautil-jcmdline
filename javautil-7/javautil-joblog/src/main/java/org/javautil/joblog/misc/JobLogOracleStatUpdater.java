@@ -13,11 +13,11 @@ import java.sql.SQLException;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
-import org.javautil.core.sql.Binds;
+import org.javautil.containers.NameValue;
 import org.javautil.core.sql.SqlSplitterException;
-import org.javautil.core.sql.SqlStatement;
 import org.javautil.io.FileUtil;
-import org.javautil.util.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
-import org.javautil.core.text.SimpleDateFormats;
+import org.javautil.text.SimpleDateFormats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

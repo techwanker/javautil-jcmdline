@@ -1,10 +1,5 @@
 package org.javautil.joblog.persistence;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 import java.io.Closeable;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,23 +7,15 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
+import org.javautil.containers.NameValue;
 import org.javautil.core.sql.SqlSplitterException;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.joblog.installer.JoblogPostgresInstall;
 import org.javautil.joblog.DataSources;
-//import org.javautil.joblog.JoblogForOracleExample;
-import org.javautil.joblog.installer.JoblogOracleInstall;
-import org.javautil.joblog.persistence.AbstractJoblogPersistence;
-import org.javautil.joblog.persistence.JoblogPersistence;
-import org.javautil.joblog.persistence.JoblogPersistencePackage;
-import org.javautil.joblog.persistence.JoblogPersistenceSql;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.joblog.installer.JoblogPostgresInstall;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlStatement;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

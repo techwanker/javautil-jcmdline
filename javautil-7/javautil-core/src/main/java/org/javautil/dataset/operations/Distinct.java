@@ -3,7 +3,7 @@ package org.javautil.dataset.operations;
 import java.util.HashMap;
 import java.util.Set;
 
-import org.javautil.core.collections.Tuple;
+import org.javautil.collections.Tuple;
 import org.javautil.dataset.Dataset;
 import org.javautil.dataset.DatasetIterator;
 

@@ -2,11 +2,10 @@ package org.javautil.dataset;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.javautil.core.json.JsonSerializerGson;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.json.JsonSerializerGson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

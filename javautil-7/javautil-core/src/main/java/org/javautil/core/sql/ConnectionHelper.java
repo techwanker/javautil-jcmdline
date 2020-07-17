@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Map.Entry;
 
+import org.javautil.sql.Binds;
+
 public class ConnectionHelper {
 
 	public static void executeProcedure(Connection connection, final String sql, Binds binds) throws SQLException {

@@ -4,12 +4,12 @@ import static org.junit.Assert.assertNotNull;
 
 import java.beans.PropertyVetoException;
 import java.io.Closeable;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.javautil.sql.Dialect;
 import org.junit.Test;
 
 public class TestDataSourceTest {

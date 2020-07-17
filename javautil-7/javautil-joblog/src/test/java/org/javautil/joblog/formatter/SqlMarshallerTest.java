@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.javautil.core.sql.H2FileDatabase;
 import org.javautil.core.sql.SqlRunner;
 import org.javautil.core.sql.SqlSplitterException;
-import org.javautil.core.text.SimpleDateFormatFactory;
+import org.javautil.text.SimpleDateFormatFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;

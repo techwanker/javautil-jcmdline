@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.xml.transform.stream.StreamResult;
 
-import org.javautil.core.collections.ListHelper;
+import org.javautil.collections.ListHelper;
 import org.javautil.dataset.filter.MutableDatasetFilter;
 import org.javautil.dataset.math.Summation;
 import org.javautil.document.renderer.CsvRenderer;

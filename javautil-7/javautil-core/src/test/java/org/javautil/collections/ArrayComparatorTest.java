@@ -2,7 +2,6 @@ package org.javautil.collections;
 
 import static org.junit.Assert.assertEquals;
 
-import org.javautil.core.collections.ArrayComparator;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +40,7 @@ public class ArrayComparatorTest {
 		ac.compare(steve, trouble);
 	}
 
-	@Test(expected = org.javautil.core.collections.ComparisonException.class)
+	@Test(expected = org.javautil.collections.ComparisonException.class)
 	public void testNotCo() {
 		final Double[] trouble = new Double[] { new Double(1), new Double(3) };
 		final String[] steve = new String[] { "1", "3" };

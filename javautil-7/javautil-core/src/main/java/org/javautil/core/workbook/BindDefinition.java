@@ -1,6 +1,6 @@
 package org.javautil.core.workbook;
 
-import org.javautil.core.text.StringBuilderHelper;
+import org.javautil.text.StringBuilderHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

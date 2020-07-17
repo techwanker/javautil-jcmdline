@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

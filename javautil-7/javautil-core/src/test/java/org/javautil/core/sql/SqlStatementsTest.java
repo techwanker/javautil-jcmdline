@@ -10,6 +10,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatements;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;

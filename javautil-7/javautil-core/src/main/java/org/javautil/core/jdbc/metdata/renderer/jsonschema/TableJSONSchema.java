@@ -1,8 +1,8 @@
 package org.javautil.core.jdbc.metdata.renderer.jsonschema;
 
-import org.javautil.core.jdbc.metadata.ForeignKeys;
-import org.javautil.core.jdbc.metadata.Table;
-
+import org.javautil.jdbc.metadata.ForeignKeys;
+import org.javautil.jdbc.metadata.Table;
+// TODO looks l8ke a dupe of TableDTO
 public class TableJSONSchema {
 
 	private String      tableName;

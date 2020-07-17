@@ -1,6 +1,6 @@
 package org.javautil.core.jdbc.metadata.renderer;
 
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 
 // todo this is redundant with respect to the code in oracle table
 public class SQLGenerator {

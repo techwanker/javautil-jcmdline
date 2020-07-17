@@ -1,12 +1,10 @@
 package org.javautil.hibernate;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 
 import javax.persistence.ManyToMany;
@@ -14,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.javautil.core.json.Serialize;
+import org.javautil.json.Serialize;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

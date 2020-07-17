@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 import javax.xml.transform.stream.StreamResult;
 
-import org.javautil.core.collections.ListHelper;
+import org.javautil.collections.ListHelper;
 import org.javautil.dataset.math.Summation;
 import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;

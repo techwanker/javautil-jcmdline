@@ -3,8 +3,8 @@ package org.javautil.oracle;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.util.NameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.sql.SqlStatement;
 
 public class OracleSessionInfo {
 

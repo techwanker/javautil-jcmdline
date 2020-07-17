@@ -9,6 +9,8 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import org.javautil.sql.ApplicationPropertiesDataSource;
+import org.javautil.sql.Dialect;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

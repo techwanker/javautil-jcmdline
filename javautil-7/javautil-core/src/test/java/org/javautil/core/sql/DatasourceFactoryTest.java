@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.javautil.sql.DataSourceFactory;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

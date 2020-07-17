@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.DataSourceFactory;
+import org.javautil.sql.DataSourceFactory;
 import org.javautil.core.sql.SqlSplitterException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

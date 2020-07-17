@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.javautil.core.collections.MapOfProperties;
 import org.junit.Test;
 
 public class MapOfPropertiesTest {

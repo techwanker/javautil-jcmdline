@@ -1,6 +1,6 @@
 package org.javautil.core.workbook;
 
-import org.javautil.core.json.JsonUtils;
+import org.javautil.json.JsonUtils;
 
 import com.google.gson.Gson;
 

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.javautil.core.collections.Tuple;
+import org.javautil.collections.Tuple;
 import org.javautil.dataset.operations.Distinct;
 import org.javautil.dataset.testdata.TrailingNullsDataset;
 import org.junit.Test;

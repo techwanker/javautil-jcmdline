@@ -13,11 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.javautil.core.misc.Timer;
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.Dialect;
-import org.javautil.core.sql.SqlStatement;
 import org.javautil.joblog.persistence.JoblogPersistence;
-import org.javautil.util.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;

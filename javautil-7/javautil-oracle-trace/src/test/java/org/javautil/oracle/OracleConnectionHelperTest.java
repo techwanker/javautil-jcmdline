@@ -10,11 +10,11 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.SqlStatement;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlStatement;
 import org.javautil.oracle.trace.BaseTest;
-import org.javautil.util.ListOfNameValue;
+import org.javautil.containers.ListOfNameValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;

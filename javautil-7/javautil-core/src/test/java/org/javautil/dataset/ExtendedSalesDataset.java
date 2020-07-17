@@ -3,7 +3,6 @@ package org.javautil.dataset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.javautil.document.style.HorizontalAlignment;
 import org.javautil.util.Day;
 import org.slf4j.Logger;

@@ -10,11 +10,12 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.javautil.core.text.StringUtils;
 import org.javautil.io.ResourceHelper;
+import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatements;
+import org.javautil.text.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

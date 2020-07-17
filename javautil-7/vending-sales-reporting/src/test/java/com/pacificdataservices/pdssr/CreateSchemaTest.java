@@ -10,7 +10,7 @@ import java.text.ParseException;
 import javax.sql.DataSource;
 
 import org.javautil.core.sql.TestDataSource;
-import org.javautil.core.sql.Dialect;
+import org.javautil.sql.Dialect;
 import org.javautil.core.sql.SqlSplitterException;
 import org.junit.Ignore;
 import org.junit.Test;

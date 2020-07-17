@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.javautil.conditionidentification.CreateUtConditionDatabaseObjects;
-import org.javautil.core.sql.Dialect;
 import org.javautil.core.sql.SqlRunner;
 import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.joblog.installer.JoblogInstaller;
+import org.javautil.sql.Dialect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

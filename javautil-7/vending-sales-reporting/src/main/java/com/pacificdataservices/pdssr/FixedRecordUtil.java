@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.javautil.core.text.StringUtils;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.text.StringUtils;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

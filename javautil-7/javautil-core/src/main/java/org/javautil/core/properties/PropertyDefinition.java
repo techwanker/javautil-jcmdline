@@ -3,7 +3,7 @@ package org.javautil.core.properties;
 import java.io.File;
 import java.util.HashMap;
 
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 
 /**
  * define a property

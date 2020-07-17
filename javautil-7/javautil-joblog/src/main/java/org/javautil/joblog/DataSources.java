@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.SqlStatement;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlStatement;
 
 // TODO use TestDataSources
 public class DataSources {

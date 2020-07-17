@@ -3,15 +3,15 @@ package org.javautil.poi.sheet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.javautil.core.collections.CollectionsUtil;
+import org.javautil.collections.CollectionsUtil;
 import org.javautil.dataset.ColumnMetaMap;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DataType;
 import org.javautil.dataset.Dataset;
 import org.javautil.dataset.DatasetIterator;
-import org.javautil.dataset.DatasetMetadata;
 import org.javautil.document.style.HorizontalAlignment;
 import org.javautil.document.style.Style;
 import org.javautil.poi.range.DataRange;

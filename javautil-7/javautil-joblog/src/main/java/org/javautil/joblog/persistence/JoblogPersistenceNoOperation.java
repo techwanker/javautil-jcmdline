@@ -1,9 +1,7 @@
 package org.javautil.joblog.persistence;
 
 import java.sql.Clob;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class JoblogPersistenceNoOperation extends AbstractJoblogPersistence implements JoblogPersistence
 {

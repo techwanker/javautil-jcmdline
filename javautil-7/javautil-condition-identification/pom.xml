@@ -37,9 +37,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
+			<artifactId>nucleus</artifactId>
+			<version>8.6.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javautil</groupId>
 			<artifactId>javautil-joblog</artifactId>
 			<version>8.6.21</version>
-			
+
 		</dependency>
 		<!-- commons -->
 		<dependency>
@@ -115,13 +120,13 @@
 			<version>${HikariCP.version}</version>
 			<scope>compile</scope>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>javax.servlet-api</artifactId>
-    <version>4.0.1</version>
-    <!--  <scope>provided</scope> -->
-</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
 		<!-- TODO unify across projects -->
 		<dependency>
 			<groupId>com.oracle</groupId>

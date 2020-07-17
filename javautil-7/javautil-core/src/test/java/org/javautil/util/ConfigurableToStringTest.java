@@ -1,18 +1,18 @@
 package org.javautil.util;
 
-import static org.javautil.core.text.ToStringStyleFlags.DONT_EMIT_FIELD_NAMES;
-import static org.javautil.core.text.ToStringStyleFlags.DONT_EMIT_IDENTITY_HASH_CODE;
-import static org.javautil.core.text.ToStringStyleFlags.EMIT_FIELD_NAMES;
-import static org.javautil.core.text.ToStringStyleFlags.SUPPRESS_TIME;
-import static org.javautil.core.text.ToStringStyleFlags.SUPPRESS_TIME_IF_MIDNIGHT;
-import static org.javautil.core.text.ToStringStyleFlags.USE_ISO_DATE_TIME_FORMAT;
+import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_FIELD_NAMES;
+import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_IDENTITY_HASH_CODE;
+import static org.javautil.text.ToStringStyleFlags.EMIT_FIELD_NAMES;
+import static org.javautil.text.ToStringStyleFlags.SUPPRESS_TIME;
+import static org.javautil.text.ToStringStyleFlags.SUPPRESS_TIME_IF_MIDNIGHT;
+import static org.javautil.text.ToStringStyleFlags.USE_ISO_DATE_TIME_FORMAT;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.javautil.core.text.ConfigurableToStringStyle;
+import org.javautil.text.ConfigurableToStringStyle;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

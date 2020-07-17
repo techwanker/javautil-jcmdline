@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
-import org.javautil.core.json.JsonSerializerGson;
-import org.javautil.util.NameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.json.JsonSerializerGson;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

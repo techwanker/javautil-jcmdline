@@ -50,6 +50,12 @@
 
 
 	<dependencies>
+	
+			<dependency>
+			<groupId>org.javautil</groupId>
+			<artifactId>nucleus</artifactId>
+			<version>${org.javautil.version}</version>
+		</dependency>
 		<!-- commons -->
 		<dependency>
 			<groupId>commons-codec</groupId>

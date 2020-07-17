@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.javautil.core.collections.Tuple;
-import org.javautil.core.collections.TupleSorter;
+import org.javautil.collections.Tuple;
+import org.javautil.collections.TupleSorter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

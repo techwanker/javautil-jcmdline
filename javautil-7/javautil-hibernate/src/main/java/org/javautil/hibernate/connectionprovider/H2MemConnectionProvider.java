@@ -42,7 +42,7 @@ public class H2MemConnectionProvider implements ConnectionProvider {
 	@Override
 	public synchronized Connection getConnection() throws SQLException {
 		if (connectionInstance == null) {
-			connectionInstance = org.javautil.core.sql.DataSourceFactory.getInMemoryDataSourceSingleton().getConnection();
+			connectionInstance = org.javautil.sql.DataSourceFactory.getInMemoryDataSourceSingleton().getConnection();
 			//connectionInstance = H2SingletonInstance.getConnection();
 		}
 		return connectionInstance;

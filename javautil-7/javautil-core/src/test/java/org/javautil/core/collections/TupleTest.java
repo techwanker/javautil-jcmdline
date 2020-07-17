@@ -2,6 +2,7 @@ package org.javautil.core.collections;
 
 import static org.junit.Assert.assertEquals;
 
+import org.javautil.collections.Tuple;
 import org.javautil.util.Day;
 import org.junit.Test;
 

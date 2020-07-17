@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.javautil.dataset.csv.DatasetCsvMarshaller;
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

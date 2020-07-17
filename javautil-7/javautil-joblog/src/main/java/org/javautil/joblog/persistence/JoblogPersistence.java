@@ -1,15 +1,7 @@
 package org.javautil.joblog.persistence;
 
 import java.sql.Clob;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
 
 public interface JoblogPersistence {
 	String joblogInsert(String processName, String className, String moduleName) throws SQLException;

@@ -3,8 +3,8 @@ package org.javautil.dataset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.core.collections.Tuple;
-import org.javautil.core.text.AsString;
+import org.javautil.collections.Tuple;
+import org.javautil.text.AsString;
 
 public class GroupedBy {
 

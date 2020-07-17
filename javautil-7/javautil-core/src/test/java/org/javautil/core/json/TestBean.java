@@ -2,8 +2,6 @@ package org.javautil.core.json;
 
 import java.util.Date;
 
-import org.junit.Test;
-
 public class TestBean {
 			private Date date;
 			private String string;

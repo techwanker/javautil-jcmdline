@@ -1,9 +1,11 @@
 package org.javautil.core.sql;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import org.javautil.sql.Binds;
+import org.javautil.sql.SqlStatement;
 
 public class TestTables {
 	

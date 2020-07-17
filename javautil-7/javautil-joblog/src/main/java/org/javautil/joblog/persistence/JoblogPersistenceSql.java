@@ -13,14 +13,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.Dialect;
+import org.javautil.containers.NameValue;
 import org.javautil.core.sql.NamedSqlStatements;
-import org.javautil.core.sql.SequenceHelper;
-import org.javautil.core.sql.SqlStatement;
 import org.javautil.lang.ThreadUtil;
-//import org.javautil.oracle.OracleConnectionHelper;
-import org.javautil.util.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.Dialect;
+import org.javautil.sql.SequenceHelper;
+import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -212,7 +211,7 @@ public class JoblogPersistenceSql extends AbstractJoblogPersistence implements J
 			NameValue nvJob = null;
 			try {
 				nvJob = ssJob.getNameValue(binds,true);
-			} catch (org.javautil.core.sql.DataNotFoundException e) {
+			} catch (org.javautil.sql.DataNotFoundException e) {
 				throw new IllegalArgumentException("no job_log found for " + jobToken);
 			}
 			//

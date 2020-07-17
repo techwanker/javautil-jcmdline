@@ -7,19 +7,18 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Map;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.Dialect;
-import org.javautil.core.sql.MappedResultSetIterator;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.core.text.StringUtils;
-import org.javautil.core.text.StringUtils;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.MappedResultSetIterator;
+import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlStatement;
+import org.javautil.text.StringUtils;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Extracts the data from the following tables etl_customer etl_customer_tot
+ * Extracts the data from the following tables etl_cjavautil-nucleusustomer etl_customer_tot
  * etl_sale etl_sale_tot etl_inventory etl_inventory_tot
  * 
  * The records are retrieved by the original order and the output file should be

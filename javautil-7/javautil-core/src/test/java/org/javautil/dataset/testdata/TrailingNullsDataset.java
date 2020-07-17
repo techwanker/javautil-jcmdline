@@ -1,6 +1,6 @@
 package org.javautil.dataset.testdata;
 
-import org.javautil.core.collections.ListHelper;
+import org.javautil.collections.ListHelper;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DataType;
 import org.javautil.dataset.DatasetMetadataImpl;

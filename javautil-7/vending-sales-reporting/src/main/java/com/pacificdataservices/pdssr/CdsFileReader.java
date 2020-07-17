@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.javautil.core.sql.Binds;
-import org.javautil.util.ListOfNameValue;
+import org.javautil.sql.Binds;
+import org.javautil.containers.ListOfNameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

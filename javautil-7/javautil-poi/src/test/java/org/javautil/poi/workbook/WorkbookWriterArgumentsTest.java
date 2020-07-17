@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.math.BigDecimal;
 
-import org.javautil.core.sql.Binds;
+import org.javautil.sql.Binds;
 import org.javautil.util.Day;
 import org.junit.Ignore;
 import org.junit.Test;
