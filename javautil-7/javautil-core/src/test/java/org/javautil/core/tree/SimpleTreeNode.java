@@ -1,6 +1,8 @@
 package org.javautil.core.tree;
 
 import org.javautil.text.AsString;
+import org.javautil.tree.TreeNode;
+import org.javautil.tree.TreeNodeFormatter;
 
 public class SimpleTreeNode implements TreeNode<SimpleTreeNode> {
 	private Integer nodeNbr;

@@ -61,6 +61,7 @@ public class IntegrationTest extends SetupTest implements FilenameFilter {
 	}
 
 	
+	@Ignore // TODO needs a profile should always work
 	@Test
 	public void postgresAppH2JoblogTest() throws SqlSplitterException, Exception {
 		logger.info("Postgres test begins");

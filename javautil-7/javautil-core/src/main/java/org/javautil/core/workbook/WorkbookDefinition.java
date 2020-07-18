@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map.Entry;
 
 import org.javautil.dataset.ColumnMetadata;
@@ -19,6 +20,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class WorkbookDefinition {
+	@SuppressWarnings("unused")
+	private transient static Logger               logger     = LoggerFactory.getLogger(WorkbookDefinition.class);
 
 	@SerializedName("name")
 	@Expose
@@ -41,12 +44,18 @@ public class WorkbookDefinition {
 	private BindDefinitions                       bindDefinitions;
 	private File                                  file;
 
-	//	@SerializedName("binds")
-	//	@Expose
-	//	private List<Bind> binds = null;
+	@SerializedName("binds")
+		@Expose
+	private List<Bind> binds = null;
 
-	@SuppressWarnings("unused")
-	private transient static Logger               logger     = LoggerFactory.getLogger(WorkbookDefinition.class);
+	
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
 
 	/**
 	 * No args constructor for use in serialization

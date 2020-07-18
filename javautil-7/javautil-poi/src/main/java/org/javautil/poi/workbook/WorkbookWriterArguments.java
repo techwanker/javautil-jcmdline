@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 public class WorkbookWriterArguments {
 	private static final transient Logger logger  = LoggerFactory.getLogger(WorkbookWriterArguments.class);
 	
+	public static final int version = 420;
+	
 	@Required
 	private File definition;
 	

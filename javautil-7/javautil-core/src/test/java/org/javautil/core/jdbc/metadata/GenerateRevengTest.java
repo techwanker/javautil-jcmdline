@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.hibernate.GenerateReveng;
+import org.javautil.hibernate.GenerateReveng;
 import org.javautil.sql.DataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -68,16 +68,16 @@ public class WorkbookWriter  {
 	}
 
 
-	private JoblogPersistence getLogger(WorkbookWriterArguments parms) throws PropertyVetoException, SQLException, IOException {
-		JoblogPersistence logger = new JoblogPersistenceNoOperation();
-		if (parms.getLoggerDataSourceName() != null) {
-			loggerDataSource = dsf.getDatasource(parms.getDataSourceName());
-			loggerConnection = loggerDataSource.getConnection();
-			logger = new JoblogPersistenceSql(loggerConnection, conn);
-		}
-		return logger;
-	}
-
+//	private JoblogPersistence getLogger(WorkbookWriterArguments parms) throws PropertyVetoException, SQLException, IOException {
+//		JoblogPersistence logger = new JoblogPersistenceNoOperation();
+//		if (parms.getLoggerDataSourceName() != null) {
+//			loggerDataSource = dsf.getDatasource(parms.getDataSourceName());
+//			loggerConnection = loggerDataSource.getConnection();
+//			logger = new JoblogPersistenceSql(loggerConnection, conn);
+//		}
+//		return logger;
+//	}
+//
 
 	public  void process() throws SQLException, IOException {
 
@@ -105,24 +105,24 @@ public class WorkbookWriter  {
 		}
 	}
 
-	private void process(WorkbookWriterArguments arguments) throws PropertyVetoException, SQLException, JsonParseException, JsonMappingException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
-
-		this.arguments = arguments;
-		DataSource datasource = dsf.getDatasource(arguments.getDataSourceName());
-		this.conn = datasource.getConnection();
-
-		File fileDefinition = arguments.getDefinition();
-		WorkbookDefinition wd = WorkbookDefinition.getWorkbookDefinition(fileDefinition);
-		this.workbookDefinition = wd;
-		setBinds(arguments.getBinds());
-		//		this.binds = arguments.getBinds();
-		this.workbook = new HSSFWorkbook();
-		this.cellStyleFactory = new HSSFCellStyleFactory(workbook);
-		dbLogger = getLogger(arguments);
-		outfile = arguments.getOutfile();
-		process();
-
-	}
+//	private void process(WorkbookWriterArguments arguments) throws PropertyVetoException, SQLException, JsonParseException, JsonMappingException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+//
+//		this.arguments = arguments;
+//		DataSource datasource = dsf.getDatasource(arguments.getDataSourceName());
+//		this.conn = datasource.getConnection();
+//
+//		File fileDefinition = arguments.getDefinition();
+//		WorkbookDefinition wd = WorkbookDefinition.getWorkbookDefinition(fileDefinition);
+//		this.workbookDefinition = wd;
+//		setBinds(arguments.getBinds());
+//		//		this.binds = arguments.getBinds();
+//		this.workbook = new HSSFWorkbook();
+//		this.cellStyleFactory = new HSSFCellStyleFactory(workbook);
+//		dbLogger = getLogger(arguments);
+//		outfile = arguments.getOutfile();
+//		process();
+//
+//	}
 
 
 
@@ -131,27 +131,6 @@ public class WorkbookWriter  {
 
 	}
 
-
-	//	@Deprecated
-	//	public void process() throws SQLException {
-	//		try {
-	//			dbLogger = new JoblogPersistenceSql(loggerConnection, conn);
-	//		} catch (SqlSplitterException e) {
-	//			throw new RuntimeException(e);
-	//		} catch (IOException e) {
-	//			throw new RuntimeException(e);
-	//		}
-	//		final String token = dbLogger.joblogInsert("WorkbookWriter", getClass().getName(), null);
-	//		try {
-	//			runJob(token);
-	//			dbLogger.endJob(token);
-	//			logger.info("finished job {}",token);
-	//		}
-	//		catch(SQLException e) {
-	//			dbLogger.abortJob(token,e);
-	//			throw e;
-	//		}
-	//	}
 
 	private void runJob(String token) throws SQLException, IOException {
 		for (Worksheet worksheet : workbookDefinition.getWorksheets().values()) {
@@ -178,9 +157,9 @@ public class WorkbookWriter  {
 		workbook.write(file);
 	}
 
-	public static void main(String[] args) throws SQLException, IOException, ParseException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, PropertyVetoException {
-
-		WorkbookWriterArguments arguments = WorkbookWriterArguments.processArguments(args);
-		new WorkbookWriter().process(arguments);
-	}
+//	public static void main(String[] args) throws SQLException, IOException, ParseException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, PropertyVetoException {
+//
+//		WorkbookWriterArguments arguments = WorkbookWriterArguments.processArguments(args);
+//		new WorkbookWriter().process(arguments);
+//	}
 }

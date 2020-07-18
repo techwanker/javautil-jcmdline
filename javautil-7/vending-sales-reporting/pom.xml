@@ -17,31 +17,32 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<commons.lang.version>2.4</commons.lang.version>
-                <org.yaml.version>1.26</org.yaml.version>
+		<org.yaml.version>1.26</org.yaml.version>
+		<org.javautil.version>8.07.04</org.javautil.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-core</artifactId>
-			<version>8.6.21</version>
+			<version>${org.javautil.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>nucleus</artifactId>
-			<version>8.6.21</version>
+		<version>${org.javautil.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-poi</artifactId>
-			<version>8.6.21</version>
+				<version>${org.javautil.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javautil</groupId>
 			<artifactId>javautil-condition-identification</artifactId>
-			<version>8.6.21</version>
+				<version>${org.javautil.version}</version>
 		</dependency>
-	
+
 		<!-- unit testing -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -68,7 +69,7 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.2.1</version>
-	
+
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
 		<dependency>
@@ -83,35 +84,35 @@
 			<version>3.5</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
-    <finalName>vending-sales-reporting-demo</finalName>
-    <plugins>
+		<finalName>vending-sales-reporting-demo</finalName>
+		<plugins>
 
-        <!-- other Maven plugins ... -->
+			<!-- other Maven plugins ... -->
 
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.1.1</version>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.1</version>
 
-            <configuration>
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-            </configuration>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
 
-            <executions>
-                <execution>
-                    <id>make-assembly</id>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 
-        </plugin>
-    </plugins>
-</build>
+			</plugin>
+		</plugins>
+	</build>
 </project>
