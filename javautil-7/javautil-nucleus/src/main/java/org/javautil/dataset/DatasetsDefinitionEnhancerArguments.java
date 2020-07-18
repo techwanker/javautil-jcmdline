@@ -34,7 +34,7 @@ public class DatasetsDefinitionEnhancerArguments {
 	private ArrayList<String> bindPair;
 	
 	@Optional
-	private int verbosity = 2;
+	private Integer verbosity = 2;
 	
 
 	/**
@@ -96,11 +96,13 @@ public class DatasetsDefinitionEnhancerArguments {
 		return argumentBean;
 	}
 
-	public int getVerbosity() {
+	public Integer getVerbosity() {
 		return verbosity;
 	}
 	
-	public void setVerbosity(int verbosity) {
+
+
+	public void setVerbosity(Integer verbosity) {
 		this.verbosity = verbosity;
 	}
 

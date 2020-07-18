@@ -72,9 +72,9 @@ src/main/resources/org/javautil/poi/workbook/WorkbookWriterArguments.properties
 
 Properties files for other locales should be appropriately named.
 
-* applicationl.name generally the classname of the program containing the main
+* application.name generally the classname of the program containing the main
 
-* application.HelpText text on program desription and usage
+* application.HelpText text on program description and usage
 
 * parameter.description description of the parameter one per per parameter with same name as the annotated bean members
 
