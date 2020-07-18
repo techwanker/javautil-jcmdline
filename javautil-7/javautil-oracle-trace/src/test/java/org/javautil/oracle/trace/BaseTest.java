@@ -7,7 +7,7 @@ import java.sql.Connection;
 import javax.sql.DataSource;
 
 import org.javautil.sql.DataSourceFactory;
-import org.javautil.core.sql.SqlSplitterException;
+import org.javautil.sql.SqlSplitterException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;

@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.javautil.containers.NameValue;
-import org.javautil.core.sql.ConnectionHelper;
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.sql.Binds;
+import org.javautil.sql.ConnectionHelper;
 import org.javautil.sql.Dialect;
 import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;

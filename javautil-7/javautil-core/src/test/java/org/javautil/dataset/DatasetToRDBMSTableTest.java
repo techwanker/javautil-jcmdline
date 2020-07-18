@@ -11,11 +11,11 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.javautil.core.misc.Timer;
-import org.javautil.core.sql.TestDataSource;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
 import org.javautil.sql.Dialect;
 import org.javautil.sql.SqlStatement;
+import org.javautil.sql.TestDataSource;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;

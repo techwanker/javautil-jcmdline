@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
+import org.javautil.sql.SqlRunner;
 import org.junit.Ignore;
 import org.junit.Test;
 

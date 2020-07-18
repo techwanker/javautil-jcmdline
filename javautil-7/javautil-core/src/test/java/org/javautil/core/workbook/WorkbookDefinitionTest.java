@@ -12,9 +12,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 
-import org.javautil.core.text.YamlUtils;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DataType;
+import org.javautil.text.YamlUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

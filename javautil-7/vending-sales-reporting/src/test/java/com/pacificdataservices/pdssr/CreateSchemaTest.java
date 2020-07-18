@@ -9,9 +9,9 @@ import java.text.ParseException;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.TestDataSource;
 import org.javautil.sql.Dialect;
-import org.javautil.core.sql.SqlSplitterException;
+import org.javautil.sql.SqlSplitterException;
+import org.javautil.sql.TestDataSource;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

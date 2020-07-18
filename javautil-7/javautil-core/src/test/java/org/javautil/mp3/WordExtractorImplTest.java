@@ -3,8 +3,8 @@ package org.javautil.mp3;
 import java.util.HashSet;
 
 import org.javautil.collections.ArrayComparator;
-import org.javautil.core.text.WordExtractor;
-import org.javautil.core.text.WordExtractorImpl;
+import org.javautil.text.WordExtractor;
+import org.javautil.text.WordExtractorImpl;
 import org.junit.Test;
 
 public class WordExtractorImplTest {

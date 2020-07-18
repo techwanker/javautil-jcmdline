@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import org.apache.commons.io.FileUtils;
-import org.javautil.core.text.YamlUtils;
+import org.javautil.text.YamlUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

@@ -9,8 +9,8 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.TestDataSource;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.TestDataSource;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;

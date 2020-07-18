@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.javautil.sql.Binds;
-import org.javautil.core.sql.SqlRunner;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlRunner;
 import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

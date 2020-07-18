@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.util.List;
 
+import org.javautil.sql.SqlSplitter;
+import org.javautil.sql.SqlSplitterException;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

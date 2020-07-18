@@ -19,6 +19,8 @@ import org.javautil.dataset.ListOfNameValueDataset;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataNotFoundException;
 import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlRunner;
+import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
 import org.javautil.sql.TooManyRowsException;
 import org.junit.After;

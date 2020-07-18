@@ -9,9 +9,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.javautil.sql.Binds;
-import org.javautil.core.sql.H2FileDatabase;
-import org.javautil.core.sql.SqlRunner;
-import org.javautil.core.sql.SqlSplitterException;
+import org.javautil.sql.H2FileDatabase;
+import org.javautil.sql.SqlRunner;
+import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
 import org.javautil.text.SimpleDateFormatFactory;
 import org.javautil.oracle.trace.CursorsStats;

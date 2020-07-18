@@ -13,10 +13,10 @@ import javax.sql.DataSource;
 
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
-import org.javautil.core.sql.TestDataSource;
 import org.javautil.joblog.JoblogModels;
 import org.javautil.joblog.installer.JoblogH2Install;
 import org.javautil.sql.SqlStatement;
+import org.javautil.sql.TestDataSource;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

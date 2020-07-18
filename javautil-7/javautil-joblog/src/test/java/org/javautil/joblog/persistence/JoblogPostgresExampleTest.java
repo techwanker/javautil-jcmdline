@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.javautil.containers.NameValue;
-import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.joblog.DataSources;
 import org.javautil.joblog.installer.JoblogPostgresInstall;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

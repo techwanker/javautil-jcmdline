@@ -14,10 +14,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.javautil.containers.NameValue;
-import org.javautil.core.sql.NamedSqlStatements;
 import org.javautil.lang.ThreadUtil;
 import org.javautil.sql.Binds;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.NamedSqlStatements;
 import org.javautil.sql.SequenceHelper;
 import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;

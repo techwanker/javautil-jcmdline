@@ -12,9 +12,9 @@ import java.sql.Statement;
 
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
-import org.javautil.core.sql.ConnectionHelper;
 import org.javautil.io.FileUtil;
 import org.javautil.sql.Binds;
+import org.javautil.sql.ConnectionHelper;
 import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

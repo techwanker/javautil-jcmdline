@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.javautil.sql.SqlSplitter;
+import org.javautil.sql.SqlSplitterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

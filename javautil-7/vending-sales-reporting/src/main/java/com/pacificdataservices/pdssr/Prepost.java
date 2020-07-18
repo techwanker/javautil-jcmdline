@@ -8,10 +8,10 @@ import java.util.Date;
 
 import org.javautil.sql.Binds;
 import org.javautil.sql.MappedResultSetIterator;
-import org.javautil.core.sql.SqlStatementRunner;
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.sql.Dialect;
 import org.javautil.sql.SqlStatement;
+import org.javautil.sql.SqlStatementRunner;
 import org.javautil.sql.SqlStatements;
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;

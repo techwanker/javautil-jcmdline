@@ -13,14 +13,14 @@ import java.util.Arrays;
 import javax.sql.DataSource;
 
 import org.javautil.containers.NameValue;
-import org.javautil.core.sql.SqlSplitterException;
-import org.javautil.core.sql.TestDataSource;
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.joblog.persistence.JoblogPersistenceFactory;
 import org.javautil.misc.Timer;
 import org.javautil.sql.Binds;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
+import org.javautil.sql.TestDataSource;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

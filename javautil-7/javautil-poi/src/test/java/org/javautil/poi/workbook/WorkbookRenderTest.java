@@ -14,12 +14,12 @@ import java.util.LinkedHashMap;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.text.YamlUtils;
 import org.javautil.core.workbook.WorkbookDefinition;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DataType;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
+import org.javautil.text.YamlUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

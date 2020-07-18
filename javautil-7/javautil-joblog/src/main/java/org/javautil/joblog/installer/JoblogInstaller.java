@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlSplitterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

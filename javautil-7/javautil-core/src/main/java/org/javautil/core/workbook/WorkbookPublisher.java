@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.javautil.core.sql.BindType;
-import org.javautil.core.sql.DataSources;
+import org.javautil.sql.BindType;
 import org.javautil.sql.Binds;
+import org.javautil.sql.DataSources;
 import org.javautil.sql.SqlStatement;
 
 public class WorkbookPublisher {

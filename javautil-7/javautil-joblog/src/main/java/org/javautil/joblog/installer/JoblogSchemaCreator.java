@@ -3,7 +3,7 @@ package org.javautil.joblog.installer;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.javautil.core.sql.SqlSplitterException;
+import org.javautil.sql.SqlSplitterException;
 
 public interface JoblogSchemaCreator {
 

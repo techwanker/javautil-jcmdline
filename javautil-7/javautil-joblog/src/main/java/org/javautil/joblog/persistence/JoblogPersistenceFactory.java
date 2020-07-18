@@ -2,8 +2,8 @@ package org.javautil.joblog.persistence;
 
 import java.sql.Connection;
 
-import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.joblog.installer.JoblogInstaller;
+import org.javautil.sql.SqlSplitterException;
 
 public class JoblogPersistenceFactory {
 

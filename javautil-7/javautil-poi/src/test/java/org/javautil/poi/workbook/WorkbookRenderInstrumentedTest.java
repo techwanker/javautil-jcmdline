@@ -14,7 +14,6 @@ import java.util.LinkedHashMap;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.text.YamlUtils;
 import org.javautil.core.workbook.WorkbookDefinition;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DataType;
@@ -22,6 +21,7 @@ import org.javautil.joblog.DataSources;
 import org.javautil.joblog.installer.JoblogPostgresInstall;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
+import org.javautil.text.YamlUtils;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.javautil.sql.Dialect;
+import org.javautil.sql.TestDataSource;
 import org.junit.Test;
 
 public class TestDataSourceTest {

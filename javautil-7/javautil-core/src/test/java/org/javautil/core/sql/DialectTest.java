@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import org.javautil.sql.ApplicationPropertiesDataSource;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.H2InMemory;
 import org.junit.Test;
 
 public class DialectTest {

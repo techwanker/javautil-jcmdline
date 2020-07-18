@@ -6,14 +6,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.javautil.containers.ListOfNameValue;
-import org.javautil.core.sql.NamedSqlStatements;
-import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.oracle.trace.CursorInfo;
 import org.javautil.oracle.trace.CursorOperationAggregation;
 import org.javautil.oracle.trace.CursorsStats;
 import org.javautil.oracle.trace.record.Stat;
 import org.javautil.sql.Binds;
+import org.javautil.sql.NamedSqlStatements;
 import org.javautil.sql.SequenceHelper;
+import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
 import org.javautil.util.ShaHasher;
 import org.slf4j.Logger;

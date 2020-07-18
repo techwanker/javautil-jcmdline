@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.javautil.sql.SqlSplitter;
+import org.javautil.sql.SqlSplitterException;
+import org.javautil.sql.SqlSplitterLine;
 import org.javautil.sql.SqlStatement;
 import org.javautil.sql.SqlStatements;
 import org.junit.Test;

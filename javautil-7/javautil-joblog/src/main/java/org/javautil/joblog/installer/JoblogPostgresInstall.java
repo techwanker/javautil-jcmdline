@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.javautil.core.sql.SqlRunner;
-import org.javautil.core.sql.SqlSplitterException;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlRunner;
+import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

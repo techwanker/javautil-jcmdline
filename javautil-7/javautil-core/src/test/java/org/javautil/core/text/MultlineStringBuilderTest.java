@@ -2,6 +2,7 @@ package org.javautil.core.text;
 
 import static org.junit.Assert.assertEquals;
 
+import org.javautil.text.MultiLineStringBuilder;
 import org.junit.Test;
 
 public class MultlineStringBuilderTest {

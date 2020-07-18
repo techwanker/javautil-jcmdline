@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.javautil.sql.Dialect;
-import org.javautil.core.sql.TestDataSource;
+import org.javautil.sql.TestDataSource;
 import org.junit.Test;
 
 public class TestDataSourceOracleTest {

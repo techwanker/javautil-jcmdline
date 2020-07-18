@@ -5,8 +5,8 @@ import java.io.OutputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.javautil.core.text.StringRenderSupport;
 import org.javautil.document.style.Style;
+import org.javautil.text.StringRenderSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.javautil.sql.H2ConnectionHelper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

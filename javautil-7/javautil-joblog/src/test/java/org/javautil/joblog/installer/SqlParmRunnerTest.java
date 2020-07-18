@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
-import org.javautil.core.sql.SqlParmRunner;
-import org.javautil.core.sql.SqlRunnerParms;
-import org.javautil.core.sql.TestDataSource;
 import org.javautil.sql.Binds;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.SqlParmRunner;
+import org.javautil.sql.SqlRunnerParms;
+import org.javautil.sql.TestDataSource;
 import org.junit.Test;
 
 
