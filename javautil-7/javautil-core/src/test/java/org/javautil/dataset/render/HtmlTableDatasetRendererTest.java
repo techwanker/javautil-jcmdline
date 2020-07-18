@@ -1,5 +1,7 @@
 package org.javautil.dataset.render;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -39,6 +41,7 @@ public class HtmlTableDatasetRendererTest extends AbstractTableRendererTest {
 	@Test
 	public void testWithTagAttributes() throws Exception {
 		useBufferStreamResult();
+		@SuppressWarnings("rawtypes")
 		final HtmlTableDatasetRenderer renderer = getRenderer();
 		final Map<String, String> tableAttributes = new LinkedHashMap<String, String>();
 		tableAttributes.put("cellpadding", "0");
@@ -46,8 +49,8 @@ public class HtmlTableDatasetRendererTest extends AbstractTableRendererTest {
 		tableAttributes.put("style", "display: none; background-image: url('background.gif');");
 		renderer.getTable().setTableTagAttributes(tableAttributes);
 		renderer.render(getRequest());
-		Assert
-		    .assertTrue(getBuffer().toString().indexOf("<table cellpadding=\"0\" cellspacing=\"0\" style=\"display: none; "
+		
+		assertTrue(getBuffer().toString().indexOf("<table cellpadding=\"0\" cellspacing=\"0\" style=\"display: none; "
 		        + "background-image: url('background.gif');\">") > -1);
 	}
 
