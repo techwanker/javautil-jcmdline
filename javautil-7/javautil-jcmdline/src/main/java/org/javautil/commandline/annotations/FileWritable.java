@@ -7,6 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * Annotation type to indicate a file must be writable.
+ * 
+ * @FileWritable
+ * private File definitionOutput;
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD })

@@ -22,6 +22,7 @@ public class DatasetDefinitionEnhancerTest {
 				"--infile", infileName,
 				"--outfile",outfile,
 				"--datasource",dataSourceName,
+				"--verbosity=3",
                 "etl_file_id=1"
 		};
 		

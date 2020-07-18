@@ -36,6 +36,7 @@ public class DatasetsDefinitionEnhancerArguments {
 	@Optional
 	private int verbosity = 2;
 	
+
 	/**
 	 * This is populated from the bindPair arguments which should be specially formatted
 	 */
@@ -98,4 +99,9 @@ public class DatasetsDefinitionEnhancerArguments {
 	public int getVerbosity() {
 		return verbosity;
 	}
+	
+	public void setVerbosity(int verbosity) {
+		this.verbosity = verbosity;
+	}
+
 }

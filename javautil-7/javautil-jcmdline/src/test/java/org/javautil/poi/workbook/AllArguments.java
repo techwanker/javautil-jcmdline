@@ -30,23 +30,7 @@ public class AllArguments {
 	
 	
 
-//    @DependentField
-
-//    @FieldValue
-//
-//    @FileWritable
-//    @Hidden
-//    @MultiValueBean
-//    @MultiValue
-//    @Optional
-//    
-//    @Required
-//    @RequiredUnless
-//    @Requires
-//    @StringSet
-//    private String toadlick;
-
-   
+  
     @Optional
      @AcceptableValues(values = {"a", "b"}) 
     

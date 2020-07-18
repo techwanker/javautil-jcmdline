@@ -8,8 +8,7 @@ import java.lang.annotation.Target;
 /**
  * Annotation type to indicate a directory must exist.
  * 
- * @author bcm
- * 
+  * 
  *         example;
  * 
  * @DirectoryExists private File inputDirectory;
