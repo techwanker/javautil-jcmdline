@@ -30,6 +30,7 @@
   <classpathentry kind="var" path="M2_REPO/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar" sourcepath="M2_REPO/commons-configuration/commons-configuration/1.10/commons-configuration-1.10-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.4/commons-lang-2.4.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.4/commons-lang-2.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar" sourcepath="M2_REPO/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar" sourcepath="M2_REPO/com/google/code/gson/gson/2.6.2/gson-2.6.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar" sourcepath="M2_REPO/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/yaml/snakeyaml/1.26/snakeyaml-1.26.jar" sourcepath="M2_REPO/org/yaml/snakeyaml/1.26/snakeyaml-1.26-sources.jar"/>

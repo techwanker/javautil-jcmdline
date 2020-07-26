@@ -7,14 +7,14 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import org.javautil.core.workbook.BindDefinitions;
-import org.javautil.core.workbook.WorkbookDefinition;
-import org.javautil.core.workbook.Worksheet;
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DatasetMetadata;
 import org.javautil.dataset.MatrixDataset;
 import org.javautil.sql.Binds;
 import org.javautil.sql.SqlStatement;
+import org.javautil.workbook.BindDefinitions;
+import org.javautil.workbook.WorkbookDefinition;
+import org.javautil.workbook.Worksheet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

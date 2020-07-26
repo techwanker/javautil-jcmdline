@@ -1,4 +1,4 @@
-package org.javautil.core.workbook;
+package org.javautil.workbook;
 
 public class UndefinedBindTypeException extends Exception {
 	/**

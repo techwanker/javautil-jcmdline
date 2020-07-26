@@ -1,4 +1,4 @@
-package org.javautil.core.workbook;
+package org.javautil.workbook;
 
 import org.javautil.json.JsonUtils;
 

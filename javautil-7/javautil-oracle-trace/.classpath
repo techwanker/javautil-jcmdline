@@ -22,9 +22,9 @@
     </attributes>
   </classpathentry>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="var" path="M2_REPO/org/javautil/javautil-core/8.07.04/javautil-core-8.07.04.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/javautil/nucleus/8.07.04/nucleus-8.07.04.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/javautil/javautil-jcmdline/8.07.04/javautil-jcmdline-8.07.04.jar"/>
+  <classpathentry kind="src" path="/javautil-core"/>
+  <classpathentry kind="src" path="/nucleus"/>
+  <classpathentry kind="src" path="/javautil-jcmdline"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar">
     <attributes>
       <attribute value="jar:file:/common/home/jjs/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-javadoc.jar!/" name="javadoc_location"/>
@@ -58,6 +58,11 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10-sources.jar">
     <attributes>
       <attribute value="jar:file:/common/home/jjs/.m2/repository/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar" sourcepath="M2_REPO/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/common/home/jjs/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar" sourcepath="M2_REPO/com/google/code/gson/gson/2.8.5/gson-2.8.5-sources.jar">

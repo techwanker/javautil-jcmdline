@@ -1,6 +1,6 @@
 package org.javautil.lang;
 
-import org.javautil.java.ClassHelper;
+
 
 /**
  * todo review ClassHelper and StackHelper functionality
@@ -52,7 +52,8 @@ public class ThreadHelper {
 		final StringBuilder b = new StringBuilder();
 		for (final StackTraceElement ste : stackTrace) {
 			b.append(ste.toString());
-			b.append(SystemProperties.newline);
+			b.append("\n");
+			
 		}
 		return b.toString();
 	}

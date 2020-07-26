@@ -13,6 +13,9 @@ import java.util.TreeMap;
 
 import javax.xml.transform.stream.StreamResult;
 
+import org.javautil.dataset.testdata.FeesDataset;
+
+
 import org.javautil.collections.ListHelper;
 import org.javautil.dataset.testdata.ConvictionsDataset;
 import org.javautil.dataset.testdata.FeesDataset;

@@ -41,16 +41,26 @@ public class EnvironmentDataSource {
 		return properties;
 	}
 
-	public static DataSource getDataSource() {
+	public static HikariDataSource getDataSource() {
 		return getDataSource(getEnvironmentProperties());
 	}
 
-	public static DataSource getDataSource(Properties properties) {
+	public static HikariDataSource getDataSource(Properties properties) {
 		final HikariConfig config = new HikariConfig();
 		config.setJdbcUrl(getNotNull(properties, DATABASE_URL));
 		config.setUsername(getNotNull(properties, DATABASE_USERNAME));
 		config.setPassword(getNotNull(properties, DATABASE_PASSWORD));
 		config.setAutoCommit(false);
 		return new HikariDataSource(config);
+	}
+	 
+
+	public static DataSource dataSource() {
+		System.getenv().put(DATABASE_URL,"jdbc:h2:mem");
+		System.getenv().put(DATABASE_USERNAME,"sr");
+		System.getenv().put(DATABASE_PASSWORD, "tutorial");
+		Properties props = EnvironmentDataSource.getEnvironmentProperties();
+		return getDataSource(props);
+		
 	}
 }

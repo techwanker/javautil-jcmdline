@@ -1,4 +1,4 @@
-package org.javautil.util;
+package org.javautil.containers;
 
 import java.util.Collection;
 import java.util.HashMap;

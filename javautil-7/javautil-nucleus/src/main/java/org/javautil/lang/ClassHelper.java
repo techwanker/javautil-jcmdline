@@ -1,4 +1,4 @@
-package org.javautil.java;
+package org.javautil.lang;
 
 // TODO jjs where did this come from and do we need it
 public class ClassHelper {

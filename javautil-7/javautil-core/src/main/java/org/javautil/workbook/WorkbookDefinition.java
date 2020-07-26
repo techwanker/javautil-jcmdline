@@ -1,5 +1,5 @@
 
-package org.javautil.core.workbook;
+package org.javautil.workbook;
 
 import java.io.File;
 import java.io.FileInputStream;

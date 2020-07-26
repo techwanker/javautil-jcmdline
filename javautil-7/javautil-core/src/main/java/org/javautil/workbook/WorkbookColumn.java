@@ -1,5 +1,5 @@
 
-package org.javautil.core.workbook;
+package org.javautil.workbook;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

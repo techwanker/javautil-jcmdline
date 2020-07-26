@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import org.javautil.util.StringStores;
+import org.javautil.containers.StringStores;
 
 public class BreakingResultSetHelper {
 

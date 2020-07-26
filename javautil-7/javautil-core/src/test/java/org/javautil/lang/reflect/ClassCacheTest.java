@@ -2,7 +2,7 @@ package org.javautil.lang.reflect;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.javautil.core.workbook.WorkbookDefinition;
+import org.javautil.workbook.WorkbookDefinition;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

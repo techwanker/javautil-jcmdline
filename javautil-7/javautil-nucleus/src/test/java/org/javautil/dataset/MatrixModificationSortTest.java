@@ -18,7 +18,6 @@ import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;
 import org.javautil.document.renderer.CsvRendererRequestImpl;
 import org.javautil.file.InputStreamComparator;
-import org.javautil.lang.SystemProperties;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -127,7 +126,7 @@ public class MatrixModificationSortTest {
 
 		final String csv = getRenderedCsv(set);
 
-		logger.debug("actual " + csv.length() + SystemProperties.newline + csv + SystemProperties.newline);
+		logger.debug("actual " + csv.length() + "\n" + csv + "\n");
 		final InputStream expectedInputStream = new FileInputStream(
 		    "src/test/resources/org/javautil/dataset/MatrixModificationTest/testDuplicateFinesAscending.csv");
 

@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedHashMap;
 
-import org.javautil.core.workbook.BindDefinitions;
-import org.javautil.core.workbook.WorkbookDefinition;
+import org.javautil.workbook.BindDefinitions;
+import org.javautil.workbook.WorkbookDefinition;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;

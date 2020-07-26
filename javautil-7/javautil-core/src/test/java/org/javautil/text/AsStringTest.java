@@ -1,4 +1,4 @@
-package org.javautil.core.text;
+package org.javautil.text;
 
 import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_FIELD_NAMES;
 import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_IDENTITY_HASH_CODE;

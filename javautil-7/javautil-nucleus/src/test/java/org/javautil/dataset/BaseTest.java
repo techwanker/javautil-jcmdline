@@ -36,7 +36,7 @@ public abstract class BaseTest {
 		try {
 			dataOut = new FileOutputStream(actualDataFileName);
 		} catch (FileNotFoundException e) {
-			throw new RuntimeException("while opening " + actualDataFileName + e.getMessage());
+			throw new RuntimeException("while opening 39 '" + actualDataFileName + "' " + e.getMessage());
 		}
 		FileOutputStream metaOut;
 		try {

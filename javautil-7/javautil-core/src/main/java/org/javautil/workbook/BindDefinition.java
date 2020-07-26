@@ -1,4 +1,4 @@
-package org.javautil.core.workbook;
+package org.javautil.workbook;
 
 import org.javautil.text.StringBuilderHelper;
 import org.slf4j.Logger;

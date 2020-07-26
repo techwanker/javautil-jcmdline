@@ -1,4 +1,4 @@
-package org.javautil.core.text;
+package org.javautil.text;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

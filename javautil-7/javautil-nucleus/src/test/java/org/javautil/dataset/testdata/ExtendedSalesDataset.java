@@ -1,8 +1,15 @@
-package org.javautil.dataset;
+package org.javautil.dataset.testdata;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.javautil.dataset.ColumnMetadata;
+import org.javautil.dataset.CrosstabColumns;
+import org.javautil.dataset.DataType;
+import org.javautil.dataset.Dataset;
+import org.javautil.dataset.DatasetCrosstabber;
+import org.javautil.dataset.DatasetMetadataImpl;
+import org.javautil.dataset.MatrixDataset;
 import org.javautil.document.style.HorizontalAlignment;
 import org.javautil.util.Day;
 import org.slf4j.Logger;

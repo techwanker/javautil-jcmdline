@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.javautil.core.misc.Timer;
+import org.javautil.misc.Timer;
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.sql.Binds;
 import org.javautil.sql.Dialect;

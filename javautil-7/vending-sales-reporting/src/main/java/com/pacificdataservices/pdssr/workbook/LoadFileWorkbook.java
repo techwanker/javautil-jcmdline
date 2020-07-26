@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 
-import org.javautil.core.workbook.WorkbookDefinition;
+import org.javautil.workbook.WorkbookDefinition;
 import org.javautil.document.renderer.WorkbookRenderer;
 
 import com.fasterxml.jackson.core.JsonParseException;

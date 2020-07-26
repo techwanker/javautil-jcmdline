@@ -14,7 +14,7 @@ import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.ColumnMetadataSerializerCsv;
 import org.javautil.dataset.Dataset;
 import org.javautil.dataset.DatasetMarshaller;
-import org.javautil.dataset.ExtendedSalesDataset;
+import org.javautil.dataset.testdata.ExtendedSalesDataset;
 import org.javautil.dataset.testdata.TicketsDataset;
 import org.javautil.file.FileHelper;
 import org.javautil.io.FileUtil;

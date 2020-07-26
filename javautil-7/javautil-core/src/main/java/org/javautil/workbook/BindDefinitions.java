@@ -1,4 +1,4 @@
-package org.javautil.core.workbook;
+package org.javautil.workbook;
 
 import java.util.LinkedHashMap;
 import java.util.TreeSet;
