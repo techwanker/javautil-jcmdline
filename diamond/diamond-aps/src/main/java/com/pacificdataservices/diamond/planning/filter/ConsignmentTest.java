@@ -1,6 +1,6 @@
 package com.pacificdataservices.diamond.planning.filter;
 
-import org.javautil.core.json.ModelGsonMarshaller;
+import org.javautil.hibernate.util.ModelGsonMarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

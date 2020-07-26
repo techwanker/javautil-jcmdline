@@ -10,12 +10,12 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.javautil.core.misc.Buckets;
-import org.javautil.core.misc.DoubleBuckets;
-import org.javautil.core.misc.MultiKey;
-import org.javautil.core.misc.MultiKeyHashMap;
-import org.javautil.core.misc.MultiKeyHashMapOfLists;
-import org.javautil.core.text.SimpleDateFormatFactory;
+import org.javautil.containers.Buckets;
+import org.javautil.containers.DoubleBuckets;
+import org.javautil.containers.MultiKey;
+import org.javautil.containers.MultiKeyHashMap;
+import org.javautil.containers.MultiKeyHashMapOfLists;
+import org.javautil.text.SimpleDateFormatFactory;
 import org.javautil.util.DateGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

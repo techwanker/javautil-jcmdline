@@ -16,12 +16,12 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
 import org.javautil.core.misc.Timer;
-import org.javautil.core.sql.Binds;
-import org.javautil.core.sql.DataSourceFactory;
-import org.javautil.core.sql.SqlStatement;
-import org.javautil.util.ListOfNameValue;
-import org.javautil.util.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

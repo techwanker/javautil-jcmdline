@@ -1,7 +1,6 @@
 package com.pacificdataservices.diamond.planning.data;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import com.pacificdataservices.diamond.models.AllocOnhand;
 import com.pacificdataservices.diamond.models.AllocReplen;
@@ -18,10 +17,8 @@ import com.pacificdataservices.diamond.models.ApsAllocWoFc;
 import com.pacificdataservices.diamond.models.ApsAllocWoOo;
 import com.pacificdataservices.diamond.models.ApsAllocWoSs;
 import com.pacificdataservices.diamond.models.ApsAllocWoWo;
-import com.pacificdataservices.diamond.models.ApsResultDtlDmd;
 import com.pacificdataservices.diamond.planning.Allocation;
 import com.pacificdataservices.diamond.planning.AllocationMode;
-import com.pacificdataservices.diamond.planning.demand.Demand;
 import com.pacificdataservices.diamond.planning.demand.DemandCustomer;
 import com.pacificdataservices.diamond.planning.demand.DemandForecast;
 import com.pacificdataservices.diamond.planning.demand.DemandSafetyStock;

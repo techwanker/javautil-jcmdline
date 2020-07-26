@@ -6,18 +6,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.javautil.core.misc.DoubleBuckets;
-import org.javautil.core.misc.MultiKey;
-import org.javautil.core.text.SimpleDateFormats;
+import org.javautil.containers.DoubleBuckets;
+import org.javautil.containers.MultiKey;
+import org.javautil.text.SimpleDateFormats;
 import org.javautil.util.DateGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.pacificdataservices.diamond.planning.Allocation;
-import com.pacificdataservices.diamond.planning.AllocationMode;
 import com.pacificdataservices.diamond.planning.supply.Supply;
 
 public class SupplyBuckets extends DoubleBuckets {

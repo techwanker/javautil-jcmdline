@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.TreeMap;
 
-import org.javautil.core.json.JsonSerializerGson;
 import org.javautil.hibernate.HibernateMarshallerFactory;
 import org.javautil.io.IOUtils;
+import org.javautil.json.JsonSerializerGson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -3,7 +3,7 @@ package com.pacificdataservices.diamond.planning;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.javautil.core.properties.PropertyManager;
+import org.javautil.properties.PropertyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

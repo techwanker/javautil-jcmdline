@@ -3,7 +3,7 @@ package com.pacificdataservices.diamond.planning.supply.priority;
 import java.text.SimpleDateFormat;
 
 import org.javautil.buckets.DateHelper;
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 
 import com.pacificdataservices.diamond.planning.EligibleSupply;
 import com.pacificdataservices.diamond.planning.data.PlanningData;

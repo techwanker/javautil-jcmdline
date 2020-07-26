@@ -5,7 +5,6 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.pacificdataservices.diamond.planning.PlanningDataException;
 import com.pacificdataservices.diamond.planning.data.PlanningData;
 import com.pacificdataservices.diamond.planning.demand.Demand;
 import com.pacificdataservices.diamond.planning.supply.Supply;

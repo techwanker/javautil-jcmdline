@@ -32,7 +32,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 //import org.javautil.buckets.DateGenerator;
 import org.javautil.buckets.DateHelper;
-import org.javautil.core.text.SimpleDateFormats;
+import org.javautil.text.SimpleDateFormats;
 import org.javautil.util.DateGenerator;
 import org.javautil.util.DateUtils;
 import org.slf4j.Logger;

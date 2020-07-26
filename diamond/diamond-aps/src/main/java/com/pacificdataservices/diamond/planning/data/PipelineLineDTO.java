@@ -3,7 +3,7 @@ package com.pacificdataservices.diamond.planning.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.core.misc.Buckets;
+import org.javautil.containers.Buckets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

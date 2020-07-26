@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.javautil.core.misc.DoubleBuckets;
-import org.javautil.core.misc.MultiKey;
-import org.javautil.core.misc.MultiKeyHashMap;
+import org.javautil.containers.DoubleBuckets;
+import org.javautil.containers.MultiKey;
+import org.javautil.containers.MultiKeyHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

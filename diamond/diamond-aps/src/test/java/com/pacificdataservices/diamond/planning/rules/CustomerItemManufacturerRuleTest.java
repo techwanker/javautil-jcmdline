@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.javautil.dataset.ColumnMetadata;
+import org.javautil.dataset.CrosstabColumns;
 import org.javautil.dataset.DataType;
 import org.javautil.dataset.DatasetCrosstabber;
 import org.javautil.dataset.DatasetIterator;
@@ -20,7 +21,6 @@ import org.javautil.dataset.ListOfMapsDataset;
 import org.javautil.dataset.MatrixDataset;
 import org.javautil.dataset.MutableDatasetMetadata;
 import org.javautil.dataset.csv.DatasetCsvMarshaller;
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.javautil.util.Day;
 import org.junit.Test;
 import org.slf4j.Logger;

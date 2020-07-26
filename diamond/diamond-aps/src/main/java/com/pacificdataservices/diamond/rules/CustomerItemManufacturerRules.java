@@ -11,13 +11,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.javautil.dataset.ColumnMetadata;
+import org.javautil.dataset.CrosstabColumns;
 import org.javautil.dataset.DataType;
 import org.javautil.dataset.Dataset;
 import org.javautil.dataset.DatasetCrosstabber;
 import org.javautil.dataset.DatasetMetadataImpl;
 import org.javautil.dataset.ListOfMapsDataset;
 import org.javautil.dataset.MatrixDataset;
-import org.javautil.document.crosstab.CrosstabColumns;
 import org.javautil.hibernate.HibernateMarshallerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

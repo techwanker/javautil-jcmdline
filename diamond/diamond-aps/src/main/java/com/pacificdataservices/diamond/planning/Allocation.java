@@ -3,8 +3,8 @@ package com.pacificdataservices.diamond.planning;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.javautil.core.text.SimpleDateFormatFactory;
-import org.javautil.util.NameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.text.SimpleDateFormatFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -21,8 +21,6 @@ import com.pacificdataservices.diamond.models.ApsResultDtlDmd;
 import com.pacificdataservices.diamond.planning.Allocator;
 import com.pacificdataservices.diamond.planning.PlanningDataException;
 import com.pacificdataservices.diamond.planning.data.PlanningData;
-import com.pacificdataservices.diamond.planning.data.PlanningResult;
-import com.pacificdataservices.diamond.planning.json.PlanningDataMarshallable;
 import com.pacificdataservices.diamond.planning.webservices.PlanningResults;
 
 @Component

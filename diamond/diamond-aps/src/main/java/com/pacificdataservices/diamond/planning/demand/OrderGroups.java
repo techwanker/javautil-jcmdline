@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.TreeMap;
 
-import org.javautil.core.collections.ListComparator;
+import org.javautil.collections.ListComparator;
 import org.javautil.util.DateGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

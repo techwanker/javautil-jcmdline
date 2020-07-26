@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.javautil.core.misc.Buckets;
-import org.javautil.core.misc.MultiKey;
+import org.javautil.containers.Buckets;
+import org.javautil.containers.MultiKey;
 
 import com.pacificdataservices.diamond.models.ApsSplyPool;
 import com.pacificdataservices.diamond.models.ApsSplySubPool;

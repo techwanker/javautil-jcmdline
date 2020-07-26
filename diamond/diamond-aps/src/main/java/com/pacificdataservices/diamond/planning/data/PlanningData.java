@@ -16,9 +16,9 @@ import java.util.TreeSet;
 
 import org.javautil.buckets.DateHelper;
 import org.javautil.core.misc.Timer;
-import org.javautil.core.properties.PropertyManager;
-import org.javautil.core.text.SimpleDateFormats;
 import org.javautil.hibernate.HibernateMarshallerFactory;
+import org.javautil.properties.PropertyManager;
+import org.javautil.text.SimpleDateFormats;
 import org.javautil.util.DateGenerator;
 import org.javautil.util.DateUtils;
 import org.slf4j.Logger;

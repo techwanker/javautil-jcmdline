@@ -2,7 +2,7 @@ package com.pacificdataservices.diamond.planning.supply.priority;
 
 import java.util.Collection;
 
-import org.javautil.core.text.StringUtils;
+import org.javautil.text.StringUtils;
 
 import com.pacificdataservices.diamond.models.IcCertCd;
 import com.pacificdataservices.diamond.planning.EligibleSupply;

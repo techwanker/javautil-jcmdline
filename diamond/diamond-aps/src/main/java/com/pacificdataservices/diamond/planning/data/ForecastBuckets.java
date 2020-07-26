@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.javautil.core.misc.Buckets;
-import org.javautil.core.misc.MultiKey;
+import org.javautil.containers.Buckets;
+import org.javautil.containers.MultiKey;
 import org.javautil.util.DateGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

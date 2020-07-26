@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.javautil.core.misc.Buckets;
+import org.javautil.containers.Buckets;
 import org.javautil.hibernate.HibernateMarshallerFactory;
 import org.javautil.util.DateGenerator;
 import org.slf4j.Logger;

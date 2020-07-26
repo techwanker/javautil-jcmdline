@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
-import org.javautil.core.properties.PropertyManager;
+import org.javautil.properties.PropertyManager;
 import org.javautil.util.Day;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

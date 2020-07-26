@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 
-import org.javautil.core.text.SimpleDateFormatFactory;
-import org.javautil.core.text.SimpleDateFormats;
+import org.javautil.text.SimpleDateFormatFactory;
+import org.javautil.text.SimpleDateFormats;
 
 import com.pacificdataservices.diamond.models.ApsDmdFc;
 import com.pacificdataservices.diamond.planning.Allocation;

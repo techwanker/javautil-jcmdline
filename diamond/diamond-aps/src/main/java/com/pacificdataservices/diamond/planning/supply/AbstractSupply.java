@@ -10,10 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.javautil.core.misc.Buckets;
-import org.javautil.core.misc.MultiKey;
-import org.javautil.core.text.SimpleDateFormatFactory;
-import org.javautil.util.NameValue;
+import org.javautil.containers.Buckets;
+import org.javautil.containers.MultiKey;
+import org.javautil.text.SimpleDateFormatFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
