@@ -39,15 +39,6 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j.version}</version>
 		</dependency>
-		<!-- <dependency> <groupId>jcmdline</groupId> <artifactId>jcmdline</artifactId> 
-			<version>1.0.3</version> </dependency> -->
-			<!-- 
-		<dependency>
-			<groupId>org.javautil</groupId>
-			<artifactId>jcmdline</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		-->
 		<dependency>
 			<groupId>commons-configuration</groupId>
 			<artifactId>commons-configuration</artifactId>
@@ -59,4 +50,15 @@
 			<version>${org.apache.commons-lang3.version}</version>
 		</dependency>
 	</dependencies>
+<build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>

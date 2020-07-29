@@ -25,12 +25,8 @@ import org.slf4j.LoggerFactory;
 
 import jcmdline.StringParam;
 
-
 public class AllArguments {
-	
-	
 
-  
     @Optional
      @AcceptableValues(values = {"a", "b"}) 
     
@@ -46,7 +42,6 @@ public class AllArguments {
 	@Required
 	private File definitionOutput;
 
-	
 	@Required
 	private String dataSourceName;
 	
@@ -60,7 +55,6 @@ public class AllArguments {
 	
 	@Optional
 	File inputFile ;
-	
 	
 	@FileWritable
 	@Required
