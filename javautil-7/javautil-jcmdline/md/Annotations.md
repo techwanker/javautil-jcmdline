@@ -1,53 +1,79 @@
+<a name="TOCa">
+
+[\@AcceptableValues](#AcceptableValues) | [\@Argument](#Argument) | [\@DependentField](#DependentField) | 
+[\@DirectoryExists](#DirectoryExists) [\@DirectoryReadable](#DirectoryReadable) | [\@DirectoryWritable](#DirectoryWritable) | [\@Exclusive](#Exclusive) |
+ [\@FileExists](#FileExists) | [\@FileReadable](#FileReadable) | [\@FileWritable](#FileWritable) | [\@Hidden](#Hidden) | [\@MultiValue](#MultiValue) | [\@Optional](#Optional) | [\@Required](#Required) | [\@RequiredUnless](#RequiredUnless) | [\@Requires](#Requires)
+</a>
+
+<a name="Parameters">
    
 ##Parameters  
 </a>  
 
  
 * Every parameter must have one of 
-     * **@Optional**   Options 
-     * **@Required**   Options
-     * **@Argument**   Arguments
+     * **[\@Optional](#Optional)**   Options 
+     * **[\@Required](#Required)**   Options
+     * **[\@Argument](#Argument)**   Arguments
 * Files
-     * **@FileExists**   File must exist
-     * **@FileReadable** File must exist and be readable
-     * **@FileWritable** does it need to exist
+     * **[\@FileExists](#FileExists)**   File must exist
+     * **[\@FileReadable](#FileReadable)** File must exist and be readable
+     * **[\@FileWritable](#FileWritable)** does it need to exist
+* Directories
+     * **[\@DirectoryExists](#DirectoryExists)**
+     * **[\@DirectoryReadable](#DirectoryReadable)**
+     * **[\@DirectoryWritable](#DirectoryWritable)**
 * Inter parameter dependencies
-     * **@Exclusive**
-     * **@Requires** [Requires](#@Requires)
-     
-<a name="Annotations"> 
+     * **[\@Exclusive](#Exclusive)**
+     * **[\@Requires](#Requires)**
+* Other
+     * **[\@AcceptableValues](#AcceptableValues)**
+     * **[\@DependentField](#DependentField)**
+     * **[\@Hidden](#Hidden)**
 
-# Annotations
-</a>
 
-<a name="@AcceptableValues">
+[[toc]](#TOCa)
+
+
+<a name="AcceptableValues">
 
 ## @AcceptableValues 
 </a>
 
 Annotation type to indicate a list of values that may be assumed by a String, 
 
+<section class="level-4">
 ```
- @AcceptableValues(values = {"a", "b"}) private String text;
+@AcceptableValues(values = {"a", "b"}) private String text;
 ```
+</section>
 
-<a name="@Argument">
+[[toc]](#TOCa)
+
+<a name="Argument">
 
 ## @Argument
 </a>
 
 Annotation type to indicate a parameter should be treated as argument.
 
+<section class="level-4">
 ```
-TODO add Argument Code
+@Optional
+@Argument
+@MultiValue(type = ParamType.STRING)
+private ArrayList<String> bindPair;
 ```
+</section>
 
-<a name="@DependentField">
+[[toc]](#TOCa)
+
+<a name="DependentField">
 
 ## @DependentField
 </a>
 
- Annotation type to indicate a parameter is required by another parameter. The argument property should be set to a string with the name of the property on the same class that requires it.
+Annotation type to indicate a parameter is required by another parameter. The argument property should be set to a string with the name of the property on the same class that requires it.
 
 example:
 
@@ -55,11 +81,15 @@ The property "schemaName" is required by the property "xsd"
  
 code:
 
+<section class="level-4">
 ```
 @Requires("schemaName") String xsd;
 ```
+</section>
 
-<a name="@DirectoryExists">
+[[toc]](#TOCa)
+
+<a name="DirectoryExists">
 
 ## @DirectoryExists
 </a>
@@ -68,25 +98,33 @@ Annotation type to indicate a directory must exist.
 
 code:
 
+<section class="level-4">
 ```
 @DirectoryExists private File inputDirectory;
 ```
+</section>
 
-<a name="@DirectoryReadable">
+[[toc]](#TOCa)
+
+<a name="DirectoryReadable">
 
 ## @DirectoryReadable
 </a>
 
-Annotation type to indicate a directory must be readable. By definition it must exist. TODO ensure that this is true.
+Annotation type to indicate a directory must be readable. By definition it must exist.
 
 code:
 
+<section class="level-4">
 ```
-	@DirectoryReadable
-	private File databaseDirectory;
+@DirectoryReadable
+private File databaseDirectory;
 ```
+</section>
 
-<a name="@DirectoryWritable">
+[[toc]](#TOCa)
+
+<a name="DirectoryWritable">
 
 ## @DirectoryWritable
 </a>
@@ -95,14 +133,18 @@ Annotation type to indicate a directory must be writable.
 
 code:
 
+<section class="level-4">
 ```
-	@DirectoryWriteable
-	private File databaseDirectory;
+@DirectoryWriteable
+private File databaseDirectory;
 ```
+</section>
 
-<a name="@Exclusive">
+[[toc]](#TOCa)
 
-### @Exclusive 
+<a name="Exclusive">
+
+## @Exclusive 
 </a>
   
 Annotation type to indicate a parameter is exclusive to another parameter.
@@ -115,25 +157,15 @@ If parameter 'input' is specified 'workbookLoadId' may not be specified and vice
 
 code:
   
+<section class="level-4">
 ```
-  @Exclusive(property = "input") Long workbookLoadId = null;
+@Exclusive(property = "input") Long workbookLoadId = null;
 ```
+</section>
 
-<a name="@FieldValue">
+[[toc]](#TOCa)
 
-## @FieldValue
-</a>
-
-Annotation type to assign a command line parameter type to a bean property.
-This annotation is mutually exclusive to the MultiValue annotation.
-
-code:
-
-```
-TODO add FieldValue code
-```
-
-<a name="@FileExists">
+<a name="FileExists">
 
 ## @FileExists
 </a>
@@ -142,12 +174,16 @@ Annotation type to indicate a file must exist.
 
 code:
 
+<section class="level-4">
 ```
 @FileExists
 private File outputFile;
 ```
+</section>
 
-<a name="@FileReadable">
+[[toc]](#TOCa)
+
+<a name="FileReadable">
 
 ## @FileReadable
 </a>
@@ -156,12 +192,16 @@ Annotation type to indicate a file must be readable.
 
 code:
 
+<section class="level-4">
 ```
 @FileReadable
 private File definition;
 ```
+</section>
 
-<a name="@FileWritable">
+[[toc]](#TOCa)
+
+<a name="FileWritable">
 
 ## @FileWritable
 </a>
@@ -170,30 +210,37 @@ Annotation type to indicate a file must be writable
 
 code:
 
+<section class="level-4">
 ```
 @FileWritable
 private File definitionOutput;
 ```
+</section>
 
-<a name="@Hidden">   
+[[toc]](#TOCa)
+
+<a name="Hidden">   
  
-### @Hidden
+## @Hidden
 
 </a>
  
 Annotation type to indicate that an argument is hidden; that is, not displayed on help messages.
 
-TODO this is not implemented in the CommandLineHandler
+<section class="level-4">
 
 ```
-TODO add code to hidden
+@Optional
+@Hidden
+private String hiddenParameter;
 ```
+</section>
 
-<a name="@MultiValue">  
+[[toc]](#TOCa)
 
+<a name="MultiValue">
   
-### @MultiValue
-
+## @MultiValue
 </a>   
  
 Annotation type to indicate a parameter is accepted multiple times. This annotation is mutually exclusive to the FieldValue annotation.
@@ -203,29 +250,35 @@ Annotation type to indicate a parameter is accepted multiple times. This annotat
   
   The property "downloadUrls" is to be multiple urls to download
  
-  code:
+code:
   
+<section class="level-4">
 ```
  @MultiValue(type=ParamType.STRING) ArrayList<String>  downloadUrls;
 ```
+</section>
 
-<a name="@Optional">
+[[toc]](#TOCa)
+
+<a name="Optional">
 
 ## @Optional
 </a>
 
 Annotation type to indicate a parameter should be treated as optional. This annotation is mutually exclusive to the Required annotation.
 
-TODO jjs is one or the other required? What happens if a field has neither
-
 code:
 
+<section class="level-4">
 ```
 @Optional
 private String breed;
 ```
+</section>
 
-<a name="@Required">
+[[toc]](#TOCa)
+
+<a name="Required">
 
 ## @Required 
 </a>
@@ -235,18 +288,24 @@ Annotation type to indicate a parameter should be treated is mandatory. This ann
 Required options are better self documenting than positional arguments
 
 
- ```
- @Required
-  @AcceptableValues(values = {"a", "b"}) 
-  private String abba;
+<section class="level-4">
 ```
+@Required
+@AcceptableValues(values = {"a", "b"}) 
+private String abba;
+```
+</section>
 
-<a name="@RequiredUnless">
+[[toc]](#TOCa)
+
+<a name="RequiredUnless">
   
-### @RequiredUnless
+## @RequiredUnless
 </a>
  
 Annotation type to indicate a parameter should be treated as required unless another parameter is specified.
+
+<section class="level-4">
 
 ```
 @RequiredUnless(property = "toad")
@@ -255,10 +314,13 @@ private String frog;
 @Optional
 private String toad;
 ```
+</section>
 
-<a name="@Requires">
+[[toc]](#TOCa)
 
-### @Requires
+<a name="Requires">
+
+## @Requires
 
 </a>
  
@@ -268,6 +330,11 @@ Annotation type to indicate a parameter is required by another parameter. The ar
   
  The property "schemaName" is required by the property "xsd"'
 
+<section class="level-4">
+
 ```
 @Requires("schemaName") String xsd;
 ```
+</section>
+
+[[toc]](#TOCa)
