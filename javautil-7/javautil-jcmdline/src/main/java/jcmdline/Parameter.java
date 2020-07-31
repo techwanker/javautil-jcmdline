@@ -49,38 +49,38 @@ public interface Parameter {
      * indicates that a parameter is public, and its description will be
      * listed in the usage.
      */
-    public static final boolean PUBLIC = false;
+    boolean PUBLIC = false;
 
     /**
      * when used as a value for the <code>hidden</code> indicator, 
      * indicates that a parameter is hidden, and its description will 
      * <b>not</b> be listed in the usage.
      */
-    public static final boolean HIDDEN = true;
+    boolean HIDDEN = true;
 
     /**
      * when used as a value for the <code>optional</code> indicator,
      * specifies that an parameter is optional
      */
-    public static final boolean OPTIONAL = true;
+    boolean OPTIONAL = true;
 
     /**
      * when used as a value for the <code>optional</code> indicator,
      * specifies that an parameter is required
      */
-    public static final boolean REQUIRED = false;
+    boolean REQUIRED = false;
 
     /**
      * when used as a value for the <code>multiValued</code> indicator,
      * specifies that an parameter accepts mulitiple values
      */
-    public static final boolean MULTI_VALUED = true;
+    boolean MULTI_VALUED = true;
 
     /**
      * when used as a value for the <code>multiValued</code> indicator,
      * specifies that a parameter accepts only one value
      */
-    public static final boolean SINGLE_VALUED = false;
+    boolean SINGLE_VALUED = false;
 
     /**
      * gets an indicator that the parameter's value has been set
@@ -88,7 +88,7 @@ public interface Parameter {
      * @return              true if the parameter's value has been set, false 
      *                      otherwise
      */
-    public boolean isSet() ;
+    boolean isSet() ;
 
     /**
      * gets the value of the hidden indicator
@@ -96,7 +96,7 @@ public interface Parameter {
      * @return          true ({@link #HIDDEN}) if the parameter is a 
      *                  hidden parameter
      */
-    public boolean isHidden() ;
+    boolean isHidden() ;
 
     /**
      * sets the value of the hidden indicator
@@ -104,14 +104,14 @@ public interface Parameter {
      * @param hidden    true ({@link #HIDDEN}) if the parameter is a 
      *                  hidden parameter
      */
-    public void setHidden(boolean hidden) ;
+    void setHidden(boolean hidden) ;
 
     /**
      * gets the value of the parameter's description
      *
      * @return              this parameter's description
      */
-    public String getDesc() ;
+    String getDesc() ;
 
     /**
      * sets the value of this parameter's description
@@ -121,14 +121,14 @@ public interface Parameter {
      * @throws          IllegalArgumentException if <code>desc</code> is
      *                  fewer than 5 charaters.
      */
-    public void setDesc(String desc) throws IllegalArgumentException ;
+    void setDesc(String desc) throws IllegalArgumentException ;
 
     /**
      * gets the value of tag
      *
      * @return          a unique identifier for this parameter
      */
-    public String getTag() ;
+    String getTag() ;
 
     /**
      * sets the value of tag
@@ -144,35 +144,35 @@ public interface Parameter {
      *                  </code> is less than 1, or <code>tag</code> contains an
      *                  invalid character.
      */
-    public void setTag(String tag) throws IllegalArgumentException ;
+    void setTag(String tag) throws IllegalArgumentException ;
 
     /**
      * gets the value of multiValued indicator
      *
      * @return              true if the parameter can have multiple values
      */
-    public boolean isMultiValued() ;
+    boolean isMultiValued() ;
 
     /**
      * sets the value of the multiValued indicator
      *
      * @param multiValued      true if the parameter can have multiple values
      */
-    public void setMultiValued(boolean multiValued) ;
+    void setMultiValued(boolean multiValued) ;
 
     /**
      * returns the value of the optional indicator
      *
      * @return              true if the parameter is optional
      */
-    public boolean isOptional() ;
+    boolean isOptional() ;
     
     /**
      * indicates whether or not the parameter is optional
      *
      * @param optional      true if the parameter is optional
      */
-    public void setOptional(boolean optional) ;
+    void setOptional(boolean optional) ;
 
     /**
      * Gets the values that are acceptable for this parameter, if a restricted
@@ -182,7 +182,7 @@ public interface Parameter {
      * @return              a set of acceptable values for the Parameter, or
      *                      null if there is none.
      */
-    public String[] getAcceptableValues() ;
+    String[] getAcceptableValues() ;
 
     /**
      * Sets the values that are acceptable for this parameter, if a restricted
@@ -192,7 +192,7 @@ public interface Parameter {
      * @param vals          the new acceptable values
      * @see #getAcceptableValues()
      */
-    public void setAcceptableValues(String[] vals) ;
+    void setAcceptableValues(String[] vals) ;
 
     /**
      * Sets the values that are acceptable for this parameter, if a restricted
@@ -205,7 +205,7 @@ public interface Parameter {
      *
      * @param vals          the new acceptable values
      */
-    public void setAcceptableValues(Collection vals) ;
+    void setAcceptableValues(Collection vals) ;
 
     /**
      * adds the specified string as a value for this entity
@@ -217,7 +217,7 @@ public interface Parameter {
      *              {@link #validateValue(String) validateValue()}
      *              detects a problem.
      */
-    public void addValue(String value) throws CmdLineException ;
+    void addValue(String value) throws CmdLineException ;
 
     /**
      * Sets the value of the parameter to the specified string.
@@ -226,7 +226,7 @@ public interface Parameter {
      * @throws      if {@link #validateValue(String) validateValue()}
      *              detects a problem.
      */
-    public void setValue(String value) throws CmdLineException ;
+    void setValue(String value) throws CmdLineException ;
 
     /**
      * Sets the values of the parameter to those specified.
@@ -240,7 +240,7 @@ public interface Parameter {
      *              if {@link #validateValue(String) validateValue()}
      *              detects a problem.
      */
-    public void setValues(Collection values) throws CmdLineException ;
+    void setValues(Collection values) throws CmdLineException ;
 
     /**
      * Sets the values of the parameter to those specified.
@@ -252,7 +252,7 @@ public interface Parameter {
      *              if {@link #validateValue(String) validateValue()}
      *              detects a problem.
      */
-    public void setValues(String[] values) throws CmdLineException ;
+    void setValues(String[] values) throws CmdLineException ;
 
     /**
      * verifies that <code>value</code> is valid for this entity
@@ -260,7 +260,7 @@ public interface Parameter {
      * @param value         the value to be validated
      * @throws              CmdLineException if <code>value</code> is not valid.
      */
-    public void validateValue(String value) throws CmdLineException;
+    void validateValue(String value) throws CmdLineException;
 
     /**
      * The value of the parameter, in the case where the parameter is not 
@@ -271,7 +271,7 @@ public interface Parameter {
      *                      the paramter has not been set.
      * @see                 #getValues()
      */
-    public String getValue() ;
+    String getValue() ;
 
     /**
      * gets the values associated with this Parameter
@@ -281,7 +281,7 @@ public interface Parameter {
      *                      Parameter has not been set.
      * @see #isSet()
      */
-    public Collection getValues() ;
+    Collection getValues() ;
 
     /**
      * gets the value of optionLabel
@@ -289,7 +289,7 @@ public interface Parameter {
      * @return              the string used as a label for the parameter's
      *                      value
      */
-    public String getOptionLabel() ;
+    String getOptionLabel() ;
 
     /**
      * Sets the value of optionLabel.
@@ -304,7 +304,7 @@ public interface Parameter {
      *                          value.  If null, an empty string is used.
      * @see #getOptionLabel()
      */
-    public void setOptionLabel(String optionLabel) ;
+    void setOptionLabel(String optionLabel) ;
 
     /**
      * Gets the flag indicating that during parse, missing required 
@@ -315,7 +315,7 @@ public interface Parameter {
      * @return              <code>true</code> if missing required Parameters
      *                      will be ignored when this Parameter is set.
      */
-    public boolean getIgnoreRequired() ;
+    boolean getIgnoreRequired() ;
 
     /**
      * Sets a flag such that during parse, missing required Parameters are 
@@ -327,6 +327,6 @@ public interface Parameter {
      *                          required Parameters if this Parameter is set
      * @see #getIgnoreRequired()
      */
-    public void setIgnoreRequired(boolean ignoreRequired) ;
+    void setIgnoreRequired(boolean ignoreRequired) ;
 }
 

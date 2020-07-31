@@ -12,7 +12,7 @@ public class TrueCrimes {
 
 	private transient static final Logger logger = LoggerFactory.getLogger(TrueCrimes.class);
 
-	private TrueCrimesArguments arguments;
+	private final TrueCrimesArguments arguments;
 
 	public TrueCrimes(TrueCrimesArguments arguments) {
 		this.arguments = arguments;

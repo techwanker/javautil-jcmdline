@@ -63,7 +63,7 @@ public class TextUsageFormatter implements UsageFormatter {
     /**
      * a Helper for usage formatting
      */
-    private StringFormatHelper sHelper = StringFormatHelper.getHelper();
+    private final StringFormatHelper sHelper = StringFormatHelper.getHelper();
 
     /**
      * constructor

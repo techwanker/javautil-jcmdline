@@ -165,13 +165,13 @@ public class BasicCmdLineHandler implements CmdLineHandler {
     /**
      * the options associated with the command
      */
-    private HashMap options = new HashMap();
+    private final HashMap options = new HashMap();
 
     /**
      * the arguments (after the options have been processed) associated 
      * with the command
      */
-    private ArrayList<Parameter> args = new ArrayList<>();
+    private final ArrayList<Parameter> args = new ArrayList<>();
 
     /**
      * the parser to be used to parse the command line
@@ -427,7 +427,7 @@ public class BasicCmdLineHandler implements CmdLineHandler {
                 "BasicCmdLineHandler.nullArgNotAllowed"));
         }
         if (args.size() > 0) {
-            Parameter lastArg = (Parameter) args.get(args.size() - 1);
+            Parameter lastArg = args.get(args.size() - 1);
             if (lastArg.isMultiValued()) {
                 throw new IllegalArgumentException(Strings.get(
                     "BasicCmdLineHandler.multiValueArgNotLast",

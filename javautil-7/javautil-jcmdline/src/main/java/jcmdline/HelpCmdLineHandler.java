@@ -123,23 +123,23 @@ public class HelpCmdLineHandler extends AbstractHandlerDecorator {
     /**
      * a parameter that will cause standard help to be displayed
      */
-    private BooleanParam helpOpt;
+    private final BooleanParam helpOpt;
 
     /**
      * a parameter that will cause help including hidden information to be 
      * displayed
      */
-    private BooleanParam hiddenHelpOpt;
+    private final BooleanParam hiddenHelpOpt;
 
     /**
      * the command's help
      */
-    private String help;
+    private final String help;
 
     /**
      * the command's help for hidden Parameters
      */
-    private String hiddenHelp;
+    private final String hiddenHelp;
 
     /**
      * constructor

@@ -143,7 +143,7 @@ public class AbstractHandlerDecorator_UT extends BetterTestCase {
      * @version         jcmdline Rel. @VERSION@ $Id: AbstractHandlerDecorator_UT.java,v 1.2 2002/12/07 14:30:49 lglawrence Exp $
      */
     class MyCLH extends AbstractHandlerDecorator {
-        private StringParam[] options;
+        private final StringParam[] options;
         public MyCLH(StringParam[] options, CmdLineHandler handler) {
             super(handler);
             this.options = options;

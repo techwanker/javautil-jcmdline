@@ -56,12 +56,12 @@ public class VersionCmdLineHandler extends AbstractHandlerDecorator {
     /**
      * a parameter that will cause the usage to be displayed
      */
-    private BooleanParam versionOpt;
+    private final BooleanParam versionOpt;
 
     /**
      * the command's version
      */
-    private String version;
+    private final String version;
 
     /**
      * constructor

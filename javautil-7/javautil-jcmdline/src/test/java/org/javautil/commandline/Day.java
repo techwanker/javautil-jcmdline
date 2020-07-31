@@ -23,8 +23,8 @@ public class Day extends java.sql.Date {
 	 * 
 	 */
 	private static final long serialVersionUID = -7738877493647339711L;
-	private static SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-	private static GregorianCalendar cal = new GregorianCalendar();
+	private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+	private static final GregorianCalendar cal = new GregorianCalendar();
 
 	public Day() {
 

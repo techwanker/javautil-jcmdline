@@ -58,9 +58,9 @@ public class LoggerCmdLineHandler_UT extends BetterTestCase {
     private static final String cmddesc = "this is the cmd desc";
 
     // variables new for each test
-    private Parameter param1 = 
+    private final Parameter param1 =
         new StringParam("param1", "this is param1");
-    private Parameter param2 = 
+    private final Parameter param2 =
         new StringParam("param2", "this is param2");
 
     /**

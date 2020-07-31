@@ -42,11 +42,9 @@
 
 Annotation type to indicate a list of values that may be assumed by a String, 
 
-<section class="level-4">
 ```
 @AcceptableValues(values = {"a", "b"}) private String text;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -57,14 +55,12 @@ Annotation type to indicate a list of values that may be assumed by a String,
 
 Annotation type to indicate a parameter should be treated as argument.
 
-<section class="level-4">
 ```
 @Optional
 @Argument
 @MultiValue(type = ParamType.STRING)
 private ArrayList<String> bindPair;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -81,11 +77,9 @@ The property "schemaName" is required by the property "xsd"
  
 code:
 
-<section class="level-4">
 ```
 @Requires("schemaName") String xsd;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -98,11 +92,9 @@ Annotation type to indicate a directory must exist.
 
 code:
 
-<section class="level-4">
 ```
 @DirectoryExists private File inputDirectory;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -115,12 +107,10 @@ Annotation type to indicate a directory must be readable. By definition it must 
 
 code:
 
-<section class="level-4">
 ```
 @DirectoryReadable
 private File databaseDirectory;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -133,12 +123,10 @@ Annotation type to indicate a directory must be writable.
 
 code:
 
-<section class="level-4">
 ```
 @DirectoryWriteable
 private File databaseDirectory;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -157,11 +145,9 @@ If parameter 'input' is specified 'workbookLoadId' may not be specified and vice
 
 code:
   
-<section class="level-4">
 ```
 @Exclusive(property = "input") Long workbookLoadId = null;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -174,12 +160,10 @@ Annotation type to indicate a file must exist.
 
 code:
 
-<section class="level-4">
 ```
 @FileExists
 private File outputFile;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -192,12 +176,10 @@ Annotation type to indicate a file must be readable.
 
 code:
 
-<section class="level-4">
 ```
 @FileReadable
 private File definition;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -210,12 +192,10 @@ Annotation type to indicate a file must be writable
 
 code:
 
-<section class="level-4">
 ```
 @FileWritable
 private File definitionOutput;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -227,14 +207,11 @@ private File definitionOutput;
  
 Annotation type to indicate that an argument is hidden; that is, not displayed on help messages.
 
-<section class="level-4">
-
 ```
 @Optional
 @Hidden
 private String hiddenParameter;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -252,11 +229,9 @@ Annotation type to indicate a parameter is accepted multiple times. This annotat
  
 code:
   
-<section class="level-4">
 ```
  @MultiValue(type=ParamType.STRING) ArrayList<String>  downloadUrls;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -269,12 +244,10 @@ Annotation type to indicate a parameter should be treated as optional. This anno
 
 code:
 
-<section class="level-4">
 ```
 @Optional
 private String breed;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -288,13 +261,11 @@ Annotation type to indicate a parameter should be treated is mandatory. This ann
 Required options are better self documenting than positional arguments
 
 
-<section class="level-4">
 ```
 @Required
 @AcceptableValues(values = {"a", "b"}) 
 private String abba;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -305,8 +276,6 @@ private String abba;
  
 Annotation type to indicate a parameter should be treated as required unless another parameter is specified.
 
-<section class="level-4">
-
 ```
 @RequiredUnless(property = "toad")
 private String frog;
@@ -314,7 +283,6 @@ private String frog;
 @Optional
 private String toad;
 ```
-</section>
 
 [[toc]](#TOCa)
 
@@ -330,11 +298,8 @@ Annotation type to indicate a parameter is required by another parameter. The ar
   
  The property "schemaName" is required by the property "xsd"'
 
-<section class="level-4">
-
 ```
 @Requires("schemaName") String xsd;
 ```
-</section>
 
 [[toc]](#TOCa)

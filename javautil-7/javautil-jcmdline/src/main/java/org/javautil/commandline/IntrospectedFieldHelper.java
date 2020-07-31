@@ -128,31 +128,31 @@ public class IntrospectedFieldHelper {
 		if (logger.isDebugEnabled()) {
 			logger.debug("assigning type '" + fieldClass.getName() + "' using method " + setterMethod.getName()
 					+ " from value: '"
-					+ (value == null ? "null" : value.toString() + "', '" + value.getClass().getName()) + "'");
+					+ (value == null ? "null" : value + "', '" + value.getClass().getName()) + "'");
 		}
 		try {
 			if (value == null) {
 				if (!fieldClass.isPrimitive()) {
-					setterMethod.invoke(getIntrospectionBean(), new Object[] { value });
+					setterMethod.invoke(getIntrospectionBean(), value);
 				} else {
 					throw new IllegalArgumentException(
-							"Cannot assign primitive type '" + fieldClass.getName() + "\' a value of null");
+							"Cannot assign primitive type '" + fieldClass.getName() + "' a value of null");
 				}
 			} else if (String.class.isAssignableFrom(fieldClass)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { value });
+				setterMethod.invoke(getIntrospectionBean(), value);
 			} else if (Boolean.class.isAssignableFrom(fieldClass)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { Boolean.parseBoolean(value) });
+				setterMethod.invoke(getIntrospectionBean(), Boolean.parseBoolean(value));
 			} else if (Integer.class.isAssignableFrom(fieldClass)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { Integer.parseInt(value) });
+				setterMethod.invoke(getIntrospectionBean(), Integer.parseInt(value));
 			} else if (Long.class.isAssignableFrom(fieldClass)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { Long.parseLong(value) });
+				setterMethod.invoke(getIntrospectionBean(), Long.parseLong(value));
 			} else {
 				throw new IllegalStateException(
 						"No implementation for parsing values type: '" + fieldClass.getName() + "'");
 			}
 		} catch (final Exception e) {
 			throw new IllegalArgumentException("Error assigning type '" + fieldClass.getName()
-					+ "\' from value of type: '" + (value == null ? "null" : value.getClass().getName()) + "'", e);
+					+ "' from value of type: '" + (value == null ? "null" : value.getClass().getName()) + "'", e);
 		}
 	}
 
@@ -160,22 +160,22 @@ public class IntrospectedFieldHelper {
 		preparePropertyAccess();
 		try {
 			if (value == null || fieldClass.isAssignableFrom(value.getClass())) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { value });
+				setterMethod.invoke(getIntrospectionBean(), value);
 			} else if (fieldClass.isAssignableFrom(Boolean.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Boolean) value).booleanValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Boolean) value).booleanValue());
 			} else if (fieldClass.isAssignableFrom(Long.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Long) value).longValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Long) value).longValue());
 			} else if (fieldClass.isAssignableFrom(Integer.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Integer) value).intValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Integer) value).intValue());
 			} else if (fieldClass.isAssignableFrom(Float.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Float) value).floatValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Float) value).floatValue());
 			} else if (fieldClass.isAssignableFrom(Double.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Double) value).doubleValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Double) value).doubleValue());
 			} else {
 				throw new IllegalStateException("No implementation for parsing values type: " + fieldClass.getName());
 			}
 		} catch (final Exception e) {
-			throw new IllegalStateException("Error assigning type '" + fieldClass.getName() + "\' from value of type: "
+			throw new IllegalStateException("Error assigning type '" + fieldClass.getName() + "' from value of type: "
 					+ (value == null ? "null" : value.getClass().getName()), e);
 		}
 	}

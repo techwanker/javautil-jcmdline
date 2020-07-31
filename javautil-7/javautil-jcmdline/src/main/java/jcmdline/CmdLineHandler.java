@@ -63,7 +63,7 @@ public interface CmdLineHandler {
      *                      for error processing.
      * @see     #parse(String[]) parse()
      */
-    public void setDieOnParseError(boolean val) ;
+    void setDieOnParseError(boolean val) ;
 
     /**
      * Gets a flag indicating that the program should exit in the case of
@@ -76,7 +76,7 @@ public interface CmdLineHandler {
      *                      for error processing.
      * @see     #parse(String[]) parse()
      */
-    public boolean getDieOnParseError() ;
+    boolean getDieOnParseError() ;
 
     /**
      * parse the specified command line arguments
@@ -107,7 +107,7 @@ public interface CmdLineHandler {
      *          an appropriate error message may be obtained by calling
      *          {@link #getParseError()}.
      */
-    public boolean parse(String[] clargs) ;
+    boolean parse(String[] clargs) ;
 
     /**
      * Sets the parser to be used to parse the command line.
@@ -115,7 +115,7 @@ public interface CmdLineHandler {
      * @param parser      the parser to be used to parse the command line
      * @see #getParser()
      */
-    public void setParser(CmdLineParser parser) ;
+    void setParser(CmdLineParser parser) ;
 
     /**
      * Gets the parser to be used to parse the command line.
@@ -123,7 +123,7 @@ public interface CmdLineHandler {
      * @return              the parser to be used to parse the command line
      * @see #setParser(CmdLineParser) setParser()
      */
-    public CmdLineParser getParser() ;
+    CmdLineParser getParser() ;
 
     /**
      * sets the value of the arguments (what is left on the command line after
@@ -134,7 +134,7 @@ public interface CmdLineHandler {
      *                      be null if the command accepts no command line 
      *                      arguments.
      */
-    public void setArgs(Parameter[] args) ;
+    void setArgs(Parameter[] args) ;
 
     /**
      * Adds a command line arguement.
@@ -143,7 +143,7 @@ public interface CmdLineHandler {
      * @throws              IllegalArgumentException if <code>arg</code>
      *                      is null.
      */
-    public void addArg(Parameter arg) ;
+    void addArg(Parameter arg) ;
 
     /**
      * gets the value of the arguments (what is left on the command line after
@@ -152,7 +152,7 @@ public interface CmdLineHandler {
      *
      * @return              the command's options
      */
-    public List getArgs() ;
+    List getArgs() ;
 
     /**
      * gets the argument specified by <code>tag</code>
@@ -161,7 +161,7 @@ public interface CmdLineHandler {
      * @return              The argument associated with <code>tag</code>.  
      *                      If no matching argument is found, null is returned.
      */
-    public Parameter getArg(String tag) ;
+    Parameter getArg(String tag) ;
 
     /**
      * Sets the value of the options associated with the command
@@ -170,7 +170,7 @@ public interface CmdLineHandler {
      *                      be null if the command accepts no command line 
      *                      options.
      */
-    public void setOptions(Parameter[] options) ;
+    void setOptions(Parameter[] options) ;
 
     /**
      * Adds a command line option.
@@ -180,14 +180,14 @@ public interface CmdLineHandler {
      *                      <code>opt</code> has already been defined for an
      *                      option.
      */
-    public void addOption(Parameter opt) ;
+    void addOption(Parameter opt) ;
 
     /**
      * gets the value of the options associated with the command
      *
      * @return              the command's options
      */
-    public Collection getOptions() ;
+    Collection getOptions() ;
 
     /**
      * gets the option specified by <code>tag</code>
@@ -195,7 +195,7 @@ public interface CmdLineHandler {
      * @param tag           identifies the option to be returned
      * @return              the option associated with <code>tag</code>
      */
-    public Parameter getOption(String tag) ;
+    Parameter getOption(String tag) ;
 
     /**
      * sets a description of the command's purpose
@@ -204,14 +204,14 @@ public interface CmdLineHandler {
      * @throws              IllegalArgumentException if <code>cmdDesc
      *                      </code> is null or of 0 length.
      */
-    public void setCmdDesc(String cmdDesc) ;
+    void setCmdDesc(String cmdDesc) ;
 
     /**
      * gets a description of the command's purpose
      *
      * @return              the command's description
      */
-    public String getCmdDesc() ;
+    String getCmdDesc() ;
 
     /**
      * sets the value of the command name associated with this CmdLineHandler
@@ -221,14 +221,14 @@ public interface CmdLineHandler {
      * @throws              IllegalArgumentException if cmdName is null,
      *                      or of 0 length
      */
-    public void setCmdName(String cmdName) ;
+    void setCmdName(String cmdName) ;
 
     /**
      * gets the value of the command name associated with this CmdLineHandler
      *
      * @return              the command name
      */
-    public String getCmdName() ;
+    String getCmdName() ;
 
     /**
      * Gets the usage statement associated with the command.
@@ -237,7 +237,7 @@ public interface CmdLineHandler {
      *                      in the usage.
      * @return              the usage statement associated with the command
      */
-    public String getUsage(boolean hidden) ;
+    String getUsage(boolean hidden) ;
 
     /**
      * Sets the error message from the last call to parse().
@@ -245,7 +245,7 @@ public interface CmdLineHandler {
      * @param parseError      the error message from the last call to parse()
      * @see #getParseError()
      */
-    public void setParseError(String parseError) ;
+    void setParseError(String parseError) ;
 
     /**
      * Gets the error message from the last call to parse().
@@ -253,7 +253,7 @@ public interface CmdLineHandler {
      * @return              the error message from the last call to parse()
      * @see #setParseError(String) setParseError()
      */
-    public String getParseError() ;
+    String getParseError() ;
 
     /**
      * Prints the usage, followed by the specified error message, to stderr
@@ -264,5 +264,5 @@ public interface CmdLineHandler {
      * @return              Doesn't return - exits the program with exit status
      *                      of 1.
      */
-    public void exitUsageError(String errMsg) ;
+    void exitUsageError(String errMsg) ;
 }

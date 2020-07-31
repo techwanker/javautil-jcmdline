@@ -18,7 +18,7 @@ public class TrueCrimesTest {
 	}
 	@Test(expected=java.lang.IllegalArgumentException.class) 
 	public void testInt() {
-		String args [] = {"3"};
+		String[] args = {"3"};
 		Integer count = Integer.parseInt(args[0]);
 		TrueCrimesArguments  arguments = new TrueCrimesArguments();
 		new CommandLineHandler(TrueCrimesArguments.evaluateArguments(args));
@@ -29,7 +29,7 @@ public class TrueCrimesTest {
 	
 	@Test
 	public void testIntProper() {
-		String args [] = {"--criminalCounts","8"};
+		String[] args = {"--criminalCounts","8"};
 	   Integer count = Integer.parseInt(args[1]);
 		TrueCrimesArguments  arguments = TrueCrimesArguments.evaluateArguments(args);
 		assertEquals(count,arguments.getCriminalCounts());

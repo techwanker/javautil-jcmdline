@@ -4,7 +4,7 @@ package jcmdline;
  * A Parameter class that accepts string parameters of a specified length.
  */
 public class SampleParam extends AbstractParameter {
-    private int length;
+    private final int length;
     public SampleParam(String tag, String desc, int length) {
         setTag(tag);
         setDesc(desc);

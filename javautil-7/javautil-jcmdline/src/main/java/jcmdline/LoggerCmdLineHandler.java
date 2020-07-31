@@ -75,12 +75,12 @@ public class LoggerCmdLineHandler extends AbstractHandlerDecorator {
     /**
      * a parameter that will cause the root logger level to be set
      */
-    private Parameter logOpt;
+    private final Parameter logOpt;
 
     /**
      * the OutputStream to which to write log messages
      */
-    private OutputStream stream;
+    private final OutputStream stream;
 
     /**
      * the formatter for log messages, defaults to 

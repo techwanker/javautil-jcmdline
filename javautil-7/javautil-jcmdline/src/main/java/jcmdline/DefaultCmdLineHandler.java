@@ -73,18 +73,18 @@ public class DefaultCmdLineHandler extends AbstractHandlerDecorator {
     /**
      * a parameter that will cause the usage to be displayed
      */
-    private BooleanParam usageParam1;
+    private final BooleanParam usageParam1;
 
     /**
      * a second parameter that will cause the usage to be displayed
      */
-    private BooleanParam usageParam2;
+    private final BooleanParam usageParam2;
 
     /**
      * a parameter that will cause the usage to be displayed, including
      * hidden options
      */
-    private BooleanParam hiddenUsageParam;
+    private final BooleanParam hiddenUsageParam;
 
     /**
      * constructor

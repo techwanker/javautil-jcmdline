@@ -200,7 +200,7 @@ public abstract class BetterTestCase extends TestCase {
         Method m;
         ArrayList testNames = new ArrayList();
         for (int i = 0; i < methods.length; i++) {
-            m = (Method)methods[i];
+            m = methods[i];
             if (m.getName().startsWith("test")) {
                 testNames.add(m.getName());
             }
@@ -241,7 +241,7 @@ public abstract class BetterTestCase extends TestCase {
         if (pTests.isSet()) {
             try {
                 Constructor ctor =
-                    c.getConstructor(new Class[] { String.class });
+                    c.getConstructor(String.class);
                 for (Iterator itr = pTests.getValues().iterator();
                      itr.hasNext();) {
                     suite.addTest((TestCase)ctor.newInstance(

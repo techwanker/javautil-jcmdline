@@ -48,7 +48,7 @@ public class FileParam_UT extends BetterTestCase {
     /**
      * indicates whether verbose debug information should be printed
      */
-    private static boolean debugMode = false;
+    private static final boolean debugMode = false;
 
     /**
      * constructor takes name of test method

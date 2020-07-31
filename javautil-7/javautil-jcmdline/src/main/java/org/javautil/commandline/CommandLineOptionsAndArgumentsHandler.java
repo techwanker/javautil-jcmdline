@@ -103,7 +103,7 @@ public class CommandLineOptionsAndArgumentsHandler {
 	private final ParameterCreator parameterCreator;
 
 	private final Map<String, Parameter> parametersByTag;
-	private Parameter[] argumentParameters ;
+	private final Parameter[] argumentParameters ;
 
 	public CommandLineOptionsAndArgumentsHandler(final Object argumentsBean)  {
 
@@ -289,7 +289,7 @@ public class CommandLineOptionsAndArgumentsHandler {
 			} else if (parameter instanceof BooleanParam) {
 				final BooleanParam p = (BooleanParam) parameter;
 				if (p.isSet()) {
-					introspection.invokeSetter(p.isTrue() ? true : false);
+					introspection.invokeSetter(p.isTrue());
 				}
 			} else if (parameter instanceof FileParam) {
 				final FileParam p = (FileParam) parameter;

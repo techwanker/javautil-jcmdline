@@ -103,7 +103,7 @@ public class PosixCmdLineParser implements CmdLineParser {
     private static final ResourceBundle rb = 
         ResourceBundle.getBundle("jcmdline.strings");
     
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * a usage formatter suitable for this CmdLineParser's format

@@ -20,7 +20,6 @@ import org.javautil.commandline.annotations.DirectoryExists;
 import org.javautil.commandline.annotations.DirectoryReadable;
 import org.javautil.commandline.annotations.DirectoryWritable;
 import org.javautil.commandline.annotations.Exclusive;
-import org.javautil.commandline.annotations.FieldValue;
 import org.javautil.commandline.annotations.FileExists;
 import org.javautil.commandline.annotations.FileReadable;
 import org.javautil.commandline.annotations.FileWritable;
@@ -69,17 +68,12 @@ public class ParameterCreator {
 			final ResourceBundle resourceBundle,
 			final String resourceBundlePrefix) {
 		this(argumentBean);
-		// if (argumentBean == null) {
-		// throw new IllegalArgumentException("argumentBean is null");
-		// }
 		if (resourceBundle == null) {
 			throw new IllegalArgumentException("resourceBundle is null");
 		}
 
 		this.resourceBundle = resourceBundle;
 		this.resourceBundlePrefix = resourceBundlePrefix;
-
-		// this.argumentBean = argumentBean;
 
 	}
 
@@ -254,16 +248,11 @@ public class ParameterCreator {
 		// .getString(getResourceBundlePropertyPrefix() + field.getName()
 		// + ".description");
 		field.setAccessible(true);
-		final boolean hasOptionalAnnotation = hasAnnotation(field,
-				Optional.class);
-		final boolean hasRequiredAnnotation = hasAnnotation(field,
-				Required.class);
-		final boolean hasExclusiveAnnotation = hasAnnotation(field,
-				Exclusive.class);
-		final boolean hasFieldValueAnnotation = hasAnnotation(field,
-				FieldValue.class);
-		final boolean hasMultiValueAnnotation = hasAnnotation(field,
-				MultiValue.class);
+		final boolean hasOptionalAnnotation = hasAnnotation(field,	Optional.class);
+		final boolean hasRequiredAnnotation = hasAnnotation(field, Required.class);
+		final boolean hasExclusiveAnnotation = hasAnnotation(field,	Exclusive.class);
+	//	final boolean hasFieldValueAnnotation = hasAnnotation(field,FieldValue.class);
+		final boolean hasMultiValueAnnotation = hasAnnotation(field,	MultiValue.class);
 		final boolean hasHiddenAnnotation = hasAnnotation(field, Hidden.class);
 		final boolean hasRequiredUnlessAnnotation = hasAnnotation(field,
 				RequiredUnless.class);
@@ -291,20 +280,11 @@ public class ParameterCreator {
 
 		final String name = field.getName();
 		Parameter param = null;
-		if (hasFieldValueAnnotation && hasMultiValueAnnotation) {
-			throw new IllegalStateException(
-					"argument property \""
-							+ name
-							+ "\" has both "
-							+ "FieldValue and MultiValue annotations; this is not allowed");
-		} else if (hasFieldValueAnnotation || hasMultiValueAnnotation) {
-			final FieldValue fieldValue = field.getAnnotation(FieldValue.class);
+		if (hasMultiValueAnnotation) {
+
 			final MultiValue multiValue = field.getAnnotation(MultiValue.class);
-			final ParamType paramType = fieldValue != null ? fieldValue.type()
-					: multiValue.type();
-			// TODO what is this FILe is here and then in case statement
-			final boolean isFileOrDirectory = isFileField(field)
-					|| isDirectoryField(field);
+			final ParamType paramType = multiValue.type();
+			final boolean isFileOrDirectory = isFileField(field)	|| isDirectoryField(field);
 			if (isFileOrDirectory) {
 				param = newFileParam(field, name, description, optional);
 			} else {
@@ -317,9 +297,6 @@ public class ParameterCreator {
 				case STRING:
 					param = new StringParam(name, description, optional);
 					break;
-					// case FILE:
-					// param = newFileParam(field, name, description, optional);
-					// break;
 				case BOOLEAN:
 					param = new BooleanParam(name, description, optional);
 					break;
@@ -330,9 +307,7 @@ public class ParameterCreator {
 					param = new FileParam(name, description, optional);
 					break;
 				default:
-					final String message = "not yet implemented "
-							+ (fieldValue == null ? " null " : fieldValue
-									.type());
+					final String message = "not yet implemented " +  multiValue.type();
 					throw new IllegalArgumentException(message);
 				}
 			}
@@ -345,11 +320,6 @@ public class ParameterCreator {
 		} else if (Integer.TYPE.isAssignableFrom(field.getType())) {
 			param = new IntParam(name, description, optional);
 		}
-		// else if (Long.class.isAssignableFrom(field.getType())) {
-		// param = new IntParam(name, description, optional);
-		// } else if (Long.TYPE.isAssignableFrom(field.getType())) {
-		// param = new IntParam(name, description, optional);
-		// }
 		else if (Boolean.class.isAssignableFrom(field.getType())) {
 			param = new BooleanParam(name, description, optional);
 		} else if (Boolean.TYPE.isAssignableFrom(field.getType())) {

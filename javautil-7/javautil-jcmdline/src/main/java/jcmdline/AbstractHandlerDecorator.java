@@ -154,7 +154,7 @@ public abstract class AbstractHandlerDecorator implements CmdLineHandler {
     /**
      * the instance of CmdLineHandler this class decorates.
      */
-    private CmdLineHandler handler;
+    private final CmdLineHandler handler;
 
     /**
      * options specific to a subclass

@@ -50,11 +50,11 @@ public interface UsageFormatter {
      *                      displayed
      * @return              the usage for the command
      */
-    public String formatUsage(String cmdName,
-                              String cmdDesc,
-                              Map opts,
-                              List args,
-                              boolean showHidden) ;
+    String formatUsage(String cmdName,
+                       String cmdDesc,
+                       Map opts,
+                       List args,
+                       boolean showHidden) ;
 
     /**
      * Gets an error message, reformatted in a manner to "go well with"
@@ -70,7 +70,7 @@ public interface UsageFormatter {
      * @param msg           the text of the error message
      * @return              the reformatted error message
      */
-    public String formatErrorMsg(String msg) ;
+    String formatErrorMsg(String msg) ;
 
     /**
      * Sets the maximum line length to use for usage display.  The maximum
@@ -80,7 +80,7 @@ public interface UsageFormatter {
      * @param lineLength      the maximum line length to use for usage display
      * @see #getLineLength()
      */
-    public void setLineLength(int lineLength) ;
+    void setLineLength(int lineLength) ;
 
     /**
      * Gets the maximum line length to use for usage display.
@@ -88,7 +88,7 @@ public interface UsageFormatter {
      * @return              the maximum line length to use for usage display
      * @see #setLineLength(int) setLineLength()
      */
-    public int getLineLength() ;
+    int getLineLength() ;
 
 }
 

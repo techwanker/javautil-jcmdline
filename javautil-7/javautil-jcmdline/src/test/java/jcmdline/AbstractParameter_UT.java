@@ -44,7 +44,7 @@ public class AbstractParameter_UT extends BetterTestCase {
     /**
      * indicates whether verbose debug information should be printed
      */
-    private static boolean debugMode = false;
+    private static final boolean debugMode = false;
 
     /**
      * a Parameter to use for testing

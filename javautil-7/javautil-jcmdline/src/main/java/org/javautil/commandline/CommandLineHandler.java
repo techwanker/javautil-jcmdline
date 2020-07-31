@@ -237,7 +237,7 @@ public class CommandLineHandler {
 			} else if (parameter instanceof BooleanParam) {
 				final BooleanParam p = (BooleanParam) parameter;
 				if (p.isSet()) {
-					introspection.invokeSetter(p.isTrue() ? true : false);
+					introspection.invokeSetter(p.isTrue());
 				}
 			} else if (parameter instanceof FileParam) {
 				final FileParam p = (FileParam) parameter;

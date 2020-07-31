@@ -55,5 +55,5 @@ package jcmdline;
  * @version         jcmdline Rel. @VERSION@ $Id: OptionTakesNoValue.java,v 1.2 2002/12/07 14:22:06 lglawrence Exp $
  */
 public interface OptionTakesNoValue {
-    public String getDefaultValue();
+    String getDefaultValue();
 }

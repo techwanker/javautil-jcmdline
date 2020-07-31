@@ -1,28 +1,4 @@
-<style>
-.level-4 {
-    padding-left: 2em;
-    background: #CCCCCC;
-}
-
-.pad{
-padding: 0px 20px;
-}
-
-.anno{
-padding: 0px 20px;
-background: #ECECEC;
-}
-
-.data-table table thead{background-color:#f2f2f2;}
-.data-table table{background-color:#FFFFFF;}
-tr:nth-child(odd) {
-  background-color: #f2f2f2;
-
-</style>
-
 changequote(`{{', `}}')
-
-<section class="pad">
 
 <a name="ttoc">
 
@@ -97,14 +73,9 @@ of how the bean was populated.
 ### Example Parameters Bean 
 </a>
 
-<div style="width:1200px">
-
-<section class="level-4">
-
 ```
 include({{md/WorkbookWriterArguments.java}})
 ```
-</section></div>
 
 [[toc]](#ttoc)
 
@@ -113,16 +84,12 @@ include({{md/WorkbookWriterArguments.java}})
 ### main
 </a>
 
-<section class="level-4">
-
 ```
 public static void main(String[] args) Exception {
     WorkbookWriterArguments arguments = WorkbookWriterArguments.processArguments(args);
     new WorkbookWriter().process(arguments);
 }
 ```
-
-</section>
 
 [[toc]](#ttoc)
 
@@ -145,12 +112,9 @@ Properties files for other locales should be appropriately named.
 
 * `parameter.description` description of the parameter one per per parameter with same name as the annotated bean members
   
-<section class="level-4">
-
 ```
 include({{md/WorkbookWriterArguments.properties}})
 ```
-</section>
 
 [[toc]](#ttoc)
 
@@ -159,11 +123,9 @@ include({{md/WorkbookWriterArguments.properties}})
 ## Annotations
 </a>
 
-<section class="anno">
-
 include({{md/Annotations.md}})
 
-</section>
+--------
 
 [[toc]](#ttoc)
 
@@ -277,8 +239,6 @@ Using the *jcmdline* package requires the following steps:
 For this example, set up some parameters for a program that will work
 sort of like the Unix "grep" command:
 
-<section class="level-4">
-
 ```
 public static void main(String[] args) {
 
@@ -311,7 +271,6 @@ public static void main(String[] args) {
                       "listed.  In this case, files to process must be " +
                       "specified on the command line";
 ```
-</section>
 
  [[toc]](#toc)
 
@@ -321,8 +280,6 @@ public static void main(String[] args) {
 </a>
 
 Next a `CmdLineHandler` is instantiated to process the command line:
-
-<section class="level-4">
 
 ```
 CmdLineHandler cl =
@@ -334,7 +291,6 @@ CmdLineHandler cl =
         new Parameter[] { patternArg, filesArg } ));
 
 ```
-</section>
 
 The `CmdLineHandler` used here uses some supplied
 [Decorators](#decorators) to provide some typical options. The options
@@ -352,12 +308,9 @@ options)..
 
 Now parse the command line:
 
-<section class="level-4">
-
 ```
 cl.parse(args);
 ```
-</section>
 
 The `parse()` method will not return if the command line does not
 validate - instead the command usage and an error message will be
@@ -415,8 +368,6 @@ Following the call to the `CmdLineHandler`, it can be assumed that:
 
 The program can now access the processed parameters and their values:
 
-<section class="level-4">
-
 ```
 // this can't be check by CmdLineHandler
 if (listfilesOpt.isTrue() && ! filesArg.isSet()) {
@@ -433,7 +384,6 @@ if (filesArg.isSet()) {
     findPattern(pattern, System.in, false);
 }
 ```
-</section>
 
 Note that the relationship between the `listfilesOpt` and `filesArg` is
 not checked by the `CmdLineHandler`, but must be checked explicitly. The
@@ -451,9 +401,6 @@ All command line options and arguments are represented by
 [Parameter](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/Parameter.html)
 objects. All parameters support the following characteristics:
 
-<div class="data-table">
-<div style="width:1000px">
-
 |       |                            |
 | :-------------------- | :----------------------------------- |
 | **tag**               | The *tag* is used to identify the parameter. For options, the *tag* indicates how the option is specified, for instance, a *tag* of "outfile" indicates an option specified like "-outfile /tmp/myfile". For command line arguments, the tag is typically used by the usage display formatter to identify the argument. |
@@ -461,16 +408,11 @@ objects. All parameters support the following characteristics:
 | **optional indicator**| The *optional indicator* indicates whether a parameter is optional or required. If a parameter is configured to be required, the [CmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/CmdLineHandler.html) will reject the command line if the parameter is not specified. |
 | **multi-valued**      | A parameter that is *multi-valued* can be specified more than once. This is frequently used with the final command line argument when the command accepts multiple instances. |
 
-</div></div>
-
 The *jcmdline* package comes with `Parameter` classes to handle several
 types of common parameters. See the list of subclasses for
 [AbstractParameter](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/AbstractParameter.html)
 for a complete list. As of this writing, the following `Parameter`
 classes are available:
-
-<div class="data-table">
-<div style="width:800px">
 
 |                       |                                      |
 | :-------------------: | :----------------------------------- |
@@ -481,8 +423,6 @@ classes are available:
 |  [DateTimeParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/DateTimeParam.html)  |  handles parameters consisting of a date and time  |
 |  [DateParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/DateParam.html)    |  handles parameters consisting of a date only  |
 |  [TimeParam](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/TimeParam.html)    |  handles parameters consisting of a time only  |
-
-</div></div>
 
 If an application supports several different commands, more than one of
 which accepts a new and different type of Parameter, it is strongly
@@ -528,8 +468,6 @@ The following code snippet demonstrates use of the `exitUsageError()`
 method when a filename parameter is validated to end with ".html" after
 the command line is parsed by the `CmdLineHandler`:
 
-<section class="level-4">
-
 ```
 cl.parse(args);
 if (! myfile.getFile().getPath().endsWith(".html")) {
@@ -537,7 +475,6 @@ if (! myfile.getFile().getPath().endsWith(".html")) {
                       myfile.getTag() + "' must end with '.html'");
 }
 ```
-</section>
 
 [[toc]](#toc)
 
@@ -650,9 +587,6 @@ Because each "decorator" class implements the `CmdLineHandler` interface, and ea
 `CmdLineHandler` decorator classes that are supplied with the *jcmdline* package include the following. All of these classes take their option tags from a resource bundle. 
 The values defined for English are used in the descriptions.
 
-<div class="data-table">
-<div style="width:800px">
-
 |       |                            |
 | :-------------------: | :----------------------------------- |
 | [DefaultCmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/DefaultCmdLineHandler.html) | A `CmdLineHandler` that implements options that will cause command usage to be displayed. The option tags are "-h" or "-?" to display regular usage, "-h!" to display a usage that includes hidden parameters. |
@@ -660,14 +594,10 @@ The values defined for English are used in the descriptions.
 | [VersionCmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/VersionCmdLineHandler.html) | A `CmdLineHandler` that implements an option that will cause the command version to be displayed. The option tag is "-version". | 
 | [LoggerCmdLineHandler](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/LoggerCmdLineHandler.html) |  A `CmdLineHandler` that implements an option that supports setting the logging level for the root logger and adds a StreamHandler to the root logger to manage the messages. See the java.util.logging package for information on java logging. The option tag is "-log" and it requires a value that is a valid, localized, `Level` string. |
 
-</div></div>
-
 These classes may be used separately, or together. For instance, to use
 a `CmdLineHandler` that supports the "-h", "-?", "-h!", "-help",
 "-help!", and "-version" command line options, as well as any command
 specific options and arguments, the following would work:
-
-<section class="level-4">
 
 ```
 public static void main(String args) {
@@ -684,7 +614,6 @@ public static void main(String args) {
     .
     .
 ```
-</section>
 
 <a name="WritingCmdLineHandlerDecorators">
 
@@ -740,5 +669,3 @@ executables.
     [here](http://jcmdline.sourceforge.net/jcmdline/api/jcmdline/doc-files/MyappCmdLineHandler.java.txt).
 
 [[toc]](#toc)
-
-</section>

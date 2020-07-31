@@ -55,13 +55,13 @@ public class PosixCmdLineParser_UT extends BetterTestCase {
 
     // variables new for each test
     private PosixCmdLineParser parser;
-    private Parameter param1 = 
+    private final Parameter param1 =
         new StringParam("param1", "this is param1");
-    private Parameter param2 = 
+    private final Parameter param2 =
         new StringParam("param2", "this is param2");
-    private Parameter param3 = 
+    private final Parameter param3 =
         new StringParam("param3", "this is param3");
-    private Parameter param4 = 
+    private final Parameter param4 =
         new StringParam("param4", "this is param4");
     HashMap opts;
     ArrayList args;

@@ -65,7 +65,7 @@ public interface CmdLineParser {
      * @throws  CmdLineException if the <code>clargs</code> fail to parse
      *          properly into the expected options and arguments.
      */
-    public void parse(String clargs[], Map opts, List args)
+    void parse(String[] clargs, Map opts, List args)
         throws CmdLineException;
 
     /**
@@ -75,7 +75,7 @@ public interface CmdLineParser {
      *                          CmdLineParser's format
      * @see #getUsageFormatter()
      */
-    public void setUsageFormatter(UsageFormatter usageFormatter) ;
+    void setUsageFormatter(UsageFormatter usageFormatter) ;
 
     /**
      * Gets a usage formatter suitable for this CmdLineParser's format.
@@ -84,6 +84,6 @@ public interface CmdLineParser {
      *                      CmdLineParser's format
      * @see #setUsageFormatter(UsageFormatter) setUsageFormatter()
      */
-    public UsageFormatter getUsageFormatter() ;
+    UsageFormatter getUsageFormatter() ;
 
 }

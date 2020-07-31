@@ -17,6 +17,7 @@ import org.javautil.commandline.annotations.Exclusive;
 import org.javautil.commandline.annotations.FileExists;
 import org.javautil.commandline.annotations.FileReadable;
 import org.javautil.commandline.annotations.FileWritable;
+import org.javautil.commandline.annotations.Hidden;
 import org.javautil.commandline.annotations.MultiValue;
 import org.javautil.commandline.annotations.Optional;
 import org.javautil.commandline.annotations.Required;
@@ -59,6 +60,10 @@ public class AllArguments {
 	@FileWritable
 	@Required
 	private File outfile;
+	
+	@Optional
+	@Hidden
+	private String hiddenParameter;
 	
 	@Optional
 	@Argument

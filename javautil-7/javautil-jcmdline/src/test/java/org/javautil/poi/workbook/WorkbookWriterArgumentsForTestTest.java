@@ -7,8 +7,11 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 
+import org.javautil.commandline.BindsFactory;
 import org.javautil.commandline.Day;
+import org.javautil.sql.Binds;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -18,12 +21,12 @@ import jcmdline.StringParam;
 
 public class WorkbookWriterArgumentsForTestTest {
 	
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 
 	@Test
 	public void test2() {
-		String args[] = {"--dataSource","integration_postgres_sr","--definition","file.yaml","--outfile=/tmp/out.xls","a=b","c","d"};
+		String[] args = {"--dataSource","integration_postgres_sr","--definition","file.yaml","--outfile=/tmp/out.xls","a=b","c","d"};
 		WorkbookWriterArgumentsForTest arguments = WorkbookWriterArgumentsForTest.processArguments(args);
 		assertNotNull(arguments);
 
@@ -34,7 +37,7 @@ public class WorkbookWriterArgumentsForTestTest {
 	public void test3() {
 		final String dataSource = "integraton_postgress_sr";
 	   final String yamlFile= "file.yaml";
-		String args[] = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","a=b","c","d"};
+		String[] args = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","a=b","c","d"};
 		WorkbookWriterArgumentsForTest parameters = WorkbookWriterArgumentsForTest.processArguments(args);
 		assertNotNull(parameters);
 
@@ -45,7 +48,7 @@ public class WorkbookWriterArgumentsForTestTest {
 		
 		logger.info("bindPairs {} size {}",bindPairs, bindPairs.size());
 		for (String bp : bindPairs) {
-			logger.info("bp {} {}",bp.toString(),bp);
+			logger.info("bp {} {}", bp,bp);
 		}
 		// for (Object String v : bindPairs.)
 	}
@@ -54,7 +57,7 @@ public class WorkbookWriterArgumentsForTestTest {
 	public void test4() {
 		final String dataSource = "integraton_postgress_sr";
 	   final String yamlFile= "file.yaml";
-		String args[] = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","a=b","c=d"};
+		String[] args = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","a=b","c=d"};
 		WorkbookWriterArgumentsForTest parameters = WorkbookWriterArgumentsForTest.processArguments(args);
 		assertNotNull(parameters);
 
@@ -77,7 +80,7 @@ public class WorkbookWriterArgumentsForTestTest {
 	public void test5() {
 		final String dataSource = "integraton_postgress_sr";
 	   final String yamlFile= "file.yaml";
-		String args[] = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","fromdate=2020-07-04","file=d3",
+		String[] args = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","fromdate=2020-07-04","file=d3",
 				"distributor=txexotic"};
 		WorkbookWriterArgumentsForTest parameters = WorkbookWriterArgumentsForTest.processArguments(args);
 		assertNotNull(parameters);
@@ -99,5 +102,24 @@ public class WorkbookWriterArgumentsForTestTest {
 		logger.info("done");
 
 		
+	}
+	
+	@Test
+	public void bindsExample() {
+		final String dataSource = "integraton_postgress_sr";
+		   final String yamlFile= "file.yaml";
+			String[] args = {"--dataSource",dataSource,"--definition",yamlFile,"--outfile=/tmp/out.xls","fromdate=2020-07-04","file=d3",
+					"distributor=txexotic"};
+			WorkbookWriterArgumentsForTest parameters = WorkbookWriterArgumentsForTest.processArguments(args);
+			BindsFactory bf = new BindsFactory();
+			Binds b =  bf.getStringParamBinds(parameters.getBindPair());
+			assertEquals(3,b.size());
+			assertEquals("d3",b.get("file"));
+			assertEquals(new GregorianCalendar(2020,6,4).getTime(),b.get("fromdate"));
+			assertEquals("txexotic",b.get("distributor"));
+		
+			logger.info("done");
+
+			
 	}
 }

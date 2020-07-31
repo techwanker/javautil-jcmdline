@@ -67,12 +67,12 @@ public class BooleanParam extends AbstractParameter
     /**
      * The String value associated with boolean true (i.e. "true" in English).
      */
-    private String trueValue = Strings.get("BooleanParam.true");
+    private final String trueValue = Strings.get("BooleanParam.true");
 
     /**
      * The String value associated with boolean false (i.e. "false" in English).
      */
-    private String falseValue = Strings.get("BooleanParam.false");
+    private final String falseValue = Strings.get("BooleanParam.false");
 
     /**
      * constructor - creates a public boolean parameter
@@ -160,7 +160,7 @@ public class BooleanParam extends AbstractParameter
      * @return              the parameter value as a boolean
      */
     public boolean isTrue() {
-        return (values.get(0).equals(trueValue) ? true : false);
+        return (values.get(0).equals(trueValue));
     }
 
     /**

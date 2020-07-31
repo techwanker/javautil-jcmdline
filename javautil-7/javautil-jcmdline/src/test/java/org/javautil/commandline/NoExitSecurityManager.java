@@ -19,4 +19,4 @@ public class NoExitSecurityManager extends SecurityManager {
 		super.checkExit(status); // first call on preventing.
 		throw new NoExitException(status);
 	}
-};
+}

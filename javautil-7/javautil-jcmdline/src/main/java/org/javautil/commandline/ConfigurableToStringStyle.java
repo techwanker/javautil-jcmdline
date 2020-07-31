@@ -87,12 +87,8 @@ public class ConfigurableToStringStyle extends ToStringStyle {
 		Calendar greg = Calendar.getInstance();
 
 			greg.setTime(d);
-			if (greg.get(Calendar.HOUR) == 0 && greg.get(Calendar.MINUTE) == 0 && greg.get(Calendar.SECOND) == 0
-					&& greg.get(Calendar.MILLISECOND) == 0) {
-				retval = true;
-			} else {
-				retval = false;
-			}
+		retval = greg.get(Calendar.HOUR) == 0 && greg.get(Calendar.MINUTE) == 0 && greg.get(Calendar.SECOND) == 0
+				&& greg.get(Calendar.MILLISECOND) == 0;
 		
 		return retval;
 	}

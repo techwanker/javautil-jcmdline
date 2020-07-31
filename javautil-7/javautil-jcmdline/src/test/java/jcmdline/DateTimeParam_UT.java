@@ -53,8 +53,8 @@ import java.util.Date;
  */
 public class DateTimeParam_UT extends BetterTestCase {
 
-    private static String sDateFormat = DateTimeParam.getParseFormat();
-    private static SimpleDateFormat dateFormat = 
+    private static final String sDateFormat = DateTimeParam.getParseFormat();
+    private static final SimpleDateFormat dateFormat =
         new SimpleDateFormat(sDateFormat);
     private static final String tag = "startDate";
     private static final String desc = 
