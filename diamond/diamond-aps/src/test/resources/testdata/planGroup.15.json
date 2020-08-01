@@ -1,5 +1,5 @@
 {
-  "effectiveDate": "2020-07-06T18:33:13-05",
+  "effectiveDate": "2020-07-31T22:53:07-05",
   "apsAllocOnhandFcs": [],
   "apsAllocOnhandOos": [],
   "apsAllocOnhandSss": [],
@@ -1355,7 +1355,7 @@
       "itemNbrDmd": 56372,
       "itemNbrAllocRqst": 56372,
       "fcItemMastNbr": 112174,
-      "rqstDt": "2020-07-06T00:00:00-05",
+      "rqstDt": "2020-07-31T00:00:00-05",
       "apsSrcRuleSetNbr": 168,
       "orgNbrCust": 7847,
       "orgCdCust": "TO",
@@ -6036,95 +6036,7 @@
   "oeOrdDtlCerts": [
     {
       "id": {
-        "oeOrdDtlNbr": 1790512,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790513,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1790514,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790515,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790516,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790520,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790521,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790522,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790524,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790525,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790526,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2007-11-26T00:00:00-06"
-    },
-    {
-      "id": {
-        "oeOrdDtlNbr": 1790527,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
@@ -6140,14 +6052,6 @@
     },
     {
       "id": {
-        "oeOrdDtlNbr": 1835871,
-        "certCd": "MFGCOFC"
-      },
-      "utUserNbr": 72,
-      "lastModDt": "2008-02-13T00:00:00-06"
-    },
-    {
-      "id": {
         "oeOrdDtlNbr": 1835882,
         "certCd": "MFGCOFC"
       },
@@ -6156,11 +6060,107 @@
     },
     {
       "id": {
+        "oeOrdDtlNbr": 1790525,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790515,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790526,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790521,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790513,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1835871,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2008-02-13T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790527,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790512,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790516,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
         "oeOrdDtlNbr": 1835884,
         "certCd": "MFGCOFC"
       },
       "utUserNbr": 72,
       "lastModDt": "2008-02-13T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790524,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790522,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
+    },
+    {
+      "id": {
+        "oeOrdDtlNbr": 1790520,
+        "certCd": "MFGCOFC"
+      },
+      "utUserNbr": 72,
+      "lastModDt": "2007-11-26T00:00:00-06"
     }
   ],
   "utFacilities": [
@@ -7001,9 +7001,9 @@
       "leadTmWkProm": 45
     },
     {
-      "vqQteDtlNbr": 1140684,
-      "vqQteHdrNbr": 253049,
-      "vqQteCd": "253049",
+      "vqQteDtlNbr": 1140683,
+      "vqQteHdrNbr": 253048,
+      "vqQteCd": "253048",
       "orgNbrVnd": 390,
       "vqQteDt": "2018-11-29T00:00:00-06",
       "orgCd": "173742",
@@ -7025,9 +7025,9 @@
       "rqstDt": "2018-11-01T00:00:00-05"
     },
     {
-      "vqQteDtlNbr": 1140683,
-      "vqQteHdrNbr": 253048,
-      "vqQteCd": "253048",
+      "vqQteDtlNbr": 1140684,
+      "vqQteHdrNbr": 253049,
+      "vqQteCd": "253049",
       "orgNbrVnd": 390,
       "vqQteDt": "2018-11-29T00:00:00-06",
       "orgCd": "173742",
@@ -19458,20 +19458,20 @@
       197396
     ],
     "785695": [
-      197396,
-      197302
+      197302,
+      197396
     ],
     "786036": [
-      197396,
-      197302
+      197302,
+      197396
     ],
     "786048": [
-      197396,
-      197302
+      197302,
+      197396
     ],
     "786318": [
-      197396,
-      197302
+      197302,
+      197396
     ],
     "791824": [
       197396
@@ -19483,8 +19483,8 @@
       197396
     ],
     "796697": [
-      197396,
-      197302
+      197302,
+      197396
     ],
     "799217": [
       197396
@@ -19563,8 +19563,8 @@
       197396
     ],
     "821365": [
-      197396,
-      197302
+      197302,
+      197396
     ],
     "823836": [
       197396
