@@ -12,7 +12,7 @@ Contents:
    OracleLogger/OracleLogger-README
    
    
-   #joblog/joblog-README
+   joblog
 
    core/part
    core/dataset
