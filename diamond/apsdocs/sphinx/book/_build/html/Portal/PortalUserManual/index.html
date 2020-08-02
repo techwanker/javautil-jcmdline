@@ -1,47 +1,59 @@
 
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>Portal User Manual &#8212; Diamond APS 2019-12-14-03 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Portal User Manual &mdash; Diamond Advanced Planning System Version 8 8 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-   
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Diamond Advanced Planning System Version 8 8 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="portal-user-manual">
 <h1>Portal User Manual<a class="headerlink" href="#portal-user-manual" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-</div>
 <img alt="../../_images/ActionReports.png" src="../../_images/ActionReports.png" />
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="../../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="../../search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><a class="reference internal" href="../../genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="../../py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="../../search.html"><em>Search Page</em></a></li>
 </ul>
 <div class="section" id="action-reports">
 <h2>Action Reports<a class="headerlink" href="#action-reports" title="Permalink to this headline">¶</a></h2>
@@ -53,32 +65,43 @@
 </div>
 <div class="section" id="item-and-planning-group-selection">
 <h2>Item and Planning Group Selection<a class="headerlink" href="#item-and-planning-group-selection" title="Permalink to this headline">¶</a></h2>
-<p>Planning and filter section</p>
-<p>allows filtering on
-* Demand Shortages * Part # Mask
-* Part Category
-* Within Lead Time?
-* Vendor Code
-* Planning Horizon
-* End Date
-* Buyer Name
-* Customer Code
-* Forecast Group
-* Manufacturer Code
-* Item Status
-* Number of Records</p>
+<p>Planning and filter section allows filtering on:</p>
+<ul class="simple">
+<li>Demand Shortages</li>
+<li>Part # Mask</li>
+<li>Part Category</li>
+<li>Within Lead Time?</li>
+<li>Vendor Code</li>
+<li>Planning Horizon</li>
+<li>End Date</li>
+<li>Buyer Name</li>
+<li>Customer Code</li>
+<li>Forecast Group</li>
+<li>Manufacturer Code</li>
+<li>Item Status</li>
+<li>Number of Records</li>
+</ul>
 </div>
 <div class="section" id="planning-group-detail">
 <h2>Planning Group Detail<a class="headerlink" href="#planning-group-detail" title="Permalink to this headline">¶</a></h2>
 <p>Item Masters in the Planning Group</p>
 <ul class="simple">
-<li><p>Demand?</p></li>
-<li><p>Supply?</p></li>
-<li><p>Item cd</p></li>
-<li><p>Description</p></li>
-<li><p>Stock Unit of Measure</p></li>
-<li><p>Lead Time (Days)</p></li>
+<li>Demand?</li>
+<li>Supply?</li>
+<li>Item cd</li>
+<li>Description</li>
+<li>Stock Unit of Measure</li>
+<li>Lead Time (Days)</li>
 </ul>
+</div>
+<div class="section" id="technical">
+<h2>Technical<a class="headerlink" href="#technical" title="Permalink to this headline">¶</a></h2>
+<p>This is a <strong>Springboot</strong> application.  All dependencies are in one jar file and integration testing has been completed
+prior to creation of the jar file.</p>
+<p>It is started by</p>
+<div class="code bash highlight-python"><pre>cd ${DIAMOND_ROOT}/aps-web/target
+java -jar diamond*.jar</pre>
+</div>
 </div>
 </div>
 <div class="section" id="urls">
@@ -88,84 +111,58 @@
 
 
           </div>
-          
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">Diamond APS</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html">Business Process Reeingeneering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#data-requirements">Data Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#legacy-system">Legacy System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#concepts">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#procedures">Procedures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#benefits">Benefits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#questions">Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#implementation">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#sap-on-the-web">SAP on the web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#id5">Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#conclusion">Conclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#planning-requirements">Planning Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#id14">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#modifications">Modifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#difference-from-sap">Difference from SAP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../BusinessProcessReengineering.html#id16">SAP on the web</a></li>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Portal User Manual</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li><a class="reference internal" href="#action-reports">Action Reports</a></li>
+<li><a class="reference internal" href="#information-reports">Information Reports</a></li>
+<li><a class="reference internal" href="#item-and-planning-group-selection">Item and Planning Group Selection</a></li>
+<li><a class="reference internal" href="#planning-group-detail">Planning Group Detail</a></li>
+<li><a class="reference internal" href="#technical">Technical</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#urls">URLS</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/Portal/PortalUserManual/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2019, Jim Schmidt.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/Portal/PortalUserManual/index.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer">
+        &copy; Copyright 2020, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
   </body>
 </html>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d0b3dbb9-39fd-4e0d-81d3-c5c3756e742e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-condition-identification/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-condition-identification/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-hibernate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-hibernate/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-hibernate/src/test/java/org/javautil/persist/hibernate/TransactionHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-hibernate/src/test/java/org/javautil/persist/hibernate/TransactionHelperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/examples/Escape.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/examples/Escape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/md/AllArguments.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/md/AllArguments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/AbstractParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/AbstractParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/BasicCmdLineHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/BasicCmdLineHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/BooleanParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/BooleanParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/CmdLineException.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/CmdLineException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/DateParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/DateParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/DateTimeParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/DateTimeParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/DefaultCmdLineHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/DefaultCmdLineHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/FileParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/FileParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/IntParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/IntParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/Parameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/PosixCmdLineParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/PosixCmdLineParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/StringFormatHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/StringFormatHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/TimeParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/jcmdline/TimeParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/BeanPropertyResourceBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/BeanPropertyResourceBundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/BindsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/BindsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineHandlerDelete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineOptionsAndArgumentsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineOptionsAndArgumentsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/CommandLineParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/ConfigurableToStringStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/ConfigurableToStringStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/IntrospectedFieldHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/IntrospectedFieldHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/ParameterCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/ParameterCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/ReflectUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/ReflectUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/AcceptableValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/AcceptableValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/Argument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/DependentField.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/DependentField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/FieldValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/FieldValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/FileExists.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/FileExists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/RequiredUnless.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/RequiredUnless.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/Requires.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/commandline/annotations/Requires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/sql/Binds.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/main/java/org/javautil/sql/Binds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/AbstractHandlerDecorator_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/AbstractHandlerDecorator_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/AbstractParameter_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/AbstractParameter_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/BasicCmdLineHandler_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/BasicCmdLineHandler_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/BetterTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/BetterTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/BooleanParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/BooleanParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/Concat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/DateParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/DateParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/DateTimeParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/DateTimeParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/FileParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/FileParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/IntParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/IntParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/LoggerCmdLineHandler_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/LoggerCmdLineHandler_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/StringFormatHelper_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/StringFormatHelper_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/StringParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/StringParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/TimeParam_UT.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/jcmdline/TimeParam_UT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/ArgumentBeanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/ArgumentBeanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/BaseArgumentBeanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/BaseArgumentBeanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/CommandLineHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/CommandLineHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/NoExitUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/NoExitUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/ParameterCreatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/ParameterCreatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/ReadFromPropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/ReadFromPropertiesFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/AcceptableValuesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/AcceptableValuesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/BooleanArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/BooleanArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/DateArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/DateArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/DirectoryArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/DirectoryArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/Example1ArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/Example1ArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/ExclusiveArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/ExclusiveArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/FileExistsArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/FileExistsArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/FileWritableArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/FileWritableArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/InheritenceArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/InheritenceArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/IntegerArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/IntegerArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/InvalidRequiredUnlessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/InvalidRequiredUnlessTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/MultiValueBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/MultiValueBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/MultiValueBeanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/MultiValueBeanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/OptionalRequiredArgumentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/OptionalRequiredArgumentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/ReadFromPropertiesFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/ReadFromPropertiesFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/RequiredUnlessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/RequiredUnlessTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/RequiresTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/annotations/RequiresTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/examples/TrueCrimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/examples/TrueCrimes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/examples/TrueCrimes2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/commandline/examples/TrueCrimes2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/poi/workbook/AllArguments.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/poi/workbook/AllArguments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/poi/workbook/WorkbookWriterArgumentsForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/poi/workbook/WorkbookWriterArgumentsForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/poi/workbook/WorkbookWriterArgumentsForTestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-jcmdline/src/test/java/org/javautil/poi/workbook/WorkbookWriterArgumentsForTestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-joblog/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-joblog/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-nucleus/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-nucleus/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-nucleus/src/main/java/org/javautil/csv/SqlCsvExporterArguments.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-nucleus/src/main/java/org/javautil/csv/SqlCsvExporterArguments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-nucleus/src/main/java/org/javautil/sql/SqlRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-nucleus/src/main/java/org/javautil/sql/SqlRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-oracle-trace/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-oracle-trace/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-poi/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-poi/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-pom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-pom/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/javautil-test/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/javautil-test/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/vending-sales-reporting/src/main/java/com/pacificdataservices/pdssr/CdsDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/vending-sales-reporting/src/main/java/com/pacificdataservices/pdssr/CdsDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javautil-7/vending-sales-reporting/src/main/java/com/pacificdataservices/pdssr/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/javautil-7/vending-sales-reporting/src/main/java/com/pacificdataservices/pdssr/Post.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1fVVLSNf9ajGX9xgkn0pSyvPUGl" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0b3dbb9-39fd-4e0d-81d3-c5c3756e742e" name="Default Changelist" comment="" />
+      <created>1596303190129</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596303190129</updated>
+      <workItem from="1596303196371" duration="187000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="743" y="224" width="424" height="594" key="FileChooserDialogImpl" timestamp="1596303368565">
+      <screen x="0" y="0" width="1920" height="1045" />
+    </state>
+    <state x="743" y="224" width="424" height="594" key="FileChooserDialogImpl/0.0.1920.1045@0.0.1920.1045" timestamp="1596303368565" />
+    <state x="557" y="270" width="795" height="502" key="NewModule_or_Project.wizard" timestamp="1596303375002">
+      <screen x="0" y="0" width="1920" height="1045" />
+    </state>
+    <state x="557" y="270" width="795" height="502" key="NewModule_or_Project.wizard/0.0.1920.1045@0.0.1920.1045" timestamp="1596303375002" />
+    <state x="287" y="136" width="1335" height="771" key="new project wizard" timestamp="1596303219420">
+      <screen x="0" y="0" width="1920" height="1045" />
+    </state>
+    <state x="287" y="136" width="1335" height="771" key="new project wizard/0.0.1920.1045@0.0.1920.1045" timestamp="1596303219420" />
+  </component>
+</project>

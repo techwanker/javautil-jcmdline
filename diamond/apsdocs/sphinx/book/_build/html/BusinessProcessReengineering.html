@@ -1,57 +1,78 @@
 
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>Business Process Reeingeneering &#8212; Diamond APS 2019-12-14-03 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Business Process Reeingeneering &mdash; Diamond Advanced Planning System Version 8 8 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Indices and tables" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Diamond Advanced Planning System Version 8 8 documentation" href="index.html" />
+    <link rel="next" title="Questions" href="Questions.html" />
+    <link rel="prev" title="TODO" href="APS/todo.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Questions.html" title="Questions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="APS/todo.html" title="TODO"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="business-process-reeingeneering">
 <h1>Business Process Reeingeneering<a class="headerlink" href="#business-process-reeingeneering" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="objectives">
 <h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Maximum buyer productivity</p></li>
-<li><p>Eliminate unnecessary purchases</p></li>
-<li><p>Develop a standardized methodology for buyers that is deterministic,
-with the same input two buyers should come to the same conclusions.</p></li>
-<li><p>Buyers should be able to test the results of a simulation by, for
+<li>Maximum buyer productivity</li>
+<li>Eliminate unnecessary purchases</li>
+<li>Develop a standardized methodology for buyers that is deterministic,
+with the same input two buyers should come to the same conclusions.</li>
+<li>Buyers should be able to test the results of a simulation by, for
 example adding a secondary manufacturer CofC to a lot and replan the
 part and get the answer back within a second with a new single
-screen.</p></li>
-<li><p>All scenarios should be stored with the results.</p></li>
-<li><p>Upon acceptance of a scenario the simulation changes should be
-reported so that the source systems can be update.</p></li>
-<li><p>Status of simulation changes # Requested # Not possible - stops
+screen.</li>
+<li>All scenarios should be stored with the results.</li>
+<li>Upon acceptance of a scenario the simulation changes should be
+reported so that the source systems can be update.</li>
+<li>Status of simulation changes # Requested # Not possible - stops
 further recommendations to take this action # Active - Once a
-download from the source system reflects this change</p></li>
-<li><p>A report of requested modification not yet completed on source
-systems</p></li>
+download from the source system reflects this change</li>
+<li>A report of requested modification not yet completed on source
+systems</li>
 </ol>
 </div>
 <div class="section" id="purchasing-operational-efficiency">
@@ -70,19 +91,19 @@ insufficient quotations (other vendors may have lower costs)</p>
 <div class="section" id="speed-up-quotations">
 <h3>Speed up quotations<a class="headerlink" href="#speed-up-quotations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Automatically email vendors request for quotations</p></li>
-<li><p>Automated quote response have the vendors provide a CSV, JSON or XML
-file with the quote to be</p></li>
-<li><p>automatically uploaded to the system.</p></li>
+<li>Automatically email vendors request for quotations</li>
+<li>Automated quote response have the vendors provide a CSV, JSON or XML
+file with the quote to be</li>
+<li>automatically uploaded to the system.</li>
 </ul>
 <p>For example a vendor could create a spreadsheet with the following
 columns</p>
 <ul class="simple">
-<li><p>item_cd</p></li>
-<li><p>quantity</p></li>
-<li><p>manufacturer</p></li>
-<li><p>price</p></li>
-<li><p>available date</p></li>
+<li>item_cd</li>
+<li>quantity</li>
+<li>manufacturer</li>
+<li>price</li>
+<li>available date</li>
 </ul>
 <p>by emailing to <a class="reference external" href="mailto:quotes&#37;&#52;&#48;yourco&#46;com">quotes<span>&#64;</span>yourco<span>&#46;</span>com</a> these quotes can be automatically
 loaded into the system without changes to the legacy system,</p>
@@ -91,47 +112,46 @@ loaded into the system without changes to the legacy system,</p>
 <h3>Buyer information<a class="headerlink" href="#buyer-information" title="Permalink to this headline">¶</a></h3>
 <p>The buyer should have single screen that shows:</p>
 <ol class="arabic simple">
-<li><p>Supplies</p></li>
-<li><p>On hand</p></li>
-<li><p>Open Purchase Orders</p></li>
-<li><p>Open Work Orders</p></li>
-<li><p>Demand</p></li>
-<li><p>Forecasted</p>
-<ol class="arabic simple">
-<li><p>Raw</p></li>
-<li><p>Consumed</p></li>
-<li><p>Unconsumed</p></li>
+<li>Supplies</li>
+<li>On hand</li>
+<li>Open Purchase Orders</li>
+<li>Open Work Orders</li>
+<li>Demand</li>
+<li>Forecasted<ol class="arabic">
+<li>Raw</li>
+<li>Consumed</li>
+<li>Unconsumed</li>
 </ol>
 </li>
-<li><p>Safety Stock</p></li>
-<li><p>Reserved Inventory</p></li>
-<li><p>Quarantined</p></li>
-<li><p>Restricted access (JIT programs, Committed Service Level Agreement
-Plans)</p></li>
-<li><p>All part numbers in the planning group</p></li>
-<li><p>Every part and all equivalents, transitively, that is the equivalents
-to those equivalents until exhausted.</p></li>
-<li><p>Customer specific substitutions</p></li>
-<li><p>Approved manufacturer matrix Customers down the left, manufacturers
-across the top</p></li>
-<li><p>Requisitions</p></li>
-<li><p>Supplier on-time historical metrics</p></li>
-<li><p>Supply ineligibility drill-down</p></li>
-<li><p>Vendor Quotes</p></li>
-<li><p>Time phased inventory position, Pipeline (Global, by Facility, by
-planner)</p></li>
-<li><p>On hand inventory in aggregate with the ability to open details with
-a single click</p></li>
-<li><p>Sales history for the last three years in multiple dimensions</p></li>
-<li><p>Time Dimensions include annual, quarterly and monthly</p></li>
-<li><p>Ability to see by customer</p></li>
-<li><p>Existing purchase orders</p></li>
-<li><p>Existing facility transfers in process</p></li>
-<li><p>Detailed reason why supplies are not eligible for a demand that is
-allocated late or short</p></li>
-<li><p>A matrix of approved manufactures and customers</p></li>
-<li><p>See the part and all transitive equivalent parts</p></li>
-<li><p>Late or short demands</p></li>
+<li>Safety Stock</li>
+<li>Reserved Inventory</li>
+<li>Quarantined</li>
+<li>Restricted access (JIT programs, Committed Service Level Agreement
+Plans)</li>
+<li>All part numbers in the planning group</li>
+<li>Every part and all equivalents, transitively, that is the equivalents
+to those equivalents until exhausted.</li>
+<li>Customer specific substitutions</li>
+<li>Approved manufacturer matrix Customers down the left, manufacturers
+across the top</li>
+<li>Requisitions</li>
+<li>Supplier on-time historical metrics</li>
+<li>Supply ineligibility drill-down</li>
+<li>Vendor Quotes</li>
+<li>Time phased inventory position, Pipeline (Global, by Facility, by
+planner)</li>
+<li>On hand inventory in aggregate with the ability to open details with
+a single click</li>
+<li>Sales history for the last three years in multiple dimensions</li>
+<li>Time Dimensions include annual, quarterly and monthly</li>
+<li>Ability to see by customer</li>
+<li>Existing purchase orders</li>
+<li>Existing facility transfers in process</li>
+<li>Detailed reason why supplies are not eligible for a demand that is
+allocated late or short</li>
+<li>A matrix of approved manufactures and customers</li>
+<li>See the part and all transitive equivalent parts</li>
+<li>Late or short demands</li>
 </ol>
 <p>In Diamond this is all done locally in the web browser with no network
 requests so it is virtually instaneous.</p>
@@ -139,50 +159,50 @@ requests so it is virtually instaneous.</p>
 <div class="section" id="recommendations">
 <h3>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Purchase orders that can be cancelled</p></li>
-<li><p>Get a manufacturer Certificate of Compliance for existing inventory
-to satisfy a requisition with existing inventory</p></li>
-<li><p>Supply prioritization Use buyback inventory before using our
-inventory for appropriate customers</p></li>
-<li><p>Allocation based pricing</p></li>
-<li><p>Items with a shelf life have oldest allocated first</p></li>
-<li><p>Less valuable items are allocated first</p></li>
-<li><p>Based on Certifications (dual certed parts have more value)</p></li>
-<li><p>Facility Transfer</p></li>
-<li><p>Supply Pool Transfer</p></li>
-<li><p>Expedite or de-expedite a purchase order</p></li>
+<li>Purchase orders that can be cancelled</li>
+<li>Get a manufacturer Certificate of Compliance for existing inventory
+to satisfy a requisition with existing inventory</li>
+<li>Supply prioritization Use buyback inventory before using our
+inventory for appropriate customers</li>
+<li>Allocation based pricing</li>
+<li>Items with a shelf life have oldest allocated first</li>
+<li>Less valuable items are allocated first</li>
+<li>Based on Certifications (dual certed parts have more value)</li>
+<li>Facility Transfer</li>
+<li>Supply Pool Transfer</li>
+<li>Expedite or de-expedite a purchase order</li>
 </ol>
 </div>
 <div class="section" id="alerts">
 <h3>Alerts<a class="headerlink" href="#alerts" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Obsolete Inventory</p></li>
-<li><p>Expiring Inventory</p></li>
-<li><p>Purchase Exceeding x% of previous maximum unit price</p></li>
-<li><p>Purchase Exceeding x% of previous minimum unit price</p></li>
-<li><p>Purchase of specified dollars not yet approved</p></li>
+<li>Obsolete Inventory</li>
+<li>Expiring Inventory</li>
+<li>Purchase Exceeding x% of previous maximum unit price</li>
+<li>Purchase Exceeding x% of previous minimum unit price</li>
+<li>Purchase of specified dollars not yet approved</li>
 </ul>
 </div>
 </div>
 <div class="section" id="computing-based-on-setup">
 <h2>Computing based on Setup<a class="headerlink" href="#computing-based-on-setup" title="Permalink to this headline">¶</a></h2>
-<p>“Aerospace distribution can be very profitable if the buying is
-correct”.</p>
+<p>&#8220;Aerospace distribution can be very profitable if the buying is
+correct&#8221;.</p>
 <ul class="simple">
-<li><p>Buy the right parts</p></li>
-<li><p>Buy the optimal quantity</p></li>
+<li>Buy the right parts</li>
+<li>Buy the optimal quantity</li>
 </ul>
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Define a process to</p>
 <ol class="arabic simple">
-<li><p>Improve purchasing efficiency</p></li>
-<li><p>Provide decision support for better purchasing decisions</p></li>
-<li><p>Monitor performance</p></li>
-<li><p>Create and enforce policies</p></li>
-<li><p>Improve detailed and summary information</p></li>
-<li><p>Leverage inter company inventory</p></li>
+<li>Improve purchasing efficiency</li>
+<li>Provide decision support for better purchasing decisions</li>
+<li>Monitor performance</li>
+<li>Create and enforce policies</li>
+<li>Improve detailed and summary information</li>
+<li>Leverage inter company inventory</li>
 </ol>
 </div>
 <div class="section" id="id1">
@@ -190,9 +210,9 @@ correct”.</p>
 <p>Lower unit cost</p>
 <p>We will introduce:</p>
 <ul class="simple">
-<li><p>Multiple Certifications</p></li>
-<li><p>Supply Prioritization</p></li>
-<li><p>Eligible Supply</p></li>
+<li>Multiple Certifications</li>
+<li>Supply Prioritization</li>
+<li>Eligible Supply</li>
 </ul>
 </div>
 <div class="section" id="traditional-drp">
@@ -200,15 +220,15 @@ correct”.</p>
 <div class="section" id="forecast">
 <h3>Forecast<a class="headerlink" href="#forecast" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>History is aggregated by month</p></li>
-<li><p>Various forecast models are applied to the history simulating
-forecasts into historical periods</p></li>
-<li><p>Forecast performance is evaluated over lead time</p></li>
-<li><p>Best performing model is chosen</p></li>
-<li><p>Forecast is made</p></li>
-<li><p>Safety stock is calculated based on service level and forecast
-statistics</p></li>
-<li><p>Economic Order Quantity is computed</p></li>
+<li>History is aggregated by month</li>
+<li>Various forecast models are applied to the history simulating
+forecasts into historical periods</li>
+<li>Forecast performance is evaluated over lead time</li>
+<li>Best performing model is chosen</li>
+<li>Forecast is made</li>
+<li>Safety stock is calculated based on service level and forecast
+statistics</li>
+<li>Economic Order Quantity is computed</li>
 </ul>
 </div>
 <div class="section" id="projections">
@@ -237,7 +257,7 @@ curve and calls this <em>BATT-D-ALK</em>.</p>
 <p>F-R-Eddy, Deer-a-Bull and Brand-X all issue a <em>Certificate of
 Compliance</em> stating that their batteries meet all of the engineering
 requirement of <em>BATT-D-ALK</em></p>
-<p>Let’’s assume</p>
+<p>Let&#8217;&#8217;s assume</p>
 <p>1,000 888888-333333</p>
 <p>2,000 666666-222222</p>
 <p>500 333333-555555</p>
@@ -260,12 +280,12 @@ month?</p>
 <p>This section introduces the concept of supply prioritization,
 determinining which eligible supply to to use to satisfy demand.</p>
 <ul class="simple">
-<li><p>88888-33333 Parts cost more so you fill with the cheaper part</p></li>
-<li><p>You use some of each because they have a shelf life and you want to
-get rid of those near the expiry date.</p></li>
-<li><p>Another customer will only accept from Deer-A-Bull so you fulfill
+<li>88888-33333 Parts cost more so you fill with the cheaper part</li>
+<li>You use some of each because they have a shelf life and you want to
+get rid of those near the expiry date.</li>
+<li>Another customer will only accept from Deer-A-Bull so you fulfill
 with F-R-Ready to reserve your Deer-A-Bull inventory as it is more
-widely accepted.</p></li>
+widely accepted.</li>
 </ul>
 <p>Perhaps: The customer only approves</p>
 </div>
@@ -277,11 +297,11 @@ widely accepted.</p></li>
 <p>Vendor quote unit price 1,000 3.02 2,500 1.647</p>
 <p>So you buy a years supply and move onto the next part.</p>
 <p>STOP!</p>
-<p>Let’’s assume unit_cost = setup_cost/nbr_units + incremental cost</p>
+<p>Let&#8217;&#8217;s assume unit_cost = setup_cost/nbr_units + incremental cost</p>
 <p>substituting in <em>unit_cost</em> and <em>nbr_units</em> in the equation twice
 leaves us two equations with two unknowns. Using linear algebra we solve
 for the setup cost and incremental_cost and plot this.</p>
-<p>We see …</p>
+<p>We see ...</p>
 <p>Now we can quote lower prices and hopefully get a higher quote
 conversion while simultaneously getting a higher profit margin.</p>
 <p>???</p>
@@ -343,9 +363,9 @@ processes are affected.</p>
 <h2>Supply Pools<a class="headerlink" href="#supply-pools" title="Permalink to this headline">¶</a></h2>
 <p>Supply pools are logical collections of inventory and may be used to</p>
 <ol class="arabic simple">
-<li><p>Ensure that the pool is only available to the appropriate customers</p></li>
-<li><p>Distinguish between regular, buyback and consigment inventory</p></li>
-<li><p>Used in prioritization of supply for demand</p></li>
+<li>Ensure that the pool is only available to the appropriate customers</li>
+<li>Distinguish between regular, buyback and consigment inventory</li>
+<li>Used in prioritization of supply for demand</li>
 </ol>
 </div>
 <div class="section" id="forecast-groups">
@@ -397,91 +417,88 @@ inventory is consumed for a given demand.</p>
 <div class="section" id="questions">
 <h1>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><p>How long does it take to get</p></li>
+<li>How long does it take to get</li>
 </ol>
 <p>Sales History Vendor Quotes Customer Quotes Approved Manufacturers Item
 Equivalencies Forecasted Demand Purchase Orders Requisitions</p>
 <p>For a part and all of its equivalents in both the United States and
 France?</p>
 <ol class="arabic simple">
-<li><p>How do you compute a buy quantity?</p></li>
+<li>How do you compute a buy quantity?</li>
 </ol>
 <div class="section" id="extensibility">
 <h2>Extensibility<a class="headerlink" href="#extensibility" title="Permalink to this headline">¶</a></h2>
 <p>Any component must be easily plugged in with an alternative
 implementation that is compliant with the corresponding interface,</p>
 <ul class="simple">
-<li><p>Demand Priority</p></li>
-<li><p>Eligibility Requirements</p></li>
-<li><p>Supply Prioritization</p>
-<ul>
-<li><p>Lot value determination</p></li>
+<li>Demand Priority</li>
+<li>Eligibility Requirements</li>
+<li>Supply Prioritization<ul>
+<li>Lot value determination</li>
 </ul>
 </li>
-<li><p>Recommendation Handlers for propagating accepted recommendations to
-source system</p></li>
+<li>Recommendation Handlers for propagating accepted recommendations to
+source system</li>
 </ul>
 </div>
 </div>
 <div class="section" id="implementation">
 <h1>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Extract necessary data from legacy systems</p></li>
-<li><p>Load into Advanced Planning</p></li>
-<li><p>Augment with necessary but unavailable information</p></li>
-<li><p>Run a full plan</p></li>
-<li><p>Review recommendations</p>
-<ul>
-<li><p>Accept recommendation (must define Action Handlers) Reject
-recommendation (select reason to be persisted across full reloads)</p></li>
+<li>Extract necessary data from legacy systems</li>
+<li>Load into Advanced Planning</li>
+<li>Augment with necessary but unavailable information</li>
+<li>Run a full plan</li>
+<li>Review recommendations<ul>
+<li>Accept recommendation (must define Action Handlers) Reject
+recommendation (select reason to be persisted across full reloads)</li>
 </ul>
 </li>
 </ul>
 <div class="section" id="id4">
 <h2>Questions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Inventory Restriction</p></li>
-<li><p>How do you restrict availability of inventory for special purposes
-such as</p>
-<ul class="simple">
-<li><p>JIT contracts</p></li>
-<li><p>Committed Service Level Agreements</p></li>
-<li><p>Kitting and Assembly</p></li>
+<li>Inventory Restriction</li>
+<li>How do you restrict availability of inventory for special purposes
+such as<ul>
+<li>JIT contracts</li>
+<li>Committed Service Level Agreements</li>
+<li>Kitting and Assembly</li>
 </ul>
 </li>
-<li><p>Do you have automated approved manufacturer eligibility?</p></li>
-<li><p>Do you have prioritization for lots with expiry dates?</p></li>
-<li><p>How do you calculate the residual cost of goods for broker buys for
-the</p></li>
-<li><p>Are you exclusively FIFO or do you consider lots that have lower cost
+<li>Do you have automated approved manufacturer eligibility?</li>
+<li>Do you have prioritization for lots with expiry dates?</li>
+<li>How do you calculate the residual cost of goods for broker buys for
+the</li>
+<li>Are you exclusively FIFO or do you consider lots that have lower cost
 that satisfies the demand (taking into consideration multiple
 certifications, incremental cost of Quality Assurance testing and
-destructive tests?), etc.? quantity that exceeds the customer demand?</p></li>
-<li><p>Quality Assurance Do you have a quality assurance program that
+destructive tests?), etc.? quantity that exceeds the customer demand?</li>
+<li>Quality Assurance Do you have a quality assurance program that
 supports skip lot testing and pre-approved lots ( lots that have
 already passed the QA requirements for a customer should receive
-higher priority for that customer and lower priority for others)</p></li>
-<li><p>What supply eligibility rules do you have?</p></li>
-<li><p>How do you pin an allocation to a demand ?</p></li>
-<li><p>Does your system recommend when alternate availability is preferable
-to a pinned allocation?</p></li>
+higher priority for that customer and lower priority for others)</li>
+<li>What supply eligibility rules do you have?</li>
+<li>How do you pin an allocation to a demand ?</li>
+<li>Does your system recommend when alternate availability is preferable
+to a pinned allocation?</li>
 </ol>
 </div>
 </div>
 <div class="section" id="sap-on-the-web">
 <h1>SAP on the web<a class="headerlink" href="#sap-on-the-web" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/">https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/</a></p></li>
-<li><p><a class="reference external" href="https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html">https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html</a></p></li>
-<li><p><a class="reference external" href="https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/">https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/</a></p></li>
-<li><p>“We are nowhere near best-in-class, but we are making progress,” says
+<li><a class="reference external" href="https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/">https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/</a></li>
+<li><a class="reference external" href="https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html">https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html</a></li>
+<li><a class="reference external" href="https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/">https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/</a></li>
+<li>&#8220;We are nowhere near best-in-class, but we are making progress,&#8221; says
 Steve Rogers, UK managing director of SAP to an audience of his
-customers at the German applications firm’s annual user gathering at
-the end of last year. It’s not the kind of comment that you expect
-from a senior executive at a leading software firm.</p></li>
-<li><p><a class="reference external" href="https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/">https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/</a></p></li>
-<li><p><a class="reference external" href="https://www.360cloudsolutions.com/top-six-erp-implementation-failures/">https://www.360cloudsolutions.com/top-six-erp-implementation-failures/</a></p></li>
-<li><p><a class="reference external" href="https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/">https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/</a></p></li>
+customers at the German applications firm&#8217;s annual user gathering at
+the end of last year. It&#8217;s not the kind of comment that you expect
+from a senior executive at a leading software firm.</li>
+<li><a class="reference external" href="https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/">https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/</a></li>
+<li><a class="reference external" href="https://www.360cloudsolutions.com/top-six-erp-implementation-failures/">https://www.360cloudsolutions.com/top-six-erp-implementation-failures/</a></li>
+<li><a class="reference external" href="https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/">https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/</a></li>
 </ul>
 <p>There is a huge amount that can be done but a specification has not been
 articulated.</p>
@@ -489,8 +506,8 @@ articulated.</p>
 <div class="section" id="simple-example">
 <h2>Simple Example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h2>
 <p>During one of my calls with Peter he told me that he was reviewing
-purchase orders a simple line such as “Buyers don’’t buy the correct
-quantities to get a good price” was extended to:</p>
+purchase orders a simple line such as &#8220;Buyers don&#8217;&#8216;t buy the correct
+quantities to get a good price&#8221; was extended to:</p>
 <div class="section" id="compute-optimal-purchase-quantity">
 <h3>Compute Optimal Purchase Quantity<a class="headerlink" href="#compute-optimal-purchase-quantity" title="Permalink to this headline">¶</a></h3>
 <p>Compute a projected per unit cost by solving the equation</p>
@@ -500,9 +517,9 @@ algebra</p>
 </div>
 <div class="section" id="graph-this-relationsihip">
 <h3>Graph this relationsihip<a class="headerlink" href="#graph-this-relationsihip" title="Permalink to this headline">¶</a></h3>
-<p>Find the “price knee” the first derivative of the function, the slope of
+<p>Find the &#8220;price knee&#8221; the first derivative of the function, the slope of
 the tangent starts to level off (it asymptotically approaches 0, meaning
-the limit is the unit cost doesn’’t decrease at all. Depending on setup
+the limit is the unit cost doesn&#8217;&#8216;t decrease at all. Depending on setup
 cost, incremental cost and annual consumption a three year supply may be
 ten percent more than a one year supply, it may also be three times the
 acquisition cost and additional carrying costs must be considered.</p>
@@ -515,16 +532,16 @@ so that lower per unit costs can be realized.</p>
 <h2>Purchasing Procedures<a class="headerlink" href="#purchasing-procedures" title="Permalink to this headline">¶</a></h2>
 <p>When a part needs to be replenished</p>
 <ol class="arabic simple">
-<li><p>Vendor quotes for the price range should be required.</p></li>
-<li><p>Purchase amounts over a defined limit should be reviewed and
-approved.</p></li>
-<li><p>Requisitions should be created in the new purchase decision
+<li>Vendor quotes for the price range should be required.</li>
+<li>Purchase amounts over a defined limit should be reviewed and
+approved.</li>
+<li>Requisitions should be created in the new purchase decision
 application and once approved, be created as purchase orders in the
-execution system (Dymax and SAP).</p></li>
-<li><p>Checks for any constraints including approved manufacturers should be
-simulated</p></li>
-<li><p>Existing inventory carried under equivalent part numbers should be
-considered.</p></li>
+execution system (Dymax and SAP).</li>
+<li>Checks for any constraints including approved manufacturers should be
+simulated</li>
+<li>Existing inventory carried under equivalent part numbers should be
+considered.</li>
 </ol>
 <p>The opportunities for process improvement are best addressed by
 evaluating your current processes and the issues your experts realize
@@ -534,17 +551,17 @@ and developing a system to address those issues.</p>
 <h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
 <p>Your new process should:</p>
 <ol class="arabic simple">
-<li><p>Be external to SAP and Dymax, requiring no modifications to either
-system. This eliminates risk and complexity.</p></li>
-<li><p>Should include data from both operations for inventory, purchases and
-demands</p></li>
-<li><p>Incorporate new procedures and policies to reflect best practices</p></li>
-<li><p>Reduce the effort of sales staff and purchasing staff to perform
-their functions</p></li>
-<li><p>Define metrics to evaluate performance and progress</p></li>
-<li><p>Have an alert system of reports of issues that need to be addressed.</p></li>
-<li><p>Require no hardware or other infrastructure or the installation of
-any software on any Align computer.</p></li>
+<li>Be external to SAP and Dymax, requiring no modifications to either
+system. This eliminates risk and complexity.</li>
+<li>Should include data from both operations for inventory, purchases and
+demands</li>
+<li>Incorporate new procedures and policies to reflect best practices</li>
+<li>Reduce the effort of sales staff and purchasing staff to perform
+their functions</li>
+<li>Define metrics to evaluate performance and progress</li>
+<li>Have an alert system of reports of issues that need to be addressed.</li>
+<li>Require no hardware or other infrastructure or the installation of
+any software on any client computer.</li>
 </ol>
 </div>
 </div>
@@ -552,16 +569,16 @@ any software on any Align computer.</p></li>
 <h1>Questions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
 <p>What is the current cost of</p>
 <ol class="arabic simple">
-<li><p>Not buying the correct quantities</p></li>
-<li><p>Not taking into consideration multiple certifications</p></li>
-<li><p>Buying inventory in one operation that is excess inventory in the
-other operation</p></li>
-<li><p>Time wasted gathering information to create a purchase order</p></li>
+<li>Not buying the correct quantities</li>
+<li>Not taking into consideration multiple certifications</li>
+<li>Buying inventory in one operation that is excess inventory in the
+other operation</li>
+<li>Time wasted gathering information to create a purchase order</li>
 </ol>
 </div>
 <div class="section" id="conclusion">
 <h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
-<p>Align has the expertise in house to participate in the design of a
+<p>Client has the expertise in house to participate in the design of a
 business process and software to optimize the purchasing and sales
 operations, there is no need to wait for an IT person who has much less
 experience than your director of purchasing and other operations
@@ -573,8 +590,8 @@ results in a expense greater than the cost of developing a design.</p>
 <p>A design is best done by whiteboard meetings, starting with a blank
 whiteboard. Even with 25 years experience in Aerospace, it would be
 presumptious, and flat out wrong for me to give a powerpoint
-presentation and say “This is the universal answer to all problems, it
-will fit your situation”; this is the approach of someone hawking
+presentation and say &#8220;This is the universal answer to all problems, it
+will fit your situation&#8221;; this is the approach of someone hawking
 software.</p>
 </div>
 <div class="section" id="planning-requirements">
@@ -582,22 +599,22 @@ software.</p>
 <div class="section" id="id6">
 <h2>Objectives<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Maximum buyer productivity</p></li>
-<li><p>Eliminate unnecessary purchases</p></li>
-<li><p>Develop a standardized methodology for buyers that is deterministic,
-with the same input two buyers should come to the same conclusions.</p></li>
-<li><p>Buyers should be able to test the results of a simulation by, for
+<li>Maximum buyer productivity</li>
+<li>Eliminate unnecessary purchases</li>
+<li>Develop a standardized methodology for buyers that is deterministic,
+with the same input two buyers should come to the same conclusions.</li>
+<li>Buyers should be able to test the results of a simulation by, for
 example adding a secondary manufacturer CofC to a lot and replan the
 part and get the answer back within a second with a new single
-screen.</p></li>
-<li><p>All scenarios should be stored with the results.</p></li>
-<li><p>Upon acceptance of a scenario the simulation changes should be
-reported so that the source systems can be update.</p></li>
-<li><p>Status of simulation changes # Requested # Not possible - stops
+screen.</li>
+<li>All scenarios should be stored with the results.</li>
+<li>Upon acceptance of a scenario the simulation changes should be
+reported so that the source systems can be update.</li>
+<li>Status of simulation changes # Requested # Not possible - stops
 further recommendations to take this action # Active - Once a
-download from the source system reflects this change</p></li>
-<li><p>A report of requested modification not yet completed on source
-systems</p></li>
+download from the source system reflects this change</li>
+<li>A report of requested modification not yet completed on source
+systems</li>
 </ol>
 </div>
 <div class="section" id="id7">
@@ -616,19 +633,19 @@ insufficient quotations (other vendors may have lower costs)</p>
 <div class="section" id="id9">
 <h3>Speed up quotations<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Automatically email vendors request for quotations</p></li>
-<li><p>Automated quote response have the vendors provide a CSV, JSON or XML
-file with the quote to be</p></li>
-<li><p>automatically uploaded to the system.</p></li>
+<li>Automatically email vendors request for quotations</li>
+<li>Automated quote response have the vendors provide a CSV, JSON or XML
+file with the quote to be</li>
+<li>automatically uploaded to the system.</li>
 </ul>
 <p>For example a vendor could create a spreadsheet with the following
 columns</p>
 <ul class="simple">
-<li><p>item_cd</p></li>
-<li><p>quantity</p></li>
-<li><p>manufacturer</p></li>
-<li><p>price</p></li>
-<li><p>available date</p></li>
+<li>item_cd</li>
+<li>quantity</li>
+<li>manufacturer</li>
+<li>price</li>
+<li>available date</li>
 </ul>
 <p>by emailing to <a class="reference external" href="mailto:quotes&#37;&#52;&#48;yourco&#46;com">quotes<span>&#64;</span>yourco<span>&#46;</span>com</a> these quotes can be automatically
 loaded into the system without changes to the legacy system,</p>
@@ -637,48 +654,47 @@ loaded into the system without changes to the legacy system,</p>
 <h3>Buyer information<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>The buyer should have single screen that shows:</p>
 <ol class="arabic simple">
-<li><p>Supplies</p></li>
-<li><p>On hand</p></li>
-<li><p>Open Purchase Orders</p></li>
-<li><p>Open Work Orders</p></li>
-<li><p>Demand</p></li>
-<li><p>Forecasted</p>
-<ol class="arabic simple">
-<li><p>Raw</p></li>
-<li><p>Consumed</p></li>
-<li><p>Unconsumed</p></li>
+<li>Supplies</li>
+<li>On hand</li>
+<li>Open Purchase Orders</li>
+<li>Open Work Orders</li>
+<li>Demand</li>
+<li>Forecasted<ol class="arabic">
+<li>Raw</li>
+<li>Consumed</li>
+<li>Unconsumed</li>
 </ol>
 </li>
-<li><p>Safety Stock</p></li>
-<li><p>Work Orders</p></li>
-<li><p>Reserved Inventory</p></li>
-<li><p>Quarantined</p></li>
-<li><p>Restricted access (JIT programs, Committed Service Level Agreement
-Plans)</p></li>
-<li><p>All part numbers in the planning group</p></li>
-<li><p>Every part and all equivalents, transitively, that is the equivalents
-to those equivalents until exhausted.</p></li>
-<li><p>Customer specific substitutions</p></li>
-<li><p>Approved manufacturer matrix Customers down the left, manufacturers
-across the top</p></li>
-<li><p>Requisitions</p></li>
-<li><p>Supplier on-time historical metrics</p></li>
-<li><p>Supply ineligibility drill-down</p></li>
-<li><p>Vendor Quotes</p></li>
-<li><p>Time phased inventory position, Pipeline (Global, by Facility, by
-planner)</p></li>
-<li><p>On hand inventory in aggregate with the ability to open details with
-a single click</p></li>
-<li><p>Sales history for the last three years in multiple dimensions</p></li>
-<li><p>Time Dimensions include annual, quarterly and monthly</p></li>
-<li><p>Ability to see by customer</p></li>
-<li><p>Existing purchase orders</p></li>
-<li><p>Existing facility transfers in process</p></li>
-<li><p>Detailed reason why supplies are not eligible for a demand that is
-allocated late or short</p></li>
-<li><p>A matrix of approved manufactures and customers</p></li>
-<li><p>See the part and all transitive equivalent parts</p></li>
-<li><p>Late or short demands</p></li>
+<li>Safety Stock</li>
+<li>Work Orders</li>
+<li>Reserved Inventory</li>
+<li>Quarantined</li>
+<li>Restricted access (JIT programs, Committed Service Level Agreement
+Plans)</li>
+<li>All part numbers in the planning group</li>
+<li>Every part and all equivalents, transitively, that is the equivalents
+to those equivalents until exhausted.</li>
+<li>Customer specific substitutions</li>
+<li>Approved manufacturer matrix Customers down the left, manufacturers
+across the top</li>
+<li>Requisitions</li>
+<li>Supplier on-time historical metrics</li>
+<li>Supply ineligibility drill-down</li>
+<li>Vendor Quotes</li>
+<li>Time phased inventory position, Pipeline (Global, by Facility, by
+planner)</li>
+<li>On hand inventory in aggregate with the ability to open details with
+a single click</li>
+<li>Sales history for the last three years in multiple dimensions</li>
+<li>Time Dimensions include annual, quarterly and monthly</li>
+<li>Ability to see by customer</li>
+<li>Existing purchase orders</li>
+<li>Existing facility transfers in process</li>
+<li>Detailed reason why supplies are not eligible for a demand that is
+allocated late or short</li>
+<li>A matrix of approved manufactures and customers</li>
+<li>See the part and all transitive equivalent parts</li>
+<li>Late or short demands</li>
 </ol>
 <p>In Diamond this is all done locally in the web browser with no network
 requests so it is virtually instaneous.</p>
@@ -686,28 +702,28 @@ requests so it is virtually instaneous.</p>
 <div class="section" id="id11">
 <h3>Recommendations<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Purchase orders that can be cancelled</p></li>
-<li><p>Get a manufacturer Certificate of Compliance for existing inventory
-to satisfy a requisition with existing inventory</p></li>
-<li><p>Supply prioritization Use buyback inventory before using our
-inventory for appropriate customers</p></li>
-<li><p>Allocation based pricing</p></li>
-<li><p>Items with a shelf life have oldest allocated first</p></li>
-<li><p>Less valuable items are allocated first</p></li>
-<li><p>Based on Certifications (dual certed parts have more value)</p></li>
-<li><p>Facility Transfer</p></li>
-<li><p>Supply Pool Transfer</p></li>
-<li><p>Expedite or de-expedite a purchase order</p></li>
+<li>Purchase orders that can be cancelled</li>
+<li>Get a manufacturer Certificate of Compliance for existing inventory
+to satisfy a requisition with existing inventory</li>
+<li>Supply prioritization Use buyback inventory before using our
+inventory for appropriate customers</li>
+<li>Allocation based pricing</li>
+<li>Items with a shelf life have oldest allocated first</li>
+<li>Less valuable items are allocated first</li>
+<li>Based on Certifications (dual certed parts have more value)</li>
+<li>Facility Transfer</li>
+<li>Supply Pool Transfer</li>
+<li>Expedite or de-expedite a purchase order</li>
 </ol>
 </div>
 <div class="section" id="id12">
 <h3>Alerts<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Obsolete Inventory</p></li>
-<li><p>Expiring Inventory</p></li>
-<li><p>Purchase Exceeding x% of previous maximum unit price</p></li>
-<li><p>Purchase Exceeding x% of previous minimum unit price</p></li>
-<li><p>Purchase of specified dollars not yet approved</p></li>
+<li>Obsolete Inventory</li>
+<li>Expiring Inventory</li>
+<li>Purchase Exceeding x% of previous maximum unit price</li>
+<li>Purchase Exceeding x% of previous minimum unit price</li>
+<li>Purchase of specified dollars not yet approved</li>
 </ul>
 </div>
 </div>
@@ -716,29 +732,27 @@ inventory for appropriate customers</p></li>
 <p>Any component must be easily plugged in with an alternative
 implementation that is compliant with the corresponding interface,</p>
 <ul class="simple">
-<li><p>Demand Priority</p></li>
-<li><p>Eligibility Requirements</p></li>
-<li><p>Supply Prioritization</p>
-<ul>
-<li><p>Lot value determination</p></li>
+<li>Demand Priority</li>
+<li>Eligibility Requirements</li>
+<li>Supply Prioritization<ul>
+<li>Lot value determination</li>
 </ul>
 </li>
-<li><p>Recommendation Handlers for propagating accepted recommendations to
-source system</p></li>
+<li>Recommendation Handlers for propagating accepted recommendations to
+source system</li>
 </ul>
 </div>
 </div>
 <div class="section" id="id14">
 <h1>Implementation<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Extract necessary data from legacy systems</p></li>
-<li><p>Load into Advanced Planning</p></li>
-<li><p>Augment with necessary but unavailable information</p></li>
-<li><p>Run a full plan</p></li>
-<li><p>Review recommendations</p>
-<ul>
-<li><p>Accept recommendation (must define Action Handlers) Reject
-recommendation (select reason to be persisted across full reloads)</p></li>
+<li>Extract necessary data from legacy systems</li>
+<li>Load into Advanced Planning</li>
+<li>Augment with necessary but unavailable information</li>
+<li>Run a full plan</li>
+<li>Review recommendations<ul>
+<li>Accept recommendation (must define Action Handlers) Reject
+recommendation (select reason to be persisted across full reloads)</li>
 </ul>
 </li>
 </ul>
@@ -746,239 +760,241 @@ recommendation (select reason to be persisted across full reloads)</p></li>
 <div class="section" id="modifications">
 <h1>Modifications<a class="headerlink" href="#modifications" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>All code is in Java supported by Spring with Hibernate for Object
-Relation Management, these are widely adoped open source solutions</p></li>
-<li><p>Presentation uses the Model, View Controller approach and the model
-may be exposed as a JavaBean or XML if one prefers to use XSL.</p></li>
-<li><p>Diamond dependencies are all vastly popular open source but it
+<li>All code is in Java supported by Spring with Hibernate for Object
+Relation Management, these are widely adoped open source solutions</li>
+<li>Presentation uses the Model, View Controller approach and the model
+may be exposed as a JavaBean or XML if one prefers to use XSL.</li>
+<li>Diamond dependencies are all vastly popular open source but it
 extremely unlikely anyone will have any need to modify anyy of the
-open source code</p></li>
-<li><p>I have trained non-programmers to modify Diamond in less than a
-month.</p></li>
+open source code</li>
+<li>I have trained non-programmers to modify Diamond in less than a
+month.</li>
 </ul>
 <div class="section" id="id15">
 <h2>Questions<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Inventory Restriction</p></li>
-<li><p>How do you restrict availability of inventory for special purposes
-such as</p>
-<ul class="simple">
-<li><p>JIT contracts</p></li>
-<li><p>Committed Service Level Agreements</p></li>
-<li><p>Kitting and Assembly</p></li>
+<li>Inventory Restriction</li>
+<li>How do you restrict availability of inventory for special purposes
+such as<ul>
+<li>JIT contracts</li>
+<li>Committed Service Level Agreements</li>
+<li>Kitting and Assembly</li>
 </ul>
 </li>
-<li><p>Do you have automated approved manufacturer eligibility?</p></li>
-<li><p>Do you have prioritization for lots with expiry dates?</p></li>
-<li><p>How do you calculate the residual cost of goods for broker buys for
-the</p></li>
-<li><p>Are you exclusively FIFO or do you consider lots that have lower cost
+<li>Do you have automated approved manufacturer eligibility?</li>
+<li>Do you have prioritization for lots with expiry dates?</li>
+<li>How do you calculate the residual cost of goods for broker buys for
+the</li>
+<li>Are you exclusively FIFO or do you consider lots that have lower cost
 that satisfies the demand (taking into consideration multiple
 certifications, incremental cost of Quality Assurance testing and
-destructive tests?), etc.? quantity that exceeds the customer demand?</p></li>
-<li><p>Quality Assurance Do you have a quality assurance program that
+destructive tests?), etc.? quantity that exceeds the customer demand?</li>
+<li>Quality Assurance Do you have a quality assurance program that
 supports skip lot testing and pre-approved lots ( lots that have
 already passed the QA requirements for a customer should receive
-higher priority for that customer and lower priority for others)</p></li>
-<li><p>What supply eligibility rules do you have?</p></li>
-<li><p>How do you pin an allocation to a demand ?</p></li>
-<li><p>Does your system recommend when alternate availability is preferable
-to a pinned allocation?</p></li>
+higher priority for that customer and lower priority for others)</li>
+<li>What supply eligibility rules do you have?</li>
+<li>How do you pin an allocation to a demand ?</li>
+<li>Does your system recommend when alternate availability is preferable
+to a pinned allocation?</li>
 </ol>
 </div>
 </div>
 <div class="section" id="difference-from-sap">
 <h1>Difference from SAP<a class="headerlink" href="#difference-from-sap" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><p>Diamond client interface is natively HTML5 and all functionality is
+<li>Diamond client interface is natively HTML5 and all functionality is
 available in a simple browser, whereas SAP has a cludgy interface,
 the native interface is client-server, a technology that is
 embarassingly old fashioned and the implementation is poor, at best
-<a class="reference external" href="https://help.sap.com/doc/saphelp_nw70ehp1/7.01.16/en-US/4d/aeae42cd7fb611e10000000a155106/content.htm?no_cache=true">https://help.sap.com/doc/saphelp_nw70ehp1/7.01.16/en-US/4d/aeae42cd7fb611e10000000a155106/content.htm?no_cache=true</a></p></li>
-<li><p>There are no exposed transaction codes in Diamond, everything is menu
-driven, reducing training time and simplifying operation efficiency.</p></li>
-<li><p>SAP has a proprietary database, HANA</p></li>
-<li><p>Diamond is not complicated it uses International Standards for
+<a class="reference external" href="https://help.sap.com/doc/saphelp_nw70ehp1/7.01.16/en-US/4d/aeae42cd7fb611e10000000a155106/content.htm?no_cache=true">https://help.sap.com/doc/saphelp_nw70ehp1/7.01.16/en-US/4d/aeae42cd7fb611e10000000a155106/content.htm?no_cache=true</a></li>
+<li>There are no exposed transaction codes in Diamond, everything is menu
+driven, reducing training time and simplifying operation efficiency.</li>
+<li>SAP has a proprietary database, HANA</li>
+<li>Diamond is not complicated it uses International Standards for
 everything, and the most widely adopted technologies, there is no
 dependency on anything proprietary unless the oracle database is
-used.</p></li>
+used.</li>
 </ol>
 </div>
 <div class="section" id="id16">
 <h1>SAP on the web<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/">https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/</a></p></li>
-<li><p><a class="reference external" href="https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html">https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html</a></p></li>
-<li><p><a class="reference external" href="https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/">https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/</a></p></li>
-<li><p>“We are nowhere near best-in-class, but we are making progress,” says
+<li><a class="reference external" href="https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/">https://www.brightworkresearch.com/sap/2017/11/best-understand-saps-negative-innovation/</a></li>
+<li><a class="reference external" href="https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html">https://boards.straightdope.com/sdmb/archive/index.php/t-509111.html</a></li>
+<li><a class="reference external" href="https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/">https://www.linkedin.com/pulse/who-knew-sap-could-so-complicated-heather-peyton/</a></li>
+<li>&#8220;We are nowhere near best-in-class, but we are making progress,&#8221; says
 Steve Rogers, UK managing director of SAP to an audience of his
-customers at the German applications firm’s annual user gathering at
-the end of last year. It’s not the kind of comment that you expect
-from a senior executive at a leading software firm.</p></li>
-<li><p><a class="reference external" href="https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/">https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/</a></p></li>
-<li><p><a class="reference external" href="https://www.360cloudsolutions.com/top-six-erp-implementation-failures/">https://www.360cloudsolutions.com/top-six-erp-implementation-failures/</a></p></li>
-<li><p><a class="reference external" href="https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/">https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/</a></p></li>
+customers at the German applications firm&#8217;s annual user gathering at
+the end of last year. It&#8217;s not the kind of comment that you expect
+from a senior executive at a leading software firm.</li>
+<li><a class="reference external" href="https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/">https://www.thirdstage-consulting.com/lessons-from-an-sap-failure-at-lidl/</a></li>
+<li><a class="reference external" href="https://www.360cloudsolutions.com/top-six-erp-implementation-failures/">https://www.360cloudsolutions.com/top-six-erp-implementation-failures/</a></li>
+<li><a class="reference external" href="https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/">https://www.brightworkresearch.com/saphana/2017/06/22/hana-big-data-equals-big-failure/</a></li>
 </ul>
 </div>
 
 
           </div>
-          
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Diamond APS</a></h1>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Business Process Reeingeneering</a><ul>
+<li><a class="reference internal" href="#objectives">Objectives</a></li>
+<li><a class="reference internal" href="#purchasing-operational-efficiency">Purchasing Operational Efficiency</a><ul>
+<li><a class="reference internal" href="#purchasing-review-board">Purchasing Review Board</a></li>
+<li><a class="reference internal" href="#speed-up-quotations">Speed up quotations</a></li>
+<li><a class="reference internal" href="#buyer-information">Buyer information</a></li>
+<li><a class="reference internal" href="#recommendations">Recommendations</a></li>
+<li><a class="reference internal" href="#alerts">Alerts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#computing-based-on-setup">Computing based on Setup</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#id1">Objectives</a></li>
+<li><a class="reference internal" href="#traditional-drp">Traditional DRP</a><ul>
+<li><a class="reference internal" href="#forecast">Forecast</a></li>
+<li><a class="reference internal" href="#projections">Projections</a></li>
+<li><a class="reference internal" href="#skus">SKUs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scenario">Scenario</a><ul>
+<li><a class="reference internal" href="#supply-prioritization">Supply Prioritization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#buy-quantity">Buy Quantity</a><ul>
+<li><a class="reference internal" href="#prioritization">Prioritization</a><ul>
+<li><a class="reference internal" href="#sourcing-rule">Sourcing Rule</a></li>
+<li><a class="reference internal" href="#purchase-orders">Purchase Orders</a><ul>
+<li><a class="reference internal" href="#availability-date">Availability Date</a></li>
+<li><a class="reference internal" href="#late">Late</a></li>
+<li><a class="reference internal" href="#vendor-on-time-performance">Vendor On Time Performance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#attribute-weight-values">Attribute Weight values</a></li>
+<li><a class="reference internal" href="#other-demand-for">Other Demand for</a></li>
+<li><a class="reference internal" href="#fifo">FIFO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-requirements">Data Requirements</a></li>
+<li><a class="reference internal" href="#legacy-system">Legacy System</a><ul>
+<li><a class="reference internal" href="#id2">Legacy System</a></li>
+<li><a class="reference internal" href="#risk">Risk</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li><a class="reference internal" href="#supply-pools">Supply Pools</a></li>
+<li><a class="reference internal" href="#forecast-groups">Forecast Groups</a></li>
+<li><a class="reference internal" href="#eligible-inventory">Eligible Inventory</a></li>
+<li><a class="reference internal" href="#demand-prioritization">Demand Prioritization</a></li>
+<li><a class="reference internal" href="#id3">Supply Prioritization</a></li>
+<li><a class="reference internal" href="#forecast-consumption">Forecast Consumption</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#procedures">Procedures</a><ul>
+<li><a class="reference internal" href="#requisitions">Requisitions</a></li>
+<li><a class="reference internal" href="#review">Review</a></li>
+<li><a class="reference internal" href="#approval">Approval</a></li>
+<li><a class="reference internal" href="#purchasing-approval">Purchasing Approval</a></li>
+<li><a class="reference internal" href="#portal">Portal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#benefits">Benefits</a></li>
+<li><a class="reference internal" href="#questions">Questions</a><ul>
+<li><a class="reference internal" href="#extensibility">Extensibility</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li><a class="reference internal" href="#id4">Questions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sap-on-the-web">SAP on the web</a><ul>
+<li><a class="reference internal" href="#simple-example">Simple Example</a><ul>
+<li><a class="reference internal" href="#compute-optimal-purchase-quantity">Compute Optimal Purchase Quantity</a></li>
+<li><a class="reference internal" href="#graph-this-relationsihip">Graph this relationsihip</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#purchasing-procedures">Purchasing Procedures</a></li>
+<li><a class="reference internal" href="#constraints">Constraints</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">Questions</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#planning-requirements">Planning Requirements</a><ul>
+<li><a class="reference internal" href="#id6">Objectives</a></li>
+<li><a class="reference internal" href="#id7">Purchasing Operational Efficiency</a><ul>
+<li><a class="reference internal" href="#id8">Purchasing Review Board</a></li>
+<li><a class="reference internal" href="#id9">Speed up quotations</a></li>
+<li><a class="reference internal" href="#id10">Buyer information</a></li>
+<li><a class="reference internal" href="#id11">Recommendations</a></li>
+<li><a class="reference internal" href="#id12">Alerts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">Extensibility</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">Implementation</a></li>
+<li><a class="reference internal" href="#modifications">Modifications</a><ul>
+<li><a class="reference internal" href="#id15">Questions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#difference-from-sap">Difference from SAP</a></li>
+<li><a class="reference internal" href="#id16">SAP on the web</a></li>
+</ul>
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Business Process Reeingeneering</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#objectives">Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#purchasing-operational-efficiency">Purchasing Operational Efficiency</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#purchasing-review-board">Purchasing Review Board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#speed-up-quotations">Speed up quotations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#buyer-information">Buyer information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recommendations">Recommendations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alerts">Alerts</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#computing-based-on-setup">Computing based on Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#traditional-drp">Traditional DRP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#forecast">Forecast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#projections">Projections</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#skus">SKUs</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#scenario">Scenario</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#supply-prioritization">Supply Prioritization</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#buy-quantity">Buy Quantity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#prioritization">Prioritization</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#data-requirements">Data Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#legacy-system">Legacy System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Legacy System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#risk">Risk</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#concepts">Concepts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#supply-pools">Supply Pools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#forecast-groups">Forecast Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eligible-inventory">Eligible Inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#demand-prioritization">Demand Prioritization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Supply Prioritization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#forecast-consumption">Forecast Consumption</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#procedures">Procedures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#requisitions">Requisitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#review">Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#approval">Approval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#purchasing-approval">Purchasing Approval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#portal">Portal</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#benefits">Benefits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#questions">Questions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#extensibility">Extensibility</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#implementation">Implementation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id4">Questions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#sap-on-the-web">SAP on the web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#simple-example">Simple Example</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#compute-optimal-purchase-quantity">Compute Optimal Purchase Quantity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph-this-relationsihip">Graph this relationsihip</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#purchasing-procedures">Purchasing Procedures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id5">Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#conclusion">Conclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#planning-requirements">Planning Requirements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">Purchasing Operational Efficiency</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Purchasing Review Board</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Speed up quotations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Buyer information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Recommendations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">Alerts</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">Extensibility</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id14">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#modifications">Modifications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id15">Questions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#difference-from-sap">Difference from SAP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id16">SAP on the web</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Indices and tables</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="APS/todo.html"
+                        title="previous chapter">TODO</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Questions.html"
+                        title="next chapter">Questions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/BusinessProcessReengineering.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2019, Jim Schmidt.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/BusinessProcessReengineering.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Questions.html" title="Questions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="APS/todo.html" title="TODO"
+             >previous</a> |</li>
+        <li><a href="index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer">
+        &copy; Copyright 2020, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
   </body>
 </html>

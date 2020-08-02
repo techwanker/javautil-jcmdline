@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.javautil.hibernate.HibernateMarshallerFactory;
 import org.javautil.io.IOUtils;
 import org.javautil.json.JsonSerializerGson;

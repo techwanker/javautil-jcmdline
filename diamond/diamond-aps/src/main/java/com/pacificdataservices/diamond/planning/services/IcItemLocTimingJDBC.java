@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 import org.apache.commons.beanutils.BeanUtils;
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
 import org.javautil.sql.SqlStatement;

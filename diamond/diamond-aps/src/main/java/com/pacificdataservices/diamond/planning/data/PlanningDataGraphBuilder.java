@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

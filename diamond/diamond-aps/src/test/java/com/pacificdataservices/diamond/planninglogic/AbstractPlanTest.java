@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

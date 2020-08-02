@@ -1,0 +1,539 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Objectives}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Purchasing Operational Efficiency}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Purchasing Review Board}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Speed up quotations}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}Buyer information}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}Recommendations}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}Alerts}{5}{section.2.5}
+\contentsline {chapter}{\numberline {3}Extensibility}{7}{chapter.3}
+\contentsline {chapter}{\numberline {4}Implementation}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Questions}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Simple Example}{10}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Compute Optimal Purchase Quantity}{10}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Graph this relationsihip}{10}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Purchasing Procedures}{10}{section.4.3}
+\contentsline {section}{\numberline {4.4}Constraints}{10}{section.4.4}
+\contentsline {chapter}{\numberline {5}Questions}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{15}{chapter.6}
+\contentsline {chapter}{\numberline {7}Modifications}{17}{chapter.7}
+\contentsline {section}{\numberline {7.1}Questions}{17}{section.7.1}
+\contentsline {chapter}{\numberline {8}Business Process Iprovement}{19}{chapter.8}
+\contentsline {section}{\numberline {8.1}Business Process Improvement Description}{19}{section.8.1}
+\contentsline {section}{\numberline {8.2}Approach}{20}{section.8.2}
+\contentsline {section}{\numberline {8.3}Create tass for future state with}{20}{section.8.3}
+\contentsline {section}{\numberline {8.4}Document References}{20}{section.8.4}
+\contentsline {chapter}{\numberline {9}Business Process Improvement : Diamond History}{21}{chapter.9}
+\contentsline {section}{\numberline {9.1}Business Process Improvement : Diamond History}{21}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}History}{21}{subsection.9.1.1}
+\contentsline {subsubsection}{Layout}{21}{subsubsection*.3}
+\contentsline {subsection}{\numberline {9.1.2}Login}{21}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Action Reports}{21}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}Information Reports}{21}{subsection.9.1.4}
+\contentsline {subsection}{\numberline {9.1.5}Query}{21}{subsection.9.1.5}
+\contentsline {subsection}{\numberline {9.1.6}Item / Plan Group Listing}{21}{subsection.9.1.6}
+\contentsline {chapter}{\numberline {10}Business Process Improvement : Diamond History}{23}{chapter.10}
+\contentsline {section}{\numberline {10.1}Business Process Improvement : Diamond History}{23}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}History}{23}{subsection.10.1.1}
+\contentsline {subsubsection}{Layout}{23}{subsubsection*.4}
+\contentsline {subsection}{\numberline {10.1.2}Login}{23}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}Action Reports}{23}{subsection.10.1.3}
+\contentsline {subsection}{\numberline {10.1.4}Information Reports}{23}{subsection.10.1.4}
+\contentsline {subsection}{\numberline {10.1.5}Query}{23}{subsection.10.1.5}
+\contentsline {subsection}{\numberline {10.1.6}Item / Plan Group Listing}{23}{subsection.10.1.6}
+\contentsline {chapter}{\numberline {11}Introduction}{25}{chapter.11}
+\contentsline {section}{\numberline {11.1}Demand Types}{25}{section.11.1}
+\contentsline {section}{\numberline {11.2}Supply Types}{25}{section.11.2}
+\contentsline {section}{\numberline {11.3}Eligible Supply Rules}{26}{section.11.3}
+\contentsline {section}{\numberline {11.4}Supply Partitioning}{26}{section.11.4}
+\contentsline {section}{\numberline {11.5}Qualifying Inventory}{26}{section.11.5}
+\contentsline {section}{\numberline {11.6}Demand Prioritization}{27}{section.11.6}
+\contentsline {section}{\numberline {11.7}Preserve Allocations}{27}{section.11.7}
+\contentsline {section}{\numberline {11.8}Supply Prioritization}{27}{section.11.8}
+\contentsline {section}{\numberline {11.9}Demand Execution Mode}{27}{section.11.9}
+\contentsline {section}{\numberline {11.10}Auditing and Traceability}{28}{section.11.10}
+\contentsline {section}{\numberline {11.11}APS Output}{28}{section.11.11}
+\contentsline {section}{\numberline {11.12}Shortages}{28}{section.11.12}
+\contentsline {section}{\numberline {11.13}Workbook}{29}{section.11.13}
+\contentsline {subsection}{\numberline {11.13.1}Purchase Orders to be Expedited}{30}{subsection.11.13.1}
+\contentsline {subsection}{\numberline {11.13.2}Purchase Orders to be Rescheduled}{30}{subsection.11.13.2}
+\contentsline {subsection}{\numberline {11.13.3}Purchase Orders to be Cancelled}{30}{subsection.11.13.3}
+\contentsline {chapter}{\numberline {12}APS Features and Benefits}{31}{chapter.12}
+\contentsline {chapter}{\numberline {13}Purpose}{33}{chapter.13}
+\contentsline {chapter}{\numberline {14}Current State}{35}{chapter.14}
+\contentsline {chapter}{\numberline {15}Future State}{37}{chapter.15}
+\contentsline {chapter}{\numberline {16}Client Objectives}{39}{chapter.16}
+\contentsline {section}{\numberline {16.1}Team}{39}{section.16.1}
+\contentsline {section}{\numberline {16.2}Migration Plan}{39}{section.16.2}
+\contentsline {chapter}{\numberline {17}Introduction}{41}{chapter.17}
+\contentsline {section}{\numberline {17.1}Demand Types}{41}{section.17.1}
+\contentsline {section}{\numberline {17.2}Supply Types}{41}{section.17.2}
+\contentsline {section}{\numberline {17.3}Supply Partitioning}{42}{section.17.3}
+\contentsline {section}{\numberline {17.4}Qualifying Inventory}{42}{section.17.4}
+\contentsline {section}{\numberline {17.5}Demand Prioritization}{43}{section.17.5}
+\contentsline {section}{\numberline {17.6}Preserve Allocations}{43}{section.17.6}
+\contentsline {section}{\numberline {17.7}Supply Prioritization}{43}{section.17.7}
+\contentsline {section}{\numberline {17.8}APS Output}{44}{section.17.8}
+\contentsline {section}{\numberline {17.9}Projected Inventory Position}{45}{section.17.9}
+\contentsline {section}{\numberline {17.10}Shortages}{46}{section.17.10}
+\contentsline {subsection}{\numberline {17.10.1}Reports}{49}{subsection.17.10.1}
+\contentsline {subsection}{\numberline {17.10.2}Purchase Orders to be Rescheduled}{49}{subsection.17.10.2}
+\contentsline {subsection}{\numberline {17.10.3}Purchase Orders to be Cancelled}{49}{subsection.17.10.3}
+\contentsline {chapter}{\numberline {18}Allocation Logic}{51}{chapter.18}
+\contentsline {section}{\numberline {18.1}Modes}{51}{section.18.1}
+\contentsline {section}{\numberline {18.2}Phases}{51}{section.18.2}
+\contentsline {subsection}{\numberline {18.2.1}Pick Restore}{51}{subsection.18.2.1}
+\contentsline {subsection}{\numberline {18.2.2}First Pass}{51}{subsection.18.2.2}
+\contentsline {subsection}{\numberline {18.2.3}Customer Prioritized}{51}{subsection.18.2.3}
+\contentsline {subsection}{\numberline {18.2.4}Overship}{51}{subsection.18.2.4}
+\contentsline {section}{\numberline {18.3}Restore Onhand Pick Allocations}{51}{section.18.3}
+\contentsline {section}{\numberline {18.4}Bound Allocations}{51}{section.18.4}
+\contentsline {chapter}{\numberline {19}ApsFeaturesBook}{53}{chapter.19}
+\contentsline {section}{\numberline {19.1}Challenges}{53}{section.19.1}
+\contentsline {section}{\numberline {19.2}Certification of Compliance}{53}{section.19.2}
+\contentsline {subsection}{\numberline {19.2.1}Drawing Issuers}{53}{subsection.19.2.1}
+\contentsline {section}{\numberline {19.3}Part Names}{53}{section.19.3}
+\contentsline {section}{\numberline {19.4}Part Names}{54}{section.19.4}
+\contentsline {section}{\numberline {19.5}Certifications}{54}{section.19.5}
+\contentsline {section}{\numberline {19.6}Expiration Date, Cure Date}{54}{section.19.6}
+\contentsline {section}{\numberline {19.7}Simplify}{54}{section.19.7}
+\contentsline {section}{\numberline {19.8}Supply Pools}{54}{section.19.8}
+\contentsline {section}{\numberline {19.9}Sub Pools}{54}{section.19.9}
+\contentsline {section}{\numberline {19.10}Sourcing Rules}{55}{section.19.10}
+\contentsline {section}{\numberline {19.11}Multiple Certifications}{55}{section.19.11}
+\contentsline {section}{\numberline {19.12}Bound Allocations}{55}{section.19.12}
+\contentsline {section}{\numberline {19.13}Introduction}{55}{section.19.13}
+\contentsline {section}{\numberline {19.14}Features}{55}{section.19.14}
+\contentsline {section}{\numberline {19.15}Demand Types}{55}{section.19.15}
+\contentsline {section}{\numberline {19.16}Customer Orders}{55}{section.19.16}
+\contentsline {section}{\numberline {19.17}Safety Stock}{56}{section.19.17}
+\contentsline {section}{\numberline {19.18}Forecasted Demand}{56}{section.19.18}
+\contentsline {section}{\numberline {19.19}Work Orders}{56}{section.19.19}
+\contentsline {section}{\numberline {19.20}Supply Types}{56}{section.19.20}
+\contentsline {section}{\numberline {19.21}On hand inventory}{56}{section.19.21}
+\contentsline {section}{\numberline {19.22}Replenishments}{56}{section.19.22}
+\contentsline {section}{\numberline {19.23}Work Orders}{56}{section.19.23}
+\contentsline {section}{\numberline {19.24}Planning Group}{56}{section.19.24}
+\contentsline {section}{\numberline {19.25}Sourcing Rules}{57}{section.19.25}
+\contentsline {section}{\numberline {19.26}Eligibility Tests}{57}{section.19.26}
+\contentsline {section}{\numberline {19.27}Certification of Compliance}{57}{section.19.27}
+\contentsline {section}{\numberline {19.28}Attribute Certification}{57}{section.19.28}
+\contentsline {section}{\numberline {19.29}Approved Manufacturers by Part}{57}{section.19.29}
+\contentsline {section}{\numberline {19.30}Approved Manufacturers by Customer}{57}{section.19.30}
+\contentsline {section}{\numberline {19.31}Revision Levels}{57}{section.19.31}
+\contentsline {section}{\numberline {19.32}Certifications}{57}{section.19.32}
+\contentsline {section}{\numberline {19.33}Revision Levels}{58}{section.19.33}
+\contentsline {section}{\numberline {19.34}Expiration Date, Cure Date}{58}{section.19.34}
+\contentsline {section}{\numberline {19.35}Country of Origin}{58}{section.19.35}
+\contentsline {section}{\numberline {19.36}Revision Levels}{58}{section.19.36}
+\contentsline {section}{\numberline {19.37}Sourcing Rules}{58}{section.19.37}
+\contentsline {section}{\numberline {19.38}Multiple Certifications}{58}{section.19.38}
+\contentsline {section}{\numberline {19.39}Revision Levels}{58}{section.19.39}
+\contentsline {section}{\numberline {19.40}Eligible Supply}{58}{section.19.40}
+\contentsline {section}{\numberline {19.41}Eligibility Tests}{59}{section.19.41}
+\contentsline {section}{\numberline {19.42}Approved Manufacturer}{59}{section.19.42}
+\contentsline {section}{\numberline {19.43}Buyback}{59}{section.19.43}
+\contentsline {section}{\numberline {19.44}Certifications}{59}{section.19.44}
+\contentsline {section}{\numberline {19.45}Consignment Inventory}{59}{section.19.45}
+\contentsline {section}{\numberline {19.46}Contract Aerospace}{59}{section.19.46}
+\contentsline {section}{\numberline {19.47}Country of Origin}{59}{section.19.47}
+\contentsline {section}{\numberline {19.48}Equivalency}{60}{section.19.48}
+\contentsline {section}{\numberline {19.49}Expiry Date}{60}{section.19.49}
+\contentsline {section}{\numberline {19.50}Manufacturer}{60}{section.19.50}
+\contentsline {subsection}{\numberline {19.50.1}Explicit Manufacturer}{60}{subsection.19.50.1}
+\contentsline {subsection}{\numberline {19.50.2}Approved Manufacturer}{60}{subsection.19.50.2}
+\contentsline {section}{\numberline {19.51}Lot Date}{60}{section.19.51}
+\contentsline {section}{\numberline {19.52}Revision Level}{60}{section.19.52}
+\contentsline {section}{\numberline {19.53}Substitutes}{60}{section.19.53}
+\contentsline {section}{\numberline {19.54}Sourcing Rule}{60}{section.19.54}
+\contentsline {section}{\numberline {19.55}Approved Manufacturer}{60}{section.19.55}
+\contentsline {section}{\numberline {19.56}Buyback}{61}{section.19.56}
+\contentsline {section}{\numberline {19.57}Certifications}{61}{section.19.57}
+\contentsline {section}{\numberline {19.58}Consignment Inventory}{61}{section.19.58}
+\contentsline {section}{\numberline {19.59}Contract Aerospace}{61}{section.19.59}
+\contentsline {section}{\numberline {19.60}Country of Origin}{61}{section.19.60}
+\contentsline {section}{\numberline {19.61}Equivalency}{61}{section.19.61}
+\contentsline {section}{\numberline {19.62}Expiry Date}{61}{section.19.62}
+\contentsline {section}{\numberline {19.63}Manufacturer}{61}{section.19.63}
+\contentsline {subsection}{\numberline {19.63.1}Explicit Manufacturer}{61}{subsection.19.63.1}
+\contentsline {subsection}{\numberline {19.63.2}Approved Manufacturer}{62}{subsection.19.63.2}
+\contentsline {section}{\numberline {19.64}Lot Date}{62}{section.19.64}
+\contentsline {section}{\numberline {19.65}Revision Level}{62}{section.19.65}
+\contentsline {section}{\numberline {19.66}Substitutes}{62}{section.19.66}
+\contentsline {section}{\numberline {19.67}Sourcing Rule}{62}{section.19.67}
+\contentsline {section}{\numberline {19.68}Planning Groups}{62}{section.19.68}
+\contentsline {section}{\numberline {19.69}Aerospace Features}{62}{section.19.69}
+\contentsline {section}{\numberline {19.70}Planning Mode}{62}{section.19.70}
+\contentsline {section}{\numberline {19.71}Execution Planning Mode}{62}{section.19.71}
+\contentsline {section}{\numberline {19.72}Inventory Planning Mode}{62}{section.19.72}
+\contentsline {section}{\numberline {19.73}Bound Allocations}{63}{section.19.73}
+\contentsline {section}{\numberline {19.74}Logging}{63}{section.19.74}
+\contentsline {section}{\numberline {19.75}Certifications}{63}{section.19.75}
+\contentsline {section}{\numberline {19.76}Kitting}{63}{section.19.76}
+\contentsline {chapter}{\numberline {20}APS Technical}{65}{chapter.20}
+\contentsline {section}{\numberline {20.1}Requests for Planning}{65}{section.20.1}
+\contentsline {subsection}{\numberline {20.1.1}Synchronous Requests}{65}{subsection.20.1.1}
+\contentsline {subsection}{\numberline {20.1.2}Asynchronous Requests}{65}{subsection.20.1.2}
+\contentsline {section}{\numberline {20.2}Components}{65}{section.20.2}
+\contentsline {subsection}{\numberline {20.2.1}Planning Machine}{65}{subsection.20.2.1}
+\contentsline {subsection}{\numberline {20.2.2}Planning Engine}{65}{subsection.20.2.2}
+\contentsline {subsubsection}{Get Items to Plan}{65}{subsubsection*.5}
+\contentsline {subsubsection}{Populate Planning Data}{65}{subsubsection*.6}
+\contentsline {paragraph}{Retrieve Data from Database}{65}{paragraph*.7}
+\contentsline {paragraph}{Index the data}{66}{paragraph*.8}
+\contentsline {section}{\numberline {20.3}Preserve Allocations}{66}{section.20.3}
+\contentsline {section}{\numberline {20.4}First Pass}{66}{section.20.4}
+\contentsline {section}{\numberline {20.5}Prioritize Demands}{66}{section.20.5}
+\contentsline {section}{\numberline {20.6}Filter Supply}{66}{section.20.6}
+\contentsline {section}{\numberline {20.7}Prioritize Supply}{66}{section.20.7}
+\contentsline {subsection}{\numberline {20.7.1}Execution Mode}{66}{subsection.20.7.1}
+\contentsline {subsection}{\numberline {20.7.2}Schedule Optimization Mode}{66}{subsection.20.7.2}
+\contentsline {section}{\numberline {20.8}Generate Work Orders}{67}{section.20.8}
+\contentsline {section}{\numberline {20.9}Generate Reschedules}{67}{section.20.9}
+\contentsline {section}{\numberline {20.10}Update Data}{67}{section.20.10}
+\contentsline {section}{\numberline {20.11}Notes}{67}{section.20.11}
+\contentsline {subsection}{\numberline {20.11.1}Work Order Generator}{67}{subsection.20.11.1}
+\contentsline {subsection}{\numberline {20.11.2}Dispatcher}{67}{subsection.20.11.2}
+\contentsline {subsection}{\numberline {20.11.3}Data Services}{67}{subsection.20.11.3}
+\contentsline {section}{\numberline {20.12}Properties and Command Line Arguments}{67}{section.20.12}
+\contentsline {section}{\numberline {20.13}Equivalent Items}{67}{section.20.13}
+\contentsline {section}{\numberline {20.14}Customer Substitutes}{68}{section.20.14}
+\contentsline {section}{\numberline {20.15}Global Substitutes}{68}{section.20.15}
+\contentsline {chapter}{\numberline {21}ApsTechnicalReferenceBook}{69}{chapter.21}
+\contentsline {section}{\numberline {21.1}Database Privileges}{69}{section.21.1}
+\contentsline {section}{\numberline {21.2}Synchronous Requests}{69}{section.21.2}
+\contentsline {section}{\numberline {21.3}Asynchronous Requests}{69}{section.21.3}
+\contentsline {section}{\numberline {21.4}Properties and Command Line Arguments}{69}{section.21.4}
+\contentsline {subsection}{\numberline {21.4.1}leadTimePaddingFactor}{69}{subsection.21.4.1}
+\contentsline {section}{\numberline {21.5}Cache Manager}{69}{section.21.5}
+\contentsline {section}{\numberline {21.6}DBMS\_PIPE}{69}{section.21.6}
+\contentsline {section}{\numberline {21.7}Planning Group}{69}{section.21.7}
+\contentsline {section}{\numberline {21.8}Equivalent Items}{69}{section.21.8}
+\contentsline {section}{\numberline {21.9}Customer Substitutes}{70}{section.21.9}
+\contentsline {section}{\numberline {21.10}Global Substitutes}{70}{section.21.10}
+\contentsline {chapter}{\numberline {22}Components and Services}{71}{chapter.22}
+\contentsline {section}{\numberline {22.1}Planning Machine}{71}{section.22.1}
+\contentsline {subsection}{\numberline {22.1.1}Populate Planning Data}{71}{subsection.22.1.1}
+\contentsline {section}{\numberline {22.2}Planning Grouper}{71}{section.22.2}
+\contentsline {section}{\numberline {22.3}Dispatcher}{71}{section.22.3}
+\contentsline {section}{\numberline {22.4}Planning Engine}{71}{section.22.4}
+\contentsline {subsection}{\numberline {22.4.1}Get Items to Plan}{72}{subsection.22.4.1}
+\contentsline {subsection}{\numberline {22.4.2}Plan Phases}{72}{subsection.22.4.2}
+\contentsline {subsubsection}{Preserve Allocations}{72}{subsubsection*.9}
+\contentsline {subsubsection}{First Pass}{72}{subsubsection*.10}
+\contentsline {paragraph}{Plan Demands within Lead Time}{72}{paragraph*.11}
+\contentsline {section}{\numberline {22.5}Prioritize Demands}{73}{section.22.5}
+\contentsline {section}{\numberline {22.6}Filter Supply}{73}{section.22.6}
+\contentsline {section}{\numberline {22.7}Prioritize Supply}{73}{section.22.7}
+\contentsline {section}{\numberline {22.8}Generate Work Orders}{73}{section.22.8}
+\contentsline {section}{\numberline {22.9}Generate Reschedules}{73}{section.22.9}
+\contentsline {section}{\numberline {22.10}Update Data}{73}{section.22.10}
+\contentsline {section}{\numberline {22.11}Notes}{73}{section.22.11}
+\contentsline {chapter}{\numberline {23}Eligibility Tests}{75}{chapter.23}
+\contentsline {section}{\numberline {23.1}Approved Manufacturer}{75}{section.23.1}
+\contentsline {section}{\numberline {23.2}Buyback}{75}{section.23.2}
+\contentsline {section}{\numberline {23.3}Certifications}{75}{section.23.3}
+\contentsline {section}{\numberline {23.4}Consignment Inventory}{75}{section.23.4}
+\contentsline {section}{\numberline {23.5}Contract Aerospace}{76}{section.23.5}
+\contentsline {section}{\numberline {23.6}Country of Origin}{76}{section.23.6}
+\contentsline {section}{\numberline {23.7}Equivalency}{76}{section.23.7}
+\contentsline {section}{\numberline {23.8}Expiry Date}{76}{section.23.8}
+\contentsline {section}{\numberline {23.9}Manufacturer}{76}{section.23.9}
+\contentsline {subsection}{\numberline {23.9.1}Explicit Manufacturer}{76}{subsection.23.9.1}
+\contentsline {subsection}{\numberline {23.9.2}Approved Manufacturer}{76}{subsection.23.9.2}
+\contentsline {section}{\numberline {23.10}Lot Date}{76}{section.23.10}
+\contentsline {section}{\numberline {23.11}Revision Level}{76}{section.23.11}
+\contentsline {section}{\numberline {23.12}Substitutes}{76}{section.23.12}
+\contentsline {section}{\numberline {23.13}Sourcing Rule}{76}{section.23.13}
+\contentsline {section}{\numberline {23.14}Approved Manufacturer}{77}{section.23.14}
+\contentsline {section}{\numberline {23.15}Buyback}{77}{section.23.15}
+\contentsline {section}{\numberline {23.16}Certifications}{77}{section.23.16}
+\contentsline {section}{\numberline {23.17}Consignment Inventory}{77}{section.23.17}
+\contentsline {section}{\numberline {23.18}Contract Aerospace}{77}{section.23.18}
+\contentsline {section}{\numberline {23.19}Country of Origin}{77}{section.23.19}
+\contentsline {section}{\numberline {23.20}Equivalency}{77}{section.23.20}
+\contentsline {section}{\numberline {23.21}Expiry Date}{77}{section.23.21}
+\contentsline {section}{\numberline {23.22}Manufacturer}{78}{section.23.22}
+\contentsline {subsection}{\numberline {23.22.1}Explicit Manufacturer}{78}{subsection.23.22.1}
+\contentsline {subsection}{\numberline {23.22.2}Approved Manufacturer}{78}{subsection.23.22.2}
+\contentsline {section}{\numberline {23.23}Lot Date}{78}{section.23.23}
+\contentsline {section}{\numberline {23.24}Revision Level}{78}{section.23.24}
+\contentsline {section}{\numberline {23.25}Substitutes}{78}{section.23.25}
+\contentsline {chapter}{\numberline {24}Business Process Improvement : Equivalent Parts}{79}{chapter.24}
+\contentsline {section}{\numberline {24.1}Business Process Improvement : Equivalent Parts}{79}{section.24.1}
+\contentsline {chapter}{\numberline {25}Functional}{81}{chapter.25}
+\contentsline {section}{\numberline {25.1}Introduction}{81}{section.25.1}
+\contentsline {section}{\numberline {25.2}Features}{81}{section.25.2}
+\contentsline {section}{\numberline {25.3}Demand Types}{81}{section.25.3}
+\contentsline {subsection}{\numberline {25.3.1}Customer Orders}{81}{subsection.25.3.1}
+\contentsline {subsection}{\numberline {25.3.2}Safety Stock}{82}{subsection.25.3.2}
+\contentsline {subsection}{\numberline {25.3.3}Forecasted Demand}{82}{subsection.25.3.3}
+\contentsline {subsection}{\numberline {25.3.4}Work Orders}{82}{subsection.25.3.4}
+\contentsline {section}{\numberline {25.4}Supply Types}{82}{section.25.4}
+\contentsline {subsection}{\numberline {25.4.1}On hand inventory}{82}{subsection.25.4.1}
+\contentsline {subsection}{\numberline {25.4.2}Replenishments}{82}{subsection.25.4.2}
+\contentsline {subsection}{\numberline {25.4.3}Work Orders}{82}{subsection.25.4.3}
+\contentsline {section}{\numberline {25.5}Rules}{82}{section.25.5}
+\contentsline {subsection}{\numberline {25.5.1}Configuration Data}{82}{subsection.25.5.1}
+\contentsline {subsubsection}{Customer Item Substitutes}{82}{subsubsection*.12}
+\contentsline {subsubsection}{Global Substitutes}{82}{subsubsection*.13}
+\contentsline {subsubsection}{Replenishment Policies}{82}{subsubsection*.14}
+\contentsline {subsubsection}{Supply Pool}{82}{subsubsection*.15}
+\contentsline {subsubsection}{Supply Sub Pool}{83}{subsubsection*.16}
+\contentsline {subsubsection}{Sourcing Rules}{83}{subsubsection*.17}
+\contentsline {paragraph}{Examples}{83}{paragraph*.18}
+\contentsline {subparagraph}{Just In Time}{83}{subparagraph*.19}
+\contentsline {subparagraph}{Kitting MRO}{83}{subparagraph*.20}
+\contentsline {subparagraph}{Buy Back}{83}{subparagraph*.21}
+\contentsline {subsubsection}{Customeer Item Manufacturer}{83}{subsubsection*.22}
+\contentsline {section}{\numberline {25.6}Planning Group}{83}{section.25.6}
+\contentsline {section}{\numberline {25.7}Sourcing Rules}{83}{section.25.7}
+\contentsline {section}{\numberline {25.8}Eligibility Tests}{83}{section.25.8}
+\contentsline {section}{\numberline {25.9}Sourcing Rule}{84}{section.25.9}
+\contentsline {section}{\numberline {25.10}Planning Groups}{84}{section.25.10}
+\contentsline {section}{\numberline {25.11}Aerospace Features}{84}{section.25.11}
+\contentsline {section}{\numberline {25.12}Planning Mode}{84}{section.25.12}
+\contentsline {section}{\numberline {25.13}Execution Planning Mode}{84}{section.25.13}
+\contentsline {section}{\numberline {25.14}Inventory Planning Mode}{84}{section.25.14}
+\contentsline {section}{\numberline {25.15}Bound Allocations}{84}{section.25.15}
+\contentsline {section}{\numberline {25.16}Logging}{84}{section.25.16}
+\contentsline {chapter}{\numberline {26}Glossary}{85}{chapter.26}
+\contentsline {section}{\numberline {26.1}Allocation}{85}{section.26.1}
+\contentsline {section}{\numberline {26.2}Allocation Based Pricing}{85}{section.26.2}
+\contentsline {section}{\numberline {26.3}Approved Manufacturer}{85}{section.26.3}
+\contentsline {section}{\numberline {26.4}Bound Allocation}{85}{section.26.4}
+\contentsline {section}{\numberline {26.5}Certificate of Compliance}{85}{section.26.5}
+\contentsline {section}{\numberline {26.6}Country of Origin}{85}{section.26.6}
+\contentsline {section}{\numberline {26.7}Dispatch Group}{85}{section.26.7}
+\contentsline {subsection}{\numberline {26.7.1}Planning Set}{86}{subsection.26.7.1}
+\contentsline {subsection}{\numberline {26.7.2}Dispatch Set}{86}{subsection.26.7.2}
+\contentsline {section}{\numberline {26.8}Eligible Supply}{86}{section.26.8}
+\contentsline {section}{\numberline {26.9}Engineered Parts}{86}{section.26.9}
+\contentsline {section}{\numberline {26.10}Equivalent Part}{86}{section.26.10}
+\contentsline {section}{\numberline {26.11}Forecast Consumption}{86}{section.26.11}
+\contentsline {section}{\numberline {26.12}Forecasting Granularity}{87}{section.26.12}
+\contentsline {section}{\numberline {26.13}Forecast Group}{87}{section.26.13}
+\contentsline {section}{\numberline {26.14}Hard Alloc Fc Within Lead Time}{87}{section.26.14}
+\contentsline {section}{\numberline {26.15}In Pick}{87}{section.26.15}
+\contentsline {section}{\numberline {26.16}Manufacturer Certificate of Compliance}{87}{section.26.16}
+\contentsline {section}{\numberline {26.17}Manufacturer Lot Code}{87}{section.26.17}
+\contentsline {section}{\numberline {26.18}Multicerted Item}{87}{section.26.18}
+\contentsline {section}{\numberline {26.19}Pre-approved Lot}{87}{section.26.19}
+\contentsline {section}{\numberline {26.20}Planning Data}{87}{section.26.20}
+\contentsline {section}{\numberline {26.21}Planning Group}{87}{section.26.21}
+\contentsline {section}{\numberline {26.22}Quality Assurance Tests}{88}{section.26.22}
+\contentsline {section}{\numberline {26.23}Receiver Number}{88}{section.26.23}
+\contentsline {section}{\numberline {26.24}Safety Stock Consumption}{88}{section.26.24}
+\contentsline {section}{\numberline {26.25}Substitute Part}{88}{section.26.25}
+\contentsline {section}{\numberline {26.26}UPC}{88}{section.26.26}
+\contentsline {section}{\numberline {26.27}Quality Assurance Tests}{88}{section.26.27}
+\contentsline {chapter}{\numberline {27}Goals}{89}{chapter.27}
+\contentsline {chapter}{\numberline {28}Integration}{91}{chapter.28}
+\contentsline {section}{\numberline {28.1}Data Loading}{91}{section.28.1}
+\contentsline {subsection}{\numberline {28.1.1}Scrubbing}{91}{subsection.28.1.1}
+\contentsline {subsection}{\numberline {28.1.2}Rules}{91}{subsection.28.1.2}
+\contentsline {section}{\numberline {28.2}Consulting}{91}{section.28.2}
+\contentsline {section}{\numberline {28.3}Rules Data}{91}{section.28.3}
+\contentsline {section}{\numberline {28.4}Logic Review}{92}{section.28.4}
+\contentsline {chapter}{\numberline {29}PlanningComponentsPaper}{93}{chapter.29}
+\contentsline {section}{\numberline {29.1}Planning Machine}{93}{section.29.1}
+\contentsline {section}{\numberline {29.2}Planning Engine}{93}{section.29.2}
+\contentsline {section}{\numberline {29.3}Get Items to Plan}{93}{section.29.3}
+\contentsline {section}{\numberline {29.4}Populate Planning Data}{93}{section.29.4}
+\contentsline {subsection}{\numberline {29.4.1}Retrieve Data from Database}{93}{subsection.29.4.1}
+\contentsline {subsection}{\numberline {29.4.2}Index the data}{93}{subsection.29.4.2}
+\contentsline {section}{\numberline {29.5}Preserve Allocations}{93}{section.29.5}
+\contentsline {section}{\numberline {29.6}First Pass}{93}{section.29.6}
+\contentsline {subsection}{\numberline {29.6.1}Plan Demands within Lead Time}{93}{subsection.29.6.1}
+\contentsline {section}{\numberline {29.7}Prioritize Demands}{94}{section.29.7}
+\contentsline {section}{\numberline {29.8}Filter Supply}{94}{section.29.8}
+\contentsline {section}{\numberline {29.9}Prioritize Supply}{94}{section.29.9}
+\contentsline {section}{\numberline {29.10}Generate Work Orders}{94}{section.29.10}
+\contentsline {section}{\numberline {29.11}Generate Reschedules}{94}{section.29.11}
+\contentsline {section}{\numberline {29.12}Update Data}{94}{section.29.12}
+\contentsline {section}{\numberline {29.13}Notes}{94}{section.29.13}
+\contentsline {section}{\numberline {29.14}Planning Dispatcher}{94}{section.29.14}
+\contentsline {section}{\numberline {29.15}Planning Grouper}{94}{section.29.15}
+\contentsline {chapter}{\numberline {30}Planning Dispatcher}{97}{chapter.30}
+\contentsline {section}{\numberline {30.1}Fully Regenerative}{97}{section.30.1}
+\contentsline {section}{\numberline {30.2}Synchronous}{97}{section.30.2}
+\contentsline {chapter}{\numberline {31}Planning Engine}{99}{chapter.31}
+\contentsline {chapter}{\numberline {32}Planning Grouper}{101}{chapter.32}
+\contentsline {chapter}{\numberline {33}Planning Machine}{103}{chapter.33}
+\contentsline {chapter}{\numberline {34}Rules}{105}{chapter.34}
+\contentsline {chapter}{\numberline {35}Tables}{107}{chapter.35}
+\contentsline {section}{\numberline {35.1}ALL\_SUPPLY and APS\_SUPPLY}{107}{section.35.1}
+\contentsline {chapter}{\numberline {36}Technical}{109}{chapter.36}
+\contentsline {section}{\numberline {36.1}Queue Populator}{109}{section.36.1}
+\contentsline {section}{\numberline {36.2}Queue Manager}{109}{section.36.2}
+\contentsline {section}{\numberline {36.3}Planning Engine}{109}{section.36.3}
+\contentsline {subsection}{\numberline {36.3.1}Populate Data}{109}{subsection.36.3.1}
+\contentsline {subsection}{\numberline {36.3.2}Planning}{109}{subsection.36.3.2}
+\contentsline {chapter}{\numberline {37}Architecture}{111}{chapter.37}
+\contentsline {section}{\numberline {37.1}Language}{111}{section.37.1}
+\contentsline {section}{\numberline {37.2}Inversion of Control}{111}{section.37.2}
+\contentsline {section}{\numberline {37.3}Interface}{111}{section.37.3}
+\contentsline {section}{\numberline {37.4}Persistence}{111}{section.37.4}
+\contentsline {section}{\numberline {37.5}Planning Data and Related Interfaces}{111}{section.37.5}
+\contentsline {section}{\numberline {37.6}Planning Modes}{111}{section.37.6}
+\contentsline {subsection}{\numberline {37.6.1}Batch}{111}{subsection.37.6.1}
+\contentsline {subsection}{\numberline {37.6.2}Interactive}{112}{subsection.37.6.2}
+\contentsline {section}{\numberline {37.7}Queue Manager}{112}{section.37.7}
+\contentsline {section}{\numberline {37.8}CommandLineExecution}{112}{section.37.8}
+\contentsline {chapter}{\numberline {38}Diamond Advanced Planning}{113}{chapter.38}
+\contentsline {section}{\numberline {38.1}Introduction}{113}{section.38.1}
+\contentsline {section}{\numberline {38.2}Concepts}{113}{section.38.2}
+\contentsline {section}{\numberline {38.3}Introduction}{113}{section.38.3}
+\contentsline {section}{\numberline {38.4}Components}{113}{section.38.4}
+\contentsline {chapter}{\numberline {39}TODO}{115}{chapter.39}
+\contentsline {chapter}{\numberline {40}Business Process Reeingeneering}{117}{chapter.40}
+\contentsline {section}{\numberline {40.1}Objectives}{117}{section.40.1}
+\contentsline {section}{\numberline {40.2}Purchasing Operational Efficiency}{117}{section.40.2}
+\contentsline {subsection}{\numberline {40.2.1}Purchasing Review Board}{117}{subsection.40.2.1}
+\contentsline {subsection}{\numberline {40.2.2}Speed up quotations}{117}{subsection.40.2.2}
+\contentsline {subsection}{\numberline {40.2.3}Buyer information}{118}{subsection.40.2.3}
+\contentsline {subsection}{\numberline {40.2.4}Recommendations}{119}{subsection.40.2.4}
+\contentsline {subsection}{\numberline {40.2.5}Alerts}{119}{subsection.40.2.5}
+\contentsline {section}{\numberline {40.3}Computing based on Setup}{119}{section.40.3}
+\contentsline {section}{\numberline {40.4}Introduction}{120}{section.40.4}
+\contentsline {section}{\numberline {40.5}Objectives}{120}{section.40.5}
+\contentsline {section}{\numberline {40.6}Traditional DRP}{120}{section.40.6}
+\contentsline {subsection}{\numberline {40.6.1}Forecast}{120}{subsection.40.6.1}
+\contentsline {subsection}{\numberline {40.6.2}Projections}{120}{subsection.40.6.2}
+\contentsline {subsection}{\numberline {40.6.3}SKUs}{121}{subsection.40.6.3}
+\contentsline {section}{\numberline {40.7}Scenario}{121}{section.40.7}
+\contentsline {subsection}{\numberline {40.7.1}Supply Prioritization}{121}{subsection.40.7.1}
+\contentsline {section}{\numberline {40.8}Buy Quantity}{121}{section.40.8}
+\contentsline {subsection}{\numberline {40.8.1}Prioritization}{122}{subsection.40.8.1}
+\contentsline {subsubsection}{Sourcing Rule}{122}{subsubsection*.23}
+\contentsline {subsubsection}{Purchase Orders}{122}{subsubsection*.24}
+\contentsline {paragraph}{Availability Date}{122}{paragraph*.25}
+\contentsline {paragraph}{Late}{122}{paragraph*.26}
+\contentsline {paragraph}{Vendor On Time Performance}{122}{paragraph*.27}
+\contentsline {subsubsection}{Attribute Weight values}{122}{subsubsection*.28}
+\contentsline {subsubsection}{Other Demand for}{122}{subsubsection*.29}
+\contentsline {subsubsection}{FIFO}{122}{subsubsection*.30}
+\contentsline {chapter}{\numberline {41}Data Requirements}{123}{chapter.41}
+\contentsline {chapter}{\numberline {42}Legacy System}{125}{chapter.42}
+\contentsline {section}{\numberline {42.1}Legacy System}{125}{section.42.1}
+\contentsline {section}{\numberline {42.2}Risk}{125}{section.42.2}
+\contentsline {chapter}{\numberline {43}Concepts}{127}{chapter.43}
+\contentsline {section}{\numberline {43.1}Supply Pools}{127}{section.43.1}
+\contentsline {section}{\numberline {43.2}Forecast Groups}{127}{section.43.2}
+\contentsline {section}{\numberline {43.3}Eligible Inventory}{127}{section.43.3}
+\contentsline {section}{\numberline {43.4}Demand Prioritization}{127}{section.43.4}
+\contentsline {section}{\numberline {43.5}Supply Prioritization}{127}{section.43.5}
+\contentsline {section}{\numberline {43.6}Forecast Consumption}{127}{section.43.6}
+\contentsline {chapter}{\numberline {44}Procedures}{129}{chapter.44}
+\contentsline {section}{\numberline {44.1}Requisitions}{129}{section.44.1}
+\contentsline {section}{\numberline {44.2}Review}{129}{section.44.2}
+\contentsline {section}{\numberline {44.3}Approval}{129}{section.44.3}
+\contentsline {section}{\numberline {44.4}Purchasing Approval}{129}{section.44.4}
+\contentsline {section}{\numberline {44.5}Portal}{129}{section.44.5}
+\contentsline {chapter}{\numberline {45}Benefits}{131}{chapter.45}
+\contentsline {chapter}{\numberline {46}Questions}{133}{chapter.46}
+\contentsline {section}{\numberline {46.1}Extensibility}{133}{section.46.1}
+\contentsline {chapter}{\numberline {47}Implementation}{135}{chapter.47}
+\contentsline {section}{\numberline {47.1}Questions}{135}{section.47.1}
+\contentsline {chapter}{\numberline {48}SAP on the web}{137}{chapter.48}
+\contentsline {section}{\numberline {48.1}Simple Example}{137}{section.48.1}
+\contentsline {subsection}{\numberline {48.1.1}Compute Optimal Purchase Quantity}{137}{subsection.48.1.1}
+\contentsline {subsection}{\numberline {48.1.2}Graph this relationsihip}{137}{subsection.48.1.2}
+\contentsline {section}{\numberline {48.2}Purchasing Procedures}{138}{section.48.2}
+\contentsline {section}{\numberline {48.3}Constraints}{138}{section.48.3}
+\contentsline {chapter}{\numberline {49}Questions}{139}{chapter.49}
+\contentsline {chapter}{\numberline {50}Conclusion}{141}{chapter.50}
+\contentsline {chapter}{\numberline {51}Planning Requirements}{143}{chapter.51}
+\contentsline {section}{\numberline {51.1}Objectives}{143}{section.51.1}
+\contentsline {section}{\numberline {51.2}Purchasing Operational Efficiency}{143}{section.51.2}
+\contentsline {subsection}{\numberline {51.2.1}Purchasing Review Board}{143}{subsection.51.2.1}
+\contentsline {subsection}{\numberline {51.2.2}Speed up quotations}{143}{subsection.51.2.2}
+\contentsline {subsection}{\numberline {51.2.3}Buyer information}{144}{subsection.51.2.3}
+\contentsline {subsection}{\numberline {51.2.4}Recommendations}{145}{subsection.51.2.4}
+\contentsline {subsection}{\numberline {51.2.5}Alerts}{145}{subsection.51.2.5}
+\contentsline {section}{\numberline {51.3}Extensibility}{145}{section.51.3}
+\contentsline {chapter}{\numberline {52}Implementation}{147}{chapter.52}
+\contentsline {chapter}{\numberline {53}Modifications}{149}{chapter.53}
+\contentsline {section}{\numberline {53.1}Questions}{149}{section.53.1}
+\contentsline {chapter}{\numberline {54}Difference from SAP}{151}{chapter.54}
+\contentsline {chapter}{\numberline {55}SAP on the web}{153}{chapter.55}
+\contentsline {chapter}{\numberline {56}Questions}{155}{chapter.56}
+\contentsline {section}{\numberline {56.1}Out of Scope}{155}{section.56.1}
+\contentsline {section}{\numberline {56.2}In aerospace}{156}{section.56.2}
+\contentsline {section}{\numberline {56.3}Source of Lead Time}{156}{section.56.3}
+\contentsline {subsection}{\numberline {56.3.1}vendor quotes}{156}{subsection.56.3.1}
+\contentsline {subsection}{\numberline {56.3.2}Summarized Lead Times should include}{156}{subsection.56.3.2}
+\contentsline {subsection}{\numberline {56.3.3}Lead time details should include:}{156}{subsection.56.3.3}
+\contentsline {subsection}{\numberline {56.3.4}Lead time projections}{156}{subsection.56.3.4}
+\contentsline {section}{\numberline {56.4}Instructions}{157}{section.56.4}
+\contentsline {subsection}{\numberline {56.4.1}Requisition Checklist}{158}{subsection.56.4.1}
+\contentsline {section}{\numberline {56.5}Sequence Diagram}{158}{section.56.5}
+\contentsline {subsection}{\numberline {56.5.1}Intrinsic Information}{158}{subsection.56.5.1}
+\contentsline {subsection}{\numberline {56.5.2}Extrinsic Information}{158}{subsection.56.5.2}
+\contentsline {section}{\numberline {56.6}Related articles}{158}{section.56.6}
+\contentsline {chapter}{\numberline {57}Service Level Agreements}{159}{chapter.57}
+\contentsline {chapter}{\numberline {58}Definitions}{161}{chapter.58}
+\contentsline {chapter}{\numberline {59}ABC - Pareto}{163}{chapter.59}
+\contentsline {section}{\numberline {59.1}Purpose}{163}{section.59.1}
+\contentsline {section}{\numberline {59.2}Assumptions}{163}{section.59.2}
+\contentsline {section}{\numberline {59.3}Item Statistics}{163}{section.59.3}
+\contentsline {section}{\numberline {59.4}Overview}{163}{section.59.4}
+\contentsline {section}{\numberline {59.5}Definition}{163}{section.59.5}
+\contentsline {section}{\numberline {59.6}Approach}{164}{section.59.6}
+\contentsline {section}{\numberline {59.7}Purpose}{164}{section.59.7}
+\contentsline {subsection}{\numberline {59.7.1}Create a node service}{165}{subsection.59.7.1}
+\contentsline {section}{\numberline {59.8}Modify web page template}{165}{section.59.8}
+\contentsline {section}{\numberline {59.9}Item Statistics}{165}{section.59.9}
+\contentsline {section}{\numberline {59.10}Item Statistics Fields}{165}{section.59.10}
+\contentsline {section}{\numberline {59.11}Approach}{165}{section.59.11}
+\contentsline {chapter}{\numberline {60}Optimal Replenishment Quantity}{167}{chapter.60}
+\contentsline {section}{\numberline {60.1}Objectives}{167}{section.60.1}
+\contentsline {chapter}{\numberline {61}Unit Cost}{169}{chapter.61}
+\contentsline {section}{\numberline {61.1}Compute Optimal Purchase Quantity}{169}{section.61.1}
+\contentsline {section}{\numberline {61.2}Cost Types}{169}{section.61.2}
+\contentsline {section}{\numberline {61.3}Graph this relationship}{169}{section.61.3}
+\contentsline {section}{\numberline {61.4}Compute Optimal Purchase Quantity}{169}{section.61.4}
+\contentsline {section}{\numberline {61.5}Graph this relationsihip}{170}{section.61.5}
+\contentsline {chapter}{\numberline {62}Multiple Lead Times}{171}{chapter.62}
+\contentsline {section}{\numberline {62.1}Overview}{171}{section.62.1}
+\contentsline {section}{\numberline {62.2}Acquiring}{171}{section.62.2}
+\contentsline {section}{\numberline {62.3}YAML}{171}{section.62.3}
+\contentsline {section}{\numberline {62.4}Assumptions}{172}{section.62.4}
+\contentsline {section}{\numberline {62.5}Issues}{172}{section.62.5}
+\contentsline {chapter}{\numberline {63}Lead Time By Vendor}{173}{chapter.63}
+\contentsline {section}{\numberline {63.1}Overview}{173}{section.63.1}
+\contentsline {section}{\numberline {63.2}Acquiring}{173}{section.63.2}
+\contentsline {section}{\numberline {63.3}YAML}{173}{section.63.3}
+\contentsline {section}{\numberline {63.4}Assumptions}{174}{section.63.4}
+\contentsline {section}{\numberline {63.5}Issues}{174}{section.63.5}
+\contentsline {chapter}{\numberline {64}Business Process Improvement : Create Requisition}{175}{chapter.64}
+\contentsline {section}{\numberline {64.1}Business Process Improvement : Create Requisition}{175}{section.64.1}
+\contentsline {subsection}{\numberline {64.1.1}Instructions}{175}{subsection.64.1.1}
+\contentsline {subsubsection}{Requisition Checklist}{176}{subsubsection*.31}
+\contentsline {subsection}{\numberline {64.1.2}Sequence Diagram}{176}{subsection.64.1.2}
+\contentsline {subsubsection}{Intrinsic Information}{176}{subsubsection*.32}
+\contentsline {subsubsection}{Extrinsic Information}{176}{subsubsection*.33}
+\contentsline {subsection}{\numberline {64.1.3}Related articles}{176}{subsection.64.1.3}
+\contentsline {chapter}{\numberline {65}Requisition}{177}{chapter.65}
+\contentsline {section}{\numberline {65.1}Instructions}{177}{section.65.1}
+\contentsline {section}{\numberline {65.2}Gather Information}{177}{section.65.2}
+\contentsline {subsection}{\numberline {65.2.1}Requisition Checklist}{177}{subsection.65.2.1}
+\contentsline {subsection}{\numberline {65.2.2}Intrinsic Information}{177}{subsection.65.2.2}
+\contentsline {subsection}{\numberline {65.2.3}Extrinsic Information}{177}{subsection.65.2.3}
+\contentsline {subsection}{\numberline {65.2.4}Simulate}{177}{subsection.65.2.4}
+\contentsline {subsection}{\numberline {65.2.5}Sequence Diagram}{178}{subsection.65.2.5}
+\contentsline {section}{\numberline {65.3}Out of Scope}{178}{section.65.3}
+\contentsline {section}{\numberline {65.4}In aerospace}{179}{section.65.4}
+\contentsline {section}{\numberline {65.5}Source of Lead Time}{179}{section.65.5}
+\contentsline {subsection}{\numberline {65.5.1}vendor quotes}{179}{subsection.65.5.1}
+\contentsline {subsection}{\numberline {65.5.2}Summarized Lead Times should include}{179}{subsection.65.5.2}
+\contentsline {subsection}{\numberline {65.5.3}Lead time details should include:}{179}{subsection.65.5.3}
+\contentsline {subsection}{\numberline {65.5.4}Lead time projections}{179}{subsection.65.5.4}
+\contentsline {section}{\numberline {65.6}Instructions}{180}{section.65.6}
+\contentsline {subsection}{\numberline {65.6.1}Requisition Checklist}{181}{subsection.65.6.1}
+\contentsline {section}{\numberline {65.7}Sequence Diagram}{181}{section.65.7}
+\contentsline {subsection}{\numberline {65.7.1}Intrinsic Information}{181}{subsection.65.7.1}
+\contentsline {subsection}{\numberline {65.7.2}Extrinsic Information}{181}{subsection.65.7.2}
+\contentsline {section}{\numberline {65.8}Related articles}{181}{section.65.8}
+\contentsline {chapter}{\numberline {66}Airframe Scenario 737 Max}{183}{chapter.66}
+\contentsline {chapter}{\numberline {67}Indices and tables}{185}{chapter.67}

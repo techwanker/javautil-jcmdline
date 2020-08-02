@@ -1,0 +1,402 @@
+\BOOKMARK [0][-]{chapter.1}{Objectives}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Purchasing Operational Efficiency}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Purchasing Review Board}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Speed up quotations}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Buyer information}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.4}{Recommendations}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.5}{Alerts}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{Extensibility}{}% 8
+\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 9
+\BOOKMARK [1][-]{section.4.1}{Questions}{chapter.4}% 10
+\BOOKMARK [1][-]{section.4.2}{Simple Example}{chapter.4}% 11
+\BOOKMARK [1][-]{section.4.3}{Purchasing Procedures}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.4}{Constraints}{chapter.4}% 13
+\BOOKMARK [0][-]{chapter.5}{Questions}{}% 14
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 15
+\BOOKMARK [0][-]{chapter.7}{Modifications}{}% 16
+\BOOKMARK [1][-]{section.7.1}{Questions}{chapter.7}% 17
+\BOOKMARK [0][-]{chapter.8}{Business Process Iprovement}{}% 18
+\BOOKMARK [1][-]{section.8.1}{Business Process Improvement Description}{chapter.8}% 19
+\BOOKMARK [1][-]{section.8.2}{Approach}{chapter.8}% 20
+\BOOKMARK [1][-]{section.8.3}{Create tass for future state with}{chapter.8}% 21
+\BOOKMARK [1][-]{section.8.4}{Document References}{chapter.8}% 22
+\BOOKMARK [0][-]{chapter.9}{Business Process Improvement : Diamond History}{}% 23
+\BOOKMARK [1][-]{section.9.1}{Business Process Improvement : Diamond History}{chapter.9}% 24
+\BOOKMARK [0][-]{chapter.10}{Business Process Improvement : Diamond History}{}% 25
+\BOOKMARK [1][-]{section.10.1}{Business Process Improvement : Diamond History}{chapter.10}% 26
+\BOOKMARK [0][-]{chapter.11}{Introduction}{}% 27
+\BOOKMARK [1][-]{section.11.1}{Demand Types}{chapter.11}% 28
+\BOOKMARK [1][-]{section.11.2}{Supply Types}{chapter.11}% 29
+\BOOKMARK [1][-]{section.11.3}{Eligible Supply Rules}{chapter.11}% 30
+\BOOKMARK [1][-]{section.11.4}{Supply Partitioning}{chapter.11}% 31
+\BOOKMARK [1][-]{section.11.5}{Qualifying Inventory}{chapter.11}% 32
+\BOOKMARK [1][-]{section.11.6}{Demand Prioritization}{chapter.11}% 33
+\BOOKMARK [1][-]{section.11.7}{Preserve Allocations}{chapter.11}% 34
+\BOOKMARK [1][-]{section.11.8}{Supply Prioritization}{chapter.11}% 35
+\BOOKMARK [1][-]{section.11.9}{Demand Execution Mode}{chapter.11}% 36
+\BOOKMARK [1][-]{section.11.10}{Auditing and Traceability}{chapter.11}% 37
+\BOOKMARK [1][-]{section.11.11}{APS Output}{chapter.11}% 38
+\BOOKMARK [1][-]{section.11.12}{Shortages}{chapter.11}% 39
+\BOOKMARK [1][-]{section.11.13}{Workbook}{chapter.11}% 40
+\BOOKMARK [0][-]{chapter.12}{APS Features and Benefits}{}% 41
+\BOOKMARK [0][-]{chapter.13}{Purpose}{}% 42
+\BOOKMARK [0][-]{chapter.14}{Current State}{}% 43
+\BOOKMARK [0][-]{chapter.15}{Future State}{}% 44
+\BOOKMARK [0][-]{chapter.16}{Client Objectives}{}% 45
+\BOOKMARK [1][-]{section.16.1}{Team}{chapter.16}% 46
+\BOOKMARK [1][-]{section.16.2}{Migration Plan}{chapter.16}% 47
+\BOOKMARK [0][-]{chapter.17}{Introduction}{}% 48
+\BOOKMARK [1][-]{section.17.1}{Demand Types}{chapter.17}% 49
+\BOOKMARK [1][-]{section.17.2}{Supply Types}{chapter.17}% 50
+\BOOKMARK [1][-]{section.17.3}{Supply Partitioning}{chapter.17}% 51
+\BOOKMARK [1][-]{section.17.4}{Qualifying Inventory}{chapter.17}% 52
+\BOOKMARK [1][-]{section.17.5}{Demand Prioritization}{chapter.17}% 53
+\BOOKMARK [1][-]{section.17.6}{Preserve Allocations}{chapter.17}% 54
+\BOOKMARK [1][-]{section.17.7}{Supply Prioritization}{chapter.17}% 55
+\BOOKMARK [1][-]{section.17.8}{APS Output}{chapter.17}% 56
+\BOOKMARK [1][-]{section.17.9}{Projected Inventory Position}{chapter.17}% 57
+\BOOKMARK [1][-]{section.17.10}{Shortages}{chapter.17}% 58
+\BOOKMARK [0][-]{chapter.18}{Allocation Logic}{}% 59
+\BOOKMARK [1][-]{section.18.1}{Modes}{chapter.18}% 60
+\BOOKMARK [1][-]{section.18.2}{Phases}{chapter.18}% 61
+\BOOKMARK [1][-]{section.18.3}{Restore Onhand Pick Allocations}{chapter.18}% 62
+\BOOKMARK [1][-]{section.18.4}{Bound Allocations}{chapter.18}% 63
+\BOOKMARK [0][-]{chapter.19}{ApsFeaturesBook}{}% 64
+\BOOKMARK [1][-]{section.19.1}{Challenges}{chapter.19}% 65
+\BOOKMARK [1][-]{section.19.2}{Certification of Compliance}{chapter.19}% 66
+\BOOKMARK [1][-]{section.19.3}{Part Names}{chapter.19}% 67
+\BOOKMARK [1][-]{section.19.4}{Part Names}{chapter.19}% 68
+\BOOKMARK [1][-]{section.19.5}{Certifications}{chapter.19}% 69
+\BOOKMARK [1][-]{section.19.6}{Expiration Date, Cure Date}{chapter.19}% 70
+\BOOKMARK [1][-]{section.19.7}{Simplify}{chapter.19}% 71
+\BOOKMARK [1][-]{section.19.8}{Supply Pools}{chapter.19}% 72
+\BOOKMARK [1][-]{section.19.9}{Sub Pools}{chapter.19}% 73
+\BOOKMARK [1][-]{section.19.10}{Sourcing Rules}{chapter.19}% 74
+\BOOKMARK [1][-]{section.19.11}{Multiple Certifications}{chapter.19}% 75
+\BOOKMARK [1][-]{section.19.12}{Bound Allocations}{chapter.19}% 76
+\BOOKMARK [1][-]{section.19.13}{Introduction}{chapter.19}% 77
+\BOOKMARK [1][-]{section.19.14}{Features}{chapter.19}% 78
+\BOOKMARK [1][-]{section.19.15}{Demand Types}{chapter.19}% 79
+\BOOKMARK [1][-]{section.19.16}{Customer Orders}{chapter.19}% 80
+\BOOKMARK [1][-]{section.19.17}{Safety Stock}{chapter.19}% 81
+\BOOKMARK [1][-]{section.19.18}{Forecasted Demand}{chapter.19}% 82
+\BOOKMARK [1][-]{section.19.19}{Work Orders}{chapter.19}% 83
+\BOOKMARK [1][-]{section.19.20}{Supply Types}{chapter.19}% 84
+\BOOKMARK [1][-]{section.19.21}{On hand inventory}{chapter.19}% 85
+\BOOKMARK [1][-]{section.19.22}{Replenishments}{chapter.19}% 86
+\BOOKMARK [1][-]{section.19.23}{Work Orders}{chapter.19}% 87
+\BOOKMARK [1][-]{section.19.24}{Planning Group}{chapter.19}% 88
+\BOOKMARK [1][-]{section.19.25}{Sourcing Rules}{chapter.19}% 89
+\BOOKMARK [1][-]{section.19.26}{Eligibility Tests}{chapter.19}% 90
+\BOOKMARK [1][-]{section.19.27}{Certification of Compliance}{chapter.19}% 91
+\BOOKMARK [1][-]{section.19.28}{Attribute Certification}{chapter.19}% 92
+\BOOKMARK [1][-]{section.19.29}{Approved Manufacturers by Part}{chapter.19}% 93
+\BOOKMARK [1][-]{section.19.30}{Approved Manufacturers by Customer}{chapter.19}% 94
+\BOOKMARK [1][-]{section.19.31}{Revision Levels}{chapter.19}% 95
+\BOOKMARK [1][-]{section.19.32}{Certifications}{chapter.19}% 96
+\BOOKMARK [1][-]{section.19.33}{Revision Levels}{chapter.19}% 97
+\BOOKMARK [1][-]{section.19.34}{Expiration Date, Cure Date}{chapter.19}% 98
+\BOOKMARK [1][-]{section.19.35}{Country of Origin}{chapter.19}% 99
+\BOOKMARK [1][-]{section.19.36}{Revision Levels}{chapter.19}% 100
+\BOOKMARK [1][-]{section.19.37}{Sourcing Rules}{chapter.19}% 101
+\BOOKMARK [1][-]{section.19.38}{Multiple Certifications}{chapter.19}% 102
+\BOOKMARK [1][-]{section.19.39}{Revision Levels}{chapter.19}% 103
+\BOOKMARK [1][-]{section.19.40}{Eligible Supply}{chapter.19}% 104
+\BOOKMARK [1][-]{section.19.41}{Eligibility Tests}{chapter.19}% 105
+\BOOKMARK [1][-]{section.19.42}{Approved Manufacturer}{chapter.19}% 106
+\BOOKMARK [1][-]{section.19.43}{Buyback}{chapter.19}% 107
+\BOOKMARK [1][-]{section.19.44}{Certifications}{chapter.19}% 108
+\BOOKMARK [1][-]{section.19.45}{Consignment Inventory}{chapter.19}% 109
+\BOOKMARK [1][-]{section.19.46}{Contract Aerospace}{chapter.19}% 110
+\BOOKMARK [1][-]{section.19.47}{Country of Origin}{chapter.19}% 111
+\BOOKMARK [1][-]{section.19.48}{Equivalency}{chapter.19}% 112
+\BOOKMARK [1][-]{section.19.49}{Expiry Date}{chapter.19}% 113
+\BOOKMARK [1][-]{section.19.50}{Manufacturer}{chapter.19}% 114
+\BOOKMARK [1][-]{section.19.51}{Lot Date}{chapter.19}% 115
+\BOOKMARK [1][-]{section.19.52}{Revision Level}{chapter.19}% 116
+\BOOKMARK [1][-]{section.19.53}{Substitutes}{chapter.19}% 117
+\BOOKMARK [1][-]{section.19.54}{Sourcing Rule}{chapter.19}% 118
+\BOOKMARK [1][-]{section.19.55}{Approved Manufacturer}{chapter.19}% 119
+\BOOKMARK [1][-]{section.19.56}{Buyback}{chapter.19}% 120
+\BOOKMARK [1][-]{section.19.57}{Certifications}{chapter.19}% 121
+\BOOKMARK [1][-]{section.19.58}{Consignment Inventory}{chapter.19}% 122
+\BOOKMARK [1][-]{section.19.59}{Contract Aerospace}{chapter.19}% 123
+\BOOKMARK [1][-]{section.19.60}{Country of Origin}{chapter.19}% 124
+\BOOKMARK [1][-]{section.19.61}{Equivalency}{chapter.19}% 125
+\BOOKMARK [1][-]{section.19.62}{Expiry Date}{chapter.19}% 126
+\BOOKMARK [1][-]{section.19.63}{Manufacturer}{chapter.19}% 127
+\BOOKMARK [1][-]{section.19.64}{Lot Date}{chapter.19}% 128
+\BOOKMARK [1][-]{section.19.65}{Revision Level}{chapter.19}% 129
+\BOOKMARK [1][-]{section.19.66}{Substitutes}{chapter.19}% 130
+\BOOKMARK [1][-]{section.19.67}{Sourcing Rule}{chapter.19}% 131
+\BOOKMARK [1][-]{section.19.68}{Planning Groups}{chapter.19}% 132
+\BOOKMARK [1][-]{section.19.69}{Aerospace Features}{chapter.19}% 133
+\BOOKMARK [1][-]{section.19.70}{Planning Mode}{chapter.19}% 134
+\BOOKMARK [1][-]{section.19.71}{Execution Planning Mode}{chapter.19}% 135
+\BOOKMARK [1][-]{section.19.72}{Inventory Planning Mode}{chapter.19}% 136
+\BOOKMARK [1][-]{section.19.73}{Bound Allocations}{chapter.19}% 137
+\BOOKMARK [1][-]{section.19.74}{Logging}{chapter.19}% 138
+\BOOKMARK [1][-]{section.19.75}{Certifications}{chapter.19}% 139
+\BOOKMARK [1][-]{section.19.76}{Kitting}{chapter.19}% 140
+\BOOKMARK [0][-]{chapter.20}{APS Technical}{}% 141
+\BOOKMARK [1][-]{section.20.1}{Requests for Planning}{chapter.20}% 142
+\BOOKMARK [1][-]{section.20.2}{Components}{chapter.20}% 143
+\BOOKMARK [1][-]{section.20.3}{Preserve Allocations}{chapter.20}% 144
+\BOOKMARK [1][-]{section.20.4}{First Pass}{chapter.20}% 145
+\BOOKMARK [1][-]{section.20.5}{Prioritize Demands}{chapter.20}% 146
+\BOOKMARK [1][-]{section.20.6}{Filter Supply}{chapter.20}% 147
+\BOOKMARK [1][-]{section.20.7}{Prioritize Supply}{chapter.20}% 148
+\BOOKMARK [1][-]{section.20.8}{Generate Work Orders}{chapter.20}% 149
+\BOOKMARK [1][-]{section.20.9}{Generate Reschedules}{chapter.20}% 150
+\BOOKMARK [1][-]{section.20.10}{Update Data}{chapter.20}% 151
+\BOOKMARK [1][-]{section.20.11}{Notes}{chapter.20}% 152
+\BOOKMARK [1][-]{section.20.12}{Properties and Command Line Arguments}{chapter.20}% 153
+\BOOKMARK [1][-]{section.20.13}{Equivalent Items}{chapter.20}% 154
+\BOOKMARK [1][-]{section.20.14}{Customer Substitutes}{chapter.20}% 155
+\BOOKMARK [1][-]{section.20.15}{Global Substitutes}{chapter.20}% 156
+\BOOKMARK [0][-]{chapter.21}{ApsTechnicalReferenceBook}{}% 157
+\BOOKMARK [1][-]{section.21.1}{Database Privileges}{chapter.21}% 158
+\BOOKMARK [1][-]{section.21.2}{Synchronous Requests}{chapter.21}% 159
+\BOOKMARK [1][-]{section.21.3}{Asynchronous Requests}{chapter.21}% 160
+\BOOKMARK [1][-]{section.21.4}{Properties and Command Line Arguments}{chapter.21}% 161
+\BOOKMARK [1][-]{section.21.5}{Cache Manager}{chapter.21}% 162
+\BOOKMARK [1][-]{section.21.6}{DBMS\137PIPE}{chapter.21}% 163
+\BOOKMARK [1][-]{section.21.7}{Planning Group}{chapter.21}% 164
+\BOOKMARK [1][-]{section.21.8}{Equivalent Items}{chapter.21}% 165
+\BOOKMARK [1][-]{section.21.9}{Customer Substitutes}{chapter.21}% 166
+\BOOKMARK [1][-]{section.21.10}{Global Substitutes}{chapter.21}% 167
+\BOOKMARK [0][-]{chapter.22}{Components and Services}{}% 168
+\BOOKMARK [1][-]{section.22.1}{Planning Machine}{chapter.22}% 169
+\BOOKMARK [1][-]{section.22.2}{Planning Grouper}{chapter.22}% 170
+\BOOKMARK [1][-]{section.22.3}{Dispatcher}{chapter.22}% 171
+\BOOKMARK [1][-]{section.22.4}{Planning Engine}{chapter.22}% 172
+\BOOKMARK [1][-]{section.22.5}{Prioritize Demands}{chapter.22}% 173
+\BOOKMARK [1][-]{section.22.6}{Filter Supply}{chapter.22}% 174
+\BOOKMARK [1][-]{section.22.7}{Prioritize Supply}{chapter.22}% 175
+\BOOKMARK [1][-]{section.22.8}{Generate Work Orders}{chapter.22}% 176
+\BOOKMARK [1][-]{section.22.9}{Generate Reschedules}{chapter.22}% 177
+\BOOKMARK [1][-]{section.22.10}{Update Data}{chapter.22}% 178
+\BOOKMARK [1][-]{section.22.11}{Notes}{chapter.22}% 179
+\BOOKMARK [0][-]{chapter.23}{Eligibility Tests}{}% 180
+\BOOKMARK [1][-]{section.23.1}{Approved Manufacturer}{chapter.23}% 181
+\BOOKMARK [1][-]{section.23.2}{Buyback}{chapter.23}% 182
+\BOOKMARK [1][-]{section.23.3}{Certifications}{chapter.23}% 183
+\BOOKMARK [1][-]{section.23.4}{Consignment Inventory}{chapter.23}% 184
+\BOOKMARK [1][-]{section.23.5}{Contract Aerospace}{chapter.23}% 185
+\BOOKMARK [1][-]{section.23.6}{Country of Origin}{chapter.23}% 186
+\BOOKMARK [1][-]{section.23.7}{Equivalency}{chapter.23}% 187
+\BOOKMARK [1][-]{section.23.8}{Expiry Date}{chapter.23}% 188
+\BOOKMARK [1][-]{section.23.9}{Manufacturer}{chapter.23}% 189
+\BOOKMARK [1][-]{section.23.10}{Lot Date}{chapter.23}% 190
+\BOOKMARK [1][-]{section.23.11}{Revision Level}{chapter.23}% 191
+\BOOKMARK [1][-]{section.23.12}{Substitutes}{chapter.23}% 192
+\BOOKMARK [1][-]{section.23.13}{Sourcing Rule}{chapter.23}% 193
+\BOOKMARK [1][-]{section.23.14}{Approved Manufacturer}{chapter.23}% 194
+\BOOKMARK [1][-]{section.23.15}{Buyback}{chapter.23}% 195
+\BOOKMARK [1][-]{section.23.16}{Certifications}{chapter.23}% 196
+\BOOKMARK [1][-]{section.23.17}{Consignment Inventory}{chapter.23}% 197
+\BOOKMARK [1][-]{section.23.18}{Contract Aerospace}{chapter.23}% 198
+\BOOKMARK [1][-]{section.23.19}{Country of Origin}{chapter.23}% 199
+\BOOKMARK [1][-]{section.23.20}{Equivalency}{chapter.23}% 200
+\BOOKMARK [1][-]{section.23.21}{Expiry Date}{chapter.23}% 201
+\BOOKMARK [1][-]{section.23.22}{Manufacturer}{chapter.23}% 202
+\BOOKMARK [1][-]{section.23.23}{Lot Date}{chapter.23}% 203
+\BOOKMARK [1][-]{section.23.24}{Revision Level}{chapter.23}% 204
+\BOOKMARK [1][-]{section.23.25}{Substitutes}{chapter.23}% 205
+\BOOKMARK [0][-]{chapter.24}{Business Process Improvement : Equivalent Parts}{}% 206
+\BOOKMARK [1][-]{section.24.1}{Business Process Improvement : Equivalent Parts}{chapter.24}% 207
+\BOOKMARK [0][-]{chapter.25}{Functional}{}% 208
+\BOOKMARK [1][-]{section.25.1}{Introduction}{chapter.25}% 209
+\BOOKMARK [1][-]{section.25.2}{Features}{chapter.25}% 210
+\BOOKMARK [1][-]{section.25.3}{Demand Types}{chapter.25}% 211
+\BOOKMARK [1][-]{section.25.4}{Supply Types}{chapter.25}% 212
+\BOOKMARK [1][-]{section.25.5}{Rules}{chapter.25}% 213
+\BOOKMARK [1][-]{section.25.6}{Planning Group}{chapter.25}% 214
+\BOOKMARK [1][-]{section.25.7}{Sourcing Rules}{chapter.25}% 215
+\BOOKMARK [1][-]{section.25.8}{Eligibility Tests}{chapter.25}% 216
+\BOOKMARK [1][-]{section.25.9}{Sourcing Rule}{chapter.25}% 217
+\BOOKMARK [1][-]{section.25.10}{Planning Groups}{chapter.25}% 218
+\BOOKMARK [1][-]{section.25.11}{Aerospace Features}{chapter.25}% 219
+\BOOKMARK [1][-]{section.25.12}{Planning Mode}{chapter.25}% 220
+\BOOKMARK [1][-]{section.25.13}{Execution Planning Mode}{chapter.25}% 221
+\BOOKMARK [1][-]{section.25.14}{Inventory Planning Mode}{chapter.25}% 222
+\BOOKMARK [1][-]{section.25.15}{Bound Allocations}{chapter.25}% 223
+\BOOKMARK [1][-]{section.25.16}{Logging}{chapter.25}% 224
+\BOOKMARK [0][-]{chapter.26}{Glossary}{}% 225
+\BOOKMARK [1][-]{section.26.1}{Allocation}{chapter.26}% 226
+\BOOKMARK [1][-]{section.26.2}{Allocation Based Pricing}{chapter.26}% 227
+\BOOKMARK [1][-]{section.26.3}{Approved Manufacturer}{chapter.26}% 228
+\BOOKMARK [1][-]{section.26.4}{Bound Allocation}{chapter.26}% 229
+\BOOKMARK [1][-]{section.26.5}{Certificate of Compliance}{chapter.26}% 230
+\BOOKMARK [1][-]{section.26.6}{Country of Origin}{chapter.26}% 231
+\BOOKMARK [1][-]{section.26.7}{Dispatch Group}{chapter.26}% 232
+\BOOKMARK [1][-]{section.26.8}{Eligible Supply}{chapter.26}% 233
+\BOOKMARK [1][-]{section.26.9}{Engineered Parts}{chapter.26}% 234
+\BOOKMARK [1][-]{section.26.10}{Equivalent Part}{chapter.26}% 235
+\BOOKMARK [1][-]{section.26.11}{Forecast Consumption}{chapter.26}% 236
+\BOOKMARK [1][-]{section.26.12}{Forecasting Granularity}{chapter.26}% 237
+\BOOKMARK [1][-]{section.26.13}{Forecast Group}{chapter.26}% 238
+\BOOKMARK [1][-]{section.26.14}{Hard Alloc Fc Within Lead Time}{chapter.26}% 239
+\BOOKMARK [1][-]{section.26.15}{In Pick}{chapter.26}% 240
+\BOOKMARK [1][-]{section.26.16}{Manufacturer Certificate of Compliance}{chapter.26}% 241
+\BOOKMARK [1][-]{section.26.17}{Manufacturer Lot Code}{chapter.26}% 242
+\BOOKMARK [1][-]{section.26.18}{Multicerted Item}{chapter.26}% 243
+\BOOKMARK [1][-]{section.26.19}{Pre-approved Lot}{chapter.26}% 244
+\BOOKMARK [1][-]{section.26.20}{Planning Data}{chapter.26}% 245
+\BOOKMARK [1][-]{section.26.21}{Planning Group}{chapter.26}% 246
+\BOOKMARK [1][-]{section.26.22}{Quality Assurance Tests}{chapter.26}% 247
+\BOOKMARK [1][-]{section.26.23}{Receiver Number}{chapter.26}% 248
+\BOOKMARK [1][-]{section.26.24}{Safety Stock Consumption}{chapter.26}% 249
+\BOOKMARK [1][-]{section.26.25}{Substitute Part}{chapter.26}% 250
+\BOOKMARK [1][-]{section.26.26}{UPC}{chapter.26}% 251
+\BOOKMARK [1][-]{section.26.27}{Quality Assurance Tests}{chapter.26}% 252
+\BOOKMARK [0][-]{chapter.27}{Goals}{}% 253
+\BOOKMARK [0][-]{chapter.28}{Integration}{}% 254
+\BOOKMARK [1][-]{section.28.1}{Data Loading}{chapter.28}% 255
+\BOOKMARK [1][-]{section.28.2}{Consulting}{chapter.28}% 256
+\BOOKMARK [1][-]{section.28.3}{Rules Data}{chapter.28}% 257
+\BOOKMARK [1][-]{section.28.4}{Logic Review}{chapter.28}% 258
+\BOOKMARK [0][-]{chapter.29}{PlanningComponentsPaper}{}% 259
+\BOOKMARK [1][-]{section.29.1}{Planning Machine}{chapter.29}% 260
+\BOOKMARK [1][-]{section.29.2}{Planning Engine}{chapter.29}% 261
+\BOOKMARK [1][-]{section.29.3}{Get Items to Plan}{chapter.29}% 262
+\BOOKMARK [1][-]{section.29.4}{Populate Planning Data}{chapter.29}% 263
+\BOOKMARK [1][-]{section.29.5}{Preserve Allocations}{chapter.29}% 264
+\BOOKMARK [1][-]{section.29.6}{First Pass}{chapter.29}% 265
+\BOOKMARK [1][-]{section.29.7}{Prioritize Demands}{chapter.29}% 266
+\BOOKMARK [1][-]{section.29.8}{Filter Supply}{chapter.29}% 267
+\BOOKMARK [1][-]{section.29.9}{Prioritize Supply}{chapter.29}% 268
+\BOOKMARK [1][-]{section.29.10}{Generate Work Orders}{chapter.29}% 269
+\BOOKMARK [1][-]{section.29.11}{Generate Reschedules}{chapter.29}% 270
+\BOOKMARK [1][-]{section.29.12}{Update Data}{chapter.29}% 271
+\BOOKMARK [1][-]{section.29.13}{Notes}{chapter.29}% 272
+\BOOKMARK [1][-]{section.29.14}{Planning Dispatcher}{chapter.29}% 273
+\BOOKMARK [1][-]{section.29.15}{Planning Grouper}{chapter.29}% 274
+\BOOKMARK [0][-]{chapter.30}{Planning Dispatcher}{}% 275
+\BOOKMARK [1][-]{section.30.1}{Fully Regenerative}{chapter.30}% 276
+\BOOKMARK [1][-]{section.30.2}{Synchronous}{chapter.30}% 277
+\BOOKMARK [0][-]{chapter.31}{Planning Engine}{}% 278
+\BOOKMARK [0][-]{chapter.32}{Planning Grouper}{}% 279
+\BOOKMARK [0][-]{chapter.33}{Planning Machine}{}% 280
+\BOOKMARK [0][-]{chapter.34}{Rules}{}% 281
+\BOOKMARK [0][-]{chapter.35}{Tables}{}% 282
+\BOOKMARK [1][-]{section.35.1}{ALL\137SUPPLY and APS\137SUPPLY}{chapter.35}% 283
+\BOOKMARK [0][-]{chapter.36}{Technical}{}% 284
+\BOOKMARK [1][-]{section.36.1}{Queue Populator}{chapter.36}% 285
+\BOOKMARK [1][-]{section.36.2}{Queue Manager}{chapter.36}% 286
+\BOOKMARK [1][-]{section.36.3}{Planning Engine}{chapter.36}% 287
+\BOOKMARK [0][-]{chapter.37}{Architecture}{}% 288
+\BOOKMARK [1][-]{section.37.1}{Language}{chapter.37}% 289
+\BOOKMARK [1][-]{section.37.2}{Inversion of Control}{chapter.37}% 290
+\BOOKMARK [1][-]{section.37.3}{Interface}{chapter.37}% 291
+\BOOKMARK [1][-]{section.37.4}{Persistence}{chapter.37}% 292
+\BOOKMARK [1][-]{section.37.5}{Planning Data and Related Interfaces}{chapter.37}% 293
+\BOOKMARK [1][-]{section.37.6}{Planning Modes}{chapter.37}% 294
+\BOOKMARK [1][-]{section.37.7}{Queue Manager}{chapter.37}% 295
+\BOOKMARK [1][-]{section.37.8}{CommandLineExecution}{chapter.37}% 296
+\BOOKMARK [0][-]{chapter.38}{Diamond Advanced Planning}{}% 297
+\BOOKMARK [1][-]{section.38.1}{Introduction}{chapter.38}% 298
+\BOOKMARK [1][-]{section.38.2}{Concepts}{chapter.38}% 299
+\BOOKMARK [1][-]{section.38.3}{Introduction}{chapter.38}% 300
+\BOOKMARK [1][-]{section.38.4}{Components}{chapter.38}% 301
+\BOOKMARK [0][-]{chapter.39}{TODO}{}% 302
+\BOOKMARK [0][-]{chapter.40}{Business Process Reeingeneering}{}% 303
+\BOOKMARK [1][-]{section.40.1}{Objectives}{chapter.40}% 304
+\BOOKMARK [1][-]{section.40.2}{Purchasing Operational Efficiency}{chapter.40}% 305
+\BOOKMARK [1][-]{section.40.3}{Computing based on Setup}{chapter.40}% 306
+\BOOKMARK [1][-]{section.40.4}{Introduction}{chapter.40}% 307
+\BOOKMARK [1][-]{section.40.5}{Objectives}{chapter.40}% 308
+\BOOKMARK [1][-]{section.40.6}{Traditional DRP}{chapter.40}% 309
+\BOOKMARK [1][-]{section.40.7}{Scenario}{chapter.40}% 310
+\BOOKMARK [1][-]{section.40.8}{Buy Quantity}{chapter.40}% 311
+\BOOKMARK [0][-]{chapter.41}{Data Requirements}{}% 312
+\BOOKMARK [0][-]{chapter.42}{Legacy System}{}% 313
+\BOOKMARK [1][-]{section.42.1}{Legacy System}{chapter.42}% 314
+\BOOKMARK [1][-]{section.42.2}{Risk}{chapter.42}% 315
+\BOOKMARK [0][-]{chapter.43}{Concepts}{}% 316
+\BOOKMARK [1][-]{section.43.1}{Supply Pools}{chapter.43}% 317
+\BOOKMARK [1][-]{section.43.2}{Forecast Groups}{chapter.43}% 318
+\BOOKMARK [1][-]{section.43.3}{Eligible Inventory}{chapter.43}% 319
+\BOOKMARK [1][-]{section.43.4}{Demand Prioritization}{chapter.43}% 320
+\BOOKMARK [1][-]{section.43.5}{Supply Prioritization}{chapter.43}% 321
+\BOOKMARK [1][-]{section.43.6}{Forecast Consumption}{chapter.43}% 322
+\BOOKMARK [0][-]{chapter.44}{Procedures}{}% 323
+\BOOKMARK [1][-]{section.44.1}{Requisitions}{chapter.44}% 324
+\BOOKMARK [1][-]{section.44.2}{Review}{chapter.44}% 325
+\BOOKMARK [1][-]{section.44.3}{Approval}{chapter.44}% 326
+\BOOKMARK [1][-]{section.44.4}{Purchasing Approval}{chapter.44}% 327
+\BOOKMARK [1][-]{section.44.5}{Portal}{chapter.44}% 328
+\BOOKMARK [0][-]{chapter.45}{Benefits}{}% 329
+\BOOKMARK [0][-]{chapter.46}{Questions}{}% 330
+\BOOKMARK [1][-]{section.46.1}{Extensibility}{chapter.46}% 331
+\BOOKMARK [0][-]{chapter.47}{Implementation}{}% 332
+\BOOKMARK [1][-]{section.47.1}{Questions}{chapter.47}% 333
+\BOOKMARK [0][-]{chapter.48}{SAP on the web}{}% 334
+\BOOKMARK [1][-]{section.48.1}{Simple Example}{chapter.48}% 335
+\BOOKMARK [1][-]{section.48.2}{Purchasing Procedures}{chapter.48}% 336
+\BOOKMARK [1][-]{section.48.3}{Constraints}{chapter.48}% 337
+\BOOKMARK [0][-]{chapter.49}{Questions}{}% 338
+\BOOKMARK [0][-]{chapter.50}{Conclusion}{}% 339
+\BOOKMARK [0][-]{chapter.51}{Planning Requirements}{}% 340
+\BOOKMARK [1][-]{section.51.1}{Objectives}{chapter.51}% 341
+\BOOKMARK [1][-]{section.51.2}{Purchasing Operational Efficiency}{chapter.51}% 342
+\BOOKMARK [1][-]{section.51.3}{Extensibility}{chapter.51}% 343
+\BOOKMARK [0][-]{chapter.52}{Implementation}{}% 344
+\BOOKMARK [0][-]{chapter.53}{Modifications}{}% 345
+\BOOKMARK [1][-]{section.53.1}{Questions}{chapter.53}% 346
+\BOOKMARK [0][-]{chapter.54}{Difference from SAP}{}% 347
+\BOOKMARK [0][-]{chapter.55}{SAP on the web}{}% 348
+\BOOKMARK [0][-]{chapter.56}{Questions}{}% 349
+\BOOKMARK [1][-]{section.56.1}{Out of Scope}{chapter.56}% 350
+\BOOKMARK [1][-]{section.56.2}{In aerospace}{chapter.56}% 351
+\BOOKMARK [1][-]{section.56.3}{Source of Lead Time}{chapter.56}% 352
+\BOOKMARK [1][-]{section.56.4}{Instructions}{chapter.56}% 353
+\BOOKMARK [1][-]{section.56.5}{Sequence Diagram}{chapter.56}% 354
+\BOOKMARK [1][-]{section.56.6}{Related articles}{chapter.56}% 355
+\BOOKMARK [0][-]{chapter.57}{Service Level Agreements}{}% 356
+\BOOKMARK [0][-]{chapter.58}{Definitions}{}% 357
+\BOOKMARK [0][-]{chapter.59}{ABC - Pareto}{}% 358
+\BOOKMARK [1][-]{section.59.1}{Purpose}{chapter.59}% 359
+\BOOKMARK [1][-]{section.59.2}{Assumptions}{chapter.59}% 360
+\BOOKMARK [1][-]{section.59.3}{Item Statistics}{chapter.59}% 361
+\BOOKMARK [1][-]{section.59.4}{Overview}{chapter.59}% 362
+\BOOKMARK [1][-]{section.59.5}{Definition}{chapter.59}% 363
+\BOOKMARK [1][-]{section.59.6}{Approach}{chapter.59}% 364
+\BOOKMARK [1][-]{section.59.7}{Purpose}{chapter.59}% 365
+\BOOKMARK [1][-]{section.59.8}{Modify web page template}{chapter.59}% 366
+\BOOKMARK [1][-]{section.59.9}{Item Statistics}{chapter.59}% 367
+\BOOKMARK [1][-]{section.59.10}{Item Statistics Fields}{chapter.59}% 368
+\BOOKMARK [1][-]{section.59.11}{Approach}{chapter.59}% 369
+\BOOKMARK [0][-]{chapter.60}{Optimal Replenishment Quantity}{}% 370
+\BOOKMARK [1][-]{section.60.1}{Objectives}{chapter.60}% 371
+\BOOKMARK [0][-]{chapter.61}{Unit Cost}{}% 372
+\BOOKMARK [1][-]{section.61.1}{Compute Optimal Purchase Quantity}{chapter.61}% 373
+\BOOKMARK [1][-]{section.61.2}{Cost Types}{chapter.61}% 374
+\BOOKMARK [1][-]{section.61.3}{Graph this relationship}{chapter.61}% 375
+\BOOKMARK [1][-]{section.61.4}{Compute Optimal Purchase Quantity}{chapter.61}% 376
+\BOOKMARK [1][-]{section.61.5}{Graph this relationsihip}{chapter.61}% 377
+\BOOKMARK [0][-]{chapter.62}{Multiple Lead Times}{}% 378
+\BOOKMARK [1][-]{section.62.1}{Overview}{chapter.62}% 379
+\BOOKMARK [1][-]{section.62.2}{Acquiring}{chapter.62}% 380
+\BOOKMARK [1][-]{section.62.3}{YAML}{chapter.62}% 381
+\BOOKMARK [1][-]{section.62.4}{Assumptions}{chapter.62}% 382
+\BOOKMARK [1][-]{section.62.5}{Issues}{chapter.62}% 383
+\BOOKMARK [0][-]{chapter.63}{Lead Time By Vendor}{}% 384
+\BOOKMARK [1][-]{section.63.1}{Overview}{chapter.63}% 385
+\BOOKMARK [1][-]{section.63.2}{Acquiring}{chapter.63}% 386
+\BOOKMARK [1][-]{section.63.3}{YAML}{chapter.63}% 387
+\BOOKMARK [1][-]{section.63.4}{Assumptions}{chapter.63}% 388
+\BOOKMARK [1][-]{section.63.5}{Issues}{chapter.63}% 389
+\BOOKMARK [0][-]{chapter.64}{Business Process Improvement : Create Requisition}{}% 390
+\BOOKMARK [1][-]{section.64.1}{Business Process Improvement : Create Requisition}{chapter.64}% 391
+\BOOKMARK [0][-]{chapter.65}{Requisition}{}% 392
+\BOOKMARK [1][-]{section.65.1}{Instructions}{chapter.65}% 393
+\BOOKMARK [1][-]{section.65.2}{Gather Information}{chapter.65}% 394
+\BOOKMARK [1][-]{section.65.3}{Out of Scope}{chapter.65}% 395
+\BOOKMARK [1][-]{section.65.4}{In aerospace}{chapter.65}% 396
+\BOOKMARK [1][-]{section.65.5}{Source of Lead Time}{chapter.65}% 397
+\BOOKMARK [1][-]{section.65.6}{Instructions}{chapter.65}% 398
+\BOOKMARK [1][-]{section.65.7}{Sequence Diagram}{chapter.65}% 399
+\BOOKMARK [1][-]{section.65.8}{Related articles}{chapter.65}% 400
+\BOOKMARK [0][-]{chapter.66}{Airframe Scenario 737 Max}{}% 401
+\BOOKMARK [0][-]{chapter.67}{Indices and tables}{}% 402

@@ -1,34 +1,48 @@
 
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>Tables &#8212; Diamond APS 2019-12-14-03 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tables &mdash; Diamond Advanced Planning System Version 8 8 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Diamond Advanced Planning System Version 8 8 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="tables">
 <h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
@@ -36,7 +50,7 @@
 <h2>ALL_SUPPLY and APS_SUPPLY<a class="headerlink" href="#all-supply-and-aps-supply" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Name                  Type
-—————– ————
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;
 SPLY_IDENTIFIER   VARCHAR2(61)
 AVAIL_TYPE_CD     CHAR(1)
 LOT_NBR                   NUMBER
@@ -58,10 +72,11 @@ EXPIRE_DT                  DATE
 RCPT_DT                    DATE
 APS_AVAIL_DT               DATE
 WO_ITEM_NBR                NUMBER
-AVAIL_DT_ID                VARCHAR2(1)  -   DECODE(iil.avail_dt, NULL, ‘F’, ‘P’)       avail_dt_id</p>
+AVAIL_DT_ID                VARCHAR2(1)  -   DECODE(iil.avail_dt, NULL, &#8216;F&#8217;, &#8216;P&#8217;)       avail_dt_id</p>
 <p>PO_LINE_HDR_NBR            NUMBER</p>
-<dl class="simple">
-<dt>SELECT sply_identifier,</dt><dd><p>‘O’,
+<dl class="docutils">
+<dt>SELECT sply_identifier,</dt>
+<dd>&#8216;O&#8217;,
 lot_nbr,
 item_nbr,
 facility,
@@ -81,18 +96,17 @@ rcpt_dt,
 avail_dt,
 TO_NUMBER(NULL)     wo_item_nbr,
 avail_dt_id,
-to_number(null) po_line_hdr_nbr</p>
-</dd>
+to_number(null) po_line_hdr_nbr</dd>
 </dl>
 </div></blockquote>
-<dl class="simple">
-<dt>FROM</dt><dd><p>aps_avail_onhand</p>
-</dd>
+<dl class="docutils">
+<dt>FROM</dt>
+<dd>aps_avail_onhand</dd>
 </dl>
 <p>UNION ALL
 SELECT tar.sply_identifier,</p>
 <blockquote>
-<div><p>‘R’,
+<div>&#8216;R&#8217;,
 TO_NUMBER(NULL),
 tar.item_nbr,
 tar.facility,
@@ -112,17 +126,16 @@ TO_DATE(NULL),
 tar.aps_avail_dt,
 TO_NUMBER(NULL)      wo_item_nbr,
 NULL                                  avail_dt_id,
-tar.po_line_Hdr_Nbr</p>
-</div></blockquote>
-<dl class="simple">
-<dt>FROM</dt><dd><p>aps_avail_replen  tar</p>
-</dd>
+tar.po_line_Hdr_Nbr</div></blockquote>
+<dl class="docutils">
+<dt>FROM</dt>
+<dd>aps_avail_replen  tar</dd>
 </dl>
 <p>UNION ALL
 SELECT /<a href="#id1"><span class="problematic" id="id2">*</span></a>+ use_nl(iii woh) index (woh) <a href="#id3"><span class="problematic" id="id4">*</span></a>/</p>
 <blockquote>
-<div><p>TO_CHAR(woh.wo_hdr_nbr)     sply_identifier,
-‘W’,
+<div>TO_CHAR(woh.wo_hdr_nbr)     sply_identifier,
+&#8216;W&#8217;,
 TO_NUMBER(NULL),
 woh.item_nbr_rqst,
 woh.facility,
@@ -142,114 +155,64 @@ TO_DATE(NULL),
 woh.need_by_dt,
 woh.item_nbr_rqst      wo_item_nbr,
 NULL                                  avail_dt_id,
-to_number(null)</p>
-</div></blockquote>
-<dl class="simple">
-<dt>FROM</dt><dd><p>wo_hdr   woh</p>
-</dd>
-<dt>WHERE</dt><dd><p>woh.wo_stat_id  = ‘O’</p>
-</dd>
+to_number(null)</div></blockquote>
+<dl class="docutils">
+<dt>FROM</dt>
+<dd>wo_hdr   woh</dd>
+<dt>WHERE</dt>
+<dd>woh.wo_stat_id  = &#8216;O&#8217;</dd>
 </dl>
 </div>
 </div>
 
 
           </div>
-          
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Diamond APS</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-18-Meeting-notes.html">Business Process Improvement : 2019-12-18 Meeting notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Introductory-Meeting.html">Business Process Improvement : Introductory Meeting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Meeting-notes.html">Business Process Improvement : Meeting notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Product-Launch.html">Business Process Improvement : Product Launch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Project-Overview.html">Business Process Improvement : Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-17-Meeting-notes.html">Business Process Improvement : 2019-12-17 Meeting notes</a></li>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tables</a><ul>
+<li><a class="reference internal" href="#all-supply-and-aps-supply">ALL_SUPPLY and APS_SUPPLY</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html">Business Process Improvement : ABC - Pareto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html#item-statistics">Item Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html">Objective</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#success-metrics">Success metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#assumptions">Assumptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#milestones">Milestones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#user-interaction-and-design">User interaction and design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#open-questions">Open Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#out-of-scope">Out of Scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#overview">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#definition">Definition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#approach">Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#purpose">Purpose</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#addititional-fields">Addititional Fields</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#modify-web-page-template">Modify web page template</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html">Welcome to Multiple Lead Times’s documentation!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html#indices-and-tables">Indices and tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-Functionality.html">Business Process Improvement : Portal Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-index.html">Business Process Improvement : Requisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Purchasing.html">Business Process Improvement : Purchasing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisition-Review-Board.html">Business Process Improvement : Requisition Review Board</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisitions/Create-Requisition.html">Business Process Improvement : Create Requisition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Service-Level-Agreements.html">Business Process Improvement : Service Level Agreements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Vendor-Quotes.html">Business Process Improvement : Vendor Quotes</a></li>
+</li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/APS/Supply.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2019, Jim Schmidt.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/APS/Supply.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer">
+        &copy; Copyright 2020, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
   </body>
 </html>

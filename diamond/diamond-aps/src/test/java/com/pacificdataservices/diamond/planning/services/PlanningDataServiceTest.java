@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.javautil.hibernate.HibernateMarshallerFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;

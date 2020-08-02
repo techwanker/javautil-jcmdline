@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.javautil.hibernate.HibernateProxyTypeAdapter;
 import org.javautil.lang.reflect.ReflectUtils;
 import org.junit.Before;

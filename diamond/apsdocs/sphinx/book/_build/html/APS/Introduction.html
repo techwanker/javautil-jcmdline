@@ -1,34 +1,48 @@
 
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>Introduction &#8212; Diamond APS 2019-12-14-03 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Diamond Advanced Planning System Version 8 8 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Diamond Advanced Planning System Version 8 8 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
@@ -55,27 +69,27 @@ accommodating Aerospace requirements in version 10 of Diamond.</p>
 <h2>Demand Types<a class="headerlink" href="#demand-types" title="Permalink to this headline">¶</a></h2>
 <p>Supports multiple types of Demand. Demand types supported are</p>
 <ul class="simple">
-<li><p>Firm Customer Order</p></li>
-<li><p>Work Orders and (Components of Work Orders)</p></li>
-<li><p>Safety Stock</p></li>
-<li><p>Forecast</p></li>
+<li>Firm Customer Order</li>
+<li>Work Orders and (Components of Work Orders)</li>
+<li>Safety Stock</li>
+<li>Forecast</li>
 </ul>
 </div>
 <div class="section" id="supply-types">
 <h2>Supply Types<a class="headerlink" href="#supply-types" title="Permalink to this headline">¶</a></h2>
 <p>Supports multiple types of Supply:</p>
 <ul class="simple">
-<li><p>On-Hand at Location</p></li>
-<li><p>In-Transit from another Location</p></li>
-<li><p>Purchase Orders</p></li>
-<li><p>Work Orders</p></li>
+<li>On-Hand at Location</li>
+<li>In-Transit from another Location</li>
+<li>Purchase Orders</li>
+<li>Work Orders</li>
 </ul>
 </div>
 <div class="section" id="eligible-supply-rules">
 <h2>Eligible Supply Rules<a class="headerlink" href="#eligible-supply-rules" title="Permalink to this headline">¶</a></h2>
 <p>Diamond APS is very flexible with respect to filtering supply that is eligible to meet demand.</p>
 <p>Many filters are supplied and others may be added by writing a new one that complies with the
-EligibleSupplyFilter interface.  New filters are “wired in” and existing code is not touched.</p>
+EligibleSupplyFilter interface.  New filters are &#8220;wired in&#8221; and existing code is not touched.</p>
 <p>This allows for customization and rigorous testing of the customization with no risk associated with
 changes to the base code or precluding update support.</p>
 </div>
@@ -100,27 +114,27 @@ values.</p>
 <div class="section" id="qualifying-inventory">
 <h2>Qualifying Inventory<a class="headerlink" href="#qualifying-inventory" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Ability to specify the revision level required for Sales Order and
+<li>Ability to specify the revision level required for Sales Order and
 Work Order, Safety Stock and Forecast. The revision level hierarchy
 setup in the Parts Master will automatically allocate a higher
-revision level if the requested revision level is not available.</p></li>
-<li><p>Ability to specify certification requirements for Sales Order and
-Work Order and associate it with the demand.</p></li>
-<li><p>Certification requirements for Safety Stock and Forecasts are picked
-up from the Customer Master.</p></li>
-<li><p>Each certification has a weight associated with it. APS uses
-qualifying lots with the lowest weight to satisfy any demand.</p></li>
-<li><p>Ability to specify the manufacturer required at the Demand level or
+revision level if the requested revision level is not available.</li>
+<li>Ability to specify certification requirements for Sales Order and
+Work Order and associate it with the demand.</li>
+<li>Certification requirements for Safety Stock and Forecasts are picked
+up from the Customer Master.</li>
+<li>Each certification has a weight associated with it. APS uses
+qualifying lots with the lowest weight to satisfy any demand.</li>
+<li>Ability to specify the manufacturer required at the Demand level or
 can specify a list of approved manufacturers at the Customer Level.
-Customer List can be set to Include or Exclude approved manufacturers</p></li>
-<li><p>Ability to specify Country of Origin on the Sales Orders.</p></li>
-<li><p>Ability to specify “manufactured after” or “must not expire before”
-date on Sales Orders for parts with a shelf life.</p></li>
-<li><p>Automatically excludes expired part numbers</p></li>
-<li><p>Kits can be setup in the system to not have mixed manufacturer lots
+Customer List can be set to Include or Exclude approved manufacturers</li>
+<li>Ability to specify Country of Origin on the Sales Orders.</li>
+<li>Ability to specify “manufactured after” or “must not expire before”
+date on Sales Orders for parts with a shelf life.</li>
+<li>Automatically excludes expired part numbers</li>
+<li>Kits can be setup in the system to not have mixed manufacturer lots
 allocated to them for any single kit. APS automatically determines
 the lot quantity and how many full kits it can satisfy and then
-switches to the next available lot to satisfy any remaining kits.</p></li>
+switches to the next available lot to satisfy any remaining kits.</li>
 </ul>
 </div>
 <div class="section" id="demand-prioritization">
@@ -171,31 +185,31 @@ to a demand.</p>
 customer that is shipped back to them when they need it. This stock is
 always deemed to meet customer requirements.</p>
 <ul class="simple">
-<li><p>Allocations against on-hand supply are classified as Firm or Planned
+<li>Allocations against on-hand supply are classified as Firm or Planned
 depending on if the on-hand supply is readily available in the
 primary facility or if the on-hand supply is a planned facility
 transfer or a processed facility transfer in transit to the primary
 facility. The primary facility for a demand is identified based on
 the sourcing rule used to determine the eligible supply for the
-demand.</p></li>
-<li><p>APS automatically creates work orders for kits. Since APS supports
+demand.</li>
+<li>APS automatically creates work orders for kits. Since APS supports
 multi-level Bills of Material, it creates work orders for sub-kits
 and re-plans all the items recursively till all the demands for kits
-have been allocated either to on-hand inventory or to a work order.</p></li>
-<li><p>Purchase Orders schedules that are late are automatically padded by a
+have been allocated either to on-hand inventory or to a work order.</li>
+<li>Purchase Orders schedules that are late are automatically padded by a
 user-defined factor and pushed forward. This enables the system to
 provide realistic availability dates for the demands which are
-allocated to those PO schedules.</p></li>
-<li><p>Automatically allocates demands to a Purchase Order if the demand is
+allocated to those PO schedules.</li>
+<li>Automatically allocates demands to a Purchase Order if the demand is
 “X” days out in the future and there is a PO Schedule coming
 available “X” days before the demand is due. The value of “X” is read
-in from a Control table.</p></li>
-<li><p>APS will suggest a optimum reschedule date for the PO Schedules that
+in from a Control table.</li>
+<li>APS will suggest a optimum reschedule date for the PO Schedules that
 have allocations against demands that need to be expedited or
 rescheduled to come in at a date later than the current promise date
-provided by the vendor</p></li>
-<li><p>APS will also suggest cancellation of PO schedules that are not
-needed to meet any demand that is present in the system.</p></li>
+provided by the vendor</li>
+<li>APS will also suggest cancellation of PO schedules that are not
+needed to meet any demand that is present in the system.</li>
 </ul>
 </div>
 <div class="section" id="auditing-and-traceability">
@@ -221,21 +235,21 @@ details of the outputs provided by Diamond APS.</p>
 <h2>Shortages<a class="headerlink" href="#shortages" title="Permalink to this headline">¶</a></h2>
 <p>Diamond APS classifies shortages into the following categories</p>
 <p>Demand           Unallocated     Late
-—————  ———–     —-
+&#8212;&#8212;&#8212;&#8212;&#8212;  &#8212;&#8212;&#8212;&#8211;     &#8212;-
 Customer Orders
 Work Orders
 Forecast
 Safety Stock</p>
 <p>Customer Orders</p>
 <ul class="simple">
-<li><p>Unallocated Customer Orders</p></li>
-<li><p>Unallocated Work Orders</p></li>
-<li><p>Unallocated Safety Stock</p></li>
-<li><p>Unallocated Forecasts</p></li>
-<li><p>Customers Orders allocated beyond the requested date</p></li>
-<li><p>Work Orders allocated beyond the requested date</p></li>
-<li><p>Safety Stock allocated beyond the requested date</p></li>
-<li><p>Forecasts allocated beyond the requested date</p></li>
+<li>Unallocated Customer Orders</li>
+<li>Unallocated Work Orders</li>
+<li>Unallocated Safety Stock</li>
+<li>Unallocated Forecasts</li>
+<li>Customers Orders allocated beyond the requested date</li>
+<li>Work Orders allocated beyond the requested date</li>
+<li>Safety Stock allocated beyond the requested date</li>
+<li>Forecasts allocated beyond the requested date</li>
 </ul>
 <p>Users can choose a combination of any of these shortage conditions and
 then apply the following filters to narrow their search</p>
@@ -276,15 +290,23 @@ supplies for the Demand.</p>
 <p>The Work Book create an excel spread sheet with the following
 information about the Part.</p>
 <ul>
-<li><p>The On-Hand inventory summary by Lot, Facility and Supply Pool,</p></li>
-<li><p>Customer and Vendor Quotes for the Part,</p></li>
-<li><p>Open Purchase Orders,</p></li>
-<li><p>Open Sales Orders,</p></li>
-<li><p>Historical Shipments</p></li>
-<li><p>a 12 month forecast by forecast group.</p></li>
-<li><p>Customer Quotes Listing</p></li>
-<li><p>Vendor Quotes Listing</p></li>
-<li><p>Approved Manufacturers by customer</p>
+<li><p class="first">The On-Hand inventory summary by Lot, Facility and Supply Pool,</p>
+</li>
+<li><p class="first">Customer and Vendor Quotes for the Part,</p>
+</li>
+<li><p class="first">Open Purchase Orders,</p>
+</li>
+<li><p class="first">Open Sales Orders,</p>
+</li>
+<li><p class="first">Historical Shipments</p>
+</li>
+<li><p class="first">a 12 month forecast by forecast group.</p>
+</li>
+<li><p class="first">Customer Quotes Listing</p>
+</li>
+<li><p class="first">Vendor Quotes Listing</p>
+</li>
+<li><p class="first">Approved Manufacturers by customer</p>
 <p>The work book can then be saved of and helps buyers</p>
 </li>
 </ul>
@@ -303,15 +325,15 @@ cross-tab of shipment of this part. Shipment Summary by Customer.
 Provides a year-month cross-tab of shipment by customer of this part.
 Ability to lookup shortfalls by the following</p>
 <ul class="simple">
-<li><p>Item Certification</p></li>
-<li><p>Manufacturer and vendor certification</p></li>
-<li><p>Lists shortfalls based on explicit certifications requested on the
-Demand. A review of these might help the user offer</p></li>
-<li><p>Country of Origin</p></li>
-<li><p>Approved Manufacturer</p></li>
-<li><p>Explicit Manufacturer Requested on the Demand</p></li>
-<li><p>Revision Level</p></li>
-<li><p>Re-certification opportunities</p></li>
+<li>Item Certification</li>
+<li>Manufacturer and vendor certification</li>
+<li>Lists shortfalls based on explicit certifications requested on the
+Demand. A review of these might help the user offer</li>
+<li>Country of Origin</li>
+<li>Approved Manufacturer</li>
+<li>Explicit Manufacturer Requested on the Demand</li>
+<li>Revision Level</li>
+<li>Re-certification opportunities</li>
 </ul>
 <p>Ability to lookup Rescheduling Requirements in the following groups</p>
 <div class="section" id="purchase-orders-to-be-expedited">
@@ -341,101 +363,69 @@ individual PO Schedules that need to be cancelled.</p>
 
 
           </div>
-          
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Diamond APS</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-18-Meeting-notes.html">Business Process Improvement : 2019-12-18 Meeting notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Introductory-Meeting.html">Business Process Improvement : Introductory Meeting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Meeting-notes.html">Business Process Improvement : Meeting notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Product-Launch.html">Business Process Improvement : Product Launch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/Project-Overview.html">Business Process Improvement : Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/2019-12-17-Meeting-notes.html">Business Process Improvement : 2019-12-17 Meeting notes</a></li>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#demand-types">Demand Types</a></li>
+<li><a class="reference internal" href="#supply-types">Supply Types</a></li>
+<li><a class="reference internal" href="#eligible-supply-rules">Eligible Supply Rules</a></li>
+<li><a class="reference internal" href="#supply-partitioning">Supply Partitioning</a></li>
+<li><a class="reference internal" href="#qualifying-inventory">Qualifying Inventory</a></li>
+<li><a class="reference internal" href="#demand-prioritization">Demand Prioritization</a></li>
+<li><a class="reference internal" href="#preserve-allocations">Preserve Allocations</a></li>
+<li><a class="reference internal" href="#supply-prioritization">Supply Prioritization</a></li>
+<li><a class="reference internal" href="#demand-execution-mode">Demand Execution Mode</a></li>
+<li><a class="reference internal" href="#auditing-and-traceability">Auditing and Traceability</a></li>
+<li><a class="reference internal" href="#aps-output">APS Output</a></li>
+<li><a class="reference internal" href="#shortages">Shortages</a></li>
+<li><a class="reference internal" href="#workbook">Workbook</a><ul>
+<li><a class="reference internal" href="#purchase-orders-to-be-expedited">Purchase Orders to be Expedited</a></li>
+<li><a class="reference internal" href="#purchase-orders-to-be-rescheduled">Purchase Orders to be Rescheduled</a></li>
+<li><a class="reference internal" href="#purchase-orders-to-be-cancelled">Purchase Orders to be Cancelled</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html">Business Process Improvement : ABC - Pareto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Pareto.html#item-statistics">Item Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html">Objective</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#success-metrics">Success metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#assumptions">Assumptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#milestones">Milestones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#user-interaction-and-design">User interaction and design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#open-questions">Open Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#out-of-scope">Out of Scope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#overview">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#definition">Definition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#approach">Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#purpose">Purpose</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#addititional-fields">Addititional Fields</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/ABC/ABC-Code-Discussion.html#modify-web-page-template">Modify web page template</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html">Welcome to Multiple Lead Times’s documentation!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/MultipleLeadTime/source/index.html#indices-and-tables">Indices and tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-Functionality.html">Business Process Improvement : Portal Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Portal-index.html">Business Process Improvement : Requisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Purchasing.html">Business Process Improvement : Purchasing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisition-Review-Board.html">Business Process Improvement : Requisition Review Board</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Requisitions/Create-Requisition.html">Business Process Improvement : Create Requisition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Service-Level-Agreements.html">Business Process Improvement : Service Level Agreements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Portal/Vendor-Quotes.html">Business Process Improvement : Vendor Quotes</a></li>
+</li>
+</ul>
+</li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/APS/Introduction.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2019, Jim Schmidt.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/APS/Introduction.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Diamond Advanced Planning System Version 8 8 documentation</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer">
+        &copy; Copyright 2020, Jim Schmidt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
   </body>
 </html>

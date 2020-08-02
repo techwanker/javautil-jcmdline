@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

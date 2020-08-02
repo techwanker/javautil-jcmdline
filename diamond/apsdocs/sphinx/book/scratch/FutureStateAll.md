@@ -226,7 +226,7 @@ complexity.
 #. Reduce the effort of sales staff and purchasing staff to perform their functions
 #. Define metrics to evaluate performance and progress
 #. Have an alert system of reports of issues that need to be addressed.
-#. Require no hardware or other infrastructure or the installation of any software on any Align computer.
+#. Require no hardware or other infrastructure or the installation of any software on client computer.
 
 # Questions
 
@@ -239,7 +239,7 @@ What is the current cost of
 
 # Conclusion
 
-Align has the expertise in house to participate in the design of a business process and software
+Client has the expertise in house to participate in the design of a business process and software
 to optimize the purchasing and sales operations, there is no need to wait for an IT person who
 has much less experience than your director of purchasing and other operations personnel.
 
