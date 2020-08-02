@@ -465,25 +465,6 @@ Custom Data Solutions
 
 http://custdata.com
 
-Relationship
-************
-
-Custom Data Services was created by my brother Chuck.  I consulted to them for over 25 years and
-taught him everything he knew from linux to relational databases, website creation, c and java.
-
-In 2007 I accepted the position of CIO when my brother sold the company.  I gave up my consulting practice
-on the promise that I could work remotely after my son went to college.
-
-After I completely revised all of the infrastructure, which was horrible in more ways than can be credibly described
-including the fact that they were seven years out of date on Oracle and had 14 instances running on three different 
-machines, I upgraded to Oracle 10 and migrated everything to one instance and finally into one schema.
-
-After I sold my house and all my possessions and moved to Costa Rica, they fired me.
-
-They stole my javautil code, there was a lawsuit, but I would have had to have their current employees testify that
-the code they were using was in production at my customer sites before I joined CDS.
-
-A settlement was reached, I allowed them to continue to use the code while retaining all rights.
 
 
 Processing Steps

@@ -1,6 +1,6 @@
------------------
+=================
 Logger for PL/SQL
------------------
+=================
 
 User documentation
 ------------------
@@ -60,7 +60,7 @@ The call
 
 ::
 
-      logger.begin_log(logfile_directory -> 'TMP_DIR', logfile_name -> '02_log_to_file.log');
+      logger.begin_log(logfile_directory => 'TMP_DIR', logfile_name => '02_log_to_file.log');
 
 Will cause subsequent log messages to be written to the filesystem of
 the database server.
@@ -91,14 +91,14 @@ Each log entry has a log\_level
 
 ::
 
-    * SEVERE       CONSTANT PLS_INTEGER :- 1 ;
-    * WARNING      CONSTANT PLS_INTEGER :- 2 ;
-    * INFO         CONSTANT PLS_INTEGER :- 4 ;
-    * VERBOSE      CONSTANT PLS_INTEGER :- 5 ;
-    * VERY_VERBOSE CONSTANT PLS_INTEGER :- 6 ;
-    * DEBUG        CONSTANT PLS_INTEGER :- 7 ;
-    * TRACE        CONSTANT PLS_INTEGER :- 9 ; 
-    * NONE         CONSTANT PLS_INTEGER :- 10 ;
+    * SEVERE       CONSTANT PLS_INTEGER := 1 ;
+    * WARNING      CONSTANT PLS_INTEGER := 2 ;
+    * INFO         CONSTANT PLS_INTEGER := 4 ;
+    * VERBOSE      CONSTANT PLS_INTEGER := 5 ;
+    * VERY_VERBOSE CONSTANT PLS_INTEGER := 6 ;
+    * DEBUG        CONSTANT PLS_INTEGER := 7 ;
+    * TRACE        CONSTANT PLS_INTEGER := 9 ; 
+    * NONE         CONSTANT PLS_INTEGER := 10 ;
 
 The default logging level is 4.
 
@@ -109,8 +109,8 @@ The process level default can be changed with the begin\_log with the
 
 ::
 
-        begin_log(logfile_directory -> 'tmp_dir',logfile_name->'debug.log',
-           log_level->2);
+        begin_log(logfile_directory => 'tmp_dir',logfile_name=>'debug.log',
+           log_level=>2);
 
 In which case only messages with log\_level of 2 or less will be logged.
 
@@ -118,7 +118,7 @@ But if it is desired to see more messages from a partilar package, the
 filter level may changed:
 
 Job Logging
------------
+===========
 
 Record jobs and their steps, how long each step took to execute and
 optionally extremely detailed information about every database operation
@@ -129,7 +129,7 @@ same schema using the same connection as it uses autonomous
 transactions, or in postgresql or h2.
 
 Analyzing the logs
-------------------
+==================
 
 Separate utilities are used to analyzed the logs. A very useful tool is
 javautil-condition-identification.
@@ -144,7 +144,7 @@ Getting deeper, with trace information one can drill down to the
 details, we will cover that later.
 
 Installation of database artifacts for oracle
----------------------------------------------
+=============================================
 
 These files may be found under *ddl*
 
@@ -189,7 +189,7 @@ single string from all of the logging parameters and makes a call to
 dbms\_output.put\_line and then returns the formatted message.
 
 Database Objects
-----------------
+================
 
 Job log tables
 --------------
@@ -231,13 +231,13 @@ Trace Repository
 ----------------
 
 Tools and concepts
-------------------
+==================
 
 User should be familiar with v$ssession view, tkprof command line
 utility
 
 Connection Pools
-----------------
+================
 
 After Getting a connection
 --------------------------

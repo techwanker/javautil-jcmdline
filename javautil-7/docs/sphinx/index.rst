@@ -1,14 +1,16 @@
+##########
 javautil 8
-==========
+##########
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
-   #jcmdline-README.rst
+   jcmdline-README.rst
     
-   #OracleLogger/OracleLogger-README
+   OracleLogger/OracleLogger-README
+   
    
    #joblog/joblog-README
 

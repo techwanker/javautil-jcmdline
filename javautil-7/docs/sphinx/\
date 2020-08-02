@@ -1,3 +1,0 @@
-make latexpdf
-killall evince
-evince _build/latex/javautil.pdf

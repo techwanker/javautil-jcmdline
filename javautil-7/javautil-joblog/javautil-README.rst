@@ -1,5 +1,9 @@
-dblogging
-=========
+##########################################
+joblog - A simple instrumentation facility 
+##########################################
+
+Introduction to job logging
+===========================
 
 Application instrumentation is essential to performance monitoring,
 unfortunately this is often performed by throwing in some logging
@@ -29,7 +33,8 @@ indexes or rewriting SQL.
 
 SGA parameters may have to be changed.
 
-https://asktom.oracle.com/Misc/instrumentation.html # TODO
+https://asktom.oracle.com/Misc/instrumentation.html # TODO paraphrase instrumentation  and cite
+
 
 Document Organization
 ---------------------
@@ -99,7 +104,7 @@ Flat file logging example
 Before diving into the details, here is a simple example of usage.
 
 Input
-'''''
+
 
 ::
 
@@ -721,18 +726,13 @@ to use Oracle JDBC properly. Or, you could download the JAR file, and
 then execute this command:
 
 TODO the script to locatge
-``mvn install:install-file -DgroupId=com.oracle -DartifactId=oracle-jdbc8 -Dversion=12c -Dpackaging=jar -Dfile=<THE_JDBC_JAR_LOCATION>``
+
+::
+
+   mvn install:install-file -DgroupId=com.oracle -DartifactId=oracle-jdbc8 -Dversion=12c -Dpackaging=jar -Dfile=<THE_JDBC_JAR_LOCATION>
 
 Notations in job .sql script used by sqlrunner.
 
-Security in production
-======================
-
-User priviliges
-===============
-
-Performance
-===========
 
 Tools and concepts
 ==================
@@ -813,31 +813,6 @@ SET\_IDENTIFIER and CLEAR\_IDENTIFIER procedures to allow the real user
 to be associated with a session, regardless of what database user was
 being used for the connection.
 
-Metrics
--------
-
-try {
-    String e2eMetrics[] = new
-    String[OracleConnection.END\_TO\_END\_STATE\_INDEX\_MAX];
-    e2eMetrics[OracleConnection.END\_TO\_END\_ACTION\_INDEX] = null;
-    e2eMetrics[OracleConnection.END\_TO\_END\_MODULE\_INDEX] = null;
-    e2eMetrics[OracleConnection.END\_TO\_END\_CLIENTID\_INDEX] = null;
-    ((OracleConnection) conn).setEndToEndMetrics(e2eMetrics,
-    Short.MIN\_VALUE);
-
-} catch (SQLException sqle) {
-    // Do something...
-
-}
-
-0 - No trace. Like switching sql\_trace off. 2 - The equivalent of
-regular sql\_trace. 4 - The same as 2, but with the addition of bind
-variable values. 8 - The same as 2, but with the addition of wait
-events. 12 - The same as 2, but with both bind variable values and wait
-events.
-
-Monitoring long running
-https://oracle-base.com/articles/11g/real-time-sql-monitoring-11gr1
 
 References
 ----------
@@ -923,7 +898,6 @@ Input
     exec log_to_file_only();
 
 Output
-''''''
 
 ::
 
@@ -934,12 +908,6 @@ Output
     7,,,22,"2019-10-26T17:19:52.886357","i is 2","LOG_TO_FILE_ONLY",""
     7,,,22,"2019-10-26T17:19:52.886502","i is 3","LOG_TO_FILE_ONLY",""
 
-TODO
-====
-
-Tracing should do the following
-
--  Begin with any transaction as annotated by @Transactional
 
 Install
 =======
@@ -960,7 +928,7 @@ should be granted by user, not by role.
 -  Example schema
 
 TODO
-====
+----
 
 -  security can't specify file name
 -  need an agent to get the log files for remote users
@@ -971,3 +939,6 @@ TODO
    together
 -  TODO describe using with spring
 
+Tracing should do the following
+
+-  Begin with any transaction as annotated by @Transactional
