@@ -1,25 +1,13 @@
 package org.javautil.text;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Formatter;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.apache.commons.lang3.CharUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A Collection of utilities for use with Strings.
@@ -30,7 +18,7 @@ public class StringUtils {
 
 	private static final Logger logger             = LoggerFactory.getLogger(StringUtils.class);
 	private static final char[] HEX_CHARS          = "0123456789abcdef".toCharArray();
-	private static Pattern      newlinePattern     = Pattern.compile("\r\n|\r|\n");                                    // TODO
+	private static final Pattern      newlinePattern     = Pattern.compile("\r\n|\r|\n");                                    // TODO
 	                                                                                                                   // until
 	// necessary
 	private static final String specialSaveChars   = "=: \t\r\n\f#!";
@@ -39,7 +27,7 @@ public class StringUtils {
 	private static final char[] hexDigit           = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C',
 	    'D', 'E', 'F' };
 
-	private static Pattern      firstWordPattern   = Pattern.compile("[\t ]*([^\t ]*)");
+	private static final Pattern      firstWordPattern   = Pattern.compile("[\t ]*([^\t ]*)");
 
 	private String              escapingCharacters = null;
 
@@ -68,8 +56,7 @@ public class StringUtils {
 					break out;
 				}
 			}
-		String retval = text.substring(0, i + 1);
-		return retval;
+		return text.substring(0, i + 1);
 	}
 
 	static public String stripLeading(String text, Character[] strip) {
@@ -88,8 +75,7 @@ public class StringUtils {
 					break out;
 				}
 			}
-		String retval = text.substring(i, stop);
-		return retval;
+		return text.substring(i, stop);
 	}
 
 	/**
@@ -158,7 +144,7 @@ public class StringUtils {
 		StringBuilder sb = new StringBuilder();
 		sb.append(fragments[0].toLowerCase());
 		for (int i = 1; i < fragments.length; i++) {
-			sb.append(Character.toUpperCase(fragments[i].charAt(0)) + fragments[i].substring(1).toLowerCase());
+			sb.append(Character.toUpperCase(fragments[i].charAt(0))).append(fragments[i].substring(1).toLowerCase());
 		}
 		return sb.toString();
 	}
@@ -202,7 +188,7 @@ public class StringUtils {
 				buffy.append(value);
 				printedCount++;
 			} else {
-				buffy.append(", ..." + (map.size() - maxKeys.intValue()) + " more, " + map.size() + " total");
+				buffy.append(", ...").append(map.size() - maxKeys.intValue()).append(" more, ").append(map.size()).append(" total");
 				iterator = null;
 			}
 		}
@@ -266,7 +252,7 @@ public class StringUtils {
 			while (padLength-- > 0) {
 				sb.append(pad);
 			}
-			sb.append(text.toString());
+			sb.append(text);
 			retval = sb.toString();
 		}
 		return retval;
@@ -556,8 +542,7 @@ public class StringUtils {
 			throw new java.lang.IllegalArgumentException("name is null or empty");
 		}
 		final String temp = attributeName(name);
-		final String returnValue = temp.substring(0, 1).toUpperCase() + temp.substring(1);
-		return returnValue;
+		return temp.substring(0, 1).toUpperCase() + temp.substring(1);
 	}
 
 	/*
@@ -580,7 +565,7 @@ public class StringUtils {
 	 * @return <b>true</B> if both strings are <b>null</b> or they are equal (letter
 	 *         case ignored); <b>false</b> otherwise.
 	 */
-	public final static boolean compareCaseInsensitive(final String s1, final String s2) {
+	public static boolean compareCaseInsensitive(final String s1, final String s2) {
 		if (s1 == null && s2 == null) {
 			return true;
 		}
@@ -590,7 +575,7 @@ public class StringUtils {
 		return s1.toUpperCase().equals(s2.toUpperCase());
 	}
 
-	public final static boolean compare(final String[] s1, final String[] s2) {
+	public static boolean compare(final String[] s1, final String[] s2) {
 		boolean rc = true;
 		if (s1 == null && s2 == null) {
 			return true;
@@ -923,15 +908,15 @@ public class StringUtils {
 	 * @return the capitalized string
 	 */
 	public static String initCap(final String val) {
-		String outVal = "";
+		StringBuilder outVal = new StringBuilder();
 		for (int c = 0; c < val.length(); c++) {
 			if (c == 0) {
-				outVal += val.toUpperCase().charAt(c);
+				outVal.append(val.toUpperCase().charAt(c));
 			} else {
-				outVal += val.charAt(c);
+				outVal.append(val.charAt(c));
 			}
 		}
-		return outVal;
+		return outVal.toString();
 	}
 
 	/**
@@ -940,7 +925,7 @@ public class StringUtils {
 	 * @return case insensitive trimmed match
 	 */
 	public static boolean isFuzzyMatch(final String a, final String b) {
-		return a.trim().compareToIgnoreCase(b.trim()) == 0 ? true : false;
+		return a.trim().compareToIgnoreCase(b.trim()) == 0;
 	}
 
 	public static boolean isTrue(final String val) {
@@ -1027,7 +1012,7 @@ public class StringUtils {
 	 * 
 	 * @return
 	 */
-	public static final String removeEOL(final String src) {
+	public static String removeEOL(final String src) {
 		if (src == null) {
 			return null;
 		}
@@ -1052,15 +1037,13 @@ public class StringUtils {
 			while (substitution) {
 				logger.info("ret loop'" + ret + "'");
 				if (index == 0) {
-					final String left = replace;
 					final String right = ret.substring(find.length());
-					ret = left + right;
-					logger.info("beginning '" + ret + "'" + left + "' '" + right + "'");
+					ret = replace + right;
+					logger.info("beginning '" + ret + "'" + replace + "' '" + right + "'");
 				} else if (index == ret.length() - find.length()) {
 					final String left = ret.substring(0, index - 1);
-					final String right = replace;
-					ret = left + right;
-					logger.info("end '" + ret + "' ' " + left + "' '" + right + "'");
+					ret = left + replace;
+					logger.info("end '" + ret + "' ' " + left + "' '" + replace + "'");
 				} else {
 					final String left = ret.substring(0, index - 1);
 					final String right = ret.substring(index + find.length());
@@ -1150,7 +1133,7 @@ public class StringUtils {
 
 	public static String[] split(final String inString, final String separator) {
 		final StringTokenizer toke = new StringTokenizer(inString, separator);
-		final String strings[] = new String[toke.countTokens()];
+		final String[] strings = new String[toke.countTokens()];
 		for (int i = 0; toke.hasMoreTokens(); i++) {
 			strings[i] = toke.nextToken();
 		}
@@ -1230,12 +1213,11 @@ public class StringUtils {
 				right = new StringBuilder();
 			}
 			final char ch = in.charAt(i);
-			final int ich = ch;
 			left.append(Integer.toHexString(ch));
-			if (ich > 0 && ich < 27) {
+			if ((int) ch > 0 && (int) ch < 27) {
 				right.append("^");
-				right.append(alphabet.charAt(ich));
-			} else if (ich >= 32 && ich <= 127) {
+				right.append(alphabet.charAt(ch));
+			} else if ((int) ch >= 32 && (int) ch <= 127) {
 				right.append(ch);
 			} else {
 				right.append('#');
@@ -1417,8 +1399,7 @@ public class StringUtils {
 	}
 
 	public static String toPrettyName(String dbname) {
-		String heading = dbname;
-		char[] hchars = heading.toCharArray();
+		char[] hchars = dbname.toCharArray();
 		char prev = '_';
 		for (int i = 0; i < hchars.length; i++) {
 			char c = hchars[i];

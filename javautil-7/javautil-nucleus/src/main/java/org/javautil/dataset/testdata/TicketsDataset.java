@@ -1,11 +1,7 @@
 package org.javautil.dataset.testdata;
 
 import org.javautil.collections.ListHelper;
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.DataType;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.javautil.dataset.MatrixDataset;
-import org.javautil.dataset.MutableDataset;
+import org.javautil.dataset.*;
 
 public class TicketsDataset {
 	private final DatasetMetadataImpl meta    = new DatasetMetadataImpl() {

@@ -1,6 +1,5 @@
 package org.javautil.jdbc.metadata;
 
-import org.javautil.jdbc.metadata.Column;
 import org.javautil.jdbc.metadata.renderer.XmlMeta;
 import org.javautil.sql.ColumnAttributes;
 
@@ -208,15 +207,13 @@ public class ColumnMarshall implements ColumnAttributes {
 	}
 
 	public Boolean isDefinitelyNullable() {
-		final boolean retval = nullable == null ? false : nullable.booleanValue();
 
-		return retval;
+		return nullable != null && nullable.booleanValue();
 	}
 
 	public Boolean isNotNullable() {
-		final boolean retval = nullable == null ? false : !nullable.booleanValue();
 
-		return retval;
+		return nullable != null && !nullable.booleanValue();
 	}
 
 	public Boolean isUnknownNullable() {

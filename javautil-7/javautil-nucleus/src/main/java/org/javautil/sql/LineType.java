@@ -11,7 +11,7 @@ public enum LineType {
 	COMMENT, COMMENT_BLOCK_BEGIN, COMMENT_BLOCK_END,
 	MARKDOWN_BLOCK_BEGIN, MARKDOWN_BLOCK_END, SQL_WITH_SEMICOLON,
 	PROCEDURE_BLOCK_END, PROCEDURE_BLOCK_START, SLASH; 
-	private static Pattern semiPattern = Pattern.compile(".*;\\s*--.*");
+	private static final Pattern semiPattern = Pattern.compile(".*;\\s*--.*");
 
 	public static LineType getSqlSplitterLineType(String text) {
 		final String trimmed = text.trim();

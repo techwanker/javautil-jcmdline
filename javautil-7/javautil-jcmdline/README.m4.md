@@ -123,7 +123,6 @@ include({{md/WorkbookWriterArguments.properties}})
 ## Annotations
 </a>
 
-include({{md/Annotations.md}})
 
 --------
 

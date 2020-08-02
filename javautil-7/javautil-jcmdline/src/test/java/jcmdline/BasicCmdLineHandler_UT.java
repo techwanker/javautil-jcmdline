@@ -229,8 +229,7 @@ public class BasicCmdLineHandler_UT extends BetterTestCase {
             new Parameter[] { param1, param2 }, new Parameter[] { param3 });
         cl.setDieOnParseError(false);
         param1.setOptional(StringParam.REQUIRED);
-        assertTrue("parse() did not fail when reqed option missing",
-                   ! cl.parse(new String[] {}));
+        assertFalse("parse() did not fail when reqed option missing", cl.parse(new String[]{}));
         checkForMissingString(cl.getParseError());
         boolean result = cl.parse(new String[] { "-param1", "param value" });
         assertTrue(
@@ -248,8 +247,7 @@ public class BasicCmdLineHandler_UT extends BetterTestCase {
             new Parameter[] { param1 }, new Parameter[] { param3, param4 });
         cl.setDieOnParseError(false);
         param3.setOptional(StringParam.REQUIRED);
-        assertTrue("parse() did not fail when reqed arg missing",
-                   ! cl.parse(new String[] {}));
+        assertFalse("parse() did not fail when reqed arg missing", cl.parse(new String[]{}));
         checkForMissingString(cl.getParseError());
         boolean result = cl.parse(new String[] { "arg value" });
         assertTrue(

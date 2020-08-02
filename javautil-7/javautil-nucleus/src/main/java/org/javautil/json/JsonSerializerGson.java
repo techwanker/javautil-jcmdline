@@ -1,21 +1,19 @@
 package org.javautil.json;
 
-import java.util.LinkedHashMap;
-
-import org.javautil.misc.Timer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import java.util.LinkedHashMap;
 
 public class JsonSerializerGson implements JsonSerializer {
 	private static final String defaultDateFormat = "yyyy-MM-dd'T'HH:mm:ssX";
-	private Logger logger       = LoggerFactory.getLogger(getClass());
+	private final Logger logger       = LoggerFactory.getLogger(getClass());
 	private Gson   mapper;
-	private String dateFormat = defaultDateFormat;;
+	private String dateFormat = defaultDateFormat;
 
-	private Gson   prettyMapper = new GsonBuilder().setPrettyPrinting().create();
+    private Gson   prettyMapper = new GsonBuilder().setPrettyPrinting().create();
 
 
 	public JsonSerializerGson() {
@@ -53,15 +51,13 @@ public class JsonSerializerGson implements JsonSerializer {
 	@Override
 	public LinkedHashMap<String, Object> toMapFromJson(String json) {
 		instantiateMapper();
-		LinkedHashMap map = mapper.fromJson(json, LinkedHashMap.class);
-		return map;
+		return mapper.fromJson(json, LinkedHashMap.class);
 	}
 
 	@Override
 	public LinkedHashMap<String, Object> toMapFromBean(Object bean) {
 		String json = toJsonPretty(bean);
-		LinkedHashMap<String, Object> retval = toMapFromJson(json);
-		return retval;
+		return toMapFromJson(json);
 	}
 
 	public Gson getPrettyMapper() {
@@ -85,8 +81,7 @@ public class JsonSerializerGson implements JsonSerializer {
 	@Override
 	public String toJson(Object o) {
 		instantiateMapper();
-		String retval = mapper.toJson(o);
-		return retval;
+		return mapper.toJson(o);
 	}
 
 

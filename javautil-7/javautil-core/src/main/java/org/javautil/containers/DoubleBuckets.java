@@ -16,7 +16,7 @@ public class DoubleBuckets extends  Buckets<Double>  {
 	 * @see java.lang.Object#toString()
 	 */
 //	private List<String> identifiers;
-	private transient SimpleDateFormat sdf = new SimpleDateFormat(SimpleDateFormats.ISO8601_date_pretty);
+	private final transient SimpleDateFormat sdf = new SimpleDateFormat(SimpleDateFormats.ISO8601_date_pretty);
 //	//private TreeMap<Date,Double> dateMap = new TreeMap<>();
 //	private Date lastBucketEndsBeforeDate;
 //	private Double beforeData;
@@ -25,7 +25,7 @@ public class DoubleBuckets extends  Buckets<Double>  {
 //	//private transient DateGenerator dateGenerator;
 //	private String identifierFormat = "%-16s ";
 //	private String valueFormat = "%10f ";
-	private String nullValueFormat = String.format("%10s ","");
+	private final String nullValueFormat = String.format("%10s ","");
 //	
   	public DoubleBuckets(DateGenerator dg, Double initialValue) {
 		super(dg,initialValue);
@@ -90,7 +90,7 @@ public class DoubleBuckets extends  Buckets<Double>  {
 
 	
 	public void increment(Date date, double d) {
-		Double v = (java.lang.Double) getBucketData(date);
+		Double v = getBucketData(date);
 		if (v == null) {
 			v = 0.0;
 		}

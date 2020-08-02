@@ -4,7 +4,7 @@ package org.javautil.lang;
  * @author jjs
  */
 public class ArrayHelper {
-	private static String newline = System.getProperty("line.separator");
+	private static final String newline = System.getProperty("line.separator");
 
 	/**
 	 * Index of last last not null object.

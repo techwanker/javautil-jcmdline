@@ -1,5 +1,9 @@
 package org.javautil.jdbc.metadata;
 
+import org.javautil.sql.ColumnAttributes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -7,10 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import org.javautil.sql.ColumnAttributes;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * TODO replace with DAO and bean todo create OracleTable that extends this.
@@ -122,7 +122,7 @@ public class JDBCTable extends TableImpl {
 	}
 
 	public boolean isPrimaryKeyColumn(final String columnName) {
-		return getPrimaryKey() == null ? false : getPrimaryKey().getColumnNames().contains(columnName);
+		return getPrimaryKey() != null && getPrimaryKey().getColumnNames().contains(columnName);
 	}
 
 	public String[] getSelectStatementLines() {

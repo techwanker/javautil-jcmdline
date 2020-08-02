@@ -27,7 +27,7 @@ public final class Archive {
 	final Logger             logger      = LoggerFactory.getLogger(getClass());
 	private final File       archiveFile;
 	private static final int BUFFER_SIZE = 1024 * 8;
-	private final byte       buffer[]    = new byte[BUFFER_SIZE];
+	private final byte[] buffer = new byte[BUFFER_SIZE];
 	private ZipOutputStream  zos;
 
 	public Archive(final File archiveFile) {

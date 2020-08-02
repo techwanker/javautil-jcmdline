@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class ConfigurableToStringTestData {
 
 	@SuppressWarnings("unused")
-	transient private Logger      logger      = LoggerFactory.getLogger(getClass());
+    final transient private Logger      logger      = LoggerFactory.getLogger(getClass());
 
 	transient DateFactory         dateFactory = new DateFactory();
 

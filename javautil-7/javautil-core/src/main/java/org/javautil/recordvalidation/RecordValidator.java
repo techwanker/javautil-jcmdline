@@ -7,17 +7,17 @@ package org.javautil.recordvalidation;
  */
 public interface RecordValidator {
 
-	public abstract boolean validateRecord(int recordNumber, String input);
+	boolean validateRecord(int recordNumber, String input);
 
-	public RecordMessages getRecordMessages();
+	RecordMessages getRecordMessages();
 
-	public void setRecordType(String recordType);
+	void setRecordType(String recordType);
 
-	public String getRecordType();
+	String getRecordType();
 
-	public RecordDefinition getDefinition();
+	RecordDefinition getDefinition();
 
-	public String getText();
+	String getText();
 
-	public void setText(String text);
+	void setText(String text);
 }

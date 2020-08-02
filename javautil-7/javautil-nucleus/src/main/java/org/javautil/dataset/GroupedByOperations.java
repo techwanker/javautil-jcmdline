@@ -1,14 +1,14 @@
 package org.javautil.dataset;
 
-import java.util.List;
-
 import org.javautil.collections.Tuple;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 public class GroupedByOperations {
 
-	private static Logger logger = LoggerFactory.getLogger(GroupedByOperations.class);
+	private static final Logger logger = LoggerFactory.getLogger(GroupedByOperations.class);
 
 	/**
 	 * Sum the given column for each GroupedBy in GroupBy. todo edit

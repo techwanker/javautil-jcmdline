@@ -1,9 +1,9 @@
 package org.javautil.misc;
-package org.javautil.core.misc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.LoggerFactory;
+
+package org.javautil.core.misc;
 
 
 @Deprecated // user org.javautil.core.Timer

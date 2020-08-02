@@ -16,8 +16,8 @@ public class FileInfoMarshallerDefault implements FileInfoListener, FileInfoMars
 	private final Logger        logger        = LoggerFactory.getLogger(getClass());
 	private final CsvWriter     csv           = new CsvWriter();
 	private final Writer        writer;
-	private SimpleDateFormatter dateFormatter = new SimpleDateFormatter(CommonDateFormat.ISO_DATE);
-	private SimpleDateFormatter timeFormatter = new SimpleDateFormatter(CommonDateFormat.SECONDS);
+	private final SimpleDateFormatter dateFormatter = new SimpleDateFormatter(CommonDateFormat.ISO_DATE);
+	private final SimpleDateFormatter timeFormatter = new SimpleDateFormatter(CommonDateFormat.SECONDS);
 	private String              sourceName    = null;
 
 	public FileInfoMarshallerDefault(final Writer w) {

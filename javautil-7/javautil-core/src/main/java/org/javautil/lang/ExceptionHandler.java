@@ -1,7 +1,7 @@
 package org.javautil.lang;
 
 public interface ExceptionHandler {
-	public void handleException(Exception exception);
+	void handleException(Exception exception);
 
 	/**
 	 * Release any resources held.

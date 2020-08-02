@@ -42,7 +42,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD })
 public @interface AcceptableValues {
-	public String[] values();
+	String[] values();
 
 	// String[] getValues() {
 	// return value;

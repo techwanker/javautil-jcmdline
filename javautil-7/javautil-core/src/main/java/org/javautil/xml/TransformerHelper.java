@@ -17,7 +17,7 @@ import org.dom4j.Document;
 import org.dom4j.io.DocumentSource;
 
 public class TransformerHelper {
-	private static TransformerFactory factory     = TransformerFactory.newInstance();
+	private static final TransformerFactory factory     = TransformerFactory.newInstance();
 
 	private Transformer               transformer = null;
 

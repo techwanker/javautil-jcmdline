@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class PropertyDefinitionS {
 	private static final String                 className = "com.javautil.property.PropertyDefinitionS";
 	private static final Logger                 logger    = LoggerFactory.getLogger(className);
-	private HashMap<String, PropertyDefinition> map       = new HashMap<String, PropertyDefinition>();
+	private final HashMap<String, PropertyDefinition> map       = new HashMap<String, PropertyDefinition>();
 
 	public PropertyDefinitionS() {
 	}

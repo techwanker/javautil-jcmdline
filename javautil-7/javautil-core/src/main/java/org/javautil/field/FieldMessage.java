@@ -35,9 +35,9 @@ public class FieldMessage {
 
 	public void setMessage(final String message) {
 		this.message = message;
-	};
+	}
 
-	@Override
+    @Override
 	public String toString() {
 		return fieldDefinition.toString() + " " + message;
 	}

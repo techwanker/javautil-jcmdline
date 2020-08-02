@@ -7,7 +7,7 @@ public class DatabaseObjectId implements Comparable<DatabaseObjectId> {
 
 	private String          objectName;
 
-	private static NullPair nullCompare = new NullPair();
+	private static final NullPair nullCompare = new NullPair();
 
 	public DatabaseObjectId(String schemaName, String objectName) {
 		super();
@@ -77,12 +77,9 @@ public class DatabaseObjectId implements Comparable<DatabaseObjectId> {
 		} else if (!objectName.equals(other.objectName))
 			return false;
 		if (schemaName == null) {
-			if (other.schemaName != null)
-				return false;
-		} else if (!schemaName.equals(other.schemaName))
-			return false;
-		return true;
-	}
+            return other.schemaName == null;
+		} else return schemaName.equals(other.schemaName);
+    }
 
 	@Override
 	public int compareTo(DatabaseObjectId otherId) {

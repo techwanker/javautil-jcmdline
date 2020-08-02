@@ -1,7 +1,5 @@
 package org.javautil.document.renderer;
 
-import org.javautil.document.renderer.AbstractRendererRequestImpl;
-
 /**
  * 
  * @author jjs@javautil.org

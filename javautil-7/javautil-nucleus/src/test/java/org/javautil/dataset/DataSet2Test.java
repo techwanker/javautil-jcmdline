@@ -13,9 +13,6 @@ import java.util.TreeMap;
 
 import javax.xml.transform.stream.StreamResult;
 
-import org.javautil.dataset.testdata.FeesDataset;
-
-
 import org.javautil.collections.ListHelper;
 import org.javautil.dataset.testdata.ConvictionsDataset;
 import org.javautil.dataset.testdata.FeesDataset;
@@ -191,7 +188,7 @@ public class DataSet2Test extends BaseTest {
 		final MutableDataset fees = FeesDataset.getDataset();
 		CROSSTABBER.setDataSet(fees);
 
-		final MutableDataset crosstabbed = (MutableDataset) CROSSTABBER.getDataSet();
+		final MutableDataset crosstabbed = CROSSTABBER.getDataSet();
 		final DatasetAppender dsa = new DatasetAppender();
 		dsa.appendRight(crosstabbed, fees, idKeyMap);
 		assertExpected(crosstabbed);

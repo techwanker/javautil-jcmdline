@@ -1,11 +1,11 @@
 package org.javautil.sql;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
-
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 //// This doesn't work

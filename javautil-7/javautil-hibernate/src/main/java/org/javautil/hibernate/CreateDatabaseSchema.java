@@ -3,11 +3,11 @@ package org.javautil.hibernate;
 import java.io.File;
 import java.io.FilenameFilter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.javautil.commandline.CommandLineHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CreateDatabaseSchema {
 

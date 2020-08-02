@@ -6,9 +6,9 @@ import java.util.TreeMap;
 
 public class CursorBreakScripts {
 
-	private HashMap<String, HashMap<String, String>>  cursorColumnScripts    = new HashMap<String, HashMap<String, String>>();
-	private HashMap<String, TreeMap<Integer, String>> cursorIndexColumnNames = new HashMap<String, TreeMap<Integer, String>>();
-	private HashMap<String, HashMap<String, Integer>> cursorColumnNameIndex  = new HashMap<String, HashMap<String, Integer>>();
+	private final HashMap<String, HashMap<String, String>>  cursorColumnScripts    = new HashMap<String, HashMap<String, String>>();
+	private final HashMap<String, TreeMap<Integer, String>> cursorIndexColumnNames = new HashMap<String, TreeMap<Integer, String>>();
+	private final HashMap<String, HashMap<String, Integer>> cursorColumnNameIndex  = new HashMap<String, HashMap<String, Integer>>();
 
 	public void add(String cursorName, String columnName, String script) {
 		HashMap<String, String> columnsScripts = cursorColumnScripts.get(cursorName);
@@ -39,8 +39,7 @@ public class CursorBreakScripts {
 
 	public Collection<String> getBreakColumns(String cursorName) {
 		TreeMap<Integer, String> indexColumnNames = cursorIndexColumnNames.get(cursorName);
-		Collection<String> breakColumns = indexColumnNames.values();
-		return breakColumns;
+		return indexColumnNames.values();
 	}
 
 	public String getScript(String cursorName, String columnName) {

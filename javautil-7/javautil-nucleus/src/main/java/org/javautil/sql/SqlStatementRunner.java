@@ -1,27 +1,22 @@
 package org.javautil.sql;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.javautil.sql.Binds;
-import org.javautil.sql.Dialect;
-import org.javautil.sql.SqlStatement;
-import org.javautil.sql.SqlStatements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class SqlStatementRunner {
 	private final Logger  logger = LoggerFactory.getLogger(this.getClass());
 
-	private Connection    connection;
-	private SqlStatements sqlStatements;
-	private Dialect       dialect;
-	private int           verbosity;
+	private final Connection    connection;
+	private final SqlStatements sqlStatements;
+	private final int           verbosity;
 
 	public SqlStatementRunner(Connection connection, Dialect dialect, SqlStatements sqlStatements, int verbosity) {
 		this.connection = connection;
-		this.dialect = dialect;
 		this.sqlStatements = sqlStatements;
 		this.verbosity = verbosity;
 	}

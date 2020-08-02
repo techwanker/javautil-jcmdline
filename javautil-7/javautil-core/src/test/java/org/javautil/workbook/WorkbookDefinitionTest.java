@@ -25,11 +25,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class WorkbookDefinitionTest {
-	private Logger logger               = LoggerFactory.getLogger(getClass());
-	private String definitionsDirectory = WorkbookTestConstants.definitionsDirectory;
+	private final Logger logger               = LoggerFactory.getLogger(getClass());
+	private final String definitionsDirectory = WorkbookTestConstants.definitionsDirectory;
 
 	@Test
-	public void testDataloadWorkbookMeta() throws JsonParseException, JsonMappingException, IOException,
+	public void testDataloadWorkbookMeta() throws IOException,
 	    IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String name = "DataLoadWorkbookMeta.yaml";
 		InputStream is = new FileInputStream(definitionsDirectory + name);
@@ -51,7 +51,7 @@ public class WorkbookDefinitionTest {
 
 	@Ignore // TODO why does this not work
 	@Test
-	public void testDataloadWorkbookFromResource() throws JsonParseException, JsonMappingException, IOException,
+	public void testDataloadWorkbookFromResource() throws IOException,
 	    IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String name = "DataLoadWorkbook.yaml";
 		InputStream is = getClass().getClassLoader().getResourceAsStream(name);
@@ -61,7 +61,7 @@ public class WorkbookDefinitionTest {
 	}
 
 	@Test
-	public void testDataloadWorkbookFromSrcSheets() throws JsonParseException, JsonMappingException, IOException,
+	public void testDataloadWorkbookFromSrcSheets() throws IOException,
 	    IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String name = "DataLoadWorkbook.yaml";
 		InputStream is = new FileInputStream(definitionsDirectory + name);
@@ -74,7 +74,7 @@ public class WorkbookDefinitionTest {
 	}
 
 	@Test
-	public void metaTest() throws JsonParseException, JsonMappingException, IOException, PropertyVetoException,
+	public void metaTest() throws IOException, PropertyVetoException,
 	    SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		File file = new File("src/test/resources/workbook/DataLoadWorkbookMeta2.yaml");
 		logger.info("processing file: '{}'", file.getAbsoluteFile());

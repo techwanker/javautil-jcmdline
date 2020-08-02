@@ -1,16 +1,16 @@
 package org.javautil.sql;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.javautil.text.SimpleDateFormatFactory;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.javautil.text.SimpleDateFormatFactory;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class H2FileDatabaseTest {
 	private static final Logger logger = LoggerFactory.getLogger(H2FileDatabaseTest.class);

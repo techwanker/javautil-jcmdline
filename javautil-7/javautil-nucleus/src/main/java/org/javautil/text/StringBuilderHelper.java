@@ -13,8 +13,7 @@ public class StringBuilderHelper {
 
 	private String                 separator      = ": ";
 	private String                 pairSeparator  = "\n";
-	private StringBuilder          sb             = new StringBuilder();
-	private boolean                skipNullValues = true;
+	private final StringBuilder          sb             = new StringBuilder();
 
 	public StringBuilderHelper() {
 		super();
@@ -22,7 +21,7 @@ public class StringBuilderHelper {
 
 	public StringBuilderHelper(final String val) {
 		super();
-		sb.append(val.toString());
+		sb.append(val);
 		sb.append("\n");
 	}
 
@@ -31,6 +30,7 @@ public class StringBuilderHelper {
 	}
 
 	public StringBuilderHelper addNameValue(final String name, final Object value) {
+		boolean skipNullValues = true;
 		if (value != null || !skipNullValues) {
 			sb.append(name);
 			sb.append(separator);

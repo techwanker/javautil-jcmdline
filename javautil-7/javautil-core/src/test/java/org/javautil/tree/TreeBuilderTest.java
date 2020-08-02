@@ -3,13 +3,13 @@ package org.javautil.tree;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.javautil.tree.TreeBuilder;
-import org.javautil.tree.TreeNode;
-import org.javautil.tree.TreeNodeImpl;
+
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import junit.framework.Assert;
+
+import org.junit.Assert.*;
 
 public class TreeBuilderTest {
 

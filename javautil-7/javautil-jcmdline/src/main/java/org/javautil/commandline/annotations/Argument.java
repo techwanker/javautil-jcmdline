@@ -4,9 +4,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.util.ArrayList;
-
-import org.javautil.commandline.ParamType;
 
 /**
  * Annotation type to indicate a parameter should be treated as argument.

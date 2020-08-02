@@ -23,11 +23,11 @@ class PropertyLineParser {
 	 * number.
 	 */
 
-	private int             logicalLineNbr;
+	private final int             logicalLineNbr;
 
 	/** what does this contain ? */
 	private String          line;
-	private String          text;
+	private final String          text;
 	private Object          payLoad        = null;
 	int                     len;
 	String                  directive;

@@ -16,10 +16,10 @@ public class FileNode {
 	private static final String className = "com.javautil.util.FileNode";
 	private static final Logger logger    = LoggerFactory.getLogger(className);
 
-	private File                file;
+	private final File                file;
 	private long                lastModifiedCache;
-	private ArrayList<FileNode> children  = new ArrayList<FileNode>();
-	private FileNode            parent    = null;
+	private final ArrayList<FileNode> children  = new ArrayList<FileNode>();
+	private final FileNode            parent    = null;
 
 	public FileNode(File file, FileNode parent) {
 		logger.debug("file: " + file + " parent " + parent);

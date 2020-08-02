@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
 import org.javautil.dataset.ListOfNameValueDataset;
 import org.javautil.document.style.StyleFactory;
 import org.javautil.joblog.persistence.JoblogPersistence;

@@ -101,7 +101,7 @@ public class XmlRendererTest {
 		final StringWriter testWriter = new StringWriter();
 		final StreamResult result = new StreamResult(testWriter);
 		request.setStreamResult(result);
-		request.setBreaks(Arrays.asList(new String[] { "yr" }));
+		request.setBreaks(Arrays.asList("yr"));
 		request.setDataset(simpleDataset);
 		writer.setRequest(request);
 		writer.process();
@@ -116,7 +116,7 @@ public class XmlRendererTest {
 		final StringWriter testWriter = new StringWriter();
 		final StreamResult result = new StreamResult(testWriter);
 		request.setStreamResult(result);
-		request.setBreaks(Arrays.asList(new String[] { "yr", "mth" }));
+		request.setBreaks(Arrays.asList("yr", "mth"));
 		request.setDataset(simpleDataset);
 		writer.setRequest(request);
 		writer.process();

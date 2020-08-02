@@ -15,13 +15,13 @@ import org.slf4j.LoggerFactory;
 public class IntrospectiveMapConstructor {
 	private transient final Logger logger                = LoggerFactory.getLogger(getClass());
 
-	private ClassCache             cache;
+	private final ClassCache             cache;
 
-	private Map<String, Object>    map;
+	private final Map<String, Object>    map;
 
-	private Object                 target;
+	private final Object                 target;
 
-	private ArrayList<Field>       missingRequiredFields = new ArrayList<>();
+	private final ArrayList<Field>       missingRequiredFields = new ArrayList<>();
 
 	public IntrospectiveMapConstructor(Object target, Map<String, Object> map) {
 		this.map = map;

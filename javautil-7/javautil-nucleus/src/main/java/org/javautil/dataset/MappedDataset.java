@@ -1,11 +1,11 @@
 package org.javautil.dataset;
 
+import org.javautil.collections.ArrayComparator;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
-import org.javautil.collections.ArrayComparator;
 
 /**
  * 
@@ -25,7 +25,6 @@ public class MappedDataset {
 	private final Dataset                             unmappedDataSet;
 	private Integer[]                                 colIdIndex;
 	private DatasetIterator<?>                        iter;
-	private DatasetMetadata                           unmappedMeta;
 	private final Map<Integer, ColumnMetadata>        idColMeta  = new TreeMap<Integer, ColumnMetadata>();
 	private final Map<Integer, ColumnMetadata>        valColMeta = new TreeMap<Integer, ColumnMetadata>();
 
@@ -88,7 +87,7 @@ public class MappedDataset {
 		colIdIndex = new Integer[keyCols.size()];
 		// Object[] id = new Object[keyCols.size()];
 		iter = unmappedDataSet.getDatasetIterator();
-		unmappedMeta = iter.getDatasetMetadata();
+		DatasetMetadata unmappedMeta = iter.getDatasetMetadata();
 		int i = 0;
 		for (final String colName : keyCols) {
 			final Integer index = unmappedMeta.getColumnIndex(colName);

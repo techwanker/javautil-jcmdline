@@ -17,10 +17,9 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.javautil.reflect.ReflectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import org.javautil.reflect.ReflectUtils;
 
 //https://stackoverflow.com/questions/8524011/java-reflection-how-can-i-get-the-all-getter-methods-of-a-java-class-and-invoke
 //Object f = new PropertyDescriptor("field", A.class).getReadMethod().invoke(a);

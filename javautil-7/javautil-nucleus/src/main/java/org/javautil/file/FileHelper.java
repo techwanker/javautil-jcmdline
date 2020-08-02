@@ -1,18 +1,10 @@
 package org.javautil.file;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.ArrayList;
 
 /**
  * 
@@ -70,8 +62,7 @@ public class FileHelper {
 		directory.mkdirs();
 		final String fileName = pathName + "/" + className + ".java";
 		final File outputFile = new File(fileName);
-		final BufferedWriter returnValue = new BufferedWriter(new FileWriter(outputFile));
-		return returnValue;
+		return new BufferedWriter(new FileWriter(outputFile));
 	}
 
 	public static String getPathForFileName(final String fileName) {
@@ -92,7 +83,7 @@ public class FileHelper {
 			String suffix = nbr.toString();
 			while (suffix.length() > 2) {
 				prefix = suffix.substring(0, 2);
-				buff.append(prefix + "/");
+				buff.append(prefix).append("/");
 				suffix = suffix.substring(2);
 			}
 			buff.append(nbr.toString());
@@ -162,15 +153,13 @@ public class FileHelper {
 			throw new java.io.IOException("directory: '" + directory + "' is not writeable");
 		}
 		final String filePath = directory.getAbsolutePath() + File.separatorChar + fileName;
-		final File f = new File(filePath);
 		// todo doesn't check if the file exists need new getNewWriteableFile
-		return f;
+		return new File(filePath);
 	}
 
 	public static File getWritableFileInTemp(final String fileName) throws IOException {
 		final File tmpDir = getTmpDir();
-		final File f = getWriteableFile(tmpDir, fileName);
-		return f;
+		return getWriteableFile(tmpDir, fileName);
 	}
 
 	public static void closeInputStream(final InputStream in) {

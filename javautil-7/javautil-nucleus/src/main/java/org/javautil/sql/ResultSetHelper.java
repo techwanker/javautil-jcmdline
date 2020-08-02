@@ -1,15 +1,15 @@
 package org.javautil.sql;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import org.javautil.containers.ListOfLists;
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ResultSetHelper {
 	private static transient final Logger logger = LoggerFactory.getLogger(ResultSetHelper.class

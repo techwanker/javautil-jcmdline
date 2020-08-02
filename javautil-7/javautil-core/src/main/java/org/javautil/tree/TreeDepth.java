@@ -2,8 +2,8 @@ package org.javautil.tree;
 
 public interface TreeDepth {
 
-	public abstract int getDepth();
+	int getDepth();
 
-	public abstract String getName();
+	String getName();
 
 }

@@ -34,7 +34,6 @@
 package jcmdline;
 
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -114,8 +113,7 @@ public class LoggerCmdLineHandler_UT extends BetterTestCase {
         // Try message of lesser level - should not go through
         logger.log(lesserLevel, "log message at lesser level");
         flushHandlers(logger);
-        assertTrue("log message at lesser level came through",
-                   stream.size() == 0);
+        assertEquals("log message at lesser level came through", 0, stream.size());
 
         // Try message of greater level - should go through
         logger.log(greaterLevel, "log message at greater level");

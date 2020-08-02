@@ -1,42 +1,38 @@
 package org.javautil.sql;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Types;
+import org.javautil.containers.StringStores;
+
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import org.javautil.containers.StringStores;
-
 public class BreakingResultSetHelper {
 
 	private long                     rowNumber       = 0;
 
-	private Logger                   logger          = Logger.getLogger(this.getClass().getName());
+	private final Logger                   logger          = Logger.getLogger(this.getClass().getName());
 
-	private HashMap<String, String>  stringPool      = new HashMap<String, String>();
+	private final HashMap<String, String>  stringPool      = new HashMap<String, String>();
 
-	private HashMap<Date, Date>      datePool        = new HashMap<Date, Date>();
+	private final HashMap<Date, Date>      datePool        = new HashMap<Date, Date>();
 
 	private ArrayList<String>        breaks          = new ArrayList<String>();
 
-	private StringStores             stringStores    = new StringStores();
+	private final StringStores             stringStores    = new StringStores();
 
-	private ResultSet                rset;
+	private final ResultSet                rset;
 
-	private HashMap<String, Integer> columnNameIndex = new HashMap<String, Integer>();
+	private final HashMap<String, Integer> columnNameIndex = new HashMap<String, Integer>();
 
-	private HashMap<Integer, String> indexColumnName = new HashMap<Integer, String>();
+	private final HashMap<Integer, String> indexColumnName = new HashMap<Integer, String>();
 
 	private int                      datesFetched    = 0;
 
 	private int                      stringsFetched  = 0;
 
-	private ResultSetMetaData        meta;
+	private final ResultSetMetaData        meta;
 
 	private SimpleDateFormat         dateFormatter   = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -97,8 +93,7 @@ public class BreakingResultSetHelper {
 	}
 
 	public int getBreakCount() {
-		int retval = breaks == null ? 0 : breaks.size();
-		return retval;
+		return breaks == null ? 0 : breaks.size();
 	}
 
 	/**
@@ -134,7 +129,7 @@ public class BreakingResultSetHelper {
 			if (column == null) {
 				StringBuilder b = new StringBuilder();
 				for (String columnName : columnNameIndex.keySet()) {
-					b.append(columnName + " ");
+					b.append(columnName).append(" ");
 				}
 				throw new IllegalStateException("column " + currentBreak + "is not in resultSet " + b.toString());
 			}
@@ -165,8 +160,7 @@ public class BreakingResultSetHelper {
 		if (columnName == null) {
 			throw new IllegalStateException("columnName is null");
 		}
-		String retval = breakScripts.getScript(cursorName, columnName);
-		return retval;
+		return breakScripts.getScript(cursorName, columnName);
 	}
 
 	public java.sql.Date getDate(int columnIndex) throws SQLException {

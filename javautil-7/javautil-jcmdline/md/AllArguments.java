@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.javautil.commandline.CommandLineOptionsAndArgumentsHandler;
 import org.javautil.commandline.ParamType;
 import org.javautil.commandline.annotations.AcceptableValues;

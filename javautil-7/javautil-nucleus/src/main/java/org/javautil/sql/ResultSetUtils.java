@@ -1,19 +1,17 @@
 package org.javautil.sql;
 
+import org.javautil.containers.ListOfLists;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.javautil.containers.ListOfLists;
-import org.javautil.containers.ListOfNameValue;
-import org.javautil.containers.NameValue;
-import org.javautil.sql.ResultSetMetaDataCache;
-import org.javautil.sql.TooManyRowsException;
-
 public class ResultSetUtils {
 	private ResultSetMetaDataCache resultSetMetaDataCache;
-	private ResultSet              rset;
+	private final ResultSet              rset;
 
 	/**
 	 * @param rset        the ResultSet

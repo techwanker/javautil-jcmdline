@@ -104,8 +104,6 @@ public class DateTimeParam extends AbstractParameter {
     private static final DecimalFormat secondFmt = new DecimalFormat("00");
     private static final DecimalFormat msFmt = new DecimalFormat("000");
 
-    private Date date = null;
-
     /**
      * The seconds default to use if not specified by the user.
      * This will default to 0 if never specified for a DateTimeParam object.
@@ -524,7 +522,7 @@ public class DateTimeParam extends AbstractParameter {
         String[] sVals = new String[vals.size()];
         int i = 0;
         for (Iterator itr = vals.iterator(); itr.hasNext(); ) {
-            date = (Date)itr.next();
+            Date date = (Date) itr.next();
             sVals[i] = dateFmt.format(date);
             i++;
         }

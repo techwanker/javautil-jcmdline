@@ -1,5 +1,9 @@
 package org.javautil.text;
 
+import org.javautil.sql.Binds;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,20 +13,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.javautil.sql.Binds;
-import org.javautil.text.SimpleDateFormatFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import jcmdline.StringParam;
-
 public class BindsFactory {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private final static   SimpleDateFormat formatter = SimpleDateFormatFactory.getYyyyDashMmDashDd();
 
-	private Pattern pattern = Pattern.compile ("((?:19|20)\\d\\d)[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])");
+	private final Pattern pattern = Pattern.compile ("((?:19|20)\\d\\d)[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])");
 
 	private static final HashMap<String, Object> hardcode = new HashMap<String, Object>() {{
 		put("false",Boolean.FALSE);
@@ -111,8 +108,7 @@ public class BindsFactory {
 			if (! str.endsWith("\"")) {
 				throw new IllegalArgumentException("starts with \" but doesn't end with one");
 			} else {
-				String noquote = str.substring(1,str.length() - 1);
-				return noquote;
+				return str.substring(1,str.length() - 1);
 			}
 		}
 

@@ -1,10 +1,25 @@
 package org.javautil.csv;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.Writer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.javautil.dataset.ColumnMetadata;
+import org.javautil.dataset.DatasetMetadataFactory;
+import org.javautil.dataset.MutableDatasetMetadata;
+import org.javautil.jdbc.metadata.DatabaseMetadata;
+import org.javautil.json.JsonSerializer;
+import org.javautil.json.JsonSerializerGson;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
+import org.javautil.sql.SimpleResultSetIterator;
+import org.javautil.sql.SqlStatement;
+import org.javautil.text.CommonDateFormat;
+import org.javautil.text.SimpleDateFormats;
+import org.javautil.text.SimpleDateFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.sql.DataSource;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -16,32 +31,11 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.javautil.jdbc.metadata.DatabaseMetadata;
-import org.javautil.json.JsonSerializer;
-import org.javautil.json.JsonSerializerGson;
-import org.javautil.sql.Binds;
-import org.javautil.sql.DataSourceFactory;
-import org.javautil.sql.SimpleResultSetIterator;
-import org.javautil.text.CommonDateFormat;
-import org.javautil.text.SimpleDateFormats;
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.DatasetMetadataFactory;
-import org.javautil.dataset.MutableDatasetMetadata;
-import org.javautil.sql.SqlStatement;
-import org.javautil.text.SimpleDateFormatter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 public class SqlCsvExporter {
 
 	// TODO add number of rows and column metadata
 	@JsonIgnore
-	private Date                                    startTime               = new Date();
+	private final Date                                    startTime               = new Date();
 	@JsonIgnore
 	private Date                                    endTime;
 
@@ -52,7 +46,7 @@ public class SqlCsvExporter {
 	@JsonIgnore
 	transient private SimpleDateFormat              exportDateTimeFormat;
 	@JsonIgnore
-	transient private SimpleDateFormatter           exportDateTimeFormatter = new SimpleDateFormatter(
+    final transient private SimpleDateFormatter           exportDateTimeFormatter = new SimpleDateFormatter(
 	    CommonDateFormat.SECONDS);
 	private String                                  sql;
 	@JsonIgnore
@@ -74,14 +68,12 @@ public class SqlCsvExporter {
 	transient private MutableDatasetMetadata        metadata;
 	private File                                    file;
 	@JsonIgnore
-	transient private OutputStream                  outputStream;
-	@JsonIgnore
 	private ArrayList<String>                       columnNames;
 	@JsonIgnore
 	transient private CsvWriter                     writer;
 
 	@JsonIgnore
-	transient private Logger                        logger                  = LoggerFactory.getLogger(getClass());
+    final transient private Logger                        logger                  = LoggerFactory.getLogger(getClass());
 
 	public SqlCsvExporter(String sql, Connection connection, Binds binds) {
 		super();
@@ -141,7 +133,6 @@ public class SqlCsvExporter {
 	}
 
 	public void setOutputStream(OutputStream baos) {
-		this.outputStream = baos;
 
 	}
 
@@ -316,12 +307,9 @@ public class SqlCsvExporter {
 		} else if (!sql.equals(other.sql))
 			return false;
 		if (startTime == null) {
-			if (other.startTime != null)
-				return false;
-		} else if (!startTime.equals(other.startTime))
-			return false;
-		return true;
-	}
+            return other.startTime == null;
+		} else return startTime.equals(other.startTime);
+    }
 
 	void run(SqlCsvExporterArguments args) throws SQLException, IOException, ParseException {
 		String[] upw = args.getUserNamePassword().split("/");

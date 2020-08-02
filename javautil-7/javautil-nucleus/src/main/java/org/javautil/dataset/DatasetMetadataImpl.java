@@ -1,16 +1,6 @@
-package org.javautil.dataset; 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeMap;
-import java.util.TreeSet;
+package org.javautil.dataset;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.javautil.document.style.HorizontalAlignment;
 import org.javautil.sql.ResultSetMetaDataCache;
 import org.javautil.sql.ResultSetMetadataColumnCache;
@@ -18,7 +8,11 @@ import org.javautil.text.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /*
  * 2019-01-26 had to eliminate overrides for setters and have just one to allow
@@ -33,7 +27,7 @@ public class DatasetMetadataImpl implements MutableDatasetMetadata {
 	@JsonIgnore
 	private static final Logger  logger  = LoggerFactory.getLogger(DatasetMetadataImpl.class);
 
-	private LinkedHashMap<String, ColumnMetadata> columnMetaDataMap         = new LinkedHashMap<>();
+	private final LinkedHashMap<String, ColumnMetadata> columnMetaDataMap         = new LinkedHashMap<>();
 
 	public DatasetMetadataImpl() {
 	}
@@ -65,8 +59,7 @@ public class DatasetMetadataImpl implements MutableDatasetMetadata {
 		for (ResultSetMetadataColumnCache col : cache.getColumns()) {
 			ColumnMetadata cm = new ColumnMetadata();
 			cm.setColumnIndex(col.getColumnIndex());
-			;
-			cm.setColumnDisplaySize(col.getColumnDisplaySize());
+            cm.setColumnDisplaySize(col.getColumnDisplaySize());
 			cm.setColumnName(col.getColumnName());
 			cm.setDataType(col.getDataType());
 			cm.setDataTypeName(col.getColumnTypeName());
@@ -237,7 +230,7 @@ public class DatasetMetadataImpl implements MutableDatasetMetadata {
 			sb.append("' ");
 			sb.append("\n");
 			sb.append(toString());
-			sb.append("indexes are " + cids);
+			sb.append("indexes are ").append(cids);
 			throw new MetadataException(sb.toString());
 		}
 		return retval.get(0);

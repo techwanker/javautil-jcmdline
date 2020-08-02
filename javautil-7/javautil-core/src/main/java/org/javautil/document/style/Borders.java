@@ -3,8 +3,8 @@ package org.javautil.document.style;
 public interface Borders {
 
 	@Override
-	public String toString();
+    String toString();
 
-	public Borders copyOf();
+	Borders copyOf();
 
 }

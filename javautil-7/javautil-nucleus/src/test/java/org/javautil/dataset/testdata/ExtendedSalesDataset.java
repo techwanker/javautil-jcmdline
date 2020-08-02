@@ -1,19 +1,14 @@
 package org.javautil.dataset.testdata;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.CrosstabColumns;
-import org.javautil.dataset.DataType;
-import org.javautil.dataset.Dataset;
-import org.javautil.dataset.DatasetCrosstabber;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.javautil.dataset.MatrixDataset;
+import org.javautil.dataset.*;
 import org.javautil.document.style.HorizontalAlignment;
 import org.javautil.util.Day;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 
@@ -93,23 +88,18 @@ public class ExtendedSalesDataset {
 	@SuppressWarnings("unchecked")
 	ArrayList<Object> toList(final Object... o) {
 		final ArrayList<Object> al = new ArrayList<Object>(o.length);
-		for (final Object element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 
 	List<String> toList(final String... o) {
 		final ArrayList<String> al = new ArrayList<String>(o.length);
-		for (final String element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 
 	public List<String> getRowIdentifyingColumns() {
-		final List<String> rowId = toList("CST_ID", "PRODUCT_ID", "PRODUCT_DESCR");
-		return rowId;
+		return toList("CST_ID", "PRODUCT_ID", "PRODUCT_DESCR");
 	}
 
 	// public List<String> getNonRowIdentifyingColumns() {
@@ -119,8 +109,7 @@ public class ExtendedSalesDataset {
 	// }
 
 	public String getColumnIdentifyingColumns() {
-		final String columnId = "MONTH";
-		return columnId;
+		return "MONTH";
 	}
 
 	public List<String> getCellColumnNames() {
@@ -140,8 +129,7 @@ public class ExtendedSalesDataset {
 		coke.setCrosstabColumns(ctc);
 		coke.setDataSet(purchases);
 
-		final Dataset ds = coke.getDataSet();
-		return ds;
+		return coke.getDataSet();
 	}
 
 }

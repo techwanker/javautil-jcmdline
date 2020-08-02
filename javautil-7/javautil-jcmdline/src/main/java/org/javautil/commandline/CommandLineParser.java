@@ -6,13 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import jcmdline.CmdLineException;
-import jcmdline.PosixCmdLineParser;
-
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import jcmdline.CmdLineException;
+import jcmdline.PosixCmdLineParser;
 
 
 /**

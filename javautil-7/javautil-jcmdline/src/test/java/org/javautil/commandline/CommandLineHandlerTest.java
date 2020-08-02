@@ -1,9 +1,9 @@
 package org.javautil.commandline;
 
-import jcmdline.CmdLineException;
-
 import org.javautil.commandline.annotations.DirectoryArguments;
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 public class CommandLineHandlerTest extends BaseTest {
 	// TODO clean up
@@ -37,21 +37,21 @@ public class CommandLineHandlerTest extends BaseTest {
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	// No such directory
-	public void testArguments() throws CmdLineException {
+	public void testArguments()  {
 		// ResourceBundle resources =
 		// ResourceBundle.getBundle("org.javautil.commandline.annotations.DirectoryArguments");
 		final DirectoryArguments argumentBean = new DirectoryArguments();
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString("-required twit");
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void testIllegal() throws CmdLineException {
+	public void testIllegal()  {
 		// ResourceBundle resources =
 		// ResourceBundle.getBundle("org.javautil.commandline.annotations.DirectoryArguments");
 		final DirectoryArguments argumentBean = new DirectoryArguments();
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 		clh.throwIllegalArgumentException();
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString("-requires twit");
@@ -60,14 +60,14 @@ public class CommandLineHandlerTest extends BaseTest {
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	// null bean not allowed.
 	public void testNullBean() {
-		new CommandLineHandlerDelete(null);
+		new CommandLineHandler(null);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	// null bean not allowed.
 	public void testNullArguments() {
 		final DirectoryArguments argumentBean = new DirectoryArguments();
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 		clh.evaluateArguments(null);
 	}
 

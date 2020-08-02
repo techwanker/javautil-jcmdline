@@ -1,9 +1,9 @@
 package org.javautil.dataset.csv;
 
+import org.javautil.dataset.Dataset;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.javautil.dataset.Dataset;
 
 /**
  * TODO document

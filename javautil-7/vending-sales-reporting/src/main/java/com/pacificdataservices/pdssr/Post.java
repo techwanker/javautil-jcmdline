@@ -1,7 +1,7 @@
 package com.pacificdataservices.pdssr;
 
-import java.io.IOException;
 import java.io.Closeable;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,18 +9,16 @@ import java.util.Date;
 
 import javax.sql.DataSource;
 
-import org.javautil.commandline.CommandLineHandlerDelete;
-import org.javautil.sql.Binds;
-import org.javautil.sql.DataSourceFactory;
-import org.javautil.sql.MappedResultSetIterator;
+import org.javautil.commandline.CommandLineHandler;
+import org.javautil.containers.ListOfNameValue;
 import org.javautil.joblog.persistence.JoblogPersistence;
 import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
+import org.javautil.sql.Binds;
+import org.javautil.sql.DataSourceFactory;
 import org.javautil.sql.Dialect;
 import org.javautil.sql.SqlStatement;
 import org.javautil.sql.SqlStatementRunner;
 import org.javautil.sql.SqlStatements;
-import org.javautil.containers.ListOfNameValue;
-import org.javautil.containers.NameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -121,7 +119,7 @@ public class Post {
 	public static PostArgs processArguments(String [] args) {
 		PostArgs arguments = new PostArgs();
 
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(arguments);
+		final CommandLineHandler clh = new CommandLineHandler(arguments);
 		clh.setDieOnParseError(false);
 		clh.evaluateArguments(args);
 		return arguments;

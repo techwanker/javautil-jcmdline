@@ -31,8 +31,6 @@
 
 package jcmdline;
 
-import java.util.Collection;
-
 /**
  * Unit test code for BooleanParam
  *
@@ -68,10 +66,8 @@ public class BooleanParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
     }
 
     /**
@@ -85,15 +81,13 @@ public class BooleanParam_UT extends BetterTestCase {
                      tag, p.getTag());
         assertEquals("desc not set correctly",
                      desc, p.getDesc());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
         assertTrue("optional flag not set correctly",
                p.isOptional());
         assertTrue("hidden flag not set correctly to BooleanParam.HIDDEN",
                p.isHidden());
         p = new BooleanParam(tag, desc, BooleanParam.PUBLIC);
-        assertTrue("hidden flag not set correctly to BooleanParam.PUBLIC",
-               !p.isHidden());
+        assertFalse("hidden flag not set correctly to BooleanParam.PUBLIC", p.isHidden());
     }
 
     /**
@@ -101,8 +95,7 @@ public class BooleanParam_UT extends BetterTestCase {
      */
     public void testAddValue() throws CmdLineException {
         BooleanParam p = new BooleanParam("mytag", "mydesc");
-        assertTrue("BooleanParam not initialized to 'false'",
-               !p.isTrue());
+        assertFalse("BooleanParam not initialized to 'false'", p.isTrue());
         p.setValue("true");
         assertTrue("setValue(\"true\") failed",
                p.isTrue());

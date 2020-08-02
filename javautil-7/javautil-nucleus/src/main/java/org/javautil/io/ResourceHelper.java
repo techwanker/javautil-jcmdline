@@ -1,11 +1,11 @@
 package org.javautil.io;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ResourceHelper {
 
@@ -44,8 +44,7 @@ public class ResourceHelper {
 			throw new IllegalArgumentException("resourceName is null");
 		}
 		final ClassLoader classLoader = object.getClass().getClassLoader();
-		final InputStream is = classLoader.getResourceAsStream(resourceName);
-		return is;
+		return classLoader.getResourceAsStream(resourceName);
 	}
 
 }

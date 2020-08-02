@@ -1,10 +1,10 @@
 package org.javautil.sql;
 
-import java.io.File;
-
 import org.javautil.commandline.annotations.Required;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
 
 public class SqlRunnerArgs {
 	private final Logger logger          = LoggerFactory.getLogger(this.getClass());

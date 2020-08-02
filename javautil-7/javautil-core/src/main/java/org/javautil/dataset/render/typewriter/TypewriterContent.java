@@ -8,24 +8,24 @@ import org.javautil.document.style.Style;
 
 public interface TypewriterContent<R, C> {
 
-	public Map<String, Style> getStylesByName();
+	Map<String, Style> getStylesByName();
 
-	public void setStylesByName(Map<String, Style> stylesByName);
+	void setStylesByName(Map<String, Style> stylesByName);
 
-	public R getRowAt(int rowIndex, boolean createRow);
+	R getRowAt(int rowIndex, boolean createRow);
 
-	public C getCellAt(int rowIndex, int columnIndex, boolean createRow, boolean createCell);
+	C getCellAt(int rowIndex, int columnIndex, boolean createRow, boolean createCell);
 
-	public void setBlankCellAt(int rowIndex, int columnIndex, Style style);
+	void setBlankCellAt(int rowIndex, int columnIndex, Style style);
 
-	public void setCellAt(int rowIndex, int columnIndex, Object data, Style style);
+	void setCellAt(int rowIndex, int columnIndex, Object data, Style style);
 
-	public void setFormulaCellAt(int rowIndex, int columnIndex, String formula, Style style);
+	void setFormulaCellAt(int rowIndex, int columnIndex, String formula, Style style);
 
-	public TypewriterRendererFactory getRendererFactory();
+	TypewriterRendererFactory getRendererFactory();
 
-	public Dimension getDimension();
+	Dimension getDimension();
 
-	public Rectangle getBounds();
+	Rectangle getBounds();
 
 }

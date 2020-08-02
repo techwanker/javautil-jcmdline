@@ -233,12 +233,9 @@ public class ListOfMapsDataset extends ArrayList<Map<String, Object>> implements
 		} else if (!metadata.equals(other.metadata))
 			return false;
 		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
-	}
+            return other.name == null;
+		} else return name.equals(other.name);
+    }
 
 	@Override
 	public String toString() {
@@ -258,6 +255,28 @@ public class ListOfMapsDataset extends ArrayList<Map<String, Object>> implements
 		}
 
 		return sb.toString();
+	}
+
+	//@Override
+	public int getRowCount() {
+		return size();
+	}
+
+	//@Override
+	public Object getValue(int rowIndex, int columnIndex) {
+		// TODO Auto-generated method stub
+		if (rowIndex > size()) { 
+			throw new IllegalArgumentException("dataset has " + size() + " rows requested " + rowIndex);
+		}
+		Map<String,Object> row = get(rowIndex);
+		
+		return row.get(columnIndex);
+	}
+
+	//@Override
+	public Object getValue(int rowIndex, String columnName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -9,7 +9,7 @@ public enum DatabaseObjectType {
 	PACKAGE_SPECIFICATION, PACKAGE_BODY, PROCEDURE, PROGRAM, RESOURCE_PLAN, RULE_SET, SEQUENCE, SYNONYM, TABLE,
 	TABLE_PARTITION, TABLE_SUBPARTITION, TRIGGER, TYPE, TYPE_BODY, UNDEFINED, VIEW, WINDOW_GROUP, XML_SCHEMA;
 
-	private static Logger logger = LoggerFactory.getLogger(DatabaseObjectType.class);
+	private static final Logger logger = LoggerFactory.getLogger(DatabaseObjectType.class);
 
 	public static DatabaseObjectType getDictionaryType(final String in) {
 		if (in == null) {
@@ -215,7 +215,6 @@ public enum DatabaseObjectType {
 	 * @return the string that corresponds to the entry in dba_source
 	 */
 	public String getDbaSourceType() {
-		String retval = this.toString().replace("_", " ");
 		// TODO delete
 		// String retval = null;
 		// switch (this) {
@@ -241,7 +240,7 @@ public enum DatabaseObjectType {
 		// retval = "JAVA SOURCE";
 		// break;
 		// }
-		return retval;
+		return this.toString().replace("_", " ");
 	}
 
 	public boolean hasSource() {

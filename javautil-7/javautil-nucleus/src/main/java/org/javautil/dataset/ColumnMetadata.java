@@ -1,52 +1,64 @@
 package org.javautil.dataset;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+import org.javautil.collections.CollectionFormatter;
+import org.javautil.document.style.HorizontalAlignment;
+import org.javautil.lang.Coerce;
+import org.javautil.sql.ColumnAttributes;
+import org.javautil.sql.Dialect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-import org.javautil.sql.ColumnAttributes;
-import org.javautil.sql.Dialect;
-import org.javautil.collections.CollectionFormatter;
-import org.javautil.document.style.HorizontalAlignment;
-import org.javautil.lang.Coerce;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 /**
  * @author jjs
  */
 public class ColumnMetadata implements ColumnAttributes {
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(aggregateFunction, attributeName, columnDisplaySize, columnIndex, columnName, columnSize,
-				columnType, columnTypeName, comments, dataType, dataTypeName, definitelyNullable, excelFormat, externalFlag,
-				groupName, heading, horizontalAlignmentText, injectedGroupField, javaFormat, label, notNullable, nullable,
-				precision, scale, unKnownNullable, workbookFormula);
-	}
-
 	@JsonIgnore
 	transient private static final Logger logger             = LoggerFactory.getLogger(ColumnMetadata.class);
+	
+	/**]
+	 * The field name.
+	 */
 	@SerializedName("name")
 	@Expose
 	private String  name;
+	/** 
+	 * name of the field to be displayed as a column heading
+	 * for the field.
+	 */
 	@SerializedName("heading")
 	@Expose
 	private String  heading;
+	/**
+	 * Name of the field to be displayed next to the field
+	 */
 	@SerializedName("label")
 	@Expose
 	private String  label;
 	@SerializedName("precision")
 	@Expose
+	/**
+	 * The number of significant digits in the data including
+	 * integral and fractional parts.
+	 * 
+	 * This is fixed for BigDecimal
+	 */
 	private Integer precision;
 	@SerializedName("scale")
 	@Expose
+	/**
+	 * Number of significant digits  after the decimal point 
+	 * for fixed decimal and floating point numbers.
+	 */
 	private Integer scale;
 	@SerializedName("columnDisplaySize")
 	@Expose
@@ -57,18 +69,30 @@ public class ColumnMetadata implements ColumnAttributes {
 	@SerializedName("workbookFormula")
 	@Expose
 	private String  workbookFormula;
+	/**
+	 * A String to be applied as an Excel format when
+	 * rendering as excel
+	 */
 	@SerializedName("excelFormat")
 	@Expose
 	private String  excelFormat;
+	/**
+	 * When java is rendering as a String apply this formatting
+	 */
 	@SerializedName("javaFormat")
 	@Expose
 	private String  javaFormat;
 	@SerializedName("groupName")
 	@Expose
+	
 	private String  groupName;
+
 	@SerializedName("horizontalAlignment")
 	@Expose
 	private String  horizontalAlignmentText;
+	/*
+	 * "left", "center", "right"
+	 */
 	@SerializedName("aggregateFunction")
 	@Expose
 	private String  aggregateFunction;
@@ -213,7 +237,7 @@ public class ColumnMetadata implements ColumnAttributes {
 		list.add(excelFormat); // 112
 		list.add(javaFormat); // 13
 		list.add(groupName); // 14
-		list.add(horizontalAlignmentText == null ? null : horizontalAlignmentText.toString());
+		list.add(horizontalAlignmentText);
 		list.add(aggregateFunction);
 		list.add(inputDateFormatString);
 
@@ -362,7 +386,7 @@ public class ColumnMetadata implements ColumnAttributes {
 	public static Integer getInteger(String text) {
 		Integer retval = null;
 		if (text != null && text.length() > 0) {
-			retval = new Integer(text);
+			retval = Integer.valueOf(text);
 		}
 		return retval;
 	}
@@ -391,32 +415,7 @@ public class ColumnMetadata implements ColumnAttributes {
 
 	}
 
-	//	@Override
-	//	public boolean equals(Object obj) {
-	//		if (this == obj)
-	//			return true;
-	//		if (obj == null)
-	//			return false;
-	//		if (getClass() != obj.getClass())
-	//			return false;
-	//		ColumnMetadata other = (ColumnMetadata) obj;
-	//		return Objects.equals(aggregateFunction, other.aggregateFunction)
-	//				&& Objects.equals(attributeName, other.attributeName)
-	//				&& Objects.equals(columnDisplaySize, other.columnDisplaySize) && Objects.equals(columnIndex, other.columnIndex)
-	//				&& Objects.equals(columnName, other.columnName) && Objects.equals(columnSize, other.columnSize)
-	//				&& Objects.equals(columnType, other.columnType) && Objects.equals(columnTypeName, other.columnTypeName)
-	//				&& Objects.equals(comments, other.comments) && dataType == other.dataType
-	//				&& Objects.equals(dataTypeName, other.dataTypeName)
-	//				&& Objects.equals(definitelyNullable, other.definitelyNullable)
-	//				&& Objects.equals(excelFormat, other.excelFormat) && externalFlag == other.externalFlag
-	//				&& Objects.equals(groupName, other.groupName) && Objects.equals(heading, other.heading)
-	//				&& horizontalAlignmentText.eu other.horizontalAlignmentText && injectedGroupField == other.injectedGroupField
-	//				&& Objects.equals(javaFormat, other.javaFormat) && Objects.equals(label, other.label)
-	//				&& Objects.equals(notNullable, other.notNullable) && Objects.equals(nullable, other.nullable)
-	//				&& Objects.equals(precision, other.precision) && Objects.equals(scale, other.scale)
-	//				&& Objects.equals(unKnownNullable, other.unKnownNullable)
-	//				&& Objects.equals(workbookFormula, other.workbookFormula);
-	//	}
+	
 
 	String getPrecisionScale(int precision, int scale) {
 		String retval = null;
@@ -1420,6 +1419,13 @@ public class ColumnMetadata implements ColumnAttributes {
 	public ColumnMetadata withHorizontalAlignment(HorizontalAlignment ha) {
 		this.horizontalAlignment = ha;
 		return this;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(aggregateFunction, attributeName, columnDisplaySize, columnIndex, columnName, columnSize,
+				columnType, columnTypeName, comments, dataType, dataTypeName, definitelyNullable, excelFormat, externalFlag,
+				groupName, heading, horizontalAlignmentText, injectedGroupField, javaFormat, label, notNullable, nullable,
+				precision, scale, unKnownNullable, workbookFormula);
 	}
 
 

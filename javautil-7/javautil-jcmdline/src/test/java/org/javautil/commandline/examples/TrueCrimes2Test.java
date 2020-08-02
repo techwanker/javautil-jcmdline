@@ -1,9 +1,7 @@
 package org.javautil.commandline.examples;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
-import org.javautil.commandline.CommandLineHandler;
 import org.junit.Test;
 
 public class TrueCrimes2Test {

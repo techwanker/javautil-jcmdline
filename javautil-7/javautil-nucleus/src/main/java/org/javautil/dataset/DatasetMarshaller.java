@@ -1,18 +1,16 @@
 package org.javautil.dataset;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.List;
-
-import javax.xml.transform.stream.StreamResult;
-
-
 import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;
 import org.javautil.document.renderer.CsvRendererRequestImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.xml.transform.stream.StreamResult;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
 
 
 public class DatasetMarshaller {

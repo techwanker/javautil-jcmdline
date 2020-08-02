@@ -36,6 +36,8 @@ package jcmdline;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import static org.junit.Assert.assertArrayEquals;
+
 
 /**
  * Unit test code for IntParam
@@ -72,10 +74,8 @@ public class IntParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
     }
 
     /**
@@ -89,15 +89,12 @@ public class IntParam_UT extends BetterTestCase {
                      tag, p.getTag());
         assertEquals("desc not set correctly",
                      desc, p.getDesc());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         assertTrue("optional flag not set correctly to IntParam.OPTIONAL",
                p.isOptional());
         p = new IntParam(tag, desc, IntParam.REQUIRED);
-        assertTrue("optional flag not set correctly to IntParam.REQUIRED",
-               !p.isOptional());
+        assertFalse("optional flag not set correctly to IntParam.REQUIRED", p.isOptional());
     }
 
     /**
@@ -115,10 +112,8 @@ public class IntParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         assertEquals("min not set correctly",
                      min, p.getMin());
         assertEquals("max not set correctly",
@@ -140,17 +135,14 @@ public class IntParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         assertEquals("min not set correctly",
                      min, p.getMin());
         assertEquals("max not set correctly",
                      max, p.getMax());
         p = new IntParam(tag, desc, min, max, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
     }
 
     /**
@@ -171,17 +163,14 @@ public class IntParam_UT extends BetterTestCase {
                p.isOptional());
         assertTrue("multiValued flag not set to true correctly",
                p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         assertEquals("min not set correctly",
                      min, p.getMin());
         assertEquals("max not set correctly",
                      max, p.getMax());
         p = new IntParam(tag, desc, min, max, false, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
-        assertTrue("multiValued flag not set to false correctly",
-               !p.isMultiValued());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
+        assertFalse("multiValued flag not set to false correctly", p.isMultiValued());
     }
 
     /**
@@ -209,12 +198,9 @@ public class IntParam_UT extends BetterTestCase {
         assertEquals("max not set correctly",
                      max, p.getMax());
         p = new IntParam(tag, desc, min, max, false, false, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
-        assertTrue("multiValued flag not set to false correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set to false correctly",
-               !p.isHidden());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
+        assertFalse("multiValued flag not set to false correctly", p.isMultiValued());
+        assertFalse("hidden flag not set to false correctly", p.isHidden());
     }
 
     /**
@@ -231,12 +217,9 @@ public class IntParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
-        assertTrue("acceptableValues not set correctly",
-                   Arrays.equals(av, p.getAcceptableIntValues()));
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
+        assertArrayEquals("acceptableValues not set correctly", av, p.getAcceptableIntValues());
     }
 
     /**
@@ -253,15 +236,11 @@ public class IntParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertTrue("optional flag not set to true correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
-        assertTrue("acceptableValues not set correctly",
-                   Arrays.equals(av, p.getAcceptableIntValues()));
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
+        assertArrayEquals("acceptableValues not set correctly", av, p.getAcceptableIntValues());
         p = new IntParam(tag, desc, av, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
     }
 
     /**
@@ -281,15 +260,11 @@ public class IntParam_UT extends BetterTestCase {
                p.isOptional());
         assertTrue("multiValued flag not set to true correctly",
                p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
-        assertTrue("acceptableValues not set correctly",
-                   Arrays.equals(av, p.getAcceptableIntValues()));
+        assertFalse("hidden flag not set correctly", p.isHidden());
+        assertArrayEquals("acceptableValues not set correctly", av, p.getAcceptableIntValues());
         p = new IntParam(tag, desc, av, false, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
-        assertTrue("multiValued flag not set to false correctly",
-               !p.isMultiValued());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
+        assertFalse("multiValued flag not set to false correctly", p.isMultiValued());
     }
 
     /**
@@ -311,15 +286,11 @@ public class IntParam_UT extends BetterTestCase {
                p.isMultiValued());
         assertTrue("hidden flag not set to true correctly",
                p.isHidden());
-        assertTrue("acceptableValues not set correctly",
-                   Arrays.equals(av, p.getAcceptableIntValues()));
+        assertArrayEquals("acceptableValues not set correctly", av, p.getAcceptableIntValues());
         p = new IntParam(tag, desc, av, false, false, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
-        assertTrue("multiValued flag not set to false correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set to false correctly",
-               !p.isHidden());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
+        assertFalse("multiValued flag not set to false correctly", p.isMultiValued());
+        assertFalse("hidden flag not set to false correctly", p.isHidden());
     }
 
     /**
@@ -436,7 +407,7 @@ public class IntParam_UT extends BetterTestCase {
      * Test a IntParam with acceptableValues where specified value is an
      * empty string (should fail)
      */
-    public void testAcceptableValues2() throws CmdLineException {
+    public void testAcceptableValues2() {
         debug("Starting testAcceptableValues2()");
         IntParam p = new IntParam("myTag", "myDesc", 
                 new int[] { 2, 10 }, true, true);

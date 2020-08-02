@@ -11,23 +11,23 @@ import java.util.Set;
  */
 public interface FontAttributes {
 
-	public static final String BOLDNESS            = "boldNess";
+	String BOLDNESS            = "boldNess";
 	/**
 	 * Represents an underline style (single, double, dotted...)
 	 */
-	public static final String KEY_UNDERLINE_STYLE = "underlineStyle";
+    String KEY_UNDERLINE_STYLE = "underlineStyle";
 
 	/**
 	 * Determines if word wrapping style is available (true, false)
 	 */
-	public static final String KEY_WORD_WRAP       = "wordWrap";
+    String KEY_WORD_WRAP       = "wordWrap";
 
 	/**
 	 * Returns all attribute names currently defined
 	 * 
 	 * @return The keys
 	 */
-	public Set<String> keySet();
+    Set<String> keySet();
 
 	/**
 	 * Defines an additional value for an attributeName, returning the previous set
@@ -37,7 +37,7 @@ public interface FontAttributes {
 	 * @param fontAttributeValue the attribute value
 	 * @return TODO
 	 */
-	public String put(String fontAttributeName, String fontAttributeValue);
+    String put(String fontAttributeName, String fontAttributeValue);
 
 	/**
 	 * Returns a previous set value for an attributeName
@@ -45,13 +45,13 @@ public interface FontAttributes {
 	 * @param fontAttributeName the font attribute name
 	 * @return TODO
 	 */
-	public String get(String fontAttributeName);
+    String get(String fontAttributeName);
 
 	/**
 	 * Copies all attributes into a new instance
 	 * 
 	 * @return FontAttributes
 	 */
-	public FontAttributes copyOf();
+    FontAttributes copyOf();
 
 }

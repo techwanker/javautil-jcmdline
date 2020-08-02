@@ -256,8 +256,8 @@ public class StringFormatHelper {
         if (labels.length != texts.length) {
             throw new IllegalArgumentException(Strings.get(
                 "StringFormatHelper.labelDescriptionError", 
-                new Object[] { new Integer(labels.length), 
-                               new Integer(texts.length) }));
+                new Object[] { Integer.valueOf(labels.length),
+                               Integer.valueOf(texts.length) }));
         }
 
         // Figure out description indents
@@ -266,9 +266,7 @@ public class StringFormatHelper {
         int currlen;
         for (int i = 0; i < labels.length; i++) {
             currlen = labels[i].length() + dividerlen;
-            if (currlen > maxIndent) {
-                continue;
-            } else if (currlen > indent) {
+         if (currlen > indent) {
                 indent = currlen;
             }
         }

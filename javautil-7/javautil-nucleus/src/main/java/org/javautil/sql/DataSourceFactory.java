@@ -1,5 +1,15 @@
 package org.javautil.sql;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.javautil.collections.PropertiesResolver;
+import org.javautil.jdbc.EnvironmentDataSource;
+import org.javautil.util.Timer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.Yaml;
+
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,19 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.sql.DataSource;
 
-import org.javautil.collections.PropertiesResolver;
-import org.javautil.misc.Timer;
-import org.javautil.jdbc.EnvironmentDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.yaml.snakeyaml.Yaml;
-
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-
-//import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
  * . This is a JavaBean-style class with a public, no-arg constructor, but
@@ -93,15 +91,13 @@ public class DataSourceFactory {
 
 	public DataSourceHelper getDataSourceHelper(DataSource datasource) throws PropertyVetoException {
 		Map<String, Object> parms = new HashMap<String, Object>();
-		DataSourceHelper dsh = new DataSourceHelper(datasource, null, parms);
-		return dsh;
+		return new DataSourceHelper(datasource, null, parms);
 	}
 
 	public DataSourceHelper getDataSourceHelper(String dataSourceName) throws PropertyVetoException {
 		Map<String, Object> parms = dataSources.get(dataSourceName);
 		DataSource ds = getDatasource(parms);
-		DataSourceHelper dsh = new DataSourceHelper(ds, null, parms);
-		return dsh;
+		return new DataSourceHelper(ds, null, parms);
 	}
 
 	public static DataSource getDatasource(Map<String, Object> params) {

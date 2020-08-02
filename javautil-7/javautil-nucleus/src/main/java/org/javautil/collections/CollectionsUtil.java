@@ -8,7 +8,7 @@ public class CollectionsUtil {
 	 * @param cols collection
 	 * @return new line separated collection item toString()
 	 */
-	public static String asString(Collection<? extends Object> cols) {
+	public static String asString(Collection<?> cols) {
 		StringBuilder sb = new StringBuilder();
 		for (Object o : cols) {
 			sb.append(o.toString());

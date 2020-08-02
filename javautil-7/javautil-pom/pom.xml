@@ -6,7 +6,7 @@
 
 	<groupId>org.javautil</groupId>
 	<artifactId>javautil-pom</artifactId>
-	<version>8.07.04</version>
+	<version>8.07.31</version>
 	<packaging>pom</packaging>
 
 	<name>javautil</name>
@@ -100,7 +100,7 @@
 		<org.freemarker.version>2.3.15</org.freemarker.version>
 		<org.hibernate.core.version>3.3.1.GA</org.hibernate.core.version>
 		<org.hibernate.ehcache.version>3.3.1.GA</org.hibernate.ehcache.version>
-		<org.javautil.version>8.07.04</org.javautil.version>
+		<org.javautil.version>8.07.31</org.javautil.version>
 		<org.mockito.version>1.10.19</org.mockito.version>
 		<org.slf4j.version>1.7.28</org.slf4j.version>
 		<org.freemarker.version>2.3.15</org.freemarker.version>

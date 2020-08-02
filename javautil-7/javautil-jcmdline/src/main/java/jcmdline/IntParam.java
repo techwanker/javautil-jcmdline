@@ -581,8 +581,8 @@ public class IntParam extends AbstractParameter {
         CmdLineException exception = new CmdLineException(Strings.get(
                 "IntParam.validValues",
                 new Object[] { tag,
-                               new Integer(min),
-                               new Integer(max) }));
+                        Integer.valueOf(min),
+                        Integer.valueOf(max)}));
         int intVal = 0;
         try {
             intVal = Integer.parseInt(val);

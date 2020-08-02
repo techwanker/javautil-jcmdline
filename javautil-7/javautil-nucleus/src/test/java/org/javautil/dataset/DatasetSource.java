@@ -30,10 +30,10 @@ public class DatasetSource {
 //				addColumn(new ColumnMetadata("MONTH", 2, DataType.INTEGER, null, null, null, null, null, null));
 //				addColumn(new ColumnMetadata("TICKETS", 3, DataType.DOUBLE, null, null, null, null, null, null));
 //			}
-			};
-		};
+			}
+        };
 
-		final MatrixDataset matrixDataset = new MatrixDataset(meta) {
+		return new MatrixDataset(meta) {
 			{
 				addRow(ListHelper.toList("TX", "DALLAS", new Integer(1), new Double(42)));
 				addRow(ListHelper.toList("TX", "DALLAS", new Integer(2), new Double(32.2)));
@@ -41,9 +41,8 @@ public class DatasetSource {
 				addRow(ListHelper.toList("TX", "HOUSTON", new Integer(1), new Double(28)));
 				addRow(ListHelper.toList("TX", "HOUSTON", null, null));
 				addRow(ListHelper.toList("TX", "HOUSTON", new Integer(3), new Double(19)));
-			};
-		};
-		return matrixDataset;
+			}
+        };
 	}
 
 	/**
@@ -68,7 +67,7 @@ public class DatasetSource {
 			}
 		};
 
-		final MatrixDataset matrixDataset = new MatrixDataset(meta) {
+		return new MatrixDataset(meta) {
 			{
 				addRow(ListHelper.toList("TX", "DALLAS", new Integer(1), new Double(42)));
 				addRow(ListHelper.toList("TX", "DALLAS", new Integer(2), new Double(32.2)));
@@ -78,8 +77,6 @@ public class DatasetSource {
 				addRow(ListHelper.toList("TX", "HOUSTON", new Integer(3), new Double(28)));
 			}
 		};
-
-		return matrixDataset;
 	}
 
 }

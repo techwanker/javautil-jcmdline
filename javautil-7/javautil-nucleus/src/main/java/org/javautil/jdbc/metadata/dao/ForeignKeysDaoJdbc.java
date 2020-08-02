@@ -1,16 +1,16 @@
 package org.javautil.jdbc.metadata.dao;
 
+import org.javautil.jdbc.metadata.ForeignKey;
+import org.javautil.jdbc.metadata.ForeignKeyColumn;
+import org.javautil.jdbc.metadata.ForeignKeyImpl;
+import org.javautil.jdbc.metadata.ForeignKeys;
+
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-
-import org.javautil.jdbc.metadata.ForeignKey;
-import org.javautil.jdbc.metadata.ForeignKeyColumn;
-import org.javautil.jdbc.metadata.ForeignKeyImpl;
-import org.javautil.jdbc.metadata.ForeignKeys;
 
 // TODO should not be DAO and container
 public class ForeignKeysDaoJdbc implements ForeignKeys, Iterable<ForeignKey> {

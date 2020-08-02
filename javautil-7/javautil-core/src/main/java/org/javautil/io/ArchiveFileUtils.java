@@ -47,11 +47,8 @@ public class ArchiveFileUtils {
 			final CheckedInputStream cis = new CheckedInputStream(fis, new CRC32());
 			final ZipInputStream zis = new ZipInputStream(new BufferedInputStream(cis));
 			final ZipEntry ze = zis.getNextEntry();
-			returnValue = false;
 
-			if (ze != null) {
-				returnValue = true;
-			}
+            returnValue = ze != null;
 		} finally {
 			if (fis != null) {
 				fis.close();

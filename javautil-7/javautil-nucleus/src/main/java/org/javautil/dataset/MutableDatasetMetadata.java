@@ -1,7 +1,6 @@
 package org.javautil.dataset;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 
@@ -10,11 +9,11 @@ import java.util.List;
  */
 public interface MutableDatasetMetadata extends DatasetMetadata {
 
-	public void addColumn(ColumnMetadata column);
+	void addColumn(ColumnMetadata column);
 
-	public void addColumn(int index, ColumnMetadata column);
+	void addColumn(int index, ColumnMetadata column);
 
 	@Override
-	public ArrayList<ColumnMetadata> getColumnMetadata();
+    ArrayList<ColumnMetadata> getColumnMetadata();
 
 }

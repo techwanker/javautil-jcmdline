@@ -31,10 +31,7 @@
 
 package jcmdline;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.ResourceBundle;
 
 /**
  * Interface for command line parameters.

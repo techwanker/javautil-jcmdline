@@ -1,29 +1,30 @@
 package org.javautil.commandline.annotations;
 
 import static org.junit.Assert.assertEquals;
-import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.javautil.commandline.NoExitException;
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 public class RequiresTest extends BaseTest {
 
 	private final RequiresArguments argumentBean = new RequiresArguments();
-	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 
 	@Test
-	public void test1() throws CmdLineException {
+	public void test1() {
 		final String argString = "-toad alice -numberOfWarts 2 ";
 		clh.evaluateArgumentsString(argString);
 		assertEquals("alice", argumentBean.getToad());
-		assertEquals(new Integer(2), argumentBean.getNumberOfWarts());
+		assertEquals(Integer.valueOf(2), argumentBean.getNumberOfWarts());
 	}
 
 
 	@Test(expected = NoExitException.class)
-	public void missingRequired() throws CmdLineException {
+	public void missingRequired() {
 		final String argString = "-toad alice  ";
 		clh.evaluateArgumentsString(argString);
 	}

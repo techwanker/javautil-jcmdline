@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class BaseArgumentBeanTest extends BaseTest {
-	BaseArgumentBean argumentBean = new BaseArgumentBean();
+	final BaseArgumentBean argumentBean = new BaseArgumentBean();
 
 	@Test
 	public void testVerbose() {

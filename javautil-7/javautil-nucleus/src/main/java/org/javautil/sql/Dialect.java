@@ -1,11 +1,11 @@
 package org.javautil.sql;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public enum Dialect {
 
@@ -17,11 +17,11 @@ public enum Dialect {
 		DatabaseMetaData metadata = connection.getMetaData();
 		if (logger.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append("Database Product Name: " + metadata.getDatabaseProductName() + "\n");
-			sb.append("Database Product Version: " + metadata.getDatabaseProductVersion() + "\n");
-			sb.append("Logged User: " + metadata.getUserName() + "\n");
-			sb.append("JDBC Driver: " + metadata.getDriverName() + "\n");
-			sb.append("Driver Version: " + metadata.getDriverVersion() + "\n");
+			sb.append("Database Product Name: ").append(metadata.getDatabaseProductName()).append("\n");
+			sb.append("Database Product Version: ").append(metadata.getDatabaseProductVersion()).append("\n");
+			sb.append("Logged User: ").append(metadata.getUserName()).append("\n");
+			sb.append("JDBC Driver: ").append(metadata.getDriverName()).append("\n");
+			sb.append("Driver Version: ").append(metadata.getDriverVersion()).append("\n");
 
 		}
 		if (metadata.getDatabaseProductName().equals("PostgreSQL")) {
@@ -43,12 +43,10 @@ public enum Dialect {
 	}
 
 	boolean useQuestionBinds() {
-		switch (this) {
-		case ORACLE:
+		if (this == Dialect.ORACLE) {
 			return false;
-		default:
-			return true;
 		}
+		return true;
 	}
 
 }

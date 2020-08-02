@@ -25,14 +25,12 @@ public class ThreadHelper {
 	 */
 	public static String getCallerSimpleClassName() {
 		final StackTraceElement el = Thread.currentThread().getStackTrace()[2];
-		final String retval = ClassHelper.getUnqualifiedClassName(el.getClassName());
-		return retval;
+        return ClassHelper.getUnqualifiedClassName(el.getClassName());
 	}
 
 	public static String getCallerClassName() {
 		final StackTraceElement el = Thread.currentThread().getStackTrace()[2];
-		final String retval = el.getClassName();
-		return retval;
+        return el.getClassName();
 	}
 
 	public static String getCallerNoPackageClassName() {
@@ -43,8 +41,7 @@ public class ThreadHelper {
 		final StackTraceElement el = Thread.currentThread().getStackTrace()[2];
 		final String noPackageClassName = el.getClassName().replaceAll(".*\\.", "");
 		final String methodName = el.getMethodName();
-		final String retval = noPackageClassName + "." + methodName;
-		return retval;
+        return noPackageClassName + "." + methodName;
 
 	}
 

@@ -33,8 +33,6 @@
 
 package jcmdline;
 
-import java.io.File;
-
 /**
  * Unit test code for StringFormatHelper.
  * <P>

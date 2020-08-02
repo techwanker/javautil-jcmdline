@@ -1,7 +1,6 @@
 package org.javautil.commandline.annotations;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import org.javautil.commandline.BaseArgumentBean;
 import org.javautil.commandline.ParamType;

@@ -29,16 +29,16 @@ public class CellAddress {
 	public static String computeColumnName(final int columnIndex) {
 
 		String retval = null;
+		final char[] chars;
 		if (columnIndex < 26) {
-			final char[] chars = new char[1];
+			chars = new char[1];
 			chars[0] = letterByIndex(columnIndex);
-			retval = new String(chars);
 		} else {
-			final char[] chars = new char[2];
+			chars = new char[2];
 			chars[1] = letterByIndex(columnIndex % 26);
 			chars[0] = letterByIndex(columnIndex / 26 - 1);
-			retval = new String(chars);
 		}
+		retval = new String(chars);
 		return retval;
 
 	}

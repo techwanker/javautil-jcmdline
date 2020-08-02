@@ -8,7 +8,7 @@ import org.javautil.json.JsonSerializerJackson;
 
 public class SqlCsvExporterJsonParser {
 
-	private SqlCsvExporterJson bean;
+	private final SqlCsvExporterJson bean;
 
 	public SqlCsvExporterJsonParser(String json) {
 		JsonSerializerJackson dillon = new JsonSerializerJackson();

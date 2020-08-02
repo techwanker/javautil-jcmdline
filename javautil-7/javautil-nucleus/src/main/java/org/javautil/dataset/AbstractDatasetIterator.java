@@ -1,10 +1,6 @@
 package org.javautil.dataset;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 
@@ -99,15 +95,13 @@ public abstract class AbstractDatasetIterator implements DatasetIterator {
 	@Override
 	public String getString(final int column) {
 		final Object rv = getObject(column);
-		final String retval = rv == null ? null : rv.toString();
-		return retval;
+		return rv == null ? null : rv.toString();
 	}
 
 	@Override
 	public String getString(final String column) {
 		final Object rv = getObject(column);
-		final String retval = rv == null ? null : rv.toString();
-		return retval;
+		return rv == null ? null : rv.toString();
 	}
 
 	/*

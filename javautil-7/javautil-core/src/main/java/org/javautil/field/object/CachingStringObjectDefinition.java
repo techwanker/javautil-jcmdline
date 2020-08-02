@@ -9,7 +9,7 @@ public class CachingStringObjectDefinition extends AbstractObjectDefinition impl
 
 	private final Logger                logger = LoggerFactory.getLogger(getClass());
 
-	private WeakHashMap<String, String> map    = new WeakHashMap<String, String>();
+	private final WeakHashMap<String, String> map    = new WeakHashMap<String, String>();
 
 	public CachingStringObjectDefinition() {
 	}

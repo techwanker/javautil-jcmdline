@@ -1,17 +1,17 @@
 package org.javautil.jdbc.metadata.dto;
 
-import java.util.HashMap;
-
 import org.javautil.jdbc.metadata.Column;
 import org.javautil.jdbc.metadata.renderer.XmlMeta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+
 //import org.dom4j.Element;
 
 public class JsonSchemaColumn {
-	transient private Logger                         logger        = LoggerFactory.getLogger(getClass());
-	transient private String                         tableName;
+	final transient private Logger                         logger        = LoggerFactory.getLogger(getClass());
+	final transient private String                         tableName;
 	private String                                   columnName;
 
 	private String                                   columnTypeName;

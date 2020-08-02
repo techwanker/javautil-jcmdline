@@ -6,12 +6,12 @@ import org.junit.Before;
 public abstract class NoExitUnitTest  {
 
 	@Before
-	public void before() throws Exception {
+	public void before() {
 		System.setSecurityManager(new NoExitSecurityManager());
 	}
 
 	@After
-	public void after() throws Exception {
+	public void after() {
 		System.setSecurityManager(null);
 	}
 

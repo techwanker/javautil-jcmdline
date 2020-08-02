@@ -9,17 +9,14 @@ public class SchemaImpl implements Schema {
 
 	private DatabaseTables     tables   = new DatabaseTablesImpl();
 
-	private String             schemaName;
-
-	@Override
+    @Override
 	public DatabaseTables getTables() {
 		return tables;
 	}
 
 	@Override
 	public void setSchemaName(final String schemaName) {
-		this.schemaName = schemaName;
-	}
+    }
 
 	@Override
 	public void setTables(DatabaseTables databaseTables) {

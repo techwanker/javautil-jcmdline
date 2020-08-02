@@ -1,5 +1,6 @@
 package org.javautil.security;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 import org.apache.commons.codec.binary.Base64;
@@ -21,7 +22,7 @@ public class Md5Hasher {
 		try {
 			final MessageDigest messageDigest = MessageDigest.getInstance("MD5");
 			final String saltedPass = HashUtil.mergePasswordAndSalt(password, salt, false);
-			return messageDigest.digest(saltedPass.getBytes("UTF-8"));
+			return messageDigest.digest(saltedPass.getBytes(StandardCharsets.UTF_8));
 		} catch (final Exception e) {
 			throw new RuntimeException("failure while hashing password", e);
 		}

@@ -1,15 +1,15 @@
 package org.javautil.commandline;
 
-import jcmdline.CmdLineException;
-
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 public class ArgumentBeanTest {
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	// No such directory
-	public void testArguments() throws CmdLineException {
+	public void testArguments()  {
 		final ArgumentBean argumentBean = new ArgumentBean();
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+		final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString("-required twit");
 	}

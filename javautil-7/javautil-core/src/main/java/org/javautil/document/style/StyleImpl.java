@@ -207,14 +207,9 @@ public class StyleImpl implements Style {
 			return false;
 		}
 		if (borders == null) {
-			if (other.borders != null) {
-				return false;
-			}
-		} else if (!borders.equals(other.borders)) {
-			return false;
-		}
-		return true;
-	}
+            return other.borders == null;
+		} else return borders.equals(other.borders);
+    }
 
 	@Override
 	public Style copyOf() {

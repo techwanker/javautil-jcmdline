@@ -2,6 +2,8 @@ package org.javautil.dataset;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 
@@ -47,6 +49,31 @@ public class ResultSetDataset extends AbstractDataset {
 			}
 		}
 		return meta;
+	}
+
+
+	public List<Object> getRowAsList(int rowIndex) {
+		throw new UnsupportedOperationException("This is a resultstreaming class, no caching or forwardlooking, just iterate");
+	}
+
+	//@Override
+	public Map<String, Object> getRowAsMap(int rowIhdex) {
+		throw new UnsupportedOperationException("This is a resultstreaming class, no caching or forwardlooking, just iterate");
+	}
+
+	//@Override
+	public int getRowCount() {
+		throw new UnsupportedOperationException("streaming dataset");
+	}
+
+	//@Override
+	public Object getValue(int rowIndex, int columnIndex) {
+		throw new UnsupportedOperationException("streaming dataset");
+	}
+
+	//@Override
+	public Object getValue(int rowIndex, String columnName) {
+		throw new UnsupportedOperationException("streaming dataset");
 	}
 
 }

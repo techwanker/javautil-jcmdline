@@ -18,7 +18,7 @@ public class DatasetDefinitionEnhancerTest {
 		
 		String dataSourceName="integration_postgres_sr";
 		
-		String args[] = {
+		String[] args = {
 				"--infile", infileName,
 				"--outfile",outfile,
 				"--datasource",dataSourceName,

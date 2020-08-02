@@ -7,8 +7,8 @@ import com.google.gson.Gson;
 
 public class DatasetJsonMarshaller {
 
-	private List<ColumnMetadata>    meta;
-	private List<ArrayList<Object>> data;
+	private final List<ColumnMetadata>    meta;
+	private final List<ArrayList<Object>> data;
 
 	public DatasetJsonMarshaller(MatrixDataset dataset) {
 		this.meta = dataset.getMetadata().getColumnMetadata();

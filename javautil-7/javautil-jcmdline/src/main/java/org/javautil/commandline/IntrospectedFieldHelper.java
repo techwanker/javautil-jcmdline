@@ -205,7 +205,7 @@ public class IntrospectedFieldHelper {
 				Field field = null;
 				try {
 					field = this.introspectionClass.getDeclaredField(this.fieldName);
-				} catch (final Exception e) {
+				} catch (final Exception ignored) {
 				}
 				if (field != null) {
 					this.fieldClass = field.getType();
@@ -256,7 +256,7 @@ public class IntrospectedFieldHelper {
 	}
 
 	private void setPropertyName(final String propertyName) {
-		if (propertyName != this.fieldName) {
+		if (!propertyName.equals(this.fieldName)) {
 			this.fieldClass = null;
 		}
 		this.fieldName = propertyName;

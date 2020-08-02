@@ -1,18 +1,13 @@
 package org.javautil.jdbc.metadata.dao;
 
+import org.javautil.jdbc.metadata.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.javautil.jdbc.metadata.Column;
-import org.javautil.jdbc.metadata.ForeignKeys;
-import org.javautil.jdbc.metadata.Messages;
-import org.javautil.jdbc.metadata.NonexistantTableException;
-import org.javautil.jdbc.metadata.PrimaryKey;
-import org.javautil.jdbc.metadata.TableImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * todo create OracleTable that extends this.
@@ -150,7 +145,7 @@ public class TableJdbc extends TableImpl {
 	}
 
 	public boolean isPrimaryKeyColumn(final String columnName) {
-		return getPrimaryKey() == null ? false : getPrimaryKey().getColumnNames().contains(columnName);
+		return getPrimaryKey() != null && getPrimaryKey().getColumnNames().contains(columnName);
 	}
 
 	public String[] getSelectStatementLines() {

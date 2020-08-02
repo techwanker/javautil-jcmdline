@@ -1,13 +1,8 @@
 package org.javautil.commandline;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Properties;
 import java.util.PropertyResourceBundle;
-
-import javax.management.RuntimeErrorException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,10 +39,6 @@ public class BeanPropertyResourceBundle {
 			throw new RuntimeException(e);
 		}
 		return prop;
-	}
-	
-	void trythis(Object bean) {
-		
 	}
 
 

@@ -2,22 +2,17 @@ package org.javautil.poi.workbook;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.GregorianCalendar;
 
 import org.javautil.commandline.BindsFactory;
-import org.javautil.commandline.Day;
 import org.javautil.sql.Binds;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import jcmdline.StringParam;
 
 public class WorkbookWriterArgumentsForTestTest {
 	
@@ -115,7 +110,7 @@ public class WorkbookWriterArgumentsForTestTest {
 			Binds b =  bf.getStringParamBinds(parameters.getBindPair());
 			assertEquals(3,b.size());
 			assertEquals("d3",b.get("file"));
-			assertEquals(new GregorianCalendar(2020,6,4).getTime(),b.get("fromdate"));
+			assertEquals(new GregorianCalendar(2020, Calendar.JULY,4).getTime(),b.get("fromdate"));
 			assertEquals("txexotic",b.get("distributor"));
 		
 			logger.info("done");

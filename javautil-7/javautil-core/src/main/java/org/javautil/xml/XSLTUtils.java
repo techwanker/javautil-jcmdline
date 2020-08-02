@@ -34,7 +34,7 @@ public class XSLTUtils {
 
 	public static final String SAXON_TRANSFORMER_FACTORY = "net.sf.saxon.TransformerFactoryImpl";
 
-	private static LocatorImpl emptyDocumentLocator      = new LocatorImpl() {
+	private static final LocatorImpl emptyDocumentLocator      = new LocatorImpl() {
 																													@Override
 																													public String getSystemId() {
 																														return null;
@@ -82,7 +82,7 @@ public class XSLTUtils {
 
 	private static void transformInternal(final URIResolver xslResolver, final StreamSource xml, final InputSource xsl,
 	    final Map<String, Object> parameters, final StreamResult result) throws IOException, ParserConfigurationException,
-	    SAXException, TransformerConfigurationException, TransformerException {
+	    SAXException, TransformerException {
 		final TransformerFactory tfactory = TransformerFactory.newInstance();
 		tfactory.setURIResolver(xslResolver);
 

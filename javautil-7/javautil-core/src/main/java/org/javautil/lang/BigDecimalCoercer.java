@@ -7,32 +7,28 @@ import org.slf4j.LoggerFactory;
 
 public class BigDecimalCoercer {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public BigDecimal coerce(Object obj) {
 		BigDecimal retval = null;
-		while (obj != null && true) {
+		if (obj != null) {
 			if (Double.class.isAssignableFrom(obj.getClass())) {
 				retval = new BigDecimal((Double) obj);
-				break;
 			}
-			if (Float.class.isAssignableFrom(obj.getClass())) {
+			else if (Float.class.isAssignableFrom(obj.getClass())) {
 				retval = new BigDecimal((Float) obj);
-				break;
 			}
-			if (Integer.class.isAssignableFrom(obj.getClass())) {
+			else if (Integer.class.isAssignableFrom(obj.getClass())) {
 				retval = new BigDecimal((Integer) obj);
-				break;
 			}
-			if (String.class.isAssignableFrom(obj.getClass())) {
+			else if (String.class.isAssignableFrom(obj.getClass())) {
 				retval = new BigDecimal((String) obj);
-				break;
 			}
-			if (BigDecimal.class.isAssignableFrom(obj.getClass())) {
+			else if (BigDecimal.class.isAssignableFrom(obj.getClass())) {
 				retval = (BigDecimal) obj;
-				break;
+			} else {
+				throw new IllegalArgumentException("unsupported class " + obj.getClass());
 			}
-			throw new IllegalArgumentException("unsupported class " + obj.getClass());
 		}
 
 		return retval;

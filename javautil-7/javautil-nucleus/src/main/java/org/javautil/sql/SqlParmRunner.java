@@ -1,22 +1,21 @@
 package org.javautil.sql;
 
+import org.javautil.sql.Binds;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.javautil.sql.Binds;
-import org.javautil.sql.SqlStatement;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class SqlParmRunner {
 	private final Logger  logger         = LoggerFactory.getLogger(this.getClass());
 
 
-	private Collection<SqlRunnerParms> parmslist;
+	private final Collection<SqlRunnerParms> parmslist;
 
-	private Binds binds;
+	private final Binds binds;
 
 	public SqlParmRunner(SqlRunnerParms parm, Binds binds) {
 		ArrayList<SqlRunnerParms> a = new ArrayList<SqlRunnerParms>();

@@ -1,15 +1,13 @@
 package org.javautil.sql;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.javautil.io.ResourceHelper;
+
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
-import javax.sql.DataSource;
-
-import org.javautil.io.ResourceHelper;
-
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 
 public class DbloggerPropertiesDataSource {
 

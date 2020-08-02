@@ -1,10 +1,10 @@
 package org.javautil.dataset.render;
 
-import java.util.List;
-
 import org.javautil.dataset.Dataset;
 import org.javautil.document.renderer.AbstractRendererRequestImpl;
 import org.javautil.document.renderer.ReorderColumnsRendererRequest;
+
+import java.util.List;
 
 public class DefaultDatasetRendererRequest extends AbstractRendererRequestImpl
     implements MutableDatasetRendererRequest, ReorderColumnsRendererRequest {

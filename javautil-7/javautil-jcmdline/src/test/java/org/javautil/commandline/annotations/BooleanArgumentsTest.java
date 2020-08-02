@@ -1,11 +1,12 @@
 package org.javautil.commandline.annotations;
 
 import static org.junit.Assert.assertEquals;
-import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 /**
  * DateParam.dateFormat: MM/dd/yy from string.property in
@@ -34,9 +35,9 @@ public class BooleanArgumentsTest extends BaseTest {
 	// }
 
 	@Test
-	public void testBools() throws CmdLineException {
+	public void testBools() {
 		final BooleanArguments bools = new BooleanArguments();
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(bools);
+		final CommandLineHandler clh = new CommandLineHandler(bools);
 		final String argString = "-bean ";
 		clh.evaluateArgumentsString(argString);
 

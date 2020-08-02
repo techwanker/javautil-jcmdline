@@ -1,12 +1,12 @@
 package org.javautil.dataset;
 
+import org.javautil.document.style.HorizontalAlignment;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Date;
-
-import org.javautil.document.style.HorizontalAlignment;
 
 /**
  * 
@@ -377,7 +377,7 @@ public enum DataType {
 	 * @param clazz the class
 	 * @return The associated data type
 	 */
-	public static DataType forClass(final Class<? extends Object> clazz) {
+	public static DataType forClass(final Class<?> clazz) {
 		DataType ret = null;
 		if (clazz == null) {
 			throw new IllegalArgumentException("clazz is null");

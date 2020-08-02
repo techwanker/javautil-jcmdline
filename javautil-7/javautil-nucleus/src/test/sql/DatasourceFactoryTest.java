@@ -1,7 +1,10 @@
 package org.javautil.sql;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
@@ -9,11 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.Assert.assertEquals;
 
 public class DatasourceFactoryTest {
 	private Logger              logger   = LoggerFactory.getLogger(getClass());

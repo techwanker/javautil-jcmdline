@@ -1,29 +1,25 @@
 package org.javautil.dataset;
 
+import org.javautil.csv.CsvReader;
+import org.javautil.dataset.csv.DatasetMetadataUnmarshallerCsv;
+import org.javautil.dataset.filter.MutableDatasetFilter;
+import org.javautil.dataset.math.CollectionMathOperation;
+import org.javautil.sql.Binds;
+import org.javautil.sql.ResultSetHelper;
+import org.javautil.sql.SqlStatement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
-import org.javautil.csv.CsvReader;
-import org.javautil.sql.Binds;
-import org.javautil.sql.ResultSetHelper;
-import org.javautil.sql.SqlStatement;
-import org.javautil.dataset.csv.DatasetMetadataUnmarshallerCsv;
-import org.javautil.dataset.filter.MutableDatasetFilter;
-import org.javautil.dataset.math.CollectionMathOperation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.*;
 
 public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Dataset, MutableDataset {
 	/**
-		 * 
-		 */
+	 * 
+	 */
 	private static final long      serialVersionUID = 1L;
 
 	/**
@@ -42,7 +38,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 	 * 
 	 */
 
-	private MutableDatasetMetadata metadata;
+	private final MutableDatasetMetadata metadata;
 
 	private Object[]               footerValues     = null;
 
@@ -51,8 +47,8 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 
 	private String                 name;
 
-	
-	
+
+
 	public MatrixDataset(ResultSet rset) throws SQLException {
 		metadata = DatasetMetadataFactory.getInstance(rset.getMetaData());
 		super.addAll(ResultSetHelper.toListOfLists(rset));
@@ -61,8 +57,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 	public MatrixDataset(InputStream dataStream, InputStream metaStream) throws IOException {
 		DatasetMetadataUnmarshallerCsv metaUnmarshaller = new DatasetMetadataUnmarshallerCsv();
 
-		MutableDatasetMetadata dm = metaUnmarshaller.getMetadata(metaStream);
-		this.metadata = dm;
+		this.metadata = metaUnmarshaller.getMetadata(metaStream);
 
 		CsvReader dataReader = new CsvReader(dataStream);
 		ArrayList<Object> values = null; // use Opencsv to get the values
@@ -76,9 +71,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		this(meta);
 		for (final Object[] cursor : data) {
 			final ArrayList<Object> row = new ArrayList<Object>(cursor.length);
-			for (final Object element : cursor) {
-				row.add(element);
-			}
+			row.addAll(Arrays.asList(cursor));
 			add(row);
 		}
 	}
@@ -93,15 +86,15 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 	public MatrixDataset(SqlStatement stmt, Binds binds) throws SQLException {
 		ResultSet rset = stmt.executeQuery(binds);
 		metadata = DatasetMetadataFactory.getInstance(rset.getMetaData());
-//		for (ArrayList<Object> row : ResultSetHelper.toListOfLists(rset))
-//			;
+		//		for (ArrayList<Object> row : ResultSetHelper.toListOfLists(rset))
+		//			;
 		super.addAll(ResultSetHelper.toListOfLists(rset));
 		// TODO Auto-generated constructor stub
 	}
 
 	public void setValue(final int rowIndex, final int columnIndex, final Object value) {
 		final ArrayList<Object> row = get(rowIndex);
-		row.set(columnIndex, (Object) value);
+		row.set(columnIndex, value);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -115,8 +108,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		} else {
 			final DatasetMetadata oldMeta = dataset.getMetadata();
 			final MutableDatasetMetadata dm = DatasetMetadataFactory.getMutableCopy(oldMeta);
-			final MatrixDataset md = new MatrixDataset(dm);
-			returnValue = md;
+			returnValue = new MatrixDataset(dm);
 		}
 		return returnValue;
 	}
@@ -129,18 +121,16 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		return size();
 	}
 
-//	public void setData(final ArrayList<ArrayList<Object>> arrayList) {
-//		replaceAll(arrayList);
-//	}
+	//	public void setData(final ArrayList<ArrayList<Object>> arrayList) {
+	//		replaceAll(arrayList);
+	//	}
 
 	public void addRow(final Object[] cols) {
 		if (cols == null) {
 			throw new IllegalArgumentException("cols is null");
 		}
 		final ArrayList<Object> row = new ArrayList<Object>(cols.length);
-		for (final Object cell : cols) {
-			row.add(cell);
-		}
+		row.addAll(Arrays.asList(cols));
 
 		add(row);
 	}
@@ -149,8 +139,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		if (cols == null) {
 			throw new IllegalArgumentException("cols is null");
 		}
-		ArrayList<Object> newRow = new ArrayList<Object>();
-		newRow.addAll(cols);
+		ArrayList<Object> newRow = new ArrayList<Object>(cols);
 		add(newRow);
 	}
 
@@ -162,17 +151,33 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		add(cols);
 	}
 
-//	public ArrayList<ArrayList<?>> getRows() {
-//		return this;
-//	}
+	//	public ArrayList<ArrayList<?>> getRows() {
+	//		return this;
+	//	}
 
 	public ArrayList<Object> getRow(final int rowIndex) {
 		if (size() < rowIndex + 1) {
 			throw new ArrayIndexOutOfBoundsException(
-			    "requested rowIndex " + rowIndex + " but there are " + size() + " rows ");
+					"requested rowIndex " + rowIndex + " but there are " + size() + " rows ");
 		}
-		final ArrayList<Object> c = get(rowIndex);
-		return c;
+		return get(rowIndex);
+	}
+
+
+	public LinkedHashMap<String,Object> getRowAsMap(int rowIndex) {
+		LinkedHashMap<String,Object> retval = new LinkedHashMap<>();
+		ArrayList<Object> row = getRow(rowIndex);
+		DatasetMetadata meta = getMetadata();
+		Collection<String> columNames= getColumnNames();
+		for  (String columnName :  getColumnNames()) {
+			int[] i = meta.getColumnIndexes();
+			if (i.length > 1) {
+				throw new IllegalArgumentException("column " + columnName + " is not unique");
+			}
+
+			retval.put(columnName, row.get(i[0]));
+		}
+		return retval;
 	}
 
 	public Object getValue(final int rowIndex, final int i) {
@@ -184,7 +189,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		} else {
 			final StringBuilder sb = new StringBuilder();
 			sb.append(metadata);
-			sb.append("size of row " + rowIndex + " " + c.size() + ": ");
+			sb.append("size of row ").append(rowIndex).append(" ").append(c.size()).append(": ");
 			String comma = "";
 			for (int j = 0; j < c.size(); j++) {
 				sb.append(comma);
@@ -193,7 +198,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 			}
 			// TODO consider that this might be dumping sensitive information
 			throw new ArrayIndexOutOfBoundsException("requested column " + i + " but there are " + c.size()
-			    + " columns in row " + rowIndex + newline + sb.toString());
+			+ " columns in row " + rowIndex + newline + sb.toString());
 		}
 		return o;
 	}
@@ -205,7 +210,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 	public String toString() {
 		final StringBuilder b = new StringBuilder();
 		b.append(metadata.toString());
-		b.append("rowCount: " + size() + newline);
+		b.append("rowCount: ").append(size()).append(newline);
 
 		for (final ArrayList<Object> row : this) {
 			b.append(asString(row));
@@ -233,11 +238,11 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 		return retval;
 	}
 
-	public boolean equalData(final Dataset other) {
-		final boolean retval = false;
-
-		return retval;
-	}
+	//	public boolean equalData(final Dataset other) {
+	//		final boolean retval = false;
+	//
+	//		return retval;
+	//	}
 
 	public void insertColumn(final int index, final ColumnMetadata columnMeta) {
 		if (footerValues != null) {
@@ -274,8 +279,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 			}
 		} else if (values.size() > metadata.getColumnCount()) {
 			List<Object> sublist = values.subList(0, metadata.getColumnCount() - 1);
-			newValues = new ArrayList<Object>();
-			newValues.addAll(sublist);
+			newValues = new ArrayList<Object>(sublist);
 		} else if (values.size() == metadata.getColumnCount()) {
 			newValues = values;
 		} else {
@@ -312,8 +316,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 			if (o instanceof String) {
 				final String string = (String) o;
 				try {
-					final Integer x = Integer.parseInt(string);
-					returnValue = x;
+					returnValue = Integer.parseInt(string);
 				} catch (final NumberFormatException nfe) {
 					throw new IllegalArgumentException(" string " + string + "cannot be parsed as an integer", nfe);
 				}
@@ -349,9 +352,7 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 			throw new IllegalArgumentException("values is null");
 		}
 		final ArrayList<Object> colValues = new ArrayList<Object>(values.length);
-		for (final Object value : values) {
-			colValues.add(value);
-		}
+		colValues.addAll(Arrays.asList(values));
 		appendToRow(rownum, colValues);
 	}
 
@@ -504,5 +505,10 @@ public class MatrixDataset extends ArrayList<ArrayList<Object>> implements Datas
 
 	public List<ArrayList<Object>> getCells() {
 		return subList(0, size() - 1);
+	}
+
+	@Override
+	public List<Object> getRowAsList(int rowIndex) {
+		return  get(rowIndex);
 	}
 }

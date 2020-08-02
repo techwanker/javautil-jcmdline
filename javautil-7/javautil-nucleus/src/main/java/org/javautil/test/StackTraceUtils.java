@@ -7,7 +7,7 @@ public class StackTraceUtils {
 
 	public static final String fileSeparator = System.getProperty("file.separator");
 
-	private static Logger      logger        = LoggerFactory.getLogger(StackTraceUtils.class);
+	private static final Logger      logger        = LoggerFactory.getLogger(StackTraceUtils.class);
 
 	/**
 	 * todo doc
@@ -20,8 +20,7 @@ public class StackTraceUtils {
 		final String className = ste.getClassName();
 		logger.debug(className);
 		final String methodName = ste.getMethodName();
-		final String retval = className.replace(".", fileSeparator) + "." + methodName;
-		return retval;
+		return className.replace(".", fileSeparator) + "." + methodName;
 	}
 
 }

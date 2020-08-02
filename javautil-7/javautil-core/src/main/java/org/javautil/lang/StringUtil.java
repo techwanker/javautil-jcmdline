@@ -10,7 +10,7 @@ public class StringUtil {
 
 	private static final Logger logger         = LoggerFactory.getLogger(StringUtil.class);
 	private static final char[] HEX_CHARS      = "0123456789abcdef".toCharArray();
-	private static Pattern      newlinePattern = Pattern.compile("\r\n|\r|\n");
+	private static final Pattern      newlinePattern = Pattern.compile("\r\n|\r|\n");
 
 	public static int newlineCount(String input) {
 		final Matcher m = newlinePattern.matcher(input);

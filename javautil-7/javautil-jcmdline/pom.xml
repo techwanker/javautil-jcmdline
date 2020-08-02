@@ -6,7 +6,7 @@
 
 	<groupId>org.javautil</groupId>
 	<artifactId>javautil-jcmdline</artifactId>
-	<version>8.07.04</version>
+	<version>8.07.31</version>
 	<packaging>jar</packaging>
 
 	<name>javautil-jcmdline</name>

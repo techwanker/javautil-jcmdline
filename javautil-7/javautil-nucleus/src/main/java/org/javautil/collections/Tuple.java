@@ -1,12 +1,8 @@
 package org.javautil.collections;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-
 import org.javautil.text.AsString;
+
+import java.util.*;
 
 /**
  * An array of objects with supporting methods for use in Collections.
@@ -31,9 +27,7 @@ public class Tuple<T> {
 	 */
 	public Tuple(final Tuple<T> tuple, final T newCol) {
 		data = (T[]) new Object[tuple.data.length + 1];
-		for (int i = 0; i < tuple.data.length; i++) {
-			data[i] = tuple.data[i];
-		}
+		System.arraycopy(tuple.data, 0, data, 0, tuple.data.length);
 		data[data.length - 1] = newCol;
 
 	}
@@ -64,7 +58,7 @@ public class Tuple<T> {
 				}
 			}
 
-			return comparator.compare(data, otherObjects) == 0 ? true : false;
+			return comparator.compare(data, otherObjects) == 0;
 		}
 		return retval;
 	}
@@ -89,8 +83,7 @@ public class Tuple<T> {
 
 	public double getDouble(final int index) {
 		final Number n = getNumber(index);
-		final double retval = n == null ? 0 : n.doubleValue();
-		return retval;
+		return n == null ? 0 : n.doubleValue();
 	}
 
 	public Number getNumber(final int index) {

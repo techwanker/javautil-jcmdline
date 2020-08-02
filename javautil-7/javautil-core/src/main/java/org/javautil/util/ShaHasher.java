@@ -1,5 +1,6 @@
 package org.javautil.util;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 import org.apache.commons.codec.binary.Base64;
@@ -20,7 +21,7 @@ public class ShaHasher {
 	public static byte[] hashAsByteArray(final String text) {
 		try {
 			final MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-			return messageDigest.digest(text.getBytes("UTF-8"));
+			return messageDigest.digest(text.getBytes(StandardCharsets.UTF_8));
 		} catch (final Exception e) {
 			throw new RuntimeException("failure while hashing ", e);
 		}

@@ -1,10 +1,5 @@
 package org.javautil.jdbc.metadata.dao;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import org.javautil.jdbc.metadata.NonexistantTableException;
 import org.javautil.jdbc.metadata.Table;
 import org.javautil.jdbc.metadata.containers.DatabaseTables;
@@ -12,11 +7,16 @@ import org.javautil.jdbc.metadata.containers.DatabaseTablesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  * @version 1.0
  */
 public class TableDaoJdbc {
-	private static Logger        logger        = LoggerFactory.getLogger(TableDaoJdbc.class.getName());
+	private static final Logger        logger        = LoggerFactory.getLogger(TableDaoJdbc.class.getName());
 	private final DatabaseTables tables        = new DatabaseTablesImpl();
 	private String               schemaName;
 	private DatabaseMetaData     meta;

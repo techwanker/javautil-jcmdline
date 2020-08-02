@@ -1,14 +1,14 @@
 package org.javautil.sql;
 
+import org.javautil.io.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.javautil.io.FileUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class H2ConnectionHelper {
 	private final static Logger logger = LoggerFactory.getLogger(H2ConnectionHelper.class);
@@ -26,14 +26,13 @@ public class H2ConnectionHelper {
 		}
 		FileUtil.basename(filebase);
 		logger.info("filebase: " + filebase);
-		final ArrayList<String> files = new ArrayList<>();
 
 //		try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get("target/tmp"), "*.dbf*"))
 //		{
 //			dirStream.forEach(path -> logger.debug(path));
 //			//    files.add(path.getFileName()));
 //		}
-		return files;
+		return new ArrayList<>();
 
 	}
 }

@@ -1,12 +1,12 @@
 package org.javautil.dataset.csv;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
 import org.javautil.csv.CsvReader;
 import org.javautil.dataset.MatrixDataset;
 import org.javautil.dataset.MutableDatasetMetadata;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 
 /**

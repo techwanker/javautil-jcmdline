@@ -32,6 +32,7 @@ import org.slf4j.LoggerFactory;
  *  
  *
  */
+@SuppressWarnings("UnusedAssignment")
 public class BindsFactory {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -105,7 +106,7 @@ public class BindsFactory {
 		return retval;
 	}
 
-	public  BigDecimal asBigDecimal(String str) throws ParseException {
+	public  BigDecimal asBigDecimal(String str) {
 		BigDecimal retval = null;
 
 		try {
@@ -137,13 +138,9 @@ public class BindsFactory {
 				e.printStackTrace();
 			}
 		}
-		try {
+		
 			retval = asBigDecimal(str);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
 		if (retval == null) {
 			retval = hardcode.get(str);
 		}

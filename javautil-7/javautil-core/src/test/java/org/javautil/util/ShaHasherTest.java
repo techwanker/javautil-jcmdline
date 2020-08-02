@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class ShaHasherTest {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Test
 	public void testBase64() {

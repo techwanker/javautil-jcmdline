@@ -12,15 +12,15 @@ import org.javautil.sql.SqlStatement;
 
 public class WorkbookPublisher {
 
-	private WorkbookDefinition workbookDefinition;
+	private final WorkbookDefinition workbookDefinition;
 
-	private DataSources        dataSources;
+	private final DataSources        dataSources;
 
-	private Set<String>        allBindNames;
+	private final Set<String>        allBindNames;
 
 	// private TreeMap<String, BindType> bindTypes;
 
-	private String             connectionName;
+	private final String             connectionName;
 
 	public WorkbookPublisher(WorkbookDefinition workbookDefinition, DataSources dataSources, Binds binds,
 	    String connectionName) throws UndefinedBindTypeException {

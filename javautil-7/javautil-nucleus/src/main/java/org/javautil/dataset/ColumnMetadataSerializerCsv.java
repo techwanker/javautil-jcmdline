@@ -1,27 +1,16 @@
 package org.javautil.dataset;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.javautil.csv.CSVTokenizer;
 import org.javautil.csv.CsvWriter;
-import org.javautil.document.style.HorizontalAlignment;
 import org.javautil.lang.Coerce;
 import org.javautil.text.AsString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class ColumnMetadataSerializerCsv implements ColumnMetadataSerializer {
 

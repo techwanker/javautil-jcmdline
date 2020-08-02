@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.javautil:javautil-condition-identification:8.07.04">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javautil/javautil-condition-identification/8.07.04/javautil-condition-identification-8.07.04.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javautil/javautil-condition-identification/8.07.04/javautil-condition-identification-8.07.04-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javautil/javautil-condition-identification/8.07.04/javautil-condition-identification-8.07.04-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

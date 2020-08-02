@@ -1,9 +1,8 @@
 package org.javautil.json;
 
-import org.yaml.snakeyaml.Yaml;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.yaml.snakeyaml.Yaml;
 
 public class JsonUtils {
 
@@ -16,15 +15,13 @@ public class JsonUtils {
 	public String yamlToJson(String yamlString) {
 
 		Object yamlObj = yaml.load(yamlString);
-		String json = gson.toJson(yamlObj);
-		return json;
+		return gson.toJson(yamlObj);
 	}
 
 	public String yamlToPrettyJson(String yamlString) {
 
 		Object yamlObj = yaml.load(yamlString);
-		String json = prettyGson.toJson(yamlObj);
-		return json;
+		return prettyGson.toJson(yamlObj);
 	}
 
 }

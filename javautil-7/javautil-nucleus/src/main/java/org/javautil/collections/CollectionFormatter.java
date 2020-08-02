@@ -13,7 +13,7 @@ public class CollectionFormatter {
 //		return sb.toString();
 //	}
 
-	public static String toString(Collection<? extends Object> rows) {
+	public static String toString(Collection<?> rows) {
 		StringBuilder sb = new StringBuilder();
 		for (Object row : rows) {
 			sb.append(row);

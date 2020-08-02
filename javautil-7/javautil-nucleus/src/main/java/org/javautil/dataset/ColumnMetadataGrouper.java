@@ -1,16 +1,12 @@
 package org.javautil.dataset;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.*;
+
 public class ColumnMetadataGrouper {
-	private static Logger logger = LoggerFactory.getLogger(ColumnMetadataGrouper.class);
+	private static final Logger logger = LoggerFactory.getLogger(ColumnMetadataGrouper.class);
 
 	public String[] getGroupNames(final List<ColumnMetadata> meta) {
 		final LinkedHashSet<String> groupNames = new LinkedHashSet<String>();

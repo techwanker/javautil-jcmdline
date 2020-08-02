@@ -1,15 +1,14 @@
 package org.javautil.document.renderer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
-
-import javax.xml.transform.stream.StreamResult;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -29,7 +28,7 @@ public abstract class AbstractRenderer implements Renderer {
 
 	private final Logger              logger = LoggerFactory.getLogger(getClass());
 
-	// todo looks like I have to revert to writerset
+
 
 	private Writer                    writer;
 
@@ -57,13 +56,6 @@ public abstract class AbstractRenderer implements Renderer {
 		this.request = request;
 	}
 
-	// public final void setDataSet(AbstractDataSet rset) throws
-	// DataSetException {
-	// if (rset == null) {
-	// throw new IllegalArgumentException("rset is null");
-	// }
-	// this.dataset = rset;
-	// }
 
 	public SimpleDateFormat getTimestampFormatter() {
 		if (timestampFormat == null) {

@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
@@ -162,9 +163,7 @@ private transient static final Logger logger = LoggerFactory.getLogger(ListOfNam
 
 	public static ArrayList<Object> toList(final Object... objects) {
 		final ArrayList<Object> list = new ArrayList<Object>();
-		for (final Object object : objects) {
-			list.add(object);
-		}
+        list.addAll(Arrays.asList(objects));
 		return list;
 	}
 

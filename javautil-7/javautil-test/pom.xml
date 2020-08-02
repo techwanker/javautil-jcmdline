@@ -12,7 +12,7 @@
 	<parent>
 		<artifactId>javautil-pom</artifactId>
 		<groupId>org.javautil</groupId>
-		<version>8.07.04</version>
+		<version>8.07.31</version>
 		<relativePath>../javautil-pom</relativePath>
 	</parent>
 

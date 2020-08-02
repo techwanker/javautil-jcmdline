@@ -564,7 +564,7 @@ public class TimeParam extends AbstractParameter {
         if (defaultSeconds < 0 || defaultSeconds > 59) {
             throw new IllegalArgumentException(Strings.get(
                 "TimeParam.invalidSeconds", 
-                new Object[] { new Integer(defaultSeconds) }));
+                new Object[] {Integer.valueOf(defaultSeconds)}));
         }
         this.defaultSeconds = defaultSeconds;
     }
@@ -593,7 +593,7 @@ public class TimeParam extends AbstractParameter {
         if (defaultMilliSeconds < 0 || defaultMilliSeconds > 999) {
             throw new IllegalArgumentException(Strings.get(
                 "TimeParam.invalidMilliSeconds", 
-                new Object[] { new Integer(defaultMilliSeconds) }));
+                new Object[] {Integer.valueOf(defaultMilliSeconds)}));
         }
         this.defaultMilliSeconds = defaultMilliSeconds;
     }

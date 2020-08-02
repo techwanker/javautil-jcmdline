@@ -1,18 +1,16 @@
 package org.javautil.document.renderer;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.DatasetIterator;
 import org.javautil.dataset.DatasetMetadata;
 import org.javautil.document.MimeType;
-import org.javautil.document.renderer.AbstractRenderer;
-import org.javautil.document.renderer.RenderingCapability;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 
 /**
  * 
@@ -26,7 +24,6 @@ import org.slf4j.LoggerFactory;
 public class CsvRenderer extends AbstractRenderer {
 	private static final RenderingCapability        capability    = new RenderingCapability(MimeType.CSV);
 	private final Logger                            logger        = LoggerFactory.getLogger(getClass());
-	private String                                  newline       = System.getProperty("line.separator");
 	private CsvRendererRequest                      crr;
 
 	// TODO we have to deal with Q on input
@@ -52,7 +49,7 @@ public class CsvRenderer extends AbstractRenderer {
 		crr = (CsvRendererRequest) getRequest();
 		setStreamResult(crr.getStreamResult());
 		// this.columnSeparator = crr.getColumnSeparator();
-		this.newline = crr.getNewline();
+		String newline = crr.getNewline();
 
 		if (crr.isEmitHeader()) {
 			final String line = getDatasetMetadataColumnNamesAsCSV(crr.getDataset().getMetadata());
@@ -191,7 +188,7 @@ public class CsvRenderer extends AbstractRenderer {
 			case FLOAT:
 			case NUMERIC:
 			case BIG_INTEGER:
-				retval = ((Number) data).toString();
+				retval = data.toString();
 				break;
 			default:
 				// TODO check metadata, log as error

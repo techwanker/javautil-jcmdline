@@ -1,12 +1,12 @@
 package org.javautil.document.crosstab;
 
-import java.util.TreeMap;
-
 import org.javautil.collections.ArrayComparator;
 import org.javautil.lang.ArrayHelper;
 import org.javautil.text.AsString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.TreeMap;
 
 /**
  * 

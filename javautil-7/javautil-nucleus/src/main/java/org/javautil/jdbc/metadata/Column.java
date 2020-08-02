@@ -1,10 +1,10 @@
 package org.javautil.jdbc.metadata;
 
-import java.sql.ResultSet;
-
 import org.javautil.jdbc.metadata.renderer.XmlMeta;
 import org.javautil.sql.ColumnAttributes;
 import org.javautil.text.StringUtils;
+
+import java.sql.ResultSet;
 
 //import org.dom4j.Element;
 
@@ -206,15 +206,13 @@ public class Column implements ColumnAttributes {
 	}
 
 	public Boolean isDefinitelyNullable() {
-		final boolean retval = nullable == null ? false : nullable.booleanValue();
 
-		return retval;
+		return nullable != null && nullable.booleanValue();
 	}
 
 	public Boolean isNotNullable() {
-		final boolean retval = nullable == null ? false : !nullable.booleanValue();
 
-		return retval;
+		return nullable != null && !nullable.booleanValue();
 	}
 
 	public Boolean isUnknownNullable() {

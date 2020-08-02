@@ -1,5 +1,9 @@
 package org.javautil.sql;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,13 +12,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
-
-import javax.sql.DataSource;
-
-import org.javautil.sql.DataSourceFactory;
-import org.javautil.sql.Dialect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class TestDataSource {
 
@@ -66,8 +63,7 @@ public class TestDataSource {
 		parms.put("driver_class", "org.h2.Driver");
 		parms.put("url", "jdbc:h2:" + targetPath);
 		parms.put("username","sr");
-		DataSource ds = DataSourceFactory.getDatasource(parms);
-		return ds;
+		return DataSourceFactory.getDatasource(parms);
 	}
 
 	public  DataSource getH2FileDataSource() throws SQLException, PropertyVetoException, IOException {
@@ -75,8 +71,7 @@ public class TestDataSource {
 	}
 
 	public DataSource getOracleDataSource() throws PropertyVetoException, SQLException {
-		DataSource ds = dataSourceFactory.getDatasource("integration_oracle");
-		return ds;
+		return dataSourceFactory.getDatasource("integration_oracle");
 	}
 
 	public DataSource getPostgresDataSource() throws FileNotFoundException, PropertyVetoException, SQLException {

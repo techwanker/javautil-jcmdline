@@ -13,6 +13,6 @@ import java.util.Map;
  */
 public interface ReportGenerator {
 
-	public abstract void generate(String datasourceName, Map<String, Object> parms, OutputStream os) throws IOException;
+	void generate(String datasourceName, Map<String, Object> parms, OutputStream os) throws IOException;
 
 }

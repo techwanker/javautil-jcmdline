@@ -1,12 +1,12 @@
 package org.javautil.text;
 
+import org.javautil.dataset.DataType;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.javautil.dataset.DataType;
 
 public class StringToTypeImpl implements StringToType {
 	private String           dateFormatterString = SimpleDateFormats.ISO8601_datetime_pretty;

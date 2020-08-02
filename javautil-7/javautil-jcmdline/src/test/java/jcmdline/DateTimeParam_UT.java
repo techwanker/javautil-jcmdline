@@ -33,10 +33,13 @@
 
 package jcmdline;
 
+import org.junit.Assert;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * Unit test code for DateTimeParam.
@@ -75,7 +78,7 @@ public class DateTimeParam_UT extends BetterTestCase {
      */
     public void setUp() {
         Date date1 = new Date();
-        Date date2 = new Date(date1.getTime() + 50l);
+        Date date2 = new Date(date1.getTime() + 50L);
         acceptVals = new Date[] { date1, date2 };
     }
 
@@ -93,9 +96,8 @@ public class DateTimeParam_UT extends BetterTestCase {
         assertEquals("tag set wrong", tag, dp.getTag());
         assertEquals("desc set wrong", desc, dp.getDesc());
         assertTrue("optional flag not set true by default", dp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !dp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !dp.isHidden());
+        assertFalse("multiValued flag not set false by default", dp.isMultiValued());
+        assertFalse("hidden flag not set false by default", dp.isHidden());
     }
 
     /**
@@ -105,14 +107,12 @@ public class DateTimeParam_UT extends BetterTestCase {
         DateTimeParam dp = new DateTimeParam(tag, desc, DateTimeParam.OPTIONAL);
         assertEquals("tag set wrong", tag, dp.getTag());
         assertEquals("desc set wrong", desc, dp.getDesc());
-        assertTrue("multiValued flag not set false by default", 
-            !dp.isMultiValued());
-        assertTrue("hidden flag not set false by default", 
-            !dp.isHidden());
+        assertFalse("multiValued flag not set false by default", dp.isMultiValued());
+        assertFalse("hidden flag not set false by default", dp.isHidden());
         assertTrue("optional flag not set to true", dp.isOptional());
 
         dp = new DateTimeParam(tag, desc, DateTimeParam.REQUIRED);
-        assertTrue("optional flag not set to false", !dp.isOptional());
+        assertFalse("optional flag not set to false", dp.isOptional());
     }
 
     /**
@@ -126,13 +126,12 @@ public class DateTimeParam_UT extends BetterTestCase {
         assertEquals("desc set wrong", desc, dp.getDesc());
         assertTrue("optional flag not set to true", dp.isOptional());
         assertTrue("multiValued flag not set true", dp.isMultiValued());
-        assertTrue("hidden flag not set false by default", 
-            !dp.isHidden());
+        assertFalse("hidden flag not set false by default", dp.isHidden());
 
         dp = new DateTimeParam(tag, desc, DateTimeParam.REQUIRED,
                                DateTimeParam.SINGLE_VALUED);
-        assertTrue("optional flag not set to false", !dp.isOptional());
-        assertTrue("multiValued flag not set false", !dp.isMultiValued());
+        assertFalse("optional flag not set to false", dp.isOptional());
+        assertFalse("multiValued flag not set false", dp.isMultiValued());
     }
 
     /**
@@ -152,9 +151,9 @@ public class DateTimeParam_UT extends BetterTestCase {
         dp = new DateTimeParam(tag, desc, DateTimeParam.REQUIRED,
                                DateTimeParam.SINGLE_VALUED,
                                DateTimeParam.PUBLIC);
-        assertTrue("optional flag not set to false", !dp.isOptional());
-        assertTrue("multiValued flag not set false", !dp.isMultiValued());
-        assertTrue("hidden flag not set false", !dp.isHidden());
+        assertFalse("optional flag not set to false", dp.isOptional());
+        assertFalse("multiValued flag not set false", dp.isMultiValued());
+        assertFalse("hidden flag not set false", dp.isHidden());
     }
 
     /**
@@ -164,12 +163,10 @@ public class DateTimeParam_UT extends BetterTestCase {
         DateTimeParam dp = new DateTimeParam(tag, desc, acceptVals);
         assertEquals("tag set wrong", tag, dp.getTag());
         assertEquals("desc set wrong", desc, dp.getDesc());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, dp.getAcceptableDates()));
+        assertArrayEquals("acceptableValues set wrong", acceptVals, dp.getAcceptableDates());
         assertTrue("optional flag not set true by default", dp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !dp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !dp.isHidden());
+        assertFalse("multiValued flag not set false by default", dp.isMultiValued());
+        assertFalse("hidden flag not set false by default", dp.isHidden());
     }
 
     /**
@@ -181,14 +178,12 @@ public class DateTimeParam_UT extends BetterTestCase {
         assertEquals("tag set wrong", tag, dp.getTag());
         assertEquals("desc set wrong", desc, dp.getDesc());
         assertTrue("optional flag not set to true", dp.isOptional());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, dp.getAcceptableDates()));
-        assertTrue("multiValued flag not set false by default", 
-            !dp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !dp.isHidden());
+        assertArrayEquals("acceptableValues set wrong", acceptVals, dp.getAcceptableDates());
+        assertFalse("multiValued flag not set false by default", dp.isMultiValued());
+        assertFalse("hidden flag not set false by default", dp.isHidden());
 
         dp = new DateTimeParam(tag, desc, acceptVals, DateTimeParam.REQUIRED);
-        assertTrue("optional flag not set to false", !dp.isOptional());
+        assertFalse("optional flag not set to false", dp.isOptional());
     }
 
     /**
@@ -203,15 +198,14 @@ public class DateTimeParam_UT extends BetterTestCase {
         assertEquals("desc set wrong", desc, dp.getDesc());
         assertTrue("optional flag not set to true", dp.isOptional());
         assertTrue("multiValued flag not set to true", dp.isMultiValued());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, dp.getAcceptableDates()));
-        assertTrue("hidden flag not set false by default", !dp.isHidden());
+        assertArrayEquals("acceptableValues set wrong", acceptVals, dp.getAcceptableDates());
+        assertFalse("hidden flag not set false by default", dp.isHidden());
 
         dp = new DateTimeParam(tag, desc, acceptVals, 
                              DateTimeParam.REQUIRED, 
                              DateTimeParam.SINGLE_VALUED);
-        assertTrue("optional flag not set to false", !dp.isOptional());
-        assertTrue("multiValued flag not set to false", !dp.isMultiValued());
+        assertFalse("optional flag not set to false", dp.isOptional());
+        assertFalse("multiValued flag not set to false", dp.isMultiValued());
     }
 
     /**
@@ -229,16 +223,15 @@ public class DateTimeParam_UT extends BetterTestCase {
         assertTrue("optional flag not set to true", dp.isOptional());
         assertTrue("multiValued flag not set to true", dp.isMultiValued());
         assertTrue("hidden flag not set to true", dp.isHidden());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, dp.getAcceptableDates()));
+        Assert.assertArrayEquals("acceptableValues set wrong", acceptVals, dp.getAcceptableDates());
 
         dp = new DateTimeParam(tag, desc, acceptVals, 
                              DateTimeParam.REQUIRED, 
                              DateTimeParam.SINGLE_VALUED, 
                              DateTimeParam.PUBLIC);
-        assertTrue("optional flag not set to false", !dp.isOptional());
-        assertTrue("multiValued flag not set to false", !dp.isMultiValued());
-        assertTrue("hidden flag not set to false", !dp.isHidden());
+        assertFalse("optional flag not set to false", dp.isOptional());
+        assertFalse("multiValued flag not set to false", dp.isMultiValued());
+        assertFalse("hidden flag not set to false", dp.isHidden());
     }
 
     /**
@@ -335,19 +328,17 @@ public class DateTimeParam_UT extends BetterTestCase {
     public void testAcceptableValues() throws Exception {
 
         Date date1 = new Date();
-        Date date2 = new Date(date1.getTime() + 50l);
-        Date date3 = new Date(date2.getTime() + 50l);
+        Date date2 = new Date(date1.getTime() + 50L);
+        Date date3 = new Date(date2.getTime() + 50L);
 
         DateTimeParam p = new DateTimeParam(tag, desc);
         Date[] dateArray = new Date[] { date1, date2 };
         p.setAcceptableDates(dateArray);
-        assertTrue("getAcceptableDates() returned wrong values",
-                   Arrays.equals(dateArray, p.getAcceptableDates()));
+        Assert.assertArrayEquals("getAcceptableDates() returned wrong values", dateArray, p.getAcceptableDates());
 
         String[] accValues = new String[] { dateFormat.format(date1),
                                             dateFormat.format(date2) };
-        assertTrue("getAcceptableValues returned wrong values",
-                   Arrays.equals(accValues, p.getAcceptableValues()));
+        Assert.assertArrayEquals("getAcceptableValues returned wrong values", accValues, p.getAcceptableValues());
 
         p.setValue(dateFormat.format(date2));  // should work ok
 

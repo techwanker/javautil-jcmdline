@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,17 +24,13 @@ public class CrosstabDataset2Test extends BaseTest {
 
 	ArrayList<Object> asList(final Object... o) {
 		final ArrayList<Object> al = new ArrayList<Object>(o.length);
-		for (final Object element : o) {
-			al.add(element);
-		}
+		al.addAll(Arrays.asList(o));
 		return al;
 	}
 
 	List<String> toList(final String... o) {
 		final ArrayList<String> al = new ArrayList<String>(o.length);
-		for (final String element : o) {
-			al.add(element);
-		}
+		al.addAll(Arrays.asList(o));
 		return al;
 	}
 

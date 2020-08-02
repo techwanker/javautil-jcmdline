@@ -6,15 +6,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 
-import org.javautil.sql.Binds;
-import org.javautil.sql.MappedResultSetIterator;
+import org.javautil.containers.ListOfNameValue;
 import org.javautil.joblog.persistence.JoblogPersistence;
+import org.javautil.sql.Binds;
 import org.javautil.sql.Dialect;
+import org.javautil.sql.MappedResultSetIterator;
 import org.javautil.sql.SqlStatement;
 import org.javautil.sql.SqlStatementRunner;
 import org.javautil.sql.SqlStatements;
-import org.javautil.containers.ListOfNameValue;
-import org.javautil.containers.NameValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

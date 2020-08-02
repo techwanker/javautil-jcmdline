@@ -1,18 +1,14 @@
 package org.javautil.dataset.csv;
 
+import org.javautil.dataset.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
-
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.ColumnMetadataSerializerCsv;
-import org.javautil.dataset.Dataset;
-import org.javautil.dataset.DatasetMetadata;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -21,14 +17,13 @@ import org.slf4j.LoggerFactory;
  */
 public class DatasetMetadataMarshallerCsv {
 
-	private static Logger logger = LoggerFactory.getLogger(DatasetMetadataMarshallerCsv.class);
+	private static final Logger logger = LoggerFactory.getLogger(DatasetMetadataMarshallerCsv.class);
 
 	DatasetMetadata getMetadata(final InputStream inputStream) throws IOException {
 		List<ColumnMetadata> columns = null;
 		final ColumnMetadataSerializerCsv marshaller = new ColumnMetadataSerializerCsv(inputStream);
 		columns = marshaller.readAll();
-		final DatasetMetadataImpl meta = new DatasetMetadataImpl(columns);
-		return meta;
+		return new DatasetMetadataImpl(columns);
 	}
 
 	public static void write(final Dataset ds, final OutputStream os, final OutputStream metaOutputStream)

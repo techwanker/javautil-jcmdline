@@ -1,6 +1,6 @@
 package org.javautil.persist.hibernate;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.javautil.hibernate.persist.DaoImpl;
 import org.junit.Test;

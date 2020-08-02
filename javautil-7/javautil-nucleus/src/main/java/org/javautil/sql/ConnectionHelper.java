@@ -1,17 +1,12 @@
 package org.javautil.sql;
 
+import org.javautil.sql.Binds;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Map.Entry;
-
-import org.javautil.sql.Binds;
 
 public class ConnectionHelper {
 
@@ -38,11 +33,10 @@ public class ConnectionHelper {
 	}
 
 	public static String readClob(Clob clob) throws SQLException, IOException {
-		char clobVal[] = new char[(int) clob.length()];
+		char[] clobVal = new char[(int) clob.length()];
 		Reader r = clob.getCharacterStream();
 		r.read(clobVal);
-		String retval = new String(clobVal);
-		return retval;
+		return new String(clobVal);
 	}
 
 	public static int exhaustQuery(Connection conn, String sql) throws SQLException {

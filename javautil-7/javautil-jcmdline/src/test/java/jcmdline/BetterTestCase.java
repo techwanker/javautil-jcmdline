@@ -31,6 +31,7 @@
 
 package jcmdline;
 
+import java.awt.Image;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -38,12 +39,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.logging.Formatter;
-import java.util.logging.Logger;
-import java.util.logging.LogRecord;
 import java.util.ResourceBundle;
+import java.util.logging.Formatter;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
+
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
 
 public abstract class BetterTestCase extends TestCase {
 
@@ -64,12 +67,12 @@ public abstract class BetterTestCase extends TestCase {
      * Temporary data root dir.  Intended to be used by UT to store
      * all test data under test/tmp
      */
-    public static String TEST_DATA_DIR = "test" + File.separator + "tmp";
+    public static final String TEST_DATA_DIR = "test" + File.separator + "tmp";
 
     /**
      * indicates whether verbose debug information should be printed
      */
-    protected static boolean debugMode = false;
+    protected static final boolean debugMode = false;
 
     /**
      * Called by a subclass to create an temporary directory in which to hold
@@ -120,11 +123,13 @@ public abstract class BetterTestCase extends TestCase {
                 return;
             }
             File[] files = dir.listFiles();
-            for (int i = 0; i < files.length; i++) {
-                if (files[i].isDirectory()) {
-                    deleteDir(files[i]);
-                } else {
-                    files[i].delete();
+            if (! (files == null)) {
+                for (int i = 0; i < files.length; i++) {
+                    if (files[i].isDirectory()) {
+                        deleteDir(files[i]);
+                    } else {
+                        files[i].delete();
+                    }
                 }
             }
             dir.delete();

@@ -59,21 +59,21 @@ public class Concat {
     /**
      * an optional 'outfile' command line option
      */
-    static FileParam outfile = new FileParam(
+    static final FileParam outfile = new FileParam(
             "out",
             "a file to receive the concatenated files (default is stdout)");
 
     /**
      * an optional 'delete' command line option
      */
-    static BooleanParam delete = new BooleanParam(
+    static final BooleanParam delete = new BooleanParam(
             "delete",
             "specifies that all of the original files are to be deleted");
 
     /**
      * required, multivalued, 'filename' command line parameter
      */
-    static FileParam infiles = new FileParam(
+    static final FileParam infiles = new FileParam(
             "filename",
             "files to be concatenated",
             FileParam.IS_FILE & FileParam.IS_READABLE,

@@ -1,14 +1,13 @@
 package org.javautil.sql;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.sql.DataSource;
-
-import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
 
 public class DatasourceFactoryH2Test {
 

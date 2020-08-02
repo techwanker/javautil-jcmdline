@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StringStores {
-	private HashMap<String, HashMap<String, String>> stores = new HashMap<String, HashMap<String, String>>();
+	private final HashMap<String, HashMap<String, String>> stores = new HashMap<String, HashMap<String, String>>();
 
 	public void add(String poolName, String value) {
 		HashMap<String, String> store = stores.get(poolName);

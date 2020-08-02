@@ -5,11 +5,11 @@ import org.javautil.jdbc.metadata.Table;
 // TODO looks l8ke a dupe of TableDTO
 public class TableJSONSchema {
 
-	private String      tableName;
-	private String      tableType;
-	private String      remarks;
-	private ForeignKeys exportedKeys;
-	private ForeignKeys importedKeys;
+	private final String      tableName;
+	private final String      tableType;
+	private final String      remarks;
+	private final ForeignKeys exportedKeys;
+	private final ForeignKeys importedKeys;
 
 	private TableJSONSchema(Table table) {
 		this.tableName = table.getTableName();

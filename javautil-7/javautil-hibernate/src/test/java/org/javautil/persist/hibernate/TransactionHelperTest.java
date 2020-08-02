@@ -1,9 +1,12 @@
 package org.javautil.persist.hibernate;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.util.Date;
-
-import junit.framework.Assert;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -35,8 +38,8 @@ public class TransactionHelperTest {
 		txh.setSessionFactory(sessionFactory);
 		txh.afterPropertiesSet();
 		final Transaction tx = txh.startTransaction();
-		Assert.assertNotNull(tx);
-		Assert.assertTrue(tx.isActive());
+		assertNotNull(tx);
+		assertTrue(tx.isActive());
 		tx.rollback();
 	}
 
@@ -106,11 +109,11 @@ public class TransactionHelperTest {
 		txh = new TransactionHelper();
 		txh.setSessionFactory(sessionFactory);
 		txh.afterPropertiesSet();
-		Assert.assertFalse(txh.isTransactionActive());
+		assertFalse(txh.isTransactionActive());
 		txh.startTransaction();
-		Assert.assertTrue(txh.isTransactionActive());
+		assertTrue(txh.isTransactionActive());
 		txh.rollback();
-		Assert.assertFalse(txh.isTransactionActive());
+		assertFalse(txh.isTransactionActive());
 	}
 
 	@Test
@@ -118,10 +121,10 @@ public class TransactionHelperTest {
 		txh = new TransactionHelper();
 		txh.setSessionFactory(sessionFactory);
 		txh.afterPropertiesSet();
-		Assert.assertNotNull(txh.getSessionFactory());
+		assertNotNull(txh.getSessionFactory());
 		txh.startTransaction();
-		Assert.assertNotNull(txh.getSession());
-		Assert.assertNotNull(txh.getTransaction());
+		assertNotNull(txh.getSession());
+		assertNotNull(txh.getTransaction());
 		txh.rollback();
 	}
 
@@ -165,7 +168,7 @@ public class TransactionHelperTest {
 		txh.commitAndStartTransaction();
 		final Ticket anotherTicket = (Ticket) txh.getSession().get(
 				Ticket.class, myTicket.getTicketNo());
-		Assert.assertEquals(anotherTicket.getUserSessionIdHash(),
+		assertEquals(anotherTicket.getUserSessionIdHash(),
 				myTicket.getUserSessionIdHash());
 		txh.rollback();
 	}
@@ -179,7 +182,7 @@ public class TransactionHelperTest {
 		txh.rollbackAndStartTransaction();
 		final Ticket anotherTicket = (Ticket) txh.getSession().get(
 				Ticket.class, myTicket.getTicketNo());
-		Assert.assertEquals(null, anotherTicket);
+		assertEquals(null, anotherTicket);
 		txh.rollback();
 	}
 

@@ -1,17 +1,16 @@
 package org.javautil.dataset;
 
+import org.javautil.collections.ListHelper;
+import org.javautil.collections.StaticArrayComparator;
+import org.javautil.document.crosstab.CrosstabRow;
+import org.javautil.lang.ArrayHelper;
+import org.javautil.text.SimpleDateFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeMap;
-
-import org.javautil.collections.ListHelper;
-import org.javautil.collections.StaticArrayComparator;
-import org.javautil.text.SimpleDateFormatter;
-import org.javautil.dataset.CrosstabColumns;
-import org.javautil.document.crosstab.CrosstabRow;
-import org.javautil.lang.ArrayHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -36,8 +35,6 @@ public class DatasetCrosstabber {
 	private final TreeMap<Object[], CrosstabRow> rows             = new TreeMap<Object[], CrosstabRow>(
 	    new StaticArrayComparator());
 
-	private int                                  rowCount         = -1;
-
 	private SimpleDateFormatter                  dateFormatter;
 
 	public void setDataSet(final Dataset ds) {
@@ -54,7 +51,7 @@ public class DatasetCrosstabber {
 	protected final void crossTabDataSet() throws DatasetException {
 		logger.debug("cross tabbing begins");
 
-		rowCount = 0;
+		int rowCount = 0;
 
 		if (dataSet == null) {
 			throw new IllegalStateException("dataSet is null");
@@ -107,8 +104,7 @@ public class DatasetCrosstabber {
 		final int rowidCols = crosstabColumns.getRowIdentifiers().size();
 		final int crosstabColumnCount = columnLabels.size();
 		final int cellCount = crosstabColumns.getCellIdentifiers().size();
-		final int retval = rowidCols + (crosstabColumnCount * cellCount);
-		return retval;
+		return rowidCols + (crosstabColumnCount * cellCount);
 
 	}
 
@@ -281,9 +277,8 @@ public class DatasetCrosstabber {
 	}
 
 	public DatasetMetadata getMetaData() {
-		final DatasetMetadata meta = new DatasetMetadataImpl();
 
-		return meta;
+		return new DatasetMetadataImpl();
 	}
 
 	@SuppressWarnings("unchecked")

@@ -1,5 +1,14 @@
 package org.javautil.jdbc.metadata.dao;
 
+import org.javautil.io.IOUtils;
+import org.javautil.jdbc.metadata.DatabaseMetadataFactory;
+import org.javautil.jdbc.metadata.Schema;
+import org.javautil.jdbc.metadata.SchemaImpl;
+import org.javautil.jdbc.metadata.dto.JsonSchemaTable;
+import org.javautil.json.JsonSerializerJackson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,16 +16,6 @@ import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import org.javautil.io.IOUtils;
-import org.javautil.jdbc.metadata.DatabaseMetadataFactory;
-import org.javautil.jdbc.metadata.Schema;
-import org.javautil.jdbc.metadata.SchemaImpl;
-import org.javautil.jdbc.metadata.dto.JsonSchemaTable;
-import org.javautil.json.JsonSerializerJackson;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 

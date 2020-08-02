@@ -1,9 +1,9 @@
 package org.javautil.dataset;
 
+import org.javautil.sql.SqlStatement;
+
 import java.util.LinkedHashMap;
 import java.util.TreeSet;
-
-import org.javautil.sql.SqlStatement;
 
 public class BindDefinitions extends LinkedHashMap<String, BindDefinition> {
 

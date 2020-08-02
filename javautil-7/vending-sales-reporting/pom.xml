@@ -18,7 +18,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<commons.lang.version>2.4</commons.lang.version>
 		<org.yaml.version>1.26</org.yaml.version>
-		<org.javautil.version>8.07.04</org.javautil.version>
+		<org.javautil.version>8.07.31</org.javautil.version>
 	</properties>
 
 	<dependencies>
@@ -83,7 +83,13 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.javautil</groupId>
+            <artifactId>nucleus</artifactId>
+            <version>8.07.31</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<finalName>vending-sales-reporting-demo</finalName>

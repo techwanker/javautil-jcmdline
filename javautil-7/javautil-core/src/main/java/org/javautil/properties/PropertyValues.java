@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 class PropertyValues {
-	private HashMap<String, PropertyValue> byName = new HashMap<String, PropertyValue>();
+	private final HashMap<String, PropertyValue> byName = new HashMap<String, PropertyValue>();
 
 	public String[] getSortedNames() {
 		TreeMap<String, String> propertyNames = new TreeMap<String, String>();
-		String rc[] = new String[byName.size()];
+		String[] rc = new String[byName.size()];
 		synchronized (byName) {
 			Iterator<String> names = byName.keySet().iterator();
 			while (names.hasNext()) {

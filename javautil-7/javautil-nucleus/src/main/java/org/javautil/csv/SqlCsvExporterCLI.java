@@ -1,15 +1,14 @@
 package org.javautil.csv;
 
+import org.javautil.sql.DataSourceFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
-
-import javax.sql.DataSource;
-
-import org.javautil.sql.DataSourceFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SqlCsvExporterCLI {
 

@@ -275,7 +275,7 @@ var Search = {
       Search.dots.text(dotString);
       if (Search._pulse_status > -1)
         window.setTimeout(pulse, 500);
-    };
+    }
     pulse();
   },
 
@@ -334,7 +334,7 @@ var Search = {
       // only add if not already in the list
       if (!$.contains(toAppend, word))
         toAppend.push(word);
-    };
+    }
     var highlightstring = '?highlight=' + $.urlencode(hlterms.join(" "));
 
     // console.debug('SEARCH: searching for:');

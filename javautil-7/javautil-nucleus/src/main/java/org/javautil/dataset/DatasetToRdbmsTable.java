@@ -1,13 +1,13 @@
 package org.javautil.dataset;
 
+import org.javautil.collections.CollectionsUtil;
+import org.javautil.sql.Dialect;
+import org.javautil.text.StringUtils;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import org.javautil.collections.CollectionsUtil;
-import org.javautil.sql.Dialect;
-import org.javautil.text.StringUtils;
 
 public class DatasetToRdbmsTable {
 
@@ -45,9 +45,8 @@ public class DatasetToRdbmsTable {
 			}
 		}
 		sb.append(")\n");
-		String retval = sb.toString();
-		
-		return retval;
+
+		return sb.toString();
 	}
 
 

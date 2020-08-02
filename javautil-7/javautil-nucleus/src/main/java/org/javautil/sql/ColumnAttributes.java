@@ -5,14 +5,14 @@ package org.javautil.sql;
  */
 public interface ColumnAttributes {
 
-	public abstract String getAttributeName();
+	String getAttributeName();
 
-	public abstract String getColumnName();
+	String getColumnName();
 
 	/**
 	 * @return the columnSize
 	 */
-	public abstract Integer getColumnSize();
+    Integer getColumnSize();
 
 	/**
 	 * The database-specific type name.
@@ -21,7 +21,7 @@ public interface ColumnAttributes {
 	 * 
 	 * @return columnTypeName
 	 */
-	public abstract String getColumnTypeName();
+    String getColumnTypeName();
 
 	/**
 	 * Domain is java.sql.Types Retrieves the designated column's SQL type.
@@ -30,11 +30,11 @@ public interface ColumnAttributes {
 	 * 
 	 * @return the ColumnType
 	 */
-	public abstract Integer getColumnType();
+    Integer getColumnType();
 
-	public String getComments();
+	String getComments();
 
-	public abstract Boolean isNullable();
+	Boolean isNullable();
 
 	/**
 	 * Gets the designated column's number of digits to right of the decimal point.
@@ -42,7 +42,7 @@ public interface ColumnAttributes {
 	 * 
 	 * @return The scale
 	 */
-	public Integer getScale();
+    Integer getScale();
 
 	// public abstract Column setComments(String comments);
 }

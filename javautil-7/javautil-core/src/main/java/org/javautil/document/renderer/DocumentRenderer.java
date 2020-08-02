@@ -18,7 +18,7 @@ public interface DocumentRenderer {
 	 * @throws RendererException ok
 	 * @throws IOException       hopefully not
 	 */
-	public void render(DocumentRendererRequest renderRequest) throws RendererException, IOException;
+    void render(DocumentRendererRequest renderRequest) throws RendererException, IOException;
 
 	/**
 	 * Returns false if cannot render, otherwise true // * TODO jjs doesn't this
@@ -27,6 +27,6 @@ public interface DocumentRenderer {
 	 * @param rendererRequest the request
 	 * @return can it be rendered?
 	 */
-	public boolean canRender(DocumentRendererRequest rendererRequest);
+    boolean canRender(DocumentRendererRequest rendererRequest);
 
 }

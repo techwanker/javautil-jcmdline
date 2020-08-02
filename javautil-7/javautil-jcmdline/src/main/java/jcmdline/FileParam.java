@@ -35,7 +35,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.ResourceBundle;
 
 /**
  * Encapsulate a command line parameter whose value will be the name of
@@ -465,7 +464,7 @@ public class FileParam extends AbstractParameter {
         if ((attributes ^ 0xffff) >= ((IS_WRITEABLE ^ 0xffff) * 2)) {
             throw new IllegalArgumentException(Strings.get(
                     "FileParam.invalidAttributes",
-                    new Object[] { new Integer(attributes) }));
+                    new Object[] {Integer.valueOf(attributes)}));
         }
         this.attributes = attributes;
     }

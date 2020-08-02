@@ -1,9 +1,9 @@
 package org.javautil.collections;
 
-import java.util.Comparator;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Comparator;
 
 /**
  * Comparator for Collection
@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 // todo QA
 public class ArrayComparator implements Comparator {
 
-	private static Logger logger = LoggerFactory.getLogger(ArrayComparator.class);
+	private static final Logger logger = LoggerFactory.getLogger(ArrayComparator.class);
 
 	/**
 	 * Comparator for Collection

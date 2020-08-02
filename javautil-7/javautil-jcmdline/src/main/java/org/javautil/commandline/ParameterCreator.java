@@ -3,16 +3,7 @@ package org.javautil.commandline;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 import org.javautil.commandline.annotations.AcceptableValues;
 import org.javautil.commandline.annotations.Argument;
@@ -172,7 +163,7 @@ public class ParameterCreator {
 
 
 	private void showArguments(Parameter[] arguments) {
-		logger.info("arguments " + arguments);
+		logger.info("arguments " + Arrays.toString(arguments));
 		for (Parameter p : arguments) {
 			logger.info("p {}  tag",p.getTag());
 			if (p instanceof StringParam) {

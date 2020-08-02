@@ -1,7 +1,6 @@
 package org.javautil.commandline;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,13 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 import org.javautil.commandline.annotations.Exclusive;
 import org.javautil.commandline.annotations.MultiValue;
 import org.javautil.commandline.annotations.RequiredUnless;
 import org.javautil.commandline.annotations.Requires;
-import org.javautil.commandline.IntrospectedFieldHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,8 +97,6 @@ public class CommandLineOptionsAndArgumentsHandler {
 
 	private boolean dieOnParseError = true;
 
-	private final ParameterCreator parameterCreator;
-
 	private final Map<String, Parameter> parametersByTag;
 	private final Parameter[] argumentParameters ;
 
@@ -113,13 +108,13 @@ public class CommandLineOptionsAndArgumentsHandler {
 		this.argumentsBean = argumentsBean;
 		
 			this.resourceBundle = BeanPropertyResourceBundle.getPropertyResourceBundle(argumentsBean);
-		
-	
-		parameterCreator = new ParameterCreator(argumentsBean);
+
+
+		ParameterCreator parameterCreator = new ParameterCreator(argumentsBean);
 		parametersByTag = parameterCreator.generateParametersForArgumentBean();
 		argumentParameters = parameterCreator.generateParameterArgumentsForClass(this.argumentsBean.getClass());
 		for (Parameter argumentParameter : argumentParameters) {
-			logger.info("argumentParm {} tag []",argumentParameter, argumentParameter.getTag() );
+			logger.info("argumentParm {} tag {}",argumentParameter, argumentParameter.getTag() );
 		}
 	}
 
@@ -149,10 +144,8 @@ public class CommandLineOptionsAndArgumentsHandler {
 	 *      quotes
 	 * @param argumentString
 	 * @return
-	 * @throws CmdLineException
 	 */
-	public boolean evaluateArgumentsString(final String argumentString)
-			throws CmdLineException {
+	public boolean evaluateArgumentsString(final String argumentString) {
 		// TODO replace with the more robust version
 		final String[] args = argumentString.split(" ");
 		return evaluateArguments(args);
@@ -317,7 +310,7 @@ public class CommandLineOptionsAndArgumentsHandler {
 	 */
 	void multiValueAssign(final Parameter parameter, final Field field,
 			final IntrospectedFieldHelper introspection) {
-		logger.debug("parameter {} getValues []",parameter,parameter.getValues());
+		logger.debug("parameter {} getValues {}",parameter,parameter.getValues());
 		if (parameter.getValues().size() > 0) {
 			final MultiValue multiValue = field.getAnnotation(MultiValue.class);
 			// TODO if the annotation
@@ -345,7 +338,7 @@ public class CommandLineOptionsAndArgumentsHandler {
 				}
 			}
 		} else {
-			logger.info("parameter {} has no values");
+			logger.info("parameter {} has no values", parameter);
 			}
 	}
 
@@ -410,8 +403,7 @@ public class CommandLineOptionsAndArgumentsHandler {
 		}
 	}
 
-	public void checkRequires(final boolean isSet, final Field field)
-			throws CmdLineException {
+	public void checkRequires(final boolean isSet, final Field field) {
 		// get the Required Annotation for the field
 		final Requires requires = field.getAnnotation(Requires.class);
 		final String requiresProperty = requires.property();

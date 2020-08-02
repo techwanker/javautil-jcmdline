@@ -1,15 +1,15 @@
 package org.javautil.containers;
 
+import org.javautil.text.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import org.javautil.text.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 // TODO TODOKJS make generic
 // TODO make insensitive
@@ -64,8 +64,7 @@ public class NameValue extends LinkedHashMap<String, Object> {
 
 	public String getSortedMultilineString() {
 		final StringBuilder sb = new StringBuilder();
-		final TreeMap<String, Object> sorted = new TreeMap<>();
-		sorted.putAll(this);
+        final TreeMap<String, Object> sorted = new TreeMap<>(this);
 		for (final Entry<String, Object> e : sorted.entrySet()) {
 			final String valueString = e.getValue() == null ? "null" : "'" + e.getValue() + "'";
 			sb.append(String.format("'%s': %s\n", e.getKey(), valueString));
@@ -79,32 +78,29 @@ public class NameValue extends LinkedHashMap<String, Object> {
 
 	public String getString(String name) {
 		final Object o = get(name);
-		String retval = o == null ? null :  o.toString();
-		return retval;
+		return o == null ? null :  o.toString();
 	}
 
 	public Long getLongInsensitive(String name) {
 		final Object o = getInsensitive(name);
-		Long retval = (o == null) ? null :  new BigDecimal(o.toString()).longValue();
-		return retval;
+		return (o == null) ? null :  new BigDecimal(o.toString()).longValue();
 	}
 
 	public Long getLong(String name) {
 		final Object o = caseInsensitive ? getInsensitive(name) : get(name);
-		Long retval = (o == null) ? null :  new BigDecimal(o.toString()).longValue();
-		return retval;
+		return (o == null) ? null :  new BigDecimal(o.toString()).longValue();
 	}
 
 	public Integer getInteger(String name) {
 		final Object o = get(name);
-		Integer retval = (o == null) ? null :  new BigDecimal(o.toString()).intValue();
-		return retval;
+		return (o == null) ? null :  new BigDecimal(o.toString()).intValue();
 	}
 
 	// TODO also used in binds s/b in an abstract class
 	public Object getInsensitive(String bindName) {
 		Object o;
 		String searchKey = bindName;
+		//noinspection LoopStatementThatDoesntLoop
 		while (true) {
 			if (super.containsKey(searchKey)) {
 				o = super.get(bindName);

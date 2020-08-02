@@ -15,7 +15,6 @@ import org.javautil.commandline.annotations.Exclusive;
 import org.javautil.commandline.annotations.MultiValue;
 import org.javautil.commandline.annotations.RequiredUnless;
 import org.javautil.commandline.annotations.Requires;
-import org.javautil.commandline.IntrospectedFieldHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -113,7 +112,7 @@ public class CommandLineHandler {
 
 	/**
 	 * @see #dieOnParseError
-	 * @return
+	 * @return dieOnParseError
 	 */
 	public boolean isDieOnParseError() {
 		return dieOnParseError;
@@ -137,10 +136,8 @@ public class CommandLineHandler {
 	 *      quotes
 	 * @param argumentString
 	 * @return
-	 * @throws CmdLineException
 	 */
-	public boolean evaluateArgumentsString(final String argumentString)
-			throws CmdLineException {
+	public boolean evaluateArgumentsString(final String argumentString) {
 		// TODO replace with the more robust version
 		final String[] args = argumentString.split(" ");
 		return evaluateArguments(args);
@@ -151,6 +148,7 @@ public class CommandLineHandler {
 	 * program
 	 * 
 	 * @param commandLineArguments
+	 * @return true if no parsing errors
 	 * @throws CmdLineException
 	 */
 	public boolean evaluateArguments(final String[] commandLineArguments)
@@ -188,7 +186,9 @@ public class CommandLineHandler {
 	}
 
 
-
+	/**
+	 * create parser
+	 */
 	private void createCommandHandler() {
 		final Parameter[] parameters = parametersByTag.values().toArray(
 				new Parameter[parametersByTag.size()]);
@@ -212,7 +212,9 @@ public class CommandLineHandler {
 	}
 
 	/**
-
+	 * Loops through the parameters and finds the fields in the bean
+	 * and sets the bean field properties to the value specified in the parameter
+	 * after parsing the command line.
 	 */
 	@SuppressWarnings("unchecked")
 	private void applyParameterValues() {
@@ -355,8 +357,7 @@ public class CommandLineHandler {
 		}
 	}
 
-	public void checkRequires(final boolean isSet, final Field field)
-			throws CmdLineException {
+	public void checkRequires(final boolean isSet, final Field field) {
 		// get the Required Annotation for the field
 		final Requires requires = field.getAnnotation(Requires.class);
 		final String requiresProperty = requires.property();
@@ -412,7 +413,7 @@ public class CommandLineHandler {
 
 	/**
 	 * 
-	 * @param field
+	 * @param field the field to be checked for @Exclusive annotation
 	 */
 	private void checkExclusive(final Field field) {
 		final Exclusive exclusive = field.getAnnotation(Exclusive.class);
@@ -561,15 +562,15 @@ public class CommandLineHandler {
 	private Class<? extends Object> getArgumentsClass() {
 		return argumentsBean.getClass();
 	}
-
-	public void throwIllegalArgumentException() {
-		errorHandler.setThrowIllegalArgumentException(true);
-	}
+//
+//	public void throwIllegalArgumentException() {
+//		errorHandler.setThrowIllegalArgumentException(true);
+//	}
 
 	void showParameters(final String[] parameters) {
 		if (logger.isInfoEnabled()) {
 			final StringBuilder b = new StringBuilder();
-			b.append("Arguments" + newline);
+			b.append("Arguments\n");
 			for (final String arg : parameters) {
 				b.append("'" + arg + "'" + newline);
 			}
@@ -581,7 +582,13 @@ public class CommandLineHandler {
 	/** Should be allthe parameters after the options */
 	
 	public Collection<String> getArguments() {
-		// TODO Auto-generated method stub
 		return cmd.getArgs();
+	}
+
+	public void throwIllegalArgumentException() {
+		// TODO I think this is supposed to throw Exception rather than
+		// System.exit
+		logger.warn("This does nothing");
+		
 	}
 }

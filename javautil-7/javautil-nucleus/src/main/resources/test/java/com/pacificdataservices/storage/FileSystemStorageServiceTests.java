@@ -15,20 +15,18 @@
  */
 package com.pacificdataservices.storage;
 
-import java.util.Random;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockMultipartFile;
-
 import com.pacificdataservices.uploadingfiles.storage.FileSystemStorageService;
 import com.pacificdataservices.uploadingfiles.storage.StorageException;
 import com.pacificdataservices.uploadingfiles.storage.StorageProperties;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
+
+import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FileSystemStorageServiceTests {
 

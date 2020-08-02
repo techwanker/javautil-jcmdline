@@ -18,12 +18,12 @@ import org.slf4j.LoggerFactory;
 public class SchemaDaoJdbcTest {
 
 	private Connection            conn;
-	private DataSourceFactory     dsf    = new DataSourceFactory();
+	private final DataSourceFactory     dsf    = new DataSourceFactory();
 	private DataSource            ds;
 	private SchemaDaoJdbc         schema;
-	private Logger                logger = LoggerFactory.getLogger(getClass());
+	private final Logger                logger = LoggerFactory.getLogger(getClass());
 	// private ModelGsonMarshaller dillon = new ModelGsonMarshaller();
-	private JsonSerializerJackson dillon = new JsonSerializerJackson();
+	private final JsonSerializerJackson dillon = new JsonSerializerJackson();
 
 	// @Test
 	public void test() throws PropertyVetoException, SQLException, IOException {

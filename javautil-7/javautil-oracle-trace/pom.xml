@@ -10,7 +10,7 @@
 	<parent>
 		<artifactId>javautil-pom</artifactId>
 		<groupId>org.javautil</groupId>
-		<version>8.07.04</version>
+		<version>8.07.31</version>
 		<relativePath>../javautil-pom</relativePath>
 	</parent>
 
@@ -33,12 +33,7 @@
 			<version>${org.javautil.version}</version>
 			<scope>compile</scope>
 		</dependency>
-	<dependency>
-			<groupId>org.javautil</groupId>
-			<artifactId>nucleus</artifactId>
-			<version>${org.javautil.version}</version>
-			<scope>compile</scope>
-		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
 		<dependency>
 			<groupId>org.dom4j</groupId>

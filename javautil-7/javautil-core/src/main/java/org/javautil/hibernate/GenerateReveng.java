@@ -22,11 +22,11 @@ import org.slf4j.LoggerFactory;
 
 public class GenerateReveng {
 
-	private Connection    conn;
-	private String        catalog;
-	private String        schemaPattern;
-	private String        tablePattern;
-	private static Logger logger = LoggerFactory.getLogger(GenerateReveng.class);
+	private final Connection    conn;
+	private final String        catalog;
+	private final String        schemaPattern;
+	private final String        tablePattern;
+	private static final Logger logger = LoggerFactory.getLogger(GenerateReveng.class);
 
 	public GenerateReveng(Connection conn, String catalog, String schemaPattern, String tablePattern) {
 		this.conn = conn;

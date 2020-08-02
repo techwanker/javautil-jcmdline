@@ -1,13 +1,8 @@
 package org.javautil.text;
 
-import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_IDENTITY_HASH_CODE;
-import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_STATICS;
-import static org.javautil.text.ToStringStyleFlags.DONT_EMIT_TRANSIENTS;
-import static org.javautil.text.ToStringStyleFlags.USE_SHORT_CLASS_NAME;
-
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.javautil.text.ConfigurableToStringStyle;
-import org.javautil.text.ToStringStyleFlags;
+
+import static org.javautil.text.ToStringStyleFlags.*;
 
 /**
  * Simple way to get an object formatted as a String.

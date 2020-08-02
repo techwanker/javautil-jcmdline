@@ -1,7 +1,6 @@
 package org.javautil.document.renderer;
 
 import org.javautil.dataset.Dataset;
-import org.javautil.document.renderer.DatasetRendererRequest;
 
 /**
  * 
@@ -9,27 +8,27 @@ import org.javautil.document.renderer.DatasetRendererRequest;
  * 
  */
 public interface CsvRendererRequest extends DatasetRendererRequest {
-	public String getColumnSeparator();
+	String getColumnSeparator();
 
-	public void setColumnSeparator(String val);
-
-	@Override
-	public void setDataset(Dataset ds);
-
-	public boolean isEmitHeader();
-
-	public void setEmitHeader(boolean val);
-
-	public String getNewline();
-
-	public void setNewline(String newline);
+	void setColumnSeparator(String val);
 
 	@Override
-	public void setDateFormat(String string);
+    void setDataset(Dataset ds);
 
-	public void setUseDefaultDateFormatForAllDates(boolean value);
+	boolean isEmitHeader();
+
+	void setEmitHeader(boolean val);
+
+	String getNewline();
+
+	void setNewline(String newline);
 
 	@Override
-	public String getDateFormat();
+    void setDateFormat(String string);
+
+	void setUseDefaultDateFormatForAllDates(boolean value);
+
+	@Override
+    String getDateFormat();
 
 }

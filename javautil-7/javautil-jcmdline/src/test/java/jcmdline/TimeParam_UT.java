@@ -36,6 +36,7 @@ package jcmdline;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * Unit test code for TimeParam.
@@ -82,9 +83,8 @@ public class TimeParam_UT extends BetterTestCase {
         assertEquals("tag set wrong", tag, tp.getTag());
         assertEquals("desc set wrong", desc, tp.getDesc());
         assertTrue("optional flag not set true by default", tp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !tp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !tp.isHidden());
+        assertFalse("multiValued flag not set false by default", tp.isMultiValued());
+        assertFalse("hidden flag not set false by default", tp.isHidden());
     }
 
     /**
@@ -94,14 +94,12 @@ public class TimeParam_UT extends BetterTestCase {
         TimeParam tp = new TimeParam(tag, desc, TimeParam.OPTIONAL);
         assertEquals("tag set wrong", tag, tp.getTag());
         assertEquals("desc set wrong", desc, tp.getDesc());
-        assertTrue("multiValued flag not set false by default", 
-            !tp.isMultiValued());
-        assertTrue("hidden flag not set false by default", 
-            !tp.isHidden());
+        assertFalse("multiValued flag not set false by default", tp.isMultiValued());
+        assertFalse("hidden flag not set false by default", tp.isHidden());
         assertTrue("optional flag not set to true", tp.isOptional());
 
         tp = new TimeParam(tag, desc, TimeParam.REQUIRED);
-        assertTrue("optional flag not set to false", !tp.isOptional());
+        assertFalse("optional flag not set to false", tp.isOptional());
     }
 
     /**
@@ -115,13 +113,12 @@ public class TimeParam_UT extends BetterTestCase {
         assertEquals("desc set wrong", desc, tp.getDesc());
         assertTrue("optional flag not set to true", tp.isOptional());
         assertTrue("multiValued flag not set true", tp.isMultiValued());
-        assertTrue("hidden flag not set false by default", 
-            !tp.isHidden());
+        assertFalse("hidden flag not set false by default", tp.isHidden());
 
         tp = new TimeParam(tag, desc, TimeParam.REQUIRED,
                                TimeParam.SINGLE_VALUED);
-        assertTrue("optional flag not set to false", !tp.isOptional());
-        assertTrue("multiValued flag not set false", !tp.isMultiValued());
+        assertFalse("optional flag not set to false", tp.isOptional());
+        assertFalse("multiValued flag not set false", tp.isMultiValued());
     }
 
     /**
@@ -141,9 +138,9 @@ public class TimeParam_UT extends BetterTestCase {
         tp = new TimeParam(tag, desc, TimeParam.REQUIRED,
                                TimeParam.SINGLE_VALUED,
                                TimeParam.PUBLIC);
-        assertTrue("optional flag not set to false", !tp.isOptional());
-        assertTrue("multiValued flag not set false", !tp.isMultiValued());
-        assertTrue("hidden flag not set false", !tp.isHidden());
+        assertFalse("optional flag not set to false", tp.isOptional());
+        assertFalse("multiValued flag not set false", tp.isMultiValued());
+        assertFalse("hidden flag not set false", tp.isHidden());
     }
 
     /**
@@ -153,12 +150,10 @@ public class TimeParam_UT extends BetterTestCase {
         TimeParam tp = new TimeParam(tag, desc, acceptVals);
         assertEquals("tag set wrong", tag, tp.getTag());
         assertEquals("desc set wrong", desc, tp.getDesc());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, tp.getAcceptableValues()));
+        assertArrayEquals("acceptableValues set wrong", acceptVals, tp.getAcceptableValues());
         assertTrue("optional flag not set true by default", tp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !tp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !tp.isHidden());
+        assertFalse("multiValued flag not set false by default", tp.isMultiValued());
+        assertFalse("hidden flag not set false by default", tp.isHidden());
     }
 
     /**
@@ -170,14 +165,12 @@ public class TimeParam_UT extends BetterTestCase {
         assertEquals("tag set wrong", tag, tp.getTag());
         assertEquals("desc set wrong", desc, tp.getDesc());
         assertTrue("optional flag not set to true", tp.isOptional());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, tp.getAcceptableValues()));
-        assertTrue("multiValued flag not set false by default", 
-            !tp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !tp.isHidden());
+        assertArrayEquals("acceptableValues set wrong", acceptVals, tp.getAcceptableValues());
+        assertFalse("multiValued flag not set false by default", tp.isMultiValued());
+        assertFalse("hidden flag not set false by default", tp.isHidden());
 
         tp = new TimeParam(tag, desc, acceptVals, TimeParam.REQUIRED);
-        assertTrue("optional flag not set to false", !tp.isOptional());
+        assertFalse("optional flag not set to false", tp.isOptional());
     }
 
     /**
@@ -192,15 +185,14 @@ public class TimeParam_UT extends BetterTestCase {
         assertEquals("desc set wrong", desc, tp.getDesc());
         assertTrue("optional flag not set to true", tp.isOptional());
         assertTrue("multiValued flag not set to true", tp.isMultiValued());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, tp.getAcceptableValues()));
-        assertTrue("hidden flag not set false by default", !tp.isHidden());
+        assertArrayEquals("acceptableValues set wrong", acceptVals, tp.getAcceptableValues());
+        assertFalse("hidden flag not set false by default", tp.isHidden());
 
         tp = new TimeParam(tag, desc, acceptVals, 
                              TimeParam.REQUIRED, 
                              TimeParam.SINGLE_VALUED);
-        assertTrue("optional flag not set to false", !tp.isOptional());
-        assertTrue("multiValued flag not set to false", !tp.isMultiValued());
+        assertFalse("optional flag not set to false", tp.isOptional());
+        assertFalse("multiValued flag not set to false", tp.isMultiValued());
     }
 
     /**
@@ -218,16 +210,15 @@ public class TimeParam_UT extends BetterTestCase {
         assertTrue("optional flag not set to true", tp.isOptional());
         assertTrue("multiValued flag not set to true", tp.isMultiValued());
         assertTrue("hidden flag not set to true", tp.isHidden());
-        assertTrue("acceptableValues set wrong",
-                   Arrays.equals(acceptVals, tp.getAcceptableValues()));
+        assertArrayEquals("acceptableValues set wrong", acceptVals, tp.getAcceptableValues());
 
         tp = new TimeParam(tag, desc, acceptVals, 
                              TimeParam.REQUIRED, 
                              TimeParam.SINGLE_VALUED, 
                              TimeParam.PUBLIC);
-        assertTrue("optional flag not set to false", !tp.isOptional());
-        assertTrue("multiValued flag not set to false", !tp.isMultiValued());
-        assertTrue("hidden flag not set to false", !tp.isHidden());
+        assertFalse("optional flag not set to false", tp.isOptional());
+        assertFalse("multiValued flag not set to false", tp.isMultiValued());
+        assertFalse("hidden flag not set to false", tp.isHidden());
     }
 
     /**

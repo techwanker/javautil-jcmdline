@@ -20,5 +20,5 @@ import org.javautil.commandline.ParamType;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD })
 public @interface FieldValue {
-	public ParamType type();
+	ParamType type();
 }

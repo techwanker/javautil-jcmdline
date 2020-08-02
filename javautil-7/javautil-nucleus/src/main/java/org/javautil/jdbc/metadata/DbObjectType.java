@@ -8,7 +8,7 @@ public enum DbObjectType {
 
 	public static final String                   revision = "$Revision: 1.1 $";
 
-	private static HashMap<String, DbObjectType> mapping  = new HashMap<String, DbObjectType>();
+	private static final HashMap<String, DbObjectType> mapping  = new HashMap<String, DbObjectType>();
 	static {
 
 		mapping.put("FUNCTION", FUNCTION);

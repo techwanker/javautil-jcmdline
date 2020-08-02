@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("unchecked")
 public class MapSetTest {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Test
 	public void testToMap() {

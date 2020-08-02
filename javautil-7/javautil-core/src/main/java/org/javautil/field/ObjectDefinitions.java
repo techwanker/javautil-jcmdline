@@ -14,7 +14,7 @@ public class ObjectDefinitions extends LinkedHashMap<String, ObjectDefinition> {
 	 * 
 	 */
 	private static final long serialVersionUID = 3681944057159091894L;
-	private Logger            logger           = LoggerFactory.getLogger(getClass());
+	private final Logger            logger           = LoggerFactory.getLogger(getClass());
 
 	public ArrayList<Object> getObjects(List<String> externalRepresentations) throws ObjectParseException {
 		ArrayList<Object> returnValue = new ArrayList<Object>();

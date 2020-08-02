@@ -15,7 +15,7 @@ class PropertyValue {
 	private int                           referenceCount      = 0;
 	private String                        name                = null;
 	private String                        value               = null;
-	private ArrayList<PropertyLineParser> preemptedProperties = new ArrayList<PropertyLineParser>();
+	private final ArrayList<PropertyLineParser> preemptedProperties = new ArrayList<PropertyLineParser>();
 
 	/**
 	 */

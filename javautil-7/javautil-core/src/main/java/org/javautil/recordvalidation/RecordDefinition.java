@@ -11,7 +11,7 @@ import org.javautil.field.FieldDefinition;
  */
 public interface RecordDefinition {
 
-	public Collection<FieldDefinition> getFields();
+	Collection<FieldDefinition> getFields();
 
-	public FieldDefinition getField(int fieldIndex);
+	FieldDefinition getField(int fieldIndex);
 }

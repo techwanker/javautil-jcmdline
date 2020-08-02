@@ -15,24 +15,24 @@ public interface TreeNode<T extends TreeNode<T>> {
 	 * 
 	 * @return parentNodeNbr
 	 */
-	public Integer getParentNodeNbr();
+    Integer getParentNodeNbr();
 
 	/*
 	 * The unique node number of this node in the tree.
 	 * 
 	 * @return nodeNbr
 	 */
-	public Integer getNodeNbr();
+    Integer getNodeNbr();
 
 	/*
 	 * A human-readable description for this node.
 	 * 
 	 * @return description
 	 */
-	public String getDescription();
+    String getDescription();
 
 	/*
 	 * A short toString
 	 */
-	public String format();
+    String format();
 }

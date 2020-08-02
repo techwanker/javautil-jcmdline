@@ -17,7 +17,7 @@ public class JavaScriptUtils {
 			if (object != null && Map.class.isAssignableFrom(object.getClass())) {
 				s.append(asJSON((Map<String, String>) object));
 			} else {
-				s.append(String.valueOf(object));
+				s.append(object);
 			}
 			index++;
 		}

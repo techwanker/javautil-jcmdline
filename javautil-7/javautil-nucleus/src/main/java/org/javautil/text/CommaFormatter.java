@@ -61,8 +61,7 @@ public class CommaFormatter {
 			}
 
 		}
-		final String retval = b.toString();
 
-		return retval;
+        return b.toString();
 	}
 }

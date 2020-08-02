@@ -1,19 +1,15 @@
 package org.javautil.dataset;
 
-import java.io.File;
-import java.util.ArrayList;
-
 import org.javautil.commandline.CommandLineOptionsAndArgumentsHandler;
 import org.javautil.commandline.ParamType;
-import org.javautil.commandline.annotations.Argument;
-import org.javautil.commandline.annotations.FileExists;
-import org.javautil.commandline.annotations.MultiValue;
-import org.javautil.commandline.annotations.Optional;
-import org.javautil.commandline.annotations.Required;
+import org.javautil.commandline.annotations.*;
 import org.javautil.sql.Binds;
 import org.javautil.text.BindsFactory;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory; 
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class DatasetsDefinitionEnhancerArguments {
 	

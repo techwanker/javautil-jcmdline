@@ -1,18 +1,15 @@
 package org.javautil.poi.workbook;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 
-import org.javautil.commandline.CommandLineHandlerDelete;
+import java.util.ArrayList;
+
 import org.javautil.commandline.CommandLineOptionsAndArgumentsHandler;
 import org.javautil.commandline.ParamType;
 import org.javautil.commandline.annotations.AcceptableValues;
 import org.javautil.commandline.annotations.Argument;
 import org.javautil.commandline.annotations.DirectoryExists;
 import org.javautil.commandline.annotations.DirectoryReadable;
-import org.javautil.commandline.annotations.DirectoryWritable;
 import org.javautil.commandline.annotations.Exclusive;
 import org.javautil.commandline.annotations.FileExists;
 import org.javautil.commandline.annotations.FileReadable;
@@ -23,8 +20,6 @@ import org.javautil.commandline.annotations.Optional;
 import org.javautil.commandline.annotations.Required;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import jcmdline.StringParam;
 
 public class AllArguments {
 
@@ -111,7 +106,7 @@ public class AllArguments {
 		this.bindPair = bindPair;
 	}
 
-	public static AllArguments processArguments(String [] args) throws IOException {
+	public static AllArguments processArguments(String [] args) {
 		AllArguments argumentBean = new AllArguments();
 
 		final CommandLineOptionsAndArgumentsHandler clh = new CommandLineOptionsAndArgumentsHandler(argumentBean);

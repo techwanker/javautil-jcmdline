@@ -34,7 +34,6 @@ package jcmdline;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.ResourceBundle;
 
 /**
  * Base class for command line parameters.
@@ -123,7 +122,7 @@ public abstract class AbstractParameter implements Parameter {
     /**
      * the value(s) of the entity
      */
-    protected ArrayList values = new ArrayList();
+    protected final ArrayList values = new ArrayList();
 
     /**
      * The label that should be used for a Parameter option's value in the

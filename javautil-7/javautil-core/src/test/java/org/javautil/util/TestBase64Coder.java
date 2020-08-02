@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class TestBase64Coder {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Test
 	// Test Base64Coder with constant strings.

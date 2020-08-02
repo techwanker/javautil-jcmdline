@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface IndexColumns {
 
-	public abstract List<IndexColumn> getIndexColumns();
+	List<IndexColumn> getIndexColumns();
 
-	public String getTableName();
+	String getTableName();
 
-	public String getSchemaName();
+	String getSchemaName();
 
-	public boolean isUnique();
+	boolean isUnique();
 
 	// public List<IndexColumn> getInfoList();
 }

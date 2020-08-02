@@ -1,9 +1,9 @@
 package org.javautil.document.renderer;
 
-import javax.xml.transform.stream.StreamResult;
-
 import org.javautil.dataset.Dataset;
 import org.javautil.document.MimeType;
+
+import javax.xml.transform.stream.StreamResult;
 
 /**
  * 
@@ -11,27 +11,27 @@ import org.javautil.document.MimeType;
  */
 public interface RendererRequest {
 
-	public MimeType getMimeType();
+	MimeType getMimeType();
 
-	public void setMimeType(final MimeType mimeType);
+	void setMimeType(final MimeType mimeType);
     // TODO make output Stream
-	public StreamResult getStreamResult();
+    StreamResult getStreamResult();
 
-	public void setStreamResult(StreamResult sr);
+	void setStreamResult(StreamResult sr);
 
-	public Dataset getDataset();
+	Dataset getDataset();
 
 	/**
 	 * 
 	 * @param DateFormat a String compatible with SimpleDateFormat
 	 */
-	public void setDateFormat(String DateFormat);
+    void setDateFormat(String DateFormat);
 
 	/**
 	 * A String compatible with SimpleDateFormat
 	 * 
 	 * @return the SimpleDateFormat string
 	 */
-	public String getDateFormat();
+    String getDateFormat();
 
 }

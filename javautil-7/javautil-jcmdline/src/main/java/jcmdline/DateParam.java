@@ -93,8 +93,6 @@ public class DateParam extends AbstractParameter {
     private static final DecimalFormat hmsFmt = new DecimalFormat("00");
     private static final DecimalFormat msFmt = new DecimalFormat("000");
 
-    private Date date = null;
-
     /**
      * The default hours to be added to the date - defaults to 0
      * @see #setDefaultTime(int,int,int,int) setDefaultTime()
@@ -478,7 +476,7 @@ public class DateParam extends AbstractParameter {
         String[] sVals = new String[vals.size()];
         int i = 0;
         for (Iterator itr = vals.iterator(); itr.hasNext(); ) {
-            date = (Date)itr.next();
+            Date date = (Date) itr.next();
             sVals[i] = dateFmt.format(date);
             i++;
         }
@@ -525,20 +523,20 @@ public class DateParam extends AbstractParameter {
     public void setDefaultTime(int h, int m, int s, int ms) {
         if (h < 0 || h > 23) {
             throw new IllegalArgumentException(Strings.get(
-                "DateParam.invalidHours", new Object[] { new Integer(h) }));
+                "DateParam.invalidHours", new Object[] { Integer.valueOf(h) }));
         }
         if (m < 0 || m > 59) {
             throw new IllegalArgumentException(Strings.get(
-                "DateParam.invalidMinutes", new Object[] { new Integer(m) }));
+                "DateParam.invalidMinutes", new Object[] { Integer.valueOf(m) }));
         }
         if (s < 0 || s > 59) {
             throw new IllegalArgumentException(Strings.get(
-                "DateParam.invalidSeconds", new Object[] { new Integer(s) }));
+                "DateParam.invalidSeconds", new Object[] { Integer.valueOf(s) }));
         }
         if (ms < 0 || ms > 999) {
             throw new IllegalArgumentException(Strings.get(
                 "DateParam.invalidMilliSeconds", 
-                new Object[] { new Integer(ms) }));
+                new Object[] { Integer.valueOf(ms) }));
         }
         defaultHours = h;
         defaultMinutes = m;

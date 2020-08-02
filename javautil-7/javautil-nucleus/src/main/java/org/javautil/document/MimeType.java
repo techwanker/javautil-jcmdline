@@ -69,7 +69,7 @@ public enum MimeType {
 
 	public static String getParseErrorMessage(final String val) {
 		final StringBuilder b = new StringBuilder();
-		b.append("unsupported mime time '" + val + "'");
+		b.append("unsupported mime time '").append(val).append("'");
 		b.append(" acceptable values: ");
 		for (final MimeType m : values()) {
 			b.append(" ");

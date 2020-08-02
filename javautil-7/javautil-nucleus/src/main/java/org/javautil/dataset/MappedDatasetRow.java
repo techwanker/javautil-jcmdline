@@ -14,10 +14,9 @@ public class MappedDatasetRow {
 
 	private final Logger   logger  = LoggerFactory.getLogger(getClass());
 	private final Object[] rowId;
-	private static String  newline = System.getProperty("line.separator");
+	private static final String  newline = System.getProperty("line.separator");
 
 	private final Object[] values;
-	private final String   tab     = " ";
 
 	private final Integer  rownum;
 
@@ -52,6 +51,7 @@ public class MappedDatasetRow {
 	public String toString() {
 		final StringBuilder b = new StringBuilder();
 		b.append("rowid: ");
+		String tab = " ";
 		for (final Object o : rowId) {
 			b.append(o);
 			b.append(tab);

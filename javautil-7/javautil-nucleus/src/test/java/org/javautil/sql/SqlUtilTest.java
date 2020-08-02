@@ -1,11 +1,11 @@
 package org.javautil.sql;
 
-import static org.junit.Assert.assertEquals;
-
 import org.javautil.text.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.Assert.assertEquals;
 
 public class SqlUtilTest
 
@@ -15,8 +15,8 @@ public class SqlUtilTest
 
 	//	private String regex = "(.)([.]+)";
 	//	private String regex = "(.*)(;?)\\s+";
-	private String regex = "(.*);[\\s|\\n]*";
-	private String stripTrailingWhitespace = "(.*)([\\s|\\n]+)";
+	private final String regex = "(.*);[\\s|\\n]*";
+	private final String stripTrailingWhitespace = "(.*)([\\s|\\n]+)";
 	//	private String regex = "([\\s]*)([.n]+)";
 	//	private String regex = "([\\s]*)([.]+)(;?)([\\s]*)";
 	String charArrayInfo(String text) {
@@ -24,16 +24,14 @@ public class SqlUtilTest
 		StringBuilder sb =  new StringBuilder();
 		int i = 0;
 		for (char s : chars) {
-		  int val = s;
-		  sb.append(i++ + ":" + val + ":'" + s + "' "); }
+			sb.append(i++).append(":").append((int) s).append(":'").append(s).append("' "); }
 		return sb.toString();
 }
 	String charArrayInfo(char[] chars) {
 			StringBuilder sb =  new StringBuilder();
 			int i = 0;
 			for (char s : chars) {
-			int val = s;
-				sb.append(i++ + ":" + val + " "); }
+				sb.append(i++).append(":").append((int) s).append(" "); }
 			return sb.toString();
 	}
 

@@ -1,18 +1,13 @@
 package org.javautil.dataset;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import org.javautil.text.StringUtils;
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
+import org.javautil.text.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * Dataset implementation backed by a List of Maps for use with templating
@@ -133,6 +128,42 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 		this.name = name;
 	}
 
+	@Override
+	public Object getValue(final int rowIndex, final int columnIndex) {
+		if (rowIndex < 0) {
+			throw new IllegalArgumentException("rowIndex specified cannot be negative");
+		}
+		final Map<String, ?> row = get(rowIndex);
+		if (row == null) {
+			throw new IllegalArgumentException("rowIndex specified too large; last rowIndex is " + rowIndex);
+		}
+		final String columnName = metadata.getColumnName(columnIndex);
+		if (columnName == null) {
+			throw new IllegalArgumentException("no column at columnIndex " + columnIndex);
+		}
+		return row.get(columnName);
+	}
+
+	@SuppressWarnings("synthetic-access")
+	@Override
+	public Object getValue(final int rowIndex, final String columnName) {
+		if (rowIndex < 0) {
+			throw new IllegalArgumentException("rowIndex specified cannot be negative");
+		}
+		final Map<String, ?> row = get(rowIndex);
+		if (row == null) {
+			throw new IllegalArgumentException("rowIndex specified too large; last rowIndex is " + rowIndex);
+		}
+		if (metadata == null) {
+			throw new IllegalStateException("metadata is null");
+		}
+		if (metadata.getColumnIndex(columnName) == -1) {
+			throw new IllegalArgumentException("no column named " + columnName);
+		}
+		return row.get(columnName);
+	}
+
+
 	class ListOfMapsDatasetIterator extends AbstractDatasetIterator {
 
 		private ListOfNameValueDataset dataset = null;
@@ -151,7 +182,7 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 			if (rowIndex < 0) {
 				throw new IllegalArgumentException("rowIndex specified cannot be negative");
 			}
-			final Map<String, ? extends Object> row = get(rowIndex);
+			final Map<String, ?> row = get(rowIndex);
 			if (row == null) {
 				throw new IllegalArgumentException("rowIndex specified too large; last rowIndex is " + rowIndex);
 			}
@@ -168,7 +199,7 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 			if (rowIndex < 0) {
 				throw new IllegalArgumentException("rowIndex specified cannot be negative");
 			}
-			final Map<String, ? extends Object> row = get(rowIndex);
+			final Map<String, ?> row = get(rowIndex);
 			if (row == null) {
 				throw new IllegalArgumentException("rowIndex specified too large; last rowIndex is " + rowIndex);
 			}
@@ -178,8 +209,7 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 			if (metadata.getColumnIndex(columnName) == -1) {
 				throw new IllegalArgumentException("no column named " + columnName);
 			}
-			final Object value = row.get(columnName);
-			return value;
+			return row.get(columnName);
 		}
 
 		@Override
@@ -201,7 +231,7 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 
 	public List<Object> getRowAsList(final int rowIndex) {
 		final ArrayList<Object> ret = new ArrayList<Object>();
-		final Map<String, ? extends Object> row = get(rowIndex);
+		final Map<String, ?> row = get(rowIndex);
 		if (row == null) {
 			throw new IllegalArgumentException("no row at index " + rowIndex);
 		}
@@ -229,7 +259,7 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 		StringBuilder sb = new StringBuilder();
 		sb.append("metadata:\n");
 		sb.append(metadata.toString());
-		sb.append("rows: " + this.size() + "\n");
+		sb.append("rows: ").append(this.size()).append("\n");
 		for (Map<String, Object> row : this) {
 			for (Entry<String, Object> e : row.entrySet()) {
 				sb.append("\"");
@@ -247,9 +277,7 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 
 	public ArrayList<NameValue> getRows() {
 		ArrayList<NameValue> rows = new ArrayList<>();
-		for (NameValue row : this) {
-			rows.add(row);
-		}
+		rows.addAll(this);
 		return rows;
 	}
 
@@ -258,5 +286,14 @@ public class ListOfNameValueDataset extends ArrayList<NameValue> implements Data
 	 */
 	public void setMetadata(DatasetMetadata metadata) {
 		this.metadata = metadata;
-	};
+	}
+
+	@Override
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
 }

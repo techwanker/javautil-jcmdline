@@ -1,13 +1,12 @@
 package org.javautil.dataset;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-
-import javax.xml.transform.stream.StreamResult;
-
 import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;
 import org.javautil.document.renderer.CsvRendererRequestImpl;
+
+import javax.xml.transform.stream.StreamResult;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 /**
  * 
@@ -31,8 +30,7 @@ public class DatasetRendererHelper {
 		final CsvRenderer cr = new CsvRenderer();
 		cr.setRequest(crr);
 		cr.process();
-		final byte[] retval = baos.toByteArray();
-		return retval;
+		return baos.toByteArray();
 	}
 
 	public static String getDatasetAsCsvString(final Dataset dataset) throws IOException {

@@ -5,14 +5,13 @@ import static org.junit.Assert.assertEquals;
 import java.util.Collection;
 import java.util.Date;
 
-import jcmdline.CmdLineException;
-
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.javautil.commandline.Day;
 import org.javautil.commandline.ParamType;
-
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 /**
  * DateParam.dateFormat: MM/dd/yy from string.property in
@@ -46,8 +45,8 @@ public class DateArgumentsTest extends BaseTest {
 	}
 
 	@Test
-	public void testDate() throws CmdLineException {
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(this);
+	public void testDate() {
+		final CommandLineHandler clh = new CommandLineHandler(this);
 		final String argString = "-date 08/07/10 -dates 08/09/10 -dates 08/10/10";
 		clh.evaluateArgumentsString(argString);
 		final Day day = new Day(2010, 8, 7);

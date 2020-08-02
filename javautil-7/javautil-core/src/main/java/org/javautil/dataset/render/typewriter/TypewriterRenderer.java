@@ -8,32 +8,32 @@ import org.javautil.document.style.Style;
 
 public interface TypewriterRenderer {
 
-	public TypewriterBehavior getBehavior();
+	TypewriterBehavior getBehavior();
 
-	public void setBehavior(TypewriterBehavior behavior);
+	void setBehavior(TypewriterBehavior behavior);
 
-	public void nextLine();
+	void nextLine();
 
-	public int getRowIndex();
+	int getRowIndex();
 
-	public void setRowIndex(int rowIndex);
+	void setRowIndex(int rowIndex);
 
-	public int getColumnIndex();
+	int getColumnIndex();
 
-	public void setColumnIndex(int columnIndex);
+	void setColumnIndex(int columnIndex);
 
-	public void skip(int numberOfCells);
+	void skip(int numberOfCells);
 
-	public void addBlank(String styleName);
+	void addBlank(String styleName);
 
-	public void addData(Object data, String styleName);
+	void addData(Object data, String styleName);
 
-	public void addFormula(String formula, String styleName);
+	void addFormula(String formula, String styleName);
 
-	public void addStyles(Map<String, Style> styles);
+	void addStyles(Map<String, Style> styles);
 
-	public Dimension getDimension();
+	Dimension getDimension();
 
-	public Rectangle getBounds();
+	Rectangle getBounds();
 
 }

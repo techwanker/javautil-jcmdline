@@ -1,16 +1,14 @@
 package org.javautil.jdbc.metadata;
 
+import org.javautil.text.StringBuilderHelper;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 
-import org.javautil.text.StringBuilderHelper;
-
 public class DatabaseMetadata {
 
-	private boolean autoCommitFailureClosesAllResultSets;
-	private boolean doesMaxRowSizeIncludeBlobs;
 	private boolean generatedKeyAlwaysReturned;
 
 //	private int databaseMajorVersion;
@@ -23,26 +21,6 @@ public class DatabaseMetadata {
 //	private String userName;
 //	private String driverName;
 
-	/*
-	 * Retrieves whether the current user can call all the procedures returned by
-	 * the method getProcedures.
-	 */
-	private boolean allProceduresAreCallable;
-	/*
-	 * Retrieves whether the current user can use all the tables returned by the
-	 * method getTables in a SELECT statement.
-	 */
-	private boolean allTablesAreSelectable;
-	/*
-	 * Retrieves whether a data definition statement within a transaction forces the
-	 * transaction to commit.
-	 */
-	private boolean dataDefinitionCausesTransactionCommit;
-	/*
-	 * Retrieves whether this database ignores a data definition statement within a
-	 * transaction.
-	 */
-	private boolean dataDefinitionIgnoredInTransactions;
 	// /* Retrieves whether or not a visible row delete can be detected by
 	// calling the method ResultSet.rowDeleted. */
 	// private boolean deletesAreDetected(int type)
@@ -52,32 +30,23 @@ public class DatabaseMetadata {
 	 */
 	private boolean doesmaxRowSizeIncludeBlobs;
 
-	/* catalog names available in this database. */
-	// ResultSet getCatalogs;
-	/*
-	 * String that this database uses as the separator between a catalog and table
-	 * name.
-	 */
-	private String  catalogSeparator;
 	/* database vendor's preferred term for "catalog". */
 	private String  catalogTerm;
 	/* major version number of the underlying database. */
-	private int     databaseMajorVersion;
+	private final int     databaseMajorVersion;
 	/* minor version number of the underlying database. */
-	private int     databaseMinorVersion;
+	private final int     databaseMinorVersion;
 	/* name of this database product. */
-	private String  databaseProductName;
+	private final String  databaseProductName;
 	/* version number of this database product. */
-	private String  databaseProductVersion;
-	/* Retrieves this database's default transactionolation level. */
-	private int     defaultTransactionIsolation;
+	private final String  databaseProductVersion;
 
 	/* Retrieves this JDBC driver's major version number. */
-	private int     driverMajorVersion;
+	private final int     driverMajorVersion;
 	/* Retrieves this JDBC driver's minor version number. */
-	private int     driverMinorVersion;
+	private final int     driverMinorVersion;
 	/* name of this JDBC driver. */
-	private String  driverName;
+	private final String  driverName;
 	/* version number of this JDBC driver as a String. */
 	private String  driverVersion;
 	/*
@@ -180,7 +149,7 @@ public class DatabaseMetadata {
 	 */
 	private String  timeDateFunctions;
 	/* URL for this DBMS. */
-	private String  URL;
+	private final String  URL;
 
 	/* user name as known to this database. */
 	private String  UserName;
@@ -213,44 +182,6 @@ public class DatabaseMetadata {
 	private boolean nullsAreSortedHigh;
 	/* Retrieves whether NULL values are sorted low. */
 	private boolean nullsAreSortedLow;
-	/* Retrieves whether deletes made by others are visible. */
-	// private boolean othersDeletesAreVisible(int type)
-	// /* Retrieves whether inserts made by others are visible. */
-	// private boolean othersInsertsAreVisible(int type)
-	// /* Retrieves whether updates made by others are visible. */
-	// private boolean othersUpdatesAreVisible(int type)
-	// /* Retrieves whether a result set's own deletes are visible. */
-	// private boolean ownDeletesAreVisible(int type)
-	// /* Retrieves whether a result set's own inserts are visible. */
-	// private boolean ownInsertsAreVisible(int type)
-	// /* Retrieves whether for the given type of ResultSet object, the result
-	// set's own updates are visible. */
-	// private boolean ownUpdatesAreVisible(int type)
-	/*
-	 * Retrieves whether this database treats mixed case unquoted SQL identifiers as
-	 * case insensitive and stores them in lower case.
-	 */
-	private boolean storesLowerCaseIdentifiers;
-	/*
-	 * Retrieves whether this database treats mixed case quoted SQL identifiers as
-	 * case insensitive and stores them in lower case.
-	 */
-	private boolean storesLowerCaseQuotedIdentifiers;
-	/*
-	 * Retrieves whether this database treats mixed case unquoted SQL identifiers as
-	 * case insensitive and stores them in mixed case.
-	 */
-	private boolean storesMixedCaseIdentifiers;
-	/*
-	 * Rhis database treats mixed case unquoted SQL identifiers as case insensitive
-	 * and stores them in upper case.
-	 */
-	private boolean storesMixedCaseQuotedIdentifiers;
-	/*
-	 * Retrieves whether this database treats mixed case quoted SQL identifiers as
-	 * case insensitive and stores them in upper case.
-	 */
-	private boolean storesUpperCaseIdentifiers;
 	/* Retrieves whether this database supports ALTER TABLE with add column. */
 	private boolean supportsAlterTableWithAddColumn;
 	/* Retrieves whether this database supports ALTER TABLE with drop column. */
@@ -497,33 +428,89 @@ public class DatabaseMetadata {
 	/* Retrieves whether this database uses a file for each table. */
 	private boolean usesLocalFilePerTable;
 	private boolean usesLocalFiles;
-	private String  userName;
+	private final String  userName;
 
 	public DatabaseMetadata(Connection conn) throws SQLException {
 		DatabaseMetaData dbmeta = conn.getMetaData();
-		allProceduresAreCallable = dbmeta.allProceduresAreCallable();
-		allTablesAreSelectable = dbmeta.allTablesAreSelectable();
-		catalogSeparator = dbmeta.getCatalogSeparator();
-		autoCommitFailureClosesAllResultSets = dbmeta.autoCommitFailureClosesAllResultSets();
-		dataDefinitionCausesTransactionCommit = dbmeta.dataDefinitionCausesTransactionCommit();
-		dataDefinitionIgnoredInTransactions = dbmeta.dataDefinitionIgnoredInTransactions();
-		doesMaxRowSizeIncludeBlobs = dbmeta.doesMaxRowSizeIncludeBlobs();
+		/*
+		 * Retrieves whether the current user can call all the procedures returned by
+		 * the method getProcedures.
+		 */
+		boolean allProceduresAreCallable = dbmeta.allProceduresAreCallable();
+		/*
+		 * Retrieves whether the current user can use all the tables returned by the
+		 * method getTables in a SELECT statement.
+		 */
+		boolean allTablesAreSelectable = dbmeta.allTablesAreSelectable();
+		/* catalog names available in this database. */
+		// ResultSet getCatalogs;
+		/*
+		 * String that this database uses as the separator between a catalog and table
+		 * name.
+		 */
+		String catalogSeparator = dbmeta.getCatalogSeparator();
+		boolean autoCommitFailureClosesAllResultSets = dbmeta.autoCommitFailureClosesAllResultSets();
+		/*
+		 * Retrieves whether a data definition statement within a transaction forces the
+		 * transaction to commit.
+		 */
+		boolean dataDefinitionCausesTransactionCommit = dbmeta.dataDefinitionCausesTransactionCommit();
+		/*
+		 * Retrieves whether this database ignores a data definition statement within a
+		 * transaction.
+		 */
+		boolean dataDefinitionIgnoredInTransactions = dbmeta.dataDefinitionIgnoredInTransactions();
+		boolean doesMaxRowSizeIncludeBlobs = dbmeta.doesMaxRowSizeIncludeBlobs();
 		// generatedKeyAlwaysReturned = dbmeta.generatedKeyAlwaysReturned();
 		databaseMajorVersion = dbmeta.getDatabaseMajorVersion();
 		driverMinorVersion = dbmeta.getDriverMinorVersion();
 		databaseProductName = dbmeta.getDatabaseProductName();
-		defaultTransactionIsolation = dbmeta.getDefaultTransactionIsolation();
+		/* Retrieves this database's default transactionolation level. */
+		int defaultTransactionIsolation = dbmeta.getDefaultTransactionIsolation();
 		databaseMinorVersion = dbmeta.getDatabaseMinorVersion();
 		databaseProductVersion = dbmeta.getDatabaseProductVersion();
 		driverMajorVersion = dbmeta.getDriverMajorVersion();
 		driverName = dbmeta.getDriverName();
 		URL = dbmeta.getURL();
 		userName = dbmeta.getUserName();
-		storesLowerCaseIdentifiers = dbmeta.storesLowerCaseIdentifiers();
-		storesMixedCaseIdentifiers = dbmeta.storesMixedCaseIdentifiers();
-		storesLowerCaseQuotedIdentifiers = dbmeta.storesLowerCaseQuotedIdentifiers();
-		storesMixedCaseQuotedIdentifiers = dbmeta.storesMixedCaseQuotedIdentifiers();
-		storesUpperCaseIdentifiers = dbmeta.storesUpperCaseIdentifiers();
+		/* Retrieves whether deletes made by others are visible. */
+		// private boolean othersDeletesAreVisible(int type)
+		// /* Retrieves whether inserts made by others are visible. */
+		// private boolean othersInsertsAreVisible(int type)
+		// /* Retrieves whether updates made by others are visible. */
+		// private boolean othersUpdatesAreVisible(int type)
+		// /* Retrieves whether a result set's own deletes are visible. */
+		// private boolean ownDeletesAreVisible(int type)
+		// /* Retrieves whether a result set's own inserts are visible. */
+		// private boolean ownInsertsAreVisible(int type)
+		// /* Retrieves whether for the given type of ResultSet object, the result
+		// set's own updates are visible. */
+		// private boolean ownUpdatesAreVisible(int type)
+		/*
+		 * Retrieves whether this database treats mixed case unquoted SQL identifiers as
+		 * case insensitive and stores them in lower case.
+		 */
+		boolean storesLowerCaseIdentifiers = dbmeta.storesLowerCaseIdentifiers();
+		/*
+		 * Retrieves whether this database treats mixed case unquoted SQL identifiers as
+		 * case insensitive and stores them in mixed case.
+		 */
+		boolean storesMixedCaseIdentifiers = dbmeta.storesMixedCaseIdentifiers();
+		/*
+		 * Retrieves whether this database treats mixed case quoted SQL identifiers as
+		 * case insensitive and stores them in lower case.
+		 */
+		boolean storesLowerCaseQuotedIdentifiers = dbmeta.storesLowerCaseQuotedIdentifiers();
+		/*
+		 * Rhis database treats mixed case unquoted SQL identifiers as case insensitive
+		 * and stores them in upper case.
+		 */
+		boolean storesMixedCaseQuotedIdentifiers = dbmeta.storesMixedCaseQuotedIdentifiers();
+		/*
+		 * Retrieves whether this database treats mixed case quoted SQL identifiers as
+		 * case insensitive and stores them in upper case.
+		 */
+		boolean storesUpperCaseIdentifiers = dbmeta.storesUpperCaseIdentifiers();
 		storesUpperCaseIdentifiers = dbmeta.storesUpperCaseIdentifiers();
 
 	}

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 // todo jjs this looks good from a visual check now we have to have the tests that verify 
 public class GroupByTest extends BaseTest {
 	// TODO need lots of more tests
-	private static Logger logger = LoggerFactory.getLogger(GroupByTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(GroupByTest.class);
 
 	@Test
 	public void test1() {

@@ -8,23 +8,23 @@ import org.javautil.document.DocumentRegion;
 
 public interface DocumentRenderStatus {
 
-	public DocumentRegion getCurrentRegion();
+	DocumentRegion getCurrentRegion();
 
-	public void setCurrentRegion(DocumentRegion currentRegion);
+	void setCurrentRegion(DocumentRegion currentRegion);
 
-	public void setCurrentRegionComplete();
+	void setCurrentRegionComplete();
 
-	public boolean isRegionRendered(DocumentRegion documentRegion);
+	boolean isRegionRendered(DocumentRegion documentRegion);
 
-	public Rectangle getRegionBounds(DocumentRegion documentRegion);
+	Rectangle getRegionBounds(DocumentRegion documentRegion);
 
-	public void setTopLeftCoordinate(DocumentRegion documentRegion, Point point);
+	void setTopLeftCoordinate(DocumentRegion documentRegion, Point point);
 
-	public Point getTopLeftCoordinate(DocumentRegion documentRegion);
+	Point getTopLeftCoordinate(DocumentRegion documentRegion);
 
-	public Point getBottomRightCoordinate(DocumentRegion documentRegion);
+	Point getBottomRightCoordinate(DocumentRegion documentRegion);
 
-	public void setDimension(DocumentRegion documentRegion, Dimension dimension);
+	void setDimension(DocumentRegion documentRegion, Dimension dimension);
 
-	public Dimension getDimension(DocumentRegion documentRegion);
+	Dimension getDimension(DocumentRegion documentRegion);
 }

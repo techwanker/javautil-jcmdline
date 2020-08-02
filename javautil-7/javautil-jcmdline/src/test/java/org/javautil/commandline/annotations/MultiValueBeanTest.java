@@ -7,19 +7,19 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import jcmdline.CmdLineException;
-
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 public class MultiValueBeanTest extends BaseTest {
 
 	private final MultiValueBean argumentBean = new MultiValueBean();
-	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 
 	@Test
-	public void test1() throws CmdLineException {
+	public void test1() {
 		final Set<String> wordSet = new HashSet<String>();
 		wordSet.add("one");
 		wordSet.add("two");

@@ -13,7 +13,7 @@ import org.yaml.snakeyaml.Yaml;
 
 public class BindDefinitionsTest {
 	private transient final Logger logger               = LoggerFactory.getLogger(getClass());
-	private String                 definitionsDirectory = WorkbookTestConstants.definitionsDirectory;
+	private final String                 definitionsDirectory = WorkbookTestConstants.definitionsDirectory;
 
 	@Test
 	public void loadBindDefinitionsTest() throws FileNotFoundException {

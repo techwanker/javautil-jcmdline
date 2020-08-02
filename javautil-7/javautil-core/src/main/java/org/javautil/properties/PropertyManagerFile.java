@@ -37,7 +37,7 @@ public class PropertyManagerFile {
 	/**
 	 * parsed lines
 	 */
-	private ArrayList<PropertyLineParser> parsedLines        = new ArrayList<PropertyLineParser>();
+	private final ArrayList<PropertyLineParser> parsedLines        = new ArrayList<PropertyLineParser>();
 	private ArrayList<PropertyLineParser> directiveLines     = null;
 	private ArrayList<PropertyLineParser> definitions        = null;
 	private ArrayList<PropertyValue>      propertyValues     = null;

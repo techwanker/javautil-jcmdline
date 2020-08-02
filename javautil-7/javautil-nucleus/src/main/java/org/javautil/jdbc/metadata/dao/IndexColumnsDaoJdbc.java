@@ -9,15 +9,15 @@
 
 package org.javautil.jdbc.metadata.dao;
 
+import org.javautil.jdbc.metadata.IndexColumn;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.javautil.jdbc.metadata.IndexColumn;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -42,7 +42,7 @@ public class IndexColumnsDaoJdbc {
 
 	private final Logger          logger       = LoggerFactory.getLogger(this.getClass().getName());
 
-	private List<IndexColumn>     indexColumns = new ArrayList<IndexColumn>();
+	private final List<IndexColumn>     indexColumns = new ArrayList<IndexColumn>();
 
 	private final List<Exception> exceptions   = new ArrayList<Exception>();
 

@@ -25,7 +25,7 @@ import junit.framework.Assert;
  */
 public class ColumnMetadataTest {
 	
-	private transient Logger logger = LoggerFactory.getLogger(getClass());
+	private final transient Logger logger = LoggerFactory.getLogger(getClass());
 
 	public static ColumnMetadata dollarsColumn;
 

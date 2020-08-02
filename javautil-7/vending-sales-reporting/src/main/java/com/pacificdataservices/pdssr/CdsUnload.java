@@ -7,13 +7,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Map;
 
-import org.javautil.sql.Binds;
-import org.javautil.sql.MappedResultSetIterator;
-import org.javautil.sql.Dialect;
-import org.javautil.sql.SqlStatement;
-import org.javautil.text.StringUtils;
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
+import org.javautil.sql.Binds;
+import org.javautil.sql.Dialect;
+import org.javautil.sql.MappedResultSetIterator;
+import org.javautil.sql.SqlStatement;
+import org.javautil.text.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

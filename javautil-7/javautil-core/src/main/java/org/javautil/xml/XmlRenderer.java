@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
  */
 public class XmlRenderer extends AbstractRenderer {
 
-	private static Logger                    logger      = LoggerFactory.getLogger(XmlRenderer.class);
+	private static final Logger                    logger      = LoggerFactory.getLogger(XmlRenderer.class);
 
 	private Element                          root;
 

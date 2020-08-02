@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class WorkbookDefinition {
 	@SuppressWarnings("unused")
-	private transient static Logger               logger     = LoggerFactory.getLogger(WorkbookDefinition.class);
+	private final transient static Logger               logger     = LoggerFactory.getLogger(WorkbookDefinition.class);
 
 	@SerializedName("name")
 	@Expose
@@ -46,7 +46,7 @@ public class WorkbookDefinition {
 
 	@SerializedName("binds")
 		@Expose
-	private List<Bind> binds = null;
+	private final List<Bind> binds = null;
 
 	
 	public File getFile() {

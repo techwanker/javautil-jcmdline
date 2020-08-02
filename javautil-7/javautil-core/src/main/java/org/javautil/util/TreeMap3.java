@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class TreeMap3 {
 
-	private TreeMap<Object, TreeMap> mapA = new TreeMap();
+	private final TreeMap<Object, TreeMap> mapA = new TreeMap();
 
 	public Object put(Object a, Object b, Object c, Object value) {
 		Object retval = null;

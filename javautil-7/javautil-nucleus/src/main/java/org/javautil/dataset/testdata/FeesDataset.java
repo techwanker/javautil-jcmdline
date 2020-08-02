@@ -1,14 +1,10 @@
 package org.javautil.dataset.testdata;
 
 import org.javautil.collections.ListHelper;
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.DataType;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.javautil.dataset.MatrixDataset;
-import org.javautil.dataset.MutableDataset;
+import org.javautil.dataset.*;
 
 public class FeesDataset {
-	private static DatasetMetadataImpl deferredAdjudicationMeta = new DatasetMetadataImpl() {
+	private static final DatasetMetadataImpl deferredAdjudicationMeta = new DatasetMetadataImpl() {
 		{
 			addColumn(new ColumnMetadata().withColumnName("STATE")
 					.withColumnIndex(0)
@@ -29,7 +25,7 @@ public class FeesDataset {
 		}
 	};
 
-	private static MatrixDataset       fees                     = new MatrixDataset(deferredAdjudicationMeta) {
+	private static final MatrixDataset       fees                     = new MatrixDataset(deferredAdjudicationMeta) {
 		{
 			addRow(
 					ListHelper.toList("TX", "DALLAS", new Integer(1),

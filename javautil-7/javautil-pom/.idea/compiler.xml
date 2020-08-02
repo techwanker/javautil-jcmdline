@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="javautil-condition-identification" />
+        <module name="vending-sales-reporting" />
+        <module name="javautil-oracle-trace" />
+        <module name="javautil-joblog" />
+        <module name="nucleus" />
+        <module name="javautil-poi" />
+        <module name="javautil-test" />
+        <module name="javautil-jcmdline" />
+        <module name="javautil-hibernate" />
+        <module name="javautil-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="javautil-condition-identification" target="1.8" />
+      <module name="javautil-core" target="1.8" />
+      <module name="javautil-hibernate" target="1.8" />
+      <module name="javautil-jcmdline" target="1.8" />
+      <module name="javautil-joblog" target="1.8" />
+      <module name="javautil-oracle-trace" target="1.8" />
+      <module name="javautil-poi" target="1.8" />
+      <module name="javautil-pom" target="1.8" />
+      <module name="javautil-pom (1)" target="1.8" />
+      <module name="javautil-pom (2)" target="1.8" />
+      <module name="javautil-test" target="1.8" />
+      <module name="nucleus" target="1.8" />
+      <module name="vending-sales-reporting" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

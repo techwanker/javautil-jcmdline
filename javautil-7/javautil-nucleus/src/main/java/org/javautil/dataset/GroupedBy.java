@@ -1,10 +1,10 @@
 package org.javautil.dataset;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.javautil.collections.Tuple;
 import org.javautil.text.AsString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupedBy {
 
@@ -61,11 +61,11 @@ public class GroupedBy {
 		final AsString as = new AsString();
 		final StringBuilder b = new StringBuilder();
 		b.append(newline);
-		b.append("groupedColumnsMeta: " + newline);
+		b.append("groupedColumnsMeta: ").append(newline);
 		b.append(groupedColumnsMeta.toString());
-		b.append("groupColumns: " + newline + as.toString(groupColumns) + newline);
+		b.append("groupColumns: ").append(newline).append(as.toString(groupColumns)).append(newline);
 
-		b.append("nongroupedColumns" + newline);
+		b.append("nongroupedColumns").append(newline);
 
 		for (final Tuple t : nongroupedColumns) {
 			b.append(as.toString(t));
@@ -80,8 +80,8 @@ public class GroupedBy {
 		final StringBuilder b = new StringBuilder();
 		b.append(newline);
 
-		b.append("groupColumns: " + newline + as.toString(groupColumns) + newline);
-		b.append("non grouped " + newline);
+		b.append("groupColumns: ").append(newline).append(as.toString(groupColumns)).append(newline);
+		b.append("non grouped ").append(newline);
 		for (final Tuple t : nongroupedColumns) {
 			b.append(as.toString(t));
 			b.append(newline);

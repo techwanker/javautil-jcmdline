@@ -4,13 +4,13 @@ import org.javautil.jdbc.metadata.containers.DatabaseTables;
 
 public interface Schema {
 
-	public static final String revision = "$Revision: 1.4 $";
+	String revision = "$Revision: 1.4 $";
 
-	public abstract DatabaseTables getTables();
+	DatabaseTables getTables();
 
-	public abstract void setSchemaName(final String schemaName);
+	void setSchemaName(final String schemaName);
 
-	public abstract void setTables(DatabaseTables databaseTables);
+	void setTables(DatabaseTables databaseTables);
 
 	// only works for oracle
 	// public abstract Map<String, DatabaseObject> getFunctions();

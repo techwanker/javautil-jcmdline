@@ -1,14 +1,6 @@
 package com.pacificdataservices.uploadingfiles.database;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import javax.sql.DataSource;
-
+import com.pacificdataservices.tables.User;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,7 +10,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.pacificdataservices.tables.User;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import static org.junit.Assert.assertNotNull;
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)

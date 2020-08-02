@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class SimpleDateFormatFactory {
 
-	public static final SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss.SSS");;
+	public static final SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss.SSS");
 
-	/**
+    /**
 	 * Example "2018-07-31"
 	 *
 	 * @return w SimpleDateFormat("yyyy-MM-dd");

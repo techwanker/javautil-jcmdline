@@ -1,9 +1,9 @@
 package org.javautil.json;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.util.LinkedHashMap;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.google.gson.Gson;
 //import com.google.gson.GsonBuilder;
 
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 // ObjectMapper.enable(SerializationFeature.INDENT_OUTPUT); 
 
 public class JsonSerializerJackson implements JsonSerializer {
-	private ObjectMapper mapper = new ObjectMapper();
+	private final ObjectMapper mapper = new ObjectMapper();
 
 	// ObjectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
@@ -30,8 +30,7 @@ public class JsonSerializerJackson implements JsonSerializer {
 	 */
 	@Override
 	public LinkedHashMap<String, Object> toMapFromBean(Object bean) {
-		LinkedHashMap<String, Object> map = mapper.convertValue(bean, LinkedHashMap.class);
-		return map;
+		return mapper.convertValue(bean, LinkedHashMap.class);
 
 	}
 
@@ -43,8 +42,7 @@ public class JsonSerializerJackson implements JsonSerializer {
 	 */
 	@Override
 	public Object toObjectFromJson(String json) {
-		Object o = mapper.convertValue(json, Object.class);
-		return o;
+		return mapper.convertValue(json, Object.class);
 	}
 
 	/*
@@ -66,8 +64,7 @@ public class JsonSerializerJackson implements JsonSerializer {
 	 */
 	@Override
 	public LinkedHashMap<String, Object> toMapFromJson(String json) {
-		LinkedHashMap map = mapper.convertValue(json, LinkedHashMap.class);
-		return map;
+		return mapper.convertValue(json, LinkedHashMap.class);
 
 	}
 

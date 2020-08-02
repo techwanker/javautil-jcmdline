@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -63,9 +64,9 @@ public class CrosstabPlanGroup10 extends BaseTest {
 		dataset = ss.getListOfNameValueDataSet(binds);
 		logger.info("rows {}", dataset.size());
 		logger.info(dataset.toString());
-	};
+	}
 
-	@Ignore
+    @Ignore
 	@Test
 	public void marshall() throws PropertyVetoException, SQLException, IOException {
 		getDatasetFromRDBMS();
@@ -99,9 +100,7 @@ public class CrosstabPlanGroup10 extends BaseTest {
 
 	List<String> toList(final String... o) {
 		final ArrayList<String> al = new ArrayList<String>(o.length);
-		for (final String element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 }

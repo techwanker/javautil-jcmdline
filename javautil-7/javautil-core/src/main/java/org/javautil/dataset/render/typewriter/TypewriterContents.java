@@ -5,7 +5,7 @@ import java.io.OutputStream;
 
 public interface TypewriterContents<R, C> {
 
-	public TypewriterContent<R, C> getContent(String identifier);
+	TypewriterContent<R, C> getContent(String identifier);
 
-	public void write(OutputStream outputStream) throws IOException;
+	void write(OutputStream outputStream) throws IOException;
 }

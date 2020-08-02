@@ -1,8 +1,8 @@
 package org.javautil.jdbc.metadata.containers;
 
-import java.util.TreeMap;
-
 import org.javautil.jdbc.metadata.Table;
+
+import java.util.TreeMap;
 
 public class DatabaseTablesImpl extends TreeMap<String, Table> implements DatabaseTables {
 

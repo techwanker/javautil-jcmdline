@@ -66,9 +66,8 @@ public class StringParam_UT extends BetterTestCase {
         assertEquals("tag set wrong", tag, sp.getTag());
         assertEquals("desc set wrong", desc, sp.getDesc());
         assertTrue("optional flag not set true by default", sp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !sp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("multiValued flag not set false by default", sp.isMultiValued());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
     }
 
     /**
@@ -78,14 +77,12 @@ public class StringParam_UT extends BetterTestCase {
         StringParam sp = new StringParam(tag, desc, StringParam.OPTIONAL);
         assertEquals("tag set wrong", tag, sp.getTag());
         assertEquals("desc set wrong", desc, sp.getDesc());
-        assertTrue("multiValued flag not set false by default", 
-            !sp.isMultiValued());
-        assertTrue("hidden flag not set false by default", 
-            !sp.isHidden());
+        assertFalse("multiValued flag not set false by default", sp.isMultiValued());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
         assertTrue("optional flag not set to true", sp.isOptional());
 
         sp = new StringParam(tag, desc, StringParam.REQUIRED);
-        assertTrue("optional flag not set to false", !sp.isOptional());
+        assertFalse("optional flag not set to false", sp.isOptional());
     }
 
     /**
@@ -102,9 +99,8 @@ public class StringParam_UT extends BetterTestCase {
         assertEquals("minValLen set wrong", min, sp.getMinValLen());
         assertEquals("maxValLen set wrong", max, sp.getMaxValLen());
         assertTrue("optional flag not set true by default", sp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !sp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("multiValued flag not set false by default", sp.isMultiValued());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
     }
 
     /**
@@ -120,12 +116,11 @@ public class StringParam_UT extends BetterTestCase {
         assertTrue("optional flag set wrong", sp.isOptional());
         assertEquals("minValLen set wrong", min, sp.getMinValLen());
         assertEquals("maxValLen set wrong", max, sp.getMaxValLen());
-        assertTrue("multiValued flag not set false by default", 
-            !sp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("multiValued flag not set false by default", sp.isMultiValued());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
 
         sp = new StringParam(tag, desc, min, max, StringParam.REQUIRED);
-        assertTrue("optional flag not set to false", !sp.isOptional());
+        assertFalse("optional flag not set to false", sp.isOptional());
     }
 
     /**
@@ -144,13 +139,13 @@ public class StringParam_UT extends BetterTestCase {
         assertTrue("multiValued flag not set to true", sp.isMultiValued());
         assertEquals("minValLen set wrong", min, sp.getMinValLen());
         assertEquals("maxValLen set wrong", max, sp.getMaxValLen());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
 
         sp = new StringParam(tag, desc, min, max, 
                              StringParam.REQUIRED, 
                              StringParam.SINGLE_VALUED);
-        assertTrue("optional flag not set to false", !sp.isOptional());
-        assertTrue("multiValued flag not set to false", !sp.isMultiValued());
+        assertFalse("optional flag not set to false", sp.isOptional());
+        assertFalse("multiValued flag not set to false", sp.isMultiValued());
     }
 
     /**
@@ -175,9 +170,9 @@ public class StringParam_UT extends BetterTestCase {
         sp = new StringParam(tag, desc, min, max, StringParam.REQUIRED, 
                              StringParam.SINGLE_VALUED, 
                              StringParam.PUBLIC);
-        assertTrue("optional flag not set to false", !sp.isOptional());
-        assertTrue("multiValued flag not set to false", !sp.isMultiValued());
-        assertTrue("hidden flag not set to false", !sp.isHidden());
+        assertFalse("optional flag not set to false", sp.isOptional());
+        assertFalse("multiValued flag not set to false", sp.isMultiValued());
+        assertFalse("hidden flag not set to false", sp.isHidden());
     }
 
     /**
@@ -190,9 +185,8 @@ public class StringParam_UT extends BetterTestCase {
         assertEquals("acceptableValues set wrong",
                      acceptVals, sp.getAcceptableValues());
         assertTrue("optional flag not set true by default", sp.isOptional());
-        assertTrue("multiValued flag not set false by default", 
-            !sp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("multiValued flag not set false by default", sp.isMultiValued());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
     }
 
     /**
@@ -206,12 +200,11 @@ public class StringParam_UT extends BetterTestCase {
         assertTrue("optional flag not set to true", sp.isOptional());
         assertEquals("acceptableValues set wrong",
                      acceptVals, sp.getAcceptableValues());
-        assertTrue("multiValued flag not set false by default", 
-            !sp.isMultiValued());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("multiValued flag not set false by default", sp.isMultiValued());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
 
         sp = new StringParam(tag, desc, acceptVals, StringParam.REQUIRED);
-        assertTrue("optional flag not set to false", !sp.isOptional());
+        assertFalse("optional flag not set to false", sp.isOptional());
     }
 
     /**
@@ -228,13 +221,13 @@ public class StringParam_UT extends BetterTestCase {
         assertTrue("multiValued flag not set to true", sp.isMultiValued());
         assertEquals("acceptableValues set wrong",
                      acceptVals, sp.getAcceptableValues());
-        assertTrue("hidden flag not set false by default", !sp.isHidden());
+        assertFalse("hidden flag not set false by default", sp.isHidden());
 
         sp = new StringParam(tag, desc, acceptVals, 
                              StringParam.REQUIRED, 
                              StringParam.SINGLE_VALUED);
-        assertTrue("optional flag not set to false", !sp.isOptional());
-        assertTrue("multiValued flag not set to false", !sp.isMultiValued());
+        assertFalse("optional flag not set to false", sp.isOptional());
+        assertFalse("multiValued flag not set to false", sp.isMultiValued());
     }
 
     /**
@@ -259,9 +252,9 @@ public class StringParam_UT extends BetterTestCase {
                              StringParam.REQUIRED, 
                              StringParam.SINGLE_VALUED, 
                              StringParam.PUBLIC);
-        assertTrue("optional flag not set to false", !sp.isOptional());
-        assertTrue("multiValued flag not set to false", !sp.isMultiValued());
-        assertTrue("hidden flag not set to false", !sp.isHidden());
+        assertFalse("optional flag not set to false", sp.isOptional());
+        assertFalse("multiValued flag not set to false", sp.isMultiValued());
+        assertFalse("hidden flag not set to false", sp.isHidden());
     }
 
     /**

@@ -1,9 +1,5 @@
 package com.pacificdataservices.pdssr;
 
-import java.io.File;
-import java.sql.Connection;
-
-import org.javautil.commandline.annotations.Optional;
 import org.javautil.commandline.annotations.Required;
 
 public class PostArgs {

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -125,29 +126,23 @@ public class CrosstabDatasetTest extends BaseTest {
 	@SuppressWarnings("unchecked")
 	ArrayList<Object> asList(final Object... o) {
 		final ArrayList<Object> al = new ArrayList<Object>(o.length);
-		for (final Object element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 
 	@SuppressWarnings("unchecked")
 	List<String> toList(final String... o) {
 		final ArrayList<String> al = new ArrayList<String>(o.length);
-		for (final String element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 
 	public List<String> getRowIdentifyingColumns() {
-		final List<String> rowId = toList("STATE", "CITY");
-		return rowId;
+		return toList("STATE", "CITY");
 	}
 
 	public String getColumnIdentifyingColumns() {
-		final String columnId = "MONTH";
-		return columnId;
+		return "MONTH";
 	}
 
 	public Dataset getCrosstabbedDataset() {
@@ -159,8 +154,7 @@ public class CrosstabDatasetTest extends BaseTest {
 		coke.setCrosstabColumns(ctc);
 		coke.setDataSet(tickets);
 
-		final Dataset ds = coke.getDataSet();
-		return ds;
+		return coke.getDataSet();
 	}
 
 	// TODO check that the metadata is what was expected
@@ -205,9 +199,8 @@ public class CrosstabDatasetTest extends BaseTest {
 
 		final CrosstabColumns ctc = new CrosstabColumns(rowId, "MONTH", cellId);
 		coke.setCrosstabColumns(ctc);
-		final Dataset feesData = fees;
 		logger.debug("about to crosstab " + newline + fees);
-		coke.setDataSet(feesData);
+		coke.setDataSet(fees);
 
 		final Dataset ds = coke.getDataSet();
 		assertExpected(ds);
@@ -243,7 +236,7 @@ public class CrosstabDatasetTest extends BaseTest {
 		logger.debug("using crosstab rule " + ctc);
 		coke.setDataSet(fees);
 
-		final MutableDataset crosstabbed = (MutableDataset) coke.getDataSet();
+		final MutableDataset crosstabbed = coke.getDataSet();
 		logger.debug("crosstabbed result is " + newline + crosstabbed);
 
 		final DatasetAppender dsa = new DatasetAppender();
@@ -272,7 +265,7 @@ public class CrosstabDatasetTest extends BaseTest {
 		coke.setCrosstabColumns(ctc);
 		coke.setDataSet(fees);
 
-		final MutableDataset crosstabbed = (MutableDataset) coke.getDataSet();
+		final MutableDataset crosstabbed = coke.getDataSet();
 		logger.debug("crosstabbed meta\n " + crosstabbed.getMetadata());
 		// TODO what is this? What is being tested here?
 		new DatasetAppender();

@@ -44,13 +44,11 @@ public class ExceptionWriter implements ExceptionHandler {
 			if (printStackTrace) {
 				String message = ExceptionHelper.asString(exception);
 				writer.write(message);
-				writer.write("\n");
-				writer.flush();
 			} else {
 				writer.write(exception.toString());
-				writer.write("\n");
-				writer.flush();
 			}
+			writer.write("\n");
+			writer.flush();
 		} catch (IOException e) {
 			throw new ExceptionHandlerException(e);
 		}

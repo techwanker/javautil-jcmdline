@@ -1,16 +1,5 @@
 package org.javautil.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.javautil.collections.CollectionsUtil;
 import org.javautil.containers.ListOfLists;
 import org.javautil.containers.ListOfNameValue;
@@ -21,6 +10,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class SqlStatementTest {
 
@@ -113,7 +111,7 @@ public class SqlStatementTest {
 		orgStatement.close();
 		// tests
 		assertEquals(1, rows.size());
-		ArrayList<? extends Object> row = rows.get(0);
+		ArrayList<?> row = rows.get(0);
 		long expected = 12;
 		assertEquals(expected, row.get(0));
 		assertEquals("CADBURY", row.get(1));

@@ -74,10 +74,8 @@ public class FileParam_UT extends BetterTestCase {
                      FileParam.NO_ATTRIBUTES, p.getAttributes());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
     }
 
     /**
@@ -93,15 +91,12 @@ public class FileParam_UT extends BetterTestCase {
                      desc, p.getDesc());
         assertEquals("attributes not set correctly",
                      FileParam.NO_ATTRIBUTES, p.getAttributes());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         assertTrue("optional flag not set correctly to FileParam.OPTIONAL",
                p.isOptional());
         p = new FileParam(tag, desc, FileParam.REQUIRED);
-        assertTrue("optional flag not set correctly to FileParam.REQUIRED",
-               !p.isOptional());
+        assertFalse("optional flag not set correctly to FileParam.REQUIRED", p.isOptional());
     }
 
     /**
@@ -120,10 +115,8 @@ public class FileParam_UT extends BetterTestCase {
                      attr, p.getAttributes());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
     }
 
     /**
@@ -142,13 +135,10 @@ public class FileParam_UT extends BetterTestCase {
                      attr, p.getAttributes());
         assertTrue("optional flag not set correctly",
                p.isOptional());
-        assertTrue("multiValued flag not set correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("multiValued flag not set correctly", p.isMultiValued());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         p = new FileParam(tag, desc, attr, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
     }
 
     /**
@@ -170,13 +160,10 @@ public class FileParam_UT extends BetterTestCase {
                p.isOptional());
         assertTrue("multiValued flag not set to true correctly",
                p.isMultiValued());
-        assertTrue("hidden flag not set correctly",
-               !p.isHidden());
+        assertFalse("hidden flag not set correctly", p.isHidden());
         p = new FileParam(tag, desc, attr, false, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
-        assertTrue("multiValued flag not set to false correctly",
-               !p.isMultiValued());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
+        assertFalse("multiValued flag not set to false correctly", p.isMultiValued());
     }
 
     /**
@@ -201,12 +188,9 @@ public class FileParam_UT extends BetterTestCase {
         assertTrue("hidden flag not set to true correctly",
                p.isHidden());
         p = new FileParam(tag, desc, attr, false, false, false);
-        assertTrue("optional flag not set to false correctly",
-               !p.isOptional());
-        assertTrue("multiValued flag not set to false correctly",
-               !p.isMultiValued());
-        assertTrue("hidden flag not set to false correctly",
-               !p.isHidden());
+        assertFalse("optional flag not set to false correctly", p.isOptional());
+        assertFalse("multiValued flag not set to false correctly", p.isMultiValued());
+        assertFalse("hidden flag not set to false correctly", p.isHidden());
     }
 
     /**
@@ -275,14 +259,10 @@ public class FileParam_UT extends BetterTestCase {
                p.attrSpecified(FileParam.IS_DIR));
         assertTrue("IS_READABLE did not get set properly",
                p.attrSpecified(FileParam.IS_READABLE));
-        assertTrue("IS_WRITEABLE is set, but shouldn't be",
-               !p.attrSpecified(FileParam.IS_WRITEABLE));
-        assertTrue("IS_FILE is set, but shouldn't be",
-               !p.attrSpecified(FileParam.IS_FILE));
-        assertTrue("DOESNT_EXIST is set, but shouldn't be",
-               !p.attrSpecified(FileParam.DOESNT_EXIST));
-        assertTrue("EXISTS is set, but shouldn't be",
-               !p.attrSpecified(FileParam.EXISTS));
+        assertFalse("IS_WRITEABLE is set, but shouldn't be", p.attrSpecified(FileParam.IS_WRITEABLE));
+        assertFalse("IS_FILE is set, but shouldn't be", p.attrSpecified(FileParam.IS_FILE));
+        assertFalse("DOESNT_EXIST is set, but shouldn't be", p.attrSpecified(FileParam.DOESNT_EXIST));
+        assertFalse("EXISTS is set, but shouldn't be", p.attrSpecified(FileParam.EXISTS));
     }
 
     /**

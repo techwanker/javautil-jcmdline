@@ -1,23 +1,15 @@
 package org.javautil.sql;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import org.javautil.dataset.MatrixDataset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
+
+import java.io.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class SqlStatements implements Iterable<SqlStatement> {
 

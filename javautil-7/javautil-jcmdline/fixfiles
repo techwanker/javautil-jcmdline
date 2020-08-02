@@ -1,0 +1,8 @@
+for f in `find . -name "*.java"`
+do
+  grep CommandLineHandlerDelete $f
+  if [ $? -eq 0 ] ; then
+     sed -i -e "s/CommandLineHandlerDelete/CommandLineHandler/"
+     echo $f
+  fi
+done

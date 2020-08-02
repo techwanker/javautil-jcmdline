@@ -1,37 +1,26 @@
 
 package org.javautil.dataset;
 
-import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map.Entry;
-
-import javax.sql.DataSource;
-
-import org.javautil.containers.NameValue;
-import org.javautil.dataset.ColumnMetadata;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.javautil.io.FileUtil;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
 import org.javautil.sql.SqlStatement;
-//import org.javautil.core.text.YamlUtils;
-//import org.javautil.io.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import javax.sql.DataSource;
+import java.beans.PropertyVetoException;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.Map.Entry;
+
+//import org.javautil.core.text.YamlUtils;
+//import org.javautil.io.FileUtil;
 
 public class DatasetsDefinition {
 
@@ -56,9 +45,9 @@ public class DatasetsDefinition {
 	private BindDefinitions                       bindDefinitions;
 	private File                                  file;
 	
-	private DataSourceFactory dsf = new DataSourceFactory();
+	private final DataSourceFactory dsf = new DataSourceFactory();
 	
-	private HashMap<String,Connection> connectionByName = new HashMap<>();
+	private final HashMap<String,Connection> connectionByName = new HashMap<>();
 	private HashMap<String,DataSource> datasourcebyName;
 
 	//	@SerializedName("binds")
@@ -182,8 +171,7 @@ public class DatasetsDefinition {
 	public MatrixDataset getDataSet(DatasetDefinition def, Connection conn,Binds binds) throws SQLException {
 		String datasourceName = def.getDatasourceName();
 				SqlStatement stmt = new SqlStatement(conn, def.getSql());
-				MatrixDataset retval = new MatrixDataset(stmt,binds);
-				return retval;
+		return new MatrixDataset(stmt,binds);
 	}
 
 

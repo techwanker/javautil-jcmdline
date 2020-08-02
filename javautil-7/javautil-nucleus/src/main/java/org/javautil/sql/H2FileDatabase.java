@@ -11,8 +11,7 @@ public class H2FileDatabase {
 	    throws SQLException, ClassNotFoundException {
 		Class.forName("org.h2.Driver");
 		String fileName = file.getAbsolutePath();
-		final Connection conn = DriverManager.getConnection("jdbc:h2:" + fileName, username, password);
-		return conn;
+        return DriverManager.getConnection("jdbc:h2:" + fileName, username, password);
 	}
 
 }

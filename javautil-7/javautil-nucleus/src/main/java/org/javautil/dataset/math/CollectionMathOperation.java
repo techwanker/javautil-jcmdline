@@ -6,5 +6,5 @@ package org.javautil.dataset.math;
  * 
  */
 public interface CollectionMathOperation {
-	public double compute(Number... numbers);
+	double compute(Number... numbers);
 }

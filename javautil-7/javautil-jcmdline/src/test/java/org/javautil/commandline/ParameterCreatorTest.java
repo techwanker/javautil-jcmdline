@@ -5,16 +5,17 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
-import jcmdline.CmdLineException;
-import jcmdline.IntParam;
-import jcmdline.Parameter;
-
 import org.javautil.commandline.annotations.IntegerArguments;
 import org.junit.Test;
 
+
+import jcmdline.IntParam;
+import jcmdline.Parameter;
+
 public class ParameterCreatorTest extends BaseTest {
+
 	@Test
-	public void test() throws CmdLineException {
+	public void test() {
 		Map<String, Parameter> parmsByTag = null;
 		final IntegerArguments args = new IntegerArguments();
 		final ParameterCreator creator = new ParameterCreator(args);
@@ -26,10 +27,9 @@ public class ParameterCreatorTest extends BaseTest {
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void testTwo() {
-		Map<String, Parameter> parmsByTag = null;
 		final IntegerArguments args = new IntegerArguments();
 		final ParameterCreator creator = new ParameterCreator(args, null, "");
-		parmsByTag = creator.generateParametersForArgumentBean();
+		Map<String, Parameter> parmsByTag = creator.generateParametersForArgumentBean();
 		final Parameter p = parmsByTag.get("intValue");
 		assertNotNull(p);
 	}

@@ -4,39 +4,39 @@ import java.util.ArrayList;
 
 public interface ForeignKey {
 
-	public abstract void addColumn(final ForeignKeyColumn col);
+	void addColumn(final ForeignKeyColumn col);
 
 	/**
 	 * @return the columns
 	 */
-	public abstract ArrayList<ForeignKeyColumn> getColumns();
+    ArrayList<ForeignKeyColumn> getColumns();
 
 	/**
 	 * @return the deleteRule
 	 */
-	public abstract DeleteRule getDeleteRule();
+    DeleteRule getDeleteRule();
 
 	/**
 	 * @return the fkName
 	 */
-	public abstract String getFkName();
+    String getFkName();
 
 	/**
 	 * @return the fktableCat
 	 */
-	public abstract String getFktableCat();
+    String getFktableCat();
 
 	/**
 	 * @return the fktableName
 	 */
-	public abstract String getFktableName();
+    String getFktableName();
 
 	/**
 	 * @return the fktableSchem
 	 */
-	public abstract String getFktableSchem();
+    String getFktableSchem();
 
-	public abstract String getId();
+	String getId();
 
 	// /**
 	// * @return the keySeq
@@ -53,81 +53,81 @@ public interface ForeignKey {
 	/**
 	 * @return the pkName
 	 */
-	public abstract String getPkName();
+    String getPkName();
 
 	/**
 	 * @return the pktableCat
 	 */
-	public abstract String getPktableCat();
+    String getPktableCat();
 
 	/**
 	 * @return the pktableName
 	 */
-	public abstract String getPktableName();
+    String getPktableName();
 
 	/**
 	 * @return the pktableSchem
 	 */
-	public abstract String getPktableSchem();
+    String getPktableSchem();
 
 	/**
 	 * @return the updateRule
 	 */
-	public abstract short getUpdateRule();
+    short getUpdateRule();
 
 	/**
 	 * @param columns the columns to set
 	 */
-	public abstract void setColumns(final ArrayList<ForeignKeyColumn> columns);
+    void setColumns(final ArrayList<ForeignKeyColumn> columns);
 
 	/**
 	 * @param deleteRule the deleteRule to set
 	 */
-	public abstract void setDeleteRule(final short deleteRule);
+    void setDeleteRule(final short deleteRule);
 
 	/**
 	 * @param fkName the fkName to set
 	 */
-	public abstract void setFkName(final String fkName);
+    void setFkName(final String fkName);
 
 	/**
 	 * @param fktableCat the fktableCat to set
 	 */
-	public abstract void setFktableCat(final String fktableCat);
+    void setFktableCat(final String fktableCat);
 
 	/**
 	 * @param fktableName the fktableName to set
 	 */
-	public abstract void setFktableName(final String fktableName);
+    void setFktableName(final String fktableName);
 
 	/**
 	 * @param fktableSchem the fktableSchem to set
 	 */
-	public abstract void setFktableSchem(final String fktableSchem);
+    void setFktableSchem(final String fktableSchem);
 
 	/**
 	 * @param pkName the pkName to set
 	 */
-	public abstract void setPkName(final String pkName);
+    void setPkName(final String pkName);
 
 	/**
 	 * @param pktableCat the pktableCat to set
 	 */
-	public abstract void setPktableCat(final String pktableCat);
+    void setPktableCat(final String pktableCat);
 
 	/**
 	 * @param pktableName the pktableName to set
 	 */
-	public abstract void setPktableName(final String pktableName);
+    void setPktableName(final String pktableName);
 
 	/**
 	 * @param pktableSchem the pktableSchem to set
 	 */
-	public abstract void setPktableSchem(final String pktableSchem);
+    void setPktableSchem(final String pktableSchem);
 
 	/**
 	 * @param updateRule the updateRule to set
 	 */
-	public abstract void setUpdateRule(final short updateRule);
+    void setUpdateRule(final short updateRule);
 
 }

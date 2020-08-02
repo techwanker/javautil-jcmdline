@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Checkpoint {
 	
-	private File file;
+	private final File file;
 
 	public Checkpoint(String filepath) {
 		if (filepath == null) {

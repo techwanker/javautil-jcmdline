@@ -3,15 +3,15 @@
  */
 package org.javautil.dataset;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import org.javautil.collections.Tuple;
 import org.javautil.collections.TupleSorter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * @author jjs
@@ -115,8 +115,7 @@ public class GroupBy {
 			}
 			gb.addNonGroupedColumns(new Tuple(nonGroup));
 		}
-		final LinkedHashSet<GroupedBy> retval = new LinkedHashSet<GroupedBy>();
-		retval.addAll(grouped.values());
+		final LinkedHashSet<GroupedBy> retval = new LinkedHashSet<GroupedBy>(grouped.values());
 		groupedBy = retval;
 		return retval;
 	}
@@ -126,10 +125,10 @@ public class GroupBy {
 		final StringBuilder b = new StringBuilder();
 
 		b.append(newline);
-		b.append("groupedByMeta: " + newline);
+		b.append("groupedByMeta: ").append(newline);
 		b.append(groupedByMeta.toString());
-		b.append("nongrouped" + newline);
-		b.append(nonGroupedByMeta.toString() + newline);
+		b.append("nongrouped").append(newline);
+		b.append(nonGroupedByMeta.toString()).append(newline);
 		if (groupedBy != null) {
 			for (final GroupedBy gb : groupedBy) {
 				b.append(gb.toStringNoMeta());

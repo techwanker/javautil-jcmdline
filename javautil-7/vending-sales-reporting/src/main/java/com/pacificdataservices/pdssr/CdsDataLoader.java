@@ -1,8 +1,7 @@
 package com.pacificdataservices.pdssr;
 
-import java.io.File;
-import java.beans.PropertyVetoException;
 import java.io.Closeable;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -14,24 +13,20 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import javax.sql.DataSource;
 
-import java.util.TreeMap;
-
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.joblog.persistence.JoblogPersistence;
+import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
 import org.javautil.sql.SequenceHelper;
-
-import org.javautil.misc.Timer;
-
-import org.javautil.joblog.persistence.JoblogPersistence;
-import org.javautil.joblog.persistence.JoblogPersistenceNoOperation;
-import org.javautil.sql.Dialect;
 import org.javautil.sql.SqlStatement;
 import org.javautil.sql.SqlStatements;
-import org.javautil.containers.ListOfNameValue;
+import org.javautil.util.Timer;
 import org.javautil.util.TreeHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -293,7 +288,7 @@ public class CdsDataLoader implements FilenameFilter {
 	public static CdsDataLoaderArgs processArguments(String [] args) {
 		CdsDataLoaderArgs arguments = new CdsDataLoaderArgs();
 
-		final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(arguments);
+		final CommandLineHandler clh = new CommandLineHandler(arguments);
 		clh.setDieOnParseError(false);
 		clh.evaluateArguments(args);
 		return arguments;

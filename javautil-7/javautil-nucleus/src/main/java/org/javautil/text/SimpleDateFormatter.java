@@ -22,13 +22,7 @@ import java.util.Locale;
  */
 public class SimpleDateFormatter {
 
-	/**
-	 * Raw pattern with 'Q' replaced with '^'. That way this can be passed to
-	 * SimpleDateFormat without objection. SimpleDateFormat has reserved every
-	 * letter in the alphabet.
-	 */
-	private String           cookedPattern;
-	/**
+    /**
 	 * The Decorated formatter.
 	 */
 	private SimpleDateFormat formatter;
@@ -50,7 +44,12 @@ public class SimpleDateFormatter {
 		if (rawPattern.indexOf("Q") > -1) {
 			hasQuarter = true;
 		}
-		this.cookedPattern = rawPattern.replace("Q", "^");
+        /**
+         * Raw pattern with 'Q' replaced with '^'. That way this can be passed to
+         * SimpleDateFormat without objection. SimpleDateFormat has reserved every
+         * letter in the alphabet.
+         */
+        String cookedPattern = rawPattern.replace("Q", "^");
 		return cookedPattern;
 	}
 

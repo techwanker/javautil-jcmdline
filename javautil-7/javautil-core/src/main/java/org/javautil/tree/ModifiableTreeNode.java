@@ -14,13 +14,13 @@ public interface ModifiableTreeNode<T extends ModifiableTreeNode<T>> extends Tre
 	 * 
 	 * @param children list of nodes
 	 */
-	public void setChildren(List<T> children);
+    void setChildren(List<T> children);
 
 	/**
 	 * Returns the nodes that have a parent node equal to the id of this node.
 	 * 
 	 * @return The children
 	 */
-	public List<T> getChildren();
+    List<T> getChildren();
 
 }

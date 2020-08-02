@@ -3,9 +3,9 @@ package org.javautil.json;
 import java.util.Date;
 
 public class TestBean {
-			private Date date;
-			private String string;
-					private int intInstance;
+			private final Date date;
+			private final String string;
+					private final int intInstance;
 			public TestBean(Date date, String string, int intInstance) {
 				super();
 				this.date = date;
@@ -44,12 +44,9 @@ public class TestBean {
 				if (intInstance != other.intInstance)
 					return false;
 				if (string == null) {
-					if (other.string != null)
-						return false;
-				} else if (!string.equals(other.string))
-					return false;
-				return true;
-			}
+                    return other.string == null;
+				} else return string.equals(other.string);
+            }
 			public int getIntInstance() {
 				return intInstance;
 			}

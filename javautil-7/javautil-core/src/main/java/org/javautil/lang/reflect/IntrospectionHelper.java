@@ -90,29 +90,29 @@ public class IntrospectionHelper {
 		preparePropertyAccess(false, true);
 		if (logger.isDebugEnabled()) {
 			logger.debug("assigning type '" + propertyType.getName() + "' using method " + setterMethod.getName()
-			    + " from value: '" + (value == null ? "null" : value.toString() + "', '" + value.getClass().getName()) + "'");
+			    + " from value: '" + (value == null ? "null" : value + "', '" + value.getClass().getName()) + "'");
 		}
 		try {
 			if (value == null) {
 				if (!propertyType.isPrimitive()) {
-					setterMethod.invoke(getIntrospectionBean(), new Object[] { value });
+					setterMethod.invoke(getIntrospectionBean(), value);
 				} else {
 					throw new IllegalStateException(
-					    "Cannot assign primitive type '" + propertyType.getName() + "\' a value of null");
+					    "Cannot assign primitive type '" + propertyType.getName() + "' a value of null");
 				}
 			} else if (String.class.isAssignableFrom(propertyType)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { value });
+				setterMethod.invoke(getIntrospectionBean(), value);
 			} else if (Boolean.class.isAssignableFrom(propertyType)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { Boolean.parseBoolean(value) });
+				setterMethod.invoke(getIntrospectionBean(), Boolean.parseBoolean(value));
 			} else if (Integer.class.isAssignableFrom(propertyType)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { Integer.parseInt(value) });
+				setterMethod.invoke(getIntrospectionBean(), Integer.parseInt(value));
 			} else if (Long.class.isAssignableFrom(propertyType)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { Long.parseLong(value) });
+				setterMethod.invoke(getIntrospectionBean(), Long.parseLong(value));
 			} else {
 				throw new IllegalStateException("No implementation for parsing values type: '" + propertyType.getName() + "'");
 			}
 		} catch (final Exception e) {
-			throw new IllegalStateException("Error assigning type '" + propertyType.getName() + "\' from value of type: '"
+			throw new IllegalStateException("Error assigning type '" + propertyType.getName() + "' from value of type: '"
 			    + (value == null ? "null" : value.getClass().getName()) + "'", e);
 		}
 	}
@@ -121,22 +121,22 @@ public class IntrospectionHelper {
 		preparePropertyAccess(false, true);
 		try {
 			if (value == null || propertyType.isAssignableFrom(value.getClass())) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { value });
+				setterMethod.invoke(getIntrospectionBean(), value);
 			} else if (propertyType.isAssignableFrom(Boolean.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Boolean) value).booleanValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Boolean) value).booleanValue());
 			} else if (propertyType.isAssignableFrom(Long.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Long) value).longValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Long) value).longValue());
 			} else if (propertyType.isAssignableFrom(Integer.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Integer) value).intValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Integer) value).intValue());
 			} else if (propertyType.isAssignableFrom(Float.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Float) value).floatValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Float) value).floatValue());
 			} else if (propertyType.isAssignableFrom(Double.TYPE)) {
-				setterMethod.invoke(getIntrospectionBean(), new Object[] { ((Double) value).doubleValue() });
+				setterMethod.invoke(getIntrospectionBean(), ((Double) value).doubleValue());
 			} else {
 				throw new IllegalStateException("No implementation for parsing values type: " + propertyType.getName());
 			}
 		} catch (final Exception e) {
-			throw new IllegalStateException("Error assigning type '" + propertyType.getName() + "\' from value of type: "
+			throw new IllegalStateException("Error assigning type '" + propertyType.getName() + "' from value of type: "
 			    + (value == null ? "null" : value.getClass().getName()), e);
 		}
 	}

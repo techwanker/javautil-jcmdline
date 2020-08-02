@@ -31,7 +31,7 @@ import com.javautil.util.FileNode;
 
 public class PropertyManager implements PropertyManagement {
 
-	private static Logger           logger         = LoggerFactory.getLogger(PropertyManager.class.getName());
+	private static final Logger           logger         = LoggerFactory.getLogger(PropertyManager.class.getName());
 	private final static int        PLAIN          = 0;
 
 	private final static int        ENDARG         = 1;
@@ -39,9 +39,9 @@ public class PropertyManager implements PropertyManagement {
 	private PropertyDefinitionS     definitions    = null;
 	private boolean                 traceMessages  = false;
 	// properties after applying all recursive properties
-	private PropertyValues          propertyValues = new PropertyValues();
-	private HashMap<String, String> netProperties  = new HashMap<String, String>();
-	private HashMap<String, String> registered     = new HashMap<String, String>();
+	private final PropertyValues          propertyValues = new PropertyValues();
+	private final HashMap<String, String> netProperties  = new HashMap<String, String>();
+	private final HashMap<String, String> registered     = new HashMap<String, String>();
 	String                          cmdAddon       = null;
 	String                          fileName       = null;
 
@@ -443,7 +443,7 @@ public class PropertyManager implements PropertyManagement {
 	@Override
 	public String[] getPropertyNames() {
 		TreeMap<String, String> propertyNames = new TreeMap<String, String>();
-		String rc[];
+		String[] rc;
 		logger.debug("getPropertyNames begins");
 		synchronized (netProperties) {
 			trace("netProperties.size() " + netProperties.size());

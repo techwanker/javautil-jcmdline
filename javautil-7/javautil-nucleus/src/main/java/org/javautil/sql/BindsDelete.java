@@ -1,11 +1,11 @@
 package org.javautil.sql;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 // Needs unit tests
 public class BindsDelete extends LinkedHashMap<String, Object> {
@@ -45,6 +45,7 @@ public class BindsDelete extends LinkedHashMap<String, Object> {
 	public Object getInsensitive(String bindName) {
 		Object o;
 		String searchKey = bindName;
+		//noinspection LoopStatementThatDoesntLoop
 		while (true) {
 			if (super.containsKey(searchKey)) {
 				o = super.get(bindName);

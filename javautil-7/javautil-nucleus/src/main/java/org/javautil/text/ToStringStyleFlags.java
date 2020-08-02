@@ -87,8 +87,8 @@ public enum ToStringStyleFlags implements Serializable {
 	/**
 	 * 
 	 */
-	USE_SHORT_CLASS_NAME;
+	USE_SHORT_CLASS_NAME
 
-	// SHOW_ARRAY_CONTENT, DONT_SHOW_ARRAY_CONTENT
+    // SHOW_ARRAY_CONTENT, DONT_SHOW_ARRAY_CONTENT
 
 }

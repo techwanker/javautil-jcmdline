@@ -211,12 +211,11 @@ public class TypewriterRendererImpl<R, C> implements TypewriterRenderer {
 		if (vertical) {
 			incrementColumn();
 			rowIndex = behavior.getTopLeftPosition().y;
-			createMissingCells(rowIndex, columnIndex);
 		} else {
 			incrementRow();
 			columnIndex = behavior.getTopLeftPosition().x;
-			createMissingCells(rowIndex, columnIndex);
 		}
+		createMissingCells(rowIndex, columnIndex);
 	}
 
 	@Override

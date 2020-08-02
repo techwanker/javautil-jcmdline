@@ -1,15 +1,15 @@
 package org.javautil.sql;
 
+import org.javautil.dataset.DataType;
+
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.javautil.dataset.DataType;
-
 public class ResultSetMetaDataCache {
 
-	private ArrayList<ResultSetMetadataColumnCache> columns = new ArrayList<>();
+	private final ArrayList<ResultSetMetadataColumnCache> columns = new ArrayList<>();
 
 	public ResultSetMetaDataCache(ResultSet rset) throws SQLException {
 		ResultSetMetaData rmd = rset.getMetaData();

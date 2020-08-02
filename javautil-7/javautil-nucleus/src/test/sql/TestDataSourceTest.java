@@ -1,15 +1,14 @@
 package org.javautil.sql;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
 
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.io.Closeable;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
-import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
 
 public class TestDataSourceTest {
 

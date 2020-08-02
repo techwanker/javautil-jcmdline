@@ -13,7 +13,7 @@ import org.javautil.dataset.Dataset;
 
 public class SimpleDatasetToHtml {
 
-	private Dataset dataset;
+	private final Dataset dataset;
 
 	public SimpleDatasetToHtml(Dataset dataset) {
 		this.dataset = dataset;

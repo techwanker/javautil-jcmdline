@@ -25,14 +25,14 @@ public class BucketData<T>  {
 	 * @see java.lang.Object#toString()
 	 */
 	private MultiKey identifiers;
-	private transient SimpleDateFormat sdf = new SimpleDateFormat(SimpleDateFormats.ISO8601_date_pretty);
+	private final transient SimpleDateFormat sdf = new SimpleDateFormat(SimpleDateFormats.ISO8601_date_pretty);
 	private TreeMap<Date,T> dateMap = new TreeMap<>();
 	private Date lastBucketEndsBeforeDate;
 	private T beforeData;
 	private T afterData;
-	private transient Logger logger = LoggerFactory.getLogger(getClass());
+	private final transient Logger logger = LoggerFactory.getLogger(getClass());
 	private transient DateGenerator dateGenerator;
-	private transient JsonSerializer serializer = new JsonSerializerGson();
+	private final transient JsonSerializer serializer = new JsonSerializerGson();
 	
 	public BucketData(TreeMap<Date,T> dateMap) {
 		this.dateMap = dateMap;
@@ -260,12 +260,10 @@ public class BucketData<T>  {
 	}
 	
 	public void increment(Date date, double d) {
+
 		Double v = (java.lang.Double) getBucketData(date);
-		if (v == null) {
-			v = 0.0;
-		}
-		v += d;
-		put(date,(T)v);
+		double newValue = v == null ? d : v.doubleValue() + d;
+		put(date, (T) new Double(newValue));  // This is wonky 
 	}
 	
 	public DateGenerator getDateGenerator() {

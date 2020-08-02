@@ -9,13 +9,13 @@
 
 package org.javautil.jdbc.metadata.containers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.javautil.jdbc.metadata.IndexColumn;
 import org.javautil.jdbc.metadata.IndexColumns;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //import com.dbexperts.oracle.OracleDatabaseMetaDataHelper;
 

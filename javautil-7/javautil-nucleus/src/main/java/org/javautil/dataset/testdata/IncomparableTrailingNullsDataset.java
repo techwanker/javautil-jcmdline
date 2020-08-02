@@ -1,11 +1,7 @@
 package org.javautil.dataset.testdata;
 
 import org.javautil.collections.ListHelper;
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.DataType;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.javautil.dataset.MatrixDataset;
-import org.javautil.dataset.MutableDataset;
+import org.javautil.dataset.*;
 
 /**
  * Nulls, nulls
@@ -17,7 +13,7 @@ public class IncomparableTrailingNullsDataset {
 	private static final String        TX            = "TX";
 	private static final String        DALLAS        = "DALLAS";
 
-	private static DatasetMetadataImpl meta          = new DatasetMetadataImpl() {
+	private static final DatasetMetadataImpl meta          = new DatasetMetadataImpl() {
 																											{
 																												// TODO dedupe
 																												addColumn(new ColumnMetadata().withColumnName("STATE")
@@ -35,7 +31,7 @@ public class IncomparableTrailingNullsDataset {
 																											}
 																										};
 
-	private static MatrixDataset       trailingNulls = new MatrixDataset(meta) {
+	private static final MatrixDataset       trailingNulls = new MatrixDataset(meta) {
 
 																											{                                                             // Number
 																											                                                              // n
@@ -56,7 +52,7 @@ public class IncomparableTrailingNullsDataset {
 		return trailingNulls;
 	}
 
-	public class Incomparble {
+	public static class Incomparble {
 
 	}
 }

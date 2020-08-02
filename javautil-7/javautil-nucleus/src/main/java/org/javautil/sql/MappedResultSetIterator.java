@@ -1,10 +1,10 @@
 package org.javautil.sql;
 
+import org.javautil.containers.NameValue;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
-
-import org.javautil.containers.NameValue;
 
 public class MappedResultSetIterator implements Iterable<NameValue>, Iterator<NameValue> {
 

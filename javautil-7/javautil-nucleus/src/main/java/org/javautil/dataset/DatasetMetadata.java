@@ -1,12 +1,11 @@
 package org.javautil.dataset;
 
+import org.javautil.document.style.HorizontalAlignment;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-
-import org.javautil.document.style.HorizontalAlignment;
 
 /**
  * 
@@ -14,36 +13,42 @@ import org.javautil.document.style.HorizontalAlignment;
  * 
  */
 public interface DatasetMetadata {
-	public int getColumnCount() throws DatasetException;
-
-	public Integer getColumnDisplaySize(int columnNumber) throws DatasetException;
-
-	public Integer getColumnIndex(String column);
+	int getColumnCount() throws DatasetException;
+	
+	/**
+	 * 
+	 * @param columnName  Name of the column, case sensitive
+	 * @return the index, relative zero of the specified column name
+	 */
+	Integer getColumnIndex(String columnName);
 
 	/**
-	 * columnIndex is relative 0 as in everything sane in java not 1 as in jdbc TODO
-	 * need to resolve these cases TODO change to getColumnMetadata
+	 * columnIndex is relative 0 as in everything sane in java not 1 as in jdbc
 	 * 
 	 * @param columnIndex the index of the column relative 0
 	 * @return the column metadata
 	 */
-	public ColumnMetadata getColumnMetaData(int columnIndex);
+    ColumnMetadata getColumnMetaData(int columnIndex);
 
 	/**
 	 * 
 	 * @param index the column index
-	 * @return the metdata
+	 * @return the metadata associated with the column 
 	 */
-	public ColumnMetadata getColumnMetaData(Integer index);
+    ColumnMetadata getColumnMetaData(Integer index);
 
-	public ColumnMetadata getColumnMetaData(String columnName);
+    /**
+     * 
+     * @param columnName The columnName 
+     * @return the ColumnMetadata
+     */
+	ColumnMetadata getColumnMetaData(String columnName);
 
-	public ArrayList<ColumnMetadata> getColumnMetadata();
+	ArrayList<ColumnMetadata> getColumnMetadata();
 
-	public LinkedHashMap<String, ColumnMetadata> getColumnMetadataMap();
+	LinkedHashMap<String, ColumnMetadata> getColumnMetadataMap();
 	
-	
-	public Map<String,Integer> getSqlTypeMap();
+	Map<String,Integer> getSqlTypeMap();
 	/**
 	 * Returns the name of the column at the specified index.
 	 * 
@@ -51,11 +56,11 @@ public interface DatasetMetadata {
 	 * @return the column name
 	 * @throws DatasetException Not likely
 	 */
-	public String getColumnName(int index) throws DatasetException;
+    String getColumnName(int index) throws DatasetException;
 
-	public DataType getColumnType(int index) throws DatasetException;
+	DataType getColumnType(int index) throws DatasetException;
 
-	public MutableDatasetMetadata getMutable();
+	MutableDatasetMetadata getMutable();
 
 	/**
 	 * Get the designated column's number of decimal digits.
@@ -67,17 +72,17 @@ public interface DatasetMetadata {
 	 * @return the precision
 	 * @throws DatasetException Not likely
 	 */
-	public Integer getPrecision(int columnNumber) throws DatasetException;
+    Integer getPrecision(int columnNumber) throws DatasetException;
 
-	public Integer getScale(int columnNumber) throws DatasetException;
+	Integer getScale(int columnNumber) throws DatasetException;
 
 	/**
 	 * @return the number of rows in the dataset.
 	 * @throws DatasetException Possible.
 	 */
-	public int getRowCount() throws DatasetException;
+    int getRowCount() throws DatasetException;
 
-	public HorizontalAlignment getAlignment(int index);
+	HorizontalAlignment getAlignment(int index);
 
 	/**
 	 * Returns the ExcelFormat associated with the column at the specified index.
@@ -85,7 +90,7 @@ public interface DatasetMetadata {
 	 * @param index column index
 	 * @return The formula
 	 */
-	public String getExcelFormat(int index);
+    String getExcelFormat(int index);
 
 	/**
 	 * TODO what is this?
@@ -93,7 +98,7 @@ public interface DatasetMetadata {
 	 * @param index column index
 	 * @return The java format
 	 */
-	public String getJavaFormat(int index);
+    String getJavaFormat(int index);
 
 	/**
 	 * Return the indexes, relative 0 of columns with the specified name. More than
@@ -102,9 +107,9 @@ public interface DatasetMetadata {
 	 * @param columnName the name of the column
 	 * @return The column indexes
 	 */
-	public Collection<Integer> getColumnIndexes(String columnName);
+    Collection<Integer> getColumnIndexes(String columnName);
 
-	public int[] getColumnIndexes(String... columnNames);
+	int[] getColumnIndexes(String... columnNames);
 
 	/*
 	 * Returns the indexes of everyColumn except those indicated.
@@ -113,21 +118,21 @@ public interface DatasetMetadata {
 	 * 
 	 * @return
 	 */
-	public int[] getNonColumnIndexes(String... columnNames);
+    int[] getNonColumnIndexes(String... columnNames);
 
-	public MutableDatasetMetadata getMetadataForColumns(String... columnNames);
+	MutableDatasetMetadata getMetadataForColumns(String... columnNames);
 
-	public DatasetMetadata getMetadataForNonColumns(String... columnNames);
+	DatasetMetadata getMetadataForNonColumns(String... columnNames);
 
 	/*
 	 * @param meta
 	 */
-	public void enhance(Map<String, ColumnMetadata> meta);
+    void enhance(Map<String, ColumnMetadata> meta);
 
-	public String getColumnTypeName(int columnNumber);
+	String getColumnTypeName(int columnNumber);
 
-	public ArrayList<String> getColumnNames();
-
+	ArrayList<String> getColumnNames();
+	Integer getColumnDisplaySize(int columnNumber) throws DatasetException;
 	
 }
 

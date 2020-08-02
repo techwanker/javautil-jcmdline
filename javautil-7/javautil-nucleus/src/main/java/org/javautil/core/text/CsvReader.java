@@ -1,25 +1,19 @@
 package org.javautil.core.text;
 
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.csv.CSVTokenizer;
+import org.javautil.dataset.DataType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import org.javautil.csv.CSVTokenizer;
-import org.javautil.dataset.DataType;
-import org.javautil.containers.ListOfNameValue;
-import org.javautil.containers.NameValue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class CsvReader implements Closeable {
-	private Logger                         logger    = LoggerFactory.getLogger(getClass());
+	private final Logger                         logger    = LoggerFactory.getLogger(getClass());
 	private final BufferedReader           reader;
 
 	private final CSVTokenizer             tokenizer = new CSVTokenizer();

@@ -1,14 +1,12 @@
 
 package org.javautil.dataset;
 
-import java.util.List;
-
-import org.javautil.text.StringBuilderHelper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
 public class DatasetDefinition {
 

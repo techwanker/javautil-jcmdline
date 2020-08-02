@@ -10,19 +10,19 @@ import org.javautil.document.Document;
 
 public interface DocumentRendererRequest {
 
-	public DocumentRenderStatus getStatus();
+	DocumentRenderStatus getStatus();
 
-	public TypewriterContents<?, ?> getContents();
+	TypewriterContents<?, ?> getContents();
 
-	public Document getDocument();
+	Document getDocument();
 
-	public StreamResult getStreamResult();
+	StreamResult getStreamResult();
 
-	public void setStreamResult(StreamResult streamResult);
+	void setStreamResult(StreamResult streamResult);
 
-	public void setDateFormatter(SimpleDateFormat dateFormatter);
+	void setDateFormatter(SimpleDateFormat dateFormatter);
 
-	public SimpleDateFormat getDateFormatter();
+	SimpleDateFormat getDateFormatter();
 
-	public void write() throws IOException;
+	void write() throws IOException;
 }

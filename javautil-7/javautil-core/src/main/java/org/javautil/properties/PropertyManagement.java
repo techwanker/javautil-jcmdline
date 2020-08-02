@@ -2,13 +2,13 @@ package org.javautil.properties;
 
 public interface PropertyManagement {
 
-	public abstract boolean getBooleanProperty(String key, boolean dflt);
+	boolean getBooleanProperty(String key, boolean dflt);
 
-	public abstract boolean getBooleanPropertyNoWarn(String key, boolean dflt);
+	boolean getBooleanPropertyNoWarn(String key, boolean dflt);
 
-	public abstract String getMandatoryProperty(String key) throws java.lang.IllegalStateException;
+	String getMandatoryProperty(String key) throws java.lang.IllegalStateException;
 
-	public abstract String getProperty(String key);
+	String getProperty(String key);
 
 	/*
 	 *
@@ -20,9 +20,9 @@ public interface PropertyManagement {
 	 * developement note
 	 */
 	@Deprecated
-	public abstract String getProperty(String key, boolean warn);
+    String getProperty(String key, boolean warn);
 
-	public abstract String getProperty(String key, String dflt);
+	String getProperty(String key, String dflt);
 
 	/*
 	 * Get the property names sorted by key.
@@ -30,9 +30,9 @@ public interface PropertyManagement {
 	 * @return The property names
 	 */
 
-	public abstract String[] getPropertyNames();
+	String[] getPropertyNames();
 
-	public abstract String getPropertyNoWarn(String key);
+	String getPropertyNoWarn(String key);
 
 	/*
 	 * Returns true if the key exists and the value is true.
@@ -42,6 +42,6 @@ public interface PropertyManagement {
 	 * @return is the value of the specified key true?
 	 */
 
-	public abstract boolean isTrue(String key);
+	boolean isTrue(String key);
 
 }

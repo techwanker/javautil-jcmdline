@@ -1,10 +1,10 @@
 package org.javautil.collections;
 
-import java.util.Comparator;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Comparator for Collection
@@ -27,10 +27,7 @@ import org.slf4j.LoggerFactory;
 // todo QA
 public class ListComparator implements Comparator {
 
-	@SuppressWarnings("unchecked")
-	private int           aIndex;
-	private int           bIndex;
-	private static Logger logger = LoggerFactory.getLogger(ListComparator.class);
+	private static final Logger logger = LoggerFactory.getLogger(ListComparator.class);
 	private List          ac;
 	private List          bc;
 	private int           maxIndex;
@@ -116,8 +113,8 @@ public class ListComparator implements Comparator {
 	@Override
 	@SuppressWarnings("unchecked")
 	public synchronized int compare(final Object a, final Object b) {
-		aIndex = 0;
-		bIndex = 0;
+		int aIndex = 0;
+		int bIndex = 0;
 		Integer diffColumn = null;
 		if (a != null && !(a instanceof List)) {
 			throw new IllegalArgumentException("a " + a.getClass().getName() + " does not implement List");

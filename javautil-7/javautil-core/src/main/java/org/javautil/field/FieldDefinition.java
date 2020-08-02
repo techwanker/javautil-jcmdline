@@ -92,6 +92,6 @@ public class FieldDefinition {
 
 	@Override
 	public String toString() {
-		return fieldName + " " + offset + " " + String.valueOf(fieldTypeDefinition);
+		return fieldName + " " + offset + " " + fieldTypeDefinition;
 	}
 }

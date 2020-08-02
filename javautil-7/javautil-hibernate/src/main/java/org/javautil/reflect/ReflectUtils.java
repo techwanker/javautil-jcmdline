@@ -8,9 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.javautil.util.Timer;
 import java.util.TreeMap;
 
-import org.javautil.core.misc.Timer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,7 +72,7 @@ public class ReflectUtils {
 		public static Set<String> getDateFieldNames(Object anObject) {
 			Timer t = new Timer();
 			Set<String> retval = getDateFieldNames(getDateFields(anObject));
-			logger.trace("getDataFieldNames elapsed millis " + t.getElapsedMillis());
+			logger.trace("getDataFieldNames elapsed millis " + t.getElapsedMicros());
 			return retval;
 		}
 		public static Set<String> getDateFieldNames(List<Field> dateFields) {

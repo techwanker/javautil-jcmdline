@@ -1,10 +1,10 @@
 package org.javautil.jdbc.metadata.containers;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 import org.javautil.jdbc.metadata.Index;
 import org.javautil.jdbc.metadata.IndexColumn;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 public class IndexGeneric implements Index {
 

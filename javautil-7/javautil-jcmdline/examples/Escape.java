@@ -18,7 +18,6 @@ import org.javautil.commandline.CommandLineHandler;
  * provides utility to escape a file's contents and echo it to System.out or
  * another file with specified characters escaped
  * 
- * @author bcm
  */
 public class Escape {
 

@@ -2,39 +2,33 @@ package com.pacificdataservices.pdssr.schema;
 
 import static org.junit.Assert.assertEquals;
 
-import java.beans.PropertyVetoException;
+import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.javautil.util.Timer;
 
 import javax.sql.DataSource;
 
 import org.javautil.conditionidentification.CreateUtConditionDatabaseObjects;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.file.Checkpoint;
 import org.javautil.jdbc.metadata.containers.DatabaseTables;
 import org.javautil.jdbc.metadata.dao.TableDaoJdbc;
-import org.javautil.core.misc.Timer;
-import org.javautil.sql.Binds;
-import org.javautil.file.Checkpoint;
 import org.javautil.joblog.installer.JoblogInstaller;
-import org.javautil.joblog.persistence.JoblogPersistence;
+import org.javautil.sql.Binds;
 import org.javautil.sql.Dialect;
 import org.javautil.sql.SqlRunner;
 import org.javautil.sql.SqlSplitterException;
 import org.javautil.sql.SqlStatement;
 import org.javautil.sql.TestDataSource;
-import org.javautil.containers.ListOfNameValue;
-import org.javautil.containers.NameValue;
-import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.pacificdataservices.pdssr.schema.SeedSalesReportingDatabase;
-import java.io.Closeable;
 public class Setup {
 
 	private static Logger logger = LoggerFactory.getLogger(Setup.class);

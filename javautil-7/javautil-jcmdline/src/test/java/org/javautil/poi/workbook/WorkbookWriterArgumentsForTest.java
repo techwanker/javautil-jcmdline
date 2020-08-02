@@ -8,7 +8,6 @@ import org.javautil.commandline.annotations.Argument;
 import org.javautil.commandline.annotations.MultiValue;
 import org.javautil.commandline.annotations.Optional;
 import org.javautil.commandline.annotations.Required;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

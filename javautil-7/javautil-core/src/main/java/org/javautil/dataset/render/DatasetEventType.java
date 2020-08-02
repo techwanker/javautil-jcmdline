@@ -22,6 +22,6 @@ public enum DatasetEventType {
 
 	BODY_END,
 
-	END;
+	END
 
 }

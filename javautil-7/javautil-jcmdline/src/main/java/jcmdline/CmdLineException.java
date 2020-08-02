@@ -32,9 +32,6 @@
 package jcmdline;
 
 import java.text.MessageFormat;
-import java.util.Hashtable;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 /**
  * An Exception that indicates a command line processing error.

@@ -6,20 +6,20 @@ import org.javautil.document.renderer.DatasetRendererRequest;
 
 public interface XmlRendererRequest extends DatasetRendererRequest {
 
-	public void setResultSetId(String resultSetId);
+	void setResultSetId(String resultSetId);
 
-	public String getResultSetId();
+	String getResultSetId();
 
-	public void setEmitColumnsAsElementText(boolean emitColumnsAsElementText);
+	void setEmitColumnsAsElementText(boolean emitColumnsAsElementText);
 
-	public boolean isEmitColumnsAsElementText();
+	boolean isEmitColumnsAsElementText();
 
-	public void setEmitColumnsInLowerCase(boolean emitColumnsInLowerCase);
+	void setEmitColumnsInLowerCase(boolean emitColumnsInLowerCase);
 
-	public boolean isEmitColumnsInLowerCase();
+	boolean isEmitColumnsInLowerCase();
 
-	public List<String> getBreaks();
+	List<String> getBreaks();
 
-	public void setBreaks(List<String> breaks);
+	void setBreaks(List<String> breaks);
 
 }

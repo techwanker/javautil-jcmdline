@@ -12,6 +12,6 @@ public interface MutableDatasetRendererRequest extends DatasetRendererRequest {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public void setDataset(Dataset dataset);
+    void setDataset(Dataset dataset);
 
 }

@@ -9,11 +9,11 @@ import java.util.List;
  * 
  */
 public interface CompoundCrosstabColumns {
-	public List<String> getCellIdentifiers();
+	List<String> getCellIdentifiers();
 
-	public List<String> getColumnIdentifiers();
+	List<String> getColumnIdentifiers();
 
-	public List<String> getRowIdentifiers();
+	List<String> getRowIdentifiers();
 
 	// /**
 	// * Checks for internal consistency, everything required, no dupes.

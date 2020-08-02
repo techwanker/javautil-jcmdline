@@ -30,10 +30,10 @@ public class Buckets<T> {
 	private T beforeData;
 
 	private T afterData;
-	private transient Logger logger = LoggerFactory.getLogger(getClass());
+	private final transient Logger logger = LoggerFactory.getLogger(getClass());
 	private transient DateGenerator dateGenerator;
 	private boolean noId;
-	private TreeMap<String,Object> attributeMap = new TreeMap<>();
+	private final TreeMap<String,Object> attributeMap = new TreeMap<>();
 
 	public Buckets(MultiKey identifiers, DateGenerator dg) {
 		this.identifiers =  identifiers;

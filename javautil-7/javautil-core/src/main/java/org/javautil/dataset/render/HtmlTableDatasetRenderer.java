@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 public class HtmlTableDatasetRenderer<T> extends DatasetEventProducer<T> implements DatasetRenderer {
 
 	public static List<String>                RELATED_MIME_TYPES              = Arrays
-	    .asList(new String[] { "text/xhtml", "text/html" });
+	    .asList("text/xhtml", "text/html");
 
 	private final Logger                      logger                          = LoggerFactory.getLogger(getClass());
 

@@ -1,20 +1,19 @@
 package org.javautil.sql;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 
-import javax.sql.DataSource;
-
 public class DataSourceHelper {
 
-	private DataSource          dataSource;
+	private final DataSource          dataSource;
 
 	private List<String>        sqlTexts;
 
-	private Map<String, Object> parms;
+	private final Map<String, Object> parms;
 
 	public DataSourceHelper(DataSource ds, Map<String, Object> parms) {
 		this.dataSource = ds;

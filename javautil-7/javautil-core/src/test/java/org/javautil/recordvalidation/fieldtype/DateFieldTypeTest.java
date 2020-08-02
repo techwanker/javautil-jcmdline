@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class DateFieldTypeTest {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Test
 	public void test1() throws FieldParseException {

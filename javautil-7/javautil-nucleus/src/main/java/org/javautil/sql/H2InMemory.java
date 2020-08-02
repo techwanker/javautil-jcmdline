@@ -8,8 +8,7 @@ public class H2InMemory {
 	public static Connection getConnection() {
 		try {
 			Class.forName("org.h2.Driver");
-			final Connection conn = DriverManager.getConnection("jdbc:h2:mem:", "", "");
-			return conn;
+            return DriverManager.getConnection("jdbc:h2:mem:", "", "");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

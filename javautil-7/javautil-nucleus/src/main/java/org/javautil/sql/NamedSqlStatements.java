@@ -1,23 +1,13 @@
 package org.javautil.sql;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-
-import org.javautil.sql.SqlStatement;
-import org.javautil.sql.SqlStatements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.Map.Entry;
 
 // TODO this just needs to go away
 public class NamedSqlStatements extends SqlStatements implements Iterable<SqlStatement> {
@@ -25,7 +15,7 @@ public class NamedSqlStatements extends SqlStatements implements Iterable<SqlSta
 	// private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private Map<String, SqlStatement> sqlStatementByName = null;
-	private static transient Logger  logger  = LoggerFactory.getLogger(NamedSqlStatements.class);
+	private static final transient Logger  logger  = LoggerFactory.getLogger(NamedSqlStatements.class);
 
 	public NamedSqlStatements(Connection conn) {
 		super(conn);
@@ -103,8 +93,7 @@ public class NamedSqlStatements extends SqlStatements implements Iterable<SqlSta
 				logger.info("SqlStatement: {}",s);
 			}
 		}
-		final NamedSqlStatements named = new NamedSqlStatements(ss);
-		return named;
+		return new NamedSqlStatements(ss);
 	}
 
 	public SqlStatement get(String statementName) {
@@ -140,8 +129,7 @@ public class NamedSqlStatements extends SqlStatements implements Iterable<SqlSta
 
 	public ArrayList<String> getStatementNames() {
 		Set<String> names = sqlStatementByName.keySet();
-		ArrayList<String> retval = new ArrayList<>();
-		retval.addAll(names);
+        ArrayList<String> retval = new ArrayList<>(names);
 
 		return retval;
 	}

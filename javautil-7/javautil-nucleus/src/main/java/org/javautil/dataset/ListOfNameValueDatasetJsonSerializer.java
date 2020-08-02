@@ -1,30 +1,27 @@
 package org.javautil.dataset;
 
 
-import java.util.ArrayList;
-
+import com.google.gson.internal.LinkedTreeMap;
 import org.javautil.containers.ListOfNameValue;
 import org.javautil.containers.NameValue;
 import org.javautil.json.JsonSerializerGson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.gson.internal.LinkedTreeMap;
+import java.util.ArrayList;
 
 public class ListOfNameValueDatasetJsonSerializer {
 private transient final Logger logger = LoggerFactory.getLogger(getClass());
 
-	  private DatasetMetadata meta;
-		private ArrayList<NameValue> data;
-		private transient ListOfNameValueDataset dataset;
-		private 	JsonSerializerGson serializer = new JsonSerializerGson();
+	  private final DatasetMetadata meta;
+		private final ArrayList<NameValue> data;
+	private final JsonSerializerGson serializer = new JsonSerializerGson();
 	
 		
 		public ListOfNameValueDatasetJsonSerializer(ListOfNameValueDataset dataset) {
 			if (dataset == null) {
 				throw new IllegalArgumentException("dataset is null");
 			}
-			this.dataset = dataset;
 			this.meta = dataset.getMetadata();
 			//this.data = dataset.super;
 			data = new ListOfNameValue();
@@ -87,13 +84,11 @@ private transient final Logger logger = LoggerFactory.getLogger(getClass());
 			logger.info("listObject{}\n",listObject);
 		//	logger.info("getDataset list\n{}",list);
 	//		List list = (List) map.get(meta);
-			
-			ListOfNameValueDataset dataset = new ListOfNameValueDataset();
-			
-		//	DatasetMetaDataImpl meta = dillon.toO
+
+			//	DatasetMetaDataImpl meta = dillon.toO
 //			dataset.setMetadata(metadata);
 //			dataset.addAll()
-			return dataset;
+			return new ListOfNameValueDataset();
 		}
 		
 		@Override

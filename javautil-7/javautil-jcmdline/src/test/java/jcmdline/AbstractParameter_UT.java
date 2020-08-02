@@ -75,12 +75,9 @@ public class AbstractParameter_UT extends BetterTestCase {
         p.setTag(s);
         assertEquals("getTag() returns wrong string",
                      s, p.getTag());
-
-        try {
             p.setTag("tag with =");
             fail("setTag() accepted a tag containing an = sign");
-        } catch (Exception e) {
-        }
+
     }
 
     /**
@@ -91,8 +88,7 @@ public class AbstractParameter_UT extends BetterTestCase {
         assertTrue("getHidden(Parameter.HIDDEN) failed",
                p.isHidden());
         p.setHidden(Parameter.PUBLIC);
-        assertTrue("setHidden(Parameter.PUBLIC) failed",
-               ! p.isHidden());
+        assertFalse("setHidden(Parameter.PUBLIC) failed", p.isHidden());
     }
 
     /**
@@ -103,8 +99,7 @@ public class AbstractParameter_UT extends BetterTestCase {
         assertTrue("getMultiValued(Parameter.MULTI_VALUED) failed",
                p.isMultiValued());
         p.setMultiValued(Parameter.SINGLE_VALUED);
-        assertTrue("setMultiValued(Parameter.SINGLE_VALUED) failed",
-               ! p.isMultiValued());
+        assertFalse("setMultiValued(Parameter.SINGLE_VALUED) failed", p.isMultiValued());
     }
 
     /**
@@ -112,8 +107,7 @@ public class AbstractParameter_UT extends BetterTestCase {
      */
     public void testOptional() {
         p.setOptional(Parameter.REQUIRED);
-        assertTrue("getOptional(Parameter.REQUIRED) failed",
-               ! p.isOptional());
+        assertFalse("getOptional(Parameter.REQUIRED) failed", p.isOptional());
         p.setOptional(Parameter.OPTIONAL);
         assertTrue("setOptional(Parameter.OPTIONAL) failed",
                p.isOptional());
@@ -132,10 +126,9 @@ public class AbstractParameter_UT extends BetterTestCase {
     /**
      * Tests addValue() with single valued Parameter
      */
-    public void testAddValueSingle() {
+    public void testAddValueSingle() throws CmdLineException {
         p.setMultiValued(Parameter.SINGLE_VALUED);
-        assertTrue("isSet() returns true before value set",
-               !p.isSet());
+        assertFalse("isSet() returns true before value set", p.isSet());
         String val1 = "First value";
         String val2 = "Second value";
 
@@ -155,11 +148,11 @@ public class AbstractParameter_UT extends BetterTestCase {
         assertTrue("isSet() returns false after value set",
                p.isSet());
 
-        try {
+//        try {
             p.addValue(val2);
             fail("addValue() accepted second value when SINGLE_VALUED");
-        } catch (Exception e) {
-        }
+//        } catch (Exception e) {
+//        }
     }
 
     /**
@@ -167,8 +160,7 @@ public class AbstractParameter_UT extends BetterTestCase {
      */
     public void testAddValueMulti() {
         p.setMultiValued(Parameter.MULTI_VALUED);
-        assertTrue("isSet() returns true before value set",
-               !p.isSet());
+        assertFalse("isSet() returns true before value set", p.isSet());
         String val1 = "First value";
         String val2 = "Second value";
 
@@ -206,7 +198,7 @@ public class AbstractParameter_UT extends BetterTestCase {
         p.addValue("oldval1");
         p.addValue("oldval2");
 
-        ArrayList vals = new ArrayList();
+        ArrayList<String> vals = new ArrayList<String>();
         vals.add("val1");
         vals.add("val2");
         p.setValues(vals);
@@ -218,13 +210,13 @@ public class AbstractParameter_UT extends BetterTestCase {
         assertTrue("Parameter does not contain val2",
                currVals.contains("val2"));
 
-        p = new UnitTestParam();
-        try {
+//        p = new UnitTestParam();
+//        try {
             p.setValues(vals);
             fail("setValues() of multiple values worked for single-valued " +
                  "Parameter");
-        } catch (Exception e) {
-        }
+//        } catch (Exception e) {
+ //       }
     }
 
     /**
@@ -248,12 +240,12 @@ public class AbstractParameter_UT extends BetterTestCase {
 
         // Check single valued
         p = new UnitTestParam();
-        try {
+//        try {
             p.setValues(vals);
             fail("setValues() of multiple values worked for single-valued " +
                  "Parameter");
-        } catch (Exception e) {
-        }
+//        } catch (Exception e) {
+//        }
     }
 
     /**
@@ -294,7 +286,7 @@ public class AbstractParameter_UT extends BetterTestCase {
         public UnitTestParam() {
         }
 
-        public void validateValue(String value) throws CmdLineException {
+        public void validateValue(String value) {
             // accepts anything
         }
     }

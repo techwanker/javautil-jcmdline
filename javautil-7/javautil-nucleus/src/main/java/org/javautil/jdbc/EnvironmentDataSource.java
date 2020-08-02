@@ -1,11 +1,10 @@
 package org.javautil.jdbc;
 
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
+import javax.sql.DataSource;
+import java.util.Properties;
 
 public class EnvironmentDataSource {
 

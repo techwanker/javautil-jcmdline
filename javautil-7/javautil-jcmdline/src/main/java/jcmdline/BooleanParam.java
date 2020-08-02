@@ -70,11 +70,6 @@ public class BooleanParam extends AbstractParameter
     private final String trueValue = Strings.get("BooleanParam.true");
 
     /**
-     * The String value associated with boolean false (i.e. "false" in English).
-     */
-    private final String falseValue = Strings.get("BooleanParam.false");
-
-    /**
      * constructor - creates a public boolean parameter
      *
      * @param tag           a unique identifier for this parameter
@@ -116,7 +111,11 @@ public class BooleanParam extends AbstractParameter
         this.setMultiValued(SINGLE_VALUED);
         this.setHidden(hidden);
         this.setOptionLabel("");
-        this.setAcceptableValues(new String[] { trueValue, falseValue });
+        /**
+         * The String value associated with boolean false (i.e. "false" in English).
+         */
+        String falseValue = Strings.get("BooleanParam.false");
+        this.setAcceptableValues(new String[] { trueValue, falseValue});
         try {
             this.addValue(falseValue);      // defaults to false
             this.set = false;

@@ -1,13 +1,11 @@
 package org.javautil.collections;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapOfProperties {
 
@@ -17,8 +15,8 @@ public class MapOfProperties {
 		ArrayList<String> unresolved = new ArrayList<>();
 		LinkedHashMap<String, LinkedHashMap<String, Object>> retval = new LinkedHashMap<>();
 		for (String setName : inMap.keySet()) {
-			logger.debug("looking at properties for {}", setName);;
-			LinkedHashMap<String, Object> properties = new LinkedHashMap<String, Object>();
+			logger.debug("looking at properties for {}", setName);
+            LinkedHashMap<String, Object> properties = new LinkedHashMap<String, Object>();
 			Map<String, Object> nameValues = inMap.get(setName);
 			retval.put(setName,PropertiesResolver.resolveEnvironment(nameValues));
 			

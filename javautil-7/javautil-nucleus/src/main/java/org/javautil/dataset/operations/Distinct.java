@@ -1,11 +1,11 @@
 package org.javautil.dataset.operations;
 
-import java.util.HashMap;
-import java.util.Set;
-
 import org.javautil.collections.Tuple;
 import org.javautil.dataset.Dataset;
 import org.javautil.dataset.DatasetIterator;
+
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Returns distinct tuples of the specified columns from the dataset.

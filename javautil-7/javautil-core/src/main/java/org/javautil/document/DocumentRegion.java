@@ -9,16 +9,16 @@ import org.javautil.document.style.DocumentStyles;
 
 public interface DocumentRegion {
 
-	public String getName();
+	String getName();
 
-	public Map<String, Object> getParameters();
+	Map<String, Object> getParameters();
 
-	public LayoutConstraints getLayoutConstraints();
+	LayoutConstraints getLayoutConstraints();
 
-	public RenderTemplate getRenderTemplate();
+	RenderTemplate getRenderTemplate();
 
 	@SuppressWarnings("unchecked")
-	public Dataset getDataset();
+    Dataset getDataset();
 
-	public DocumentStyles getDocumentStyles();
+	DocumentStyles getDocumentStyles();
 }

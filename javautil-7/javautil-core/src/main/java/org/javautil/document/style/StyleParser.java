@@ -16,6 +16,6 @@ public interface StyleParser {
 	 * @param definition The definition
 	 * @return The style
 	 */
-	public Style parse(StyleDefinition definition);
+    Style parse(StyleDefinition definition);
 
 }

@@ -1,4 +1,5 @@
 package org.javautil.dataset;
+
 import static org.junit.Assert.assertEquals;
 
 import java.beans.PropertyVetoException;
@@ -7,10 +8,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Map;
+import org.javautil.util.Timer; 
+
 
 import javax.sql.DataSource;
 
-import org.javautil.core.misc.Timer;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
 import org.javautil.sql.Dialect;
@@ -24,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DatasetToRDBMSTableTest {
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	DataSourceFactory dataSourceFactory = new DataSourceFactory();
 	DataSource dataSource = null;
@@ -119,8 +121,7 @@ public class DatasetToRDBMSTableTest {
 		SqlStatement ss = new SqlStatement(conn, "select * from information_schema.tables ");
 		Binds binds = new Binds();
 		binds.put("etl_file_id",1);
-		ListOfNameValueDataset ds = ss.getListOfNameValueDataSet(binds);
-		return ds;
+		return ss.getListOfNameValueDataSet(binds);
 	}
 
 }

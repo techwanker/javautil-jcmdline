@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings({ "serial", "synthetic-access" })
 public class AsStringTest {
 
-	transient private Logger  logger      = LoggerFactory.getLogger(getClass());
+	final transient private Logger  logger      = LoggerFactory.getLogger(getClass());
 
 	private final DateFactory dateFactory = new DateFactory();
 

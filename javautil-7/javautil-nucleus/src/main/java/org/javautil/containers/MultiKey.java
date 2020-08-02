@@ -1,9 +1,9 @@
 package org.javautil.containers;
 
+import org.javautil.collections.ListComparator;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.javautil.collections.ListComparator;
 
 public class MultiKey extends ArrayList<Comparable> implements Comparable{
 
@@ -62,8 +62,8 @@ public class MultiKey extends ArrayList<Comparable> implements Comparable{
 		for (Comparable v : this) {
 			sb.append(String.format(formats.get(i++),v));
 			sb.append(" ");
-		};
-		return sb.toString();
+		}
+        return sb.toString();
 	}
 
 	public String format() {

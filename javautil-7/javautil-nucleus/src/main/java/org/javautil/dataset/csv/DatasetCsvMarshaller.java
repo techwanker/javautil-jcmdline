@@ -1,17 +1,12 @@
 package org.javautil.dataset.csv;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.xml.transform.stream.StreamResult;
-
 import org.javautil.dataset.Dataset;
 import org.javautil.document.renderer.CsvRenderer;
 import org.javautil.document.renderer.CsvRendererRequest;
 import org.javautil.document.renderer.CsvRendererRequestImpl;
+
+import javax.xml.transform.stream.StreamResult;
+import java.io.*;
 
 /**
  * 

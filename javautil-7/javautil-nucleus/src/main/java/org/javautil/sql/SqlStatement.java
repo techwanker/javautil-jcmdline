@@ -1,32 +1,21 @@
 package org.javautil.sql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import org.javautil.containers.ListOfLists;
+import org.javautil.containers.ListOfNameValue;
+import org.javautil.containers.NameValue;
+import org.javautil.dataset.*;
+import org.javautil.json.JsonSerializer;
+import org.javautil.json.JsonSerializerGson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.javautil.containers.ListOfLists;
-import org.javautil.containers.ListOfNameValue;
-import org.javautil.containers.NameValue;
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.CrosstabColumns;
-import org.javautil.dataset.DatasetCrosstabber;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.javautil.dataset.ListOfNameValueDataset;
-import org.javautil.dataset.MatrixDataset;
-import org.javautil.json.JsonSerializer;
-import org.javautil.json.JsonSerializerGson;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.google.gson.Gson;
 
 // TODO convert StatementHelper and SqlStatement
 // (?!\\B'[^']*)(:\\w+)(?![^']*'\\B)
@@ -87,7 +76,6 @@ public class SqlStatement {
 	private boolean                trace                       = false;
 	private boolean                batching                    = false;
 	private boolean                showSql                     = false;
-	private boolean                showStack                   = false;
 	/**
 	 *
 	 */
@@ -95,9 +83,8 @@ public class SqlStatement {
 	private boolean                showError;
 	private boolean                needsResultSetMetaDataCache = false;
 	private ResultSetMetaDataCache resultSetMetaDataCache;
-	private JsonSerializer dillon  = new JsonSerializerGson();
+	private final JsonSerializer dillon  = new JsonSerializerGson();
 
-	private transient int batchSize = 100;
 	private transient int batchCount = 0;
 
 	public SqlStatement() {
@@ -192,9 +179,8 @@ public class SqlStatement {
 	}
 
 	public TreeSet<String> getColonBindNames() {
-		TreeSet<String> bindNames = new TreeSet<String>();
-		List<String> names = findColonBinds(sql); // leave this here in case we want to check for dupes
-		bindNames.addAll(names);
+        List<String> names = findColonBinds(sql); // leave this here in case we want to check for dupes
+        TreeSet<String> bindNames = new TreeSet<String>(names);
 		return bindNames;
 	}
 
@@ -574,6 +560,7 @@ public class SqlStatement {
 		} catch (final Exception sqe) {
 			final String message = String.format("While processing:\nsql:\n'%s'\nbinds:\n%s\n%s", sql, binds,
 					sqe.getMessage());
+			boolean showStack = false;
 			if (showStack) {
 				sqe.printStackTrace();
 			}
@@ -630,6 +617,7 @@ public class SqlStatement {
 			batching = true;
 			preparedStatement.addBatch();
 			batchCount++;
+			int batchSize = 100;
 			if (batchCount >= batchSize) {
 				executeBatch();
 				batchCount = 0;
@@ -990,8 +978,7 @@ public class SqlStatement {
 		ResultSetMetaDataCache cache = getResultSetMetaDataCache();
 		DatasetMetadataImpl dsMeta = new DatasetMetadataImpl(cache);
 		dsMeta.enhance(enhanceMeta);
-		ListOfNameValueDataset dataset = new ListOfNameValueDataset(lonv, dsMeta);
-		return dataset;
+		return new ListOfNameValueDataset(lonv, dsMeta);
 	}
 
 	public ListOfNameValueDataset getListOfNameValueDataSet(Binds binds) throws SQLException {
@@ -999,8 +986,7 @@ public class SqlStatement {
 		ListOfNameValue lonv = getListOfNameValue(binds, true);
 		ResultSetMetaDataCache cache = getResultSetMetaDataCache();
 		DatasetMetadataImpl dsMeta = new DatasetMetadataImpl(cache);
-		ListOfNameValueDataset dataset = new ListOfNameValueDataset(lonv, dsMeta);
-		return dataset;
+		return new ListOfNameValueDataset(lonv, dsMeta);
 	}
 
 	public Object getConnection() {
@@ -1012,14 +998,12 @@ public class SqlStatement {
 		final DatasetCrosstabber coke = new DatasetCrosstabber();
 		coke.setCrosstabColumns(crosstabColumns);
 		coke.setDataSet(dataset);
-		final MatrixDataset ds = coke.getDataSet();
-		return ds;
+		return coke.getDataSet();
 	}
 
 	public String getAsListOfNameValueAsJson(Binds binds) throws SQLException {
 		ListOfNameValue lonv = getListOfNameValue(binds, true);
-		String retval = dillon.toJson(lonv);
-		return retval;
+		return dillon.toJson(lonv);
 	}
 	
 	public MatrixDataset getAsMatrixDataset(Binds binds) throws SQLException {

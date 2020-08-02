@@ -4,10 +4,10 @@ import java.util.Set;
 
 public interface WordExtractor {
 
-	public void setExcludeWords(Set<String> excludeSet);
+	void setExcludeWords(Set<String> excludeSet);
 
-	public String[] getWords(String text);
+	String[] getWords(String text);
 
 	// TODO document
-	public String getConcatenatedString(String[] strings);
+    String getConcatenatedString(String[] strings);
 }

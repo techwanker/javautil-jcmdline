@@ -1,10 +1,10 @@
 package org.javautil.csv;
 
-import java.util.ArrayList;
-
 import org.javautil.text.TokenizingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 
 /**
  * 

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -140,17 +141,13 @@ public class MatrixDatasetTest extends BaseTest {
 	@SuppressWarnings("unchecked")
 	ArrayList<Object> toList(final Object... o) {
 		final ArrayList<Object> al = new ArrayList<Object>(o.length);
-		for (final Object element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 
 	List<String> toList(final String... o) {
 		final ArrayList<String> al = new ArrayList<String>(o.length);
-		for (final String element : o) {
-			al.add(element);
-		}
+        al.addAll(Arrays.asList(o));
 		return al;
 	}
 
@@ -307,7 +304,7 @@ public class MatrixDatasetTest extends BaseTest {
 		coke.setCrosstabColumns(ctc);
 		coke.setDataSet(fees);
 
-		final MutableDataset crosstabbed = (MutableDataset) coke.getDataSet();
+		final MutableDataset crosstabbed = coke.getDataSet();
 		final DatasetAppender dsa = new DatasetAppender();
 		dsa.appendRight(crosstabbed, fees, idKeyMap);
 

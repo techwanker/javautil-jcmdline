@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TreeHelperTest {
-	private static Logger logger = LoggerFactory.getLogger(TreeHelperTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(TreeHelperTest.class);
 
 	@SuppressWarnings("boxing")
 	@Test

@@ -1,18 +1,5 @@
 package org.javautil.dataset;
 
-import java.beans.PropertyVetoException;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.sql.DataSource;
-
 import org.javautil.io.IOUtils;
 import org.javautil.sql.Binds;
 import org.javautil.sql.DataSourceFactory;
@@ -20,26 +7,32 @@ import org.javautil.sql.SqlStatement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.error.YAMLException;
+
+import javax.sql.DataSource;
+import java.beans.PropertyVetoException;
 import java.io.Closeable;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.*;
 
 public class DatasetsDefinitionEnhancer {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private Connection conn;
-	private DatasetsDefinition inDefinition;
-	private Binds binds;
-	private LinkedHashMap<String,SqlStatement> sqlStatements = new LinkedHashMap<>();
-	private DatasetsDefinition outDefinition;
-	private DataSourceFactory dsf = new DataSourceFactory();
+	private final DatasetsDefinition inDefinition;
+	private final Binds binds;
+	private final LinkedHashMap<String,SqlStatement> sqlStatements = new LinkedHashMap<>();
+	private final DatasetsDefinition outDefinition;
+	private final DataSourceFactory dsf = new DataSourceFactory();
 
-	private Map<String,Connection> connectionByName = new HashMap<String, Connection>();
-	private Map<String,DataSource> datasourcebyName = new HashMap<>();
+	private final Map<String,Connection> connectionByName = new HashMap<String, Connection>();
+	private final Map<String,DataSource> datasourcebyName = new HashMap<>();
 
 	private DataSource ds;
 
 
-	private DatasetsDefinitionEnhancerArguments args;
+	private final DatasetsDefinitionEnhancerArguments args;
 	public DatasetsDefinitionEnhancer(DatasetsDefinitionEnhancerArguments args			) { 
 		//throws JsonParseException, JsonMappingException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
 		this.args = args;

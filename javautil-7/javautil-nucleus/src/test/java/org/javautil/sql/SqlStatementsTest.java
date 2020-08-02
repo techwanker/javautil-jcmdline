@@ -1,9 +1,10 @@
 package org.javautil.sql;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,19 +12,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.javautil.sql.DataSourceFactory;
-import org.javautil.sql.SqlStatement;
-import org.javautil.sql.SqlStatements;
-import org.junit.Before;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.Assert.*;
 
 // TODO finish writing tests
 public class SqlStatementsTest {
 
 	private SqlStatements statements;
-	private Logger        logger = LoggerFactory.getLogger(getClass());
+	private final Logger        logger = LoggerFactory.getLogger(getClass());
 
 	public SqlStatementsTest() {
 	}

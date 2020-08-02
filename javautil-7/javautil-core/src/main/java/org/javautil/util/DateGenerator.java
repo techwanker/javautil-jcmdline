@@ -45,7 +45,7 @@ public class DateGenerator {
 
 	private String                        inputFormat;
 
-	private GregorianCalendar             cal                      = new GregorianCalendar();
+	private final GregorianCalendar             cal                      = new GregorianCalendar();
 	// private String outputFormat;
 
 	private SimpleDateFormat              inputFormatter;
@@ -60,7 +60,7 @@ public class DateGenerator {
 
 	private java.util.Date                lastBucketEndsBeforeDate = null;
 
-	private TreeMap<Date, Date>           dateMap                  = new TreeMap<Date, Date>();
+	private final TreeMap<Date, Date>           dateMap                  = new TreeMap<Date, Date>();
 
 	private final HashSet<java.util.Date> usedBuckets              = new HashSet<java.util.Date>();
 
@@ -68,7 +68,7 @@ public class DateGenerator {
 
 	private Date                          maxBucketDate;
 
-	private Logger                        logger                   = LoggerFactory.getLogger(getClass());
+	private final Logger                        logger                   = LoggerFactory.getLogger(getClass());
 
 	private int                           incrementMultiplier      = 1;
 

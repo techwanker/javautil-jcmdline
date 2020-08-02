@@ -1,21 +1,17 @@
 package org.javautil.jdbc.metadata;
 
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
-import org.javautil.text.CommaFormatter;
 import org.javautil.jdbc.metadata.containers.IndexGeneric;
 import org.javautil.jdbc.metadata.dao.ForeignKeysDaoJdbc;
 import org.javautil.jdbc.metadata.dao.PrimaryKeysJdbc;
 import org.javautil.sql.ColumnAttributes;
 import org.javautil.text.AsString;
+import org.javautil.text.CommaFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.sql.DatabaseMetaData;
+import java.sql.SQLException;
+import java.util.*;
 
 /**
  * TODO create OracleTable that extends this.
@@ -25,11 +21,11 @@ public class TableImpl implements Iterable<ColumnAttributes>, Table {
 
 	transient protected static final String         newline              = System.getProperty("line.separator");
 
-	transient private List<ColumnAttributes>        columnAttributesList = new ArrayList<>();
+	final transient private List<ColumnAttributes>        columnAttributesList = new ArrayList<>();
 
-	transient private Map<String, ColumnAttributes> columnByName         = new TreeMap<>();
+	final transient private Map<String, ColumnAttributes> columnByName         = new TreeMap<>();
 
-	transient private List<Column>                  columns              = new ArrayList<>();
+	final transient private List<Column>                  columns              = new ArrayList<>();
 
 	private String                                  schemaName;
 
@@ -190,7 +186,7 @@ public class TableImpl implements Iterable<ColumnAttributes>, Table {
 		boolean needsComma = false;
 		for (final ColumnAttributes column : columnAttributesList) {
 			if (needsComma) {
-				stmtText.append("," + newline);
+				stmtText.append(",").append(newline);
 			}
 			needsComma = true;
 			final String label = column.getColumnName().toLowerCase();
@@ -469,7 +465,7 @@ public class TableImpl implements Iterable<ColumnAttributes>, Table {
 		stmtText.append("\"\" +\n");
 		stmtText.append("         \"SELECT\\n\" +\n");
 		stmtText.append(getJavaColumnList());
-		stmtText.append("        \"FROM " + tableName + "\\n\";\n\n");
+		stmtText.append("        \"FROM ").append(tableName).append("\\n\";\n\n");
 		return new String(stmtText);
 	}
 
@@ -481,9 +477,9 @@ public class TableImpl implements Iterable<ColumnAttributes>, Table {
 	@Override
 	public String getSelectStatement() {
 		final StringBuffer stmtText = new StringBuffer();
-		stmtText.append("SELECT " + newline);
+		stmtText.append("SELECT ").append(newline);
 		stmtText.append(CommaFormatter.formatWithCommas(getColumnNames(), 8, 80));
-		stmtText.append("FROM " + tableName + newline);
+		stmtText.append("FROM ").append(tableName).append(newline);
 		return new String(stmtText);
 	}
 

@@ -8,17 +8,17 @@ package org.javautil.dataset.filter;
  * 
  */
 public interface MutableDatasetFilter {
-	public String getColumnName();
+	String getColumnName();
 
-	public Object getColumnValue();
+	Object getColumnValue();
 
-	public boolean isInverseMatch();
+	boolean isInverseMatch();
 
-	public boolean isMatch(Object value);
+	boolean isMatch(Object value);
 
-	public void setColumnName(String columnName);
+	void setColumnName(String columnName);
 
-	public void setColumnValue(Object value);
+	void setColumnValue(Object value);
 
-	public void setInverseMatch(boolean isInverse);
+	void setInverseMatch(boolean isInverse);
 }

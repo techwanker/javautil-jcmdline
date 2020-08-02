@@ -1,5 +1,7 @@
 package org.javautil.jdbc.metadata;
 
+import org.javautil.sql.ColumnAttributes;
+
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,43 +9,41 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.javautil.sql.ColumnAttributes;
-
 public interface Table {
 
-	public static final String TABLE = "TABLE";
+	String TABLE = "TABLE";
 
-	public abstract int getIndexInfosMillis();
+	int getIndexInfosMillis();
 
-	public abstract int getImportedKeysMillis();
+	int getImportedKeysMillis();
 
-	public abstract void addColumn(Column column);
+	void addColumn(Column column);
 
-	public abstract ColumnAttributes getColumnAttributes(final String columnName);
+	ColumnAttributes getColumnAttributes(final String columnName);
 
-	public abstract String getSQLColumnList();
+	String getSQLColumnList();
 
-	public abstract String getJavaColumnList();
+	String getJavaColumnList();
 
-	public abstract List<ColumnAttributes> getColumnAttributes();
+	List<ColumnAttributes> getColumnAttributes();
 
-	public abstract ForeignKeys getExportedKeys();
+	ForeignKeys getExportedKeys();
 
-	public abstract ForeignKeys getExportedKeys(final DatabaseMetaData meta) throws SQLException;
+	ForeignKeys getExportedKeys(final DatabaseMetaData meta) throws SQLException;
 
 	/**
 	 * @return the exportedKeysDone
 	 */
-	public abstract long getExportedKeysDone();
+    long getExportedKeysDone();
 
-	public abstract ForeignKeys getImportedKeys();
+	ForeignKeys getImportedKeys();
 
-	public abstract ForeignKeys getImportedKeys(final DatabaseMetaData meta) throws SQLException;
+	ForeignKeys getImportedKeys(final DatabaseMetaData meta) throws SQLException;
 
 	/**
 	 * @return the importedKeysDone
 	 */
-	public abstract long getImportedKeysDone();
+    long getImportedKeysDone();
 
 	// public abstract IndexColumns getIndexInfos(final Connection meta)
 	// throws SQLException;
@@ -51,21 +51,21 @@ public interface Table {
 	/**
 	 * @return the indexInfosDone
 	 */
-	public abstract long getIndexInfosDone();
+    long getIndexInfosDone();
 
 	/**
 	 * @return the metaDataColumnsDone
 	 */
-	public abstract long getMetaDataColumnsDone();
+    long getMetaDataColumnsDone();
 
 	/**
 	 * @return the metaDataRetrieveStart
 	 */
-	public abstract long getMetaDataRetrieveStart();
+    long getMetaDataRetrieveStart();
 
-	public abstract PrimaryKey getPrimaryKey();
+	PrimaryKey getPrimaryKey();
 
-	public abstract PrimaryKey getPrimaryKey(final DatabaseMetaData meta) throws SQLException;
+	PrimaryKey getPrimaryKey(final DatabaseMetaData meta) throws SQLException;
 
 	// public abstract List<ColumnAttributes> getPrimaryKeyColumns();
 
@@ -77,36 +77,36 @@ public interface Table {
 	/**
 	 * @return the referencedBy
 	 */
-	public abstract ArrayList<ForeignKeyImpl> getReferencedBy();
+    ArrayList<ForeignKeyImpl> getReferencedBy();
 
 	/**
 	 * @return the references
 	 */
-	public abstract ArrayList<ForeignKeyImpl> getReferences();
+    ArrayList<ForeignKeyImpl> getReferences();
 
 	/**
 	 * @return the remarks
 	 */
-	public abstract String getRemarks();
+    String getRemarks();
 
 	/**
 	 * @return the schemaName
 	 */
-	public abstract String getSchemaName();
+    String getSchemaName();
 
-	public abstract String getJavaSelectStatement();
+	String getJavaSelectStatement();
 
-	public abstract String getSelectStatement();
+	String getSelectStatement();
 
 	// public abstract String[] getSelectStatementLines();
 
-	public abstract String getTableName();
+	String getTableName();
 
 	// public abstract String getTableNameAsAttributeName();
 
-	public abstract String getTableType();
+	String getTableType();
 
-	public abstract Iterator<ColumnAttributes> iterator();
+	Iterator<ColumnAttributes> iterator();
 
 	// public abstract void setColumns(final List<ColumnAttributes> columns);
 
@@ -115,35 +115,35 @@ public interface Table {
 	/**
 	 * @param exportedKeys the exportedKeys to set
 	 */
-	public abstract void setExportedKeys(final ForeignKeys exportedKeys);
+    void setExportedKeys(final ForeignKeys exportedKeys);
 
 	/**
 	 * @param importedKeys the importedKeys to set
 	 */
-	public abstract void setImportedKeys(final ForeignKeys importedKeys);
+    void setImportedKeys(final ForeignKeys importedKeys);
 
 	/**
 	 * @param primaryKey the primaryKey to set
 	 */
-	public abstract void setPrimaryKey(final PrimaryKey primaryKey);
+    void setPrimaryKey(final PrimaryKey primaryKey);
 
 	/**
 	 * @param references the references to set
 	 */
-	public abstract void setReferences(final ArrayList<ForeignKeyImpl> references);
+    void setReferences(final ArrayList<ForeignKeyImpl> references);
 
 	/**
 	 * @param remarks the remarks to set
 	 */
-	public abstract void setRemarks(final String remarks);
+    void setRemarks(final String remarks);
 
-	public abstract int size();
+	int size();
 
-	public abstract List<String> getColumnNames();
+	List<String> getColumnNames();
 
-	public abstract String getInsertText();
+	String getInsertText();
 
-	public abstract List<ColumnAttributes> getCommonColumns(Table other);
+	List<ColumnAttributes> getCommonColumns(Table other);
 
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value format.
@@ -151,13 +151,13 @@ public interface Table {
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override
-	public abstract String toString();
+    String toString();
 
-	public Map<String, Index> getIndexesByName();
+	Map<String, Index> getIndexesByName();
 	// public abstract DDL getDDL();
 
-	public abstract List<ColumnAttributes> getColumnAttributesList();
+	List<ColumnAttributes> getColumnAttributesList();
 
-	public abstract List<Column> getColumns();
+	List<Column> getColumns();
 
 }

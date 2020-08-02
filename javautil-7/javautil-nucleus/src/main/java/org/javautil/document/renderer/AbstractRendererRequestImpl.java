@@ -1,19 +1,18 @@
 package org.javautil.document.renderer;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.transform.stream.StreamResult;
-
 import org.javautil.dataset.ColumnMetadata;
 import org.javautil.dataset.Dataset;
 import org.javautil.dataset.render.MutableDatasetRendererRequest;
 import org.javautil.document.MimeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.xml.transform.stream.StreamResult;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractRendererRequestImpl
     implements MutableDatasetRendererRequest, ReorderColumnsRendererRequest {

@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 
 public class WorkbookYamlParserGson {
 
-	private JsonUtils          jsonUtils = new JsonUtils();
+	private final JsonUtils          jsonUtils = new JsonUtils();
 //	private String yamlString;
 //	
 //	private Map<String,Object> yamlMap;

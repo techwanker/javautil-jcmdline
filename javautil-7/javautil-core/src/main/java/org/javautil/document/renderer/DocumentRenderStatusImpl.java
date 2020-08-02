@@ -64,7 +64,7 @@ public class DocumentRenderStatusImpl implements DocumentRenderStatus {
 	public boolean isRegionRendered(final DocumentRegion documentRegion) {
 		checkRegion(documentRegion);
 		final Boolean status = renderStatus.get(documentRegion);
-		return status == null ? false : status.booleanValue();
+		return status != null && status.booleanValue();
 	}
 
 	@Override

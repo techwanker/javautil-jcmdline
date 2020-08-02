@@ -1,10 +1,10 @@
 package org.javautil.jdbc.metadata.dao;
 
+import org.javautil.text.StringBuilderHelper;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
-
-import org.javautil.text.StringBuilderHelper;
 
 public class DatabaseMetadataHelper {
 
@@ -25,7 +25,6 @@ public class DatabaseMetadataHelper {
 		h.addNameValue("userName ", meta.getUserName());
 		h.addNameValue("url", meta.getURL());
 		h.addNameValue("Database Version", meta.getDatabaseMajorVersion() + "." + meta.getDatabaseMinorVersion());
-		String retval = h.toString();
-		return retval;
+		return h.toString();
 	}
 }

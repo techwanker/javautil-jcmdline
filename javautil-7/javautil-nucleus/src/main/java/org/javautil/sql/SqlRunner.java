@@ -1,5 +1,11 @@
 package org.javautil.sql;
 
+import org.javautil.commandline.CommandLineHandler;
+import org.javautil.io.ResourceHelper;
+import org.javautil.sql.Binds;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,14 +15,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.javautil.commandline.CommandLineHandlerDelete;
-import org.javautil.io.ResourceHelper;
-import org.javautil.sql.Binds;
-import org.javautil.sql.SqlStatement;
-import org.javautil.sql.SqlStatements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SqlRunner {
 	private final Logger  logger         = LoggerFactory.getLogger(this.getClass());
@@ -40,8 +38,6 @@ public class SqlRunner {
 
 	private boolean       commitOrRollbackEveryStatement;
 	private int           sqlSplitterTrace;
-	
-	private boolean       showSqlSplitterOnError = true;
 
 	public boolean isShowSql() {
 		return showSql;
@@ -125,6 +121,7 @@ public class SqlRunner {
 						}
 
 					} catch (SQLException sqe) {
+						boolean showSqlSplitterOnError = true;
 						if (showSqlSplitterOnError) {
 							logger.error("\n{}",splitter.formatLines());
 						}
@@ -257,7 +254,7 @@ public class SqlRunner {
 	public static void main(String[] args) throws SQLException, IOException, ParseException {
 		SqlRunner invocation = new SqlRunner();
 		SqlRunnerArgs arguments = new SqlRunnerArgs();
-		new CommandLineHandlerDelete(arguments).evaluateArguments(args);
+		new CommandLineHandler(arguments).evaluateArguments(args);
 		invocation.process(arguments);
 	}
 

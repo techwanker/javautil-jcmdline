@@ -1,18 +1,18 @@
 package org.javautil.sql;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.sql.Connection;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class SqlRunnerParms {
 	private final transient Logger  logger         = LoggerFactory.getLogger(this.getClass());
 
-	private Connection    connection;
-	private InputStream   splitterInputStream;
-	private String        inputStreamDescription;
+	private final Connection    connection;
+	private final InputStream   splitterInputStream;
+	private final String        inputStreamDescription;
 	private int           verbosity      = 0;
 	private boolean       continueOnError;
 	private boolean       showError      = true;

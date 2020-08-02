@@ -1,14 +1,14 @@
 package org.javautil.sql;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SeedSalesReportingDatabase {
 	ArrayList<String[]>      mfrs   = new ArrayList<>();

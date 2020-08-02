@@ -1,21 +1,14 @@
 package org.javautil.dataset.csv;
 
+import org.javautil.csv.CsvReader;
+import org.javautil.dataset.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.javautil.csv.CsvReader;
-import org.javautil.dataset.ColumnMetadata;
-import org.javautil.dataset.DataType;
-import org.javautil.dataset.Dataset;
-import org.javautil.dataset.DatasetMetadata;
-import org.javautil.dataset.DatasetMetadataImpl;
-import org.javautil.dataset.MatrixDataset;
-import org.javautil.dataset.MutableDataset;
-import org.javautil.dataset.MutableDatasetMetadata;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -28,7 +21,7 @@ import org.slf4j.LoggerFactory;
  */
 public class DatasetMetadataUnmarshallerCsv {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	// TODO move somewhere else
 	// @SuppressWarnings("rawtypes")

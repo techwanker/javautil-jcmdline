@@ -50,7 +50,7 @@ public class FieldHelper {
 		}
 
 		HashMap<String, Field> fieldsByUpperName = new HashMap<String, Field>();
-		Field fields[] = object.getClass().getDeclaredFields();
+		Field[] fields = object.getClass().getDeclaredFields();
 		for (Field field : fields) {
 			String upperName = field.getName().toUpperCase();
 			Field oldField = fieldsByUpperName.put(upperName, field);

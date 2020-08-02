@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../docs/docs.iml" filepath="$PROJECT_DIR$/../docs/docs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-condition-identification/javautil-condition-identification.iml" filepath="$PROJECT_DIR$/../javautil-condition-identification/javautil-condition-identification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-core/javautil-core.iml" filepath="$PROJECT_DIR$/../javautil-core/javautil-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-hibernate/javautil-hibernate.iml" filepath="$PROJECT_DIR$/../javautil-hibernate/javautil-hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-jcmdline/javautil-jcmdline.iml" filepath="$PROJECT_DIR$/../javautil-jcmdline/javautil-jcmdline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-joblog/javautil-joblog.iml" filepath="$PROJECT_DIR$/../javautil-joblog/javautil-joblog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-oracle-trace/javautil-oracle-trace.iml" filepath="$PROJECT_DIR$/../javautil-oracle-trace/javautil-oracle-trace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-poi/javautil-poi.iml" filepath="$PROJECT_DIR$/../javautil-poi/javautil-poi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javautil-pom.iml" filepath="$PROJECT_DIR$/javautil-pom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javautil-pom (2).iml" filepath="$PROJECT_DIR$/javautil-pom (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-test/javautil-test.iml" filepath="$PROJECT_DIR$/../javautil-test/javautil-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javautil-nucleus/nucleus.iml" filepath="$PROJECT_DIR$/../javautil-nucleus/nucleus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vending-sales-reporting/vending-sales-reporting.iml" filepath="$PROJECT_DIR$/../vending-sales-reporting/vending-sales-reporting.iml" />
+    </modules>
+  </component>
+</project>

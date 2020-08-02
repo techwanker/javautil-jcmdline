@@ -1,9 +1,9 @@
 package org.javautil.collections;
 
-import java.util.Comparator;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Comparator;
 
 /**
  * Comparator for Collection
@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public class StaticArrayComparator implements Comparator {
 
 	@SuppressWarnings("unchecked")
-	private static Logger logger = LoggerFactory.getLogger(StaticArrayComparator.class);
+	private static final Logger logger = LoggerFactory.getLogger(StaticArrayComparator.class);
 
 	@SuppressWarnings("unchecked")
 	int compareObjects(final Object a, final Object b) throws IllegalArgumentException {

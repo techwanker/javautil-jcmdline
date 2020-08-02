@@ -1,20 +1,17 @@
 package org.javautil.sql;
 
+import org.yaml.snakeyaml.Yaml;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Map;
 
-import javax.sql.DataSource;
-
-import org.javautil.sql.DataSourceFactory;
-import org.javautil.sql.DataSourceHelper;
-import org.yaml.snakeyaml.Yaml;
-
 public class DataSources {
 
-	private String                   yamlFileName;
+	private final String                   yamlFileName;
 
 	Map<String, Map<String, Object>> connParmMap;
 
@@ -57,7 +54,6 @@ public class DataSources {
 			throw new IllegalArgumentException("No such datasource '" + name + "'");
 		}
 		DataSource ds = DataSourceFactory.getDatasource(parms);
-		DataSourceHelper dsh = new DataSourceHelper(ds, parms);
-		return dsh;
+		return new DataSourceHelper(ds, parms);
 	}
 }

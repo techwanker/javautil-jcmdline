@@ -16,12 +16,12 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class PlanGroupWorkbookDefinitionTest {
-	private Logger logger               = LoggerFactory.getLogger(getClass());
-	private String definitionsDirectory = WorkbookTestConstants.definitionsDirectory;
+	private final Logger logger               = LoggerFactory.getLogger(getClass());
+	private final String definitionsDirectory = WorkbookTestConstants.definitionsDirectory;
 
 	@Ignore
 	@Test
-	public void planGroup10DefinitionTest() throws JsonParseException, JsonMappingException, IllegalAccessException,
+	public void planGroup10DefinitionTest() throws IllegalAccessException,
 	    IllegalArgumentException, InvocationTargetException, IOException {
 		File file = new File("src/test/resources/workbook/PlanGroupWorkbook.yaml");
 		logger.info("processing file: '{}'", file.getAbsoluteFile());

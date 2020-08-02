@@ -1,33 +1,34 @@
 package org.javautil.commandline.annotations;
 
 import static org.junit.Assert.assertEquals;
-import jcmdline.CmdLineException;
 
 import org.javautil.commandline.BaseTest;
-import org.javautil.commandline.CommandLineHandlerDelete;
+import org.javautil.commandline.CommandLineHandler;
 import org.junit.Test;
+
+import jcmdline.CmdLineException;
 
 public class IntegerArgumentsTest extends BaseTest {
 
 	private final IntegerArguments argumentBean = new IntegerArguments();
-	private final CommandLineHandlerDelete clh = new CommandLineHandlerDelete(argumentBean);
+	private final CommandLineHandler clh = new CommandLineHandler(argumentBean);
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void testNoArg() throws CmdLineException {
+	public void testNoArg() {
 		final String argString = "-intValue ";
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString(argString);
 	}
 
 	@Test
-	public void test3() throws CmdLineException {
+	public void test3() {
 		final String argString = "-intValue 1";
 		clh.evaluateArgumentsString(argString);
-		assertEquals(new Integer(1), argumentBean.getIntValue());
+		assertEquals(Integer.valueOf(1), argumentBean.getIntValue());
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void testIllegalIntegerArgumentValue() throws CmdLineException {
+	public void testIllegalIntegerArgumentValue() {
 		final String argString = "-intValue one";
 		clh.setDieOnParseError(false);
 		clh.evaluateArgumentsString(argString);

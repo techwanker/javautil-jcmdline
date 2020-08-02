@@ -1,9 +1,8 @@
 package org.javautil.sql;
 
+import javax.sql.DataSource;
 import java.io.Closeable;
 import java.io.IOException;
-
-import javax.sql.DataSource;
 
 public class ClosesableDataSource {
 

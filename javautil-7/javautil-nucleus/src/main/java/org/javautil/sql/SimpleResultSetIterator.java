@@ -7,8 +7,8 @@ import java.util.Iterator;
 
 public class SimpleResultSetIterator implements Iterator<ArrayList<Object>> {
 
-	private ResultSet rset;
-	private int       columnCount;
+	private final ResultSet rset;
+	private final int       columnCount;
 
 	public SimpleResultSetIterator(ResultSet rset) throws SQLException {
 		this.rset = rset;

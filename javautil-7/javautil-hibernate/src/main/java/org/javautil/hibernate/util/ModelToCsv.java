@@ -9,10 +9,9 @@ import java.util.LinkedHashMap;
 
 import javax.persistence.EmbeddedId;
 
+import org.javautil.reflect.ReflectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import org.javautil.reflect.ReflectUtils;
 
 //  TODO move to javautil 
 //  generate hibernate reflection 

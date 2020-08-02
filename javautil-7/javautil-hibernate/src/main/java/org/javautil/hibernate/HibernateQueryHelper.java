@@ -3,12 +3,12 @@ package org.javautil.hibernate;
 import java.io.Serializable;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.javautil.core.misc.Timer;
+import org.javautil.util.Timer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class HibernateQueryHelper<T extends Serializable> {

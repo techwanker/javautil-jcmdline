@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class BucketsList extends ArrayList<Buckets> {
 
-	private TreeMap<String,Object> attributes;
+	private final TreeMap<String,Object> attributes;
 	
 	public BucketsList() {
 		super();

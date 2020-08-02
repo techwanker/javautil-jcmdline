@@ -57,8 +57,7 @@ public class ResultValidator {
 		IOUtils.pump(inputStream, validBaos);
 		inputStream.close();
 
-		final byte[] expectedResults = validBaos.toByteArray();
-		return expectedResults;
+		return validBaos.toByteArray();
 	}
 
 	public void validateResult(final StackTraceElement invoker, final byte[] testArray) {

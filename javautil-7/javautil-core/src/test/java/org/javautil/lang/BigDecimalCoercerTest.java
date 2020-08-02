@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 
 public class BigDecimalCoercerTest {
 
-	private BigDecimalCoercer coercer = new BigDecimalCoercer();
-	private Logger            logger  = LoggerFactory.getLogger(getClass());
+	private final BigDecimalCoercer coercer = new BigDecimalCoercer();
+	private final Logger            logger  = LoggerFactory.getLogger(getClass());
 
 	@Test
 	public void testBigDecimal() {
@@ -22,17 +22,17 @@ public class BigDecimalCoercerTest {
 
 	@Test
 	public void testFloat() {
-		assertTrue(coercer.coerce(new Float(4.3)).equals(new BigDecimal(new Float(4.3))));
+		assertTrue(coercer.coerce(Float.valueOf(4.3f)).equals(new BigDecimal(new Float(4.3))));
 	}
 
 	@Test
 	public void testDouble() {
-		assertTrue(coercer.coerce(new Double(4.3)).equals(new BigDecimal(new Double(4.3))));
+		assertTrue(coercer.coerce(Double.valueOf(4.3)).equals(new BigDecimal(new Double(4.3))));
 	}
 
 	@Test
 	public void testInteger() {
-		assertTrue(coercer.coerce(new Integer(4)).equals(new BigDecimal(4)));
+		assertTrue(coercer.coerce(Integer.valueOf(4)).equals(new BigDecimal(4)));
 
 	}
 

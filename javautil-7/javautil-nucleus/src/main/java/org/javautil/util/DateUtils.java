@@ -1,17 +1,14 @@
 package org.javautil.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-//import javax.xml.datatype.DatatypeConfigurationException;
-//import javax.xml.datatype.DatatypeFactory;
-//import javax.xml.datatype.XMLGregorianCalendar;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Convenience methods for converting to/from different date formats.
@@ -25,7 +22,7 @@ public class DateUtils {
 	private final java.util.Date date         = null;
 
 	private final String         errorMessage = null;
-	private static Logger        logger       = LoggerFactory.getLogger("DateHelper.class");
+	private static final Logger        logger       = LoggerFactory.getLogger("DateHelper.class");
 
 	boolean                      valid        = true;
 
@@ -57,8 +54,7 @@ public class DateUtils {
 			throw new IllegalArgumentException("date was null");
 		}
 		final SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss");
-		final String retval = f.format(d);
-		return retval;
+		return f.format(d);
 
 	}
 
@@ -246,10 +242,8 @@ public class DateUtils {
 
 		final int D = (int) (30.6001 * (month + 1));
 
-		final double jdd = leapCenturyDays + regularLeapDays + D + dayOfMonth + hour / 24 + minutes / (24 * 60)
+		return leapCenturyDays + regularLeapDays + D + dayOfMonth + hour / 24 + minutes / (24 * 60)
 		    + seconds / (24 * 60 * 60) + 1720994.5;
-
-		return jdd;
 	}
 
 	public static java.util.Date toDate(final String dt) throws ParseException {
@@ -374,12 +368,8 @@ public class DateUtils {
 		final GregorianCalendar greg = new GregorianCalendar();
 		synchronized (greg) {
 			greg.setTime(d);
-			if (greg.get(Calendar.HOUR) == 0 && greg.get(Calendar.MINUTE) == 0 && greg.get(Calendar.SECOND) == 0
-			    && greg.get(Calendar.MILLISECOND) == 0) {
-				retval = true;
-			} else {
-				retval = false;
-			}
+            retval = greg.get(Calendar.HOUR) == 0 && greg.get(Calendar.MINUTE) == 0 && greg.get(Calendar.SECOND) == 0
+                    && greg.get(Calendar.MILLISECOND) == 0;
 		}
 		return retval;
 	}

@@ -1,12 +1,12 @@
 package org.javautil.sql;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SequenceHelper {
 
@@ -14,7 +14,7 @@ public class SequenceHelper {
 	private static final String h2Sequence     = "select nextval('%s')";
 	private final Logger        logger         = LoggerFactory.getLogger(getClass());
 	private final Connection    connection;
-	private String              sequenceText;
+	private final String              sequenceText;
 
 	public SequenceHelper(Connection connection) throws SQLException {
 		this.connection = connection;

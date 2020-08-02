@@ -1,23 +1,15 @@
 package org.javautil.sql;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
+import org.javautil.io.ResourceHelper;
+import org.javautil.text.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
-
-import org.javautil.io.ResourceHelper;
-import org.javautil.sql.SqlStatement;
-import org.javautil.sql.SqlStatements;
-import org.javautil.text.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 // TODO remove System commments
 /*
@@ -65,14 +57,14 @@ public class SqlSplitter {
 	private int                        blockNumber = -1;
 	private boolean                    proceduresOnly;
 //	private ArrayList<String>          statements = new ArrayList<String>();
-	private TreeMap<Integer,Integer>   blockIndex = new TreeMap<>();
-	private TreeMap<Integer,BlockType>   blockTypeMap = new TreeMap<>();
+	private final TreeMap<Integer,Integer>   blockIndex = new TreeMap<>();
+	private final TreeMap<Integer,BlockType>   blockTypeMap = new TreeMap<>();
 	private int statementNumber = -1;
 	/**
 	 * k - statement number (relative 0), v lines index (relative 0) 
 	 * for blocks of statement
 	 */
-	private TreeMap<Integer,Integer>   statementIndex = new TreeMap<>();
+	private final TreeMap<Integer,Integer>   statementIndex = new TreeMap<>();
 
 	public TreeMap<Integer, Integer> getStatementIndex() {
 		return statementIndex;
@@ -131,8 +123,7 @@ public class SqlSplitter {
 		String leading = StringUtils.stripTrailing(text,whiteCruft);
 		Character[] semi = {';'};
 		String noSemi = isBlock ? leading : StringUtils.stripTrailing(leading, semi);
-		String trimmed = StringUtils.stripLeading(noSemi,whiteCruft);
-		return trimmed;
+		return StringUtils.stripLeading(noSemi,whiteCruft);
 	}
 
 	public String lineInfo() {
@@ -266,7 +257,6 @@ public class SqlSplitter {
 
 		processLines();
 
-		int state = NO_BLOCK;
 		int blockNumber = -1;
 		int statementLineNumber = 1;
 		// TODO test name no sql
@@ -364,9 +354,8 @@ public class SqlSplitter {
 				sb.append("\n");
 			}
 		}
-		String retval = trimSql(sb.toString(),stmtBlock);
 		//logger.debug("lines:\n{}\nreturn:{}",lines,retval);
-		return retval;
+		return trimSql(sb.toString(),stmtBlock);
 	}
 
 
@@ -437,9 +426,7 @@ public class SqlSplitter {
 		logger.debug("sql:\n{}",sql);
 		String name = null;
 		for (SqlSplitterLine line : lines) {
-			switch (line.getType()) {
-			case STATEMENT_NAME:
-
+			if (line.getType() == LineType.STATEMENT_NAME) {
 				String upperText = line.getText().toUpperCase();
 				final int index = upperText.indexOf("@NAME ");
 				if (name != null) {
@@ -472,8 +459,7 @@ public class SqlSplitter {
 	}
 
 	public SqlStatements getSqlStatements() throws SqlSplitterException {
-		final SqlStatements sqlStatements = new SqlStatements(getSqlStatementList());
-		return sqlStatements;
+		return new SqlStatements(getSqlStatementList());
 	}
 
 	public String getInputName() {

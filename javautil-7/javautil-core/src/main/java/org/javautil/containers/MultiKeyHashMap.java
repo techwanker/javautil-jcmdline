@@ -14,7 +14,7 @@ public class MultiKeyHashMap<T> extends LinkedHashMap<MultiKey,T>{
 	 * 
 	 */
 	private static final long serialVersionUID = -6263828110335813976L;
-    private Logger logger  = LoggerFactory.getLogger(getClass());
+    private final Logger logger  = LoggerFactory.getLogger(getClass());
     
 	public MultiKeyHashMap() {
 		super();

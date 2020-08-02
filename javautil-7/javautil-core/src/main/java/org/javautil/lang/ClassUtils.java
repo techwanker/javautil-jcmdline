@@ -87,7 +87,7 @@ public abstract class ClassUtils {
 			JarFile module = null;
 			// for each classpath ...
 			File classPath = new File(
-			    (URL.class).isInstance(classPath2) ? ((URL) classPath2).getFile() : classPath2.toString());
+			    classPath2 instanceof URL ? ((URL) classPath2).getFile() : classPath2.toString());
 			classPath = new File(classPath.getPath().replaceAll("\\%20", " "));
 			if (classPath.isDirectory() && jarFilter == null) { // is our
 				// classpath a directory and jar filters are not active?

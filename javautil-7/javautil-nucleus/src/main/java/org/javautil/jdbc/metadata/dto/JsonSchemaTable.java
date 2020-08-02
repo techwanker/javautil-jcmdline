@@ -1,26 +1,25 @@
 package org.javautil.jdbc.metadata.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.javautil.jdbc.metadata.Column;
 import org.javautil.jdbc.metadata.Table;
 import org.javautil.json.JsonSerializerJackson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JsonSchemaTable {
 
-	private String                 tableName;
+	private final String                 tableName;
 
-	private String                 remarks;
-	private List<JsonSchemaColumn> columns = new ArrayList<>();
-
-	transient private final Logger logger  = LoggerFactory.getLogger(this.getClass().getName());
+	private final String                 remarks;
+	private final List<JsonSchemaColumn> columns = new ArrayList<>();
 
 	public JsonSchemaTable(Table table) {
 		tableName = table.getTableName();
 		remarks = table.getRemarks();
+		Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 		logger.info("table {}", tableName);
 		for (Column col : table.getColumns()) {
 			logger.info("adding column {} to table {}", tableName, col.getColumnName());

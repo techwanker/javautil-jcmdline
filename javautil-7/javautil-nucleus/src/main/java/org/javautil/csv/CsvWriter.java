@@ -1,16 +1,16 @@
 package org.javautil.csv;
 
+import org.javautil.collections.ListHelper;
+import org.javautil.text.AsString;
+import org.javautil.text.CommonDateFormat;
+import org.javautil.text.SimpleDateFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Date;
-
-import org.javautil.collections.ListHelper;
-import org.javautil.text.CommonDateFormat;
-import org.javautil.text.AsString;
-import org.javautil.text.SimpleDateFormatter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -118,7 +118,7 @@ public class CsvWriter {
 						sb.append("\"");
 					}
 				} else if (o instanceof Number) {
-					sb.append(((Number) o).toString());
+					sb.append(o.toString());
 				} else if (o instanceof Date) {
 					sb.append((dateFormatter.format((Date) o)));
 				} else {
@@ -132,14 +132,13 @@ public class CsvWriter {
 			}
 
 		}
-		final String retval = sb.toString();
-//		if (logger.isDebugEnabled()) {
+		//		if (logger.isDebugEnabled()) {
 //			StringBuilder dsb = new StringBuilder();
 //			dsb.append("Objects: " + objectFormatter.toString(objects) + "\n");
 //			dsb.append("output string: " + retval);
 //			logger.debug(dsb.toString());
 //		}
-		return retval;
+		return sb.toString();
 
 	}
 
@@ -158,8 +157,7 @@ public class CsvWriter {
 		if (objects == null) {
 			throw new IllegalArgumentException("objects is null");
 		}
-		ArrayList<Object> al = new ArrayList<>();
-		al.addAll(objects);
+        ArrayList<Object> al = new ArrayList<>(objects);
 		out.write(asString(al));
 		out.write(newline);
 		if (flushEveryLine) {

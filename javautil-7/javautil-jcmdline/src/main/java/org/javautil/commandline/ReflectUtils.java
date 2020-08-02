@@ -16,12 +16,13 @@ public abstract class ReflectUtils {
 		if (object == null) {
 			throw new IllegalArgumentException("object is null");
 		}
-		String[] properties = null;
+		
 
 		final Class<? extends Object> clazz = object.getClass();
 
 		final Field[] fields = clazz.getDeclaredFields();
-		properties = new String[fields.length];
+
+		String[] properties = new String[fields.length];
 		int i = 0;
 		for (final Field field : fields) {
 			// todo jjs don't add if synthetic?

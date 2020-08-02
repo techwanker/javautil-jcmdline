@@ -8,15 +8,15 @@ import org.javautil.document.DocumentRegion;
 
 public interface DocumentRegionRendererRequest extends DatasetRendererRequest {
 
-	public DocumentRenderStatus getStatus();
+	DocumentRenderStatus getStatus();
 
 	@Override
-	public StreamResult getStreamResult();
+    StreamResult getStreamResult();
 
-	public DocumentRegion getDocumentRegion();
+	DocumentRegion getDocumentRegion();
 
-	public TypewriterContent<?, ?> getContent();
+	TypewriterContent<?, ?> getContent();
 
-	public TypewriterRendererFactory getRendererFactory();
+	TypewriterRendererFactory getRendererFactory();
 
 }

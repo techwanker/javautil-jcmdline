@@ -1,13 +1,13 @@
 package org.javautil.document.renderer;
 
-import java.util.List;
-
 import org.javautil.dataset.ColumnMetadata;
+
+import java.util.List;
 
 public interface ReorderColumnsRendererRequest {
 
-	public List<String> getColumnOrder();
+	List<String> getColumnOrder();
 
-	public List<ColumnMetadata> getColumnMetadata();
+	List<ColumnMetadata> getColumnMetadata();
 
 }

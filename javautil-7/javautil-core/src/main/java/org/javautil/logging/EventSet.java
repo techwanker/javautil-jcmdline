@@ -8,5 +8,5 @@ import java.util.Collection;
  */
 public interface EventSet {
 
-	public Collection<String> getEventNames();
+	Collection<String> getEventNames();
 }

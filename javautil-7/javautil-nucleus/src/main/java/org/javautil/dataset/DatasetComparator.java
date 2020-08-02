@@ -1,10 +1,11 @@
 package org.javautil.dataset;
 
+import org.javautil.containers.NullPair;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-
-import org.javautil.containers.NullPair;
 
 /*
  * Sorts the Dataset.
@@ -39,13 +40,6 @@ import org.javautil.containers.NullPair;
 
 public class DatasetComparator<T> implements Comparator<List<T>> {
 
-	private Dataset          drs;
-
-	/*
-	 * The columns to sort on.
-	 */
-	private List<SortColumn> columns;
-
 	private final NullPair   nullCompare = new NullPair(false);
 
 	// /**
@@ -72,9 +66,7 @@ public class DatasetComparator<T> implements Comparator<List<T>> {
 
 	public DatasetComparator(final Dataset _drs, final SortColumn... sorts) {
 		final List<SortColumn> dataSorts = new ArrayList<SortColumn>();
-		for (final SortColumn sorter : sorts) {
-			dataSorts.add(sorter);
-		}
+        dataSorts.addAll(Arrays.asList(sorts));
 		prepare(_drs, dataSorts);
 	}
 
@@ -97,16 +89,17 @@ public class DatasetComparator<T> implements Comparator<List<T>> {
 	}
 
 	private void prepare(final Dataset _drs, final List<SortColumn> sorts) {
-		this.drs = _drs;
-		this.columns = sorts;
-		indexes = new int[columns.size()];
-		isAscending = new boolean[columns.size()];
+		/*
+		 * The columns to sort on.
+		 */
+		indexes = new int[sorts.size()];
+		isAscending = new boolean[sorts.size()];
 
-		final DatasetMetadata meta = drs.getMetadata();
+		final DatasetMetadata meta = _drs.getMetadata();
 
 		// Prepare the column indexes
 		for (int a = 0; a < indexes.length; a++) {
-			final SortColumn sort = columns.get(a);
+			final SortColumn sort = sorts.get(a);
 			final String sortColumn = sort.getSortColumn();
 			indexes[a] = meta.getColumnIndex(sortColumn);
 			isAscending[a] = sort.isAscending();

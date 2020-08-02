@@ -7,7 +7,7 @@ public class ExceptionListException extends Exception {
 	 * 
 	 */
 	private static final long    serialVersionUID = 3702168128235972538L;
-	private ArrayList<Exception> exceptions       = new ArrayList<Exception>();
+	private final ArrayList<Exception> exceptions       = new ArrayList<Exception>();
 
 	public void add(Exception exception) {
 		exceptions.add(exception);

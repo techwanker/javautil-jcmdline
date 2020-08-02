@@ -96,9 +96,8 @@ public class AbstractHandlerDecorator_UT extends BetterTestCase {
                    opts.contains(p2));
         assertTrue("Options don't contain new option (p3) after setOptions()",
                    opts.contains(p3));
-        assertTrue("Options still contain original option (porig) after " +
-                   "setOptions()",
-                   !opts.contains(porig));
+        assertFalse("Options still contain original option (porig) after " +
+                "setOptions()", opts.contains(porig));
     }
 
     /**
