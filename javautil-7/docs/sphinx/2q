@@ -8,13 +8,13 @@ Contents:
 
    #jcmdline-README.rst
     
-   #OracleLogger/OracleLogger-README
+   OracleLogger/OracleLogger-README
    
-   #joblog/joblog-README
+   joblog/joblog-README
 
-   core/part
-   core/dataset
-   core/sqlRunner
+   #core/part
+   #core/dataset
+   #core/sqlRunner
 
    joblog/flatFile
    joblog/installation
@@ -27,7 +27,7 @@ Contents:
    joblog/traceRecordFields
    joblog/postgres
 
-   poi/poi-README
+   #poi/poi-README
 
    amazon-redhat/01-push-to-amazon.rst
    amazon-redhat/20-install-packages.rst

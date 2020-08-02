@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../OracleLogger/OracleLogger.iml" filepath="$PROJECT_DIR$/../OracleLogger/OracleLogger.iml" />
       <module fileurl="file://$PROJECT_DIR$/../docs/docs.iml" filepath="$PROJECT_DIR$/../docs/docs.iml" />
       <module fileurl="file://$PROJECT_DIR$/../javautil-condition-identification/javautil-condition-identification.iml" filepath="$PROJECT_DIR$/../javautil-condition-identification/javautil-condition-identification.iml" />
       <module fileurl="file://$PROJECT_DIR$/../javautil-core/javautil-core.iml" filepath="$PROJECT_DIR$/../javautil-core/javautil-core.iml" />

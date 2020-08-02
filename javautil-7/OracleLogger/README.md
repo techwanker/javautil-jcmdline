@@ -10,7 +10,8 @@ Additional documentation may be found under:
 
 ## Overview
 
-The **logger** package provides an easy way to write log messages via *dbms_output* or to a file on 
+The **logger** package provides an easy way to write log messages via 
+*dbms_output* or to a file on 
 the database server via *utl_file*.
 
 Messages are assigned a *log_level* and filtering out messages by level and package/function/procedure.

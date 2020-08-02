@@ -1,4 +1,6 @@
-#SqlRunner
+SqlRunner
+=========
+
 
 SqlRunner files can be processed by sqlplus or postgres.
 
