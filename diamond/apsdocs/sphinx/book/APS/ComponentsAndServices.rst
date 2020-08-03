@@ -9,7 +9,7 @@ Populate Planning Data
 **********************
 Populates the request queue for all parts with supply or demand.
 
-May invoke :ref:`_ComponentsAndServices_PlanningGrouper`
+May invoke :ref: `PlanningGrouper`
 
 .. _ComponentsAndServices_PlanningGrouper:
 

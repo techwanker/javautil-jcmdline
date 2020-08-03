@@ -168,7 +168,28 @@ htmlhelp_basename = 'javautildoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
-
+# inside conf.py
+latex_engine = 'xelatex'
+latex_elements = {
+'papersize': 'letterpaper',
+'pointsize': '12pt',
+    'fontpkg': r'''
+'preamble': 'We will rock you',
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+''',
+    'preamble': r'''
+\usepackage[titles]{tocloft}
+\cftsetpnumwidth {1.25cm}\cftsetrmarg{1.5cm}
+\setlength{\cftchapnumwidth}{0.75cm}
+\setlength{\cftsecindent}{\cftchapnumwidth}
+\setlength{\cftsecnumwidth}{1.25cm}
+''',
+    'fncychap': r'\usepackage[Bjornstrup]{fncychap}',
+    'printindex': r'\footnotesize\raggedright\printindex',
+}
+latex_show_urls = 'footnote'
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',

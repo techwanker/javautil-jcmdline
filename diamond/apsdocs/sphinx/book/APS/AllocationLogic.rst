@@ -8,7 +8,7 @@ aerospace planning implementation supports four phases each with a
 different mode.
 
 Phases
------
+------
 
 Pick Restore
 ************

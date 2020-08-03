@@ -1,12 +1,12 @@
+#########################
 Diamond Advanced Planning 
-=========================
+#########################
 
 * :ref:`genindex`
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
    Introduction
    ApsFeatures
@@ -62,32 +62,6 @@ Components
    Equivalent-Parts
 
 
-AllocationLogic
-APS-Features-and-Benefits
-ApsFeatures
-ApsTechnicalReferenceBook
-ApsTechnical
-ComponentsAndServices
-Functional
-Glossary
-Goals
-Integration
-PlanningComponentsPaper
-RulesData
-Technical
-todo
-workspaces
-Integration
-ComponentsAndServices
-AllocationLogic
-ApsFeaturesBook
-EligibilityTests
-Supply
-Functional
-Glossary
-ApsTechnicalReferenceBook
-PlanningComponentsPaper
-ApsFeatures
 
 
 

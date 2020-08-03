@@ -1,12 +1,71 @@
 SqlRunner
 =========
 
-
 SqlRunner files can be processed by sqlplus or postgres.
 
-lines wrapped in
+This may be used to execute a series of SQL statements, be they DDL or DML except
+that selects are not supported, use TODO to issue queries and get results
+
 
 *--#<* are skipped as are all lines up to and including *--#>* 
 
 This is easy to remember.  
 The *--* is a sql comment so it is ignored by sqlplus *#* is the common comment marker and *<* is opening and *>* is closing
+
+Directives
+----------
+
+- "--#  COMMENT_BLOCK_BEGIN
+- "--#>" COMMENT_BLOCK_END
+- "--#" SINGLE LINE COMMENT
+- "--::<" MARKDOWN_BLOCK_BEGIN
+- "--::>" MARKDOWN_BLOCK_END
+- "--/<" PROCEDURE_BLOCK_START
+- "--/>" PROCEDURE_BLOCK_END
+- ";--" STATEMENT_END
+- "--@NAME" name
+
+Example
+-------
+
+::
+
+    --#<
+    set echo on
+    --#>
+    --# Single line comment
+    --/<
+     create or replace function  logger_message_formatter  (
+          log_seq_nbr             in pls_integer,
+          job_log_id    in   pls_integer,
+          log_msg_id              in   varchar2,
+          log_msg                 in   varchar2,
+          log_level               in   pls_integer,
+          caller_name             in   varchar2,
+          line_number             in   pls_integer,
+          call_stack              in   varchar2 DEFAULT NULL
+       ) return varchar
+       is
+           my_log_msg  varchar2(32767) := REPLACE (log_msg, '"', '""');
+           my_log_entry varchar2(32767);
+       begin
+          dbms_output.put_line('in format_log');
+
+             my_log_entry :=
+                    log_seq_nbr            || ','  ||
+                    log_level              || ',"' ||
+                    job_log_id   || ',"' ||
+                    log_msg_id             || '",' ||
+                    line_number            || ',' ||
+                    to_char (current_timestamp, 'YYYY-MM-DD HH24:MI:SSXFF') || ',"' ||
+                    my_log_msg             || '",' ||
+                    caller_name            || '",' ||
+                    call_stack;
+         dbms_output.put_line('log entry: ' || my_log_entry);
+             return my_log_entry;
+    end;
+    --/>
+    --#<
+    /
+    show errors
+    --#>

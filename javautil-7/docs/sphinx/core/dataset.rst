@@ -4,10 +4,14 @@ Dataset
 javautil.org datasets are classes that can be viewed as a list of tuples
 with metadata.
 
+This is analagous to an in memory database table replete with data and metadata.
+
 Creation
 --------
 
-List of Lists List of Maps
+List of Lists
+List of Maps
+Streaming ResultSet
 
 Metadata
 --------
@@ -36,7 +40,6 @@ Metadata
 
 Labeling
 ~~~~~~~~
-
 ::
 
     private String                 groupName;
@@ -45,7 +48,6 @@ Labeling
 
 Formatting
 ~~~~~~~~~~
-
 ::
 
     private SimpleDateFormat       inputDateFormat;
@@ -63,6 +65,9 @@ Other
     private String                 attributeName;
 
 Rendering
-=========
+---------
 
-json xml worksheet region
+* json
+* xml
+* worksheet region
+* database table

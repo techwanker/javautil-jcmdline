@@ -13,6 +13,23 @@ public enum LineType {
 	PROCEDURE_BLOCK_END, PROCEDURE_BLOCK_START, SLASH; 
 	private static final Pattern semiPattern = Pattern.compile(".*;\\s*--.*");
 
+	/**
+	 * <ul>
+	    <li>"--#  COMMENT_BLOCK_BEGIN </li>
+	      <li>"--#>" COMMENT_BLOCK_END </li>
+	      <li>"--#" COMMENT</li>
+	 	<li>"--::<" MARKDOWN_BLOCK_BEGIN </li	>
+	 	<li>"--::>" MARKDOWN_BLOCK_END;</li>
+	 	<li>"--/<" PROCEDURE_BLOCK_START;></li>
+	    <li>"--/>" PROCEDURE_BLOCK_END;</li>\
+	    <li>"/" SLASH;</li>
+	    <li>";--" STATEMENT_END;</li>
+	    <li>"--@NAME" name</li>
+
+	 </ul>
+	 * @param text
+	 * @return
+	 */
 	public static LineType getSqlSplitterLineType(String text) {
 		final String trimmed = text.trim();
 

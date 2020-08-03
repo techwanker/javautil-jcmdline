@@ -1,0 +1,8 @@
+changequote(`{{', `}}')
+include({{01-push-to-amazon.rst}})
+include({{20-install-packages.rst}})
+include({{25-install-postgres.rst}})
+include({{30-install-maven.rst}})
+include({{50-oracle19Install.rst}})
+include({{50-oracle19rpmInstall.rst}})
+include({{oracleInstall.rst}})

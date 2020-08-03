@@ -307,24 +307,16 @@ The Work Book create an excel spread sheet with the following
 information about the Part. 
 
 - The On-Hand inventory summary by Lot, Facility and Supply Pool, 
-
 - Customer and Vendor Quotes for the Part, 
-
 - Open Purchase Orders, 
-
 - Open Sales Orders, 
-  
 - Historical Shipments 
-  
 - a 12 month forecast by forecast group. 
-
 - Customer Quotes Listing
-  
 - Vendor Quotes Listing
-
 - Approved Manufacturers by customer
   
-  The work book can then be saved of and helps buyers
+The work book can then be saved of and helps buyers
 maintain a log of the demand/supply scenario at the time they made any
 purchase. A listing of all available supply and which demands it is
 allocated to A listing of all demands and what supplies are allocated to

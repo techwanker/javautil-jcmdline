@@ -1,5 +1,5 @@
 Product Offering
-================
+----------------
 So I can offer
 
 * Data Reporting
@@ -12,7 +12,7 @@ So I can offer
 * High level management financial analysis
 
 Benefits
---------
+********
 
 * Availability of site to operators for tracking rebate progress
 
@@ -25,7 +25,7 @@ Benefits
 
 
 How to get started
-------------------
+******************
 
 I simply need 
 

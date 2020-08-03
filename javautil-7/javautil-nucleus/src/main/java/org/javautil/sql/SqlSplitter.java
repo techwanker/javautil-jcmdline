@@ -80,7 +80,9 @@ public class SqlSplitter {
 		this.inputType = "resource";
 		// TODO dedupe
 		this.is = ResourceHelper.getResourceAsInputStream(instantiator, resourceName);
-
+        if (this.is == null) {
+        	throw new IllegalArgumentException("unable to get resource " + resourceName);
+		}
 		final InputStreamReader isr = new InputStreamReader(is);
 		reader = new LineNumberReader(isr);
 	}
@@ -419,7 +421,7 @@ public class SqlSplitter {
 
 	}
 
-	@SuppressWarnings("incomplete-switch")
+
 	public SqlStatement getSqlStatement(List<SqlSplitterLine> lines) {
 		String sql = asSqlString(lines);
 		SqlStatement ss = new SqlStatement(sql);

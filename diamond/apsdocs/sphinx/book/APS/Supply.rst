@@ -30,6 +30,8 @@ ALL_SUPPLY and APS_SUPPLY
  
  PO_LINE_HDR_NBR	    NUMBER
 
+:: 
+
  SELECT sply_identifier,
   'O',
   lot_nbr,
@@ -52,10 +54,10 @@ ALL_SUPPLY and APS_SUPPLY
   TO_NUMBER(NULL)     wo_item_nbr,
   avail_dt_id,
   to_number(null) po_line_hdr_nbr
-FROM
-  aps_avail_onhand
-UNION ALL
-SELECT tar.sply_identifier,
+ FROM
+   aps_avail_onhand
+ UNION ALL
+ SELECT tar.sply_identifier,
   'R',
   TO_NUMBER(NULL),
   tar.item_nbr,
@@ -77,10 +79,10 @@ SELECT tar.sply_identifier,
   TO_NUMBER(NULL)      wo_item_nbr,
   NULL					avail_dt_id,
   tar.po_line_Hdr_Nbr
-FROM
+ FROM
   aps_avail_replen  tar
-UNION ALL
-SELECT /*+ use_nl(iii woh) index (woh) */
+ UNION ALL
+ SELECT /*+ use_nl(iii woh) index (woh) */
   TO_CHAR(woh.wo_hdr_nbr)     sply_identifier,
   'W',
   TO_NUMBER(NULL),
@@ -103,8 +105,8 @@ SELECT /*+ use_nl(iii woh) index (woh) */
   woh.item_nbr_rqst	 wo_item_nbr,
   NULL					avail_dt_id,
   to_number(null)
-FROM
-  wo_hdr   woh
-WHERE
-  woh.wo_stat_id  = 'O'
+ FROM
+   wo_hdr   woh
+ WHERE
+   woh.wo_stat_id  = 'O'
  
